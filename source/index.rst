@@ -17,17 +17,18 @@ The course consists of interactive lectures and exercises. All course material w
 Course schedule:
 -----------------
 
+Temptative schedule for the course.
 
 +----------------+---------------------------------+--------------------+
-| Time            | Theme                           | Content            |
+| Time            | Theme                           | Content           |
 +================+=================================+====================+
-| **Week 1**     | Add theme                       |                    |
+| **Week 1**     | Add theme                       |  Add               |
 |                |                                 |                    |
 |                |                                 |                    |
 |                |                                 |                    |
 |                |                                 |                    |
 +----------------+---------------------------------+--------------------+
-| **Week 2**     | Add theme                       |                    |
+| **Week 2**     | Add theme                       |  Add               |
 |                |                                 |                    |
 |                |                                 |                    |
 |                |                                 |                    |
@@ -57,8 +58,8 @@ Course schedule:
 |                |                                 |                    |
 +----------------+---------------------------------+--------------------+
 
-
 |
+
 
 
 Course contents:
