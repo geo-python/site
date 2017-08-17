@@ -17,10 +17,6 @@ The course consists of interactive lectures and exercises. All course material w
 Course schedule:
 -----------------
 
-The course is divided into three blocks. During the first days of the course,
-we will learn the basics of python. During the last days of the course we will apply the basic skills
-using the ArcPy-model for automating GIS-processes. Here is the preliminary schedule for the course
-(might be subject to changes depending on how fast we proceed as a group!)
 
 +----------------+---------------------------------+--------------------+
 | Time            | Theme                           | Content            |
