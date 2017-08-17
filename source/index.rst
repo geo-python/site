@@ -25,50 +25,46 @@ Typical exercises will involve a brief introduction followed by topical computer
 to relevant questions, some related plots, and/or Python codes you have written or used. You are encouraged to discuss and work together with other students
 on the laboratory exercises, however the laboratory summary write-ups that you submit must be completed individually and must clearly reflect your own work.
 
-Schedule and learning goals
----------------------------
+Schedule
+--------
 
-The materials are divided into weekly sections that are published at these pages every Wednesday morning. Lessons are held with following schedule.
+The materials are divided into weekly themes that are published at these pages every Wednesday morning. Lessons are held with following schedule.
+See the **learning goals** for each lesson from `here <0-learning-goals.html>`__.
 
-
-+----------------+---------------------------------+-------------------------------------------------------------------------------------+
-| Time           | Theme                           | Learning goals                                                                      |
-+================+=================================+=====================================================================================+
-| **Class 1**    | Basic concepts of Python and    |  - Explain the basic concepts of a  computer, a program, and a programming language |
-|                | computer programs               |  - Define and use variables in a programming language                               |
-|                |                                 |  - Describe the concept of a data type and know how to determine it using Python    |
-|                |                                 |                                                                                     |
-|                |                                 |                                                                                     |
-+----------------+---------------------------------+-------------------------------------------------------------------------------------+
-| **Class 2**    | Add theme                       |  Add                                                                                |
-|                |                                 |                                                                                     |
-|                |                                 |                                                                                     |
-|                |                                 |                                                                                     |
-+----------------+---------------------------------+-------------------------------------------------------------------------------------+
-| **Class 3**    | Add theme                       |                                                                                     |
-|                |                                 |                                                                                     |
-|                |                                 |                                                                                     |
-|                |                                 |                                                                                     |
-|                |                                 |                                                                                     |
-|                |                                 |                                                                                     |
-|                |                                 |                                                                                     |
-+----------------+---------------------------------+-------------------------------------------------------------------------------------+
-| **Class 4**    | Add theme                       |                                                                                     |
-|                |                                 |                                                                                     |
-|                |                                 |                                                                                     |
-+----------------+---------------------------------+-------------------------------------------------------------------------------------+
-| **Class 5**    | Add theme                       |                                                                                     |
-|                |                                 |                                                                                     |
-|                |                                 |                                                                                     |
-+----------------+---------------------------------+-------------------------------------------------------------------------------------+
-| **Class 6**    | Add theme                       |                                                                                     |
-|                |                                 |                                                                                     |
-|                |                                 |                                                                                     |
-+----------------+---------------------------------+-------------------------------------------------------------------------------------+
-| **Class 7**    | Add theme                       |                                                                                     |
-|                |                                 |                                                                                     |
-|                |                                 |                                                                                     |
-+----------------+---------------------------------+-------------------------------------------------------------------------------------+
++----------------+---------------------------------+
+| Time           | Theme                           |
++================+=================================+
+| **Class 1**    | Basic concepts of Python and    |
+|   6.9.2017     | computer programs               |
+|                |                                 |
+|                |                                 |
++----------------+---------------------------------+
+| **Class 2**    | Diving into Python              |
+|  13.9.2017     |                                 |
+|                |                                 |
+|                |                                 |
++----------------+---------------------------------+
+| **Class 3**    | Repeating tasks and making      |
+|                | desicions                       |
+|                |                                 |
+|                |                                 |
++----------------+---------------------------------+
+| **Class 4**    | Creating and using functions    |
+|                |                                 |
+|                |                                 |
++----------------+---------------------------------+
+| **Class 5**    | Data analysis with Pandas       |
+|                | Part I                          |
+|                |                                 |
++----------------+---------------------------------+
+| **Class 6**    | Data analysis with Pandas       |
+|                | Part II + Dealing with errors   |
+|                |                                 |
++----------------+---------------------------------+
+| **Class 7**    | Basics of data visualization    |
+|                |                                 |
+|                |                                 |
++----------------+---------------------------------+
 
 |
 
@@ -90,12 +86,14 @@ The materials are divided into weekly sections that are published at these pages
     Please read more about how to do it from `here <License-terms.html>`_.
 
 
-Course contents:
-----------------
-
 .. toctree::
     :maxdepth: 2
     :caption: Course information
+
+    course-info
+    0-learning-goals
+
+
 
 
 
