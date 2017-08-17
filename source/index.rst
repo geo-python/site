@@ -6,7 +6,7 @@
 Welcome to Geo-Python 2017!
 ================================================
 
-.. figure:: img/GISflowchart.png
+.. figure:: img/banner/GeoPython_banner.png
 
 
 This course will introduce you the basics of programming and automatization of GIS-processes in the Python programming language.
