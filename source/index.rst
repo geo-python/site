@@ -69,15 +69,6 @@ Course contents:
     :caption: Course information
 
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Basics of Python 1
-
-    Installations
-
-.. toctree::
-    :maxdepth: 2
-    :caption: Basics of Python 2
 
 
 
