@@ -3,16 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. figure:: img/banner/GeoPython_banner.png
+.. figure:: ../img/banner/GeoPython_banner_v2.png
 
 Welcome to Geo-Python 2017!
 ================================================
 
 This course will introduce you the basics of programming and automatization of GIS-processes in the Python programming language.
 
-Materials have been tailored for the further education course *Paikkatiedon käyttö ja hyödyntäminen* F.E.C. organized by `HY+ <http://hyplus.helsinki.fi/>`_.
 
-The course consists of interactive lectures and exercises. All course material will be distributed via these pages. Materials are based on previous further education courses and two more extensive course packages: `Python for geo-people <https://github.com/Python-for-geo-people/Course-information>`_ and `Automating GIS-processes <https://automating-gis-processes.github.io/2016/>`_ developed at the `Department of Geosciences and Geography <http://www.helsinki.fi/geo/english/index.html>`_, University of Helsinki.
+The course consists of interactive lectures and exercises. All course material will be distributed via these pages.
 
 
 Course schedule:
