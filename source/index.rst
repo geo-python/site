@@ -3,11 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Geo-Python 2017!
-================================================
-
 .. figure:: img/banner/GeoPython_banner.png
 
+Welcome to Geo-Python 2017!
+================================================
 
 This course will introduce you the basics of programming and automatization of GIS-processes in the Python programming language.
 
@@ -25,42 +24,47 @@ using the ArcPy-model for automating GIS-processes. Here is the preliminary sche
 (might be subject to changes depending on how fast we proceed as a group!)
 
 +----------------+---------------------------------+--------------------+
-| Day            | Theme                           | Content            |
+| Time            | Theme                           | Content            |
 +================+=================================+====================+
-| **Monday**     | Basics of Python 1              | - Intro            |
-|                |                                 | - GitHub           |
-|                |                                 | - Spyder           |
-|                |                                 | - data types       |
-|                |                                 | - *Exercise 1*     |
+| **Week 1**     | Add theme                       |                    |
+|                |                                 |                    |
+|                |                                 |                    |
+|                |                                 |                    |
+|                |                                 |                    |
 +----------------+---------------------------------+--------------------+
-| **Tuesday**    | Basics of Python 2              | - revision of DAY1 |
-|                |                                 | - if-clause        |
-|                |                                 | - for-loops        |
-|                |                                 | - *Exercise 2*     |
+| **Week 2**     | Add theme                       |                    |
+|                |                                 |                    |
+|                |                                 |                    |
+|                |                                 |                    |
 +----------------+---------------------------------+--------------------+
-| **Wednesday**  | Basics of Python 2              | - revision of DAY2 |
-|                |                                 | - Functions        |
-|                |                                 | - Modules          |
-|                |                                 | - File I/O         |
-|                |                                 | - *Exercise 3*     |
-|                | Automating ArcGIS Processes     | - ArcPy-module     |
-|                |                                 | - ModelBuilder     |
+| **Week 3**     | Add theme                       |                    |
+|                |                                 |                    |
+|                |                                 |                    |
+|                |                                 |                    |
+|                |                                 |                    |
+|                |                                 |                    |
+|                |                                 |                    |
 +----------------+---------------------------------+--------------------+
-| **Thursday**   | Automating ArcGIS Processes     | - ArcToolbox       |
-|                |                                 | - Arcpy-scripts    |
-|                |                                 | - *Arcpy exercise* |
+| **Week 4**     | Add theme                       |                    |
+|                |                                 |                    |
+|                |                                 |                    |
 +----------------+---------------------------------+--------------------+
-| **Friday**     | Automating ArcGIS Processes     | - *Arcpy exercise* |
-|                |                                 | - revision         |
-|                |                                 | - feedback         |
+| **Week 5**     | Add theme                       |                    |
+|                |                                 |                    |
+|                |                                 |                    |
 +----------------+---------------------------------+--------------------+
+| **Week 6**     | Add theme                       |                    |
+|                |                                 |                    |
+|                |                                 |                    |
++----------------+---------------------------------+--------------------+
+| **Week 7**     | Add theme                       |                    |
+|                |                                 |                    |
+|                |                                 |                    |
++----------------+---------------------------------+--------------------+
+
 
 |
-At the end of the course you should be able to generate, understand and use code for automating GIS-processes such as the one below.
 
-.. figure:: img/GISprocess.png
-
-|
 
 Course contents:
 ----------------
@@ -74,51 +78,12 @@ Course contents:
     :maxdepth: 2
     :caption: Basics of Python 1
 
-    Day1-Intro
-    Day1-Getting-started-with-python
-    Day1-working-environment
-    Day1-Data-types
-    Day1-string-operations
-    Day1-Strings-mini-exercise
-    Day1-writing-scripts
-    Day1-intro-to-GitHub
-    Day1-create-GitHub-account
-    Day1-Exercise1
-
+    Installations
 
 .. toctree::
     :maxdepth: 2
     :caption: Basics of Python 2
 
-    Day2-conditional-statements
-    Day2-for-loops
-    Day2-for-loops-mini-exercise
-    Day2-Exercise2
-    Day3-functions
-    Day3-modules
-    Day3-Exercise3-Functions
-    Day3-useful-functions
-    Day3-reading-files
-    Day3-mini-exercise-writingFiles
-    pandas-intro
-
-
-.. toctree::
-    :maxdepth: 2
-    :caption: Automating ArcGIS-processes
-
-    Day3-arcpy-overview
-    Day3-ArcGIS-modelBuilder
-    Day3-arcpy
-    Day3-Exercise4-ArcPy
-    Day3-toolbox
-    Day3-arcpy-toolbox-version1
-    Day3-arcpy-script-version1
-    Day3-run-the-tool
-    Day4-version1-5
-    arcpy-version3
-    Day5-finalSteps
-    Day-5-finalRemarks
 
 
 
