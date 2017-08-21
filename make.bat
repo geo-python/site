@@ -109,8 +109,8 @@ if "%1" == "gh-pages" (
         :: Ensure that images are rendered properly by building again
         make html
         :: Clean the repo
-        DEL make.bat
-        DEL Makefile
+        ::DEL make.bat
+        ::DEL Makefile
         RD /S /Q data
         MOVE /Y docs\*.*
         MOVE /Y docs\_images
