@@ -103,7 +103,7 @@ if "%1" == "gh-pages" (
         RD /S /Q _static
         RD /S /Q _images
         DEL /Q *.*
-        git checkout master data source make.bat Makefile
+        git checkout master source make.bat Makefile
         git reset HEAD
         dir
         PAUSE
