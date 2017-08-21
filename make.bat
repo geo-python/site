@@ -90,15 +90,11 @@ if "%1" == "gh-pages" (
     :: Check if there are incoming changes
     for /f "tokens=*" %%a in ('git status -uno ^| find /I "git pull"') do set _CmdResult=%%a
     
-    echo "%_CmdResult%" | findstr /I "merge" > nul
-    
-    if errorlevel 0 (
-        echo There are incoming changes in the master/origin. Pull and merge changes.
-    ) else (
-    
+    :: If command output is empty, we can start building the pages
+    if "!_CmdResult!"=="" ( 
+        
         echo Building GitHub Pages..
-        PAUSE
-
+        
         git checkout gh-pages
 
         if errorlevel 1 exit /b 1
@@ -128,6 +124,8 @@ if "%1" == "gh-pages" (
         git stash
         git checkout master
         goto end
+        ) else (
+            echo There are incoming changes in the master/origin. Pull and merge changes.
         )
 )
 
