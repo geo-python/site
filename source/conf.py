@@ -47,8 +47,12 @@ extensions = [
     'IPython.sphinxext.ipython_directive',
 
     # Enable Google Analytics ( requires: https://pypi.python.org/pypi/sphinxcontrib-googleanalytics )
-    #'sphinxcontrib.googleanalytics',
+    'sphinxcontrib.googleanalytics',
 ]
+
+# Google Analytics ID to enable tracking of site traffic
+googleanalytics_id = "UA-105019106-1"
+googleanalytics_enabled = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -65,8 +69,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'Geo-Python/2017'
-copyright = '2017, Tenkanen & Whipp, Department of Geosciences and Geography, University of Helsinki'
+project = 'Geo-Python'
+copyright = '2017, Tenkanen & Whipp, University of Helsinki'
 author = 'H. Tenkanen, D. Whipp'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -74,7 +78,7 @@ author = 'H. Tenkanen, D. Whipp'
 # built documents.
 #
 # The short X.Y version.
-version = '1.0'
+version = '2017 Autumn'
 # The full version, including alpha/beta/rc tags.
 release = '2017 Autumn'
 
