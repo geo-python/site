@@ -109,8 +109,8 @@ if "%1" == "gh-pages" (
         :: Ensure that images are rendered properly by building again
         make html
         :: Clean the repo
-        ::DEL make.bat
-        ::DEL Makefile
+        DEL make.bat
+        DEL Makefile
         RD /S /Q data
         MOVE /Y docs\*.*
         MOVE /Y docs\_images
@@ -120,8 +120,6 @@ if "%1" == "gh-pages" (
         RD /S /Q source
         git add -A
         for /f "tokens=*" %%a in ('git log master -1 -s --abbrev-commit') do set _PrettyResult=%%a
-        echo HelloHello
-        echo %_PrettyResult%
         git commit -m "%_PrettyResult%"
         git push origin gh-pages
         git stash
