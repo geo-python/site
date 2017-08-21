@@ -68,7 +68,6 @@ See the **learning goals** for each lesson from `here <0-learning-goals.html>`__
 
 |
 
-
 .. admonition:: Open Access!
 
     The course is **open for everyone**. The aim of this course is to share the knowledge and help people to get started with their journey for doing science more efficiently and in a reproducible manner
