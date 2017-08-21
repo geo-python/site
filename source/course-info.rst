@@ -41,12 +41,12 @@ Course websites
 
 - Course sites for Period I (Introduction to Python programming):
 
-  - Main course site: `<https://github.com/Python-for-geo-people>`_
+  - Main course site: `<https://geo-python.github.io>`_
   - Pouta Blueprints site: `<https://pb.geo.helsinki.fi>`_
 
 - Automating GIS processes (Period II)
 
-  - Moodle page: `<https://moodle.helsinki.fi/course/view.php?id=21843>`_
+  - Course site: `<https://autogis.github.io>`_
 
 Textbooks
 ---------
