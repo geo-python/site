@@ -91,7 +91,7 @@ if "%1" == "gh-pages" (
     git status -uno | FIND /I "behind"
 
     if errorlevel 1 (
-        echo There are incoming changes in the master/origin. Pull and merge changes before building GitHub pages.
+        echo There are incoming changes in the master/origin. Pull and merge changes.
     ) else (
 
         git checkout gh-pages
