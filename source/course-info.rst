@@ -1,8 +1,6 @@
 General info
 ============
 
-**UPDATE**
-
 Course meetings in Period I
 ---------------------------
 
