@@ -1,6 +1,6 @@
 # Geo-Python 
 
-This repo contains the source files of course material available at [https://geo-python.github.io/2017/](https://geo-python.github.io/2017/)
+This repository contains the source files of course material available at [https://geo-python.github.io/2017/](https://geo-python.github.io/2017/)
 
 The course you to the basic concepts of computer programming in the Python programming language. 
 
