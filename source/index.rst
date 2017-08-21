@@ -85,7 +85,6 @@ See the **learning goals** for each lesson from `here <0-learning-goals.html>`__
     If you would like to use these materials for your own teaching or develop them further, we highly support that.
     Please read more about how to do it from `here <License-terms.html>`_.
 
-
 .. toctree::
     :maxdepth: 2
     :caption: Course information
