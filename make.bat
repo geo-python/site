@@ -88,21 +88,16 @@ if "%1" == "gh-pages" (
     git remote update
 
     :: Check if there are incoming changes
-    ::for /f "tokens=*" %i in (`git status -uno`) do set VAR=%i
-    
     for /f "tokens=*" %%a in ('git status -uno ^| find /I "git pull"') do set _CmdResult=%%a
-    echo %_CmdResult%
     
-    ::if /I "%_CmdResult:merge=%" neq "%_CmdResult%" (
-    ::    echo String has merge
-    ::) else (
-    ::    echo it doesnt has merge
-    ::)
-    ::git status -uno | FIND /I "git pull"
-
-    if errorlevel 1 (
+    echo "%_CmdResult%" | findstr /I "merge" > nul
+    
+    if errorlevel 0 (
         echo There are incoming changes in the master/origin. Pull and merge changes.
     ) else (
+    
+        echo Building GitHub Pages..
+        PAUSE
 
         git checkout gh-pages
 
