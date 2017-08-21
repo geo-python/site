@@ -85,12 +85,10 @@ if "%1" == "gh-pages" (
     SETLOCAL ENABLEDELAYEDEXPANSION
 
     :: Update remote refs
-    git fetch origin
+    git remote update
 
     :: Check if there are incoming changes
-    git log HEAD..origin/master --oneline
-
-    echo a | FIND /I "a"
+    git status -uno | FIND /I "behind"
 
     if errorlevel 1 (
         echo There are incoming changes in the master/origin. Pull and merge changes before building GitHub pages.
