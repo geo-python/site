@@ -4,7 +4,6 @@ This repo contains the source files of course material available at [https://geo
 
 The course you to the basic concepts of computer programming in the Python programming language. 
 
-
 ## Course topics
 
 ## Lecture notes
