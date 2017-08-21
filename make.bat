@@ -87,7 +87,7 @@ if "%1" == "gh-pages" (
     git fetch origin
 
     :: Check if there are incoming changes
-    git log HEAD..origin/master --oneline | find /i " "
+    git log HEAD..origin/master --oneline | find /i "a"
 
     if errorlevel 1 (
         echo There are incoming changes in the master/origin. Pull and merge changes before building GitHub pages.
