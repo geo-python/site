@@ -105,6 +105,8 @@ if "%1" == "gh-pages" (
         DEL /Q *.*
         git checkout master data source make.bat Makefile
         git reset HEAD
+        dir
+        PAUSE
         make html
         :: Ensure that images are rendered properly by building again
         make html
