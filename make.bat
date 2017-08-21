@@ -103,7 +103,7 @@ if "%1" == "gh-pages" (
         RD /S /Q _static
         RD /S /Q _images
         DEL /Q *.*
-        git checkout master source make.bat Makefile
+        git checkout master source img make.bat Makefile
         git reset HEAD
         make html
         :: Ensure that images are rendered properly by building again
