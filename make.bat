@@ -97,8 +97,12 @@ if "%1" == "gh-pages" (
         
         git checkout gh-pages
 
-        if errorlevel 1 exit /b 1
         :: Continue only if branch switching worked
+        if errorlevel 1 exit /b 1
+
+        :: Pull possible changes
+        git pull origin master
+
         RD /S /Q _sources
         RD /S /Q _static
         RD /S /Q _images
@@ -119,9 +123,8 @@ if "%1" == "gh-pages" (
         RD /S /Q docs
         RD /S /Q source
         git add -A
-        ::for /f "tokens=*" %%a in ('git log master -1 -s --abbrev-commit') do set _PrettyResult=%%a
-        ::git commit -m "%_PrettyResult%"
-        git commit -m "Auto-generated commit"
+        for /f "tokens=*" %%a in ('git log master -1 -s --abbrev-commit') do set _PrettyResult=%%a
+        git commit -m "%_PrettyResult%"
         git push origin gh-pages
         git stash
         git checkout master
