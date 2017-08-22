@@ -116,10 +116,10 @@ if "%1" == "gh-pages" (
         DEL make.bat
         DEL Makefile
         RD /S /Q data
-        XCOPY /Y docs\*.*
-        XCOPY /Y docs\_images
-        XCOPY /Y docs\_static
-        XCOPY /Y docs\_sources
+        MOVE /Y docs\*.*
+        MOVE /Y docs\_images
+        MOVE /Y docs\_static
+        MOVE /Y docs\_sources
         RD /S /Q docs
         RD /S /Q source
         git add -A
