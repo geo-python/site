@@ -17,7 +17,7 @@ Course format
 -------------
 
 The majority of this course will be spent in front of a computer learning to program in the Python language and working on exercises.
-During Teaching Period I, the `Automating GIS processes <https://autogis.github.io>`_ and `Introduction to Quantitative Geology <https://github.com/Intro-Quantitative-Geology/Course-information>`_
+During Teaching Period I, the `Automating GIS processes <https://autogis.github.io>`_ and `Introduction to Quantitative Geology <https://introqg.github.io>`_
 courses will meet together and focus on learning the basic concepts of programming using Python programming language.
 
 The computer exercises will focus on developing basic programming skills using the Python language and applying those skills to various problems.
