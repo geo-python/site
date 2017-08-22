@@ -101,7 +101,7 @@ if "%1" == "gh-pages" (
         if errorlevel 1 exit /b 1
 
         :: Pull possible changes
-        git pull origin master
+        git pull origin gh-pages
 
         RD /S /Q _sources
         RD /S /Q _static
