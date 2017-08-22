@@ -119,8 +119,9 @@ if "%1" == "gh-pages" (
         RD /S /Q docs
         RD /S /Q source
         git add -A
-        for /f "tokens=*" %%a in ('git log master -1 -s --abbrev-commit') do set _PrettyResult=%%a
-        git commit -m "%_PrettyResult%"
+        ::for /f "tokens=*" %%a in ('git log master -1 -s --abbrev-commit') do set _PrettyResult=%%a
+        ::git commit -m "%_PrettyResult%"
+        git commit -m "Auto-generated commit"
         git push origin gh-pages
         git stash
         git checkout master
