@@ -106,6 +106,8 @@ if "%1" == "gh-pages" (
         RD /S /Q _sources
         RD /S /Q _static
         RD /S /Q _images
+	RD /S /Q .idea
+	RD /S /Q img
         DEL /Q *.*
         git checkout master source img make.bat Makefile
         git reset HEAD
