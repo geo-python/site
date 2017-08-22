@@ -106,9 +106,9 @@ if "%1" == "gh-pages" (
         RD /S /Q _sources
         RD /S /Q _static
         RD /S /Q _images
-	RD /S /Q img
+	    RD /S /Q img
         DEL /Q *.*
-	RD /S /Q .idea
+	    RD /S /Q .idea
         git checkout master source img make.bat Makefile
         git reset HEAD
         make html
@@ -129,7 +129,7 @@ if "%1" == "gh-pages" (
         git commit -m "%_PrettyResult%"
         git push origin gh-pages
         git stash
-	DEL sh.exe.stackdump
+	    DEL sh.exe.stackdump
         git checkout master
         goto end
         ) else (
