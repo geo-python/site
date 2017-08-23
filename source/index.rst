@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. figure:: ../img/banner/GeoPython_banner.png
+.. figure:: img/banner/GeoPython_banner.png
 
 Welcome to Geo-Python 2017!
 ================================================
@@ -29,7 +29,7 @@ Schedule
 --------
 
 The materials are divided into weekly themes that are published at these pages every Wednesday morning. Lessons are held with following schedule.
-See the **learning goals** for each lesson from `here <0-learning-goals.html>`__.
+See the **learning goals** for each lesson from :doc:`here <course-info/learning-goals>`.
 
 +----------------+---------------------------------+
 | Time           | Theme                           |
@@ -82,14 +82,15 @@ See the **learning goals** for each lesson from `here <0-learning-goals.html>`__
 .. admonition:: For teachers
 
     If you would like to use these materials for your own teaching or develop them further, we highly support that.
-    Please read more about how to do it from `here <License-terms.html>`_.
+    Please read more about how to do it from :doc:`our licensing terms<course-info/licensing>`.
 
 .. toctree::
     :maxdepth: 2
     :caption: Course information
 
-    course-info
-    0-learning-goals
+    course-info/course-info
+    course-info/learning-goals
+    course-info/licensing
 
 
 

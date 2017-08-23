@@ -70,7 +70,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Geo-Python'
-copyright = '2017, Tenkanen & Whipp, University of Helsinki'
+copyright = '2017 Tenkanen & Whipp, University of Helsinki'
 author = 'H. Tenkanen, D. Whipp'
 
 # The version info for the project you're documenting, acts as replacement for
