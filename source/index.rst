@@ -11,8 +11,6 @@ Welcome to Geo-Python 2017!
 **Geo-Python** -course teaches you the basic concepts of programming using Python programming language that is easy to learn and understand (no previous programming experience required).
 Each lesson is a tutorial with specific topic(s) where the aim is to gain skills and understanding how to solve common data-related tasks using Python programming (see schedule & learning goals).
 
-In the lessons we use only publicly available data which can be used and downloaded by anyone anywhere.
-
 Course format
 -------------
 
@@ -45,24 +43,24 @@ See the **learning goals** for each lesson from :doc:`here <course-info/learning
 |                |                                 |
 +----------------+---------------------------------+
 | **Class 3**    | Repeating tasks and making      |
-|                | desicions                       |
+|  20.9.2017     | desicions                       |
 |                |                                 |
 |                |                                 |
 +----------------+---------------------------------+
 | **Class 4**    | Creating and using functions    |
-|                |                                 |
+|  27.9.2017     |                                 |
 |                |                                 |
 +----------------+---------------------------------+
 | **Class 5**    | Data analysis with Pandas       |
-|                | Part I                          |
+|  4.10.2017     | Part I                          |
 |                |                                 |
 +----------------+---------------------------------+
 | **Class 6**    | Data analysis with Pandas       |
-|                | Part II + Dealing with errors   |
+|  11.10.2017    | Part II + Dealing with errors   |
 |                |                                 |
 +----------------+---------------------------------+
 | **Class 7**    | Basics of data visualization    |
-|                |                                 |
+|  18.10.2017    |                                 |
 |                |                                 |
 +----------------+---------------------------------+
 
@@ -90,7 +88,15 @@ See the **learning goals** for each lesson from :doc:`here <course-info/learning
 
     course-info/course-info
     course-info/learning-goals
+    course-info/grading
     course-info/licensing
+
+..
+    .. toctree::
+        :maxdepth: 2
+        :caption: Lesson 1
+
+        lessons/L1/overview
 
 
 
