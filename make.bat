@@ -103,34 +103,35 @@ if "%1" == "gh-pages" (
         :: Pull possible changes
         git pull origin gh-pages
 
-        RD /S /Q _sources
-        RD /S /Q _static
-        RD /S /Q _images
-	    RD /S /Q img
+        :: Make a clean branch
         DEL /Q *.*
-	    RD /S /Q .idea
+        FOR /D %i in (*.*) DO @RMDIR /S /Q "%i"
+
+        :: Checkout necessary files to build the pages
         git checkout master source img make.bat Makefile
         git reset HEAD
+
+        :: Build pages
         make html
         :: Ensure that images are rendered properly by building again
         make html
-        :: Clean the repo
+
+        :: Copy everything from docs folder to the root
+        XCOPY /E /V docs
+
+        :: Clean the repo from unnecessary files
         DEL make.bat
         DEL Makefile
-        RD /S /Q data
-        MOVE /Y docs\*.*
-        MOVE /Y docs\_images
-        MOVE /Y docs\_static
-        MOVE /Y docs\_sources
         RD /S /Q docs
-        RD /S /Q source
+
+        :: Commit and push changes
         git add -A
         ::for /f "tokens=*" %%a in ('git log master -1 -s --abbrev-commit') do set _PrettyResult=%%a
         ::git commit -m "%_PrettyResult%"
         git commit -m "Auto-generated"
         git push origin gh-pages
-        git stash
-	    DEL sh.exe.stackdump
+
+        :: Checkout to original master
         git checkout master
         goto end
         ) else (
