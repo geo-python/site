@@ -105,7 +105,7 @@ if "%1" == "gh-pages" (
 
         :: Make a clean branch
         DEL /Q *.*
-        FOR /D %i in (*.*) DO @RMDIR /S /Q "%i"
+        FOR /D %%i in (*.*) DO @RMDIR /S /Q "%%i"
 
         :: Checkout necessary files to build the pages
         git checkout master source img make.bat Makefile
