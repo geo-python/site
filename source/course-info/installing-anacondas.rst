@@ -1,13 +1,11 @@
 Installing Python
 =================
 
-**How to start programming with Python on your own computer?**
-
-First you need to install Python and necessary Python modules that are used to perform various GIS-tasks. The purpose of this page is to help you
-out installing Python and all those modules into your own computer. Even though it is possible to install Python from their `homepage <https://www.python.org/>`_,
+**It is possible to program with Python on your own computer**, but first you need to install Python. The purpose of this page is to help you to
+install Python and different Python packages into your own computer. Even though it is possible to install Python from their `homepage <https://www.python.org/>`_,
 **we highly recommend using** `Anaconda <https://www.continuum.io/anaconda-overview>`_ which is an open source distribution of the Python and R programming
 languages for large-scale data processing, predictive analytics, and scientific computing, that aims to simplify package management and deployment. In short,
-it makes life much easier when installing new tools on your Python to play with.
+it makes life much easier when installing new tools to your Python.
 
 Install Python on Windows
 -------------------------
@@ -25,8 +23,9 @@ Install it to **all users** and use default settings.
     pass admin credentials all the time. If you don't have ``C:\HYapp`` -folder, create one with admin rights.
 
 
-Test that the Anaconda´s package manage called ``conda`` works by `opening a command prompt as a admin user <http://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-8.1/>`_
-and running command ``conda --version``.
+Test that the Anaconda´s package manage called ``conda`` works by
+`opening a command prompt as a admin user <http://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-8.1/>`_
+and running command ``conda --version``. If the command returns a version number of conda (e.g. ``conda 4.3.23``)
 
 
 Install Python on Linux / Mac
