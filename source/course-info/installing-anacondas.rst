@@ -1,7 +1,7 @@
 Installing Python
 =================
 
-**It is possible to program with Python on your own computer**, but first you need to install Python. The purpose of this page is to help you to
+**It is possible to do programming with Python on your own computer**, but first you need to install Python. The purpose of this page is to help you to
 install Python and different Python packages into your own computer. Even though it is possible to install Python from their `homepage <https://www.python.org/>`_,
 **we highly recommend using** `Anaconda <https://www.continuum.io/anaconda-overview>`_ which is an open source distribution of the Python and R programming
 languages for large-scale data processing, predictive analytics, and scientific computing, that aims to simplify package management and deployment. In short,
