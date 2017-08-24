@@ -15,10 +15,10 @@ import glob
 import os
 
 # Input directory for md-files
-indir = r"C:\HY-Data\VUOKKHEI\documents\CODES\automating-GIS-processes\FEC\origs\new"
+indir = r"C:\HY-Data\HENTENKA\KOODIT\Opetus\Python-for-geo-people\Lesson-1-Course-Environment\MDs"
 
 # Output directory for rst-files
-outdir = r"C:\HY-Data\VUOKKHEI\documents\CODES\automating-GIS-processes\FEC\source"
+outdir = r"C:\HY-Data\HENTENKA\KOODIT\Opetus\Python-for-geo-people\Lesson-1-Course-Environment\RST"
 
 # Read all md files
 files = glob.glob(os.path.join(indir, "*.md"))
