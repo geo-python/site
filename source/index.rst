@@ -26,8 +26,8 @@ on the laboratory exercises, however the laboratory summary write-ups that you s
 Schedule
 --------
 
-The materials are divided into weekly themes that are published at these pages every Wednesday morning. Lessons are held with following schedule.
-See the **learning goals** for each lesson from :doc:`here <course-info/learning-goals>`.
+The materials are divided into weekly themes that are published at these pages every Wednesday morning. Lessons are held with following schedule (see :doc:`here for further details about schedule and lecture rooms <course-info/course-info>`.
+The **learning goals** for each lesson are separately documented :doc:`in here <course-info/learning-goals>`.
 
 +----------------+---------------------------------+
 | Time           | Theme                           |
