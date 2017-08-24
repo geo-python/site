@@ -78,17 +78,17 @@ In most cases this approach works but sometimes you get errors like (example whe
 In this case conda was not able to find the shapely module from the typical channel it uses for downloading the module.
 
 
-Alternative way to install if typical doesn't work
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Alternative way to install packages if typical doesn't work
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-How to find a way to install a module if it cannot be installed on a typical way?
-Well, the answer is the same is in many other cases nowadays, **Google it!**
+If ``conda install`` command was not able to install the package you were interested in there is an alternative way to do it by taking advantage of different conda distribution channels that
+are maintained by programmers themselves. An easy way to find the right command to install a package from these alternative conda distribution channels is to Google it.
 
 Let's find our way to install the Shapely module by typing following query to Google:
 
 .. image:: img/google_query_conda.PNG
 
-Okey, we have different pages showing how to install Shapely using conda package manager.
+Here, we can see that we have different pages showing how to install ``Shapely`` using conda package manager.
 
 **Which one of them is the correct one to use?**
 
