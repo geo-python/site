@@ -25,7 +25,7 @@ Install it to **all users** and use default settings.
 
 Test that the Anaconda´s package manage called ``conda`` works by
 `opening a command prompt as a admin user <http://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-8.1/>`_
-and running command ``conda --version``. If the command returns a version number of conda (e.g. ``conda 4.3.23``)
+and running command ``conda --version``. If the command returns a version number of conda (e.g. ``conda 4.3.23``) everything is working correctly.
 
 
 Install Python on Linux / Mac
@@ -75,7 +75,7 @@ In most cases this approach works but sometimes you get errors like (example whe
 
         anaconda search -t conda shapely
 
-Okey, so conda couldn't find the shapely module from the typical channel it uses for downloading the module.
+In this case conda was not able to find the shapely module from the typical channel it uses for downloading the module.
 
 
 Alternative way to install if typical doesn't work
