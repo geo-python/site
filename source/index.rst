@@ -89,6 +89,7 @@ See the **learning goals** for each lesson from :doc:`here <course-info/learning
     course-info/course-info
     course-info/learning-goals
     course-info/grading
+    course-info/installing-anacondas
     course-info/licensing
 
 ..
