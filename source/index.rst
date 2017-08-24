@@ -93,12 +93,14 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     course-info/installing-anacondas
     course-info/licensing
 
-..
-    .. toctree::
-        :maxdepth: 2
-        :caption: Lesson 1
 
-        lessons/L1/overview
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 1
+
+    lessons/L1/overview
+    lessons/L1/intro-to-course-environment
+    lessons/L1/course-environment-components
 
 
 
