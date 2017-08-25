@@ -1,8 +1,5 @@
-Introduction to programming in Python
-=====================================
-
 Overview
---------
+========
 
 The goal of the first half of the course is to introduce you to the
 basic concepts of computer programming in the Python programming
@@ -25,4 +22,19 @@ in Python. The main components of this first lesson are below.
 Learning goals
 --------------
 
-The learning goals here.
+After this weeks lesson your should be able to:
+
+  - explain the basic concepts of a computer, a program, and a programming language
+  - define and use variables
+  - describe the concept of a data type and know how to determine the data type of a variable in Python
+
+Resources
+---------
+
+-  Web pages
+    -  `Codecademy's Learn to program in Python <https://www.codecademy.com/learn/python>`__
+    -  `Software Carpentry's programming in Python <https://swcarpentry.github.io/python-novice-inflammation/>`__
+-  Books
+    -  `Learn Python the Hard Way <http://learnpythonthehardway.org/book/>`__
+    -  `Dive into Python 3 <http://www.diveinto.org/python3/>`__
+

@@ -97,7 +97,3 @@ Connect to computer instance on Linux
 If there are users running Linux, let us know if you're not aware of how
 to use VNC on your machine and we can help get you connected.
 
-**Next**: `Using Git and GitHub <intro-to-github.md>`__\  **Home**:
-`Lesson 1 main
-page <https://github.com/Python-for-geo-people/Lesson-1-Course-Environment/>`__\ 
-**Previous**: `Launching a computer instance <launch-instance.md>`__

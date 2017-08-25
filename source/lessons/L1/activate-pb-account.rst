@@ -1,8 +1,8 @@
-Activating your Pouta Blueprints account
-========================================
+Activating Pebbles account
+==========================
 
 The first time using the course environment, it is necessary to activate
-your Pouta Blueprints account and create your password. This needs to be
+your Pebbles account and create your password. This needs to be
 done only once when the course starts. **Note**: If you already have
 activated your account you can continue with `launching a new computer
 instance <launch-instance.md>`__.
@@ -42,5 +42,5 @@ To activate your account, follow these steps:
    Log out
 
 After completing these steps you will be done with activating your
-account and can continue with **`launching your first Computer
-Instance <launch-instance.md>`__**.
+account and can continue with `launching your first Computer
+Instance <launch-instance.md>`__.

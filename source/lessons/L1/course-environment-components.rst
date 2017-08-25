@@ -1,15 +1,14 @@
-Components of the course environment
-====================================
+Course environment
+==================
 
-Overview: Why do we need a "course environment"?
-------------------------------------------------
+Why do we need a "course environment"?
+--------------------------------------
 
 In this course we will be using cloud-hosted computers to learn to
 program in Python and complete the course exercises. Of course, there
 are many alternative options we could choose, including using your
 personal computers, using computers in the university's computer
-classrooms, or using `virtual
-machines <https://en.wikipedia.org/wiki/Virtual_machine>`__ on your
+classrooms, or using `virtual machines <https://en.wikipedia.org/wiki/Virtual_machine>`__ on your
 personal computers, where software allows your computer to run a second
 operating system in a window. These are all fine options, but each have
 problems we felt would either (a) interfere with your ability to focus
@@ -19,8 +18,7 @@ course environment described below is easy to use, but there are few
 things that you need to understand before starting to use it. The good
 news is that you can use the course environment with any computer at the
 university or your own computer. All you need is a reasonably fast
-internet connection, a web browser and some `remote desktop
-software <https://en.wikipedia.org/wiki/Remote_desktop_software>`__,
+internet connection, a web browser and some `remote desktop software <https://en.wikipedia.org/wiki/Remote_desktop_software>`__,
 which is freely available for any computer.
 
 The course environment comprises three components that will be used
@@ -47,16 +45,14 @@ A computer instance is basically a **temporary** computer running Ubuntu
 Linux (tailored for this course) that you can use in a similar manner as
 you would use your own computer. The difference is that the computer is
 located in the 'cloud' i.e., it is physically located and runs in
-somewhere else (on the servers of `CSC
-Finland <https://www.csc.fi/home>`__) and you can use it remotely from
+somewhere else (on the servers of `CSC Finland <https://www.csc.fi/home>`__) and you can use it remotely from
 any computer with an internet connection.
 
 Git + GitHub
 ------------
 
 One of the core components of this course (besides learning programming)
-is to learn how to use `version
-control <https://en.wikipedia.org/wiki/Version_control>`__ with
+is to learn how to use `version control <https://en.wikipedia.org/wiki/Version_control>`__ with
 `Git <https://en.wikipedia.org/wiki/Git_(software)>`__ and storing your
 the codes (privately) in `GitHub <https://github.com/>`__.
 
@@ -97,6 +93,8 @@ aforementioned components, i.e., we will:
 5. Save our work permanently to GitHub after every lecture or practical
    exercise
 
+.. figure:: img/RemoteComputerInstance.png
+
 Page summary
 ------------
 
@@ -107,7 +105,3 @@ when we start using the course environment.
 
 Next, we'll introduce to you how the course environment is used.
 
-**Next**: `Introduction to the course
-environment <intro-to-course-environment.md>`__\  **Home**: `Lesson 1
-main
-page <https://github.com/Python-for-geo-people/Lesson-1-Course-Environment/>`__
