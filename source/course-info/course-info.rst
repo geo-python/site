@@ -4,7 +4,8 @@ General info
 Course meetings in Period I
 ---------------------------
 
-- Wednesdays 9-12, CK112, Exactum (6.9 - 10.10)
+- Lectures:
+   - Wednesdays 9-12, CK112, Exactum (6.9 - 18.10)
 - Work sessions:
    - Group 1 on Thursdays 12-16, A113-114, Physicum
    - Group 2 on Fridays 10-12, A113-114, Physicum

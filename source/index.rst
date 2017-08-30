@@ -94,7 +94,6 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     course-info/licensing
 
 ..
-
     .. toctree::
         :maxdepth: 2
         :caption: Lesson 1
