@@ -27,28 +27,22 @@ operations you can perform using Python.
 
 1. Python can be used as a simple calculator.
 
-   .. code:: python
+    .. ipython::
 
-       >>> 1 + 1
-       2
-       >>> 5 * 7
-       35
+        In [1]: 1 + 1
+
+        In [1]: 5 * 7
 
 2. You can use Python for more advanced math by using *functions*.
    Functions are pieces of code that perform a single action such as
    printing information to the screen (e.g., the ``print()`` function).
    Functions exist for a huge number of operations in Python.
 
-   .. code:: python
+    .. ipython:: 
 
-       >>> sin(3)
-       Traceback (most recent call last):
-         File "<stdin>", line 1, in <module>
-       NameError: name 'sin' is not defined
-       >>> sqrt(4)
-       Traceback (most recent call last):
-         File "<stdin>", line 1, in <module>
-       NameError: name 'sqrt' is not defined
+       In [1]: sin(3)
+
+       In [1]: sqrt(4)
 
    Wait, what? Python can't calculate square roots or do basic
    trigonometry? Of course it can, but we need one more step.
@@ -56,138 +50,128 @@ operations you can perform using Python.
 3. The list of basic arithmetic operations that can be done by default
    in Python is in the table below.
 
-   \| Operation \| Symbol \| Example syntax \| Returned value \| \|
-   -------------- \| ------ \| ---------------\|----------------\| \|
-   Addition \| ``+`` \| ``2 + 2`` \| ``4`` \| \| Subtraction \| ``-`` \|
-   ``4 - 2`` \| ``2`` \| \| Multiplication \| ``*`` \| ``2 * 3`` \|
-   ``6`` \| \| Division \| ``/`` \| ``4 / 2`` \| ``2`` \| \|
-   Exponentiation \| ``**`` \| ``2**3`` \| ``8`` \| For anything more
-   advanced, we need to load a *library*.
+    +----------------+--------+----------------+----------------+
+    | Operation      | Symbol | Example syntax | Returned value |
+    +================+========+================+================+
+    | Addition       | ``+``  | ``2 + 2``      | ``4``          |
+    +----------------+--------+----------------+----------------+
+    | Subtraction    | ``-``  | ``4 - 2``      | ``2``          |
+    +----------------+--------+----------------+----------------+
+    | Multiplication | ``*``  | ``2 * 3``      | ``6``          | 
+    +----------------+--------+----------------+----------------+
+    | Division       | ``/``  | ``4 / 2``      | ``2``          |
+    +----------------+--------+----------------+----------------+
+    | Exponentiation | ``**`` | ``2**3``       | ``8``          |
+    +----------------+--------+----------------+----------------+
+    For anything more advanced, we need to load a *module*.
 
-   .. code:: python
+    .. ipython::
 
-       >>> import math
-       >>> math.sin(3)
-       0.1411200080598672
-       >>> math.sqrt(4)
-       2.0
+        In [1]: import math
 
-   A *library* is a group of code items such as functions that are
-   related to one another. Libraries are loaded using ``import``.
-   Functions that are part of the library ``libraryname`` could then be
-   used by typing ``libraryname.functionname()``. For example, ``sin()``
-   is a function that is part of the ``math`` library, and used by
-   typing ``math.sin()`` with some number between the parentheses.
-   Libraries may also contain constants such as ``math.pi``.
+        In [1]: math.sin(3)
 
-   .. code:: python
+        In [1]: math.sqrt(4)
 
-       >>> math.pi
-       3.141592653589793
-       >>> math.sin(math.pi)
-       1.2246467991473532e-16
+    A *module*, also known as a *library*, is a group of code items such as functions that are related to one another.
+    Modules are loaded using ``import``.
+    Functions that are part of the module ``modulename`` could then be used by typing ``modulename.functionname()``.
+    For example, ``sin()`` is a function that is part of the ``math`` module, and used by typing ``math.sin()`` with some number between the parentheses.
+    Modules may also contain constants such as ``math.pi``.
+
+    .. ipython::
+
+        In [1]: math.pi
+
+        In [1]: math.sin(math.pi)
 
 4. Functions can also be combined.
 
-   .. code:: python
+    .. ipython::
 
-       >>> print(math.sqrt(4))
-       2.0
-       >>> print('The square root of 4 is',math.sqrt(4))
-       The square root of 4 is 2.0
+        In [1]: print(math.sqrt(4))
 
-5. *Variables* can be used to store values calculated in expressions and
-   used for other calculations.
+        In [1]: print('The square root of 4 is',math.sqrt(4))
 
-   .. code:: python
+5. *Variables* can be used to store values calculated in expressions and used for other calculations.
 
-       >>> temp_celsius = 10.0
-       >>> print(temp_celsius)
-       10.0
-       >>> print('temperature in Fahrenheit:', 9/5 * temp_celsius + 32)
-       temperature in Fahrenheit: 50.0
+    .. ipython::
 
-   Above, we also see one common format for *good* variable naming,
-   separation of words by underscores ``_`` (e.g., ``temp_celsius``).
-   This is called pothole\_case\_naming. We'll see another below.
+        In [1]: temp_celsius = 10.0
+
+        In [1]: print(temp_celsius)
+
+        In [1]: print('temperature in Fahrenheit:', 9/5 * temp_celsius + 32)
+
+    Above, we also see one common format for *good* variable naming, separation of words by underscores ``_`` (e.g., ``temp_celsius``).
+    This is called pothole\_case\_naming.
+    We'll see another below.
 
 6. Values stored in *variables* can also be updated.
 
-   .. code:: python
+    .. ipython::
 
-       >>> temp_celsius = 15.0
-       >>> print('temperature in Celsius is now:', temp_celsius)
-       temperature in Celsius is now: 15.0
-       >>> TemperatureInFahrenheit = 9/5 * temp_celsius + 32
-       >>> print('temperature in Celsius:', temp_celsius, 'and in Fahrenheit:', TemperatureInFahrenheit)
-       temperature in Celsius: 15.0 and in Fahrenheit: 59.0
+        In [1]: temp_celsius = 15.0
 
-   An alternative to naming variables using pothole\_case\_naming is to
-   use capital letters for each word with no spaces between (e.g.,
-   ``TemperatureInFahrenheit``). This is called CamelCaseNaming. Both
-   options are easy to read and help you use *good* variable names.
-   After all, *people* should be able to easily understand what
-   different variables contain :+1:.
+        In [1]: print('temperature in Celsius is now:', temp_celsius)
 
-7. Note that changing the values of a variable does not affect those of
-   other variables.
+        In [1]: temperatureInFahrenheit = 9/5 * temp_celsius + 32
 
-   .. code:: python
+        In [1]: print('temperature in Celsius:', temp_celsius, 'and in Fahrenheit:', temperatureInFahrenheit)
 
-       >>> temp_celsius = 20.0
-       >>> print('temperature in Celsius is now:', temp_celsius, 'and temperature in Fahrenheit is still:', TemperatureInFahrenheit)
-       temperature in Celsius is now: 20.0 and temperature in Fahrenheit is still: 59.0
+    An alternative to naming variables using pothole\_case\_naming is to use capital letters for each word with no spaces between (e.g., ``temperatureInFahrenheit``).
+    This is called camelCaseNaming.
+    Both options are easy to read and help you use *good* variable names.
+    After all, *people* should be able to easily understand what different variables contain :+1:.
 
-8. One of the nice options in IPython is that you can see which
-   variables are in memory by typing ``%whos``.
+7. Note that changing the values of a variable does not affect those of other variables.
 
-   .. code:: python
+    .. ipython::
 
-       >>> %whos
-       Variable                  Type      Data/Info
-       ---------------------------------------------
-       TemperatureInFahrenheit   float     59.0
-       temp_celsius              float     20.0
+        In [1]: temp_celsius = 20.0
+
+        In [1]: print('temperature in Celsius is now:', temp_celsius, 'and temperature in Fahrenheit is still:', temperatureInFahrenheit)
+
+8. One of the nice options in IPython is that you can see which variables are in memory by typing ``%whos``.
+
+    .. ipython::
+
+        In [1]: del np
+
+        In [1]: del plt
+
+        In [1]: %whos
 
 9. There are 4 basic *data types* in Python as shown in the table below.
 
-   \| Data type name \| Data type \| Example \| \| -------------- \|
-   -------------------- \| --------------- \| \| ``int`` \| Whole
-   integer values \| ``4`` \| \| ``float`` \| Decimal values \|
-   ``3.1415`` \| \| ``str`` \| Character strings \| ``'Hot'`` \| \|
-   ``bool`` \| True/false values \| ``True`` \| The data types are
-   displayed when using ``%whos``, but can also be found using the
-   ``type()`` function. As you will see, the data types are important
-   because some are not compatible with one another.
+    +----------------+----------------------+------------+
+    | Data type name | Data type            | Example    |
+    +================+======================+============+
+    | ``int``        | Whole integer values | ``4``      |
+    +----------------+----------------------+------------+
+    | ``float``      | Decimal values       | ``3.1415`` |
+    +----------------+----------------------+------------+
+    | ``str``        | Character strings    | ``'Hot'``  |
+    +----------------+----------------------+------------+
+    | ``bool``       | True/false values    | ``True``   |
+    +----------------+----------------------+------------+
+    
+    The data types are displayed when using ``%whos``, but can also be found using the ``type()`` function.
+    As you will see, the data types are important because some are not compatible with one another.
 
-   .. code:: python
+    .. ipython::
 
-       >>> WeatherForecast = 'Hot'
-       >>> type(WeatherForecast)
-       str
-       >>> type(TemperatureInFahrenheit)
-       float
-       >>> TemperatureInFahrenheit = TemperatureInFahrenheit + 5.0 * WeatherForecast
-       ---------------------------------------------------------------------------
-       TypeError                                 Traceback (most recent call last)
-       <ipython-input-21-7046bdc97a54> in <module>()
-       ----> 1 TemperatureInFahrenheit = TemperatureInFahrenheit + 5.0 * WeatherForecast
+       In [1]: weatherForecast = 'Hot'
 
-       TypeError: can't multiply sequence by non-int of type 'float'
+       In [1]: type(weatherForecast)
+
+       In [1]: type(temperatureInFahrenheit)
+
+       In [1]: temperatureInFahrenheit = temperatureInFahrenheit + 5.0 * weatherForecast
 
 Summary and the next steps
 ==========================
 
-That's it for today. We have seen a bit of what we can do in Python:
-basic arithmetic, using functions, defining variables and combining
-these things to put the computer to work for us. In the coming weeks we
-will explore each of these items, and many more, in greater detail to
-help develop your familiarity with Python and some basic programming
-skills.
-
-**Next**: `Exercise 1: Creating a Github.com account and using the
-cloud <https://github.com/Python-for-geo-people/Exercise-1>`__\ 
-**Home**: `Lesson 1 main
-page <https://github.com/Python-for-geo-people/Lesson-1-Course-Environment/>`__\ 
-**Previous**: `Destroying your computer
-instance <../Background/destroy-instance.md>`__
+That's it for today.
+We have seen a bit of what we can do in Python: basic arithmetic, using functions, defining variables and combining these things to put the computer to work for us.
+In the coming weeks we will explore each of these items, and many more, in greater detail to help develop your familiarity with Python and some basic programming skills.
