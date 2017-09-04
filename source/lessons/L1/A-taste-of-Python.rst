@@ -8,7 +8,18 @@ Python <http://swcarpentry.github.io/python-novice-inflammation/>`__.
 Getting started
 ===============
 
-1. We can start by opening a new IPython window. To do this,
+We will start our Python lesson by opening a program called **Spyder**.
+We'll learn more about how **Spyder** works later in the course, but for now we will be using some basic features of **Spyder** such as the IPython interpreter window.
+In the IPython interpreter window you can type in Python commands and press **Enter** to execute them.
+
+.. figure:: ../img/IPython.png
+   :alt: IPython window
+
+   IPython window
+
+1. 
+
+We can start by opening a new IPython window. To do this,
    double-click on the IPython icon on the Desktop. You should see a new
    terminal window appear that looks like the one below.
 
