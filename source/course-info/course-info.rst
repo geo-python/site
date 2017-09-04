@@ -35,7 +35,11 @@ Instructors
   * Email: *firstname.lastname@helsinki.fi*
   * Phone: +358 2941 50760
 
-* N.N
+* Jorina Schütt
+
+  * Office: D422, Exactum
+  * Email: *firstname.lastname@helsinki.fi*
+  * Phone: +358 45 1865288
 
 Course websites
 ---------------
