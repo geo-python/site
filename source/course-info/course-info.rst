@@ -15,17 +15,17 @@ Instructors
 
 **Lecturers**:
 
-* David Whipp
-
-  * Office: D430, Exactum
-  * Email: *firstname.lastname@helsinki.fi*
-  * Phone: +358 50 3199336
-
 * Henrikki Tenkanen
 
   * Office: A120, Physicum
   * Email: *firstname.lastname@helsinki.fi*
   * Phone: +358 50 4484436
+
+* David Whipp
+
+  * Office: D430, Exactum
+  * Email: *firstname.lastname@helsinki.fi*
+  * Phone: +358 50 3199336
 
 **Course assistants**:
 
