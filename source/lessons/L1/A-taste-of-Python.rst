@@ -12,7 +12,7 @@ We will start our Python lesson by opening a program called **Spyder**.
 We'll learn more about how **Spyder** works later in the course, but for now we will be using some basic features of **Spyder** such as the IPython interpreter window.
 In the IPython interpreter window you can type in Python commands and press **Enter** to execute them.
 
-.. figure:: ../img/IPython.png
+.. figure:: img/IPython.png
    :alt: IPython window
 
    IPython window
@@ -23,7 +23,7 @@ We can start by opening a new IPython window. To do this,
    double-click on the IPython icon on the Desktop. You should see a new
    terminal window appear that looks like the one below.
 
-.. figure:: ../img/IPython.png
+.. figure:: img/IPython.png
    :alt: IPython window
 
    IPython window
@@ -168,15 +168,12 @@ operations you can perform using Python.
     The data types are displayed when using ``%whos``, but can also be found using the ``type()`` function.
     As you will see, the data types are important because some are not compatible with one another.
 
-    .. ipython::
+    .. ipython:: python
 
-       In [1]: weatherForecast = 'Hot'
-
-       In [1]: type(weatherForecast)
-
-       In [1]: type(temperatureInFahrenheit)
-
-       In [1]: temperatureInFahrenheit = temperatureInFahrenheit + 5.0 * weatherForecast
+       weatherForecast = 'Hot'
+       type(weatherForecast)
+       type(temperatureInFahrenheit)
+       temperatureInFahrenheit = temperatureInFahrenheit + 5.0 * weatherForecast
 
 Summary and the next steps
 ==========================
