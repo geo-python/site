@@ -18,8 +18,7 @@ that we are using in this course.
 
 We will not be saving anything to the
 `GitHub.com <https://www.github.com>`__ site this week, but in the
-future you can refer to the `instructions for using
-GitHub <intro-to-github.md>`__.
+future you can refer to the :doc:`instructions for using GitHub <intro-to-github>`.
 
 Destroy the computer instance
 -----------------------------
@@ -30,11 +29,10 @@ these steps:
 1. Login to `your Computing Dashboard <https://pb.geo.helsinki.fi>`__
 2. Destroy the running instance by pressing **Destroy** button
 
-**IMPORTANT NOTICE**: The Computer Instance will destroy itself
-automatically after it's life-time (6 hours) has run out. Be sure to
-save your work before instance is terminated.
 
-**Next**: `Our first taste of
-Python <../Lesson/A-taste-of-Python.md>`__\  **Home**: `Lesson 1 main
-page <https://github.com/Python-for-geo-people/Lesson-1-Course-Environment/>`__\ 
-**Previous**: `Using Git and GitHub <intro-to-github.md>`__
+.. warning::
+
+    The Computer Instance will destroy itself
+    automatically after it's life-time (5 hours) has run out. Be sure to
+    save your work to GitHub before the instance is terminated.
+

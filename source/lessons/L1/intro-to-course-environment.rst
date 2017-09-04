@@ -42,21 +42,17 @@ Here are the remaining steps that you will follow during each lecture.
 You will do steps 1-4 below repeatedly during the course, so it will
 become familiar to you after a few weeks.
 
-1. `Log into the Computing Dashboard and launch a Computer
-   Instance <launch-instance.md>`__
+1. Log into the Computing Dashboard and `Launch a new computer instance`_.
 
-2. `Connect to Computer Instance from your local
-   computer <connect-to-instance.md>`__
+2. `Connect to the computer instance`_ from your local computer
 
-3. `Use Git and GitHub to download the course materials and save your
-   work <intro-to-github.md>`__
+3. :doc:`Use Git and GitHub to download the course materials and save your work <intro-to-github>`
 
-4. `When finished working, destroy the Computer
-   Instance <destroy-instance.md>`__
+4. :doc:`When finished working, destroy the Computer Instance <destroy-instance>`
 
 
-Launching a new computer instance
----------------------------------
+Launch a new computer instance
+------------------------------
 
 Launching a new computer instance is a straightforward procedure that is
 done from the Computing Dashboard. These instructions will help you
@@ -83,7 +79,7 @@ one for yourself.
 
 .. admonition:: Step 3
 
-    ``Launch new`` **computer instance**
+    ``Launch new`` **computer instance** from the Dashboard tab.
 
     .. figure:: img/8_launch_instance.PNG
        :alt: Launch a new computer instance
@@ -122,8 +118,8 @@ one for yourself.
     Go back to the Dashboard tab by pressing ``Back`` button.
 
 
-Connecting to the computer instance
------------------------------------
+Connect to the computer instance
+--------------------------------
 
 There are basically two steps that you need to do for being able to
 connect to a remote (cloud) computer instance: (1) Find the IP address
@@ -161,56 +157,73 @@ using the command prompt.
 Connect with Windows
 --------------------
 
-On Windows we have two different ways and pieces of software that can be
-used for connecting the remote computer: **'TightVNC Viewer'** and the
-**'Remote Desktop Connection'** tool (in finnish 'Etätyöpöytäyhteys').
-`The TightVNC Viewer <http://www.tightvnc.com/>`__ is freely available
-and is an open source remote desktop software that has some nice
-features, and it is smooth to use. We will be using this tool in the GIS
-labs where it is installed on the computers. If you want, you can also
-`download <http://www.tightvnc.com/download.php>`__ and install this
-tool to your own computer.
+On Windows we use **'TightVNC Viewer'** to connect to the remote computer. `The TightVNC Viewer <http://www.tightvnc.com/>`__ is freely available and
+an open source remote desktop software that has good features, and it is smooth to use. TightVNC Viewer can be directly used with the computers in the GIS
+labs where the software is readily installed.
 
-`The Remote Desktop Connection <https://support.microsoft.com/en-us/help/17463/windows-7-connect-to-another-computer-remote-desktop-connection>`__
-tool is another remote desktop software that comes with every Windows
-computer. It is more simple, but has slightly less smooth user
-experience when compared to TightVNC. However, it is highly
-recommendable option since it can be used from any Windows computer
-(e.g., from the computers in the University's libraries or your own
-Windows computer) without any additional software installation.
+.. hint::
 
-Details on how to connect with both pieces of software are given below.
+    You can `download <http://www.tightvnc.com/download.php>`__ and install TightVNC for Windows by running the 64-bit installer (requires admin rights).
 
-1. `Connecting with the TightVNC Viewer software <connect-win-vnc.md>`__
-2. `Connecting with the Remote Desktop Connection
-   tool <connect-win-rdp.md>`__
+
+1. Start the tool by clicking the Windows Start button and searching it
+   with word 'TightVNC'
+
+2. Paste the IP address of your computer instance that you copied in the
+   previous step and add a port
+   number ``5901`` after the IP address separated with colon so that it
+   will look like ``xxx.xxx.xx.xxx:5901``
+
+.. figure:: img/15b_copy-ip-address-connect.PNG
+   :alt: Fill in the IP address
+
+   Fill in the IP address
+
+3. Fill in the password ``geoman`` and press **OK**
+
+.. figure:: img/16b_fill-in-password.PNG
+   :alt: Fill password
+
+   Fill password
+
+4. That's it! You're inside the remote computer and ready to roll.
+
+.. figure:: img/17_work_environment.PNG
+   :alt: Inside the remote computer
+
+   Inside the remote computer
+
+.. admonition:: Alternative way to connect from Windows
+
+    It is also possible to connect with the remote computer using `Remote Desktop Connection <https://support.microsoft.com/en-us/help/17463/windows-7-connect-to-another-computer-remote-desktop-connection>`__
+    tool that comes with every Windows computer :doc:`(see more details)<connect-win-rdp>`.
 
 Connect with MacOS
 ------------------
 
-The preferred way to connect to the computer instances on MacOS is to
+1. The preferred way to connect to the computer instances on MacOS is to
 use the built-in connection tool in **Finder**.
 
-.. figure:: ../img/connect-to-server.png
+.. figure:: img/connect-to-server.png
    :alt: Connect to server
 
    Connect to server
 
-Once the **Connect to Server** window appears, enter the address of the
+2. Once the **Connect to Server** window appears, enter the address of the
 computer instance to connect in the format
 ``vnc://XXX.XXX.XXX.XXX:5901``, replacing the ``XXX.XXX.XXX.XXX`` with
 the numbers you selected and copied above in the Computing Dashboard.
 
-.. figure:: ../img/enter-server-info.png
+.. figure:: img/enter-server-info.png
    :alt: Enter server info
 
    Enter server info
 
-At this point you can click **Connect** and enter the password for the
+3. At this point you can click **Connect** and enter the password for the
 connection when prompted (``geoman``). Now you should see the desktop of
 your cloud computer!
 
-.. figure:: ../img/cloud-desktop-mac.png
+.. figure:: img/cloud-desktop-mac.png
    :alt: Cloud desktop Mac
 
    Cloud desktop Mac
