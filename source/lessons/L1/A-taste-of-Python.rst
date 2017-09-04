@@ -49,11 +49,10 @@ operations you can perform using Python.
    printing information to the screen (e.g., the ``print()`` function).
    Functions exist for a huge number of operations in Python.
 
-    .. ipython:: 
+    .. ipython:: python
 
-       In [1]: sin(3)
-
-       In [1]: sqrt(4)
+        sin(3)
+        sqrt(4)
 
    Wait, what? Python can't calculate square roots or do basic
    trigonometry? Of course it can, but we need one more step.
@@ -120,15 +119,12 @@ operations you can perform using Python.
 
 6. Values stored in *variables* can also be updated.
 
-    .. ipython::
+    .. ipython:: python
 
-        In [1]: temp_celsius = 15.0
-
-        In [1]: print('temperature in Celsius is now:', temp_celsius)
-
-        In [1]: temperatureInFahrenheit = 9/5 * temp_celsius + 32
-
-        In [1]: print('temperature in Celsius:', temp_celsius, 'and in Fahrenheit:', temperatureInFahrenheit)
+        temp_celsius = 15.0
+        print('temperature in Celsius is now:', temp_celsius)
+        temperatureInFahrenheit = 9/5 * temp_celsius + 32
+        print('temperature in Celsius:', temp_celsius, 'and in Fahrenheit:', temperatureInFahrenheit)
 
     An alternative to naming variables using pothole\_case\_naming is to use capital letters for each word with no spaces between (e.g., ``temperatureInFahrenheit``).
     This is called camelCaseNaming.
@@ -137,21 +133,23 @@ operations you can perform using Python.
 
 7. Note that changing the values of a variable does not affect those of other variables.
 
-    .. ipython::
+    .. ipython:: python
 
-        In [1]: temp_celsius = 20.0
-
-        In [1]: print('temperature in Celsius is now:', temp_celsius, 'and temperature in Fahrenheit is still:', temperatureInFahrenheit)
+        temp_celsius = 20.0
+        print('temperature in Celsius is now:', temp_celsius, 'and temperature in Fahrenheit is still:', temperatureInFahrenheit)
 
 8. One of the nice options in IPython is that you can see which variables are in memory by typing ``%whos``.
 
-    .. ipython::
+    .. ipython:: python
+        :suppress:
+            del np
+            del plt
 
-        In [1]: del np
+        %whos
 
-        In [1]: del plt
+    .. ipython:: python
 
-        In [1]: %whos
+        %whos
 
 9. There are 4 basic *data types* in Python as shown in the table below.
 
