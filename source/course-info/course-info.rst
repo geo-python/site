@@ -13,7 +13,8 @@ Course meetings in Period I
 Instructors
 -----------
 
-**Lecturers**:
+Lecturers
+~~~~~~~~~
 
 * Henrikki Tenkanen
 
@@ -27,7 +28,8 @@ Instructors
   * Email: *firstname.lastname@helsinki.fi*
   * Phone: +358 50 3199336
 
-**Course assistants**:
+Course assistants
+~~~~~~~~~~~~~~~~~
 
 * Vuokko Heikinheimo
 
