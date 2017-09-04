@@ -15,8 +15,9 @@ in Python. The main components of this first lesson are below.
 
 1. :doc:`Basic concepts, components and, workflow of the course environment <course-environment-components>`
 2. :doc:`Introduction to the basic usage of the course environment <intro-to-course-environment>`
-3. :doc:`Our first taste of Python <A-taste-of-Python>`
-4. :doc:`Exercise 1: Creating a Github.com account and using the cloud <https://github.com/Python-for-geo-people/Exercise-1>`
+3. :doc:`Communicating and chatting with Slack <slack>`
+4. :doc:`Our first taste of Python <A-taste-of-Python>`
+5. :doc:`Exercise 1: Creating a Github.com account and using the cloud <https://github.com/Python-for-geo-people/Exercise-1>`
 
 
 Learning goals
