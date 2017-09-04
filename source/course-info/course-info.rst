@@ -47,11 +47,15 @@ Course websites
 - Course sites for Period I (Introduction to Python programming):
 
   - Main course site: `<https://geo-python.github.io>`_
-  - Pouta Blueprints site: `<https://pb.geo.helsinki.fi>`_
+  - Pebbles (cloud computing) site: `<https://pb.geo.helsinki.fi>`_
 
 - Automating GIS processes (Period II)
 
   - Course site: `<https://autogis.github.io>`_
+
+- Introduction to Quantitative Geology (Period II)
+
+  - Course site: `<https://introqg.github.io>`_
 
 Textbooks
 ---------
