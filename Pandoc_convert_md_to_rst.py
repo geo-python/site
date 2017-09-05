@@ -15,16 +15,17 @@ import glob
 import os
 
 # Input directory for md-files
-indir = r"C:\HY-Data\HENTENKA\KOODIT\Opetus\Python-for-geo-people\Lesson-1-Course-Environment\MDs"
+indir = r"C:\HY-DATA\HENTENKA\KOODIT\Opetus\Geo-Python\md\L7"
 
 # Output directory for rst-files
-outdir = r"C:\HY-Data\HENTENKA\KOODIT\Opetus\Python-for-geo-people\Lesson-1-Course-Environment\RST"
+outdir = r"C:\HY-DATA\HENTENKA\KOODIT\Opetus\Geo-Python\rst\L7"
 
 # Read all md files
 files = glob.glob(os.path.join(indir, "*.md"))
 
 # Iterate over MD-files and convert them to RST
 for f in files:
+    print(f)
     # Basename
     basename = os.path.basename(f)
     # Output path
