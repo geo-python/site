@@ -1,8 +1,8 @@
-Using the course environment
-============================
+Using the cloud computing environment
+=====================================
 
-Principles of the course environment
-------------------------------------
+Workflow of using the cloud computing environment
+-------------------------------------------------
 
 -  You will launch a new cloud computer instance every time you're
    working in a lecture or doing the exercises.
@@ -28,7 +28,7 @@ Principles of the course environment
    Github.
 
 
-We'll start using the course environment by creating and activating your
+We'll start using the cloud computing environment by creating and activating your
 account on the Computing Dashboard, and launching our first Computer
 Instance. Then we will download course materials from GitHub to your
 cloud computer, do some work, and save your work back on GitHub.
