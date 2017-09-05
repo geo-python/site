@@ -1,7 +1,7 @@
 Lecture materials
 =================
 
-You can download the slides that were shown during the lecture from here (add link).
+`Slides for Lecture 1 (PDF) <../../_static/01-Computers-and-programs.pdf>`__
 
 .. note::
 
