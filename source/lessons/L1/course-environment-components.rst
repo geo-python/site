@@ -85,7 +85,8 @@ are.
 Communicating with Slack
 ------------------------
 
-During this course we will use actively a application called `Slack <http://slack.com>`__ for discussion and questions about the lessons and exercises. :doc:`See more information<slack-usage>`.
+During this course we will use actively a application called `Slack <http://slack.com>`__ for discussion and
+questions about the lessons and exercises. :doc:`See more information<slack-usage>`.
 
 Voting and polling
 ------------------
@@ -122,5 +123,5 @@ components of our course environment and what they mean. You don't need
 to understand everything fully at this point as they will become clearer
 when we start using the course environment.
 
-Next, we'll introduce to you how the course environment is used.
+Next, we'll introduce to you :doc:`how the cloud computing environment is used<intro-to-cloud-environment>`.
 
