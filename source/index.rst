@@ -43,7 +43,7 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
 |                |                                 |
 +----------------+---------------------------------+
 | **Class 3**    | Repeating tasks and making      |
-|  20.9.2017     | desicions                       |
+|  20.9.2017     | decisions                       |
 |                |                                 |
 |                |                                 |
 +----------------+---------------------------------+
