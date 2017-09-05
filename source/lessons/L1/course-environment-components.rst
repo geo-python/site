@@ -96,7 +96,7 @@ You can access the polling system of our course from `<https://geo-python.github
 
 .. note::
 
-    The polling system is active only during the lessons. If you access the website outside the lecture times, you
+    The polling system is active only **during** the lessons. If you access the website outside the lecture times, you
     will most probably see only a white page without any content.
 
 Workflow
