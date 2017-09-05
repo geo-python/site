@@ -1,5 +1,5 @@
-Lecture video
-=============
+Lecture materials
+=================
 
 .. note::
 
