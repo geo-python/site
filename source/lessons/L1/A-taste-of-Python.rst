@@ -138,7 +138,7 @@ operations you can perform using Python.
     An alternative to naming variables using pothole\_case\_naming is to use capital letters for each word with no spaces between (e.g., ``temperatureInFahrenheit``).
     This is called camelCaseNaming.
     Both options are easy to read and help you use *good* variable names.
-    After all, *people* should be able to easily understand what different variables contain :+1:.
+    After all, *people* should be able to easily understand what different variables contain.
 
 7. Note that changing the values of a variable does not affect those of other variables.
 
