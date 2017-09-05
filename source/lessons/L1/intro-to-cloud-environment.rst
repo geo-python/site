@@ -111,7 +111,7 @@ Below are instructions how to access the computer instance on different
 systems (follow the one that you have).
 
 Copy the IP address of your computer instance
----------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Everyone will need to do this.
 
@@ -128,7 +128,7 @@ using the command prompt.
    Copy IP address of the computer instance
 
 Connect with Windows
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
 On Windows we use **'TightVNC Viewer'** to connect to the remote computer. `The TightVNC Viewer <http://www.tightvnc.com/>`__ is freely available and
 an open source remote desktop software that has good features, and it is smooth to use. TightVNC Viewer can be directly used with the computers in the GIS
@@ -172,7 +172,7 @@ labs where the software is readily installed.
     tool that comes with every Windows computer :doc:`(see more details)<connect-win-rdp>`.
 
 Connect with MacOS
-------------------
+~~~~~~~~~~~~~~~~~~
 
 1. The preferred way to connect to the computer instances on MacOS is to
 use the built-in connection tool in **Finder**.
@@ -202,12 +202,12 @@ your cloud computer!
    Cloud desktop Mac
 
 Connect with Linux
-------------------
+~~~~~~~~~~~~~~~~~~
 
 If there are users running Linux, let us know if you're not aware of how to use VNC on your machine and we can help get you connected.
 
 Connect with an iPad
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
 1. If you do not already have it, you should install a copy of the `VNC Viewer - Remote Desktop <https://itunes.apple.com/fi/app/vnc-viewer-remote-desktop/id352019548?mt=8>`__ app.
 
