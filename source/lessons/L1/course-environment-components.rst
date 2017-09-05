@@ -15,10 +15,10 @@ at the Department.
 The course environment comprises four components that will be used
 actively during the course:
 
-1. `Cloud computing environment <#cloud-computing-environment>`__
-2. `Git + GitHub <#git-github>`__
-3. `Communication during the course<#communication>`__
-4. `Voting / polling during the lectures <#voting-and-polling>`__
+1. `Cloud computing environment`_
+2. `Git + GitHub`_
+3. `Communication`_
+4. `Voting / polling during the lectures <#voting-and-polling>`_
 
 
 Cloud computing environment
