@@ -231,9 +231,17 @@ your cloud computer!
 Connect with Linux
 ------------------
 
-If there are users running Linux, let us know if you're not aware of how
-to use VNC on your machine and we can help get you connected.
+If there are users running Linux, let us know if you're not aware of how to use VNC on your machine and we can help get you connected.
 
+Connect with an iPad
+--------------------
 
+1. If you do not already have it, you should install a copy of the `VNC Viewer - Remote Desktop <https://itunes.apple.com/fi/app/vnc-viewer-remote-desktop/id352019548?mt=8>`__ app.
 
+2. Open the **VNC Viewer - Remote Desktop** app and click on the ``+`` at the upper right corner of the app to add a new connection.
 
+3. Enter the address of the machine in the format ``XXX.XXX.XXX.XXX:5901``, replacing the ``XXX.XXX.XXX.XXX`` with the numbers you selected and copied above in the Computing Dashboard.
+Tap **Save**.
+
+4. Tap **Connect** and enter the password for the connection when prompted (``geoman``).
+Now you should see the desktop of your cloud computer!
