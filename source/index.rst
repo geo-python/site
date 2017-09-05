@@ -102,6 +102,7 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
         lessons/L1/lesson-video.rst
         lessons/L1/course-environment-components
         lessons/L1/intro-to-course-environment
+        lessons/L1/slack-usage
 
 
 
