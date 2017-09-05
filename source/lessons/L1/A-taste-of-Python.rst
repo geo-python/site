@@ -156,6 +156,13 @@ operations you can perform using Python.
     Note that the ``np`` and ``plt`` modules are loaded in the IPython session above, which may not be the case for you.
     In addition, you can view this same information using the Variable explorer panel above the IPython console in **Spyder**.
 
+    .. figure:: img/Spyder-variables.png
+        :width: 600px
+        :align: center
+        :alt: The Spyder variable explorer panel
+
+        The Spyder variable explorer panel (red box).
+
 9. There are 4 basic *data types* in Python as shown in the table below.
 
     +----------------+----------------------+------------+
