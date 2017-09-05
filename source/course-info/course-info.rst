@@ -59,6 +59,7 @@ Course websites
   - Main course site: `<https://geo-python.github.io>`_
   - Pebbles (cloud computing) site: `<https://pb.geo.helsinki.fi>`_
   - Slack (Q&A + chat): `<https://geo-python2017.slack.com>`_
+  - Polling / voting (active during lectures only): `<https://geo-python.github.io/poll>`_
 
 - Automating GIS processes (Period II)
 

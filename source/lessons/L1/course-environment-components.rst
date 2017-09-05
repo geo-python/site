@@ -1,36 +1,38 @@
 Course environment
 ==================
 
-Why do we need a "course environment"?
---------------------------------------
+In this course we will actively use a course environment that consist of modern tools and applications for:
 
-In this course we will be using cloud-hosted computers to learn to
-program in Python and complete the course exercises. Of course, there
-are many alternative options we could choose, including using your
-personal computers, using computers in the university's computer
-classrooms, or using `virtual machines <https://en.wikipedia.org/wiki/Virtual_machine>`__ on your
-personal computers, where software allows your computer to run a second
-operating system in a window. These are all fine options, but each have
-problems we felt would either (a) interfere with your ability to focus
-on learning Python, or (b) make it more difficult for you to have access
-to computing when you need it. Thus, we've chosen to experiment. The
-course environment described below is easy to use, but there are few
-things that you need to understand before starting to use it. The good
-news is that you can use the course environment with any computer at the
-university or your own computer. All you need is a reasonably fast
-internet connection, a web browser and some `remote desktop software <https://en.wikipedia.org/wiki/Remote_desktop_software>`__,
-which is freely available for any computer.
+ - doing the actual programming (Anaconda + cloud-computers)
+ - sharing and saving your work online with version control (Git+GitHub)
+ - communicating (Slack)
+ - interacting during the lectures (real-time web-polls)
+
+We recommend that students would use their own computers during the lectures and exercises (requires installations), although it is not necessary.
+It is also possible to use cloud-hosted computers to learn to program and complete the course exercises, and there are also Python environment installed on the GIS-labs
+at the Department.
 
 The course environment comprises four components that will be used
 actively during the course:
 
-1. `The Computing Dashboard <#computing-dashboard>`__
-2. `A Computer Instance <#computer-instance>`__
-3. `Git + GitHub <#git--github>`__
-4. `Slack for communication <#communicating-with-slack>`__
+1. `Cloud computing environment <#cloud-computing-environment>`__
+2. `Git + GitHub <#git-github>`__
+3. `Slack for communication <#communicating-with-slack>`__
+4. `Voting / polling during the lectures <#voting-and-polling>`__
+
+
+Cloud computing environment
+---------------------------
+
+The cloud computing environment described below is easy to use, but there are few
+things that you need to understand before starting to use it. The good
+news is that you can use the cloud computing environment with any computer at the
+university or your own computer. All you need is a reasonably fast
+internet connection, a web browser and some `remote desktop software <https://en.wikipedia.org/wiki/Remote_desktop_software>`__,
+which is freely available for any computer.
 
 Computing Dashboard
--------------------
+~~~~~~~~~~~~~~~~~~~
 
 The computing dashboard is a web interface for managing computer
 instances (described below). We will is use it frequently during the
@@ -40,7 +42,7 @@ programming during the lectures or practicals. You will do all the work
 in this course using such a computer instance.
 
 Computer Instance
------------------
+~~~~~~~~~~~~~~~~~
 
 A computer instance is basically a **temporary** computer running Ubuntu
 Linux (tailored for this course) that you can use in a similar manner as
@@ -83,7 +85,13 @@ are.
 Communicating with Slack
 ------------------------
 
-During this course we will use actively a application called `Slack <http://slack.com>`__ for discussion and questions about the lessons and exercises.
+During this course we will use actively a application called `Slack <http://slack.com>`__ for discussion and questions about the lessons and exercises. :doc:`See more information<slack-usage>`.
+
+Voting and polling
+------------------
+
+During the lectures we will ask you questions by using an easy-to-use polling-system and show you the results in real-time.
+You can access the polling system of our course from `<https://geo-python.github.io/poll>`__
 
 Workflow
 --------
