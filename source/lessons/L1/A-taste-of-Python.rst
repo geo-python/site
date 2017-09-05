@@ -4,9 +4,7 @@ A taste of Python
 Sources
 -------
 
-This tutorial is based on a the `Software Carpentry
-group's <http://software-carpentry.org/>`__ lessons on `Programming with
-Python <http://swcarpentry.github.io/python-novice-inflammation/>`__.
+This tutorial is based on a the `Software Carpentry group's <http://software-carpentry.org/>`__ lessons on `Programming with Python <http://swcarpentry.github.io/python-novice-inflammation/>`__.
 
 Getting started
 ---------------
@@ -15,26 +13,33 @@ We will start our Python lesson by opening a program called **Spyder**.
 We'll learn more about how **Spyder** works later in the course, but for now we will be using some basic features of **Spyder** such as the IPython interpreter window.
 In the IPython interpreter window you can type in Python commands and press **Enter** to execute them.
 
-.. figure:: img/IPython.png
-   :alt: IPython window
+1. We can start by launching **Spyder**.
 
-   IPython window
+    - In Windows, this can be done by clicking on Programs -> Anaconda -> **Spyder** in the start menu.
+    - On a Mac or in Linux, **Spyder** can be launched from a terminal by typing ``spyder``.
 
-1. 
+    .. figure:: img/Spyder-terminal.png
+        :width: 600px
+        :align: center
+        :alt: Launching Spyder from a terminal
 
-We can start by opening a new IPython window. To do this,
-   double-click on the IPython icon on the Desktop. You should see a new
-   terminal window appear that looks like the one below.
+        Launching Spyder from a terminal
 
-.. figure:: img/IPython.png
-   :alt: IPython window
+2. The **Spyder** window should appear after a moment and it will look something like the one below.
+For now, we are only interested in using the IPython console in the lower right panel (outlined in red).
 
-   IPython window
+    .. figure:: img/Spyder.png
+        :width: 600px
+        :align: center
+        :alt: The Spyder IDE window
+
+        The Spyder IDE window. The IPython console is highlighted in the red box.
 
 Now we are ready to start.
+In the lesson that follows, simply enter the commands into the IPython console and press **Enter** to execute them.
 
-Variables, arithmetic and libraries
------------------------------------
+Variables, arithmetic and modules
+---------------------------------
 
 We will start our Python lesson by learning a bit of the basic
 operations you can perform using Python.
@@ -76,6 +81,7 @@ operations you can perform using Python.
     +----------------+--------+----------------+----------------+
     | Exponentiation | ``**`` | ``2**3``       | ``8``          |
     +----------------+--------+----------------+----------------+
+
     For anything more advanced, we need to load a *module*.
 
     .. ipython::
