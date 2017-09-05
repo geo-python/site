@@ -102,7 +102,7 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
         lessons/L1/overview
         lessons/L1/lesson-video.rst
         lessons/L1/course-environment-components
-        lessons/L1/intro-to-course-environment
+        lessons/L1/intro-to-cloud-environment
         lessons/L1/slack-usage
         lessons/L1/A-taste-of-Python
         lessons/L1/exercise-1
