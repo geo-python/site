@@ -1,12 +1,15 @@
+A taste of Python
+=================
+
 Sources
-=======
+-------
 
 This tutorial is based on a the `Software Carpentry
 group's <http://software-carpentry.org/>`__ lessons on `Programming with
 Python <http://swcarpentry.github.io/python-novice-inflammation/>`__.
 
 Getting started
-===============
+---------------
 
 We will start our Python lesson by opening a program called **Spyder**.
 We'll learn more about how **Spyder** works later in the course, but for now we will be using some basic features of **Spyder** such as the IPython interpreter window.
@@ -31,7 +34,7 @@ We can start by opening a new IPython window. To do this,
 Now we are ready to start.
 
 Variables, arithmetic and libraries
-===================================
+-----------------------------------
 
 We will start our Python lesson by learning a bit of the basic
 operations you can perform using Python.
@@ -176,7 +179,7 @@ operations you can perform using Python.
        temperatureInFahrenheit = temperatureInFahrenheit + 5.0 * weatherForecast
 
 Summary and the next steps
-==========================
+--------------------------
 
 That's it for today.
 We have seen a bit of what we can do in Python: basic arithmetic, using functions, defining variables and combining these things to put the computer to work for us.
