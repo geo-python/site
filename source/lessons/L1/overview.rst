@@ -1,5 +1,5 @@
-Overview
-========
+Lesson overview
+===============
 
 The goal of the first half of the course is to introduce you to the
 basic concepts of computer programming in the Python programming
