@@ -10,8 +10,8 @@ Getting started
 ---------------
 
 We will start our Python lesson by opening a program called **Spyder**.
-We'll learn more about how **Spyder** works later in the course, but for now we will be using some basic features of **Spyder** such as the IPython interpreter window.
-In the IPython interpreter window you can type in Python commands and press **Enter** to execute them.
+We'll learn more about how **Spyder** works later in the course, but for now we will be using some basic features of **Spyder** such as the IPython console.
+In the IPython console you can type in Python commands and press **Enter** to execute them.
 
 1. We can start by launching **Spyder**.
 
