@@ -17,7 +17,7 @@ actively during the course:
 
 1. `Cloud computing environment <#cloud-computing-environment>`__
 2. `Git + GitHub <#git-github>`__
-3. `Slack for communication <#communicating-with-slack>`__
+3. `Communication during the course<#communication>`__
 4. `Voting / polling during the lectures <#voting-and-polling>`__
 
 
@@ -82,11 +82,11 @@ Both Git and GitHub provide many more features than the ones mentioned
 here, but for now we are happy to understand the basic idea of what they
 are.
 
-Communicating with Slack
-------------------------
+Communication
+-------------
 
-During this course we will use actively a application called `Slack <http://slack.com>`__ for discussion and
-questions about the lessons and exercises. :doc:`See more information<slack-usage>`.
+During the course we will use actively a application called `Slack <http://slack.com>`__ for discussion and
+questions about the lessons and exercises. See more information from a :doc:`separate page how to use it<slack-usage>`.
 
 Voting and polling
 ------------------
