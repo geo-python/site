@@ -1,15 +1,12 @@
 Lesson overview
 ===============
 
-The goal of the first half of the course is to introduce you to the
-basic concepts of computer programming in the Python programming
-language. We will start working toward that goal already this week with
-our first taste of programming in Python. In order to start learning
-Python, however, we need to be introduced to the course computing
-environment, which is based on the principles of `cloud
+Today we will have our first taste of programming in Python. In order to start learning
+Python, however, we need to introduce you how we will work during the course using different tools including a
+dedicated computing environment, which is based on the principles of `cloud
 computing <https://en.wikipedia.org/wiki/Cloud_computing>`__. This first
-tutorial will introduce you to the basic structure of our course
-environment, guide you through how it is used, and conclude with a
+tutorial will introduce you to the basic components of our course
+environment, guide you through how they are used, and conclude with a
 hands-on introduction to some key concepts and elements of programming
 in Python. The main components of this first lesson are below.
 
