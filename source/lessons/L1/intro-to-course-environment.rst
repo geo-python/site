@@ -14,7 +14,7 @@ Workflow of using the cloud computing environment
    data, etc.) on your private GitHub account because files cannot be
    saved permanently to the cloud computers.
 
--  There is a fixed 'life-time' allocated (**6 hours**) for each
+-  There is a fixed 'life-time' allocated (**5 hours**) for each
    computer instance
 
 -  After finishing your work, you should always 'destroy' your course
