@@ -99,7 +99,7 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
 
     lessons/L1/motivation
     lessons/L1/overview
-    lessons/L1/lesson-video.rst
+    lessons/L1/lesson-video
     lessons/L1/course-environment-components
     lessons/L1/intro-to-cloud-environment
     lessons/L1/slack-usage
