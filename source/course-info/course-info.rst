@@ -43,6 +43,14 @@ Course assistants
   * Email: *firstname.lastname@helsinki.fi*
   * Phone: +358 45 1865288
 
+* Samuli Massinen
+
+  * Email: *firstname.lastname@helsinki.fi*
+
+* Antti Kallanranta
+
+  * Email: *firstname.lastname@helsinki.fi*
+
 Course websites
 ---------------
 
@@ -50,6 +58,7 @@ Course websites
 
   - Main course site: `<https://geo-python.github.io>`_
   - Pebbles (cloud computing) site: `<https://pb.geo.helsinki.fi>`_
+  - Slack (Q&A + chat): `<geo-python2017.slack.com>`_
 
 - Automating GIS processes (Period II)
 
