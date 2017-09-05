@@ -240,8 +240,6 @@ Connect with an iPad
 
 2. Open the **VNC Viewer - Remote Desktop** app and click on the ``+`` at the upper right corner of the app to add a new connection.
 
-3. Enter the address of the machine in the format ``XXX.XXX.XXX.XXX:5901``, replacing the ``XXX.XXX.XXX.XXX`` with the numbers you selected and copied above in the Computing Dashboard.
-Tap **Save**.
+3. Enter the address of the machine in the format ``XXX.XXX.XXX.XXX:5901``, replacing the ``XXX.XXX.XXX.XXX`` with the numbers you selected and copied above in the Computing Dashboard. Tap **Save**.
 
-4. Tap **Connect** and enter the password for the connection when prompted (``geoman``).
-Now you should see the desktop of your cloud computer!
+4. Tap **Connect** and enter the password for the connection when prompted (``geoman``). Now you should see the desktop of your cloud computer!
