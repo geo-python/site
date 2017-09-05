@@ -150,15 +150,11 @@ operations you can perform using Python.
 8. One of the nice options in IPython is that you can see which variables are in memory by typing ``%whos``.
 
     .. ipython:: python
-        :suppress:
-            del np
-            del plt
 
         %whos
 
-    .. ipython:: python
-
-        %whos
+    Note that the ``np`` and ``plt`` modules are loaded in the IPython session above, which may not be the case for you.
+    In addition, you can view this same information using the Variable explorer panel above the IPython console in **Spyder**.
 
 9. There are 4 basic *data types* in Python as shown in the table below.
 
