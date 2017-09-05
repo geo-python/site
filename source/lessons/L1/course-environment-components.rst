@@ -21,12 +21,13 @@ university or your own computer. All you need is a reasonably fast
 internet connection, a web browser and some `remote desktop software <https://en.wikipedia.org/wiki/Remote_desktop_software>`__,
 which is freely available for any computer.
 
-The course environment comprises three components that will be used
+The course environment comprises four components that will be used
 actively during the course:
 
 1. `The Computing Dashboard <#computing-dashboard>`__
 2. `A Computer Instance <#computer-instance>`__
 3. `Git + GitHub <#git--github>`__
+4. `Slack for communication <#communicating-with-slack>`__
 
 Computing Dashboard
 -------------------
@@ -78,6 +79,11 @@ as those in our course.
 Both Git and GitHub provide many more features than the ones mentioned
 here, but for now we are happy to understand the basic idea of what they
 are.
+
+Communicating with Slack
+------------------------
+
+During this course we will use actively a application called `Slack <http://slack.com>`__ for discussion and questions about the lessons and exercises.
 
 Workflow
 --------
