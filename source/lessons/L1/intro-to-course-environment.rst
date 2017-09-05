@@ -27,7 +27,6 @@ Workflow of using the cloud computing environment
    **will lose EVERYTHING in it** if you have not updated your files on
    Github.
 
-
 We'll start using the cloud computing environment by creating and activating your
 account on the Computing Dashboard, and launching our first Computer
 Instance. Then we will download course materials from GitHub to your
