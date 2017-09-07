@@ -47,7 +47,13 @@ extensions = [
     'IPython.sphinxext.ipython_directive',
 
     # Enable Google Analytics ( requires: https://pypi.python.org/pypi/sphinxcontrib-googleanalytics )
+    # Installation ==> pip install sphinxcontrib-googleanalytics
+
     'sphinxcontrib.googleanalytics',
+
+    # Enable easy integration of Youtube videos - Not working!!
+    # Installation ==> pip install https://github.com/shomah4a/sphinxcontrib.youtube/archive/master.zip
+    #'sphinxcontrib.youtube',
 ]
 
 # Google Analytics ID to enable tracking of site traffic
