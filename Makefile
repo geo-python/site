@@ -190,3 +190,19 @@ pseudoxml:
 	$(SPHINXBUILD) -b pseudoxml $(ALLSPHINXOPTS) $(BUILDDIR)/pseudoxml
 	@echo
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
+
+# Build for GitHub Pages
+gh-pages:
+	git checkout gh-pages
+	rm -rf build _sources _static
+	git checkout master $(GH_PAGES_SOURCES)
+	git reset HEAD
+	make html
+	# Build twice in case plots, etc. are produced by inline code
+	make html
+	# mv doesn't work nicely with subdirectories, using cp -r instead
+	#mv -fv source/_build/html/* source/_build/html/.nojekyll ./
+	cp -rv source/_build/html/* source/_build/html/.nojekyll ./
+	rm -rf $(GH_PAGES_SOURCES)
+	git add -A
+	git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`" && git push origin gh-pages ; git checkout master
