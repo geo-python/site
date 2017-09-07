@@ -12,7 +12,7 @@ Install Python on Windows
 
 Following steps have been tested to work on Windows 7 and 10 with Anaconda3 version 4.2.0 (19th November 2016).
 
-`Download Anaconda installer (64 bit) <https://www.continuum.io/downloads>`_ for Windows.
+`Download Anaconda installer (64 bit) <https://repo.continuum.io/archive/Anaconda3-4.2.0-Windows-x86_64.exe>`_ for Windows.
 
 Install Anaconda to your computer by double clicking the installer and install it into a directory you want (needs admin rights).
 Install it to **all users** and use default settings.
