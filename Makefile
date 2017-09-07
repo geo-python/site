@@ -6,7 +6,7 @@ SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PAPER         =
 BUILDDIR      = docs
-GH_PAGES_SOURCES = source Makefile docs
+GH_PAGES_SOURCES = img source Makefile
 
 # User-friendly check for sphinx-build
 ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
@@ -204,6 +204,6 @@ gh-pages:
 	# mv doesn't work nicely with subdirectories, using cp -r instead
 	#mv -fv source/_build/html/* source/_build/html/.nojekyll ./
 	cp -rv docs/html/* docs/html/.nojekyll ./
-	rm -rf $(GH_PAGES_SOURCES)
+	rm -rf $(GH_PAGES_SOURCES) $(BUILDDIR)
 	git add -A
 	git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`" && git push origin gh-pages ; git checkout master
