@@ -1,12 +1,8 @@
-Lesson 2: Diving into Python
-============================
-
-During the second week we will dive into Python and learn some basic
-elements of Python programming language. We will also continue learning
-how to use the Course Environment and version control with GitHub.
-
 Lesson overview
----------------
+===============
+
+During the second week we will dive into Python and learn some basic elements of Python programming language.
+We will also continue learning how to use the Course Environment and version control with GitHub.
 
 1. `Intro to version control and
    GitHub <https://github.com/Python-for-geo-people/Diving-into-Python/tree/master/Lesson/intro-to-GitHub.md>`__
@@ -30,6 +26,15 @@ Lesson overview
    assignments <https://github.com/Python-for-geo-people/Diving-into-Python/tree/master/Lesson/working-on-assignment.md>`__
 7. `Exercise 2: Writing scripts and using
    GitHub <https://classroom.github.com/assignment-invitations/a3e02d425c06db7948bcfe7ae7804317>`__
+
+Learning goals
+--------------
+
+At the end of class 2 you should be able to:
+
+  - Access your user space in Github.com
+  - Explain the concept of an index value
+  - Use Spyder IDE to create, edit and test scripts
 
 Resources
 ---------
