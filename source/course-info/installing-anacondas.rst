@@ -27,9 +27,26 @@ Test that the Anaconda´s package manage called ``conda`` works by
 `opening a command prompt as a admin user <http://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-8.1/>`_
 and running command ``conda --version``. If the command returns a version number of conda (e.g. ``conda 4.3.23``) everything is working correctly.
 
+Install Python on macOS
+-----------------------
 
-Install Python on Linux / Mac
------------------------------
+There is now a convenient graphical installer that can be used to install Anaconda for Mac.
+For the IntroQG people, we recommend you install Anaconda 4.4.0 by visiting `the Anaconda downloads page <https://www.anaconda.com/download/#macos>`__ and clicking on the button to install the latest Python 3 version of Anaconda, as shown below.
+
+.. note::
+
+    For the AutoGIS people, we recommend that you install a slightly older version of Anaconda for Mac (version 4.2.0).
+    You can download that version using `this link to the Anaconda software repository <https://repo.continuum.io/archive/Anaconda3-4.2.0-MacOSX-x86_64.pkg>`__.
+
+.. figure:: img/Anaconda-Mac.png
+    :width: 600px
+    :align: center
+    :alt: Downloading the latest Anaconda for Mac
+
+    Anaconda installation for the IntroQG students
+
+Install Python on Linux
+-----------------------
 
 The following have been tested on Ubuntu 16.04. Might work also on Mac (not tested yet).
 
