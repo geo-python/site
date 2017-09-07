@@ -23,25 +23,18 @@ assignment that normally would include the following:
 For each exercise, We will post a link to the assignment (such as
 ``https://classroom.github.com/assignment-invitations/a3e02d425c06db7948bcfe7ae78043``).
 
-When you click the link, you will be taken to a web page where you can
-accept the
-assignment\ `1 <Note%20that%20the%20first%20time%20you%20accept%20an%20assignment%20you%20will%20need%20to%20authorize%20the%20application%20on%20Github.%20This%20will%20not%20work%20if%20you%20have%20not%20verified%20your%20email%20address%20for%20your%20Github%20account.%3Cbr/%3E>`__:
+When you click the link, you will be taken to a web page where you can accept the
+assignment
 
-.. figure:: ../img/2_Accept_classroom_invitation.PNG
+.. note::
+
+   Note that the first time you accept an assignment you will need to authorize the application on Github. This will not work if you have not verified your email address for your Github account.
+
+.. figure:: img/2_Accept_classroom_invitation.PNG
    :alt: Accept GitHub classroom invitation
 
    Accept GitHub classroom invitation
 
-When you accept the assignment a copy of it will be made in your
-personal GitHub
-repositories\ `2 <A%20repository%20on%20Github%20is%20basically%20like%20a%20folder%20for%20a%20given%20assignment/project.>`__,
-and you will be asked to make changes to the Python code and main
-document for each assignment. More on that below.
+When you accept the assignment a copy of it will be made in your personal GitHub repositories (a repository on Github is basically like a folder for a given assignment/project), and you will be asked to make changes to the Python code and main
+document for each assignment.
 
-Footnotes
-~~~~~~~~~
-
-**Next**: `Some basic elements of Python, part
-1 <python-basic-elements1.md>`__\  **Home**: `Lesson 2 main
-page <https://github.com/Python-for-geo-people/Lesson-2-Data-types-Lists>`__\ 
-**Previous**: `Logging into GitHub <log-in-GitHub.md>`__

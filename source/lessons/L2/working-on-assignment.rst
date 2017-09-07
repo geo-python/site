@@ -25,6 +25,10 @@ Python code and selecting **Save Link As...** or the equivalent in your
 web browser. This will allow you to download a copy of the Python code
 to your computer.
 
+.. note::
+
+   **TODO** Add more information here.
+
 Modifying the "starter" code in Spyder
 --------------------------------------
 
@@ -45,10 +49,13 @@ Here are some suggestions for working with the "starter" code.
    It may take a minute or two to open. In Windows you should have an
    application you can launch from the Start Menu, and on a Mac you can
    open the Anaconda Launcher on your Desktop and find **Spyder** there.
+
+|
+
 -  **Open the "starter" code in Spyder**. Once you open Spyder you
    should see something like the window below.
 
-.. figure:: ../img/Spyder.png
+.. figure:: img/Spyder.png
    :alt: Spyder
 
    Spyder
@@ -91,12 +98,12 @@ your answers to the questions in the assignment in the ``README.md``
 document, as well as embedding any plot figures. To edit your
 ``README.md`` file, you can do the following:
 
-1. **Open the ``README.md`` for editing**. Click on the ``README.md`` in
+1. **Open the** ``README.md`` **for editing**. Click on the ``README.md`` in
    the list of files in the assignment repository, and then click on the
    **pencil icon** in the toolbar above the ``README.md`` to edit the
    document. The toolbar should look like the image below.
 
-.. figure:: ../img/Edit-README.png
+.. figure:: img/Edit-README.png
    :alt: Editing toolbar
 
    Editing toolbar
@@ -111,6 +118,8 @@ document, as well as embedding any plot figures. To edit your
    page on `Github-flavored
    Markdown <https://help.github.com/articles/basic-writing-and-formatting-syntax/>`__.
 
+|
+
 3. **Preview your changes**. After you have made your changes, it is a
    good idea to click on **Preview changes** to make sure the changes
    you have made are formatted the way you expect. Markdown is pretty
@@ -118,7 +127,7 @@ document, as well as embedding any plot figures. To edit your
    might like. **Preview changes** is in the editing bar above the
    document text, as shown below.
 
-.. figure:: ../img/Preview-changes.png
+.. figure:: img/Preview-changes.png
    :alt: Preview changes
 
    Preview changes
@@ -127,6 +136,9 @@ document, as well as embedding any plot figures. To edit your
    changes by adding a commit message and clicking on the **Commit
    changes** button. As above, it is a good idea to make a short note of
    what you changed when you make changes in the **Commit changes** box.
+
+|
+
 5. **Check out the "pro" tips**. Below you will find some tips for using
    GitHub that will help you produce nicer looking plots and Markdown
    files, and to get the most out of using a resource like GitHub.
@@ -156,7 +168,12 @@ answers for the assignments.
    **History button** for one of the files in your GitHub repository, as
    shown below.
 
-|History button| Once you pull up the document history you can click on
+.. figure:: img/Edit-README.png
+   :alt: History button
+
+   History button
+
+Once you pull up the document history you can click on
 the hash (the set of 7 numbers/letters listed to the right of a given
 version) to see the changes made for that save, or click on the ``<>``
 button to see the version of the file at that time in the past.
@@ -175,6 +192,8 @@ button to see the version of the file at that time in the past.
    image between parentheses ``()``. Check out the example for Exercise
    2 if this is unclear.
 
+|
+
 -  **Use good quality images**. By default, Spyder will display your
    images in the IPython console window, and the image quality is just
    OK. If you would like to make nicer images to include in your answers
@@ -190,11 +209,5 @@ button to see the version of the file at that time in the past.
    higher resolution than the equivalent in the IPython console in
    Spyder. It is always nice to produce the best looking plots you can!
 
-**Next**: `Exercise 2: Writing scripts and using
-GitHub <https://classroom.github.com/assignment-invitations/a3e02d425c06db7948bcfe7ae7804317>`__\ 
-**Home**: `Lesson 2 main
-page <https://github.com/Python-for-geo-people/Lesson-2-Data-types-Lists>`__\ 
-**Previous**: `Writing script files <writing-scripts.md>`__
 
-.. |History button| image:: ../img/Edit-README.png
 
