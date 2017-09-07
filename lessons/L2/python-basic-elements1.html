@@ -1,0 +1,618 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-105019106-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Basic elements of Python (part I) &mdash; Geo-Python 2017 Autumn documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/geo-python.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Geo-Python 2017 Autumn documentation" href="../../index.html"/>
+    <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
+     
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Geo-Python
+          
+
+          
+            
+            <img src="../../_static/logo_hy_geo_135.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2017 Autumn
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/installing-anacondas.html">Installing Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L1/motivation.html">Motivation for the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/course-environment-components.html">Course environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/intro-to-cloud-environment.html">Using the cloud computing environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/slack-usage.html">Communicating with Slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/A-taste-of-Python.html">A taste of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/exercise-1.html">Exercise 1</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Geo-Python</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Basic elements of Python (part I)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/lessons/L2/python-basic-elements1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="basic-elements-of-python-part-i">
+<h1>Basic elements of Python (part I)<a class="headerlink" href="#basic-elements-of-python-part-i" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Like the previous lesson, this lesson is inspired by the <a class="reference external" href="https://v4.software-carpentry.org/python/index.html">Programming in
+Python lessons</a>
+from the <a class="reference external" href="http://software-carpentry.org/">Software Carpentry
+organization</a>. The main sections of
+the lesson are below.</p>
+<ul class="simple">
+<li><a class="reference external" href="#data-types-revisited">Data types</a></li>
+<li><a class="reference external" href="#lists-and-indices">Lists and indices</a></li>
+<li><a class="reference external" href="#the-concept-of-objects">The concept of objects</a></li>
+</ul>
+</div>
+<div class="section" id="data-types-revisited">
+<h2>Data types revisited<a class="headerlink" href="#data-types-revisited" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">We saw a bit about variables and their values in the lesson last
+week, and we continue today with some variables related to rock
+samples collected on a recent field excursion. For a given rock
+sample, the standard for assigning a sample identification value is
+to use the format <code class="docutils literal"><span class="pre">PE-LO-NU-YR</span></code>, where <code class="docutils literal"><span class="pre">PE</span></code> is for the first and
+last initials of the person that collected the sample, <code class="docutils literal"><span class="pre">LO</span></code> is a
+two-letter abbreviation for the sample location, <code class="docutils literal"><span class="pre">NU</span></code> is the sample
+number on that excursion, and <code class="docutils literal"><span class="pre">YR</span></code> is the last two digits of the
+year in which the sample was collected. We can store this
+ipnformation and some additional information about the samples in
+Python as follows:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">SampleID</span> <span class="o">=</span> <span class="s1">&#39;DW-NP-48-16&#39;</span>
+<span class="n">SampleNumber</span> <span class="o">=</span> <span class="mi">48</span>
+<span class="n">SampleWeightLbs</span> <span class="o">=</span> <span class="mf">6.89</span>
+<span class="n">SampleRockType</span> <span class="o">=</span> <span class="s1">&#39;Mica schist&#39;</span>
+</pre></div>
+</div>
+<p>Here we have 4 values assigned to variables related to a single rock
+sample. Each variable has a unique name and they can store different
+types of data.</p>
+</li>
+<li><p class="first">We can explore the different types of data stored in variables usint
+the <code class="docutils literal"><span class="pre">type()</span></code> function. There are 4 basic <em>data types</em> in Python as
+shown in the table below.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="42%" />
+<col width="26%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Data type name</th>
+<th class="head">Data type</th>
+<th class="head">Example</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">int</span></code></td>
+<td>Whole integer values</td>
+<td><code class="docutils literal"><span class="pre">4</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">float</span></code></td>
+<td>Decimal values</td>
+<td><code class="docutils literal"><span class="pre">3.1415</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">str</span></code></td>
+<td>Character strings</td>
+<td><code class="docutils literal"><span class="pre">'Hello'</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">bool</span></code></td>
+<td>True/false values</td>
+<td><code class="docutils literal"><span class="pre">True</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>As you will see, the data types are important because some are not
+compatible with one another.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">SampleNumber</span><span class="p">)</span>
+<span class="go">int</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">SampleWeightLbs</span><span class="p">)</span>
+<span class="go">float</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">SampleRockType</span><span class="p">)</span>
+<span class="go">str</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Ok. So we can get the data types for variables in Python using the
+<code class="docutils literal"><span class="pre">type()</span></code> function, but why does this matter? The main reason is
+that some types of data are compatible with one another, while others
+are not.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">SampleWeightLbs</span> <span class="o">*</span> <span class="mi">25</span>     <span class="c1"># Estimate weight of 25 samples</span>
+<span class="go">172.25</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">SampleWeightLbs</span> <span class="o">/</span> <span class="mf">2.2</span>    <span class="c1"># Calculate sample weight in pounds</span>
+<span class="go">3.1318181818181814</span>
+</pre></div>
+</div>
+<p>In Python 3 is it generally not a problem to multiply or divide
+<code class="docutils literal"><span class="pre">int</span></code> and <code class="docutils literal"><span class="pre">float</span></code> variables. As you might expect, you can also
+multiply them by themselves.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">SampleWeightLbs</span> <span class="o">*</span> <span class="n">SampleWeightLbs</span>
+<span class="go">47.4721</span>
+</pre></div>
+</div>
+<p>The trouble can arise when trying to use mathematical operations with
+incompatible data types.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">SampleWeightLbs</span> <span class="o">+</span> <span class="n">SampleID</span>
+<span class="go">---------------------------------------------------------------------------</span>
+<span class="go">TypeError                                 Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-20-75e50db6ddf4&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 SampleWeightLbs + SampleID</span>
+
+<span class="go">TypeError: unsupported operand type(s) for +: &#39;float&#39; and &#39;str&#39;</span>
+</pre></div>
+</div>
+<p>Here we get a <code class="docutils literal"><span class="pre">TypeError</span></code> because Python does not know how we are
+expected to combine a string of characters (<code class="docutils literal"><span class="pre">SampleID</span></code>) with a
+decimal value number (<code class="docutils literal"><span class="pre">SampleWeightLbs</span></code>).</p>
+</li>
+<li><p class="first">Interestingly, some operations combining numbers and <code class="docutils literal"><span class="pre">str</span></code> values
+will work.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">SampleID</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="go">&#39;DW-NP-48-16DW-NP-48-16DW-NP-48-16&#39;</span>
+</pre></div>
+</div>
+<p>Here the values in the <code class="docutils literal"><span class="pre">SampleID</span></code> variable are simply repeated 3
+times.</p>
+</li>
+<li><p class="first">One of the nice options in IPython is that you can see which
+variables are in memory and their values by typing <code class="docutils literal"><span class="pre">%whos</span></code>.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">%</span><span class="n">whos</span>
+<span class="go">Variable         Type     Data/Info</span>
+<span class="go">-----------------------------------</span>
+<span class="go">SampleID         str      DW-NP-48-16</span>
+<span class="go">SampleWeightLbs  float    6.89</span>
+<span class="go">SampleNumber     int      48</span>
+<span class="go">SampleRockType   str      Mica schist</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">%whos</span></code> is an IPython magic command that will not work in a
+standard Python interpreter window. We will see other magic commands
+as we learn more Python. They&#8217;re useful!</p>
+</li>
+</ol>
+</div>
+<div class="section" id="lists-and-indices">
+<h2>Lists and indices<a class="headerlink" href="#lists-and-indices" title="Permalink to this headline">¶</a></h2>
+<p>As we&#8217;ve seen above, my recent field excursion involved collecting (at
+least) 48 rock samples. Rather than having individual variables for each
+of those samples, we can store many related values in a <em>collection</em>.
+The simplest type of <em>collection</em> in Python is a <strong>list</strong>.</p>
+<ol class="arabic">
+<li><p class="first">Let&#8217;s first create a list of selected <code class="docutils literal"><span class="pre">SampleID</span></code> values.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">SampleIDs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DW-NP-03-16&#39;</span><span class="p">,</span> <span class="s1">&#39;DW-NP-12-16&#39;</span><span class="p">,</span> <span class="s1">&#39;DW-NP-33-16&#39;</span><span class="p">,</span> <span class="s1">&#39;DW-NP-48-16&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">)</span>
+<span class="go">[&#39;DW-NP-03-16&#39;, &#39;DW-NP-12-16&#39;, &#39;DW-NP-33-16&#39;, &#39;DW-NP-48-16&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">)</span>
+<span class="go">list</span>
+</pre></div>
+</div>
+<p>Here we have a list of 4 <code class="docutils literal"><span class="pre">SampleID</span></code> values in a list called
+<code class="docutils literal"><span class="pre">SampleIDs</span></code>. As you can see, the <code class="docutils literal"><span class="pre">type()</span></code> function recognizes
+this as a list. Lists can be created using the square brackets (<code class="docutils literal"><span class="pre">[</span></code>
+and <code class="docutils literal"><span class="pre">]</span></code>), with commas separating the values in the list.</p>
+</li>
+<li><p class="first">To access an individual value in the list we need to use an <strong>index
+value</strong>. An <strong>index value</strong> is a number that refers to a given
+position in the list. Let&#8217;s check out the first value in our list as
+an example:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">&#39;DW-NP-12-16&#39;</span>
+</pre></div>
+</div>
+<p>Wait, what? This is the second value in the list we&#8217;ve created, what
+is wrong? As it turns out, Python (and many other programming
+languages) start values stored in collections with the index value 0.
+Thus, to get the value for the first item in the list, we must use
+index 0.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">&#39;DW-NP-03-16&#39;</span>
+</pre></div>
+</div>
+<p>OK, that makes sense now, but it may take some getting used to...</p>
+</li>
+<li><p class="first">We can find the length of a list using the <code class="docutils literal"><span class="pre">len()</span></code> function.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">)</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+<p>Just as expected, there are 4 values in our list and
+<code class="docutils literal"><span class="pre">len(SampleIDs)</span></code> returns a value of 4.</p>
+</li>
+<li><p class="first">If we know the length of the list, we can now use it to find the
+value of the last item in the list, right?</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="go">---------------------------------------------------------------------------</span>
+<span class="go">IndexError                                Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-34-946b174fe444&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 print(SampleIDs[4])</span>
+
+<span class="go">IndexError: list index out of range</span>
+</pre></div>
+</div>
+<p>What, an <code class="docutils literal"><span class="pre">IndexError</span></code>? That&#8217;s right, since our list starts with
+index 0 and has 4 values, the index of the last item in the list is
+<code class="docutils literal"><span class="pre">len(SampleIDs)</span> <span class="pre">-</span> <span class="pre">1</span></code>. That isn&#8217;t ideal, but fortunately there&#8217;s a
+nice trick in Python to find the last item in a list.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">)</span>
+<span class="go">[&#39;DW-NP-03-16&#39;, &#39;DW-NP-12-16&#39;, &#39;DW-NP-33-16&#39;, &#39;DW-NP-48-16&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">&#39;DW-NP-48-16&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">])</span>
+<span class="go">&#39;DW-NP-03-16&#39;</span>
+</pre></div>
+</div>
+<p>Yes, in Python you can go backwards through lists by using negative
+index values. Index -1 gives the last value in the list and index
+<code class="docutils literal"><span class="pre">-len(SampleIDs)</span></code> would give the first. Of course, you still need
+to keep the index values within their ranges.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">])</span>
+<span class="go">---------------------------------------------------------------------------</span>
+<span class="go">IndexError                                Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-38-ac2327014588&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 print(SampleIDs[-5])</span>
+
+<span class="go">IndexError: list index out of range</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Another nice feature of lists is that they are <em>mutable</em>, meaning
+that the values in a list that has been defined can be modified.
+Consider a list of the rock types corresponding to the sample IDs in
+the <code class="docutils literal"><span class="pre">SampleIDs</span></code> list.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">SampleRockTypes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Augen gneiss&#39;</span><span class="p">,</span> <span class="s1">&#39;Leucogranite&#39;</span><span class="p">,</span> <span class="s1">&#39;Quartzite&#39;</span><span class="p">,</span> <span class="s1">&#39;Mica schst&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">SampleRockTypes</span><span class="p">)</span>
+<span class="go">[&#39;Augen gneiss&#39;, &#39;Leucogranite&#39;, &#39;Quartzite&#39;, &#39;Mica schst&#39;]</span>
+</pre></div>
+</div>
+<p>Now as we saw before, the rock types for sample DW-NP-48-16 should be
+&#8216;Mica schist&#8217;, not &#8216;Mica schst&#8217;. Fortunately, this is an easy fix. We
+simply replace the value at the corresponding location in the list
+with the correct definition.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">SampleRockTypes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Mica schist&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">SampleRockTypes</span><span class="p">)</span>
+<span class="go">[&#39;Augen gneiss&#39;, &#39;Leucogranite&#39;, &#39;Quartzite&#39;, &#39;Mica schist&#39;]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Lists also do not need to have only one type of data. Let&#8217;s consider
+that in addition to having a list of each sample ID, sample number,
+rock type, etc. we would like to have a list of all of the values for
+sample &#8216;DW-NP-48-16&#8217;.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Sample48</span> <span class="o">=</span> <span class="p">[</span><span class="n">SampleID</span><span class="p">,</span> <span class="n">SampleNumber</span><span class="p">,</span> <span class="n">SampleWeightLbs</span><span class="p">,</span> <span class="n">SampleRockType</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">Sample48</span><span class="p">)</span>
+<span class="go">[&#39;DW-NP-48-16&#39;, 48, 6.89, &#39;Mica schist&#39;]</span>
+</pre></div>
+</div>
+<p>Here we have one list with 3 different type of data in it. We can
+confirm this using the <code class="docutils literal"><span class="pre">type()</span></code> function.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">Sample48</span><span class="p">)</span>
+<span class="go">list</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">Sample48</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>    <span class="c1"># The sample ID</span>
+<span class="go">str</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">Sample48</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>     <span class="c1"># The sample number</span>
+<span class="go">int</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">Sample48</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>    <span class="c1"># The sample weight</span>
+<span class="go">float</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Finally, we can add and remove values from lists to change their
+lengths. Let&#8217;s consider that we no longer want to include the first
+value in the <code class="docutils literal"><span class="pre">SampleIDs</span></code> list.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">)</span>
+<span class="go">[&#39;DW-NP-03-16&#39;, &#39;DW-NP-12-16&#39;, &#39;DW-NP-33-16&#39;, &#39;DW-NP-48-16&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">SampleIDs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">)</span>
+<span class="go">[&#39;DW-NP-12-16&#39;, &#39;DW-NP-33-16&#39;, &#39;DW-NP-48-16&#39;]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">del</span></code> allows values in lists to be removed. It can also be used to
+delete values from memory in Python. If we would instead like to add
+a few samples to the <code class="docutils literal"><span class="pre">SampleIDs</span></code> list, we can do so as follows.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">SampleIDs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;DW-NP-27-16&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">SampleIDs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;DW-NP-51-16&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">)</span>
+<span class="go">[&#39;DW-NP-12-16&#39;, &#39;DW-NP-33-16&#39;, &#39;DW-NP-48-16&#39;, &#39;DW-NP-27-16&#39;, &#39;DW-NP-51-16&#39;]</span>
+</pre></div>
+</div>
+<p>As you can see, we add values one at a time using
+<code class="docutils literal"><span class="pre">SampleIDs.append()</span></code>. <code class="docutils literal"><span class="pre">list.append()</span></code> is called a <em>method</em> in
+Python, which is a function that works for a given data type (a list
+in this case). We&#8217;ll see a bit more about these below.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="the-concept-of-objects">
+<h2>The concept of objects<a class="headerlink" href="#the-concept-of-objects" title="Permalink to this headline">¶</a></h2>
+<p>Python is one of a number of computer programming languages that are
+called &#8220;object-oriented languages&#8221;. It took me quite some time to
+understand what this meant, but the simple explanation is that we can
+consider the variables that we define to be &#8220;objects&#8221; that can contain
+both data known as <em>attributes</em> and a specific set of functions
+(<em>methods</em>). The previous sentence could take quite some time to
+understand by itself, but using an example the concept of &#8220;objects&#8221; is
+much easier to understand.</p>
+<ol class="arabic">
+<li><p class="first">Let&#8217;s consider our list <code class="docutils literal"><span class="pre">SampleIDs</span></code>. As we know, we already have
+data in the list <code class="docutils literal"><span class="pre">SampleIDs</span></code>, and we can modify that data using
+built-in <em>methods</em> such as <code class="docutils literal"><span class="pre">SampleIDs.append()</span></code>. We can also do
+other things such as count the number of times a value occurs in a
+list, or where it occurs.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">SampleIDs</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;DW-NP-27-16&#39;</span><span class="p">)</span>    <span class="c1"># The count method counts the number of occurences of a value</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">SampleIDs</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;DW-NP-27-16&#39;</span><span class="p">)</span>    <span class="c1"># The index method gives the index value of an item in a list</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<p>The good news here is that our selected sample ID is only in the list
+once. Should we need to modify it for some reason, we also now know
+where it is in the list (index <code class="docutils literal"><span class="pre">3</span></code>).</p>
+</li>
+<li><p class="first">There are two other common methods for lists that we need to see.
+First, there is the <code class="docutils literal"><span class="pre">.sort()</span></code> method, used to sort values in a
+list. As you can see from when we appended the additional two sample
+IDs earlier, our list no longer has sample IDs in increasing order.
+We can fix that.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">SampleIDs</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">)</span>
+<span class="go">[&#39;DW-NP-12-16&#39;, &#39;DW-NP-27-16&#39;, &#39;DW-NP-33-16&#39;, &#39;DW-NP-48-16&#39;, &#39;DW-NP-51-16&#39;]</span>
+</pre></div>
+</div>
+<p>Yay, it works! A common mistake when sorting lists is to do something
+like <code class="docutils literal"><span class="pre">SampleIDs</span> <span class="pre">=</span> <span class="pre">SampleIDs.sort()</span></code>. <strong>Do not do this!</strong> When
+sorting with <code class="docutils literal"><span class="pre">.sort()</span></code> the <code class="docutils literal"><span class="pre">None</span></code> value is returned (this is why
+there is no screen ouput when running <code class="docutils literal"><span class="pre">SampleIDs.sort()</span></code>). If you
+then assign the output of <code class="docutils literal"><span class="pre">SampleIDs.sort()</span></code> to <code class="docutils literal"><span class="pre">SampleIDs</span></code> you
+will sort the list, but then overwrite its contents with the returned
+value <code class="docutils literal"><span class="pre">None</span></code>. This means you&#8217;ve deleted the list contents (!).</p>
+</li>
+<li><p class="first">The <code class="docutils literal"><span class="pre">.reverse()</span></code> method works the same way.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">SampleIDs</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>   <span class="c1"># Notice no output here...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">)</span>
+<span class="go">[&#39;DW-NP-51-16&#39;, &#39;DW-NP-48-16&#39;, &#39;DW-NP-33-16&#39;, &#39;DW-NP-27-16&#39;, &#39;DW-NP-12-16&#39;]</span>
+</pre></div>
+</div>
+<p>As you can see, the list has been reversed using the <code class="docutils literal"><span class="pre">.reverse()</span></code>
+method, but there is no screen output when this occurs. Again, if you
+were to assign that output to <code class="docutils literal"><span class="pre">SampleIDs</span></code> the list would get
+reversed, but the contents would then be assigned <code class="docutils literal"><span class="pre">None</span></code>.</p>
+</li>
+<li><p class="first">We won&#8217;t discuss any list <em>attributes</em> because as far as I know there
+aren&#8217;t any, but we&#8217;ll encounter some very useful <em>attributes</em> of
+other data types in the future.</p>
+</li>
+</ol>
+<p><strong>Next</strong>: <a class="reference external" href="writing-scripts.md">Writing script files</a> <strong>Home</strong>:
+<a class="reference external" href="https://github.com/Python-for-geo-people/Lesson-2-Data-types-Lists">Lesson 2 main
+page</a><strong>Previous</strong>: <a class="reference external" href="GitHub-classroom.md">Classroom for GitHub</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 Tenkanen &amp; Whipp, University of Helsinki.
+      Last updated on Sep 07, 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p> <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> </a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2017 Autumn',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
