@@ -6,7 +6,7 @@ SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PAPER         =
 BUILDDIR      = docs
-GH_PAGES_SOURCES = source Makefile
+GH_PAGES_SOURCES = source Makefile docs
 
 # User-friendly check for sphinx-build
 ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
@@ -195,7 +195,7 @@ pseudoxml:
 # Build for GitHub Pages
 gh-pages:
 	git checkout gh-pages
-	rm -rf docs _sources _static
+	rm -rf *
 	git checkout master $(GH_PAGES_SOURCES)
 	git reset HEAD
 	make html
