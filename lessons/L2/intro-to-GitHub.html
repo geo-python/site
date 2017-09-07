@@ -1,0 +1,444 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-105019106-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction to Version Control and GitHub &mdash; Geo-Python 2017 Autumn documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/geo-python.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Geo-Python 2017 Autumn documentation" href="../../index.html"/>
+    <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
+     
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Geo-Python
+          
+
+          
+            
+            <img src="../../_static/logo_hy_geo_135.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2017 Autumn
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/installing-anacondas.html">Installing Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L1/motivation.html">Motivation for the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/course-environment-components.html">Course environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/intro-to-cloud-environment.html">Using the cloud computing environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/slack-usage.html">Communicating with Slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/A-taste-of-Python.html">A taste of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/exercise-1.html">Exercise 1</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Geo-Python</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Introduction to Version Control and GitHub</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/lessons/L2/intro-to-GitHub.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction-to-version-control-and-github">
+<h1>Introduction to Version Control and GitHub<a class="headerlink" href="#introduction-to-version-control-and-github" title="Permalink to this headline">¶</a></h1>
+<p>These materials are inspired and partially based on Software Carpentry&#8217;s
+lesson on <a class="reference external" href="http://swcarpentry.github.io/git-novice/">Version Control with
+Git</a>.</p>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="#motivation">Motivation</a></li>
+<li><a class="reference external" href="#vcs-idea">What is version control and why to use it?</a></li>
+<li><a class="reference external" href="#GitHub">What is GitHub?</a></li>
+<li><a class="reference external" href="#resources">Resources</a></li>
+</ul>
+<blockquote>
+<div>Familiar?</div></blockquote>
+<hr class="docutils" />
+<div class="figure" id="id1">
+<img alt="Motivation for version control" src="lessons/L2/../img/version_control_motivation_comics.png" />
+<p class="caption"><span class="caption-text">Motivation for version control</span></p>
+</div>
+<p><em>Source: “Piled Higher and Deeper” by Jorge Cham</em>,
+<a class="reference external" href="http://www.phdcomics.com">http://www.phdcomics.com</a></p>
+<p><strong>Wouldn&#8217;t it be nice to learn how to avoid this situation!?!?</strong></p>
+<p>We’ve all been in this situation before: it seems ridiculous to have
+multiple nearly-identical versions of the same document. Some word
+processors let us deal with this a little better, such as Microsoft
+Word’s “Track Changes”.</p>
+<blockquote>
+<div>What is version control and why to use it?</div></blockquote>
+<hr class="docutils" />
+<div class="section" id="what-is-it">
+<h3>What is it?<a class="headerlink" href="#what-is-it" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Version_control">Version control</a> is
+used to track and store changes in your files without losing the history
+of your past changes.</p>
+<p>Version control systems start with a base version of the document and
+then save just the changes you made at each step of the way. You can
+think of it as a tape: if you rewind the tape and start at the base
+document, then you can play back each change and end up with your latest
+version.</p>
+<div class="figure" id="id2">
+<img alt="Illustration of committing changes" src="lessons/L2/../img/play-changes.PNG" />
+<p class="caption"><span class="caption-text">Illustration of committing changes</span></p>
+</div>
+<p>A version control system is a tool that keeps track of these changes for
+us and helps us version our files <em>(`and
+merge &lt;https://en.wikipedia.org/wiki/Merge_(version_control)&gt;`__</em>- not
+covered in this course). It allows you to decide which changes make up
+the next version, called a commit, and keeps useful metadata about them.
+The complete history of commits for a particular project and their
+metadata make up a repository (such as our course material
+repositories). Repositories can be kept in sync across different
+computers facilitating also collaboration among different people.</p>
+<p>There are multiple different Version Control Systems (VCS) (i.e. a
+software for doing version control) but one of the most popular one is
+<strong>`Git &lt;https://en.wikipedia.org/wiki/Git_(software)&gt;`__</strong> that was
+created by Linus Torvalds in 2005. Git is the version control system
+that is running behind the scenes and used with GitHub. And that&#8217;s
+actually where its name &#8216;Git - Hub&#8217; originates from.</p>
+</div>
+<div class="section" id="why-to-use-it">
+<h3>Why to use it?<a class="headerlink" href="#why-to-use-it" title="Permalink to this headline">¶</a></h3>
+<p>One of the most obvious reasons why to use version control is to avoid
+the situation illustrated in the <a class="reference external" href="#motivation">comics above</a>, i.e. to
+keep track of the full history of your changes in a systematic way
+without the need to have multiple versions of the same file. One really
+useful feature of version control is the ability to &#8220;go back in time&#8221;,
+i.e. if something goes wrong, you can start from some earlier version of
+the file when everything was still working. You can also compare the
+differences between versions and see what has changed. In addition
+aforementioned aspects, version control makes possible for multiple
+people to work on the same file or project at the same time while still
+keeping track of their own changes to the files.</p>
+</div>
+<div class="section" id="some-basic-vocabulary-of-version-control">
+<h3>Some basic vocabulary of Version Control<a class="headerlink" href="#some-basic-vocabulary-of-version-control" title="Permalink to this headline">¶</a></h3>
+<p>Few basic terms that are used often when discussing about version
+control (not exhaustive).</p>
+<ul class="simple">
+<li><strong>Repository</strong> = a location where all the files for a particular
+project are stored, usually abbreviated to “repo.” Each project will
+have its own repo, which is usually located on a server and can be
+accessed by a unique URL (a link to GitHub page for example).</li>
+<li><strong>Commit</strong> = To commit is to write or merge the changes made in the
+working copy back to the repository. Whe you commit, you are
+basically taking a “snapshot” of your repository at that point in
+time, giving you a checkpoint to which you can reevaluate or restore
+your project to any previous state. The terms &#8216;commit&#8217; or &#8216;checkin&#8217;
+can also be used as nouns to describe the new revision that is
+created as a result of committing.</li>
+<li><strong>Revision / version</strong> = A revision or a version is any change in
+made in any form to a document(s).</li>
+<li><strong>Clone</strong> = Cloning means creating a repository containing the
+revisions from another repository. This is equivalent to pushing or
+pulling into an empty (newly initialized) repository. As a noun, two
+repositories can be said to be clones if they are kept synchronized,
+and contain the same revisions.</li>
+<li><strong>Pull / push</strong> = Copy revisions from one repository into another.
+Pull is initiated by the receiving repository, while push is
+initiated by the source. Fetch is sometimes used as a synonym for
+pull, or to mean a pull followed by an update.</li>
+<li><strong>Merge</strong> = A merge or integration is an operation in which two sets
+of changes are applied to a file or set of files.</li>
+</ul>
+<blockquote>
+<div>What is GitHub?</div></blockquote>
+<hr class="docutils" />
+<p>Now that you know the basics of version control we can dive into
+explaining what GitHub is.</p>
+<p><strong>Relies on Git</strong></p>
+<p>GitHub in principle is a web based Git repository hosting service. Thus
+it wouldn&#8217;t exist without the version control system Git. Git is also
+running all the time in the background when using GitHub.</p>
+<p><strong>Social (collaborative) network</strong></p>
+<p>However, GitHub is much more than just a hosting service for Git
+repositories as it is also a social network where people can collaborate
+with each other. It is also easy to invite other GitHub users to work
+with the same project. GitHub is a highly popular place for sharing
+codes openly to the entire world or alternatively only to the
+collaborators working on the same project.</p>
+<p><strong>Open source / science</strong></p>
+<p>All publicly available repositories can also be downloaded to your own
+local computer where you can start modifying the codes for your own
+purpose which is called &#8220;forking&#8221;. However, you should always check and
+follow the license terms mentioned in the project that basically tells
+you what you can do (and what not) with the codes that are shared.
+Usually there might be some limitations for commercial use of the codes
+for example. Sharing your work publicly to others is also the basic
+principle of open science.</p>
+<p><strong>Documentation</strong></p>
+<p>GitHub repositories are often also used as web pages for different
+projects. In GitHub such web pages typically include technical
+documentation, instructions and examples how to use the codes or
+software shared on that page. <strong>It is extremely important that you
+document well your codes and programs that you have done!</strong> GitHub
+provides a nice platform for doing and sharing such documentation.</p>
+<p>Each repository (and possibly its subfolders) includes a file called
+<code class="docutils literal"><span class="pre">README.md</span></code> that by default is the front-page of the given repository
+in GitHub. Those files are written using a specific simple language
+called <a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a> that
+can be used to create nice looking web pages with different formattings,
+figures, tables and so on. Markdown is really easy to use once you have
+learned the basic syntax of how different textual elements are written.</p>
+<p><strong>Online tools</strong></p>
+<p>There are multiple useful tools integrated into GitHub such as
+possibility to edit the documents or codes directly from the web site.
+What is even better is that Git is always running in background also in
+the web environment, thus all your changes made in the web browser will
+be saved as commits. It is also possible to browse the whole history of
+a file directly from the GitHub&#8217;s online interface and track the changes
+that you have done.</p>
+<p>Usually Git (the software) is run from the command prompt but GitHub
+provides a way to do Git commands without the need to run any commands
+in the terminal. There are, however, also other graphical user
+interfaces for Git that comes with some <a class="reference external" href="https://en.wikipedia.org/wiki/Integrated_development_environment">Integrated Development
+Environments
+(IDE)</a>.</p>
+<p><strong>Issue tracking</strong></p>
+<p>In GitHub it is also possible to give feedback to the developer by
+creating a specific &#8220;Issue&#8221; that can be used to report for example a bug
+that was found in the code or software. Issues can also be used to track
+ideas, enhancements, tasks for projects on GitHub. You can use Issues
+also to organize tasks you&#8217;d like to accomplish, such as adding new
+features or auditing old ones.</p>
+<blockquote>
+<div>Resources</div></blockquote>
+<hr class="docutils" />
+<ul class="simple">
+<li><a class="reference external" href="https://www.youtube.com/playlist?list=PL4Q4HssKcxYsTuqUUvEHJ8XxOVOHTSmle">Screencast series in Youtube for learning
+GitHub</a></li>
+<li><a class="reference external" href="https://guides.github.com/activities/hello-world/">Tutorial on few extra features of GitHub not (most probably) covered
+in this course (e.g. branch, pull-request,
+merge)</a></li>
+<li><a class="reference external" href="https://techcrunch.com/2012/07/14/what-exactly-is-github-anyway/">A TechCrunch article about &#8216;What is GitHub
+Anyway?&#8217;</a></li>
+<li><a class="reference external" href="https://help.github.com/articles/good-resources-for-learning-git-and-github/">A list of resources for learning Git and
+GitHub</a></li>
+</ul>
+<p><strong>Next</strong>: <a class="reference external" href="log-in-GitHub.md">Logging into GitHub</a> <strong>Home</strong>: <a class="reference external" href="https://github.com/Python-for-geo-people/Lesson-2-Data-types-Lists">Lesson
+2 main
+page</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 Tenkanen &amp; Whipp, University of Helsinki.
+      Last updated on Sep 07, 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p> <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> </a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2017 Autumn',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
