@@ -1,5 +1,5 @@
-Lecture materials
-=================
+Lecture
+=======
 
 .. admonition:: Lesson 1.1 Course overview, computing basics
 
