@@ -25,9 +25,21 @@ Python code and selecting **Save Link As...** or the equivalent in your
 web browser. This will allow you to download a copy of the Python code
 to your computer.
 
-.. note::
+.. todo::
 
-   **TODO** Add more information here.
+   Add more information here about how to download/commit files.
+
+.. hint::
+
+   Updating your GitHub repository in this way is really easy to use (hence we are doing it like this). However, when working on larger projects, interacting with GitHub becomes really
+   inefficient in this manner. Hence, how real programmers do it, is that they often interact with GitHub using Git from command prompt / terminal (or using plugins in their IDE).
+
+   We don't have time during this course to cover the usage of Git from terminal but there are excellent resources available that you can use to learn it if you are interested:
+
+     - `Online Git "Try-it!" tutorial <https://try.github.io>`__
+     - `Git simple guide ("no deep shit") tutorial <http://rogerdudler.github.io/git-guide/>`__
+     - `Software Carpentry's Git novice tutorial <https://swcarpentry.github.io/git-novice>`__
+
 
 Modifying the "starter" code in Spyder
 --------------------------------------
