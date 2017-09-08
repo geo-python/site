@@ -79,47 +79,46 @@ Data types revisited
 Lists and indices
 -----------------
 
-As we've seen above, my recent field excursion involved collecting (at
-least) 48 rock samples. Rather than having individual variables for each
-of those samples, we can store many related values in a *collection*.
+Above we have seen a bit of data related to one of several FMI observation stations in the Helsinki area.
+Rather than having individual variables for each of those stations, we can store many related values in a *collection*.
 The simplest type of *collection* in Python is a **list**.
 
-1. Let's first create a list of selected ``SampleID`` values.
+1. Let's first create a list of selected ``stationName`` values.
 
-   .. code:: python
+   .. ipython:: python
 
-       >>> SampleIDs = ['DW-NP-03-16', 'DW-NP-12-16', 'DW-NP-33-16', 'DW-NP-48-16']
-       >>> print(SampleIDs)
-       ['DW-NP-03-16', 'DW-NP-12-16', 'DW-NP-33-16', 'DW-NP-48-16']
-       >>> type(SampleIDs)
-       list
+    stationNames = ['Helsinki Harmaja', 'Helsinki Kaisaniemi', 'Helsinki Kaivopuisto', 'Helsinki Kumpula']
+    print(stationNames)
+    type(stationNames)
 
-   Here we have a list of 4 ``SampleID`` values in a list called
-   ``SampleIDs``. As you can see, the ``type()`` function recognizes
-   this as a list. Lists can be created using the square brackets (``[``
-   and ``]``), with commas separating the values in the list.
-2. To access an individual value in the list we need to use an **index
-   value**. An **index value** is a number that refers to a given
-   position in the list. Let's check out the first value in our list as
-   an example:
+   Here we have a list of 4 ``stationName`` values in a list called ``stationNames``.
+   As you can see, the ``type()`` function recognizes this as a list.
+   Lists can be created using the square brackets (``[`` and ``]``), with commas separating the values in the list.
 
-   .. code:: python
+2. To access an individual value in the list we need to use an **index value**.
+   An **index value** is a number that refers to a given position in the list.
+   Let's check out the first value in our list as an example:
 
-       >>> print(SampleIDs[1])
-       'DW-NP-12-16'
+   .. ipython:: python
 
-   Wait, what? This is the second value in the list we've created, what
-   is wrong? As it turns out, Python (and many other programming
-   languages) start values stored in collections with the index value 0.
-   Thus, to get the value for the first item in the list, we must use
-   index 0.
+       print(stationNames[1])
 
-   .. code:: python
+   Wait, what?
+   This is the second value in the list we've created, what is wrong?
+   As it turns out, Python (and many other programming languages) start values stored in collections with the index value 0.
+   Thus, to get the value for the first item in the list, we must use index 0.
 
-       >>> print(SampleIDs[0])
-       'DW-NP-03-16'
+   .. ipython:: python
 
-   OK, that makes sense now, but it may take some getting used to...
+       print(stationNames[0])
+
+   OK, that makes sense, but it may take some getting used to...
+
+3. As it turns out, index values are extremely useful, very commonly used in many programming languages, yet often a point of confusion for new programmers.
+   Thus, we need to have a trick for remembering what an index value is and how they are used.
+   For this, we need to be introduced to Bill.
+
+
 3. We can find the length of a list using the ``len()`` function.
 
    .. code:: python
