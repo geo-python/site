@@ -2,7 +2,6 @@ Resources
 =========
 
 In addition to our course, there are countless of excellent books, tutorials and examples related to programming in Python.
-
 Here we list some good places to look for further information.
 
 Books
