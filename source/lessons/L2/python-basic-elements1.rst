@@ -362,7 +362,3 @@ much easier to understand.
    aren't any, but we'll encounter some very useful *attributes* of
    other data types in the future.
 
-**Next**: `Writing script files <writing-scripts.md>`__\  **Home**:
-`Lesson 2 main
-page <https://github.com/Python-for-geo-people/Lesson-2-Data-types-Lists>`__\ 
-**Previous**: `Classroom for GitHub <GitHub-classroom.md>`__

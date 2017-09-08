@@ -116,8 +116,8 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     lessons/L2/intro-to-GitHub
     lessons/L2/GitHub-classroom
     lessons/L2/working-on-assignment
-    lessons/L2/writing-scripts
     lessons/L2/python-basic-elements1
+    lessons/L2/writing-scripts
     lessons/L2/log-in-GitHub
 
 
