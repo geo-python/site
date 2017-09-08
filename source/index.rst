@@ -86,11 +86,12 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     :maxdepth: 2
     :caption: Course information
 
-
     course-info/course-info
     course-info/learning-goals
     course-info/grading
     course-info/installing-anacondas
+    course-info/python-vocabulary
+    course-info/resources
     course-info/licensing
 
 .. toctree::
