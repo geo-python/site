@@ -106,6 +106,19 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     lessons/L1/A-taste-of-Python
     lessons/L1/exercise-1
 
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 2
+
+    lessons/L2/overview
+    lessons/L2/lesson-video
+    lessons/L2/intro-to-GitHub
+    lessons/L2/GitHub-classroom
+    lessons/L2/working-on-assignment
+    lessons/L2/writing-scripts
+    lessons/L2/python-basic-elements1
+    lessons/L2/log-in-GitHub
+
 
 
 

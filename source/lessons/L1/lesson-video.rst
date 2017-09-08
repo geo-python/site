@@ -15,6 +15,7 @@ Lecture
         - `19:14 - Course goals and motivation <https://youtu.be/dVN8AS572rg?t=19m14s>`__
         - `30:00 - Lecture on computers and programs <https://youtu.be/dVN8AS572rg?t=30m0s>`__
 
+|
 
 .. admonition:: Lesson 1.2 Course overview, computing basics
 
@@ -32,6 +33,8 @@ Lecture
         - `23:54 - Cloud computing summary <https://youtu.be/neE-ExRwJ1k?t=23m54s>`__
         - `26:34 - Taste of Python lesson <https://youtu.be/neE-ExRwJ1k?t=26m34s>`__
         - `1:01:54 - Exercise 1 overview <https://youtu.be/neE-ExRwJ1k?t=1h1m54s>`__
+
+|
 
 .. admonition:: Lesson slides
 

@@ -8,8 +8,4 @@ but perhaps you have not logged in.
    top right of this page.
 2. Enter the user name and password for your GitHub account.
 
-**Next**: `Classroom for GitHub <GitHub-classroom.md>`__\  **Home**:
-`Lesson 2 main
-page <https://github.com/Python-for-geo-people/Lesson-2-Data-types-Lists>`__\ 
-**Previous**: `Intro to version control and
-GitHub <intro-to-GitHub.md>`__
+

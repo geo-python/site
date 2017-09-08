@@ -1,16 +1,20 @@
 Basic elements of Python (part I)
 =================================
 
-Overview
---------
+Sources
+-------
 
-Like the previous lesson, this lesson is inspired by the `Programming with Python lesson <http://swcarpentry.github.io/python-novice-inflammation/>`__ from the `Software Carpentry organization <http://software-carpentry.org/>`__.
-The main sections of the lesson are below.
+Like the previous lesson, this lesson is inspired by the `Programming with Python lessons <https://swcarpentry.github.io/python-novice-inflammation/>`__ from the `Software Carpentry organization <http://software-carpentry.org/>`__.
+
 
 Data types revisited
 --------------------
 
-1. We saw a bit about variables and their values in the lesson last week, and we continue today with some variables related to rock samples collected on a recent field excursion. For a given rock
+1. First, if you have not already started **Spyder** you should do so. You can find :doc:`directions on how to open Spyder at the start of Lesson 1<../L1/A-taste-of-Python>`.
+
+2. We saw a bit about variables and their values in the lesson last
+   week, and we continue today with some variables related to rock
+   samples collected on a recent field excursion. For a given rock
    sample, the standard for assigning a sample identification value is
    to use the format ``PE-LO-NU-YR``, where ``PE`` is for the first and
    last initials of the person that collected the sample, ``LO`` is a
