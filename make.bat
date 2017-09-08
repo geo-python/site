@@ -123,6 +123,7 @@ if "%1" == "gh-pages" (
         DEL make.bat
         DEL Makefile
         RD /S /Q docs
+        RD /S /Q source
 
         :: Commit and push changes
         git add -A
