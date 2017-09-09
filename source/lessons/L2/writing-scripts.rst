@@ -1,290 +1,247 @@
 Writing your own Python scripts
 ===============================
 
-As you may be noticing by now, it isn't that convenient to type in all
-of the commands you would like to use in the IPython interpreter window.
-An alternative to typing in all of the commands you would like to run is
-the list them in a Python script file. A Python script file is simple a
-file containing a list of the command you would like to run, with one
-command per line, and formatted in the same way as if you were to type
-them in. Python script files traditionally use the ``.py`` file
-extension in their names.
-
-Getting started
----------------
-
-1. To start creating and editing our Python script file, we'll need to
-   open a text editor. In our case, we'll be using the **gedit** basic
-   editor, which can be launched by double clicking on the **Text
-   editor** icon on the desktop of your computer instance.
-2. The **gedit** window will appear shortly after double clicking, and
-   it should open a new (blank) document by default. You're now ready to
-   proceed.
+As you may be noticing by now, it isn't that convenient to type in all of the commands you would like to use in the IPython console.
+An alternative to typing in all of the commands you would like to run is the list them in a Python *script file*.
+A Python script file is simple a file containing a list of the command you would like to run, with one command per line, and formatted in the same way as if you were to type them in.
+Python script files traditionally use the ``.py`` file extension in their names.
 
 The general concept of a ``.py`` script file
 --------------------------------------------
 
-A Python script file is simply a list of commands that you might
-otherwise type into the IPython interpreter window. As such, we can
-quite easily create a basic script file and test things out.
+A Python script file is simply a list of commands that you might otherwise type into the IPython console.
+As such, we can quite easily create a basic script file and test things out.
 
-1. Start by copying and pasting the text below into your **gedit**
-   window.
+1. You should already have the **Spyder** editor open, and in this part of the lesson we will be working with the IPython console panel you have been using, but also with the Spyder editor panel.
 
-   .. code:: python
+   .. figure:: img/Spyder-editor.png
+    :width: 600px
+    :align: center
+    :alt: The Spyder editor
 
-       SampleID = "DW-NP-48-16"
-       SampleWeightLbs = 6.89
-       print("Sample", SampleID, "weighs", SampleWeightLbs, "pounds")
+    The Spyder editor
 
-2. Save this script file as ``sampleinfo.py`` in your home directory
-   ``/home/geo`` by clicking on **File -> Save** in the menu bar of the
-   **gedit** window. Click on the **Home** icon on the top left of the
-   **Save As** window that appears, and enter the file name as
-   ``sampleinfo.py``. Click the ``Save`` button on the lower right of
-   the window to save the file.
-3. Return to your IPython interpreter window (or start a new one if you
-   have closed it), change the directory in IPython to the home
-   directory by typing ``cd``, and run the script using the ``%run``
-   magic command in IPython. Before pressing **Enter** on the second
-   line, **what do you expect to see as output when the script runs**?
+   Start by copying and pasting the text below into your **Spyder** editor panel.
 
    .. code:: python
 
-       >>> cd
-       >>> %run sampleinfo.py
-       Sample DW-NP-48-16 weighs 6.89 pounds
+    stationName = 'Helsinki Kaivopuisto'
+    stationLat = 60.15
+    print("The", stationName, "station is located at", stationLat, "N")
 
-   No surprises here. The script simply executes the commands exactly as
-   you would have if you had typed them in to the IPython interpreter.
-4. Now let's make a small change to the script. Go back to **gedit** and
-   edit the script so that it now reads
+2. Save this script file as ``stationinfo.py`` somewhere in your home directory, such as a directory called ``Geo-Python-Lesson-2``.
+   This can be done by clicking on the disk icon in the toolbar at the top of the window.
+   Enter the file name as ``stationinfo.py`` and click the ``Save`` button on the lower right of the window to save the file.
+
+3. To run your script in **Spyder**, you simply click on the green play button in the toolbar above the editor panel.
+   You may be prompted about some options related to running the script, and you can simply click on the **Run** button on the window that pops up.
+
+   .. figure:: img/Spyder-play-button.png
+    :width: 400px
+    :align: center
+    :alt: Running a script with Spyder
+
+    Running a script in Spyder
+
+   Running the script should produce the following output in the IPython console, exactly as if you had typed the commands into the console.
+
+   .. code::
+
+    The Helsinki Kaivopuisto station is located at 60.16 N
+
+4. Now let's make a small change to the script.
+   Edit the script so that it now reads
 
    .. code:: python
 
-       SampleID = "DW-NP-48-16"
-       SampleWeightLbs = 6.89
-       SampleRockType = "Mica schist"
-       print("Sample", SampleID, "is a", SampleWeightLbs, "pound chunk of", SampleRockType)
+    stationName = 'Helsinki Kaivopuisto'
+    stationLat = 60.15
+    stationLong = 24.96
+    print("The", stationName, "station is located at", stationLat, "N,", stationLong, "E")
 
    Save your changes.
-5. Once again, go back to the IPython interpreter and use the ``%run``
-   magic command to run the modified script. Don't worry, we'll cover a
-   much better way to edit and test scripts later in today's lesson.
 
-   .. code:: python
+5. Run the script again and you should see your changes.
 
-       >>> %run sampleinfo.py
-       Sample DW-NP-48-16 is a 6.89 pound chunk of Mica schist
+   .. code::
+
+    The Helsinki Kaivopuisto station is located at 60.16 N, 24.96 E
 
 Writing our scripts the "right" way
 -----------------------------------
 
-The script above works, but one of the big advantages of using scripts
-is the ability to include comments that describe what the code does. As
-your programs get longer and more complicated, comments and other
-changes to how you write the code will help make sure you (and other
-users) can understand what the code does. Below are some suggestions to
-make sure your code is easy to understand.
+The script above works, but one of the big advantages of using scripts is including features that make the code easier to read and understand.
+These include *comments* in the code, which explain what the code does, but are not executed when the code is run.
+As your programs get longer and more complicated, features such as comments will become essential.
+Below are some suggestions to make sure your code is formatted nicely and easy to understand.
 
-1. **Add inline comments to the code to explain what different sections
-   do**. It may seem obvious how the code should work, but if you share
-   it with another person perhaps they will not feel the same way. It is
-   a very good idea to make the code as easy to read as possible for
-   people.
+Inline comments
+~~~~~~~~~~~~~~~
 
-   .. code:: python
+*Inline comments* are comments within the code that explain what certain lines of the code do.
+To your, it may seem obvious how the code works, but if you share it with another person perhaps they will not feel the same way.
+It is a very good idea to make the code as easy to read as possible for people.
 
-       # Information for sample 48 from the 2016 Nepal (NP) field excursion collected by Dave Whipp (DW)
-       # Sample 48 was from the footwall of the MCT just north of where the Nyadi river joins the Marsyandi
-       # Basic sample information
-       SampleID = "DW-NP-48-16"
-       SampleRockType = "Mica schist"
-       # Sample weight given in pounds (sorry, most of the world)
-       SampleWeightLbs = 6.89
-       # Print basic information about this sample to the screen
-       print("Sample", SampleID, "is a", SampleWeightLbs, "pound chunk of", SampleRockType)
+.. code:: python
 
-   Here, we have provided a great deal more information about the data
-   in this script by adding *inline comments*. Comments in Python are
-   not executed by the computer, but provide useful information for
-   people reading the script. Inline comments begin with a ``#`` (number
-   sign or hash), and all characters that follow on that line will be
-   ignored by Python. Adding comments to scripts is essential for
-   scientists like ourselves to both help us remember how a script works
-   and to make it easier to share with colleagues. It is best to get
-   into the habit of adding comments as you write.
-2. **Use blank lines to visually divide your script**. Perhaps it is
-   obvious, but Python will ignore blank lines in a script. They don't
-   matter to Python, but they are very helpful to users.
+    # Finnish Meterological Institute observation station name and location data
+    # Station name for the station in Kaivopuisto, Helsinki, Finland
+    stationName = 'Helsinki Kaivopuisto'
+    # Station latitude and longitude - Latitude is north, longitude is east
+    stationLat = 60.15
+    stationLong = 24.96
+    # Print station name and location to the screen
+    print("The", stationName, "station is located at", stationLat, "N,", stationLong, "E")
 
-   .. code:: python
+   Here, we have provided a a bit more information about the data in this script by adding *inline comments*.
+   Inline comments begin with a ``#`` (number sign or hash), and all characters that follow on that line will be ignored by Python.
+   Adding comments to scripts is essential for scientists like ourselves to both help us remember how a script works and to make it easier to share with colleagues.
+   It is best to get into the habit of adding comments as you write.
 
-       # Information for sample 48 from the 2016 Nepal (NP) field excursion collected by Dave Whipp (DW)
-       # Sample 48 was from the footwall of the MCT just north of where the Nyadi river joins the Marsyandi
+Use line breaks wisely
+~~~~~~~~~~~~~~~~~~~~~~
 
-       # Basic sample information
-       SampleID = "DW-NP-48-16"
-       SampleRockType = "Mica schist"
+*Line breaks*, or blank lines, in your scripts can greatly improve readability, and help divide different sections of the script.
+Perhaps it is obvious, but Python will ignore blank lines in a script.
 
-       # Sample weight given in pounds (sorry, most of the world)
-       SampleWeightLbs = 6.89
+.. code:: python
 
-       # Print basic information about this sample to the screen
-       print("Sample", SampleID, "is a", SampleWeightLbs, "pound chunk of", SampleRockType)
+    # Finnish Meterological Institute observation station name and location data
 
-   Dividing even a short script into section using blank lines makes it
-   much easier to read the code.
-3. **Add a block comment section at the start of the script to state its
-   purpose, how it is run, who wrote it, and possibly some licencing
-   information**. In contrast to the inline comments above that describe
-   the different sections of the code, a *block comment* at the top of
-   the script is intended to help users run the code and be aware of its
-   author (and licensing restrictions stated by the author). At the
-   minimum, you should include what the script does, your name, and the
-   date in the block comments at the start of script files. Let's add
-   some of this basic information.
+    # Station name for the station in Kaivopuisto, Helsinki, Finland
+    stationName = 'Helsinki Kaivopuisto'
 
-   .. code:: python
+    # Station latitude and longitude - Latitude is north, longitude is east
+    stationLat = 60.15
+    stationLong = 24.96
 
-       '''sampleinfo.py
+    # Print station name and location to the screen
+    print("The", stationName, "station is located at", stationLat, "N,", stationLong, "E")
 
-       A simple Python script to print information for a rock sample on the screen.
+Use a docstring
+~~~~~~~~~~~~~~~
 
-       Usage: ./sampleinfo.py
+A *docstring* is a form of *block comment* at the start of your program that clearly states its purpose and how to run the program.
+A *block comment* is similar to the inline comments above, but starts with ``'''`` and comments out all code between the start and another closing set of ``'''``.
+You can also include your name, and possibly add licensing information in the docstring.
 
-       David Whipp - 12.9.2016
-       '''
+.. code:: python
 
-       # Information for sample 48 from the 2016 Nepal (NP) field excursion collected by Dave Whipp (DW)
-       # Sample 48 was from the footwall of the MCT just north of where the Nyadi river joins the Marsyandi
+    '''Prints information about an FMI observation station to the screen.
 
-       # Basic sample information
-       SampleID = "DW-NP-48-16"
-       SampleRockType = "Mica schist"
+    Usage: ./stationinfo.py
 
-       # Sample weight given in pounds (sorry, most of the world)
-       SampleWeightLbs = 6.89
+    David Whipp - 10.9.2017
+    '''
 
-       # Print basic information about this sample to the screen
-       print("Sample", SampleID, "is a", SampleWeightLbs, "pound chunk of", SampleRockType)
+    # Finnish Meterological Institute observation station name and location data
 
-   Here we have added the basic information to the top of our script
-   file using *block comments*. Block comments start with ``'''`` and
-   end with ``'''``. Everything between the triple quotes will be
-   ignored when the script is run, even if the text is spread over
-   multiple lines. In our case, the script is simple, but many Python
-   programs have optional values that can be used by the code when it is
-   run, making the usage statement crucial. Another example to consider
-   is using a formal software license in the code to state the
-   conditions under which the code can be used or modified. There are
-   many helpful web resources to `teach you about software
-   licenses <https://tldrlegal.com/>`__ and `how to choose a
-   license <http://choosealicense.com/>`__. In most cases my preference
-   is the `MIT License <https://opensource.org/licenses/MIT>`__, which
-   is simple and allows software use by anyone. An example is below.
+    # Station name for the station in Kaivopuisto, Helsinki, Finland
+    stationName = 'Helsinki Kaivopuisto'
 
-   .. code:: python
+    # Station latitude and longitude - Latitude is north, longitude is east
+    stationLat = 60.15
+    stationLong = 24.96
 
-       '''sampleinfo.py
+    # Print station name and location to the screen
+    print("The", stationName, "station is located at", stationLat, "N,", stationLong, "E")
 
-       A simple Python script to print information for a rock sample on the screen.
+   In this example the script is simple, but many Python programs have optional values that can be used by the code when it is run, making the usage statement crucial.
 
-       Usage: ./sampleinfo.py
+Advanced topics
+---------------
 
-       MIT License
+Adding a license
+~~~~~~~~~~~~~~~~
 
-       Copyright (c) 2016 David Whipp
+Depending on what you aim to do with your script, you may want to include a formal software license in the docstring to state the conditions under which the code can be used or modified.
+There are many helpful web resources to `teach you about software licenses <https://tldrlegal.com/>`__ and `how to choose a license <http://choosealicense.com/>`__.
+In most cases my preference is the `MIT License <https://opensource.org/licenses/MIT>`__, which is simple and allows software use by anyone.
+An example is below.
 
-       Permission is hereby granted, free of charge, to any person obtaining a copy
-       of this software and associated documentation files (the "Software"), to deal
-       in the Software without restriction, including without limitation the rights
-       to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-       copies of the Software, and to permit persons to whom the Software is
-       furnished to do so, subject to the following conditions:
+.. code:: python
 
-       The above copyright notice and this permission notice shall be included in all
-       copies or substantial portions of the Software.
+    '''Prints information about an FMI observation station to the screen.
 
-       THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-       IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-       FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-       AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-       LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-       OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-       SOFTWARE.
-       '''
+    Usage: ./stationinfo.py
 
-       # Information for sample 48 from the 2016 Nepal (NP) field excursion collected by Dave Whipp (DW)
-       # Sample 48 was from the footwall of the MCT just north of where the Nyadi river joins the Marsyandi
+    MIT License
 
-       # Basic sample information
-       SampleID = "DW-NP-48-16"
-       SampleRockType = "Mica schist"
+    Copyright (c) 2017 David Whipp
 
-       # Sample weight given in pounds (sorry, most of the world)
-       SampleWeightLbs = 6.89
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
 
-       # Print basic information about this sample to the screen
-       print("Sample", SampleID, "is a", SampleWeightLbs, "pound chunk of", SampleRockType)
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
 
-   In this case I have taken the license information directly from an
-   `online software license
-   template <http://choosealicense.com/licenses/mit/>`__. Software
-   licensing is an important consideration when posting your software in
-   online repositories such as GitHub. It is one way to protect your
-   intellectual property from being used in ways you do not wish.
-4. **Start with a shebang**. This part gets a bit more complicated, but
-   we can add one line above our first block comment to help make the
-   script easier to run for users. Here, we add a line at the very top
-   of the script that starts with ``#!`` (often referred to as shebang).
-   The meaning of this line is given below the script.
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+    '''
 
-   .. code:: python
+    # Finnish Meterological Institute observation station name and location data
 
-       #!/usr/bin/env python3
-       '''sampleinfo.py
+    # Station name for the station in Kaivopuisto, Helsinki, Finland
+    stationName = 'Helsinki Kaivopuisto'
 
-       A simple Python script to print information for a rock sample on the screen.
+    # Station latitude and longitude - Latitude is north, longitude is east
+    stationLat = 60.15
+    stationLong = 24.96
 
-       Usage: ./sampleinfo.py
+    # Print station name and location to the screen
+    print("The", stationName, "station is located at", stationLat, "N,", stationLong, "E")
 
-       David Whipp - 12.9.2016
-       '''
+In this case I have taken the license information directly from an `online software license template <http://choosealicense.com/licenses/mit/>`__.
+Software licensing is an important consideration when posting your software in online repositories such as GitHub.
+It is one way to protect your intellectual property from being used in ways you do not wish.
 
-       # Information for sample 48 from the 2016 Nepal (NP) field excursion collected by Dave Whipp (DW)
-       # Sample 48 was from the footwall of the MCT just north of where the Nyadi river joins the Marsyandi
+Starting with a shebang
+~~~~~~~~~~~~~~~~~~~~~~~
 
-       # Basic sample information
-       SampleID = "DW-NP-48-16"
-       SampleRockType = "Mica schist"
+Starting with a *shebang* is another thing to consider doing with your scripts.
+Why?
+Well, without going into too much detail, it makes it easier for users to run your script directly from a terminal, rather than needing to use **Spyder** or open an IPython console first.
+If this doesn't make a great deal of sense, you can get a bit more information on `Wikipedia <https://en.wikipedia.org/wiki/Shebang_(Unix)>`__.
 
-       # Sample weight given in pounds (sorry, most of the world)
-       SampleWeightLbs = 6.89
+Starting with a shebang means that the first line of your program starts with the characters ``#!`` followed by the location of a program that will run the Python software installed on the computer.
+An example is below.
 
-       # Print basic information about this sample to the screen
-       print("Sample", SampleID, "is a", SampleWeightLbs, "pound chunk of", SampleRockType)
+.. code:: python
 
-   Basically, this additional line allows users to run the script in a
-   terminal window without having to use the ``%run`` magic command from
-   within IPython or explicitly launch a new Python interpreter. The
-   line states that when the script is executed in a terminal it should
-   use the default system Python 3 interpreter. We'll leave it at that
-   for now, but if you have questions let us know.
+    #!/usr/bin/env python3
+    '''Prints information about an FMI observation station to the screen.
+
+    Usage: ./stationinfo.py
+
+    David Whipp - 10.9.2017
+    '''
+
+    # Finnish Meterological Institute observation station name and location data
+
+    # Station name for the station in Kaivopuisto, Helsinki, Finland
+    stationName = 'Helsinki Kaivopuisto'
+
+    # Station latitude and longitude - Latitude is north, longitude is east
+    stationLat = 60.15
+    stationLong = 24.96
+
+    # Print station name and location to the screen
+    print("The", stationName, "station is located at", stationLat, "N,", stationLong, "E")
+
+We'll leave it at that for now, but if you have questions let us know.
 
 Page summary
 ------------
 
-As we continue in the course we will be creating more advanced Python
-scripts that include more complex code logic and other features we've
-not yet learned. With these, we'll also learn a few tips for
-incorporating them in our scripts. However, an expectation in this
-course is that you stick to the general template described above when
-writing your code, which means including appropriate use of inline
-comments, blank lines, block comments, and starting with a shebang.
-
-**Next**: `Working on the assignments <working-on-assignment.md>`__\ 
-**Home**: `Lesson 2 main
-page <https://github.com/Python-for-geo-people/Lesson-2-Data-types-Lists>`__\ 
-**Previous**: `Some basic elements of Python, part
-1 <python-basic-elements1.md>`__
+As we continue in the course we will be creating more advanced Python scripts that include more complex code logic and other features we've not yet learned.
+With these, we'll also learn a few tips for incorporating them in our scripts.
+However, an expectation in this course is that you stick to the general template described above when writing your code, which means including appropriate use of inline comments, blank lines, and a docstring.
