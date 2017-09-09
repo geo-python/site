@@ -1,5 +1,5 @@
-Overview
-========
+Lesson overview
+===============
 
 During the second week we will dive into Python and learn some basic
 elements of Python programming language. We will also continue learning
