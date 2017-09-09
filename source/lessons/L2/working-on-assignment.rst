@@ -39,6 +39,7 @@ to your computer.
      - `Online Git "Try-it!" tutorial <https://try.github.io>`__
      - `Git simple guide ("no deep shit") tutorial <http://rogerdudler.github.io/git-guide/>`__
      - `Software Carpentry's Git novice tutorial <https://swcarpentry.github.io/git-novice>`__
+     - `Learn Git in 20 minutes on Youtube <https://www.youtube.com/watch?v=Y9XZQO1n_7c>`__
 
 
 Modifying the "starter" code in Spyder
