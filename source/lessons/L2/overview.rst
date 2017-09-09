@@ -8,11 +8,11 @@ how to use the Course Environment and version control with GitHub.
 1. :doc:`Intro to version control and GitHub <intro-to-GitHub>`
 2. :doc:`Logging into GitHub <log-in-GitHub>`
 3. :doc:`Classroom for GitHub <GitHub-classroom>`
-4. :doc:`Some basic elements of Python (part I) <python-basic-elements1>`
+4. :doc:`Some basic elements of Python <python-basic-elements>`
 
-    -  `Data types <python-basic-elements1.html#data-types-revisited>`__
-    -  `Lists and indices <python-basic-elements1.html#lists-and-indices>`__
-    -  `The concept of objects <python-basic-elements1.html#the-concept-of-objects>`__
+    -  `Data types <python-basic-elements.html#data-types-revisited>`__
+    -  `Lists and indices <python-basic-elements.html#lists-and-indices>`__
+    -  `The concept of objects <python-basic-elements.html#the-concept-of-objects>`__
 
 5. :doc:`Writing script files <writing-scripts>`
 6. :doc:`Working on the assignments <working-on-assignment>`
