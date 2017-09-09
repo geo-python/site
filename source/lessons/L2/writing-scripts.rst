@@ -93,10 +93,10 @@ It is a very good idea to make the code as easy to read as possible for people.
     # Print station name and location to the screen
     print("The", stationName, "station is located at", stationLat, "N,", stationLong, "E")
 
-   Here, we have provided a a bit more information about the data in this script by adding *inline comments*.
-   Inline comments begin with a ``#`` (number sign or hash), and all characters that follow on that line will be ignored by Python.
-   Adding comments to scripts is essential for scientists like ourselves to both help us remember how a script works and to make it easier to share with colleagues.
-   It is best to get into the habit of adding comments as you write.
+Here, we have provided a a bit more information about the data in this script by adding *inline comments*.
+Inline comments begin with a ``#`` (number sign or hash), and all characters that follow on that line will be ignored by Python.
+Adding comments to scripts is essential for scientists like ourselves to both help us remember how a script works and to make it easier to share with colleagues.
+It is best to get into the habit of adding comments as you write.
 
 Use line breaks wisely
 ~~~~~~~~~~~~~~~~~~~~~~
