@@ -129,9 +129,11 @@ You can also include your name, and possibly add licensing information in the do
 
     '''Prints information about an FMI observation station to the screen.
 
-    Usage: ./stationinfo.py
+    Usage:
+        ./stationinfo.py
 
-    David Whipp - 10.9.2017
+    Author:
+        David Whipp - 10.9.2017
     '''
 
     # Finnish Meterological Institute observation station name and location data
@@ -163,29 +165,31 @@ An example is below.
 
     '''Prints information about an FMI observation station to the screen.
 
-    Usage: ./stationinfo.py
+    Usage:
+        ./stationinfo.py
 
-    MIT License
+    License:
+        MIT License
 
-    Copyright (c) 2017 David Whipp
+        Copyright (c) 2017 David Whipp
 
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
 
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
 
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE.
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
     '''
 
     # Finnish Meterological Institute observation station name and location data
@@ -220,9 +224,11 @@ An example is below.
     #!/usr/bin/env python3
     '''Prints information about an FMI observation station to the screen.
 
-    Usage: ./stationinfo.py
+    Usage:
+        ./stationinfo.py
 
-    David Whipp - 10.9.2017
+    Author:
+        David Whipp - 10.9.2017
     '''
 
     # Finnish Meterological Institute observation station name and location data
