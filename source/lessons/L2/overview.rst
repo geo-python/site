@@ -17,6 +17,7 @@ how to use the Course Environment and version control with GitHub.
 5. :doc:`Writing script files <writing-scripts>`
 6. :doc:`Working on the assignments <working-on-assignment>`
 7. `Exercise 2: Writing scripts and using GitHub <https://classroom.github.com/a/AgzvDCtR>`__
+8. :doc:`Exercise 2 hints <exercise-2-hints>`
 
 
 Learning goals
