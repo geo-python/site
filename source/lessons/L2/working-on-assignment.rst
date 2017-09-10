@@ -30,6 +30,13 @@ to your computer:
 
    Download starter-script
 
+.. note::
+
+   In some older browsers (e.g. Internet Explorer) you might need to download the file in a slighly different manner:
+
+     1. click on the name of the file you want to download
+     2. From the following page you should right-click the ``Raw`` button and from there
+     3. Press the ``Save Link As ..`` button to save the file
 
 Modifying the "starter" code in Spyder
 --------------------------------------
