@@ -19,27 +19,16 @@ Using GitHub to download materials and to save your work
 You should first download a copy to your computer where you plan to work
 on the assignment. The Computer Instance that we use in the course has a
 working installation of `Anaconda <Anaconda.md>`__. You can download a
-copy of the code by clicking on it in the list of files you see for the
-assignment and then right-clicking on the **Raw** button above the
-Python code and selecting **Save Link As...** or the equivalent in your
-web browser. This will allow you to download a copy of the Python code
-to your computer.
+copy of the code by right-clicking on it in the list of files you see for the
+assignment **Save Link As...** or the equivalent in your web browser.
+This will allow you to download a copy of the Python code
+to your computer:
 
-.. todo::
+.. figure:: img/download-starter-script.PNG
+   :alt: Download starter-script
+   :width: 450px
 
-   Add more information here about how to download/commit files.
-
-.. hint::
-
-   Updating your GitHub repository in this way is really easy to use (hence we are doing it like this). However, when working on larger projects, interacting with GitHub becomes really
-   inefficient in this manner. Hence, real programmers interact with GitHub using Git from command prompt / terminal (or using plugins in their IDE).
-
-   We don't have time during this course to cover the usage of Git from terminal but there are excellent resources available that you can use to learn it if you are interested:
-
-     - `Online Git "Try-it!" tutorial <https://try.github.io>`__
-     - `Git simple guide ("no deep shit") tutorial <http://rogerdudler.github.io/git-guide/>`__
-     - `Software Carpentry's Git novice tutorial <https://swcarpentry.github.io/git-novice>`__
-     - `Learn Git in 20 minutes on Youtube <https://www.youtube.com/watch?v=Y9XZQO1n_7c>`__
+   Download starter-script
 
 
 Modifying the "starter" code in Spyder
@@ -84,17 +73,54 @@ the window or by pressing the F5 key. Your code will run and the results
 (plots, printed text, errors, etc.) will be output to the IPython
 console on the bottom right panel. If you need more space to see the
 console, you can drag the margins on the console frame to make it
-bigger. - **Upload your modified code**. After you have made some change
-to the code that you want to save, you should upload a copy to your
-assignment repository on GitHub. You can do this by clicking on the
-**Upload files** button on the main page of the assignment repository
-and selecting the Python code you have been editing on your computer.
+bigger.
+
+Committing your work to GitHub
+------------------------------
+
+After you have made some change to the code that you want to save, you should upload it to your
+assignment repository on GitHub.
+
+You can do this by clicking on the **Upload files** button on the main page of the assignment repository
+and selecting the file you have been editing on your computer.
+
+.. figure:: img/upload_files_button.PNG
+   :alt: Upload files button
+   :width: 450px
+
+   Upload files
+
+Now you can drag and drop the file you want to upload to GitHub.
+
+.. figure:: img/drag-and-drop.PNG
+   :alt: Drag and drop the file(s) you want to upload
+   :width: 450px
+
+   Drag and drop the file(s) you want to upload
+
 When you upload the file, be sure to include a nice short commit message
 in the **Commit changes** box stating what you changed in the code since
 the last time you uploaded. To save the changes you click the **Commit
-changes** button. You are encouraged to upload a new copy of the Python
-code **every time** you make a significant change, such as fixing one of
-the problems in the starter code.
+changes** button.
+
+.. figure:: img/commit_message.PNG
+   :alt: Include a short message describing what you did when you commit
+   :width: 450px
+
+   Include a short message describing what you did when you commit.
+
+.. note::
+
+   You are encouraged to upload your Python code **every time** you make a significant change, such as fixing one of
+   the problems in the starter code.
+
+.. important::
+
+   Note that you **DON'T need to change the name of the file you are committing even if one would already exist in the repository.**
+   One of the main advantage of version control is that you keep on working under the same file and commit it regularly to GitHub.
+   In this way Git will be able to track the changes that you have made to the file and you can see the full history of
+   that file if you want to.
+
 
 Answering the questions
 -----------------------
