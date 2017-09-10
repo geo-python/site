@@ -6,7 +6,7 @@ Here are a few things that may be helpful in completing Exercise 2.
 Where to make changes
 ---------------------
 
-To help make sure you don't end up modifying parts of the code we did not anticipate, you should know that lines 32-34 and line 40 should not be modified.
+In Problem 1 lines 32-34 and line 40 should not be modified.
 
 Indentation woes
 ----------------
