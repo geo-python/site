@@ -8,6 +8,12 @@ Where to make changes
 
 In Problem 1 lines 32-34 and line 40 should not be modified.
 
+List methods
+------------
+
+In Problem 2 you will likely need two lists and to use the `.index()` method.
+These were covered in `this week's lesson <python-basic-elements.html#the-concept-of-objects>`__.
+
 Indentation woes
 ----------------
 
