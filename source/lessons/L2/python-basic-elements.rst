@@ -62,7 +62,7 @@ Data types revisited
     Similar to using ``str()`` to convert numbers to character strings, ``int()`` can be used to convert strings or floating point numbers to integers and ``float()`` can be used to convert strings or integers to floating point numbers.
 
    .. attention::
-    **Poll pause - Questions 2.1, 2.2**
+    **Poll pause - Questions 2.2, 2.3**
 
     Please visit the `class polling page <https://geo-python.github.io/poll>`__ to participate (*those present in lecture only*).
 
@@ -173,6 +173,11 @@ The simplest type of *collection* in Python is a **list**.
    .. ipython:: python
 
     print(stationNames[-5])
+
+   .. attention::
+    **Poll pause - Question 2.4**
+
+    Please visit the `class polling page <https://geo-python.github.io/poll>`__ to participate (*those present in lecture only*).
 
 6. Another nice feature of lists is that they are *mutable*, meaning that the values in a list that has been defined can be modified.
    Consider a list of the observation station types corresponding to the station names in the ``stationNames`` list.
