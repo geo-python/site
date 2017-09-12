@@ -19,7 +19,8 @@ Familiar?
    We’ve all been in this situation before: it seems ridiculous to have
    multiple nearly-identical versions of the same document. Some word
    processors let us deal with this a little better, such as Microsoft
-   Word’s “Track Changes”.
+   Word’s “Track Changes”, however, also it can be quite unpractical if you would like to see
+   changes that are older than your previous changes.
 
 What is version control?
 ------------------------
