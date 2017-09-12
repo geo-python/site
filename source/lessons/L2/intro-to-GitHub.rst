@@ -19,7 +19,7 @@ Familiar?
    We’ve all been in this situation before: it seems ridiculous to have
    multiple nearly-identical versions of the same document. Some word
    processors let us deal with this a little better, such as Microsoft
-   Word’s “Track Changes”, however, also it can be quite unpractical if you would like to see
+   Word’s “Track Changes”, however, it can be quite unpractical if you would like to see
    changes that are older than your previous changes.
 
 What is version control?
@@ -83,7 +83,7 @@ control (not exhaustive).
    accessed by a unique URL (a link to GitHub page for example).
 
 -  **Commit** = To commit is to write or merge the changes made in the
-   working copy back to the repository. Whe you commit, you are
+   working copy back to the repository. When you commit, you are
    basically taking a “snapshot” of your repository at that point in
    time, giving you a checkpoint to which you can reevaluate or restore
    your project to any previous state. The terms 'commit' or 'checkin'
