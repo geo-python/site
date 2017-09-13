@@ -118,7 +118,7 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     lessons/L2/working-on-assignment
     lessons/L2/python-basic-elements
     lessons/L2/writing-scripts
-    lessons/L2/exercise-2
+    lessons/L2/ex-2
     lessons/L2/exercise-2-hints
 
 
