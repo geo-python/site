@@ -4,11 +4,15 @@ Vocabulary - Basic terms
 Python vocabulary
 -----------------
 
+.. todo::
+
+    Add links to dedicated parts of the documentation.
+
 Here we provide a list of commonly used terms that you will most probably encounter when doing Python programming.
 
-- ** Variable ** is a way of storing values into the memory of the computer by using specific names that you define.
+- **Variable** is a way of storing values into the memory of the computer by using specific names that you define.
 
-- ** Data types **
+- **Data types**
 
    - Integer (int) = Whole number
 
