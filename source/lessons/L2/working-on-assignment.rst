@@ -19,8 +19,14 @@ Using GitHub to download materials and to save your work
 You should first download a copy to your computer where you plan to work
 on the assignment. The Computer Instance that we use in the course has a
 working installation of `Anaconda <Anaconda.md>`__. You can download a
-copy of the code by first clicking on the filename that you want to download
-and from the following page right-clicking a button called ``Raw`` and clicking
+copy of the code by first clicking on the filename that you want to download:
+
+.. figure:: img/choose-file.PNG
+   :alt: Choose the file
+
+   Choose and click the file that you want to download.
+
+From the following page right-clicking a button called ``Raw`` and clicking
 **Save Link As...** or the equivalent in your web browser.
 This will allow you to download a copy of the Python code
 to your computer with ``.py`` file extension.
