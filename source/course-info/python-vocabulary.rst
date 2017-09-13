@@ -4,8 +4,27 @@ Vocabulary - Basic terms
 Python vocabulary
 -----------------
 
-.. todo:: Add Python vocabulary here.
+Here we provide a list of commonly used terms that you will most probably encounter when doing Python programming.
 
+- ** Variable ** is a way of storing values into the memory of the computer by using specific names that you define.
+
+- ** Data types **
+
+   - Integer (int) = Whole number
+
+   - Float (float) = Decimal number
+
+   - String (str) = Text
+
+   - Boolean (bool) = True / False
+
+   - List (list) = A "container" that can store any kind of values. You can create a list with square brackets e.g. ``[1, 2, 3, 'a', 'b', 'c']``.
+
+   - Tuple (tuple) = A similar "container" as list with a difference that you cannot update the values in a tuple. You can create a tuple with parentheses ``(1, 2, 3, 'a', 'b', 'c')``.
+
+- **Index** number is the location of specific value stored in Python lists or tuples. The first index value of list is always **0**.
+
+- **Script** is a dedicated document for writing Python code that you can execute. Python script files should always have the `` .py `` file extension.
 
 Basic vocabulary of Version Control
 -----------------------------------
