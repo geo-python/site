@@ -148,7 +148,7 @@ You can also include your name, and possibly add licensing information in the do
     # Print station name and location to the screen
     print("The", stationName, "station is located at", stationLat, "N,", stationLong, "E")
 
-   In this example the script is simple, but many Python programs have optional values that can be used by the code when it is run, making the usage statement crucial.
+In this example the script is simple, but many Python programs have optional values that can be used by the code when it is run, making the usage statement crucial.
 
 Advanced topics
 ---------------
