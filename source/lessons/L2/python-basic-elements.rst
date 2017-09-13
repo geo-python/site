@@ -196,7 +196,7 @@ The simplest type of *collection* in Python is a **list**.
     stationTypes[2] = 'Mareographs'
     print(stationTypes)
 
-6. Lists also do not need to have only one type of data.
+7. Lists also do not need to have only one type of data.
    Let's consider that in addition to having a list of each station name, FMISID, latitude, etc. we would like to have a list of all of the values for station 'Helsinki Kaivopuisto'.
 
    .. ipython:: python
@@ -214,7 +214,7 @@ The simplest type of *collection* in Python is a **list**.
     type(stationHelKaivo[1])    # The FMISID
     type(stationHelKaivo[2])    # The station latitude
 
-7. Finally, we can add and remove values from lists to change their lengths.
+8. Finally, we can add and remove values from lists to change their lengths.
    Let's consider that we no longer want to include the first value in the ``stationNames`` list.
 
    .. ipython:: python
