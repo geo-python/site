@@ -19,24 +19,23 @@ Using GitHub to download materials and to save your work
 You should first download a copy to your computer where you plan to work
 on the assignment. The Computer Instance that we use in the course has a
 working installation of `Anaconda <Anaconda.md>`__. You can download a
-copy of the code by right-clicking on it in the list of files you see for the
-assignment **Save Link As...** or the equivalent in your web browser.
+copy of the code by first clicking on the filename that you want to download
+and from the following page right-clicking a button called ``Raw`` and clicking
+**Save Link As...** or the equivalent in your web browser.
 This will allow you to download a copy of the Python code
-to your computer:
+to your computer with ``.py`` file extension.
 
-.. figure:: img/download-starter-script.PNG
-   :alt: Download starter-script
-   :width: 450px
+.. figure:: img/Raw-button.png
+   :alt: Raw button
 
-   Download starter-script
+   Download the file by rigth-clicking the ``Raw`` button and clicking ``Save Link As ..``
 
-.. note::
+.. important::
 
-   In some older browsers (e.g. Internet Explorer) you might need to download the file in a slighly different manner:
+   When you download the data to your computer make sure that the file extension is ``.py``. It seems that the
+   browser wants to download the file with extension ``.txt`` by default. Hence, you need to replace the ``.txt`` extension
+   with ``.py``
 
-     1. click on the name of the file you want to download
-     2. From the following page you should right-click the ``Raw`` button and from there
-     3. Press the ``Save Link As ..`` button to save the file
 
 Modifying the "starter" code in Spyder
 --------------------------------------
