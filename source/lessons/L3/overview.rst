@@ -1,37 +1,20 @@
-Lesson 3: Control flow
-======================
-
-Control flow is the term used to refer to how the execution of different
-parts of a computer program is determined. In this lesson we will look
-at two main types of control flow concepts: (1) Loops, which are used to
-repeat execution of parts of a program, and (2) conditional statements,
-which use basic logical tests to determine which parts of a program will
-be run.
-
 Lesson overview
----------------
+===============
 
-1. `Definite loops <Lesson/for-loops.md>`__
-2. `Conditional statements <Lesson/conditional-statements.md>`__
-3. `Exercise 3: ``for`` loops and conditional
-   statements <https://classroom.github.com/assignment-invitations/f8a6eacb78c2f06f8834b391d129a6ab>`__
+This week we will focus on making decisions and repeating tasks in Python.
+Both of these concepts are part of the larger computing idea called *control flow*, which refers to how the execution of different parts of a computer program is determined.
+We will learn how to alter the execution of our scripts are using (1) *loops*, which are used to repeat execution of parts of a program, and (2) *conditional statements*, which use basic logical tests to determine which parts of a program will be run.
 
-Resources
----------
+1. :doc:`Definite loops <for-loops>`
+2. :doc:`Conditional statements <conditional-statements>`
+3. :doc:`Exercise 3: for loops and conditional statements <ex-3>`
+4. :doc:`Exercise 3 hints <exercise-3-hints>`
 
--  Past lesson materials
--  `Intro to version control and
-   GitHub <https://github.com/Python-for-geo-people/Diving-into-Python/tree/master/Lesson/intro-to-GitHub.md>`__
--  `Writing script
-   files <https://github.com/Python-for-geo-people/Diving-into-Python/tree/master/Lesson/writing-scripts.md>`__
--  `Working on the
-   exercises <https://github.com/Python-for-geo-people/Diving-into-Python/tree/master/Lesson/working-on-assignment.md>`__
--  Web pages
--  `Codecademy's Learn to program in
-   Python <https://www.codecademy.com/learn/python>`__
--  `Software Carpentry's programming in
-   Python <https://swcarpentry.github.io/python-novice-inflammation/>`__
--  Books
--  `Learn Python the Hard
-   Way <http://learnpythonthehardway.org/book/>`__
--  `Dive into Python 3 <http://www.diveinto.org/python3/>`__
+Learning goals
+--------------
+
+After this weeks lesson your should be able to:
+
+  - Create a ``for`` loop and use it to repeat a section of code
+  - Use ``if``, ``elif``, and ``else`` statements to make decisions in your programs
+  - Explain how values can be compared using comparison operators
