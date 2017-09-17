@@ -13,14 +13,14 @@ Conditional statements can change the code behaviour based on meeting certain co
 
 1. Let's take a simple example.
 
-   .. ipython:: python
+.. ipython:: python
 
     temperature = 17
 
     if temperature > 25:
-        print('it is hot')
-    else:
-        print('it is not hot')
+      print('hot')
+   else:
+      print('cold')
 
 
    What did we do here?
