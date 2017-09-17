@@ -18,9 +18,11 @@ Conditional statements can change the code behaviour based on meeting certain co
     temperature = 17
 
     if temperature > 25:
-      print('hot')
+        print('hot')
+   elif temperature == 17:
+        print('exact')
    else:
-      print('cold')
+        print('cold')
 
 
    What did we do here?
