@@ -84,6 +84,7 @@ Here we have few general guidelines for using Slack to keep things well organize
 .. important::
 
   1. **You should always select the right channel for your question!**
+
     - If you have question for example about lesson 2, you make your question in channel ``2-lesson``.
     - If you have question about exercise 2, you put your question into channel ``2-exercise``.
 

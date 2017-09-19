@@ -15,7 +15,7 @@ how to use the Course Environment and version control with GitHub.
     -  `The concept of objects <python-basic-elements.html#the-concept-of-objects>`__
 
 5. :doc:`Writing script files <writing-scripts>`
-6. `Exercise 2: Writing scripts and using GitHub <https://classroom.github.com/a/AgzvDCtR>`__
+6. :doc:`Exercise 2: Writing scripts and using GitHub <ex-2>`
 7. :doc:`Exercise 2 hints <exercise-2-hints>`
 
 
