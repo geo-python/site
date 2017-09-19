@@ -19,14 +19,18 @@ import matplotlib.pyplot as plt
 from shapely.geometry import LineString, Point, MultiLineString
 import pandas as pd
 from fiona.crs import from_epsg
+import os
+
+# Script location
+basepath = os.path.dirname(os.path.realpath(__file__))
 
 # Projections: http://scitools.org.uk/cartopy/docs/v0.15/crs/projections.html
 # Weather stations: 
 
 # Filepath
-country_fp = r"C:\HY-DATA\HENTENKA\KOODIT\Opetus\Geo-Python\2017\source\code\E3\data\Finland_boundaries.shp"
-station_fp = r"C:\HY-DATA\HENTENKA\KOODIT\Opetus\Geo-Python\2017\source\code\E3\data\Weather_stations_all_Finland.txt"
-outfp = r"C:\HY-DATA\HENTENKA\KOODIT\Opetus\Geo-Python\2017\source\code\E3\img\FMI_stations_70_years_older.png"
+country_fp = os.path.join(basepath, 'data', 'Finland_boundaries.shp')
+station_fp = os.path.join(basepath, 'data', "Weather_stations_all_Finland.txt")
+outfp = os.path.join(basepath, 'img', "FMI_stations_70_years_older.png")
 
 # Read data
 data = gpd.read_file(country_fp)
@@ -96,7 +100,7 @@ ax.set_ylim(6549957.0035361676, 7912500.2913647108)
 
 # Save figure
 plt.tight_layout()
-plt.savefig(outfp, dpi=300)
+#plt.savefig(outfp, dpi=300)
 
 # Get the coordinates of Weather stations
 x_coords = stations_geo['Lon'].values
