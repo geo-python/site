@@ -95,7 +95,7 @@ Conditional statements can change the code behaviour based on meeting certain co
    | ``!=``     | Not equal to               |
    +------------+----------------------------+
 
-   .. important::
+   .. attention::
 
     Time to check your understanding.
     Let's assume that yesterday it was 14°C, it is 10°C outside today, and tomorrow it will be 13°C.
