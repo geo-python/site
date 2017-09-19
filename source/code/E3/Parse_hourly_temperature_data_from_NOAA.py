@@ -13,12 +13,10 @@ Created on Thu Sep 14 15:10:42 2017
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
+plt.style.use('seaborn-whitegrid')
 
 # Script location
 basepath = os.path.dirname(os.path.realpath(__file__))
-
-
-plt.style.use('seaborn-whitegrid')
 
 # Filepath
 fp = os.path.join(basepath, 'data', "1367077431691dat.txt")
