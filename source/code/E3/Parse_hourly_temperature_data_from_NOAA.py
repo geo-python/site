@@ -32,6 +32,13 @@ d['datetime'] = pd.to_datetime(d['YR--MODAHRMN'], format="%Y%m%d%H%M")
 # Set datetime as index
 d = d.set_index(d['datetime'])
 
+# Aggregate to daily averages
+daily = d['Celsius'].resample(rule='D').mean()
+night_day = d['Celsius'].resample(rule='8H').mean()
+
+# Round to 1 decimal
+night_day = night_day.round(1)
+
 # Convert TEMP (fahrenheit) to Celsius
 d['Celsius'] = (d['TEMP'] - 32) * 5/9
                
