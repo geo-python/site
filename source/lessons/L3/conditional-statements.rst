@@ -32,6 +32,25 @@ Conditional statements can change the code behaviour based on meeting certain co
    Since 17 is smaller than 25, the code beneath the ``else`` is executed.
    The ``else`` statement code will run whenever the ``if`` test is false.
 
+   .. note::
+
+    As it turns out, we all use logic similar to ``if`` and ``else`` conditional statements daily.
+    Imagine you're getting ready to leave your home for the day and want to decide what to wear.
+    You might look outside to check the weather conditions.
+    If it is raining, you will wear a rain jacket.
+    Otherwise, you will not.
+    In Python we could say:
+
+    .. ipython:: python
+
+        weather = 'Rain'
+        if weather == 'Rain':
+            print('Wear a raincoat')
+       else:
+            print('No raincoat needed')
+
+    Note here that we use the ``==`` to test if a value is exactly equal to another.
+
 2. The combination of ``if`` and ``else`` is very common, but both are not strictly required.
 
    .. ipython:: python
@@ -57,7 +76,7 @@ Conditional statements can change the code behaviour based on meeting certain co
             print(temperature, 'is below freezing')
 
    Makes sense, right?
-   Note here that we use the ``==`` to test if a value is exactly equal to another.
+   Note here that we again use the ``==`` to test if a value is exactly equal to another.
    The complete list of these comparison operators is given in the table below.
 
    +------------+----------------------------+
@@ -76,6 +95,30 @@ Conditional statements can change the code behaviour based on meeting certain co
    | ``!=``     | Not equal to               |
    +------------+----------------------------+
 
+   .. important::
+
+    Time to check your understanding.
+    Let's assume that yesterday it was 14°C, it is 10°C outside today, and tomorrow it will be 13°C.
+    The following code compares these temperatures and prints something to the screen based on the comparison.
+
+    .. code:: python
+
+        yesterday = 14
+        today = 10
+        tomorrow = 13
+
+        if yesterday <= today:
+            print('A')
+        elif today != tomorrow:
+            print('B')
+        elif yesterday > tomorrow:
+            print('C')
+        elif today == today:
+            print('D')
+
+    Which of the letters ``A``, ``B``, ``C``, and ``D`` would be printed to the screen?
+    Select your answer from the poll options at https://geo-python.github.io/poll/.
+
 4. We can also use ``and`` and ``or`` to have multiple conditions.
 
    .. ipython:: python
@@ -91,3 +134,24 @@ Conditional statements can change the code behaviour based on meeting certain co
             print('At least one test is true')
 
    These are just simple examples, but concepts that can be quite handy.
+
+   .. note::
+
+    Again, making decisions based on multiple conditions is something we regularly do.
+    Imagine that we consider not only the rain, but also whether or not it is windy.
+    If it is windy and raining, we'll just stay home.
+    Otherwise, we need appropriate clothing to go out.
+    We can again handle this kind of decision with Python.
+
+    .. ipython:: python
+
+        weather = 'Rain'
+        wind = 'Windy'
+        if (weather == 'Rain') and (wind == 'Windy'):
+            print('Just stay home')
+       elif weather == 'Rain':
+            print('Wear a raincoat')
+       else:
+            print('No raincoat needed')
+
+    As you can see, we better just stay home if it is windy and raining.
