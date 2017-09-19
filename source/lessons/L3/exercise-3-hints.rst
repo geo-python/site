@@ -38,12 +38,12 @@ Take a look of following example:
     if season == "Winter":
         if temperature > 7:
             print("No need for winter jacket!")
-       else:
+        else:
             print("It might be cold! Wear a proper jacket!")
    elif season == "Summer":
         if temperature > 20:
             print("It's warm! Time to wear shorts!")
-       else:
+        else:
             print("Well this is Finland, better wear long trousers!")
    else:
         print("Check the weather forecast!")
