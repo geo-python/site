@@ -16,13 +16,12 @@ Combining strings
 
 In case you have forgotten, string variables can be added together. For example,
 
-    ```python
-    >>> a = "Taco "
-    >>> b = "time"
-    >>> c = a + b
-    >>> print(c)
-    Taco time
-    ```
+.. ipython:: python
+
+    a = "Taco "
+    b = "time"
+    c = a + b
+    print(c)
 
 Nested if statements
 --------------------
