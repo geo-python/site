@@ -11,13 +11,17 @@ Created on Thu Sep 14 15:10:42 2017
 """
 
 import pandas as pd
-from datetime import datetime
 import matplotlib.pyplot as plt
+import os
+
+# Script location
+basepath = os.path.dirname(os.path.realpath(__file__))
+
 
 plt.style.use('seaborn-whitegrid')
 
 # Filepath
-fp = r"C:\HY-DATA\HENTENKA\KOODIT\Opetus\Geo-Python\data\Hourly_temps_Malmi_airport\1367077431691dat.txt"
+fp = os.path.join(basepath, 'data', "1367077431691dat.txt")
 
 # Read file (fixed width)
 data = pd.read_fwf(fp)
@@ -32,6 +36,12 @@ d['datetime'] = pd.to_datetime(d['YR--MODAHRMN'], format="%Y%m%d%H%M")
 # Set datetime as index
 d = d.set_index(d['datetime'])
 
+# Convert TEMP (fahrenheit) to Celsius
+d['Celsius'] = (d['TEMP'] - 32) * 5/9
+               
+# Plot
+d.plot(x='datetime', y='Celsius')
+
 # Aggregate to daily averages
 daily = d['Celsius'].resample(rule='D').mean()
 night_day = d['Celsius'].resample(rule='8H').mean()
@@ -39,8 +49,7 @@ night_day = d['Celsius'].resample(rule='8H').mean()
 # Round to 1 decimal
 night_day = night_day.round(1)
 
-# Convert TEMP (fahrenheit) to Celsius
-d['Celsius'] = (d['TEMP'] - 32) * 5/9
-               
-# Plot
-d.plot(x='datetime', y='Celsius')
+# Print the values as strings so it is possible to easily copy/paste to exercise
+# ==> Find/Replace ' characters to convert the values to floats
+print(list(night_day.astype(str).values))
+
