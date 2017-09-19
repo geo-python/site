@@ -60,6 +60,29 @@ Loops allow parts of code to be repeated some number of times.
    The ``variable`` can be any name you like, and the statement of the ``for`` loop must end with a ``:``.
    The code that should be executed as part of the loop must be indented beneath the ``for`` loop, and the typical indentation is 4 spaces.
    There is not additional special word needed to end the loop, just change the indentation back to normal.
+   ``for`` loops are useful to repeat some part of the code a *definite* number of times.
+
+   .. note::
+
+    Like many other programming concepts, the idea of looping through actions is something that is already perhaps more familiar to you than you think.
+    Consider your actions during a given day.
+    Many people have certain routines they follow each day, such as waking up, taking a shower, eating breakfast and brushing their teeth.
+    In Python code, we might represent such actions as follows:
+
+    .. code:: python
+
+        for day in my_life:
+            wake_up()
+            take_shower()
+            eat_breakfast()
+            brush_teeth()
+            ...
+            
+    Note that ``my_life`` would be a list of the days of your life, and the actions you take are represented as functions, such as ``wake_up()``.
+    Furthermore, by following this kind of list of repeating actions we're able to start the day effectively even before the first cup of coffee :).
+
+    Need to repeat some part of a program?
+    Consider using a ``for`` loop!
 
 4. Let's consider another example.
 
@@ -100,6 +123,25 @@ Loops allow parts of code to be repeated some number of times.
 
     help(range)
 
+   .. attention::
+
+        The program below will print numbers to the screen using the ``range()`` function.
+
+        .. code:: python
+
+            for i in range(...):
+                print(i)
+        
+        Using the documentation that is produced when you run ``help(range)``, what values would you replace the ``...`` in the parentheses of the ``range()`` function with to have the following output printed to the screen?
+
+        .. code:: python
+
+            2
+            5
+            8
+
+        Select your answer from the poll options at https://geo-python.github.io/poll/.
+
 7. Often when you use ``for`` loops, you are looping over the values in a list and either calculating a new value or modifying the existing values.
    Let's consider an example.
 
@@ -138,3 +180,15 @@ Loops allow parts of code to be repeated some number of times.
     print(mylist)
 
    Using the ``len()`` function with ``range()`` to perform calcluations using list or array values is an *extremely* common operation in Python.
+
+   .. attention::
+
+        What output would the following program produce?
+
+        .. code:: python
+
+            word = 'ice pellets'
+            for i in range(len(word)):
+                print(word[i])
+        
+        Select your answer from the poll options at https://geo-python.github.io/poll/.
