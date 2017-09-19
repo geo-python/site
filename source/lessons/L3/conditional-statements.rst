@@ -13,16 +13,14 @@ Conditional statements can change the code behaviour based on meeting certain co
 
 1. Let's take a simple example.
 
-.. ipython:: python
+   .. ipython:: python
 
-    temperature = 17
+        temperature = 17
 
-    if temperature > 25:
-        print('hot')
-   elif temperature == 17:
-        print('exact')
-   else:
-        print('cold')
+        if temperature > 25:
+            print('it is hot')
+       else:
+            print('it is not hot')
 
 
    What did we do here?
@@ -36,30 +34,27 @@ Conditional statements can change the code behaviour based on meeting certain co
 
 2. The combination of ``if`` and ``else`` is very common, but both are not strictly required.
 
-   .. code:: python
+   .. ipython:: python
 
-    In [3]: temperature = 13
+    temperature = 13
 
-    In [4]: if temperature > 25:
-       ...:     print('13 is greater than 25')
-       ...:
+    if temperature > 25:
+        print('13 is greater than 25')
 
    Note that here we use only the ``if`` statement, and because 13 is not greater than 25, nothing is printed to the screen.
 
 3. We can also have a second test for an ``if`` statment by using the ``elif`` (else-if) statement.
 
-   .. code:: python
+   .. ipython:: python
 
-    In [5]: temperature = -3
+        temperature = -3
 
-    In [6]: if temperature > 0:
-       ...:     print(temperature, 'is above freezing')
-       ...: elif temperature == 0:
-       ...:     print(temperature, 'is freezing')
-       ...: else:
-       ...:     print(temperature, 'is below freezing')
-       ...:
-    -3 is below freezing
+        if temperature > 0:
+            print(temperature, 'is above freezing')
+       elif temperature == 0:
+            print(temperature, 'is freezing')
+       else:
+            print(temperature, 'is below freezing')
 
    Makes sense, right?
    Note here that we use the ``==`` to test if a value is exactly equal to another.
@@ -83,18 +78,16 @@ Conditional statements can change the code behaviour based on meeting certain co
 
 4. We can also use ``and`` and ``or`` to have multiple conditions.
 
-   .. code:: python
+   .. ipython:: python
 
-    In [7]: if (1 > 0) and (-1 > 0):
-       ...:     print('Both parts are true')
-       ...: else:
-       ...:     print('One part is not true')
-       ...:
-    One part is not true
+        if (1 > 0) and (-1 > 0):
+            print('Both parts are true')
+       else:
+            print('One part is not true')
 
-    In [8]: if (1 < 0) or (-1 < 0):
-       ...:     print('At least one test is true')
-       ...:
-    At least one test is true
+   .. ipython:: python
 
-   This is just a simple example, but a concept that can be quite handy.
+        if (1 < 0) or (-1 < 0):
+            print('At least one test is true')
+
+   These are just simple examples, but concepts that can be quite handy.
