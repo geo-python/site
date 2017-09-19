@@ -121,4 +121,14 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     lessons/L2/ex-2
     lessons/L2/exercise-2-hints
 
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 3
+
+    lessons/L3/overview
+    lessons/L3/lesson-video
+    lessons/L3/for-loops
+    lessons/L3/conditional-statements
+    lessons/L3/ex-3
+    lessons/L3/exercise-3-hints
 
