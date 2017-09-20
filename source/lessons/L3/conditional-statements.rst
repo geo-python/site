@@ -119,6 +119,9 @@ Conditional statements can change the code behaviour based on meeting certain co
     Which of the letters ``A``, ``B``, ``C``, and ``D`` would be printed to the screen?
     Select your answer from the poll options at https://geo-python.github.io/poll/.
 
+.. NOTE: The question above is tricky because of the elif statements, only "B" should be written to the screen.
+   This year it worked out nicely because we had the discussion about why the options were all wrong, and it was helpful to see how the logic works.
+
 4. We can also use ``and`` and ``or`` to have multiple conditions.
 
    .. ipython:: python
