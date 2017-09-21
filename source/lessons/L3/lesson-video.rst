@@ -21,6 +21,7 @@ Lecture
     - `56:25 - Using len() function in for loop to keep track of the length of the list <https://youtu.be/bVAzsoIXtc0?t=56m25s>`__
     - `1:09:55 - Adding new values to list and iterating over them <https://youtu.be/bVAzsoIXtc0?t=1h09m55s>`__
 
+|
 
 .. admonition:: Lesson 3.2 - Conditional statements
 
