@@ -4,23 +4,10 @@ Functions
 Sources
 -------
 
-This lesson is partly based on the `Software Carpentry
-group's <http://software-carpentry.org/>`__ lessons on `Programming with
-Python <http://swcarpentry.github.io/python-novice-inflammation/>`__.
+This lesson is partly based on the `Software Carpentry group's <http://software-carpentry.org/>`__ lessons on `Programming with Python <http://swcarpentry.github.io/python-novice-inflammation/>`__.
 
-**Contents**:
-
-1. `What is a function? <#1>`__
-2. `Anatomy of a function <#2>`__
-3. `Calling functions <#3>`__
-4. `"Pro" tips (optional extra material) <#4>`__
-
-   1. `Saving functions in a Python script <#4.1>`__
-   2. `Calling functions from a script <#4.2>`__
-   3. `Temperature calculator <#4.3>`__
-
-1. What is a function?
-----------------------
+What is a function?
+-------------------
 
 A function is a block of organized, reusable code that can make your
 code more effective, clearer to read and easier to handle. You can think
@@ -34,8 +21,8 @@ does a common task, such as converting temperatures from Fahrenheit to
 Celsius. During the course we have already used some functions such as
 ``print()`` command which is actually a built-in function in Python.
 
- 2. Anatomy of a function
--------------------------
+ Anatomy of a function
+----------------------
 
 Let's consider the task from the first week when we converted
 temperatures from Fahrenheit to Celsius. Such an operation is a fairly
@@ -61,8 +48,8 @@ function (e.g., the variable ``temp`` in this function example). Inside
 the function, we use a return statement to define the value that should
 be given when the function is used.
 
- 3. Calling functions
----------------------
+ Calling functions
+------------------
 
 2. Let’s try running our function. Calling our self-defined function is
    no different from calling any other function such as ``print()``. You
@@ -117,20 +104,8 @@ be given when the function is used.
        >>> print('Absolute zero in Fahrenheit:', absolute_zero_f)
        Absolute zero in Fahrenheit: -459.66999999999996
 
-Next steps
-----------
-
-Next, if you are interested you can go through the `extra materials
-below <#4>`__ that teach you how to write and import functions from a
-dedicated Python file. This can be quite handy when you start to have
-many customized functions for different tasks. Otherwise, you can
-`continue with the lecture materials. <../README.md>`__
-
- "Pro" tips (extra material)
-============================
-
-4. Importing functions from a script
-------------------------------------
+Saving and loading functions
+----------------------------
 
 Functions such as the ones we just created can also be called from
 another script. Quite often it is useful to create a dedicated function
@@ -139,8 +114,8 @@ analysis. Basically this is done by collecting useful functions to a
 single ``.py`` file from where you can then import and use them whenever
 needed.
 
- 4.1. Saving functions into a script file
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ Saving functions into a script file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Before we can import our functions we need to create a new script file
 and save the functions that we just created into a Python file called
@@ -155,8 +130,8 @@ commands that we wrote in the IPython console [`1 <#Footnotes>`__]:
    *optionally just write them again into the file* ). It should look
    like following:
 
- 4.2. Calling functions from another script file
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ Calling functions from another script file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now as we have saved our temperature conversion functions into a script
 file we can start using them.
@@ -259,8 +234,8 @@ freezing point in Fahrenheit:", tc.celsius\_to\_fahr(0)) print('Absolute
 zero in Celsius:', tc.kelvin\_to\_celsius(temp\_k=0)) print('Absolute
 zero in Fahrenheit:', tc.kelvin\_to\_fahrenheit(temp\_k=0)) \`\`\`
 
- 4.3. Temperature calculator
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ Temperature calculator
+~~~~~~~~~~~~~~~~~~~~~~~
 
 So far our functions has had only one parameter but it is also possible
 to define a function with multiple parameters. Let's now make a simple
@@ -370,8 +345,3 @@ Footnotes
    ``dir()`` -function to list them (see
    `modules.md <modules.md#using-modules>`__). Warning: there is a risk
    of conflict when doing this, use with care (see more from modules.md)
-
-**Next**: `Loading and using modules <modules.md>`__\  **Home**: `Lesson
-4 main
-page <https://github.com/Python-for-geo-people/Lesson-4-Functions-Modules>`__\ 
-**Previous**: `Using the Spyder IDE <spyder.md>`__
