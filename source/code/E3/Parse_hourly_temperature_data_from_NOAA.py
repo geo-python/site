@@ -51,3 +51,14 @@ night_day = night_day.round(1)
 # ==> Find/Replace ' characters to convert the values to floats
 print(list(night_day.astype(str).values))
 
+# Save hourly Fahrenheit temps to csv
+outfp = r"C:\HY-DATA\HENTENKA\KOODIT\Opetus\Geo-Python\2017\source\code\E3\data\Malmi_temps_Fahr.csv"
+d['n'] = None
+temp = d[['TEMP', 'n']].copy()
+temp = temp.reset_index(drop=True)
+
+# Take First week of data (first 2*24*7)
+temp = temp[0:336]
+
+temp.to_csv(outfp, sep=',', index=False)
+
