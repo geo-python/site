@@ -19,7 +19,7 @@ During the course we have already used some functions such as the ``print()`` co
 Anatomy of a function
 ---------------------
 
-Let's consider the task from the first lesson when we converted temperatures from Fahrenheit to Celsius.
+Let's consider the task from the first lesson when we converted temperatures from Celsius to Fahrenheit.
 Such an operation is a fairly common task when dealing with temperature data.
 Thus we might need to repeat such calculations quite frequently when analysing or comparing weather or climate data between the US and Europe, for example.
 
@@ -71,7 +71,7 @@ Calling functions
     print('Absolute zero in Celsius is:', absoluteZero)
 
 5. What about converting Kelvins to Fahrenheit?
-   We could write out a new forumula for it, but we don’t need to.
+   We could write out a new formula for it, but we don’t need to.
    Instead, we can do the conversion using the two functions we have already created and calling those from the function we are now creating:
 
    .. ipython:: python
@@ -223,11 +223,19 @@ The new function will have two parameters:
         """
         Function for converting temperature in Kelvins to Celsius or Fahrenheit.
 
-        Parameters:
-            tempK: Temperature in Kelvins <numerical>
-            convertTo: Target temperature that can be either Celsius ('C') or
-                       Fahrenheit ('F'). Supported values: 'C' | 'F'
+        Parameters
+        ----------
+        tempK: <numerical>
+            Temperature in Kelvins
+        convertTo: <str>
+            Target temperature that can be either Celsius ('C') or Fahrenheit ('F'). Supported values: 'C' | 'F'
+
+        Returns
+        -------
+        <float>
+            Converted temperature.
         """
+
         # Check if user wants the temperature in Celsius
         if convertTo == "C":
             # Convert the value to Celsius using the dedicated function for the task that we imported from another script
