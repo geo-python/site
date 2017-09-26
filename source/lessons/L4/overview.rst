@@ -1,54 +1,27 @@
-Lesson 4: Functions and modules
-===============================
-
-For the fourth lesson we will learn how to create and use functions, one
-of the most useful concepts in programming. We will also introduce you
-to the concept of library (referred often as a module in Python), which
-you can think of as a toolbox for a specific purpose. Each library
-contains specific functionalities (i.e., functions) that you can use for
-different tasks. Thus functions and libraries are closely related
-concepts.
-
 Lesson overview
----------------
+===============
 
-1. `Using the Spyder IDE <Lesson/spyder.md>`__
+In this lesson we will learn how to create and use *functions*, one of the most powerful concepts in programming.
+We will also introduce you to the concept of a *module* (also known as a library in other programming languages), which you can think of as a toolbox for a specific purpose.
+Each module contains specific functionalities (i.e., functions) that you can use for different tasks.
+Thus functions and modules are closely related.
 
--  `What is an
-   IDE? <Lesson/spyder.md#what-is-an-integrated-development-environment>`__
--  `An overview of the Spyder
-   IDE <Lesson/spyder.md#an-overview-of-the-spyder-ide>`__
--  `Some Spyder tips and
-   tricks <Lesson/spyder.md#some-spyder-tips-and-tricks>`__
+1. :doc:`Basic concepts of functions <functions>`
 
-2. `Basic concepts of functions <Lesson/functions.md>`__
+    -  `What is a function? <functions.html#what-is-a-function>`__
+    -  `Anatomy of a function <functions.html#anatomy-of-a-function>`__
+    -  `Calling functions <functions.html#calling-functions>`__
+    -  `Saving and loading functions <functions.html#saving-and-loading-functions>`__
 
--  `What is a function? <Lesson/functions.md#1>`__
--  `Anatomy of a function <Lesson/functions.md#2>`__
--  `Calling functions <Lesson/functions.md#3>`__
--  `"Pro" tips <Lesson/functions.md#4>`__
+2. :doc:`Loading and using modules <modules>`
+3. :doc:`Exercise 4: Classifying and converting temperatures <ex-4>`
+4. :doc:`Exercise 4 hints <exercise-4-hints>`
 
-3. `Loading and using modules <Lesson/modules.md>`__
-4. `Exercise 4: A temperature
-   calculator <https://classroom.github.com/assignment-invitations/b1ad919e5a8248a11839fec83e45093e>`__
+Learning goals
+--------------
 
-Resources
----------
+After this weeks lesson your should be able to:
 
--  Past lesson materials
--  `Control flow <https://github.com/Python-for-geo-people/Lesson-3>`__
--  `Intro to version control and
-   GitHub <https://github.com/Python-for-geo-people/Lesson-2/tree/master/Lesson/intro-to-GitHub.md>`__
--  `Writing script
-   files <https://github.com/Python-for-geo-people/Lesson-2/tree/master/Lesson/writing-scripts.md>`__
--  `Working on the
-   exercises <https://github.com/Python-for-geo-people/Lesson-2/tree/master/Lesson/working-on-assignment.md>`__
--  Web pages
--  `Codecademy's Learn to program in
-   Python <https://www.codecademy.com/learn/python>`__
--  `Software Carpentry's programming in
-   Python <https://swcarpentry.github.io/python-novice-inflammation/>`__
--  Books
--  `Learn Python the Hard
-   Way <http://learnpythonthehardway.org/book/>`__
--  `Dive into Python 3 <http://www.diveinto.org/python3/>`__
+  - Explain how functions are used and their benefits
+  - Create your own functions to calculate an output value based on an input value
+  - Save functions to a script file for future use
