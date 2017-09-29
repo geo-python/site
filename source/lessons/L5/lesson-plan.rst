@@ -3,20 +3,33 @@ Plan for Lesson 5
 
 Contents that were introduced last year during Lessons 5 and 6, and modified to this year:
 
+Dave from here:
 - Reading a single data file
-- Reading multiple data files (glob)
 - Skipping file headers and other unwanted data
 - DataFrame dimensions:
-  - columns
+  - columns (data.columns)
   - rows
   - datatypes
   - shape
+- pd.Series() --> np.array()
+- pd.Series() functions (mean, avg, std, min, max)
+- type conversion
+
+# Henkka:
+- Writing data
 - Iterating over lines in a file (iterrows() -method)
-- Str split() method
 - Slicing data
 - Selecting data (.ix)
-- Grouping data (aggregation)
 
+- Exercise 5
+
+6 lesson:
+---------
+
+- Str split() method
+- Grouping data (aggregation)
+- Reading multiple data files (glob)
+- Table joins
 
 
 
