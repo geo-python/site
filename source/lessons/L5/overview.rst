@@ -1,10 +1,22 @@
-Lesson 5: Reading and Writing Files
-===================================
-
-Lesson 5: Reading and Writing Files in Python.
-
 Lesson overview
----------------
+===============
+
+In this lesson we will learn basics in reading and writing data from/to a file, and do some basic data manipulation
+and analysis using a Python module called **Pandas**.
+`Pandas <http://pandas.pydata.org/>`__ is a modern and feature rich data analysis framework for Python that is designed
+to make data analysis and manipulation straightforward and powerful using easy-to-use data structures and operations.
+
+- What is Pandas?
+- Reading data from a file using Pandas
+    - Skipping file headers and other unwanted data
+- Pandas DataFrame and its properties
+  - columns
+  - rows
+  - datatypes
+  - shape
+- pd.Series() --> np.array()
+- pd.Series() functions (mean, avg, std, min, max)
+- type conversion
 
 1. `Summary of early course feedback <Lesson/midterm-feedback.md>`__
 2. `Reading data from a file <Lesson/reading-data-from-file.md>`__
