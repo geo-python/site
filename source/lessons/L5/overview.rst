@@ -6,17 +6,26 @@ and analysis using a Python module called **Pandas**.
 `Pandas <http://pandas.pydata.org/>`__ is a modern and feature rich data analysis framework for Python that is designed
 to make data analysis and manipulation straightforward and powerful using easy-to-use data structures and operations.
 
-- What is Pandas?
+- :doc:`Summary of early course feedback <midterm-feedback>`
+- :doc:`What is Pandas? <pandas-overview>`
 - Reading data from a file using Pandas
-    - Skipping file headers and other unwanted data
+  - Skipping file headers and other unwanted data
+  - Determining NoData value
 - Pandas DataFrame and its properties
   - columns
   - rows
   - datatypes
   - shape
-- pd.Series() --> np.array()
-- pd.Series() functions (mean, avg, std, min, max)
-- type conversion
+- Pandas Series and built-in functions
+  - Pandas Series vs Numpy-array
+  - Series functions (mean, avg, std, min, max)
+  - Describe your data with .describe() -function
+  - Type conversions with .astype() -function
+- Data selections
+  - Slicing data
+  - Selecting data based on specific criteria using indexing (.ix )
+- Iterating over rows
+- Writing data
 
 1. `Summary of early course feedback <Lesson/midterm-feedback.md>`__
 2. `Reading data from a file <Lesson/reading-data-from-file.md>`__
