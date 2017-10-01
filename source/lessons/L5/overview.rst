@@ -12,10 +12,11 @@ to make data analysis and manipulation straightforward and powerful using easy-t
   - Skipping file headers and other unwanted data
   - Determining NoData value
 - Pandas DataFrame and its properties
-  - columns
-  - rows
-  - datatypes
-  - shape
+  - Head / Tail
+  - Columns
+  - Rows
+  - Data types
+  - Shape
 - Pandas Series and built-in functions
   - Pandas Series vs Numpy-array
   - Series functions (mean, avg, std, min, max)
