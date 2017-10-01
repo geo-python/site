@@ -1,8 +1,11 @@
 What is Pandas?
 ===============
 
+.. figure:: img/pandas_logo.png
+   :width: 300px
+
 `Pandas <http://pandas.pydata.org/>`__ is a modern, powerful and feature rich library that is designed for doing
-data analysis in Python. It is a mature data analytics framework (main author is Wes McKinney) that is widely used among different fields of science,
+data analysis in Python. It is a mature data analytics framework (first authored by Wes McKinney) that is widely used among different fields of science,
 thus there exists a lot of good examples and documentation that can help you get going with your data analysis tasks.
 
 Easy-to-use data structures
