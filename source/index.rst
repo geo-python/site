@@ -74,7 +74,7 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
 .. admonition:: Step by step instructions with cloud computing!
 
     The materials are written in a way that you can follow them step by step exactly as they are written, as long as you use the cloud computing resources that
-    we provide for you (unfortunately **for Uni. Helsinki people** only). Read more about our cloud computing environment from `here <https://github.com/Python-for-geo-people/Lesson-1-Course-Environment/blob/master/Background/course-environment-components.md>`_.
+    we provide for you (unfortunately **for Uni. Helsinki people** only). Read more about our cloud computing environment from :doc:`here <lessons/L1/course-environment-components>`.
     If you work from your own computer, **you need to adjust the file paths to the data** accordingly.
 
 .. admonition:: For teachers
