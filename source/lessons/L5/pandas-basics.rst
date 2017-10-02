@@ -138,6 +138,7 @@ A normal first step when you load new data is to explore the dataset a bit to un
     print(dataFrame.columns)
 
    Here we see the names of the different columns in the datafile, as one might expect.
+|
 
 2. We can also find information about the rows in the datafile using the ``index`` attribute.
 
@@ -161,7 +162,7 @@ A normal first step when you load new data is to explore the dataset a bit to un
     print(dataFrame.shape)
 
    Here we see that our dataset has 30 rows, 4 columns, just as we saw above.
-
+|
 4. Now let's consider the types of data we have in our DataFrame.
    First, let's see what type of data the DataFrame is.
 
@@ -176,16 +177,16 @@ A normal first step when you load new data is to explore the dataset a bit to un
 
    .. ipython:: python
 
-    print(dataFrame.dtypes)
+     print(dataFrame.dtypes)
     
    The ``dtypes`` attribute holds the data types for each column, nice.
    Here we see that ``YEARMODA`` is an integer value (with 64-bit precision; int64), while the other values are all decimal values with 64-bit precision (float64).
-
+|
 5. We can select a single column of the data using the column name.
 
    .. ipython:: python
 
-    >>> print(dataFrame['TEMP'])
+     print(dataFrame['TEMP'])
 
    As you can see, selecting a given column is straightforward.
    Furthermore, printing out its values shows not only the values, but also their data type.
@@ -193,7 +194,7 @@ A normal first step when you load new data is to explore the dataset a bit to un
 
    .. ipython:: python
 
-    >>> type(dataFrame['TEMP'])
+     type(dataFrame['TEMP'])
 
    Interesting.
    So rather than seeing a DataFrame type or float64, a selected column from a DataFrame is called a *Series* in Pandas.
@@ -209,17 +210,25 @@ A normal first step when you load new data is to explore the dataset a bit to un
 
    As you can see, ``myList`` is converted to a Pandas Series using the ``ps.Series()`` function.
    Also, note that Pandas is smart about the conversion, detecting a single floating point value (``7.0``) and assigning all values in the Series the data type float64.
-
+|
 6. Just like DataFrames, Pandas Series have a set of attributes they know about themselves and methods they can use to make calculations using the Series data.
-   Useful methods include ``mean()``, ``min()``, ``max()``, and ``std()`` (the standard deviation).
+   Useful methods include ``mean()``, ``median()``, ``min()``, ``max()``, and ``std()`` (the standard deviation).
 
    .. ipython:: python
 
-    print(dataFrame['TEMP'].mean())
+    dataFrame['TEMP'].mean()
 
    Here, we don't even need to store ``dataFrame['TEMP']`` as a separate series in order to find the mean value using the ``mean()`` method.
+|
+7. One useful function to get an overview of the basic statistics for all attributes in your DataFrame is to use ``describe()`` -function.
 
-7. Finally, there are occasions where you'll need to convert data in a Series to another data type.
+   .. ipython:: python
+
+    dataFrame.describe()
+
+   Here, you can right away get the basic statistical information about all your attributes (min, max, count, std, mean, quartiles).
+|
+8. Finally, there are occasions where you'll need to convert data in a Series to another data type.
    If you're planning to print a large number of value to the screen, for instance, it might be helpful to have those values as character strings.
    Data type conversions is most easily done using the ``astype()`` method.
 
@@ -241,8 +250,10 @@ A normal first step when you load new data is to explore the dataset a bit to un
     Be careful with type conversions from floating point values to integers.
     The conversion simply drops the stuff to the right of the decimal point, so all values are rounded down to the nearest whole number.
     For example, 99.99 will be rounded to 99 as an integer.
-    This can be dangerous in some cases. Hence, it might be good to round the values before converting them to integers.
-    Chaining the round and type conversion functions solves this issue as ``.round(0).astype(int)`` -functions first rounds the
+    This can be dangerous in some cases.
+
+    Hence, it might be good to round the values before converting them to integers.
+    Chaining the round and type conversion functions solves this issue as ``.round(0).astype(int)`` -command first rounds the
     values with zero decimals and then converts those values into integers.
 
 .. rubric:: Footnotes
