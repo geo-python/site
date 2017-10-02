@@ -149,6 +149,7 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
 
     lessons/L5/overview
     lessons/L5/lesson-video
+    lessons/L5/download-data
     lessons/L5/pandas-overview
     lessons/L5/ex-5
     lessons/L5/exercise-5-hints
