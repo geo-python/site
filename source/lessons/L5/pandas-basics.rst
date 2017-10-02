@@ -8,7 +8,7 @@ If you're curious about that, you can check out some of the :doc:`lesson materia
 Downloading the data and preparing
 ----------------------------------
 
-1. You can start by downloading the `weather data file <../../_static/data/L5/Kumpula-June-2016-w-metadata.txt>`__ we will be using for this part of the lesson.
+1. You can start by downloading the `weather data file <../../../../data/L5/Kumpula-June-2016-w-metadata.txt>`__ we will be using for this part of the lesson.
 
    - Save a copy of this file in your home directory or a directory for the materials for this week's lesson.
 
@@ -50,7 +50,7 @@ Reading a data file with Pandas
      :suppress:
 
        import os
-       fp = os.path.join(os.path.abspath('source'), '_static', 'data', 'L5', "Kumpula-June-2016-w-metadata.txt")
+       fp = os.path.join(os.path.abspath('data'), 'L5', "Kumpula-June-2016-w-metadata.txt")
        dataFrame = pd.read_csv(fp)
 
 
@@ -133,109 +133,67 @@ A normal first step when you load new data is to explore the dataset a bit to un
 1. Let's start by looking at the different columns we have in our DataFrame.
    We can find this in the ``columns``  attribute that is part of the DataFrame data type, something that is known automatically for this kind of data.
 
-   .. code:: python
+   .. ipython:: python
 
-    >>> print(dataFrame.columns)
-    Index(['YEARMODA', 'TEMP', 'MAX', 'MIN'], dtype='object')
+    print(dataFrame.columns)
 
    Here we see the names of the different columns in the datafile, as one might expect.
 
 2. We can also find information about the rows in the datafile using the ``index`` attribute.
 
-   .. code:: python
+   .. ipython:: python
 
-    >>> print(dataFrame.index)
-    RangeIndex(start=0, stop=30, step=1)
+    print(dataFrame.index)
 
    Here we see how the data is indexed, starting at 0, ending at 30 [#f2]_, and with an increment of 1 between each value.
    This is basically the same way in which Python lists are indexed, but it suggests that maybe there are other ways to identify the rows in data using Pandas.
    Again, we'll see a bit more about this later.
    For now, it is also useful to point out that if you want to just know how many rows you have, you can use the ``len()`` function.
 
-   .. code:: python
+   .. ipython:: python
 
-    >>> print(len(dataFrame.index))
-    30
+    print(len(dataFrame.index))
 
 3. We can also get a quick sense of the size of the dataset using the ``shape`` attribute.
 
-   .. code:: python
+   .. ipython:: python
 
     print(dataFrame.shape)
-    (30, 4)
 
    Here we see that our dataset has 30 rows, 4 columns, just as we saw above.
 
 4. Now let's consider the types of data we have in our DataFrame.
    First, let's see what type of data the DataFrame is.
 
-   .. code:: python
+   .. ipython:: python
 
-    >>> type(dataFrame)
-    pandas.core.frame.DataFrame
+    type(dataFrame)
 
    No surprises here, our Pandas DataFrame is a Pandas DataFrame ;).
 
    What about the data?
    Again, finding the types of data in the columns of the DataFrame is easy.
 
-   .. code:: python
+   .. ipython:: python
 
-    >>> print(dataFrame.dtypes)
-    YEARMODA      int64
-    TEMP        float64
-    MAX         float64
-    MIN         float64
-    dtype: object
+    print(dataFrame.dtypes)
     
    The ``dtypes`` attribute holds the data types for each column, nice.
    Here we see that ``YEARMODA`` is an integer value (with 64-bit precision; int64), while the other values are all decimal values with 64-bit precision (float64).
 
 5. We can select a single column of the data using the column name.
 
-   .. code:: python
+   .. ipython:: python
 
     >>> print(dataFrame['TEMP'])
-    0     65.5
-    1     65.8
-    2     68.4
-    3     57.5
-    4     51.4
-    5     52.2
-    6     56.9
-    7     54.2
-    8     49.4
-    9     49.5
-    10    54.0
-    11    55.4
-    12    58.3
-    13    59.7
-    14    63.4
-    15    57.8
-    16    60.4
-    17    57.3
-    18    56.3
-    19    59.3
-    20    62.6
-    21    61.7
-    22    60.9
-    23    61.1
-    24    65.7
-    25    69.6
-    26    60.7
-    27    65.4
-    28    65.8
-    29    65.7
-    Name: TEMP, dtype: float64
 
    As you can see, selecting a given column is straightforward.
    Furthermore, printing out its values shows not only the values, but also their data type.
    What about the type of the column itself?
 
-   .. code:: python
+   .. ipython:: python
 
     >>> type(dataFrame['TEMP'])
-    pandas.core.series.Series
 
    Interesting.
    So rather than seeing a DataFrame type or float64, a selected column from a DataFrame is called a *Series* in Pandas.
@@ -255,10 +213,9 @@ A normal first step when you load new data is to explore the dataset a bit to un
 6. Just like DataFrames, Pandas Series have a set of attributes they know about themselves and methods they can use to make calculations using the Series data.
    Useful methods include ``mean()``, ``min()``, ``max()``, and ``std()`` (the standard deviation).
 
-   .. code:: python
+   .. ipython:: python
 
-    >>> print(dataFrame['TEMP'].mean())
-    59.73
+    print(dataFrame['TEMP'].mean())
 
    Here, we don't even need to store ``dataFrame['TEMP']`` as a separate series in order to find the mean value using the ``mean()`` method.
 
@@ -266,78 +223,16 @@ A normal first step when you load new data is to explore the dataset a bit to un
    If you're planning to print a large number of value to the screen, for instance, it might be helpful to have those values as character strings.
    Data type conversions is most easily done using the ``astype()`` method.
 
-   .. code:: python
+   .. ipython:: python
     
-    >>> print(dataFrame['TEMP'].astype('str'))
-    0     65.5
-    1     65.8
-    2     68.4
-    3     57.5
-    4     51.4
-    5     52.2
-    6     56.9
-    7     54.2
-    8     49.4
-    9     49.5
-    10    54.0
-    11    55.4
-    12    58.3
-    13    59.7
-    14    63.4
-    15    57.8
-    16    60.4
-    17    57.3
-    18    56.3
-    19    59.3
-    20    62.6
-    21    61.7
-    22    60.9
-    23    61.1
-    24    65.7
-    25    69.6
-    26    60.7
-    27    65.4
-    28    65.8
-    29    65.7
-    Name: TEMP, dtype: object
+    print(dataFrame['TEMP'].astype('str'))
 
    In this case, the object data type indicates the temperature values are stored as character strings.
    A more obvious case is converting to integer values.
 
-   .. code:: python
+   .. ipython:: python
 
     print(dataFrame['TEMP'].astype('int'))
-    0     65
-    1     65
-    2     68
-    3     57
-    4     51
-    5     52
-    6     56
-    7     54
-    8     49
-    9     49
-    10    54
-    11    55
-    12    58
-    13    59
-    14    63
-    15    57
-    16    60
-    17    57
-    18    56
-    19    59
-    20    62
-    21    61
-    22    60
-    23    61
-    24    65
-    25    69
-    26    60
-    27    65
-    28    65
-    29    65
-    Name: TEMP, dtype: int64
 
    Here you can clearly see the temperature values are now whole numbers.
 
