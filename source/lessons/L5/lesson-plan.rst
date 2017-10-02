@@ -12,7 +12,7 @@ Dave from here:
   - datatypes
   - shape
 - pd.Series() --> np.array()
-- pd.Series() functions (mean, avg, std, min, max)
+- pd.Series() functions (mean, avg, std, min, max, corr)
 - type conversion
 
 # Henkka:

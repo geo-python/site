@@ -23,7 +23,7 @@ to make data analysis and manipulation straightforward and powerful using easy-t
 
 - Pandas Series and built-in functions
     - Pandas Series vs Numpy-array
-    - Series functions (mean, avg, std, min, max)
+    - Series functions (mean, avg, std, min, max, corr)
     - Describe your data with .describe() -function
     - Type conversions with .astype() -function
 

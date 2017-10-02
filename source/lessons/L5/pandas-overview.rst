@@ -28,8 +28,8 @@ libraries such as `matplotlib (plotting) <https://matplotlib.org/>`__ and
 `scipy (mathematics, science, engineering) <https://www.scipy.org/>`__. Thus, you can use many of the features
 included in those packages even without importing them at all.
 
-Supports data read/write from many different formats
-----------------------------------------------------
+Supports data read/write from multiple formats
+----------------------------------------------
 
 One of the most useful features of Pandas is its ability to read data from numerous different data formats directly.
 Pandas supports reading and writing data e.g. from/to:
