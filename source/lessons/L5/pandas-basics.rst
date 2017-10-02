@@ -220,13 +220,13 @@ A normal first step when you load new data is to explore the dataset a bit to un
 
    Here, we don't even need to store ``dataFrame['TEMP']`` as a separate series in order to find the mean value using the ``mean()`` method.
 |
-7. One useful function to get an overview of the basic statistics for all attributes in your DataFrame is to use ``describe()`` -function.
+7. One useful function to get an overview of the basic statistics for all attributes in your DataFrame is the ``describe()`` function.
 
    .. ipython:: python
 
     dataFrame.describe()
 
-   Here, you can right away get the basic statistical information about all your attributes (min, max, count, std, mean, quartiles).
+   Here, you can quickly get the basic statistical information about all your attributes (min, max, count, std, mean, quartiles).
 |
 8. Finally, there are occasions where you'll need to convert data in a Series to another data type.
    If you're planning to print a large number of value to the screen, for instance, it might be helpful to have those values as character strings.
@@ -253,8 +253,7 @@ A normal first step when you load new data is to explore the dataset a bit to un
     This can be dangerous in some cases.
 
     Hence, it might be good to round the values before converting them to integers.
-    Chaining the round and type conversion functions solves this issue as ``.round(0).astype(int)`` -command first rounds the
-    values with zero decimals and then converts those values into integers.
+    Chaining the round and type conversion functions solves this issue as the ``.round(0).astype(int)`` command first rounds the values with zero decimals and then converts those values into integers.
 
 .. rubric:: Footnotes
 
