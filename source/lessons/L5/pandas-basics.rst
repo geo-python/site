@@ -46,37 +46,25 @@ Reading a data file with Pandas
 
 2. Now we'll read the file data into a variable called ``dataFrame``.
 
+   .. ipython:: python
+     :suppress:
+
+       import os
+       fp = os.path.join(os.path.abspath('source'), '_static', 'data', 'L5', "Kumpula-June-2016-w-metadata.txt")
+       dataFrame = pd.read_csv(fp)
+
+
    .. code:: python
 
-    >>> dataFrame = pd.read_csv('Kumpula-June-2016-w-metadata.txt')
+    In [2] dataFrame = pd.read_csv('Kumpula-June-2016-w-metadata.txt')
 
    If all goes as planned, you should now have a new variable defined as ``dataFrame`` that contains the data file's contents.
-   You can check those contents by typing
+   You can check the the contents by typing
 
-   .. code:: python
+   .. ipython:: python
 
-    >>> print(dataFrame)
-            # Data file contents: Daily temperatures (mean            min  \
-    0                 #                     for June 1-30           2016   
-    1   # Data source: https://www.ncdc.noaa.gov/cdo-w...            NaN   
-    2   # Data processing: Extracted temperatures from...   converted to   
-    3           #                  comma-separated format            NaN   
-    4                                                   #            NaN   
-    5                          # David Whipp - 02.10.2017            NaN   
-    6                                            YEARMODA           TEMP   
-    7                                            20160601           65.5   
-    8                                            20160602           65.8   
-    ...
-    27              71.4      50.4  
-    28              70.2      55.4  
-    29              67.1      54.9  
-    30              68.9      56.7  
-    31              75.4      57.9  
-    32              77.7      60.3  
-    33              70.0      57.6  
-    34              73.0      55.8  
-    35              73.2      59.7  
-    36              72.7      59.2  
+      print(dataFrame)
+
 
 3. This looks OK, but there are some strange values present such as ``NaN``.
    Plus, we expected about 30 lines of data, but the index values go up to 36 when we print the contents of ``dataFrame``.
@@ -104,41 +92,20 @@ Reading a data file with Pandas
    This isn't data we want to process, so we need to skip over that part of the file when we load it.
    Fortunately, that's easy to do in Pandas, we just need to add the ``skiprows`` parameter when we read the file, listing the number of rows to skip (8 in this case).
 
+   .. ipython:: python
+     :suppress:
+
+       dataFrame = pd.read_csv(fp, skiprows=8)
+
    .. code:: python
 
-    >>> dataFrame = pd.read_csv('Kumpula-June-2016-w-metadata.txt', skiprows=8)
-    >>> print(dataFrame)
-        YEARMODA  TEMP   MAX   MIN
-    0   20160601  65.5  73.6  54.7
-    1   20160602  65.8  80.8  55.0
-    2   20160603  68.4  77.9  55.6
-    3   20160604  57.5  70.9  47.3
-    4   20160605  51.4  58.3  43.2
-    5   20160606  52.2  59.7  42.8
-    6   20160607  56.9  65.1  45.9
-    7   20160608  54.2  60.4  47.5
-    8   20160609  49.4  54.1  45.7
-    9   20160610  49.5  55.9  43.0
-    10  20160611  54.0  62.1  41.7
-    11  20160612  55.4  64.2  46.0
-    12  20160613  58.3  68.2  47.3
-    13  20160614  59.7  67.8  47.8
-    14  20160615  63.4  70.3  49.3
-    15  20160616  57.8  67.5  55.6
-    16  20160617  60.4  70.7  55.9
-    17  20160618  57.3  62.8  54.0
-    18  20160619  56.3  59.2  54.1
-    19  20160620  59.3  69.1  52.2
-    20  20160621  62.6  71.4  50.4
-    21  20160622  61.7  70.2  55.4
-    22  20160623  60.9  67.1  54.9
-    23  20160624  61.1  68.9  56.7
-    24  20160625  65.7  75.4  57.9
-    25  20160626  69.6  77.7  60.3
-    26  20160627  60.7  70.0  57.6
-    27  20160628  65.4  73.0  55.8
-    28  20160629  65.8  73.2  59.7
-    29  20160630  65.7  72.7  59.2
+    In [4] dataFrame = pd.read_csv('Kumpula-June-2016-w-metadata.txt', skiprows=8)
+
+   Let's now print the rows and see what changed.
+
+   .. ipython:: python
+
+      print(dataFrame)
 
    That looks more like it.
    So, what happened?
