@@ -29,8 +29,9 @@ to make data analysis and manipulation straightforward and powerful using easy-t
 
 - Data selections
     - Slicing data
-    - Selecting data based on specific criteria using indexing (.ix )
+    - Filtering data based on specific criteria using indexing (.ix )
 
+- Sorting data
 - Iterating over rows
 - Writing data
 - :doc:`Exercise 5 <ex-5>`
