@@ -225,14 +225,14 @@ A normal first step when you load new data is to explore the dataset a bit to un
 
    .. ipython:: python
     
-    print(dataFrame['TEMP'].astype('str'))
+    print(dataFrame['TEMP'].astype(str))
 
    In this case, the object data type indicates the temperature values are stored as character strings.
    A more obvious case is converting to integer values.
 
    .. ipython:: python
 
-    print(dataFrame['TEMP'].astype('int'))
+    print(dataFrame['TEMP'].astype(int))
 
    Here you can clearly see the temperature values are now whole numbers.
 
@@ -241,7 +241,9 @@ A normal first step when you load new data is to explore the dataset a bit to un
     Be careful with type conversions from floating point values to integers.
     The conversion simply drops the stuff to the right of the decimal point, so all values are rounded down to the nearest whole number.
     For example, 99.99 will be rounded to 99 as an integer.
-    This can be dangerous in some cases.
+    This can be dangerous in some cases. Hence, it might be good to round the values before converting them to integers.
+    Chaining the round and type conversion functions solves this issue as ``.round(0).astype(int)`` -functions first rounds the
+    values with zero decimals and then converts those values into integers.
 
 .. rubric:: Footnotes
 
@@ -278,4 +280,4 @@ A normal first step when you load new data is to explore the dataset a bit to un
          Windows users should also be able to use head via the **Anaconda Prompt** available where Anaconda is listed in your installed programs.
          After you open the Anaconda Prompt you should be able to change into the directory containing your data file and use head.
 
-.. [#f2] Note again here that the last value in the list of indicies is not included in the range, just like when you use the ``range()`` function.
+.. [#f2] Note again here that the last value in the list of indices is not included in the range, just like when you use the ``range()`` function.
