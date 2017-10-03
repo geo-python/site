@@ -35,5 +35,5 @@ to make data analysis and manipulation straightforward and powerful using easy-t
 - Iterating over rows
 - Writing data
 - :doc:`Exercise 5 <ex-5>`
-- `Hints for Exercise 5 <Lesson/hints-ex5.md>`__
+- :doc:`Hints for Exercise 5 <exercise-5-hints>`
 
