@@ -8,32 +8,21 @@ to make data analysis and manipulation straightforward and powerful using easy-t
 
 - :doc:`Summary of early course feedback <midterm-feedback>`
 - :doc:`What is Pandas? <pandas-overview>`
-- Reading data from a file using Pandas
+- :doc:`Exploring data using Pandas <pandas-basics>`
 
-    - Skipping file headers and other unwanted data
-    - Determining NoData value
+  - `Reading a file with Pandas <pandas-basics.html#reading-a-data-file-with-pandas>`__
+  - `Exploring our dataset <pandas-basics.html#exploring-out-dataset>`__
 
-- Pandas DataFrame and its properties
+- :doc:`Processing data with Pandas <pandas-basic-operations>`
 
-    - Head / Tail
-    - Columns
-    - Rows
-    - Data types
-    - Shape
+  - `Calculating with DataFrames <pandas-basic-operations.html#calculating-with-dataframes>`__
+  - `Selecting data using indices <pandas-basic-operations.html#selecting-data-using-indices>`__
+  - `Filtering and updating data <pandas-basic-operations.html#filtering-and-updating-data>`__
+  - `Dealing with missing data <pandas-basic-operations.html#dealing-with-missing-data>`__
+  - `Sorting data <pandas-basic-operations.html#sorting-data>`__
+  - `Rounding and finding unique values <pandas-basic-operations.html#rounding-and-finding-unique-values>`__
+  - `Writing data <pandas-basic-operations.html#writing-data>`__
 
-- Pandas Series and built-in functions
-    - Pandas Series vs Numpy-array
-    - Series functions (mean, avg, std, min, max, corr)
-    - Describe your data with .describe() -function
-    - Type conversions with .astype() -function
-
-- Data selections
-    - Slicing data
-    - Filtering data based on specific criteria using indexing (.ix )
-
-- Sorting data
-- Iterating over rows
-- Writing data
 - :doc:`Exercise 5 <ex-5>`
 - :doc:`Hints for Exercise 5 <exercise-5-hints>`
 
