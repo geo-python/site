@@ -108,7 +108,7 @@ It is also possible to select multiple rows simultaniously. Here, we select only
     temps_5to10 = dataFrame.loc[5:10, 'TEMP']
     print(temps_5to10)
 
-It is also possible to select multiple columns using those same indices. Here, we select ``TEMP`` and the ``TEMP_Celsius`` columns by passing them inside a list (`` .loc[start_index:stop_index, list_of_columns]``):
+It is also possible to select multiple columns using those same indices. Here, we select ``TEMP`` and the ``TEMP_Celsius`` columns by passing them inside a list (``.loc[start_index:stop_index, list_of_columns]``):
 
 .. ipython:: python
 
@@ -134,8 +134,8 @@ The following example shows how to select rows when the Celsius temperature has 
     w_temps = dataFrame.ix[dataFrame['TEMP_Celsius'] > 15]
     print(w_temps)
 
-It is also possible to combine multiple criteria at the same time. Here, we select temperatures above 15 degrees that were recorded on the second half of June in 2016 (i.e. ``YEARMODA >= 20160615 ``).
-Combining multiple criteria can be done with `&` operator (AND) or `|`operator (OR).
+It is also possible to combine multiple criteria at the same time. Here, we select temperatures above 15 degrees that were recorded on the second half of June in 2016 (i.e. ``YEARMODA >= 20160615``).
+Combining multiple criteria can be done with ``&`` operator (AND) or ``|`` operator (OR). Notice, that it is often useful to separate the different clauses inside the parentheses ``()``.
 
 .. ipython:: python
 
@@ -170,7 +170,7 @@ Now we can see that we have some missing data in our DataFrame.
 
 .. note::
 
-    Notice here that you don't necessary need to specify the starting_index if it is 0 but you can leave it empty as in the example above.
+    Notice here that you don't necessary need to specify the starting index if you select data starting from the beginning of the file (at index 0), hence you can leave it empty as in the example above.
 
 Having missing data in your datafile is really common situation and typically you want to deal with it somehow. Common procedures to deal with NaN is to either **remove** them from
 the DataFrame or **fill** them with some value. In Pandas both of these options are really easy to do.
@@ -234,13 +234,17 @@ We can do that by using ``unique_values()`` -function:
 .. ipython:: python
 
     unique = dataFrame['Celsius_rounded'].unique()
-    print(unique)
+    unique
 
-As a result we get an array of unique values in that column. We can also see all those values by printing them as a list:
+As a result we get an array of unique values in that column.
 
-.. ipython:: python
+.. note::
 
-    print(list(unique))
+    Sometimes if you have a long list of unique values, you don't necessary see all the unique values directly as IPython hides them. It is, however, possible to see all those values by printing them as a list:
+
+    .. ipython:: python
+
+        print(list(unique))
 
 How many days with unique mean temperature did we have in June 2016? We can check that!
 
