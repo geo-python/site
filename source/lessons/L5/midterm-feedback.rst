@@ -1,76 +1,68 @@
-Summary of early course feedback
-================================
+Summary of mid-term course feedback
+===================================
 
 1. Is the pace of the lessons too fast, too slow, or about right?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------------------------------------
 
--  Seems to be about right for most of the students.
--  Too quick for some, too slow for some others.
+- Seems to be about right on average. A bit slow for some (with experience), a bit too fast for others (new coders)
+- Dave sometimes goes too quickly when typing things
+- Explaining the previous exercise takes too much time
+- Would be great to get materials in advance to be able to formulate questions ahead of time
 
 2. Is the content of the lessons too simple, too difficult, or about right?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------------------------------------------
 
--  Seems to be about right for many.
--  Students with earlier programming experience feel it a bit simple.
--  Some topics have been more challenging than others.
+*Exactly the same as last year*
+
+- Seems to be about right for many
+- Students with earlier programming experience feel its a bit simple
+- Some topics have been more challenging than others
 
 3. Is the content of the exercises too simple, too difficult, or about right?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------------------------------------------------
 
--  About right for many
--  A bit challenging for some and time consuming (especially Flag
-   exercise was challenging)
--  Too simple for some
--  The difficult level of the exercises has varied a bit
--  Could be more examples
--  Could be more difficult exercises as optional tasks
+- About right for many
+- A bit challenging for some and time consuming
+- Some would like more of the challenging problems, perhaps with less structure for how to complete the tasks
+- The difficulty level of the exercises has varied a bit
 
 4. Which aspect(s) of the course is/are most helpful to you?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------------------------------
 
--  Lessons
--  Exercises
--  Learning how to do programming (in Python) and how computers work
--  Learning GitHub
+- Exercises
+- Lesson materials online
+- Step-by-step instructions
+- Interactive questions in class
+- Lecture videos (uploaded right after class, if possible)
+- Working on real-life tasks
 
 5. Which aspect(s) of the course is/are least helpful to you?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------------------------
 
--  Mostly everything have been seen as useful
--  Lessons / Practical sessions / going through the basics
--  Using GitHub can be annoying and difficult to find materials
+- **Too much time spent reviewing last exercise**
+- Going to the lectures :(
+- Exercises are too hard
+- Exercise instructions sometimes break things down into steps that can cause confusion
+- Vague exercise hints
+- Slack - It's just easier to ask in person
 
 6. What suggestions do you have for improving this course?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------------------------------
 
--  More time to do the exercises (e.g. 4 hour practicals or two 2-hour
-   sessions)
--  Explaining correct answers on Monday / Giving right answers
--  Make it slightly more challenging
--  More instructions for the exercises, more examples, slightly easier
-   exercises
--  *Chat for asking questions from others / teachers*
--  More stuff on Geographical issues
--  Optional more demanding exercise
+- Grades for the exercises sooner rather than later
+- A few easier exercise questions/problems
+- More time explaining for loops
+- Instructions for Exercise 3 were confusing
+- Post course materials earlier
+- More specific hints
+- More short exercise questions closer to the lesson content
+- Release a solutions guide after the assignments are due
+- More stuff on best practices
+- Two versions of the exercises, one like the current, one with less guidance
 
 7. Do you have any other general comments about the course? Comments on things like the computing environment or use of GitHub would be quite helpful!
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------------------------------------------------------------------------------------------------------------------------
 
--  GitHub was first confusing but now I'm getting it!
--  *Why do we need to use computer instances / Pouta environment instead
-   of doing stuff on local computers?*
--  *Why don't we use Moodle instead of GitHub?*
--  *Why isn't this course done as a MOOC?*
--  Give answers to the exercises
--  *More hints about programming practices (run and test your code
-   frequently, don't use spaces in variable names etc.)*
--  *At the end of lesson material page, give link to the next page,
-   previous page, main page*
--  Practicals should be in the same classroom as lectures where there
-   are two screens
-
-**Next**: `Reading data from a file <reading-data-from-file.md>`__\ 
-**Home**: `Lesson 5 main
-page <https://github.com/Python-for-geo-people/Lesson-5-Reading-Writing>`__\ 
-**Previous**: `Intro to version control and
-GitHub <intro-to-GitHub.md>`__
+- Exercise instructions are too specific
+- GitHub is still not really that clear to me
+- *And some good stuff too :)*
