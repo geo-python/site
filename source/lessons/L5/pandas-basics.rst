@@ -15,7 +15,7 @@ Downloading the data and preparing
    - The data file contains observed daily mean, minimum, and maximum temperatures from June 2016 recorded from the Kumpula weather observation station in Helsinki.
      It is derived from a data file of daily temperature measurments downloaded from the `US National Oceanographic and Atmospheric Administration's National Centers for Environmental Information climate database <https://www.ncdc.noaa.gov/cdo-web/>`__.
 
-   - Thus, we expect something like 30 lines of data in the data file.
+   - We expect something like 30 lines of data in the data file.
 
 2. If you have not already started **Spyder** you should do so now.
    You can find :doc:`directions on how to open Spyder at the start of Lesson 1<../L1/A-taste-of-Python>`.
@@ -54,10 +54,13 @@ Reading a data file with Pandas
        dataFrame = pd.read_csv(fp)
 
 
-   .. code:: python
+   .. ipython:: python
+     :verbatim:
+    
+      dataFrame = pd.read_csv('Kumpula-June-2016-w-metadata.txt')
 
-    In [2] dataFrame = pd.read_csv('Kumpula-June-2016-w-metadata.txt')
-
+   ``pd.read_csv()`` is a general function for reading data files separated by commas, spaces, or other common separators.
+   We use it her by simply giving the name of the file to read.
    If all goes as planned, you should now have a new variable defined as ``dataFrame`` that contains the data file's contents.
    You can check the the contents by typing
 
@@ -65,8 +68,8 @@ Reading a data file with Pandas
 
       print(dataFrame)
 
-
 3. This looks OK, but there are some strange values present such as ``NaN``.
+   ``NaN`` stands for not a number, and might indicate some problem with reading in the contents of the file.
    Plus, we expected about 30 lines of data, but the index values go up to 36 when we print the contents of ``dataFrame``.
    Looks like we need to investigate.
    We can double check the contents of the data stored in ``dataFrame`` using the **Spyder** editor panel.
@@ -97,9 +100,10 @@ Reading a data file with Pandas
 
        dataFrame = pd.read_csv(fp, skiprows=8)
 
-   .. code:: python
-
-    In [4] dataFrame = pd.read_csv('Kumpula-June-2016-w-metadata.txt', skiprows=8)
+   .. ipython:: python
+     :verbatim:
+     
+      dataFrame = pd.read_csv('Kumpula-June-2016-w-metadata.txt', skiprows=8)
 
    Let's now print the rows and see what changed.
 
