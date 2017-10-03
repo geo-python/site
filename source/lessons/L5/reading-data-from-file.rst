@@ -11,7 +11,7 @@ Reading an entire file at once
 ------------------------------
 
 There are several ways in which data can be read from a file in Python, but some are more common (or better in some cases) than others.
-We will focus on two ways to read files that can be easily used for many types of data files.
+Here we will focus on a common way to read files that can be easily used for many types of data files.
 
 1. We will begin by reading an entire file into a Python list.
    To start we need to open the file for reading by typing the following into the **Spyder** editor:
