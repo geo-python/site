@@ -1,5 +1,5 @@
-Basic data operations in Pandas
-===============================
+Processing data with Pandas
+===========================
 
 Now you should know the basics of the data structures in Pandas and how to explore your data using some tools that is provided by Pandas.
 Next we continue to explore some of the basic data operations that are regularly needed when doing data analysis.
