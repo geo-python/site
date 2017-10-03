@@ -93,7 +93,7 @@ You can also select an individual row from specific position using ``.loc[]`` in
     row8 = dataFrame.loc[8]
     print(row8)
 
-``.loc[]`` indexing returns the values from that position as a ``pd.Series`` where the indices are actually the column names of those variables. Hence, you can access the value of an individual columns
+``.loc[]`` indexing returns the values from that position as a ``pd.Series`` where the indices are actually the column names of those variables. Hence, you can access the value of an individual column
 by referring to its index using following format (both should work):
 
 .. ipython:: python
