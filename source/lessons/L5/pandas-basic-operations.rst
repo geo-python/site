@@ -175,11 +175,12 @@ Now we can see that we have some missing data in our DataFrame.
 Having missing data in your datafile is really common situation and typically you want to deal with it somehow. Common procedures to deal with NaN is to either **remove** them from
 the DataFrame or **fill** them with some value. In Pandas both of these options are really easy to do.
 
-Let's first see how we can remove the NoData values (i.e. clean the data) using ``dropna()`` function
+Let's first see how we can remove the NoData values (i.e. clean the data) using ``dropna()`` function. Inside the function
+you can pass with ``subset`` parameter a list of column(s) from which the NaN values should be searched from.
 
 .. ipython:: python
 
-    w_temps_clean = w_temps2.dropna()
+    w_temps_clean = w_temps2.dropna(subset=['TEMP_Celsius'])
     print(w_temps_clean)
 
 As you can see, as a result we now have a DataFrame without the NoData values.
