@@ -4,7 +4,7 @@ Reading data from a file
 The instructions here are for reading files in the traditional Python way.
 **We do not recommend doing this**, as it is more challenging and often more difficult to understand.
 That said, the info is here if you're curious.
-We're assuming below that you have downloaded a copy of the Kumpula weather data file from the :doc:`Exploring data using Pandas lesson <pandas-basics>`_.
+We're assuming below that you have downloaded a copy of the Kumpula weather data file from the :doc:`Exploring data using Pandas lesson <pandas-basics>`.
 If not, do that before proceeding.
 
 Reading an entire file at once
