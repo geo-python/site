@@ -4,19 +4,19 @@ Summary of mid-term course feedback
 1. Is the pace of the lessons too fast, too slow, or about right?
 -----------------------------------------------------------------
 
-- Seems to be about right on average. A bit slow for some (with experience), a bit too fast for others (new coders).
+- Seems to be about right on average. A bit slow for some (with experience), a bit too fast for others (new coders)
 - Dave sometimes goes too quickly when typing things
 - Explaining the previous exercise takes too much time
-- Would be great to get materials in advance to be able to formulate questions ahead of time.
+- Would be great to get materials in advance to be able to formulate questions ahead of time
 
 2. Is the content of the lessons too simple, too difficult, or about right?
 ---------------------------------------------------------------------------
 
 *Exactly the same as last year*
 
-- Seems to be about right for many.
-- Students with earlier programming experience feel it a bit simple.
-- Some topics have been more challenging than others.
+- Seems to be about right for many
+- Students with earlier programming experience feel its a bit simple
+- Some topics have been more challenging than others
 
 3. Is the content of the exercises too simple, too difficult, or about right?
 -----------------------------------------------------------------------------
