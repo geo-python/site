@@ -104,8 +104,7 @@ You can also select an individual row from specific position using ``.loc[]`` in
 
     Select your answer from the poll options at https://geo-python.github.io/poll/.
 
-``.loc[]`` indexing returns the values from that position as a ``pd.Series`` where the indices are actually the column names of those variables. Hence, you can access the value of an individual columns
-by referring to its index using following format (both should work):
+``.loc[]`` indexing returns the values from that position as a ``pd.Series`` where the indices are actually the column names of those variables. Hence, you can access the value of an individual column by referring to its index using following format (both should work):
 
 .. ipython:: python
 
@@ -186,11 +185,12 @@ Now we can see that we have some missing data in our DataFrame.
 Having missing data in your datafile is really common situation and typically you want to deal with it somehow. Common procedures to deal with NaN is to either **remove** them from
 the DataFrame or **fill** them with some value. In Pandas both of these options are really easy to do.
 
-Let's first see how we can remove the NoData values (i.e. clean the data) using ``dropna()`` function
+Let's first see how we can remove the NoData values (i.e. clean the data) using ``dropna()`` function. Inside the function
+you can pass with ``subset`` parameter a list of column(s) from which the NaN values should be searched from.
 
 .. ipython:: python
 
-    w_temps_clean = w_temps2.dropna()
+    w_temps_clean = w_temps2.dropna(subset=['TEMP_Celsius'])
     print(w_temps_clean)
 
 As you can see, as a result we now have a DataFrame without the NoData values.
