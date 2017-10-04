@@ -159,6 +159,18 @@ A normal first step when you load new data is to explore the dataset a bit to un
 
     print(len(dataFrame.index))
 
+   .. attention::
+
+    Based on what we have seen so far, what would be output if you did the following using our data file?
+
+      .. ipython:: python
+        :verbatim:
+
+          dataFrame = pd.read_csv('Kumpula-June-2016-w-metadata.txt', skiprows=9)
+          print(dataFrame.columns)
+
+    Select your answer from the poll options at https://geo-python.github.io/poll/.
+
 3. We can also get a quick sense of the size of the dataset using the ``shape`` attribute.
 
    .. ipython:: python
@@ -192,7 +204,7 @@ A normal first step when you load new data is to explore the dataset a bit to un
 
      print(dataFrame['TEMP'])
 
-   As you can see, selecting a given column is straightforward.
+6. As you can see, selecting a given column is straightforward.
    Furthermore, printing out its values shows not only the values, but also their data type.
    What about the type of the column itself?
 
@@ -215,7 +227,7 @@ A normal first step when you load new data is to explore the dataset a bit to un
    As you can see, ``myList`` is converted to a Pandas Series using the ``ps.Series()`` function.
    Also, note that Pandas is smart about the conversion, detecting a single floating point value (``7.0``) and assigning all values in the Series the data type float64.
 
-6. Just like DataFrames, Pandas Series have a set of attributes they know about themselves and methods they can use to make calculations using the Series data.
+7. Just like DataFrames, Pandas Series have a set of attributes they know about themselves and methods they can use to make calculations using the Series data.
    Useful methods include ``mean()``, ``median()``, ``min()``, ``max()``, and ``std()`` (the standard deviation).
 
    .. ipython:: python
@@ -224,7 +236,7 @@ A normal first step when you load new data is to explore the dataset a bit to un
 
    Here, we don't even need to store ``dataFrame['TEMP']`` as a separate series in order to find the mean value using the ``mean()`` method.
 
-7. One useful function to get an overview of the basic statistics for all attributes in your DataFrame is the ``describe()`` function.
+8. One useful function to get an overview of the basic statistics for all attributes in your DataFrame is the ``describe()`` function.
 
    .. ipython:: python
 
@@ -232,7 +244,7 @@ A normal first step when you load new data is to explore the dataset a bit to un
 
    Here, you can quickly get the basic statistical information about all your attributes (min, max, count, std, mean, quartiles).
 
-8. Finally, there are occasions where you'll need to convert data in a Series to another data type.
+9. Finally, there are occasions where you'll need to convert data in a Series to another data type.
    If you're planning to print a large number of value to the screen, for instance, it might be helpful to have those values as character strings.
    Data type conversions is most easily done using the ``astype()`` method.
 
