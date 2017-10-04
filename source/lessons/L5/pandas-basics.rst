@@ -8,7 +8,7 @@ If you're curious about that, you can check out some of the :doc:`lesson materia
 Downloading the data and preparing
 ----------------------------------
 
-1. You can start by downloading the `weather data file <../../../../data/L5/Kumpula-June-2016-w-metadata.txt>`__ we will be using for this part of the lesson.
+1. You can start by downloading the `weather data file <https://github.com/geo-python/2017/blob/master/data/L5/Kumpula-June-2016-w-metadata.txt>`__ we will be using for this part of the lesson.
 
    - Save a copy of this file in your home directory or a directory for the materials for this week's lesson.
 
