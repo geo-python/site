@@ -194,6 +194,7 @@ pseudoxml:
 
 # Build for GitHub Pages
 gh-pages:
+	echo "Building GitHub Pages..."
 	git checkout gh-pages
 	rm -rf *
 	git checkout master $(GH_PAGES_SOURCES)
