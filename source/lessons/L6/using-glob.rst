@@ -1,4 +1,4 @@
-Hints for Exercise 6
-====================
+Reading multiple data files
+===========================
 
-Below are some tips for working on Exercise 6.
+TO BE COMPLETED

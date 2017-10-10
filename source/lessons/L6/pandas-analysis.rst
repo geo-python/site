@@ -1,4 +1,4 @@
-Hints for Exercise 6
-====================
+Processing data with Pandas II
+==============================
 
-Below are some tips for working on Exercise 6.
+TO BE COMPLETED

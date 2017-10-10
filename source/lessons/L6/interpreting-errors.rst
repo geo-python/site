@@ -1,4 +1,4 @@
-Hints for Exercise 6
-====================
+Interpreting error messages
+===========================
 
-Below are some tips for working on Exercise 6.
+TO BE COMPLETED
