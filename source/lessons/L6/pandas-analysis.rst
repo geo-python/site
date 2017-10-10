@@ -119,7 +119,8 @@ Here I provide you the function that you can copy and paste into your own script
         temp_fahrenheit: int | float
             Input temperature in Fahrenheit (should be a number)
         """
-        # Convert the Fahrenheit into Celsius
+
+        # Convert the Fahrenheit into Celsius and return it
         converted_temp = (temp_fahrenheit - 32) / 1.8
         return converted_temp
 
@@ -130,192 +131,301 @@ Hence, the contents of a single row actually contains not only the values, but a
 
 |
 Let's see how it works. Here, we will use a specific `Python command <https://www.tutorialspoint.com/python/python_break_statement.htm>`__ called ``break`` can be used to stop the iteration right after the first loop.
-# This can be useful as we don't want to fill our consol by printing all the values and indices in our DataFrame, but to just see if the function works as we want.
+# This can be useful as we don't want to fill our console by printing all the values and indices in our DataFrame, but to just see if the function works as we want.
 
 for idx, row in data.iterrows():
     print('Index:', idx)
     print(row)
     break
 
-# Okey, so here we can see that the ``idx`` variable indeed contains the index value and the ``row`` variable contains all the data from that given row stored as a pd.Series
-# Let's now create an empty column for the Celsius temperatures and update the values into that column by using our function.
+Okey, so here we can see that the ``idx`` variable indeed contains the index value and the ``row`` variable contains all the data from that given row stored as a pd.Series
 
-# Create an empty column for the data
-col_name = 'Celsius'
-data[col_name] = None
+|
+Let's now create an empty column for the Celsius temperatures and update the values into that column by using our function. Here is the whole procedure:
 
-# Iterate ove rows
-for idx, row in data.iterrows():
+.. ipython:: python
+  :suppress:
+  col_name = 'Celsius'
+  data[col_name] = None
+  for idx, row in data.iterrows():
+    celsius = fahrToCelsius(row['TEMP'])
+    data.loc[idx, col_name] = celsius
+
+.. code:: python
+
+  # Create an empty column for the data
+  col_name = 'Celsius'
+  data[col_name] = None
+
+  # Iterate ove rows
+  for idx, row in data.iterrows():
     # Convert the Fahrenheit temperature of the row into Celsius
     celsius = fahrToCelsius(row['TEMP'])
     # Add that value into 'Celsius' column using the index of the row
     data.loc[idx, col_name] = celsius
-print(data.head())
 
-# Great! Now we have converted our temperatures into Celsius by using the function that we created ourselves.
+Let's see what we have now.
 
-# Let's also convert the windspeeds into meters per second values (m/s) as they are more familiar to us in Finland. This can be done with a formula ``m/s = mph x 0.44704``
-data['SPEED'] = data['SPEED']*0.44704
-data['GUST'] = data['GUST']*0.44704
+.. ipython:: python
 
-# Let's see the result by printing the first 30 rows.
+  print(data.head())
+
+Great! Now we have converted our temperatures into Celsius by using the function that we created ourselves.
+Knowing how to use your own function in Pandas can be really useful when doing your own analyses.
+
+Let's also convert the wind speeds into meters per second values (m/s) as they are more familiar to us in Finland. This can be done with a formula ``m/s = mph x 0.44704``
+
+.. ipython:: python
+  data['SPEED'] = data['SPEED']*0.44704
+  data['GUST'] = data['GUST']*0.44704
+
+Let's see the result by printing the first 30 rows.
 print(data.head(30))
 
-# Okey interesting what we can see here, is that some of our variables are measured more often than others.
-# ``GUS`` (gust) seems to be measured only once an hour, whereas ``SPD`` (wind speed), and our temperatures seem to be measured approximately every 20 minutes (at minutes XX:00, XX:20 and XX:50).
+Okey it worked. When looking the data more carefully, we can see something interesting:
+``GUST`` seems to be measured only once an hour, whereas ``SPD`` (wind speed), and our temperatures seem to be measured approximately every 20 minutes (at minutes XX:00, XX:20 and XX:50).
 
-# Well that is a problem as we could not compare e.g. the wind average wind speeds and the speeds during the gust. This kind of mismatch between sampling rates of measurements is quite typical when working with real data.
-# How we can solve this kind of problem is to aggregate the wind speeds into hourly level data as well so the attributes become comparable.
-# First we need to be able to group the values by hour. This can be done e.g. by slicing the date+hour time from the ``TIME`` column (i.e. removing the minutes from the end of the value)
-# Doing this requires two steps:
-#   1. Convert the ``TIME`` column from ``int`` into ``str`` datatype.
-#   2. Include only numbers up to hourly accuracy (exclude minutes) by slicing texts
+That might be a problem as we might not be able to compare e.g. the average wind speeds and the speeds during the gust together as they are measured with different intervals.
+This kind of mismatch between sampling rates of measurements is actually quite typical when working with real data.
 
-# Note: there are also more advanced functions in Pandas to do time series manipulations by utilizing ``datetime`` datatype and ``resample()`` -function, but we won't cover those here. Read more information about creating `datetime index <http://pandas.pydata.org/pandas-docs/version/0.20/generated/pandas.to_datetime.html>`__ and aggregating data by time with resampling from `here <https://pandas.pydata.org/pandas-docs/stable/timeseries.html#resampling>`__ if you are interested.
+How we can solve this kind of problem is to aggregate the wind speeds into hourly level data as well so the attributes become comparable.
+First we need to be able to group the values by hour. This can be done e.g. by slicing the date+hour time from the ``TIME`` column (i.e. removing the minutes from the end of the value)
 
-# Let's convert the time into string
-data['TIME_str'] = data['TIME'].astype(str)
-print(data.head())
-print(data['TIME_str'].dtypes)
-print(type(data.loc[0, 'TIME_str']))
+Doing this requires two steps:
+  1. Convert the ``TIME`` column from ``int`` into ``str`` datatype.
+  2. Include only numbers up to hourly accuracy (exclude minutes) by slicing texts
 
-# Okey now we have the times as strings and we can slice them into hourly level by including only 10 first characters from the text.
-# Notice that all the typical ``str`` functionalities can be applied to Series of text data with syntax ``data['mySeries'].str.<functionToUse>()``.
-data['TIME_dh'] = data['TIME_str'].str.slice(start=0, stop=10)
-print(data.head())
+.. note::
 
-# Nice! Now we have information about time on an hourly basis incudling the date as well.
+  There are also more advanced functions in Pandas to do time series manipulations by utilizing ``datetime`` datatype and ``resample()`` -function, but we won't cover those here. Read more information about creating `datetime index <http://pandas.pydata.org/pandas-docs/version/0.20/generated/pandas.to_datetime.html>`__ and aggregating data by time with resampling from `here <https://pandas.pydata.org/pandas-docs/stable/timeseries.html#resampling>`__ if you are interested.
 
-# Let's also slice only the hour of the day (excluding information about the date) and convert it back to integer (we will be using this information later)
-data['TIME_h'] = data['TIME_str'].str.slice(start=8, stop=10)
-data['TIME_h'] = data['TIME_h'].astype(int)
-print(data.head())
+Let's convert the time into string. And check that the data type changes.
 
-# Great now we have have also a separate column for only the hour of the day
+.. ipython:: python
 
-# Next we want to calculate the average temperatures, wind speeds, etc. on an hourly basis.
-# This can be done by
-# 1. **grouping the data** based on hourly values
-# 2. Iterating over those groups and calculating the avegare values of our attributes
-# 3. Inserting those values into a new DataFrame where we store the aggregated data
+  data['TIME_str'] = data['TIME'].astype(str)
+  print(data.head())
+  print(data['TIME_str'].dtypes)
+  print(type(data.loc[0, 'TIME_str']))
 
-# Let's first create a new **empty** DataFrame where we will store our aggregated data
+Okey it seems that now we indeed have the ``TIME`` as ``str`` datatype as well.
+Now we can slice them into hourly level by including only 10 first characters from the text (i.e. excluding the minute-level information).
+
+.. ipython:: python
+
+  data['TIME_dh'] = data['TIME_str'].str.slice(start=0, stop=10)
+  print(data.head())
+
+Nice! Now we have information about time on an hourly basis incudling the date as well.
+
+.. note::
+
+  Notice that all the typical ``str`` functionalities can be applied to Series of text data with syntax ``data['mySeries'].str.<functionToUse>()``.
+
+Let's also slice only the hour of the day (excluding information about the date) and convert it back to integer (we will be using this information later)
+
+.. ipython:: python
+
+  data['TIME_h'] = data['TIME_str'].str.slice(start=8, stop=10)
+  data['TIME_h'] = data['TIME_h'].astype(int)
+  print(data.head())
+
+Wunderbar, now we have also a separate column for only the hour of the day.
+
+Next we want to calculate the average temperatures, wind speeds, etc. on an hourly basis so that it could be
+possible to compare all of them to each other.
+
+This can be done by aggregating the data, i.e.:
+
+  1. **grouping the data** based on hourly values
+  2. Iterating over those groups and calculating the average values of our attributes
+  3. Inserting those values into a new DataFrame where we store the aggregated data
+
+Let's first create a new **empty** DataFrame where we will store our aggregated data
 aggr_data = pd.DataFrame()
 
-# Let's then group our data based on ``TIME_h`` attribute that contains the information about the date + hour
-grouped = data.groupby('TIME_dh')
+Let's then group our data based on ``TIME_h`` attribute that contains the information about the date + hour
 
-# Let's see what we have now
-print(type(grouped))
-print(len(grouped))
+.. ipython:: python
 
-# Okey, interesting. Now we have a new object with type ``DataFrameGroupBy``. And it seems that we have 23 individual groups in our data, i.e. one group for each hour of the day.
-# Let's see what we can do with it.
+  grouped = data.groupby('TIME_dh')
 
-# As you might have noticed earler, the first hour in hour data is ``2017080400`` (midnight at 4th of August in 2017).
-# Let's now see what we have on hour ``grouped`` e.g. on that first hour ``2017010122``.
-# We can get the values of that hour from ``DataFrameGroupBy`` -object with ``get_group()`` -function.
-time1 = '2017080400'
-group1 = grouped.get_group(time1)
-print(group1)
+Let's see what we have now.
 
-# Ahaa! Okey so as we can see, a single group contains a **DataFrame** with values only for that specific hour.
-# That is really useful because now we can calculate the average values for all weather measurements (+ hour) that we have.
+.. ipython:: python
 
-# We can do that by using the ``mean()`` -function that we already used during the Lesson 5.
-# Let's calculate the mean for attributes ``DIR``, ``SPEED``, ``GUST``, ``TEMP``, and ``Celsius``
-mean_cols = ['DIR', 'SPEED', 'GUST', 'TEMP', 'Celsius', 'TIME_h']
-mean_values = group1[mean_cols].mean()
-print(mean_values)
+  print(type(grouped))
+  print(len(grouped))
 
-# Nice, now we have averaged our data. Notice that we still have information about the hour but not about the date which is at the moment stored in ``time1`` variable.
-# We can insert that into our ``mean_values`` Series so that we have temporal information also associated with our data.
-mean_values['TIME_dh'] = time1
-print(mean_values)
+Okey, interesting. Now we have a new object with type ``DataFrameGroupBy``. And it seems that we have 23 individual groups in our data, i.e. one group for each hour of the day.
+Let's see what we can do with this ``grouped`` -variable.
 
-# Perfect! Now we have also time information there. The last thing to do is to add these mean values into our DataFrame that we created.
-# That can be done with ``append()`` -function in a quite similar manner as with Python lists.
-# In Pandas the data insertion is not done **inplace** (as when appending to Python lists) so we need to specify that we are updating the aggr_data (using the ``=`` sign)
-# We also need to specify that we ignore the index values of our original DataFrame (i.e. the indices of ``mean_values``)
-aggr_data = aggr_data.append(mean_values, ignore_index=True)
-print(aggr_data)
+As you might have noticed earler, the first hour in hour data is ``2017080400`` (midnight at 4th of August in 2017).
 
-# Now we have a single row in our new DataFrame where we have aggregated the data based on hourly mean values.
-# Next we could continue doing and insert the average values from other hours in a similar manner but, of course, that is not
-# something that we want to do manually (would require repeating these steps hundreds of times).
-# Luckily, we can actually iterate over all the groups that we have in our data and do these steps using a for loop.
+Let's now see what we have on hour ``grouped`` variable e.g. on the first hour ``2017080400``.
+We can get the values of that hour from ``DataFrameGroupBy`` -object with ``get_group()`` -function.
 
-# When iterating over the groups in our ``DataFrameGroupBy`` object
-# it is noteworthy to understand that a single group in our ``DataFrameGroupBy`` actually contains not only the actual values, but also information about the ``key`` that was used to do the grouping.
-# Hence, when iterating over the data we need to assign the ``key`` and the values into separate variables.
-# Let's see how we can iterate over the groups and print the key and the data from a single group.
-for key, group in grouped:
-    print(key)
-    print(group)
-    break
+.. ipython:: python
 
-# Okey so from here we can see that the ``key`` contains the value ``2017010122`` that is the same
-# as the values in ``TIME_h`` column. Meaning that we, indeed, grouped the values based on that column.
+  time1 = '2017080400'
+  group1 = grouped.get_group(time1)
+  print(group1)
 
-# Let's see how we can create a DataFrame where we calculate the mean values for all those weather attributes that we were interested in.
-# I will repeate slightly the earlier steps so that you can see the full picture better.
+Ahaa! As we can see, a single group contains a **DataFrame** with values only for that specific hour.
+This is really useful, because now we can calculate the average values for all weather measurements (+ hour) that we have.
 
-# Create an empty DataFrame for the aggregated values
-aggr_data = pd.DataFrame()
+We can do that by using the ``mean()`` -function that we already used during the Lesson 5.
 
-# The columns that we want to aggregate
-mean_cols = ['DIR', 'SPEED', 'GUST', 'TEMP', 'Celsius', 'TIME_h']
+Let's calculate the mean for following attributes: ``DIR``, ``SPEED``, ``GUST``, ``TEMP``, and ``Celsius``.
 
-# Iterate over the groups
-for key, group in grouped:
-    # Aggregate the data
-    mean_values = group[mean_cols].mean()
+.. ipython:: python
 
-    # Add the ´key´ (i.e. the date+time information) into the aggregated values
-    mean_values['TIME_dh'] = key
+  mean_cols = ['DIR', 'SPEED', 'GUST', 'TEMP', 'Celsius', 'TIME_h']
+  mean_values = group1[mean_cols].mean()
+  print(mean_values)
 
-    # Append the aggregated values into the DataFrame
-    aggr_data = aggr_data.append(mean_values, ignore_index=True)
+Nice, now we have averaged our data. Notice that we still have information about the hour but not about the date which is at the moment stored in ``time1`` variable.
+We can insert that datetime-information into our ``mean_values`` Series so that we have the date information also associated with our data.
 
-# Print the data
-print(aggr_data)
+.. ipython:: python
 
-# Great! Now we have aggregated our data based on daily averages and we have a new DataFrame where that data is stored.
-# Finally, we are ready to see and find out if there are any outliers in our data suggesting to have a storm (meaning strong winds in this case).
-# We define an outlier if the wind speed is 2 times the standard deviation higher than the average wind speed (column ``SPEED``).
+  mean_values['TIME_dh'] = time1
+  print(mean_values)
 
-# Let's first find out what is the standard deviation and the mean of the Wind speed
-std_wind = aggr_data['SPEED'].std()
-avg_wind = aggr_data['SPEED'].mean()
-print(std_wind)
-print(avg_wind)
+Perfect! Now we have also time information there. The last thing to do is to add these mean values into our DataFrame that we created.
+That can be done with ``append()`` -function in a quite similar manner as with Python lists.
+In Pandas the data insertion is not done **inplace** (as when appending to Python lists) so we need to specify that we are updating the aggr_data (using the ``=`` sign)
+We also need to specify that we ignore the index values of our original DataFrame (i.e. the indices of ``mean_values``).
 
-# Okey, so the variance in the windspeed tend to be approximately 2.1 m per second, and the wind speed is approximately 4.2 m per second.
-# Hence, the upper and lower boundaries for a temperature to be an outlier are:
-upper_cutoff = avg_wind + (std_wind*2)
+.. ipython:: python
 
-print('Upper threshold for outlier:', upper_cutoff)
+  aggr_data = aggr_data.append(mean_values, ignore_index=True)
+  print(aggr_data)
 
-# Let's finally create a column called ``Outlier`` which we update with ``True`` value if the windspeed is an outlier and ``False`` if it is not.
-# We do this again by iteratating over the rows.
-aggr_data['Outlier'] = None
+Now we have a single row in our new DataFrame where we have aggregated the data based on hourly mean values.
+Next we could continue doing and insert the average values from other hours in a similar manner but, of course, that is not
+something that we want to do manually (would require repeating these same steps too many times).
+Luckily, we can actually iterate over all the groups that we have in our data and do these steps using a for loop.
 
-for idx, row in aggr_data.iterrows():
-    if row['SPEED'] > upper_cutoff :
-        aggr_data.loc[idx, 'Outlier'] = True
-    else:
-        aggr_data.loc[idx, 'Outlier'] = False
+When iterating over the groups in our ``DataFrameGroupBy`` object
+it is noteworthy to understand that a single group in our ``DataFrameGroupBy`` actually contains not only the actual values, but also information about the ``key`` that was used to do the grouping.
+Hence, when iterating over the data we need to assign the ``key`` and the values into separate variables.
 
-print(aggr_data)
+Let's see how we can iterate over the groups and print the key and the data from a single group (again using ``break`` to only see what is happening).
 
-# Select rows with potential storm
-storm = aggr_data.ix[aggr_data['Outlier'] == True]
-print(storm)
+.. ipython:: python
 
-# Okey, so it seems that there was one outlier in our data but the wind during that time wasn't that strong as the average speed was only 9 m/s. This is not strange as we were only looking at data from a single day.
-# Let's continue by executing the script that we have written this far and use it to explore outlier winds based on whole month of August 2017.
-# For this purpose you should change the input file to be ``6591337447542dat_August.txt``
-# Note: if you haven't written your codes into a script, you can take advantage of the history tab where the history of all your codes should be written from this session (you can copy / paste from there).
+  for key, group in grouped:
+      print(key)
+      print(group)
+      break
+
+Okey so from here we can see that the ``key`` contains the value ``2017080400`` that is the same
+as the values in ``TIME_dh`` column. Meaning that we, indeed, grouped the values based on that column.
+
+Let's see how we can create a DataFrame where we calculate the mean values for all those weather attributes that we were interested in.
+I will repeate slightly the earlier steps so that you can see and better understand what is happening.
+
+.. ipython:: python
+  :suppress:
+
+  aggr_data = pd.DataFrame()
+  mean_cols = ['DIR', 'SPEED', 'GUST', 'TEMP', 'Celsius', 'TIME_h']
+  for key, group in grouped:
+      mean_values = group[mean_cols].mean()
+      mean_values['TIME_dh'] = key
+      aggr_data = aggr_data.append(mean_values, ignore_index=True)
+  print(aggr_data)
+
+.. code:: python
+
+  # Create an empty DataFrame for the aggregated values
+  aggr_data = pd.DataFrame()
+
+  # The columns that we want to aggregate
+  mean_cols = ['DIR', 'SPEED', 'GUST', 'TEMP', 'Celsius', 'TIME_h']
+
+  # Iterate over the groups
+  for key, group in grouped:
+      # Aggregate the data
+      mean_values = group[mean_cols].mean()
+
+      # Add the ´key´ (i.e. the date+time information) into the aggregated values
+      mean_values['TIME_dh'] = key
+
+      # Append the aggregated values into the DataFrame
+      aggr_data = aggr_data.append(mean_values, ignore_index=True)
+
+  # Print the data
+  print(aggr_data)
+
+Great! Now we have aggregated our data based on daily averages and we have a new DataFrame where that data is stored.
+
+Finally, we are ready to see and find out if there are any outliers in our data suggesting to have a storm (meaning strong winds in this case).
+We define an outlier if the wind speed is 2 times the standard deviation higher than the average wind speed (column ``SPEED``).
+
+# Let's first find out what is the standard deviation and the mean of the Wind speed.
+
+.. ipython:: python
+
+  std_wind = aggr_data['SPEED'].std()
+  avg_wind = aggr_data['SPEED'].mean()
+  print('Std:', std_wind)
+  print('Mean:', avg_wind)
+
+Okey, so the variance in the windspeed tend to be approximately 2.1 m per second, and the wind speed is approximately 4.2 m per second.
+Hence, the threshold for a wind speed to be an outlier with our criteria is:
+
+.. ipython:: python
+
+  upper_threshold = avg_wind + (std_wind*2)
+  print('Upper threshold for outlier:', upper_threshold)
+
+Let's finally create a column called ``Outlier`` which we update with ``True`` value if the windspeed is an outlier and ``False`` if it is not.
+We do this again by iterating over the rows.
+
+.. code:: python
+
+  # Create an empty column for outlier info
+  aggr_data['Outlier'] = None
+
+  # Iterate over rows
+  for idx, row in aggr_data.iterrows():
+      # Update the 'Outlier' column with True if the wind speed is higher than our threshold value
+      if row['SPEED'] > upper_cutoff :
+          aggr_data.loc[idx, 'Outlier'] = True
+      else:
+          aggr_data.loc[idx, 'Outlier'] = False
+  print(aggr_data)
+
+
+.. ipython:: python
+
+  aggr_data['Outlier'] = None
+  for idx, row in aggr_data.iterrows():
+      if row['SPEED'] > upper_cutoff :
+          aggr_data.loc[idx, 'Outlier'] = True
+      else:
+          aggr_data.loc[idx, 'Outlier'] = False
+  print(aggr_data)
+
+Okey now we have at least many False values in our ``Outlier`` -column.
+Let's select the rows with potential storm and see if we have any potential storms in our data.
+
+.. ipython:: python
+
+  storm = aggr_data.ix[aggr_data['Outlier'] == True]
+  print(storm)
+
+Okey, so it seems that there was one outlier in our data but the wind during that time wasn't that strong as the average speed was only 9 m/s.
+This is not too strange as we were only looking at data from a single day.
+
+Let's continue by executing the script that we have written this far and use it to explore outlier winds based on whole month of August 2017.
+For this purpose you should change the input file to be ``6591337447542dat_August.txt``
+
+.. note::
+
+  Notice that if you haven't written your codes into a script, you can take advantage of the history tab where the history of all your codes should be written from this session (you can copy / paste from there).
 
 # Let's run
 sys.exit()
