@@ -35,8 +35,8 @@ print(data.head())
 print(data.columns)
 
 # Okey there are many columns and we are not interested to use all of them. 
-# Let's select only columns that can be used to detect unexceptional weather conditions, i.e. 'YR--MODAHRMN', 'DIR', 'SPD', 'GUS','TEMP', 'MAX', 'MIN'
-select_cols = ['YR--MODAHRMN', 'DIR', 'SPD', 'GUS','TEMP', 'MAX', 'MIN']
+# Let's select only columns that can be used to detect unexceptional weather conditions, i.e. 'YR--MODAHRMN', 'DIR', 'SPD', 'GUS','TEMP'
+select_cols = ['YR--MODAHRMN', 'DIR', 'SPD', 'GUS','TEMP']
 data = data[select_cols]
 
 # Let's see what our data looks like now by printing **last** 5 rows and the datatypes
@@ -87,7 +87,74 @@ for idx, row in data.iterrows():
     print(row)
     break
     
-# Okey, so here we can see that the ``idx`` variable indeed contains the index value and the row has all the data from that specific row stored as a pd.Series
+# Okey, so here we can see that the ``idx`` variable indeed contains the index value and the ``row`` variable contains all the data from that given row stored as a pd.Series
+# Let's now create an empty column for the Celsius temperatures and update the values into that column by using our function.
+
+# Create an empty column for the data
+col_name = 'Celsius'
+data[col_name] = None
+
+# Iterate ove rows
+for idx, row in data.iterrows():
+    # Convert the Fahrenheit temperature of the row into Celsius
+    celsius = fahrToCelsius(row['TEMP'])
+    # Add that value into 'Celsius' column using the index of the row
+    data.loc[idx, col_name] = celsius
+print(data.head())            
+
+# Great! Now we have converted our temperatures into Celsius by using the function that we created ourselves.
+
+# Hint: Using iterrows() -function is not the most efficient way of using your self-made functions. In Pandas, there is a function called ``apply()`` 
+# that takes advantage of the power of numpy when looping, and is hence much faster which can give a lot of speed benefit when you have millions of rows to iterate over. 
+# Below I show how to do the similar thing by using our own function with ``apply()``.
+# I will make a copy of our original DataFrame so this does not affect our original data. 
+# Before using this approach, we need to modify our function a bit to get things working. 
+# First, we need to have a parameter called ``row`` that is used to pass the data from row into our function 
+# (this is something specific to ``apply()``  -function in Pandas) and then add paramaters for passing the information about the column name that contains the temperatures in Fahrenheit,
+# and the column name where the coverted temperatures will be updated (i.e. the Celsius temperatures). 
+# Hence, in the end, you can see that this is a bit more generic function to use (i.e. the columns to use in the calculation are not "hard-coded").
+
+def fahrToCelsius(row, src_col, target_col):
+    """
+    A generic function to convert Fahrenheit temperature into Celsius.
+    
+    Parameters
+    ----------
+    
+    row: pd.Series
+        Input row containing the data for specific index in the DataFrame
+    
+    src_col : str
+        Name of the source column for the calculation. I.e. the name of the column where Fahrenheits are stored.
+    
+    target_col : str
+        Name of the target column where Celsius will be stored.
+    """
+    # Convert the Fahrenheit into Celsius and update the target column value
+    row[target_col] = (row[src_col]- 32) / 1.8
+    return row
+                                                                                                                                                                    
+# Take a copy
+data2 = data.copy()
+
+# Apply our new function and update the values into a new column called ``Celsius2``
+data2 = data2.apply(fahrToCelsius, src_col='TEMP', target_col='Celsius2', axis=1)
+
+# As you can see here, we use the ``apply()`` function and as the first parameter 
+# we pass the name of the function that we want to use with the ``apply()``, and then we pass the names of the source column and the target column.
+# Lastly, it is important to add as a last parameter ``axis=1`` that tells for the function to apply the calculations vertically (row by row) instead of horizontally (would move from column to another).
+
+# See the results
+data2.head()
+
+# Indeed it seems that our function worked because the values in ``Celsius`` and ``Celsius2`` columns are the same. 
+# With this approach it is extremely easy to reuse our function and pass the results into another new colum e.g.
+data2 = data2.apply(fahrToCelsius, src_col='TEMP', target_col='Celsius3', axis=1)
+print(data2.head())
+
+# Now we just added another column called ``Celsius3`` just by changing the value of the ``target_col`` -parameter.
+# This is a good and efficient approach to use in many cases, and hence highly recommended (although it is a bit harder to understand).  
+
 
 print(data.head(20))
 # Let's see the change by printing the first 20 rows. Okey what we can see here, is that some of our variables are measured more often than others. 
