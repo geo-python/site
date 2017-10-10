@@ -26,3 +26,9 @@ to make data analysis and manipulation straightforward and powerful using easy-t
 - :doc:`Exercise 5 <ex-5>`
 - :doc:`Hints for Exercise 5 <exercise-5-hints>`
 
+Learning goals
+--------------
+
+- Read data from a .csv text file into Python using Pandas
+- Do simple data analysis using Pandas data structures and related functions
+- Write data from Pandas to a .csv text file

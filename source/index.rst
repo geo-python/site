@@ -154,3 +154,15 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     lessons/L5/pandas-basic-operations
     lessons/L5/ex-5
     lessons/L5/exercise-5-hints
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Lesson 6
+
+   lessons/L6/overview
+   lessons/L6/pandas-analysis
+   lessons/L6/using-glob
+   lessons/L6/interpreting-errors
+   lessons/L6/debugging-scripts
+   lessons/L6/ex-6
+   lessons/L6/exercise-6-hints
