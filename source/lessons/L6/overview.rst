@@ -1,30 +1,38 @@
 Lesson overview
 ===============
 
-*BELOW STILL NEEDS TO BE UPDATED*
+In this lesson we will continue to develop our data analysis skills using `Pandas <http://pandas.pydata.org/>`__ and also learn a bit about debugging our scripts and interpreting errors.
+In :doc:`Lesson 5 <../L5/overview>` we were introduced to basic data analysis using Pandas, and this week we will learn a few more ways in which we can do things like replace values, using functions in Pandas, and reading multiple data files.
+In the second half of the lesson we will focus on debugging.
+Many new programmers struggle with removing problems in their code (debugging) because they start randomly making changes without a clear picture of what is wrong or even what the code should do!
+By learning a few basic ideas about debugging and interpreting error messages, we hope to save you time and frustration as your scripts become more complex.
 
-In this lesson we will learn basics in reading and writing data from/to a file, and do some basic data manipulation
-and analysis using a Python module called **Pandas**.
-`Pandas <http://pandas.pydata.org/>`__ is a modern and feature rich data analysis framework for Python that is designed
-to make data analysis and manipulation straightforward and powerful using easy-to-use data structures and operations.
-
-- :doc:`Summary of early course feedback <midterm-feedback>`
-- :doc:`What is Pandas? <pandas-overview>`
-- :doc:`Exploring data using Pandas <pandas-basics>`
-
-  - `Reading a file with Pandas <pandas-basics.html#reading-a-data-file-with-pandas>`__
-  - `Exploring our dataset <pandas-basics.html#exploring-out-dataset>`__
-
-- :doc:`Processing data with Pandas <pandas-basic-operations>`
-
-  - `Calculating with DataFrames <pandas-basic-operations.html#calculating-with-dataframes>`__
-  - `Selecting data using indices <pandas-basic-operations.html#selecting-data-using-indices>`__
-  - `Filtering and updating data <pandas-basic-operations.html#filtering-and-updating-data>`__
-  - `Dealing with missing data <pandas-basic-operations.html#dealing-with-missing-data>`__
-  - `Sorting data <pandas-basic-operations.html#sorting-data>`__
-  - `Rounding and finding unique values <pandas-basic-operations.html#rounding-and-finding-unique-values>`__
-  - `Writing data <pandas-basic-operations.html#writing-data>`__
-
+- :doc:`Processing data with Pandas, part II <pandas-analysis>`
+- :doc:`Reading multiple files using glob <using-glob>`
+- :doc:`Interpreting error messages <interpreting-errors>`
+- :doc:`Debugging your scripts <debugging-scripts>`
 - :doc:`Exercise 6 <ex-6>`
 - :doc:`Hints for Exercise 6 <exercise-6-hints>`
 
+*BELOW STILL NEEDS TO BE REMOVED - HERE ONLY TO NOTE WHAT TO COVER*
+
+Rovaniemi station has values every 20 minutes, BUT, Kumpula has only hourly data.
+To be able to compare these two datasets, we need to aggregate the Rovaniemi
+data into hourly values as well.
+
+Then we want to compare the differences in the Celsius temperatures (using difference and standard deviation).
+We can spot the big storm in Helsinki Vantaa in early August.
+
+- Replacing values
+- Renaming columns
+- Str split() method
+- Append method with DataFrame
+- Iterating over lines in a file (iterrows() -method)
+- Using functions in Pandas
+- Reading multiple data files (glob)
+- Grouping data (aggregation)
+
+Debugging and errors
+- Understanding the error messages
+- Using version control to see the changes (to find what is going wrong)
+- try & except, assert()
