@@ -14,6 +14,15 @@ By learning a few basic ideas about debugging and interpreting error messages, w
 - :doc:`Exercise 6 <ex-6>`
 - :doc:`Hints for Exercise 6 <exercise-6-hints>`
 
+Learning goals
+--------------
+
+After this weeks lesson your should be able to:
+
+- Analyze data files in Python using Pandas
+- Understand common Python errors
+- Follow a simple set of guidelines to debug programs efficiently
+
 *BELOW STILL NEEDS TO BE REMOVED - HERE ONLY TO NOTE WHAT TO COVER*
 
 Rovaniemi station has values every 20 minutes, BUT, Kumpula has only hourly data.
