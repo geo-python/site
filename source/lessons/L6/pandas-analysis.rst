@@ -1,6 +1,10 @@
 Advanced data processing with Pandas
 ====================================
 
+In this week, we will continue developing our skills using Pandas to analyze climate data. The aim of this lesson
+is to learn different functions to manipulate with the data and do simple analyses. In the end, our goal is
+to detect weather anomalies (stormy winds) in Helsinki, during August 2017.
+
 Downloading and reading the data
 --------------------------------
 

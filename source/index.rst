@@ -161,7 +161,6 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
 
    lessons/L6/overview
    lessons/L6/pandas-analysis
-   lessons/L6/using-glob
    lessons/L6/interpreting-errors
    lessons/L6/debugging-scripts
    lessons/L6/ex-6
