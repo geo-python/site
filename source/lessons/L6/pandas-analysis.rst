@@ -30,9 +30,11 @@ Let's start by importing pandas and specifying the filepath to the file that we 
 
 .. ipython:: python
     :suppress:
+
         import os
         import pandas as pd
         fp = os.path.join(os.path.abspath('data'), 'L6', "6591337447542dat_August.txt")
+        print(fp)
 
 .. code:: python
     :verbatim:
@@ -77,7 +79,7 @@ Let's continue and check what columns do we have.
     data.columns
 
 Okey there are quite many columns and we are not interested to use all of them.
-Let's select only columns that might be used to detect unexceptional weather conditions, i.e. 'YR--MODAHRMN', 'DIR', 'SPD', 'GUS','TEMP', 'MAX', 'MIN'
+Let's select only columns that might be used to detect unexceptional weather conditions, i.e. YR--MODAHRMN, DIR, SPD, GUS, TEMP, MAX, and MIN.
 
 .. ipython:: python
 
@@ -493,7 +495,7 @@ For this purpose you should change the input file to be ``6591337447542dat_Augus
 
 .. note::
 
-  Notice that if you haven't written your codes into a script, you can take advantage of the history tab where the history of all your codes should be written from this session (you can copy / paste from there).
+  Notice that if you haven't written your codes into a script, you can take advantage of the ``History`` -tab in Spyder where the history of all your codes should be written from this session (you can copy / paste from there).
 
 **Change the input data for your script to be the whole month of August 2017 and run the same codes again**.
 
@@ -560,7 +562,7 @@ After running the code again with more data, let's see what were the mean and st
     print('Std:', std_wind)
     print('Mean:', avg_wind)
 
-Okey so they are indeed different now as we have more data. Let's see what we have now in our ``storm`` variable.
+Okey so they are indeed different now as we have more data: e.g. the average wind speed was 5.2 m/s, whereas it is now only 4.2. Let's see what we have now in our ``storm`` variable.
 
 .. ipython:: python
 
@@ -581,7 +583,7 @@ Let's see the counts for different hours of the day
 Okey, this is interesting. It seems that most often it has been stormy at 14:00 GMT (i.e. 16:00 at Finnish time).
 Notice, that there haven't been any strong winds during the night, which is also interesting. However, as the **The weather guys** explains us, `it is not that surprising actually <http://wxguys.ssec.wisc.edu/2013/11/18/why-does-the-wind-diminish-after-sunset/>`__ =).
 
-The average wind speed may not be the perfect measure to find extreme weather conditions. Gust might usually be better a better measure for that.
+The average wind speed may not be the perfect measure to find extreme weather conditions. Gust might usually be a better measure for that purpose.
 Let's see what were the strongest gust winds in our dataset by sorting the values.
 
 .. ipython:: python
