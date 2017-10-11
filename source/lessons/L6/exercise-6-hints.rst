@@ -35,3 +35,4 @@ If we wanted to skip the first two rows of our data file, we could thus use ``sk
 The value for ``n``, however, need not be a single value, but can also be given in the form of a list.
 In this way, one can skip reading the second row of a file using a list with an index value for the second row.
 In other words, you can use ``skiprows=[1]``.
+
