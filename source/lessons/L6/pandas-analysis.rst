@@ -598,6 +598,12 @@ Let's see what were the strongest gust winds in our dataset by sorting the value
 Interesting! There was one hour with quite extraordinary gust wind in our data happening at 12th of August in 2017.
 Indeed, that was a big storm in Helsinki called `Kiira <https://yle.fi/uutiset/osasto/news/saturday_night_storm_downs_trees_cuts_electricity_in_the_south/9773250>`__ that caused major damage in different parts of the city.
 
+.. figure:: img/Kiira-storm.PNG
+    :width: 300px
+
+    Source: `YLE <https://yle.fi/uutiset/osasto/news/saturday_night_storm_downs_trees_cuts_electricity_in_the_south/9773250>`__ Photo: Markku Sipi
+
+
 .. [#f1] Below you can find information how to use functions in Pandas with an alternative way.
 
 .. hint::
