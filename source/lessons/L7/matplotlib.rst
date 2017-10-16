@@ -1,28 +1,80 @@
-Plotting in Python with matplotlib
+Plotting with Matplotlib
 ==================================
 
-Though there are many options for plotting data in Python, we will be using `matplotlib <http://matplotlib.org/>`__.
-In particular, we will be using the pyplot module in matplotlib, which provides MATLAB-like plotting.
-The reason for this is simple: Matplotlib is the most common module used for plotting in Python and many examples of plotting you may find online will be using matplotlib.
+Though there are many options for plotting data in Python, we will be using `Matplotlib <http://Matplotlib.org/>`__.
+In particular, we will be using the pyplot module in Matplotlib, which provides MATLAB-like plotting.
+The reason for this is simple: Matplotlib is the most common module used for plotting in Python and many examples of plotting you may find online will be using Matplotlib.
 
-1. To start, we will need to import both pyplot and NumPy.
+Downloading the data and preparing
+----------------------------------
+
+1. For our first lesson plotting data using Matplotlib we will again be using the `weather data file <../../_static/data/L5/Kumpula-June-2016-w-metadata.txt>`__ from :doc:`Lesson 5 <../L5/overview>`.
+
+   - Save a copy of this file in your home directory or a directory for the materials for this week's lesson.
+
+   - The data file contains observed daily mean, minimum, and maximum temperatures from June 2016 recorded from the Kumpula weather observation station in Helsinki.
+     It is derived from a data file of daily temperature measurments downloaded from the `US National Oceanographic and Atmospheric Administration's National Centers for Environmental Information climate database <https://www.ncdc.noaa.gov/cdo-web/>`__.
+
+   - We expect something like 30 lines of data in the data file.
+
+2. If you have not already started **Spyder** you should do so now.
+   You can find :doc:`directions on how to open Spyder at the start of Lesson 1<../L1/A-taste-of-Python>`.
+
+3. Navigate in Spyder to the directory where you have stored the downloaded data file.
+   You can do this most easily in Spyder by using the filesystem browser above the File/Variable explorer panel.
+   Click on the file folder to select the directory where you would like to work, click **Open**, then click on the listed file path that is now displated beside the file folder and press **Enter**.
+
+Plotting data with Matplotlib
+-----------------------------
+
+1. To start, we will need to import both Pandas and pyplot.
 
    .. ipython:: python
 
+    import pandas as pd
     import matplotlib.pyplot as plt
-    import numpy as np
 
    Note again that we are renaming the modules when we import them.
    Perhaps now it is more clear why you might want to rename a module on import.
    Having to type ``matplotlib.pyplot`` every time you use one of its methods would be a pain.
 
-2. With our modules imported, we now can quickly define a few variables to make our first plot.
+2. With our modules imported, we now can read in the data file in the same way we had for :doc:`Lesson 5 <../L5/pandas-basics>`.
 
-   .. code:: python
+   .. ipython:: python
+     :suppress:
 
-       x = np.linspace(0, 2 * np.pi, 20)
-       y = np.sin(x)
+       import os
+       fp = os.path.join(os.path.abspath('data'), 'L5', "Kumpula-June-2016-w-metadata.txt")
+       dataFrame = pd.read_csv(fp, skiprows=8)
 
+   .. ipython:: python
+     :verbatim:
+    
+      dataFrame = pd.read_csv('Kumpula-June-2016-w-metadata.txt', skiprows=8)
+
+   As you may recall, we will now have a Pandas DataFrame with 4 columns.
+
+   .. ipython:: python
+
+    print(dataFrame.columns)
+
+3. OK, so let's get to plotting!
+   We can start by using the Matplotlib ``plt.plot()`` function.
+
+   .. ipython:: python
+
+    x = dataFrame['YEARMODA']
+    y = dataFrame['TEMP']
+    @savefig plt_temp.png width=600px
+    plt.plot(x, y)
+    plt.show()
+
+   If all goes well, you should see the plot above in your Spyder IPython console.
+
+   OK, so what happened here?
+
+
+3. 
    We haven't seen ``np.linspace()`` previously. It simply creates a
    NumPy array starting from the first parameter value given, ending
    with the second, and using the third for the total number of values
@@ -91,7 +143,7 @@ The reason for this is simple: Matplotlib is the most common module used for plo
    The format for ``plt.axis()`` is ``[xmin, xmax, ymin, ymax]``
    enclosed in square brackets (i.e., a Python list). Here, the *x*
    range would be changed to 0-π and the *y* range would be 0-1.
-7. Saving plots created using matplotlib done several ways, but the
+7. Saving plots created using Matplotlib done several ways, but the
    easiest is simply to click on the disk icon on the pyplot window when
    a plot is displayed, as shown below.
 
@@ -115,7 +167,7 @@ find example plots there, but you can also find the Python commands used
 to create the plots. This makes it easy to take a working example from
 the gallery and modify it for your use.
 
-|The matplotlib gallery|\  *The matplotlib plot gallery*
+|The Matplotlib gallery|\  *The Matplotlib plot gallery*
 
 Your job in this task is to:
 
@@ -146,5 +198,5 @@ in the ``plt.plot()`` command, then ``plt.axis()``, and finally
 .. |Fancy sine curve| image:: ../img/sine-curve-improved.png
 .. |Saving a plot| image:: ../img/saving-plot.png
 .. |Plot file types| image:: ../img/plot-file-types.png
-.. |The matplotlib gallery| image:: ../img/matplotlib-gallery.png
+.. |The Matplotlib gallery| image:: ../img/Matplotlib-gallery.png
 
