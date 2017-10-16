@@ -7,11 +7,11 @@ In the second half of the lesson we will focus on debugging.
 Many new programmers struggle with removing problems in their code (debugging) because they start randomly making changes without a clear picture of what is wrong or even what the code should do!
 By learning a few basic ideas about debugging and interpreting error messages, we hope to save you time and frustration as your scripts become more complex.
 
-- :doc:`Processing data with Pandas, part II <pandas-analysis>`
-- :doc:`Interpreting error messages <interpreting-errors>`
-- :doc:`Debugging your scripts <debugging-scripts>`
-- :doc:`Exercise 6 <ex-6>`
-- :doc:`Hints for Exercise 6 <exercise-6-hints>`
+1. :doc:`Processing data with Pandas, part II <pandas-analysis>`
+2. :doc:`Interpreting error messages <interpreting-errors>`
+3. :doc:`Debugging your scripts <debugging-scripts>`
+4. :doc:`Exercise 6 <ex-6>`
+5. :doc:`Hints for Exercise 6 <exercise-6-hints>`
 
 Learning goals
 --------------
