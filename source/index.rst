@@ -166,3 +166,16 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
    lessons/L6/debugging-scripts
    lessons/L6/ex-6
    lessons/L6/exercise-6-hints
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Lesson 7
+
+   lessons/L7/overview
+   lessons/L7/lesson-video
+   lessons/L7/python-plotting
+   lessons/L7/plot-anatomy
+   lessons/L7/matplotlib
+   lessons/L7/using-plotly
+   lessons/L7/ex-7
+   lessons/L7/exercise-7-hints

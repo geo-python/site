@@ -6,19 +6,6 @@ automatically export plots from `matplotlib <http://matplotlib.org/>`__
 to `plotly <https://plot.ly/>`__, where they can be manipulated and
 shared online.
 
-Topics
-------
-
-1. `Plotly overview <#plotly-overview>`__
-2. `Configuring matplotlib to work with
-   plotly <#configuring-matplotlib-to-work-with-plotly>`__
-3. `Saving your first matplotlib plot to
-   plotly <#saving-your-first-matplotlib-plot-to-plotly>`__
-4. `Interacting with and modifying your plot on
-   plotly <#interacting-with-and-modifying-your-plot-on-plotly>`__
-
--  `Task 4: Editing a plotly plot <#task-4-editing-a-plotly-plot>`__
-
 Plotly overview
 ---------------
 
@@ -148,12 +135,6 @@ Task 4: Editing a plotly plot
 
 For this task, simply take the test plot generated above, make 3 changes
 to its format, and save the updated plot to plotly.
-
-**Next**: `Exercise 7: Plotting with
-Python <https://classroom.github.com/assignment-invitations/54ad87560677b78169f1c18717bb312e>`__\ 
-**Home**: `Lesson 7 main
-page <https://github.com/Python-for-geo-people/Lesson-7-Plotting>`__\ 
-**Previous**: `Plotting in Python <python-plotting.md>`__
 
 .. |The plot.ly website| image:: ../img/plotly-site.png
 .. |The plotly API settings page| image:: ../img/plotly-api-key.png
