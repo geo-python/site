@@ -3,10 +3,36 @@ Advanced plotting with Pandas
 
 At this point you should know the basics of making plots with Matplotlib module. It is also possible to do Matplotlib plots directly
 from Pandas because many of the basic functionalities of Matplotlib are integrated into Pandas.
-In this part, we will show how to create plots using Pandas, such as this:
+In this part, we will show how to visualize data using Pandas and create plots such as this:
 
 .. figure:: img/temp_plot2.png
-    :width: 400px
+    :width: 600px
+
+Downloading the data and preparing
+----------------------------------
+
+For our second lesson plotting data using Pandas we will use hourly weather data from Helsinki.
+**Download** the `weather data file from here <../../_static/data/L7/1924927457196dat.txt>`__.
+
+ - Save a copy of this file in your home directory or a directory for the materials for this week's lesson.
+
+ - The data file contains observed hourly temperatures, windspeeds, etc. covering years 2012 and 2013. Observations were recorded from the Malmi airport weather station in Helsinki.
+   It is derived from a data file of daily temperature measurments downloaded from the `US National Oceanographic and Atmospheric Administration's National Centers for Environmental Information climate database <https://www7.ncdc.noaa.gov/CDO/cdopoemain.cmd?datasetabbv=DS3505&countryabbv=&georegionabbv=&resolution=40>`__.
+
+ - There should be around 16.5 thousand rows in the data.
+
+The first rows of the data looks like following:
+
+.. code::
+
+      USAF  WBAN YR--MODAHRMN DIR SPD GUS CLG SKC L M H  VSB MW MW MW MW AW AW AW AW W TEMP DEWP    SLP   ALT    STP MAX MIN PCP01 PCP06 PCP24 PCPXX SD
+    029750 99999 201201010050 280   3 ***  89 BKN * * *  7.0 ** ** ** ** ** ** ** ** *   28   25 ****** 29.74 ****** *** *** ***** ***** ***** ***** **
+    029750 99999 201201010150 310   3 ***  89 OVC * * *  7.0 ** ** ** ** ** ** ** ** *   27   25 ****** 29.77 ****** *** *** ***** ***** ***** ***** **
+    029750 99999 201201010250 280   1 *** *** *** * * *  6.2 ** ** ** ** ** ** ** ** *   25   21 ****** 29.77 ****** *** *** ***** ***** ***** ***** **
+    029750 99999 201201010350 200   1 *** *** *** * * *  6.2 ** ** ** ** ** ** ** ** *   21   21 ****** 29.80 ****** *** *** ***** ***** ***** ***** **
+
+Parsing datetime when reading data
+----------------------------------
 
 One of the most useful and powerful features in Pandas is its ability to work with time data.
 In Pandas, we can even read the data from a file and tell to Pandas that values from certain column should be
@@ -28,9 +54,12 @@ Next, let's read the data into Pandas and determine that the values from ``YR--M
     fp = r"C:\HY-DATA\HENTENKA\KOODIT\Opetus\Geo-Python\2017\data\L7\1924927457196dat.txt"
 
 When reading the data we can use ``parse_dates`` parameter to parse the time information
-data = pd.read_csv(fp, sep='\s+', parse_dates=['YR--MODAHRMN'], na_values=['*', '**', '***', '****', '*****', '******'])
 
-Let's check the datatypes of our columns
+.. ipython:: python
+
+    data = pd.read_csv(fp, sep='\s+', parse_dates=['YR--MODAHRMN'], na_values=['*', '**', '***', '****', '*****', '******'])
+
+Let's check the datatypes of our columns.
 
 .. ipython:: python
 
@@ -44,10 +73,10 @@ Let's see how our data look like.
 
     data.head()
 
-As we can see the values on ``YR--MODAHRMN`` indeed look like time information where the first part represents the date and the second part represents the ``hours:minutes:seconds``.
+As we can see the values on ``YR--MODAHRMN`` indeed look like time information where the first part represents the date (``yyyy-mm-dd``) and the second part represents the ``hours:minutes:seconds``.
 
 Before continue with plotting in Pandas, let's process our data a bit by selecting only few columns, renaming them and converting the Fahrenheit temperatures into Celsius.
-If you don't remember how the following steps work, you might want to take another look on ``Lesson 6 materials <../L6/pandas-analysis.html#exploring-data-and-renaming-columns.html>``.
+If you don't remember how the following steps work, you might want to take another look on `Lesson 6 materials <../L6/pandas-analysis.html#exploring-data-and-renaming-columns.html>`__.
 
 .. ipython:: python
     :suppress:
@@ -80,16 +109,23 @@ Let's confirm that everything looks correct.
 Okey, great now our data looks better, and we can continue.
 Let's see how our data looks like by plotting the Celsius temperatures.
 
+Basic line plot in Pandas
+-------------------------
+
 In Pandas, it is extremely easy to plot data from your DataFrame. You can do this by using ``plot()`` function.
 Let's plot all the Celsius temperatures (y-axis) against the time (x-axis). You can specify the columns that you want to plot
 with ``x`` and ``y`` parameters:
 
 .. ipython:: python
 
-    data.plot(x='TIME', y='Celsius')
+    @savefig pandas_plot_1.png width=450px
+    data.plot(x='TIME', y='Celsius');
 
 Cool, it was this easy to produce a line plot that can be used to understand our data better.
 We can clearly see that there is quite a lot of variation in the temperatures, and different seasons pop up quite clearly from the data.
+
+Selecting data based on time in Pandas
+--------------------------------------
 
 What is obvious from the figure above, is that the hourly level data is actually slightly too accurate for plotting data covering two full years.
 Let's see a trick, how we can really easily aggregate the data using Pandas.
@@ -121,6 +157,9 @@ In a similar manner you can also specify more accurately the time that you want 
 
 Great. As we can see it is really easy to select data based on times as well.
 
+Aggregating data with ``resample()`` and datetime index
+-------------------------------------------------------
+
 Let's now continue with our original problem which was to aggregate the data into daily observations.
 We can do this easily by using a ``resample()`` function that does the aggregation for us by utilizing our ``datetime`` index.
 We can specify the ``rule`` how we aggregate the data. In below, we use ``'D'`` to specify that we want to aggregate our data based on **Daily** averages.
@@ -132,13 +171,16 @@ The last function in following command basically determines that we want to calc
     daily.head()
 
 Awesome, now we have values on a daily level that we were able to aggregate with one simple command. Of course it is also possible to aggregate
-based on multiple different time intervals such as hours (``H``), weeks (``W``) months (``M``), etc. See all possible aggregation types (=*offset aliases*) from ``Pandas documentation <http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases>``__
+based on multiple different time intervals such as hours (``H``), weeks (``W``) months (``M``), etc. See all possible aggregation types (=*offset aliases*) from `Pandas documentation <http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases>`__
 
-Let's now plot our daily temperatures in a similar manner as earlier. Note, that now our time is the index of our DataFrame, so we can pass that into our plotting function. Let's also change the width and the color of our line to red)
+Let's now plot our daily temperatures in a similar manner as earlier. Note, that now our time is the index of our DataFrame, so we can pass that into our plotting function. Let's also change the width and the color of our line to red).
+The ``kind`` parameter can be used to specify what kind of plot you want to visualize. There many different ones available in Pandas, however,
+we will now only use basic line plots in this tutorial. See many different kind of plots from official `Pandas documentation about visualization <https://pandas.pydata.org/pandas-docs/stable/visualization.html>`__.
 
 .. ipython:: python
 
-    daily.plot(x=daily.index, y='Celsius', lw=0.75, c='r')
+    @savefig pandas_plot_2.png width=600px
+    daily.plot(x=daily.index, y='Celsius', kind='line', lw=0.75, c='r');
 
 Now we can see that our plot does not look so "crowded" as we have only daily observations instead of hourly.
 What we can also see is that Pandas actually formats now the x-axis tick-labels really nicely (showing month names and years below them) because we are using the datetime-index to plot the data.
@@ -154,7 +196,6 @@ We can also save this figure to disk by using ``plt.savefig()`` function. With `
     In previous lesson, we did this by using string manipulation and grouping the data that are really useful skills, but the technique showed here,
     is much more convenient way of producing the same result.
 
-
 Making subplots
 ---------------
 
@@ -162,7 +203,7 @@ Let's continue working with the weather data and learn how to do subplots, i.e.
 such Figures where you have multiple plots in different panels as was shown in the beginning.
 
 Let's start by changing our plotting style into a nicely looking ``seaborn-whitegrid``.
-You can take a look of different readily-available styles from ``here <https://tonysyu.github.io/raw_content/matplotlib-style-gallery/gallery.html>``__.
+You can take a look of different readily-available styles from `here <https://tonysyu.github.io/raw_content/matplotlib-style-gallery/gallery.html>`__ .
 
 .. ipython:: python
 
@@ -180,14 +221,28 @@ We can do this really easily by selecting data based on the datetime index that 
     summer = daily['2013-06-01': '2013-08-31']
     fall = daily['2013-09-01': '2013-11-30']
 
-We can plot them separately first, just to see how they look.
+Let's check what we have e.g. in winter DataFrame now.
 
 .. ipython:: python
 
-    winter.plot(winter.index, 'Celsius')
-    spring.plot(spring.index, 'Celsius')
-    summer.plot(summer.index, 'Celsius')
-    fall.plot(fall.index, 'Celsius')
+    winter.head()
+
+We can plot them separately first, just to see how they look.
+
+
+.. ipython:: python
+
+    @savefig pandas_plot_3.png width=280px
+    winter.plot(winter.index, 'Celsius');
+
+    @savefig pandas_plot_4.png width=280px
+    spring.plot(spring.index, 'Celsius');
+
+    @savefig pandas_plot_5.png width=280px
+    summer.plot(summer.index, 'Celsius');
+
+    @savefig pandas_plot_6.png width=280px
+    fall.plot(fall.index, 'Celsius');
 
 Okey, so from these plots we can already see that the temperatures in different seasons are quite different, which is quite obvious of course.
 It is important to notice that the scale of the y-axis changes in these different plots. If we would like to compare different seasons to each other
@@ -211,7 +266,7 @@ We can also specify the size  of our figure with ``figsize()`` parameter that ta
 
 .. ipython:: python
 
-    fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(12,12))
+    fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(12,8))
     axes
 
 We can see that as a result we have now a list containing two nested lists where the first one contains the axis for column 1 and 2 on **row 1**
@@ -228,14 +283,24 @@ We can parse these axes into own variables so it is easier to work with them.'
 Now we have four different axis variables for different panels in our Figure.
 Next we can use them to plot the seasonal data into them.
 Let's first plot the seasons and give different colors for the lines, and specify the y-scale limits to be the same with all subplots.
+With parameter ``c`` it is possible to specify the color of the line. You can find an extensive list of possible colors and RGB-color codes
+from `this link <http://www.rapidtables.com/web/color/RGB_Color.htm>`__. With ``lw`` parameter you can specify the width of the line.
 
 .. ipython:: python
 
     line_width = 2.5
-    winter.plot(x=winter.index, y='Celsius', ax=ax11, c='blue', legend=False, lw=line_width, ylim=(min_temp, max_temp))
-    spring.plot(x=spring.index, y='Celsius', ax=ax12, c='orange', legend=False, lw=line_width, ylim=(min_temp, max_temp))
-    summer.plot(x=summer.index, y='Celsius', ax=ax21, c='green', legend=False, lw=line_width, ylim=(min_temp, max_temp))
-    fall.plot(x=fall.index, y='Celsius', ax=ax22, c='brown', legend=False, lw=line_width, ylim=(min_temp, max_temp))
+    winter.plot(x=winter.index, y='Celsius', ax=ax11, c='blue', legend=False, lw=line_width, ylim=(min_temp, max_temp));
+    spring.plot(x=spring.index, y='Celsius', ax=ax12, c='orange', legend=False, lw=line_width, ylim=(min_temp, max_temp));
+    summer.plot(x=summer.index, y='Celsius', ax=ax21, c='green', legend=False, lw=line_width, ylim=(min_temp, max_temp));
+    fall.plot(x=fall.index, y='Celsius', ax=ax22, c='brown', legend=False, lw=line_width, ylim=(min_temp, max_temp));
+
+.. ipython:: python
+    :suppress:
+
+        plt.savefig(r"C:\HY-DATA\HENTENKA\KOODIT\Opetus\Geo-Python\2017\data\L7\pandas_subplot_1.png", dpi=400)
+
+.. figure:: ../../../data/L7/pandas_subplot_1.png
+    :width: 800px
 
 Great, now we have all the plots in same Figure! However, we can see that there are some problems with our x-axis as the number of ticks is different in different subplots.
 We can change that. It is basically possible to adjust all elements of your visualization. Quite many of them can be adjusted
@@ -254,10 +319,15 @@ At the same time we can specify that the y-ticks should be visible every 5 degre
 .. ipython:: python
     :suppress:
 
-        for ax in [ax11, ax12, ax21, ax22]:
-            ax.get_xaxis().set_ticks([])
-            ax.yaxis.set_ticks(yticks)
-            ax.tick_params(axis='both', which='major', labelsize=12)
+        fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(12,8));
+        ax11 = axes[0][0];
+        ax12 = axes[0][1];
+        ax21 = axes[1][0];
+        ax22 = axes[1][1];
+        winter.plot(x=winter.index, y='Celsius', ax=ax11, c='blue', legend=False, lw=line_width, ylim=(min_temp, max_temp));
+        spring.plot(x=spring.index, y='Celsius', ax=ax12, c='orange', legend=False, lw=line_width, ylim=(min_temp, max_temp));
+        summer.plot(x=summer.index, y='Celsius', ax=ax21, c='green', legend=False, lw=line_width, ylim=(min_temp, max_temp));
+        fall.plot(x=fall.index, y='Celsius', ax=ax22, c='brown', legend=False, lw=line_width, ylim=(min_temp, max_temp));
 
 .. code:: python
 
@@ -269,18 +339,26 @@ At the same time we can specify that the y-ticks should be visible every 5 degre
         # Specify major tick-label sizes larger
         ax.tick_params(axis='both', which='major', labelsize=12)
 
+.. ipython:: python
+    :suppress:
+
+        for ax in [ax11, ax12, ax21, ax22]:
+            ax.get_xaxis().set_ticks([]);
+            ax.yaxis.set_ticks(yticks);
+            ax.tick_params(axis='both', which='major', labelsize=12);
+
 Let's specify that we want to have daily ticks for all our plots. This can be done by utilizing a specific functionality from matplotlib called ``dates`` that we can use to specify the ticks.
 This part is quite advanced plotting, so again, do not worry if you don't understand everything.
 
 .. ipython:: python
     :suppress:
 
-        from matplotlib import dates
+        from matplotlib import dates;
         for ax in [ax11, ax12, ax21, ax22]:
-            ax.xaxis.set_minor_locator(dates.DayLocator(interval=7))
-            ax.xaxis.set_minor_formatter(dates.DateFormatter('%d'))
-            ax.xaxis.set_major_locator(dates.MonthLocator())
-            ax.xaxis.set_major_formatter(dates.DateFormatter('\n%b'))
+            ax.xaxis.set_minor_locator(dates.DayLocator(interval=7));
+            ax.xaxis.set_minor_formatter(dates.DateFormatter('%d'));
+            ax.xaxis.set_major_locator(dates.MonthLocator());
+            ax.xaxis.set_major_formatter(dates.DateFormatter('\n%b'));
 
 .. code:: python
 
@@ -294,6 +372,14 @@ This part is quite advanced plotting, so again, do not worry if you don't unders
         # Set major ticks with month names
         ax.xaxis.set_major_locator(dates.MonthLocator())
         ax.xaxis.set_major_formatter(dates.DateFormatter('\n%b'))
+
+.. ipython:: python
+    :suppress:
+
+        plt.savefig(r"C:\HY-DATA\HENTENKA\KOODIT\Opetus\Geo-Python\2017\data\L7\pandas_subplot_2.png", dpi=400)
+
+.. figure:: ../../../data/L7/pandas_subplot_2.png
+    :width: 800px
 
 Perfect now we have similar scales for all of our subplots.
 
@@ -313,21 +399,21 @@ In here, we can use the same y-position for all of our plots. However, with x-po
     sum_x = datetime(2013, 8, 7)
     fal_x = datetime(2013, 11, 18)
 
-Let's add those texts on top of our subplots
+Let's add those texts on top of our subplots.
 
 .. ipython:: python
 
-    ax11.text(wint_x, all_y, 'Winter', size=16)
-    ax12.text(spr_x, all_y, 'Spring', size=16)
-    ax21.text(sum_x, all_y, 'Summer', size=16)
-    ax22.text(fal_x, all_y, 'Fall', size=16)
+    ax11.text(wint_x, all_y, 'Winter', size=16);
+    ax12.text(spr_x, all_y, 'Spring', size=16);
+    ax21.text(sum_x, all_y, 'Summer', size=16);
+    ax22.text(fal_x, all_y, 'Fall', size=16);
 
 Let's add a common Y-label for the figure and a title, this can be done by adding another subplot that covers the area of the whole
 Figure and adding labels on top of that.
 
 .. ipython:: python
 
-    fig.add_subplot(111, frameon=False)
+    fig.add_subplot(111, frameon=False);
 
 Let's make sure that there are no ticks or labels added
 
@@ -340,18 +426,24 @@ Let's now add common y-label and a title for our plot.
 
 .. ipython:: python
 
-    plt.ylabel("Temperature in Celsius", size=22, family='Arial')
-    plt.title("Seasonal variations in temperature", size=22, family='Arial')
+    plt.ylabel("Temperature in Celsius", size=22, family='Arial');
+    plt.title("Seasonal variations in temperature", size=22, family='Arial');
 
-By calling plt.tightlayout() it is possible to remove most of the extra whitespace around your figure.
+By calling ``plt.tightlayout()`` it is possible to remove most of the extra whitespace around your figure.
 
 .. ipython:: python
 
     plt.tight_layout()
 
-Now we can save our Subplot to disk
+Finally, we can save our subplot to disk in a similar manner as before.
 
 .. ipython:: python
 
-    plt.savefig(r"C:\HY-DATA\HENTENKA\KOODIT\Opetus\Geo-Python\2017\data\L7\temp_plot2.png", dpi=300)
+    plt.savefig(r"C:\HY-DATA\HENTENKA\KOODIT\Opetus\Geo-Python\2017\data\L7\Temperature_seasons_subplot.png", dpi=300)
 
+.. figure:: img/temp_plot2.png
+    :width: 800px
+
+And voilá! Now we have a fairly nice looking figure with four subplots. Now you know few really useful tricks
+how to manipulate the aesthetics of your plot, and how to create subplots which is really useful skill to learn!
+Now it is time to be creative and practice your visualization skills with an exercise.
