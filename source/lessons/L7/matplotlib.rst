@@ -17,7 +17,7 @@ Downloading the data and preparing
 
    - We expect something like 30 lines of data in the data file.
 
-. If you have not already started **Spyder** you should do so now.
+2. If you have not already started **Spyder** you should do so now.
    You can find :doc:`directions on how to open Spyder at the start of Lesson 1<../L1/A-taste-of-Python>`.
 
 3. Navigate in Spyder to the directory where you have stored the downloaded data file.
