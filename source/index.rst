@@ -177,5 +177,6 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
    lessons/L7/plot-anatomy
    lessons/L7/matplotlib
    lessons/L7/using-plotly
+   lessons/L7/pandas-plotting
    lessons/L7/ex-7
    lessons/L7/exercise-7-hints

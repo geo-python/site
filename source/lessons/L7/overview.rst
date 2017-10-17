@@ -9,8 +9,9 @@ Matplotlib is an extremely powerful and flexible plotting module, and as you wil
 2. :doc:`Anatomy of a plot <plot-anatomy>`
 3. :doc:`Basics of plotting with Matplotlib <matplotlib>`
 4. :doc:`Connecting Matplotlib with plotly <using-plotly>` *(optional)*
-5. :doc:`Exercise 7 <ex-7>`
-6. :doc:`Hints for Exercise 7 <exercise-7-hints>`
+5. :doc:`Advanced plotting with Pandas <pandas-plotting>`
+6. :doc:`Exercise 7 <ex-7>`
+7. :doc:`Hints for Exercise 7 <exercise-7-hints>`
 
 Learning goals
 --------------
