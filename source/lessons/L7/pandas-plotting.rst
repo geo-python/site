@@ -50,8 +50,14 @@ Let's start by importing some modules that will be useful when plotting.
 Next, let's read the data into Pandas and determine that the values from ``YR--MODAHRMN`` column should be interpreted and converted into a time index.
 
 .. ipython:: python
+    :suppress:
 
-    fp = r"C:\HY-DATA\HENTENKA\KOODIT\Opetus\Geo-Python\2017\data\L7\1924927457196dat.txt"
+       import os
+       fp = os.path.join(os.path.abspath('data'), 'L7', "1924927457196dat.txt")
+
+.. code:: python
+
+   In [5]: fp = "1924927457196dat.txt"
 
 When reading the data we can use ``parse_dates`` parameter to parse the time information
 
@@ -189,7 +195,7 @@ We can also save this figure to disk by using ``plt.savefig()`` function. With `
 
 .. ipython:: python
 
-    plt.savefig(r"C:\HY-DATA\HENTENKA\KOODIT\Opetus\Geo-Python\2017\data\L7\temp_plot1.png", dpi=300)
+    plt.savefig("temp_plot1.png", dpi=300)
 
 .. note::
 
@@ -439,7 +445,7 @@ Finally, we can save our subplot to disk in a similar manner as before.
 
 .. ipython:: python
 
-    plt.savefig(r"C:\HY-DATA\HENTENKA\KOODIT\Opetus\Geo-Python\2017\data\L7\Temperature_seasons_subplot.png", dpi=300)
+    plt.savefig("Temperature_seasons_subplot.png", dpi=300)
 
 .. figure:: img/temp_plot2.png
     :width: 800px
