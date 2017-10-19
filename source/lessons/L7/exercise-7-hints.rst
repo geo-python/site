@@ -21,7 +21,7 @@ Let's see an example with following data
     :suppress:
 
         import os
-        import pandas
+        import pandas as pd
         fp = os.path.join(os.path.abspath('data'), 'L7', "hintData.txt")
 
 Let's try to read the data and parse the date.
@@ -84,7 +84,7 @@ There are several ways in which this can be done, but one nice way to do it is u
 For each year, you want to identify the slice of dates that correspond to that season, calculate their mean, then store that result in the corresponding location in the new DataFrame created in the previous hint.
 For the ``for`` loop itself, it may be easiest to start with the second full year of data (1953), since we do not have temperatures for December of 1951.
 If you loop over the years from 1953-2016, you can then easily calculate the seasonal average temperatures for each season.
-For the winter, you can use ``year - 1`` to find the temperature for December, assuming ``year`` is your variable for the current year in your ``for`` loop.
+For the winter, you can use ``year - 1`` to find the temperature for December, assuming ``year`` is your variable for the current year in your ``for`` loop. This approach can be used also in relation to Problem 3 and 4.
 
 In `this week's lesson <https://geo-python.github.io/2017/lessons/L7/pandas-plotting.html#selecting-data-based-on-time-in-pandas>`__ we saw how to select a range of dates, but we did not cover how to take the mean value of the slice and store it.
 Because a slice of a DataFrame is still a DataFrame object, we can simply use the ``.mean()`` method to calculate the mean of that slice.
@@ -113,3 +113,87 @@ To do this, you need to do two things:
 1. You need to add a ``label`` value when you create the plot using the ``plt.plot()`` function.
    This is as easy as adding a parameter that say ``label='some text'`` when you call ``plt.plot()``.
 2. You'll need to display the line legend, which can be done by calling ``plt.legend()`` for each subplot.
+
+Saving multiple plots into a directory
+--------------------------------------
+
+In Problems 3 and 4 the aim is to create 65 individual plots, and save those into your computer.
+In these kind of situations, the smartest thing to do is to use a ``for`` loop and at the end of each
+loop, save the image into a folder that you have specified. There are some useful tricks related to saving
+files and generating good file names automatically.
+
+A good approach when saving multiple files into a folder, is to define a separate variable where you store
+only the directory path. Then during every loop you combine this directory path, and the file name together.
+This can be done by using a function ``os.path.join()`` which is part of ``os`` built-in Python module.
+
+Consider following example:
+
+.. ipython:: python
+
+    import os
+    myfolder = r"C:\MyUserName\Temp_visualizations"
+    for i in range(5):
+        filename = "My_File_" + str(i) + ".png"
+        filepath = os.path.join(myfolder, filename)
+        print(filepath)
+
+Here, we created a folder path and a unique filename, and in the end parsed a full filepath that could be
+used to save a plot into that location on your computer.
+
+Creating an animation from multiple images
+------------------------------------------
+
+In Problems 3 and 4 the aim was to plot multiple images on a predefined folder. An optional task
+was to create an animation out of those figures. Animating the figures in Problems 3 and 4 is fairly
+straightforward task to do in Python. All you need to do is to install a module called ``imageio`` and
+run couple lines of code that I show below.
+
+But, first you need to install ``imageio`` module.
+
+Installing the module can be done by running following command **from the command prompt / terminal** with **admin rights**:
+
+.. code:: bash
+
+    $ conda install -c conda-forge imageio
+
+
+.. note::
+
+    If everything works fine you should not see any errors coming into the screen. If you receive an error, the most typical
+    one is that you did not have **admin rights** when trying to install the module. In such case, you should open command prompt
+    with admin rights (Command prompt --> right click --> Run as administrator..)
+
+When you have imageio installed you should be able to import it, in Spyder:
+
+.. ipython:: python
+
+    import imageio
+
+Creating the animation
+~~~~~~~~~~~~~~~~~~~~~~
+
+Following commands should produce a nice gif-animation out of your plots. The idea is that you list all the
+files from the folder where you saved the plots using ``glob`` function, and then pass that file list into imageio
+function called ``imageio.mimsave()``. A following example shows how to do that.
+
+First we list all the files from folder that has ``.png`` file format using ``glob``. The ``*`` wildcard character tells to computer that
+the name of the file can be anything (the purpose of the star). ``.png`` after the star tells that the filename should end with ``.png`` characters.
+If there are some other files with other file format than .png, they will be excluded.
+Finally, we create the animation into the computer.
+
+.. code:: python
+
+    import glob
+    import imageio
+
+    # Find all files from given folder that has .png file-format
+    search_criteria = r"C:\MyUserName\Temp_visualizations\*.png"
+
+    # Execute the glob function that returns a list of filepaths
+    figure_paths = glob.glob(search_criteria)
+
+    # Save the animation to disk with 48 ms durations
+    output_gif_path = r"C:\MyUserName\Temp_animation.gif"
+    imageio.mimsave(figure_paths, [imageio.imread(fp) for fp in figure_paths], duration=0.48, subrectangles=True)
+
+With these lines of code you should be able to create a nice animation out of your plots!
