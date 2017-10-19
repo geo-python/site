@@ -46,3 +46,5 @@ are represented in the data. Consider following example:
     data.dtypes
 
 Great, now we have the data in ``datetime`` format!
+
+
