@@ -194,6 +194,6 @@ Finally, we create the animation into the computer.
 
     # Save the animation to disk with 48 ms durations
     output_gif_path = r"C:\MyUserName\Temp_animation.gif"
-    imageio.mimsave(figure_paths, [imageio.imread(fp) for fp in figure_paths], duration=0.48, subrectangles=True)
+    imageio.mimsave(output_gif_path, [imageio.imread(fp) for fp in figure_paths], duration=0.48, subrectangles=True)
 
 With these lines of code you should be able to create a nice animation out of your plots!
