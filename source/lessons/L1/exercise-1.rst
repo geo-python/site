@@ -1,6 +1,11 @@
 Exercise 1
 ==========
 
+.. warning::
+
+    Please feel free to complete the assignment below.
+    However, note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
+
 The exercise for this week should be pretty simple and comprises two parts.
 First, you need to go to GitHub.com and create an account.
 Second, you need to go through the process of using one of the cloud computers from start to finish.

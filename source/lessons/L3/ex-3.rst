@@ -1,6 +1,11 @@
 Exercise 3
 ==========
 
+.. warning::
+
+    Please feel free to use the link below to create your personal copy of this assignment using GitHub Classroom.
+    However, note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
+
 .. admonition:: Start your assignment
 
     You can start working on your copy of Exercise 3 by `accepting the GitHub Classroom assignment <https://classroom.github.com/a/FhxIGxYP>`__.
