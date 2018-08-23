@@ -5,8 +5,7 @@ before_install:
   - hg clone https://bitbucket.org/birkenfeld/sphinx-contrib/
 install:
   - pip install sphinx sphinx_rtd_theme nbsphinx
-  - cd sphinx-contrib/googleanalytics
-  - python setup.py install
+  - cd sphinx-contrib/googleanalytics; python setup.py install; cd ../..
 script: make html
 after_success:
   - ./push.sh
