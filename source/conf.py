@@ -24,9 +24,9 @@ copyright = '2018, H. Tenkanen and D. Whipp, University of Helsinki'
 author = 'H. Tenkanen and D. Whipp'
 
 # The short X.Y version
-version = ''
+version = '2018'
 # The full version, including alpha/beta/rc tags
-release = ''
+release = '2018'
 
 
 # -- General configuration ---------------------------------------------------
