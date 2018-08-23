@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Geo-Python'
-copyright = '2018, H. Tenkanen and D. Whipp'
+copyright = '2018, H. Tenkanen and D. Whipp, University of Helsinki'
 author = 'H. Tenkanen and D. Whipp'
 
 # The short X.Y version
