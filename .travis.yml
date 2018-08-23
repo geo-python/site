@@ -1,8 +1,12 @@
 language: python
 python:
   - 3.6
+before_install:
+  - hg clone https://bitbucket.org/birkenfeld/sphinx-contrib/
+  - cd sphinx-contrib/googleanalytics
+  - python setup.py install
 install:
-  - pip install sphinx sphinx_rtd_theme sphinxcontrib-googleanalytics nbsphinx
+  - pip install sphinx sphinx_rtd_theme nbsphinx
 script: make html
 after_success:
   - ./push.sh
