@@ -33,34 +33,34 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
 | Time           | Theme                           |
 +================+=================================+
 | **Class 1**    | Basic concepts of Python and    |
-|   6.9.2017     | computer programs               |
+|   5.9.2017     | computer programs               |
 |                |                                 |
 |                |                                 |
 +----------------+---------------------------------+
 | **Class 2**    | Diving into Python              |
-|  13.9.2017     |                                 |
+|  12.9.2017     |                                 |
 |                |                                 |
 |                |                                 |
 +----------------+---------------------------------+
 | **Class 3**    | Repeating tasks and making      |
-|  20.9.2017     | decisions                       |
+|  19.9.2017     | decisions                       |
 |                |                                 |
 |                |                                 |
 +----------------+---------------------------------+
 | **Class 4**    | Creating and using functions    |
-|  27.9.2017     |                                 |
+|  26.9.2017     |                                 |
 |                |                                 |
 +----------------+---------------------------------+
 | **Class 5**    | Data analysis with Pandas       |
-|  4.10.2017     | Part I                          |
+|  3.10.2017     | Part I                          |
 |                |                                 |
 +----------------+---------------------------------+
 | **Class 6**    | Data analysis with Pandas       |
-|  11.10.2017    | Part II + Dealing with errors   |
+|  10.10.2017    | Part II + Dealing with errors   |
 |                |                                 |
 +----------------+---------------------------------+
 | **Class 7**    | Basics of data visualization    |
-|  18.10.2017    |                                 |
+|  17.10.2017    |                                 |
 |                |                                 |
 +----------------+---------------------------------+
 
