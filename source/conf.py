@@ -201,3 +201,6 @@ nbsphinx_prolog = r"""
 """
 
 nbsphinx_allow_errors = True
+
+# Sphinx versioning settings
+scv_show_banner = True
