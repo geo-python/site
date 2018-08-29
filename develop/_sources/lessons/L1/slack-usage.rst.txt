@@ -35,7 +35,7 @@ When entering to our Slack Team you should see something like following where yo
  - all channels listed on the left panel
  - on the right you have the selected channel (1-lesson) where you can start discussing about the contents of the lesson (lesson 1 in this case)
 
-.. figure:: img/slack-basic-view.PNG
+.. figure:: img/slack-basic-view.png
    :alt: Basic view of Slack
    :width: 550px
 
@@ -88,7 +88,7 @@ Here we have few general guidelines for using Slack to keep things well organize
     - If you have question related to week 2 lesson or exercise, you make your question in channel ``week-2``.
     - If you want to share a funny GIF you found online, you can post it into channel ``random``.
 
-  2. Use threads to maintain the discussion of specific topic under the same question / comment.
+  2. Use threads to maintain the discussion of specific topic under the same questiongit  / comment.
 
   3. **Ask!** If something seems to be tricky and difficult, don't hesitate to ask a question. Your fellow students or we instructors can help you out.
 
