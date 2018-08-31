@@ -54,11 +54,11 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
 |          |                | Part I               |
 |          |                |                      |
 +----------+----------------+----------------------+
-|**6**     |  10.10.2017    | Data analysis        |
+|**6**     |  10.10.2018    | Data analysis        |
 |          |                | Part II +            |
 |          |                | Dealing with errors  |
 +----------+----------------+----------------------+
-|**7**     | 17.10.2017     | Data visualization   |
+|**7**     | 17.10.2018     | Data visualization   |
 |          |                |                      |
 |          |                |                      |
 +----------+----------------+----------------------+
