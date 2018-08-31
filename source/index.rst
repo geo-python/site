@@ -40,7 +40,6 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
 |**2**     | 12.9.2018      | Diving into Python   |
 |          |                |                      |
 |          |                |                      |
-|          |                |                      |
 +----------+----------------+----------------------+
 |**3**     |19.9.2018       | Repeating tasks      |
 |          |                | and making decisions |
@@ -55,8 +54,8 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
 |          |                | Part I               |
 |          |                |                      |
 +----------+----------------+----------------------+
-|**6**     | **Class 6**    | Data analysis        |
-|          |  10.10.2017    | Part II +            |
+|**6**     |  10.10.2017    | Data analysis        |
+|          |                | Part II +            |
 |          |                | Dealing with errors  |
 +----------+----------------+----------------------+
 |**7**     | 17.10.2017     | Data visualization   |
