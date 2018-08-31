@@ -35,7 +35,8 @@ Course assistants
 
   * Office: A120, Physicum
   * Email: *firstname.lastname@helsinki.fi*
-  * Phone: +358 2941 50760
+
+* Lotta Ylä-Mella
 
 
 Course websites
@@ -44,7 +45,7 @@ Course websites
 - Course sites for Period I (Introduction to Python programming):
 
   - Main course site: `<https://geo-python.github.io>`_
-  - Pebbles (cloud computing) site: `<https://pb.geo.helsinki.fi>`_
+  - Notebooks by CSV: `<https://notebooks.csc.fi>`_
   - Slack (Q&A + chat): `<https://geopython2018.slack.com>`_
   - Polling / voting (active during lectures only): `<https://geo-python.github.io/poll>`_
 
