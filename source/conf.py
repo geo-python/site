@@ -204,3 +204,4 @@ nbsphinx_allow_errors = True
 
 # Sphinx versioning settings
 scv_show_banner = True
+scv_whitelist_branches = ('master', 'develop')
