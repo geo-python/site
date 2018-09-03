@@ -1,0 +1,972 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-105019106-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>A taste of Python &mdash; Geo-Python 2018 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exercise 1" href="../../lessons/L1/exercise-1.html" />
+    <link rel="prev" title="Communicating with Slack" href="../../lessons/L1/slack-usage.html" />
+    <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
+     
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Geo-Python
+          
+
+          
+            
+            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2018
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/installing-anacondas.html">Installing Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/python-vocabulary.html">Vocabulary - Basic terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 1</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/motivation.html">Motivation for the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/course-environment-components.html">Course environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/intro-to-cloud-environment.html">Using the cloud computing environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/slack-usage.html">Communicating with Slack</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">A taste of Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#About-this-document">About this document</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Getting-started">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Variables,-arithmetic-and-modules">Variables, arithmetic and modules</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Python-can-be-used-as-a-simple-calculator">Python can be used as a simple calculator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#You-can-use-Python-for-more-advanced-math-by-using-functions">You can use Python for more advanced math by using functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#The-list-of-basic-arithmetic-operations-that-can-be-done-by-default-in-Python-is-in-the-table-below">The list of basic arithmetic operations that can be done by default in Python is in the table below</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Functions-can-also-be-combined">Functions can also be combined</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Variables-can-be-used-to-store-values-calculated-in-expressions-and-used-for-other-calculations"><em>Variables</em> can be used to store values calculated in expressions and used for other calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Values-stored-in-variables-can-also-be-updated">Values stored in variables can also be updated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Changing-the-values-of-a-variable-does-not-affect-those-of-other-variables">Changing the values of a variable does not affect those of other variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#There-are-4-basic-data-types-in-Python-as-shown-in-the-table-below">There are 4 basic <em>data types</em> in Python as shown in the table below</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/exercise-1.html">Exercise 1</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Geo-Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>A taste of Python</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/notebooks/L1/a-taste-of-python.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+
+
+    
+    
+
+
+
+    <p class="scv-banner scv-sphinx_rtd_theme"><b>Warning:</b> This document is for the development version of Geo-Python.</p>
+
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="admonition note">
+This page was generated from <a class="reference external" href="https://github.com/Geo-Python/2018/blob/master/source/notebooks/L1/a-taste-of-python.ipynb">source/notebooks/L1/a-taste-of-python.ipynb</a>.
+Interactive online versions:
+<span class="raw-html"><a href="https://notebooks.csc.fi/#/blueprint/d71cd2d26d924f48820dc22b67a87d8e"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a></span>
+<span class="raw-html"><a href="https://mybinder.org/v2/gh/Geo-Python/2018/master?urlpath=lab/tree/source/notebooks/L1/a-taste-of-python.ipynb"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a></span></div>
+<div class="section" id="A-taste-of-Python">
+<h1>A taste of Python<a class="headerlink" href="#A-taste-of-Python" title="Permalink to this headline">¶</a></h1>
+<p>We will start our Python lesson by learning a bit of the basic
+operations you can perform using Python.</p>
+<div class="section" id="Sources">
+<h2>Sources<a class="headerlink" href="#Sources" title="Permalink to this headline">¶</a></h2>
+<p>This lesson is inspired by the <a class="reference external" href="http://swcarpentry.github.io/python-novice-inflammation/">Programming in Python
+lessons</a>
+from the <a class="reference external" href="http://software-carpentry.org">Software Carpentry
+organization</a>.</p>
+</div>
+<div class="section" id="About-this-document">
+<h2>About this document<a class="headerlink" href="#About-this-document" title="Permalink to this headline">¶</a></h2>
+<p>This is a Jupyter Notebook designed to assess your understanding of the
+basic concepts of programming in Python. The contents of this document
+are divided into cells, which can contain Markdown-formatted text,
+Python code, or raw text. You can execute a snippet of code in a cell by
+pressing <strong>Shift-Enter</strong>. Try this out in the examples below.</p>
+<div class="section" id="Getting-started">
+<h3>Getting started<a class="headerlink" href="#Getting-started" title="Permalink to this headline">¶</a></h3>
+<p>Presumably if you have made it this far, you have already opened this
+Jupyter Notebook on your own computer. If not, you can do the following
+to launch <a class="reference external" href="http://jupyterlab.readthedocs.io/en/stable/">Jupyter Lab</a>
+by typing the following in a terminal window.</p>
+$ jupyter lab<p>This should open a new Jupyter Lab session from which you can open this
+document by navigating its location in the <strong>Files</strong> tab and double
+clicking on it. After that you should be ready to go.</p>
+</div>
+<div class="section" id="Variables,-arithmetic-and-modules">
+<h3>Variables, arithmetic and modules<a class="headerlink" href="#Variables,-arithmetic-and-modules" title="Permalink to this headline">¶</a></h3>
+<p>We will start our Python lesson by learning a bit of the basic
+operations you can perform using Python.</p>
+</div>
+</div>
+<div class="section" id="Python-can-be-used-as-a-simple-calculator">
+<h2>Python can be used as a simple calculator<a class="headerlink" href="#Python-can-be-used-as-a-simple-calculator" title="Permalink to this headline">¶</a></h2>
+<p>Remember, you can press <strong>Shift-Enter</strong> to execute the code in the cells
+below. Try it out and see what you get.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>Out[1]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>2
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="mi">5</span> <span class="o">*</span> <span class="mi">7</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>Out[2]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>35
+</pre></div>
+</div>
+</div>
+<p>If you want to edit and re-run some code, simply make changes to the
+cell and press <strong>Shift-Enter</strong> to execute the revised code.</p>
+</div>
+<div class="section" id="You-can-use-Python-for-more-advanced-math-by-using-functions">
+<h2>You can use Python for more advanced math by using functions<a class="headerlink" href="#You-can-use-Python-for-more-advanced-math-by-using-functions" title="Permalink to this headline">¶</a></h2>
+<p>Functions are pieces of code that perform a single action such as
+printing information to the screen (e.g., the print() function).
+Functions exist for a huge number of operations in Python.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-3-2b5fc2868c51&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>sin<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;sin&#39; is not defined
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-4-317e033d29d5&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>sqrt<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">4</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;sqrt&#39; is not defined
+</pre></div></div>
+</div>
+<p>Wait, what? Python can’t calculate square roots or do basic
+trigonometry? Of course it can, but we need one more step.</p>
+</div>
+<div class="section" id="The-list-of-basic-arithmetic-operations-that-can-be-done-by-default-in-Python-is-in-the-table-below">
+<h2>The list of basic arithmetic operations that can be done by default in Python is in the table below<a class="headerlink" href="#The-list-of-basic-arithmetic-operations-that-can-be-done-by-default-in-Python-is-in-the-table-below" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="16%" />
+<col width="28%" />
+<col width="28%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Symbol</th>
+<th class="head">Example syntax</th>
+<th class="head">Returned value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Addition</td>
+<td><code class="docutils literal notranslate"><span class="pre">+</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">2</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">4</span></code></td>
+</tr>
+<tr class="row-odd"><td>Subtraction</td>
+<td><code class="docutils literal notranslate"><span class="pre">-</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">-</span> <span class="pre">2</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">2</span></code></td>
+</tr>
+<tr class="row-even"><td>Multiplication</td>
+<td><code class="docutils literal notranslate"><span class="pre">*</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">3</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">6</span></code></td>
+</tr>
+<tr class="row-odd"><td>Division</td>
+<td><code class="docutils literal notranslate"><span class="pre">/</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">/</span> <span class="pre">2</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">2</span></code></td>
+</tr>
+<tr class="row-even"><td>Exponentiation</td>
+<td><code class="docutils literal notranslate"><span class="pre">**</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">2**3</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">8</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>For anything more advanced, we need to load a <em>module</em>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">math</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We can see a few interesting things above:</p>
+<ol class="arabic simple">
+<li>A <em>module</em>, also known as a <em>library</em>, is a group of code items such
+as functions that are related to one another. Modules are loaded
+using <code class="docutils literal notranslate"><span class="pre">import</span></code>. Functions that are part of the module
+<code class="docutils literal notranslate"><span class="pre">modulename</span></code> could then be used by typing
+<code class="docutils literal notranslate"><span class="pre">modulename.functionname()</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">sin()</span></code> is a function
+that is part of the <code class="docutils literal notranslate"><span class="pre">math</span></code> module, and used by typing
+<code class="docutils literal notranslate"><span class="pre">math.sin()</span></code> with some number between the parentheses.</li>
+<li>Within a given Jupyter Notebook the variables you define earlier in
+the notebook will be available for use in the cells that follow as
+long as you have already executed the cells.</li>
+<li>Modules may also contain constants such as <code class="docutils literal notranslate"><span class="pre">math.pi</span></code>.</li>
+</ol>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Functions-can-also-be-combined">
+<h2>Functions can also be combined<a class="headerlink" href="#Functions-can-also-be-combined" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The square root of 4 is&#39;</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Variables-can-be-used-to-store-values-calculated-in-expressions-and-used-for-other-calculations">
+<h2><em>Variables</em> can be used to store values calculated in expressions and used for other calculations<a class="headerlink" href="#Variables-can-be-used-to-store-values-calculated-in-expressions-and-used-for-other-calculations" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">temp_celsius</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">temp_celsius</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+10.0
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Temperature in Fahrenheit:&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">temp_celsius</span> <span class="o">+</span> <span class="mi">32</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Temperature in Fahrenheit: 50.0
+</pre></div></div>
+</div>
+<p>Above, we also see one common format for good variable naming,
+separation of words by underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">temp_celsius</span></code>). This
+is called <em>pothole_case_naming</em>. We’ll see another below.</p>
+</div>
+<div class="section" id="Values-stored-in-variables-can-also-be-updated">
+<h2>Values stored in variables can also be updated<a class="headerlink" href="#Values-stored-in-variables-can-also-be-updated" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">temp_celsius</span> <span class="o">=</span> <span class="mf">15.0</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Celsius is now:&#39;</span><span class="p">,</span> <span class="n">temp_celsius</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+temperature in Celsius is now: 15.0
+</pre></div></div>
+</div>
+<div class="admonition warning">
+If you try to run some code that accesses a variable that has not yet
+been defined you will get a <code class="docutils literal notranslate"><span class="pre">NameError</span></code> message.</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Temperature in Celsius:&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">9</span> <span class="o">*</span> <span class="p">(</span><span class="n">tempFahrenheit</span> <span class="o">-</span> <span class="mi">32</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Temperature in Celsius: 15.0
+</pre></div></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle">One of the cool things here is that if we define the undefined variable
+in a later cell and execute that cell, we can return to the earlier one
+and the code should now work. That was a bit of a complicated sentence,
+so let’s test this all out. First, execute the Python code in the cell
+below. Then, return to the cell above this text and run it again. See
+how the error message has gone away? <code class="docutils literal notranslate"><span class="pre">tempFahrenheit</span></code> has now been
+defined and thus the cell above no longer generates a <code class="docutils literal notranslate"><span class="pre">NameError</span></code> when
+the code is executed.</p>
+<p>Also, the number beside the cell, for example <code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">[2]</span></code>, tells you the
+order in which the Python cells have been executed. This way you can see
+a history of the commands you’ve executed</p>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tempFahrenheit</span> <span class="o">=</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">temp_celsius</span> <span class="o">+</span> <span class="mi">32</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Celsius:&#39;</span><span class="p">,</span> <span class="n">temp_celsius</span><span class="p">,</span> <span class="s1">&#39;and in Fahrenheit:&#39;</span><span class="p">,</span> <span class="n">tempFahrenheit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+temperature in Celsius: 15.0 and in Fahrenheit: 59.0
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Changing-the-values-of-a-variable-does-not-affect-those-of-other-variables">
+<h2>Changing the values of a variable does not affect those of other variables<a class="headerlink" href="#Changing-the-values-of-a-variable-does-not-affect-those-of-other-variables" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">temp_celsius</span> <span class="o">=</span> <span class="mf">20.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Celsius is now:&#39;</span><span class="p">,</span> <span class="n">temp_celsius</span><span class="p">,</span> <span class="s1">&#39;and temperature in Fahrenheit is still:&#39;</span><span class="p">,</span> <span class="n">tempFahrenheit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+temperature in Celsius is now: 20.0 and temperature in Fahrenheit is still: 59.0
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="There-are-4-basic-data-types-in-Python-as-shown-in-the-table-below">
+<h2>There are 4 basic <em>data types</em> in Python as shown in the table below<a class="headerlink" href="#There-are-4-basic-data-types-in-Python-as-shown-in-the-table-below" title="Permalink to this headline">¶</a></h2>
+<p>| Data type name | Data type | Example | | ————– |
+——————– | ———- | | <code class="docutils literal notranslate"><span class="pre">int</span></code> | Whole integer values
+| <code class="docutils literal notranslate"><span class="pre">4</span></code> | | <code class="docutils literal notranslate"><span class="pre">float</span></code> | Decimal values | <code class="docutils literal notranslate"><span class="pre">3.1415</span></code> | | <code class="docutils literal notranslate"><span class="pre">str</span></code>
+| Character strings | <code class="docutils literal notranslate"><span class="pre">'Hot'</span></code> | | <code class="docutils literal notranslate"><span class="pre">bool</span></code> | True/false values |
+<code class="docutils literal notranslate"><span class="pre">True</span></code> |</p>
+<p>The data type can be found using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function. As you will
+see, the data types are important because some are not compatible with
+one another.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">weatherForecast</span> <span class="o">=</span> <span class="s1">&#39;Hot&#39;</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">weatherForecast</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>Out[14]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>str
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">tempFahrenheit</span><span class="p">)</span>
+<span class="n">tempFahrenheit</span> <span class="o">=</span> <span class="n">tempFahrenheit</span> <span class="o">+</span> <span class="mf">5.0</span> <span class="o">*</span> <span class="n">weatherForecast</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-15-41e07022ce91&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> type<span class="ansi-blue-fg">(</span>tempFahrenheit<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>tempFahrenheit <span class="ansi-blue-fg">=</span> tempFahrenheit <span class="ansi-blue-fg">+</span> <span class="ansi-cyan-fg">5.0</span> <span class="ansi-blue-fg">*</span> weatherForecast
+
+<span class="ansi-red-fg">TypeError</span>: can&#39;t multiply sequence by non-int of type &#39;float&#39;
+</pre></div></div>
+</div>
+<p>In this case we get at <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> because we are trying to execute a
+math operation with data types that are not compatible. There is no way
+in Python to multpily numbers with a character string.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../lessons/L1/exercise-1.html" class="btn btn-neutral float-right" title="Exercise 1" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../lessons/L1/slack-usage.html" class="btn btn-neutral" title="Communicating with Slack" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, H. Tenkanen and D. Whipp, University of Helsinki.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p> <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> </a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: develop
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../../../2017/index.html">2017</a></dd>
+            <dd><a href="a-taste-of-python.html">develop</a></dd>
+            <dd><a href="../../../master/index.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2018',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
