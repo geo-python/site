@@ -8,7 +8,7 @@ During this course we will use `Slack <http://slack.com>`__ for discussion and q
 
 **You can access the course Slack team from following link:**
 
-  * `<http://geopython2018.slack.com>`__
+  * `<http://geo-python2017.slack.com>`__
 
 Overview of Slack
 -----------------
@@ -24,7 +24,7 @@ Using Slack for communication is easy. It works in a similar manner as any chatt
 Activating your account
 -----------------------
 
-We will send an invitation link for all enrolled students to the Slack Team called ``geopython2018``.
+We will send an invitation link for all enrolled students to the Slack Team called ``Geo-Python 2017``.
 Before you can start using Slack, you should create a new account for Slack (if you don't have one already) and accept our invitation to our team.
 
 Basic usage of Slack
@@ -35,7 +35,7 @@ When entering to our Slack Team you should see something like following where yo
  - all channels listed on the left panel
  - on the right you have the selected channel (1-lesson) where you can start discussing about the contents of the lesson (lesson 1 in this case)
 
-.. figure:: img/slack-basic-view.png
+.. figure:: img/slack-basic-view.PNG
    :alt: Basic view of Slack
    :width: 550px
 
@@ -85,10 +85,10 @@ Here we have few general guidelines for using Slack to keep things well organize
 
   1. **You should always select the right channel for your question!**
 
-    - If you have question related to week 2 lesson or exercise, you make your question in channel ``week-2``.
-    - If you want to share a funny GIF you found online, you can post it into channel ``random``.
+    - If you have question for example about lesson 2, you make your question in channel ``2-lesson``.
+    - If you have question about exercise 2, you put your question into channel ``2-exercise``.
 
-  2. Use threads to maintain the discussion of specific topic under the same questiongit  / comment.
+  2. Use threads to maintain the discussion of specific topic under the same question / comment.
 
   3. **Ask!** If something seems to be tricky and difficult, don't hesitate to ask a question. Your fellow students or we instructors can help you out.
 
