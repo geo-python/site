@@ -7,8 +7,7 @@ General tips
 ------------
 
 1. Create a general template for your new script files and commit it to GitHub right when you start working on your script(s).
-2. Your scripts should also follow the format described earlier in the course with a block comment at the start of the file,
-inline comments describing how it works and good use of blank lines to make the code easy to read.
+2. Your scripts should also follow the format described earlier in the course with a block comment at the start of the file, inline comments describing how it works and good use of blank lines to make the code easy to read.
 3. Look carefully at the requirements for each exercise and be sure to follow them.
 
 Combining strings
@@ -47,3 +46,4 @@ Take a look of following example:
             print("Well this is Finland, better wear long trousers!")
    else:
         print("Check the weather forecast!")
+

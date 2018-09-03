@@ -134,6 +134,6 @@ the course progresses.
 `Lesson 4 main
 page <https://github.com/Python-for-geo-people/Lesson-4-Functions-Modules>`__\ 
 
-.. |Spyder IDE| image:: ../img/Spyder.png
-.. |Spyder IDE panes| image:: ../img/Spyder-annotated.png
+.. |Spyder IDE| image:: img/Spyder.png
+.. |Spyder IDE panes| image:: img/Spyder-annotated.png
 

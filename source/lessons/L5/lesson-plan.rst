@@ -4,6 +4,7 @@ Plan for Lesson 5
 Contents that were introduced last year during Lessons 5 and 6, and modified to this year:
 
 Dave from here:
+
 - Reading a single data file
 - Skipping file headers and other unwanted data
 - DataFrame dimensions:
