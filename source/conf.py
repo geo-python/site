@@ -21,7 +21,7 @@
 
 project = 'Geo-Python'
 copyright = '2018, H. Tenkanen and D. Whipp, University of Helsinki'
-author = 'H. Tenkanen and D. Whipp'
+author = 'Henrikki Tenkanen and David Whipp'
 
 # The short X.Y version
 version = '2018'
