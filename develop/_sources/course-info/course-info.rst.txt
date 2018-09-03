@@ -38,6 +38,12 @@ Course assistants
 
 * Lotta Ylä-Mella
 
+  * Email: *firstname.lastname@helsinki.fi*
+
+* Hertta Lehvävirta
+
+  * Email: *firstname.lastname@helsinki.fi*
+
 
 Course websites
 ---------------
@@ -45,15 +51,12 @@ Course websites
 - Course sites for Period I (Introduction to Python programming):
 
   - Main course site: `<https://geo-python.github.io>`_
-  - Notebooks by CSV: `<https://notebooks.csc.fi>`_
+  - Notebooks by CSC: `<https://notebooks.csc.fi>`_
   - Slack (Q&A + chat): `<https://geopython2018.slack.com>`_
   - Polling / voting (active during lectures only): `<https://geo-python.github.io/poll>`_
 
-- Automating GIS processes (Period II)
+- Course sites for Period II
 
-  - Course site: `<https://autogis.github.io>`_
-
-- Introduction to Quantitative Geology (Period II)
-
-  - Course site: `<https://introqg.github.io>`_
+  - Automating GIS processes: `<https://autogis.github.io>`_
+  - Introduction to Quantitative Geology: `<https://introqg.github.io>`_
 
