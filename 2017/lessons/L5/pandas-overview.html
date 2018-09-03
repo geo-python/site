@@ -1,0 +1,398 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-105019106-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>What is Pandas? &mdash; Geo-Python 2017 Autumn documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/GeoPython_favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/geo-python.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exploring data using Pandas" href="pandas-basics.html" />
+    <link rel="prev" title="Lecture" href="lesson-video.html" />
+    <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
+     
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Geo-Python
+          
+
+          
+            
+            <img src="../../_static/logo_hy_geo_135.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2017 Autumn
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/installing-anacondas.html">Installing Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/python-vocabulary.html">Vocabulary - Basic terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L1/motivation.html">Motivation for the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/course-environment-components.html">Course environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/intro-to-cloud-environment.html">Using the cloud computing environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/slack-usage.html">Communicating with Slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/A-taste-of-Python.html">A taste of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/exercise-1.html">Exercise 1</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L2/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/intro-to-GitHub.html">Introduction to Version Control and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/GitHub-classroom.html">Using Classroom for Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/working-on-assignment.html">Working on the assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/python-basic-elements.html">Basic elements of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/writing-scripts.html">Writing your own Python scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/ex-2.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/exercise-2-hints.html">Exercise 2 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L3/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/for-loops.html"><code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/conditional-statements.html">Conditional statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/ex-3.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/exercise-3-hints.html">Exercise 3 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 4</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L4/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/modules.html">Loading and using modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/ex-4.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/exercise-4-hints.html">Exercise 4 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 5</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson-video.html">Lecture</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">What is Pandas?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#easy-to-use-data-structures">Easy-to-use data structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#combines-functionalities-from-many-python-modules">Combines functionalities from many Python modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supports-data-read-write-from-multiple-formats">Supports data read/write from multiple formats</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pandas-basics.html">Exploring data using Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas-basic-operations.html">Processing data with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex-5.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercise-5-hints.html">Hints for Exercise 5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 6</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L6/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/pandas-analysis.html">Advanced data processing with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/interpreting-errors.html">Dealing with errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/debugging-scripts.html">Debugging Python scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/ex-6.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/exercise-6-hints.html">Hints for Exercise 6</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 7</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L7/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/python-plotting.html">Plotting in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/plot-anatomy.html">Anatomy of a plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/matplotlib.html">Plotting with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/using-plotly.html">Connecting Matplotlib with plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/pandas-plotting.html">Advanced plotting with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/ex-7.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/exercise-7-hints.html">Hints for Exercise 7</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Geo-Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>What is Pandas?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/lessons/L5/pandas-overview.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+
+
+    
+    
+
+
+
+    <p class="scv-banner scv-sphinx_rtd_theme"><b>Warning:</b> This document is for the development version of Geo-Python.</p>
+<div class="section" id="what-is-pandas">
+<h1>What is Pandas?<a class="headerlink" href="#what-is-pandas" title="Permalink to this headline">¶</a></h1>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../_images/pandas_logo.png"><img alt="../../_images/pandas_logo.png" src="../../_images/pandas_logo.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Source: <a class="reference external" href="https://medium.com/towards-data-science/a-quick-introduction-to-the-pandas-python-library-f1b678f34673">Medium.com</a></span></p>
+</div>
+<p><a class="reference external" href="http://pandas.pydata.org/">Pandas</a> is a modern, powerful and feature rich library that is designed for doing
+data analysis in Python. It is a mature data analytics framework (originally written by Wes McKinney) that is widely used among different fields of science,
+thus there exists a lot of good examples and documentation that can help you get going with your data analysis tasks.</p>
+<div class="section" id="easy-to-use-data-structures">
+<h2>Easy-to-use data structures<a class="headerlink" href="#easy-to-use-data-structures" title="Permalink to this headline">¶</a></h2>
+<p>In Pandas the data is typically stored into a DataFrame that looks like a typical table with rows and columns
+(+ indices and column names), where columns can contain data of different data types.
+Thus, it reminds of how the data is stored e.g. in Excel or in R that also uses a concept of a dataframe. In fact,
+Wes McKinney first <a class="reference external" href="https://blog.quantopian.com/meet-quantopians-newest-advisor-wes-mckinney/">developed Pandas as an alternative for R</a> to deal with different complex data structures.</p>
+</div>
+<div class="section" id="combines-functionalities-from-many-python-modules">
+<h2>Combines functionalities from many Python modules<a class="headerlink" href="#combines-functionalities-from-many-python-modules" title="Permalink to this headline">¶</a></h2>
+<p>Pandas takes advantage of <a class="reference external" href="http://www.numpy.org/">numpy</a> -module which runs under the hood and is mostly written in C,
+which makes it fast and powerful library that can handle efficiently even large datasets.
+Pandas offers easier and more intuitive syntax to do data analysis and manipulation using either <cite>numpy</cite>
+functionalities in the background or dedicated functionalities written explicitly for Pandas.
+However, Pandas is much more than easier-to-use <cite>numpy</cite> as it also combines many functionalities from other Python
+libraries such as <a class="reference external" href="https://matplotlib.org/">matplotlib (plotting)</a> and
+<a class="reference external" href="https://www.scipy.org/">scipy (mathematics, science, engineering)</a>. Thus, you can use many of the features
+included in those packages even without importing them at all.</p>
+</div>
+<div class="section" id="supports-data-read-write-from-multiple-formats">
+<h2>Supports data read/write from multiple formats<a class="headerlink" href="#supports-data-read-write-from-multiple-formats" title="Permalink to this headline">¶</a></h2>
+<p>One of the most useful features of Pandas is its ability to read data from numerous different data formats directly.
+Pandas supports reading and writing data e.g. from/to:</p>
+<blockquote>
+<div><ul class="simple">
+<li>CSV</li>
+<li>JSON</li>
+<li>HTML</li>
+<li>MS Excel</li>
+<li>HDF5</li>
+<li>Stata</li>
+<li>SAS</li>
+<li>Python Pickle format</li>
+<li>SQL (Postgresql, MySQL, Oracle, MariaDB, etc.)</li>
+</ul>
+</div></blockquote>
+<p>See full list from <a class="reference external" href="http://pandas.pydata.org/pandas-docs/version/0.20/io.html">Pandas docs</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pandas-basics.html" class="btn btn-neutral float-right" title="Exploring data using Pandas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lesson-video.html" class="btn btn-neutral" title="Lecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 Tenkanen &amp; Whipp, University of Helsinki.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p> <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> </a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: 2017
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="pandas-overview.html">2017</a></dd>
+            <dd><a href="../../../develop/index.html">develop</a></dd>
+            <dd><a href="../../../master/index.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2017 Autumn',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

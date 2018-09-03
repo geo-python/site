@@ -1,0 +1,700 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-105019106-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Exploring data using Pandas &mdash; Geo-Python 2017 Autumn documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/GeoPython_favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/geo-python.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Processing data with Pandas" href="pandas-basic-operations.html" />
+    <link rel="prev" title="What is Pandas?" href="pandas-overview.html" />
+    <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
+     
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Geo-Python
+          
+
+          
+            
+            <img src="../../_static/logo_hy_geo_135.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2017 Autumn
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/installing-anacondas.html">Installing Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/python-vocabulary.html">Vocabulary - Basic terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L1/motivation.html">Motivation for the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/course-environment-components.html">Course environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/intro-to-cloud-environment.html">Using the cloud computing environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/slack-usage.html">Communicating with Slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/A-taste-of-Python.html">A taste of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/exercise-1.html">Exercise 1</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L2/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/intro-to-GitHub.html">Introduction to Version Control and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/GitHub-classroom.html">Using Classroom for Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/working-on-assignment.html">Working on the assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/python-basic-elements.html">Basic elements of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/writing-scripts.html">Writing your own Python scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/ex-2.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/exercise-2-hints.html">Exercise 2 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L3/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/for-loops.html"><code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/conditional-statements.html">Conditional statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/ex-3.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/exercise-3-hints.html">Exercise 3 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 4</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L4/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/modules.html">Loading and using modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/ex-4.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/exercise-4-hints.html">Exercise 4 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 5</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas-overview.html">What is Pandas?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Exploring data using Pandas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#downloading-the-data-and-preparing">Downloading the data and preparing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reading-a-data-file-with-pandas">Reading a data file with Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exploring-our-dataset">Exploring our dataset</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pandas-basic-operations.html">Processing data with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex-5.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercise-5-hints.html">Hints for Exercise 5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 6</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L6/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/pandas-analysis.html">Advanced data processing with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/interpreting-errors.html">Dealing with errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/debugging-scripts.html">Debugging Python scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/ex-6.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/exercise-6-hints.html">Hints for Exercise 6</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 7</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L7/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/python-plotting.html">Plotting in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/plot-anatomy.html">Anatomy of a plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/matplotlib.html">Plotting with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/using-plotly.html">Connecting Matplotlib with plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/pandas-plotting.html">Advanced plotting with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/ex-7.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/exercise-7-hints.html">Hints for Exercise 7</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Geo-Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Exploring data using Pandas</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/lessons/L5/pandas-basics.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+
+
+    
+    
+
+
+
+    <p class="scv-banner scv-sphinx_rtd_theme"><b>Warning:</b> This document is for the development version of Geo-Python.</p>
+<div class="section" id="exploring-data-using-pandas">
+<h1>Exploring data using Pandas<a class="headerlink" href="#exploring-data-using-pandas" title="Permalink to this headline">¶</a></h1>
+<p>Our first task in this week’s lesson is to learn how to read and explore data files using Pandas.
+Reading data files using Pandas will make life a bit easier compared to the traditional Python way of reading data files.
+If you’re curious about that, you can check out some of the <a class="reference internal" href="reading-data-from-file.html"><span class="doc">lesson materials from previous years about reading data in the Pythonic way</span></a>.</p>
+<div class="section" id="downloading-the-data-and-preparing">
+<h2>Downloading the data and preparing<a class="headerlink" href="#downloading-the-data-and-preparing" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">You can start by downloading the <a class="reference external" href="../../_static/data/L5/Kumpula-June-2016-w-metadata.txt">weather data file</a> we will be using for this part of the lesson.</p>
+<ul class="simple">
+<li>Save a copy of this file in your home directory or a directory for the materials for this week’s lesson.</li>
+<li>The data file contains observed daily mean, minimum, and maximum temperatures from June 2016 recorded from the Kumpula weather observation station in Helsinki.
+It is derived from a data file of daily temperature measurments downloaded from the <a class="reference external" href="https://www.ncdc.noaa.gov/cdo-web/">US National Oceanographic and Atmospheric Administration’s National Centers for Environmental Information climate database</a>.</li>
+<li>We expect something like 30 lines of data in the data file.</li>
+</ul>
+</li>
+<li><p class="first">If you have not already started <strong>Spyder</strong> you should do so now.
+You can find <a class="reference internal" href="../L1/A-taste-of-Python.html"><span class="doc">directions on how to open Spyder at the start of Lesson 1</span></a>.</p>
+</li>
+<li><p class="first">Navigate in Spyder to the directory where you have stored the downloaded data file.
+You can do this most easily in Spyder by using the filesystem browser above the File/Variable explorer panel.
+Click on the file folder to select the directory where you would like to work, click <strong>Open</strong>, then click on the listed file path that is now displated beside the file folder and press <strong>Enter</strong>.</p>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="../../_images/Spyder-wd.png"><img alt="Selecting a working directory in Spyder" src="../../_images/Spyder-wd.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Selecting a working directory in Spyder</span></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="reading-a-data-file-with-pandas">
+<h2>Reading a data file with Pandas<a class="headerlink" href="#reading-a-data-file-with-pandas" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Now we’re ready to read in our temperature data file.
+First, we need to import the Pandas module.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+<p>That’s it, Pandas is ready to use now.
+Notice we imported the Pandas module with the name <code class="docutils literal notranslate"><span class="pre">pd</span></code>.</p>
+</li>
+<li><p class="first">Now we’ll read the file data into a variable called <code class="docutils literal notranslate"><span class="pre">dataFrame</span></code>.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="n">dataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> is a general function for reading data files separated by commas, spaces, or other common separators.
+We use it her by simply giving the name of the file to read.
+If all goes as planned, you should now have a new variable defined as <code class="docutils literal notranslate"><span class="pre">dataFrame</span></code> that contains the data file’s contents.
+You can check the the contents by typing</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-3-23b7e8dbf202&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+</pre></div>
+</div>
+</li>
+<li><p class="first">This looks OK, but there are some strange values present such as <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.
+<code class="docutils literal notranslate"><span class="pre">NaN</span></code> stands for not a number, and might indicate some problem with reading in the contents of the file.
+Plus, we expected about 30 lines of data, but the index values go up to 36 when we print the contents of <code class="docutils literal notranslate"><span class="pre">dataFrame</span></code>.
+Looks like we need to investigate.
+We can double check the contents of the data stored in <code class="docutils literal notranslate"><span class="pre">dataFrame</span></code> using the <strong>Spyder</strong> editor panel.
+If you right-click on the data file name in the <strong>File explorer</strong> you can select <strong>Edit</strong> to view the temperature data file in the editor.</p>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="../../_images/Spyder-edit.png"><img alt="Editing a file in Spyder" src="../../_images/Spyder-edit.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Editing a file in Spyder</span></p>
+</div>
+</li>
+<li><p class="first">Now the problem is a bit more clear.</p>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="../../_images/Spyder-metadata.png"><img alt="Metadata at the top of a file in the Spyder editor" src="../../_images/Spyder-metadata.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Metadata at the top of a file in the Spyder editor</span></p>
+</div>
+<p>There is some metadata at the top of the file giving basic information about its contents and source.
+This isn’t data we want to process, so we need to skip over that part of the file when we load it.
+Fortunately, that’s easy to do in Pandas, we just need to add the <code class="docutils literal notranslate"><span class="pre">skiprows</span></code> parameter when we read the file, listing the number of rows to skip (8 in this case).</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">dataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s now print the rows and see what changed.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-5-23b7e8dbf202&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+</pre></div>
+</div>
+<p>That looks more like it.</p>
+<p>So, what happened?
+Well, the file data was read into a Pandas <strong>DataFrame</strong>, which is just a two-dimensional structure used for storing data like a spreadsheet.
+In fact, one of the neat things in Pandas is that that DataFrames have labelled axes (rows and columns).
+For our example, we have the rows labeled with an index value (<code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">29</span></code>), and columns labelled <code class="docutils literal notranslate"><span class="pre">YEARMODA</span></code>, <code class="docutils literal notranslate"><span class="pre">TEMP</span></code>, <code class="docutils literal notranslate"><span class="pre">MAX</span></code>, and <code class="docutils literal notranslate"><span class="pre">MIN</span></code>.
+This is nice because we can easily use these labels to divide up our data and make interacting with it easier as you’ll see later in the lesson.</p>
+<p>Now we can move on to exploring our data.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The example above, trying to read a datafile with some header text (the metadata in this case), is <em>very</em> common.
+Reading data into Pandas is pretty easy, but it helps to have a sense of what the datafile looks like before you try to read it.
+The challenge can be that large datafiles might not nicely load into the Spyder editor, so it might be better to look at only the top 5-10 lines of the file rather than loading the entire thing.
+Fortunately, there are solutions to that problem. <a class="footnote-reference" href="#f1" id="id1">[1]</a></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="exploring-our-dataset">
+<h2>Exploring our dataset<a class="headerlink" href="#exploring-our-dataset" title="Permalink to this headline">¶</a></h2>
+<p>So this is a big deal for us.
+We now have some basic Python skills and the ability to read in data from a file for processing.
+A normal first step when you load new data is to explore the dataset a bit to understand what is there and its format.</p>
+<ol class="arabic">
+<li><p class="first">Let’s start by looking at the different columns we have in our DataFrame.
+We can find this in the <code class="docutils literal notranslate"><span class="pre">columns</span></code>  attribute that is part of the DataFrame data type, something that is known automatically for this kind of data.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-6-a60faba7eaca&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+</pre></div>
+</div>
+<p>Here we see the names of the different columns in the datafile, as one might expect.</p>
+</li>
+<li><p class="first">We can also find information about the rows in the datafile using the <code class="docutils literal notranslate"><span class="pre">index</span></code> attribute.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-7-0237420587a1&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+</pre></div>
+</div>
+<p>Here we see how the data is indexed, starting at 0, ending at 30 <a class="footnote-reference" href="#f2" id="id2">[2]</a>, and with an increment of 1 between each value.
+This is basically the same way in which Python lists are indexed, but it suggests that maybe there are other ways to identify the rows in data using Pandas.
+Again, we’ll see a bit more about this later.
+For now, it is also useful to point out that if you want to just know how many rows you have, you can use the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-8-ede550908b25&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p>Based on what we have seen so far, what would be output if you did the following using our data file?</p>
+<blockquote>
+<div><div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">dataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+
+<span class="gp">In [10]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p class="last">Select your answer from the poll options at <a class="reference external" href="https://geo-python.github.io/poll/">https://geo-python.github.io/poll/</a>.</p>
+</div>
+</li>
+<li><p class="first">We can also get a quick sense of the size of the dataset using the <code class="docutils literal notranslate"><span class="pre">shape</span></code> attribute.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-11-f146b6754a8c&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+</pre></div>
+</div>
+<p>Here we see that our dataset has 30 rows, 4 columns, just as we saw above.</p>
+</li>
+<li><p class="first">Now let’s consider the types of data we have in our DataFrame.
+First, let’s see what type of data the DataFrame is.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [12]: </span><span class="nb">type</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-12-65a449437478&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">type</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+</pre></div>
+</div>
+<p>No surprises here, our Pandas DataFrame is a Pandas DataFrame ;).</p>
+<p>What about the data?
+Again, finding the types of data in the columns of the DataFrame is easy.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-13-e642788dba0f&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> attribute holds the data types for each column, nice.
+Here we see that <code class="docutils literal notranslate"><span class="pre">YEARMODA</span></code> is an integer value (with 64-bit precision; int64), while the other values are all decimal values with 64-bit precision (float64).</p>
+</li>
+<li><p class="first">We can select a single column of the data using the column name.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">])</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-14-8d5600ce696f&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+</pre></div>
+</div>
+</li>
+<li><p class="first">As you can see, selecting a given column is straightforward.
+Furthermore, printing out its values shows not only the values, but also their data type.
+What about the type of the column itself?</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="nb">type</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">])</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-15-9d18b63ddea0&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">type</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+</pre></div>
+</div>
+<p>Interesting.
+So rather than seeing a DataFrame type or float64, a selected column from a DataFrame is called a <em>Series</em> in Pandas.
+A Pandas Series is just a 1-D list of values.
+In fact, you can create a Pandas Series from a Python list.
+If you have long lists of numbers, for instance, creating a Pandas Series will allow you to interact with these values more efficiently in terms of computing time.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">]</span>
+
+<span class="gp">In [17]: </span><span class="n">mySeries</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
+
+<span class="gp">In [18]: </span><span class="k">print</span><span class="p">(</span><span class="n">mySeries</span><span class="p">)</span>
+<span class="go">0    1.0</span>
+<span class="go">1    2.0</span>
+<span class="go">2    3.0</span>
+<span class="go">3    4.0</span>
+<span class="go">4    5.0</span>
+<span class="go">5    6.0</span>
+<span class="go">6    7.0</span>
+<span class="go">dtype: float64</span>
+</pre></div>
+</div>
+<p>As you can see, <code class="docutils literal notranslate"><span class="pre">myList</span></code> is converted to a Pandas Series using the <code class="docutils literal notranslate"><span class="pre">ps.Series()</span></code> function.
+Also, note that Pandas is smart about the conversion, detecting a single floating point value (<code class="docutils literal notranslate"><span class="pre">7.0</span></code>) and assigning all values in the Series the data type float64.</p>
+</li>
+<li><p class="first">Just like DataFrames, Pandas Series have a set of attributes they know about themselves and methods they can use to make calculations using the Series data.
+Useful methods include <code class="docutils literal notranslate"><span class="pre">mean()</span></code>, <code class="docutils literal notranslate"><span class="pre">median()</span></code>, <code class="docutils literal notranslate"><span class="pre">min()</span></code>, <code class="docutils literal notranslate"><span class="pre">max()</span></code>, and <code class="docutils literal notranslate"><span class="pre">std()</span></code> (the standard deviation).</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-19-ccb54ecf610d&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+</pre></div>
+</div>
+<p>Here, we don’t even need to store <code class="docutils literal notranslate"><span class="pre">dataFrame['TEMP']</span></code> as a separate series in order to find the mean value using the <code class="docutils literal notranslate"><span class="pre">mean()</span></code> method.</p>
+</li>
+<li><p class="first">One useful function to get an overview of the basic statistics for all attributes in your DataFrame is the <code class="docutils literal notranslate"><span class="pre">describe()</span></code> function.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [20]: </span><span class="n">dataFrame</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-20-61cc412c1f28&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+</pre></div>
+</div>
+<p>Here, you can quickly get the basic statistical information about all your attributes (min, max, count, std, mean, quartiles).</p>
+</li>
+<li><p class="first">Finally, there are occasions where you’ll need to convert data in a Series to another data type.
+If you’re planning to print a large number of value to the screen, for instance, it might be helpful to have those values as character strings.
+Data type conversions is most easily done using the <code class="docutils literal notranslate"><span class="pre">astype()</span></code> method.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-21-2fce7e334ccd&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+</pre></div>
+</div>
+<p>In this case, the object data type indicates the temperature values are stored as character strings.
+A more obvious case is converting to integer values.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [22]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-22-558206cfac41&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+</pre></div>
+</div>
+<p>Here you can clearly see the temperature values are now whole numbers.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p>Be careful with type conversions from floating point values to integers.
+The conversion simply drops the stuff to the right of the decimal point, so all values are rounded down to the nearest whole number.
+For example, 99.99 will be rounded to 99 as an integer.
+This can be dangerous in some cases.</p>
+<p class="last">Hence, it might be good to round the values before converting them to integers.
+Chaining the round and type conversion functions solves this issue as the <code class="docutils literal notranslate"><span class="pre">.round(0).astype(int)</span></code> command first rounds the values with zero decimals and then converts those values into integers.</p>
+</div>
+</li>
+</ol>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><p class="first">When you’re trying to think over how to read in a data file you can take advantage of common command-line tools like <strong>head</strong>.
+head is a simple program to read lines from the start of a data file and print them to the screen.
+Linux or MacOS users can use head from the command line in a Terminal window as follows</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>$ head Kumpula-June-2016-w-metadata.txt
+# Data file contents: Daily temperatures (mean, min, max) for Kumpula, Helsinki
+#                     for June 1-30, 2016
+# Data source: https://www.ncdc.noaa.gov/cdo-web/search?datasetid=GHCND
+# Data processing: Extracted temperatures from raw data file, converted to
+#                  comma-separated format
+#
+# David Whipp - 02.10.2017
+
+YEARMODA,TEMP,MAX,MIN
+20160601,65.5,73.6,54.7
+</pre></div>
+</div>
+<p>As you can see, head gives you the first 10 lines of the file by default.
+You can use the <code class="docutils literal notranslate"><span class="pre">-n</span></code> flag to get a larger or smaller number of lines.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>$ head -n 5 Kumpula-June-2016-w-metadata.txt
+# Data file contents: Daily temperatures (mean, min, max) for Kumpula, Helsinki
+#                     for June 1-30, 2016
+# Data source: https://www.ncdc.noaa.gov/cdo-web/search?datasetid=GHCND
+# Data processing: Extracted temperatures from raw data file, converted to
+#                  comma-separated format
+</pre></div>
+</div>
+<p class="last">Windows users should also be able to use head via the <strong>Anaconda Prompt</strong> available where Anaconda is listed in your installed programs.
+After you open the Anaconda Prompt you should be able to change into the directory containing your data file and use head.</p>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Note again here that the last value in the list of indices is not included in the range, just like when you use the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pandas-basic-operations.html" class="btn btn-neutral float-right" title="Processing data with Pandas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pandas-overview.html" class="btn btn-neutral" title="What is Pandas?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 Tenkanen &amp; Whipp, University of Helsinki.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p> <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> </a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: 2017
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="pandas-basics.html">2017</a></dd>
+            <dd><a href="../../../develop/index.html">develop</a></dd>
+            <dd><a href="../../../master/index.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2017 Autumn',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

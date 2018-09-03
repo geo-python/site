@@ -1,0 +1,547 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-105019106-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Dealing with errors &mdash; Geo-Python 2017 Autumn documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/GeoPython_favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/geo-python.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Debugging Python scripts" href="debugging-scripts.html" />
+    <link rel="prev" title="Advanced data processing with Pandas" href="pandas-analysis.html" />
+    <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
+     
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Geo-Python
+          
+
+          
+            
+            <img src="../../_static/logo_hy_geo_135.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2017 Autumn
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/installing-anacondas.html">Installing Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/python-vocabulary.html">Vocabulary - Basic terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L1/motivation.html">Motivation for the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/course-environment-components.html">Course environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/intro-to-cloud-environment.html">Using the cloud computing environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/slack-usage.html">Communicating with Slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/A-taste-of-Python.html">A taste of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/exercise-1.html">Exercise 1</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L2/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/intro-to-GitHub.html">Introduction to Version Control and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/GitHub-classroom.html">Using Classroom for Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/working-on-assignment.html">Working on the assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/python-basic-elements.html">Basic elements of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/writing-scripts.html">Writing your own Python scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/ex-2.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/exercise-2-hints.html">Exercise 2 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L3/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/for-loops.html"><code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/conditional-statements.html">Conditional statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/ex-3.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/exercise-3-hints.html">Exercise 3 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 4</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L4/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/modules.html">Loading and using modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/ex-4.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/exercise-4-hints.html">Exercise 4 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 5</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L5/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/pandas-overview.html">What is Pandas?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/pandas-basics.html">Exploring data using Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/pandas-basic-operations.html">Processing data with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/ex-5.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/exercise-5-hints.html">Hints for Exercise 5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 6</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas-analysis.html">Advanced data processing with Pandas</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Dealing with errors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#interpreting-error-messages">Interpreting error messages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#common-errors-and-exceptions">Common errors and exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-error-messages">Reading error messages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#assertions">Assertions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#more-information">More information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="debugging-scripts.html">Debugging Python scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex-6.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercise-6-hints.html">Hints for Exercise 6</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 7</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L7/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/python-plotting.html">Plotting in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/plot-anatomy.html">Anatomy of a plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/matplotlib.html">Plotting with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/using-plotly.html">Connecting Matplotlib with plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/pandas-plotting.html">Advanced plotting with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/ex-7.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/exercise-7-hints.html">Hints for Exercise 7</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Geo-Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Dealing with errors</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/lessons/L6/interpreting-errors.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+
+
+    
+    
+
+
+
+    <p class="scv-banner scv-sphinx_rtd_theme"><b>Warning:</b> This document is for the development version of Geo-Python.</p>
+<div class="section" id="dealing-with-errors">
+<h1>Dealing with errors<a class="headerlink" href="#dealing-with-errors" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="interpreting-error-messages">
+<h2>Interpreting error messages<a class="headerlink" href="#interpreting-error-messages" title="Permalink to this headline">¶</a></h2>
+<p>So far in the course we have encountered a number of different types of error messages in Python, but have not really discussed how to understand what the computer is trying to tell you when you get an error message.
+We’ll do that below.
+For most Python errors you will see and exception raised when the error is encountered, providing some insight into what went wrong and where to look to fix it.</p>
+<div class="section" id="common-errors-and-exceptions">
+<h3>Common errors and exceptions<a class="headerlink" href="#common-errors-and-exceptions" title="Permalink to this headline">¶</a></h3>
+<p>First, let’s have a look at a few different types of common Python exceptions that are displayed for different program errors.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Exception</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">IndexError</span></code></td>
+<td><p class="first">Occurs when you attempt to reference a value with an index outside the range of values.</p>
+<p class="last">If the list <code class="docutils literal notranslate"><span class="pre">dogs</span></code> has 5 values, <code class="docutils literal notranslate"><span class="pre">dogs[10]</span></code> will raise an <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">NameError</span></code></td>
+<td><p class="first">Occurs when you reference a variable that has not been defined.</p>
+<p class="last">If <code class="docutils literal notranslate"><span class="pre">myVar</span></code> has not been assigned a value, <code class="docutils literal notranslate"><span class="pre">yourVar</span> <span class="pre">=</span> <span class="pre">myVar</span></code> will raise a <code class="docutils literal notranslate"><span class="pre">NameError</span></code>.</p>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code></td>
+<td><p class="first">Occurs when there is an error in your Python syntax.</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">dogs</span> <span class="pre">?=</span> <span class="pre">3</span></code> will raise a <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">IndentationError</span></code></td>
+<td><p class="first">Occurs when text is not properly indented when indentation is expected.</p>
+<p class="last">No indentation beneath a <code class="docutils literal notranslate"><span class="pre">for</span></code> statement will raise an <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code>.</p>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">TypeError</span></code></td>
+<td><p class="first">Occurs when data of incompatible types are used in your script.</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">'iceCream'</span> <span class="pre">/</span> <span class="pre">10</span></code> will raise a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>There are certainly <a class="reference external" href="https://docs.python.org/3/tutorial/errors.html">other kinds of errors and exceptions in Python</a>, but this list comprises those you’re most likely to encounter.
+As you can see, knowing the name of each error can be helpful in trying to figure out what has gone wrong, and knowing what these common error types mean will save you time trying to fix your programs.</p>
+</div>
+<div class="section" id="reading-error-messages">
+<h3>Reading error messages<a class="headerlink" href="#reading-error-messages" title="Permalink to this headline">¶</a></h3>
+<p>Let’s imagine you’ve written the script below called <code class="docutils literal notranslate"><span class="pre">wind_speed.py</span></code> to convert wind speeds from km/hr to m/s and you’re dying to figure out how windy it is in <a class="reference external" href="https://www.theweathernetwork.com/ca/weather/nova-scotia/halifax">Halifax, Nova Scotia, Canada</a> where they report wind speeds in km/hr.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Converts wind speeds from km/hr to m/s.</span>
+
+<span class="sd">Usage:</span>
+<span class="sd">    ./wind_speed.py</span>
+
+<span class="sd">Author:</span>
+<span class="sd">    David Whipp - 10.10.2017</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">windSpeedKm</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">windSpeedMs</span> <span class="o">=</span> <span class="n">windSpeedKm</span> <span class="o">*</span> <span class="mi">1000</span> <span class="o">/</span> <span class="mi">3600</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A wind speed of&#39;</span><span class="p">,</span> <span class="n">windSpeedKm</span><span class="p">,</span> <span class="s1">&#39;km/hr is&#39;</span><span class="p">,</span> <span class="n">windSpeedMs</span><span class="p">,</span> <span class="s1">&#39;m/s.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Unfortunately, when you run your script you observe the following:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">File</span> <span class="s2">&quot;/Users/whipp/wind_speed.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">13</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A wind speed of, windSpeedKm&#39;</span><span class="p">,</span> <span class="s1">&#39;km/hr is&#39;</span><span class="p">,</span> <span class="n">windSpeedMs</span><span class="p">,</span> <span class="s1">&#39;m/s.)</span>
+                                                                        <span class="o">^</span>
+<span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">EOL</span> <span class="k">while</span> <span class="n">scanning</span> <span class="n">string</span> <span class="n">literal</span>
+</pre></div>
+</div>
+<p>Let’s break this example down and see what the error message says.</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../../_images/SyntaxError.png"><img alt="A SyntaxError, annotated" src="../../_images/SyntaxError.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">A SyntaxError, annotated</span></p>
+</div>
+<p>As you can see, there is quite a bit of useful information here.
+We have the name of the script, its location, and which line was a problem.
+It’s always good to double check that you actually are editing the correct script when looking for errors!
+We also have the type of error, a <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> in this case, as well as where it occurred on the line, and a bit more information about its meaning.
+The location on the line won’t always be correct, but Python makes its best guess for where you should look to solve the problem.
+Clearly, this is handy information.</p>
+<p>Let’s consider another example, where you have fixed the <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> above and now have made a function for calculating a wind speeds in m/s.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Converts wind speeds from km/hr to m/s.</span>
+
+<span class="sd">Usage:</span>
+<span class="sd">    ./wind_speed.py</span>
+
+<span class="sd">Author:</span>
+<span class="sd">    David Whipp - 10.10.2017</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="k">def</span> <span class="nf">convertWindSpeed</span><span class="p">(</span><span class="n">speed</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">speed</span> <span class="o">*</span> <span class="mi">1000</span> <span class="o">/</span> <span class="mi">3600</span>
+
+<span class="n">windSpeedKm</span> <span class="o">=</span> <span class="s1">&#39;30&#39;</span>
+<span class="n">windSpeedMs</span> <span class="o">=</span> <span class="n">convertWindSpeed</span><span class="p">(</span><span class="n">windSpeedKm</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A wind speed of&#39;</span><span class="p">,</span> <span class="n">windSpeedKm</span><span class="p">,</span> <span class="s1">&#39;km/hr is&#39;</span><span class="p">,</span> <span class="n">windSpeedMs</span><span class="p">,</span> <span class="s1">&#39;m/s.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When you run this script you encounter a new and bigger error message:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">whipp</span><span class="o">/</span><span class="n">wind_speed</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="p">()</span>
+    <span class="mi">12</span>
+    <span class="mi">13</span> <span class="n">windSpeedKm</span> <span class="o">=</span> <span class="s1">&#39;30&#39;</span>
+<span class="o">---&gt;</span> <span class="mi">14</span> <span class="n">windSpeedMs</span> <span class="o">=</span> <span class="n">convertWindSpeed</span><span class="p">(</span><span class="n">windSpeedKm</span><span class="p">)</span>
+    <span class="mi">15</span>
+    <span class="mi">16</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A wind speed of&#39;</span><span class="p">,</span> <span class="n">windSpeedKm</span><span class="p">,</span> <span class="s1">&#39;km/hr is&#39;</span><span class="p">,</span> <span class="n">windSpeedMs</span><span class="p">,</span> <span class="s1">&#39;m/s.&#39;</span><span class="p">)</span>
+
+<span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">whipp</span><span class="o">/</span><span class="n">wind_speed</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">convertWindSpeed</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>
+    <span class="mi">9</span>
+    <span class="mi">10</span> <span class="k">def</span> <span class="nf">convertWindSpeed</span><span class="p">(</span><span class="n">speed</span><span class="p">):</span>
+<span class="o">---&gt;</span> <span class="mi">11</span>     <span class="k">return</span> <span class="n">speed</span> <span class="o">*</span> <span class="mi">1000</span> <span class="o">/</span> <span class="mi">3600</span>
+    <span class="mi">12</span>
+    <span class="mi">13</span> <span class="n">windSpeedKm</span> <span class="o">=</span> <span class="s1">&#39;30&#39;</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="n">unsupported</span> <span class="n">operand</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="o">/</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span> <span class="ow">and</span> <span class="s1">&#39;int&#39;</span>
+</pre></div>
+</div>
+<p>In this case we see a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> that is part of a <em>traceback</em>, where the problem in the code arises from something other than on the line where the code was run.
+In this case, we have a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> on line 11 where we try to divide a character string by a number, something Python cannot do.
+Hence, the <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> indicating the data types are not compatible.
+That error, however, does not occur when the code is run until line 14 where the function is used.
+Thus, we see the traceback showing that not only does the error occur when the function is used on line 14, but also that the problem is in the function definition on line 11.</p>
+<p>The traceback above may look a bit scarier, but if you take your time and read through what is written there, you will again find that the information is helpful in finding the problem in your code.
+After all, the purpose of the error message is to help the user find a problem :).</p>
+</div>
+</div>
+<div class="section" id="assertions">
+<h2>Assertions<a class="headerlink" href="#assertions" title="Permalink to this headline">¶</a></h2>
+<p><em>Assertions</em> are a way to assert, or ensure, that the values being used in your scripts are going to be suitable for what the code does.
+For instance, if you have the script above for converting wind speeds, you might want to ensure that the values for the wind speed in km/hr are not negative numbers.
+That could be done using the following modification to the script.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Converts wind speeds from km/hr to m/s.</span>
+
+<span class="sd">Usage:</span>
+<span class="sd">    ./wind_speed.py</span>
+
+<span class="sd">Author:</span>
+<span class="sd">    David Whipp - 10.10.2017</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="k">def</span> <span class="nf">convertWindSpeed</span><span class="p">(</span><span class="n">speed</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">speed</span> <span class="o">*</span> <span class="mi">1000</span> <span class="o">/</span> <span class="mi">3600</span>
+
+<span class="n">windSpeedKm</span> <span class="o">=</span> <span class="o">-</span><span class="mi">30</span>
+<span class="k">assert</span> <span class="n">windSpeedKm</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;Wind speed values must be positive or zero&#39;</span>
+<span class="n">windSpeedMs</span> <span class="o">=</span> <span class="n">convertWindSpeed</span><span class="p">(</span><span class="n">windSpeedKm</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A wind speed of&#39;</span><span class="p">,</span> <span class="n">windSpeedKm</span><span class="p">,</span> <span class="s1">&#39;km/hr is&#39;</span><span class="p">,</span> <span class="n">windSpeedMs</span><span class="p">,</span> <span class="s1">&#39;m/s.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you run the script above with <code class="docutils literal notranslate"><span class="pre">windSpeedKm</span></code> set to be a negative number, then you get the following output:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span>                            <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">whipp</span><span class="o">/</span><span class="n">wind_speed</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="p">()</span>
+    <span class="mi">12</span>
+    <span class="mi">13</span> <span class="n">windSpeedKm</span> <span class="o">=</span> <span class="o">-</span><span class="mi">30</span>
+<span class="o">---&gt;</span> <span class="mi">14</span> <span class="k">assert</span> <span class="n">windSpeedKm</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;Wind speed values must be positive or zero&#39;</span>
+    <span class="mi">15</span> <span class="n">windSpeedMs</span> <span class="o">=</span> <span class="n">convertWindSpeed</span><span class="p">(</span><span class="n">windSpeedKm</span><span class="p">)</span>
+    <span class="mi">16</span>
+
+<span class="ne">AssertionError</span><span class="p">:</span> <span class="n">Wind</span> <span class="n">speed</span> <span class="n">values</span> <span class="n">must</span> <span class="n">be</span> <span class="n">positive</span> <span class="ow">or</span> <span class="n">zero</span>
+</pre></div>
+</div>
+<p>This <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> is produced because of the <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement we entered in the code above.
+If the condition listed after <code class="docutils literal notranslate"><span class="pre">assert</span></code> is fales, the error message that follows will be printed to the screen.
+More generally, assertions take on the following form:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="o">&lt;</span><span class="n">some</span> <span class="n">test</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;Error message to display&#39;</span>
+</pre></div>
+</div>
+<p>So we start with the <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement, then give a logical test for some condition.
+If the test is true, nothing happens and the code continues.
+If not, the code stops, and an <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> is displayed with the text written after the comma in the <code class="docutils literal notranslate"><span class="pre">assert</span></code> line.</p>
+<p>You might also think that it would be useful to check the type of <code class="docutils literal notranslate"><span class="pre">windSpeedKm</span></code> to make sure that you don’t get a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> as occurred in the previous section.
+It turns out that this is not really a good idea, and the philosophical idea is that the <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> will show that you have incompatible data types, so why raise an <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> to do the same thing?</p>
+<div class="section" id="more-information">
+<h3>More information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h3>
+<p>You can find a bit more information about reading error messages on the <a class="reference external" href="http://swcarpentry.github.io/python-novice-inflammation/07-errors/">Software Carpentry</a> and <a class="reference external" href="https://docs.python.org/3/tutorial/errors.html">Python</a> webpages.
+More information about assertions can also be found on the <a class="reference external" href="http://swcarpentry.github.io/python-novice-inflammation/08-defensive/">Software Carpentry website</a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="debugging-scripts.html" class="btn btn-neutral float-right" title="Debugging Python scripts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pandas-analysis.html" class="btn btn-neutral" title="Advanced data processing with Pandas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 Tenkanen &amp; Whipp, University of Helsinki.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p> <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> </a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: 2017
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="interpreting-errors.html">2017</a></dd>
+            <dd><a href="../../../develop/index.html">develop</a></dd>
+            <dd><a href="../../../master/index.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2017 Autumn',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

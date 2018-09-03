@@ -1,0 +1,585 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-105019106-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Writing your own Python scripts &mdash; Geo-Python 2017 Autumn documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/GeoPython_favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/geo-python.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exercise 2" href="ex-2.html" />
+    <link rel="prev" title="Basic elements of Python" href="python-basic-elements.html" />
+    <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
+     
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Geo-Python
+          
+
+          
+            
+            <img src="../../_static/logo_hy_geo_135.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2017 Autumn
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/installing-anacondas.html">Installing Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/python-vocabulary.html">Vocabulary - Basic terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L1/motivation.html">Motivation for the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/course-environment-components.html">Course environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/intro-to-cloud-environment.html">Using the cloud computing environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/slack-usage.html">Communicating with Slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/A-taste-of-Python.html">A taste of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/exercise-1.html">Exercise 1</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 2</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-to-GitHub.html">Introduction to Version Control and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GitHub-classroom.html">Using Classroom for Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working-on-assignment.html">Working on the assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-basic-elements.html">Basic elements of Python</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Writing your own Python scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-general-concept-of-a-py-script-file">The general concept of a <code class="docutils literal notranslate"><span class="pre">.py</span></code> script file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-our-scripts-the-right-way">Writing our scripts the “right” way</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#inline-comments">Inline comments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-line-breaks-wisely">Use line breaks wisely</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-a-docstring">Use a docstring</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-topics">Advanced topics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-license">Adding a license</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-with-a-shebang">Starting with a shebang</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#page-summary">Page summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ex-2.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercise-2-hints.html">Exercise 2 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L3/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/for-loops.html"><code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/conditional-statements.html">Conditional statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/ex-3.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/exercise-3-hints.html">Exercise 3 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 4</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L4/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/modules.html">Loading and using modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/ex-4.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/exercise-4-hints.html">Exercise 4 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 5</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L5/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/pandas-overview.html">What is Pandas?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/pandas-basics.html">Exploring data using Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/pandas-basic-operations.html">Processing data with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/ex-5.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/exercise-5-hints.html">Hints for Exercise 5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 6</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L6/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/pandas-analysis.html">Advanced data processing with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/interpreting-errors.html">Dealing with errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/debugging-scripts.html">Debugging Python scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/ex-6.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/exercise-6-hints.html">Hints for Exercise 6</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 7</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L7/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/python-plotting.html">Plotting in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/plot-anatomy.html">Anatomy of a plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/matplotlib.html">Plotting with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/using-plotly.html">Connecting Matplotlib with plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/pandas-plotting.html">Advanced plotting with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/ex-7.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/exercise-7-hints.html">Hints for Exercise 7</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Geo-Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Writing your own Python scripts</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/lessons/L2/writing-scripts.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+
+
+    
+    
+
+
+
+    <p class="scv-banner scv-sphinx_rtd_theme"><b>Warning:</b> This document is for the development version of Geo-Python.</p>
+<div class="section" id="writing-your-own-python-scripts">
+<h1>Writing your own Python scripts<a class="headerlink" href="#writing-your-own-python-scripts" title="Permalink to this headline">¶</a></h1>
+<p>As you may be noticing by now, it isn’t that convenient to type in all of the commands you would like to use in the IPython console.
+An alternative to typing in all of the commands you would like to run is the list them in a Python <em>script file</em>.
+A Python script file is simple a file containing a list of the command you would like to run, with one command per line, and formatted in the same way as if you were to type them in.
+Python script files traditionally use the <code class="docutils literal notranslate"><span class="pre">.py</span></code> file extension in their names.</p>
+<div class="section" id="the-general-concept-of-a-py-script-file">
+<h2>The general concept of a <code class="docutils literal notranslate"><span class="pre">.py</span></code> script file<a class="headerlink" href="#the-general-concept-of-a-py-script-file" title="Permalink to this headline">¶</a></h2>
+<p>A Python script file is simply a list of commands that you might otherwise type into the IPython console.
+As such, we can quite easily create a basic script file and test things out.</p>
+<ol class="arabic">
+<li><p class="first">You should already have the <strong>Spyder</strong> editor open, and in this part of the lesson we will be working with the IPython console panel you have been using, but also with the Spyder editor panel.</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../../_images/Spyder-editor.png"><img alt="The Spyder editor" src="../../_images/Spyder-editor.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">The Spyder editor</span></p>
+</div>
+<p>Start by copying and pasting the text below into your <strong>Spyder</strong> editor panel.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stationName</span> <span class="o">=</span> <span class="s1">&#39;Helsinki Kaivopuisto&#39;</span>
+<span class="n">stationLat</span> <span class="o">=</span> <span class="mf">60.15</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The&quot;</span><span class="p">,</span> <span class="n">stationName</span><span class="p">,</span> <span class="s2">&quot;station is located at&quot;</span><span class="p">,</span> <span class="n">stationLat</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Save this script file as <code class="docutils literal notranslate"><span class="pre">stationinfo.py</span></code> somewhere in your home directory, such as a directory called <code class="docutils literal notranslate"><span class="pre">Geo-Python-Lesson-2</span></code>.
+This can be done by clicking on the disk icon in the toolbar at the top of the window.
+Enter the file name as <code class="docutils literal notranslate"><span class="pre">stationinfo.py</span></code> and click the <code class="docutils literal notranslate"><span class="pre">Save</span></code> button on the lower right of the window to save the file.</p>
+</li>
+<li><p class="first">To run your script in <strong>Spyder</strong>, you simply click on the green play button in the toolbar above the editor panel.
+You may be prompted about some options related to running the script, and you can simply click on the <strong>Run</strong> button on the window that pops up.</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../../_images/Spyder-play-button.png"><img alt="Running a script with Spyder" src="../../_images/Spyder-play-button.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Running a script in Spyder</span></p>
+</div>
+<p>Running the script should produce the following output in the IPython console, exactly as if you had typed the commands into the console.</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">Helsinki</span> <span class="n">Kaivopuisto</span> <span class="n">station</span> <span class="ow">is</span> <span class="n">located</span> <span class="n">at</span> <span class="mf">60.16</span> <span class="n">N</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Now let’s make a small change to the script.
+Edit the script so that it now reads</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stationName</span> <span class="o">=</span> <span class="s1">&#39;Helsinki Kaivopuisto&#39;</span>
+<span class="n">stationLat</span> <span class="o">=</span> <span class="mf">60.15</span>
+<span class="n">stationLong</span> <span class="o">=</span> <span class="mf">24.96</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The&quot;</span><span class="p">,</span> <span class="n">stationName</span><span class="p">,</span> <span class="s2">&quot;station is located at&quot;</span><span class="p">,</span> <span class="n">stationLat</span><span class="p">,</span> <span class="s2">&quot;N,&quot;</span><span class="p">,</span> <span class="n">stationLong</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Save your changes.</p>
+</li>
+<li><p class="first">Run the script again and you should see your changes.</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">Helsinki</span> <span class="n">Kaivopuisto</span> <span class="n">station</span> <span class="ow">is</span> <span class="n">located</span> <span class="n">at</span> <span class="mf">60.16</span> <span class="n">N</span><span class="p">,</span> <span class="mf">24.96</span> <span class="n">E</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="writing-our-scripts-the-right-way">
+<h2>Writing our scripts the “right” way<a class="headerlink" href="#writing-our-scripts-the-right-way" title="Permalink to this headline">¶</a></h2>
+<p>The script above works, but one of the big advantages of using scripts is including features that make the code easier to read and understand.
+These include <em>comments</em> in the code, which explain what the code does, but are not executed when the code is run.
+As your programs get longer and more complicated, features such as comments will become essential.
+Below are some suggestions to make sure your code is formatted nicely and easy to understand.</p>
+<div class="section" id="inline-comments">
+<h3>Inline comments<a class="headerlink" href="#inline-comments" title="Permalink to this headline">¶</a></h3>
+<p><em>Inline comments</em> are comments within the code that explain what certain lines of the code do.
+To your, it may seem obvious how the code works, but if you share it with another person perhaps they will not feel the same way.
+It is a very good idea to make the code as easy to read as possible for people.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finnish Meterological Institute observation station name and location data</span>
+<span class="c1"># Station name for the station in Kaivopuisto, Helsinki, Finland</span>
+<span class="n">stationName</span> <span class="o">=</span> <span class="s1">&#39;Helsinki Kaivopuisto&#39;</span>
+<span class="c1"># Station latitude and longitude - Latitude is north, longitude is east</span>
+<span class="n">stationLat</span> <span class="o">=</span> <span class="mf">60.15</span>
+<span class="n">stationLong</span> <span class="o">=</span> <span class="mf">24.96</span>
+<span class="c1"># Print station name and location to the screen</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The&quot;</span><span class="p">,</span> <span class="n">stationName</span><span class="p">,</span> <span class="s2">&quot;station is located at&quot;</span><span class="p">,</span> <span class="n">stationLat</span><span class="p">,</span> <span class="s2">&quot;N,&quot;</span><span class="p">,</span> <span class="n">stationLong</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, we have provided a a bit more information about the data in this script by adding <em>inline comments</em>.
+Inline comments begin with a <code class="docutils literal notranslate"><span class="pre">#</span></code> (number sign or hash), and all characters that follow on that line will be ignored by Python.
+Adding comments to scripts is essential for scientists like ourselves to both help us remember how a script works and to make it easier to share with colleagues.
+It is best to get into the habit of adding comments as you write.</p>
+</div>
+<div class="section" id="use-line-breaks-wisely">
+<h3>Use line breaks wisely<a class="headerlink" href="#use-line-breaks-wisely" title="Permalink to this headline">¶</a></h3>
+<p><em>Line breaks</em>, or blank lines, in your scripts can greatly improve readability, and help divide different sections of the script.
+Perhaps it is obvious, but Python will ignore blank lines in a script.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finnish Meterological Institute observation station name and location data</span>
+
+<span class="c1"># Station name for the station in Kaivopuisto, Helsinki, Finland</span>
+<span class="n">stationName</span> <span class="o">=</span> <span class="s1">&#39;Helsinki Kaivopuisto&#39;</span>
+
+<span class="c1"># Station latitude and longitude - Latitude is north, longitude is east</span>
+<span class="n">stationLat</span> <span class="o">=</span> <span class="mf">60.15</span>
+<span class="n">stationLong</span> <span class="o">=</span> <span class="mf">24.96</span>
+
+<span class="c1"># Print station name and location to the screen</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The&quot;</span><span class="p">,</span> <span class="n">stationName</span><span class="p">,</span> <span class="s2">&quot;station is located at&quot;</span><span class="p">,</span> <span class="n">stationLat</span><span class="p">,</span> <span class="s2">&quot;N,&quot;</span><span class="p">,</span> <span class="n">stationLong</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="use-a-docstring">
+<h3>Use a docstring<a class="headerlink" href="#use-a-docstring" title="Permalink to this headline">¶</a></h3>
+<p>A <em>docstring</em> is a form of <em>block comment</em> at the start of your program that clearly states its purpose and how to run the program.
+A <em>block comment</em> is similar to the inline comments above, but starts with <code class="docutils literal notranslate"><span class="pre">'''</span></code> and comments out all code between the start and another closing set of <code class="docutils literal notranslate"><span class="pre">'''</span></code>.
+You can also include your name, and possibly add licensing information in the docstring.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;Prints information about an FMI observation station to the screen.</span>
+
+<span class="sd">Usage:</span>
+<span class="sd">    ./stationinfo.py</span>
+
+<span class="sd">Author:</span>
+<span class="sd">    David Whipp - 10.9.2017</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="c1"># Finnish Meterological Institute observation station name and location data</span>
+
+<span class="c1"># Station name for the station in Kaivopuisto, Helsinki, Finland</span>
+<span class="n">stationName</span> <span class="o">=</span> <span class="s1">&#39;Helsinki Kaivopuisto&#39;</span>
+
+<span class="c1"># Station latitude and longitude - Latitude is north, longitude is east</span>
+<span class="n">stationLat</span> <span class="o">=</span> <span class="mf">60.15</span>
+<span class="n">stationLong</span> <span class="o">=</span> <span class="mf">24.96</span>
+
+<span class="c1"># Print station name and location to the screen</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The&quot;</span><span class="p">,</span> <span class="n">stationName</span><span class="p">,</span> <span class="s2">&quot;station is located at&quot;</span><span class="p">,</span> <span class="n">stationLat</span><span class="p">,</span> <span class="s2">&quot;N,&quot;</span><span class="p">,</span> <span class="n">stationLong</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this example the script is simple, but many Python programs have optional values that can be used by the code when it is run, making the usage statement crucial.</p>
+</div>
+</div>
+<div class="section" id="advanced-topics">
+<h2>Advanced topics<a class="headerlink" href="#advanced-topics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="adding-a-license">
+<h3>Adding a license<a class="headerlink" href="#adding-a-license" title="Permalink to this headline">¶</a></h3>
+<p>Depending on what you aim to do with your script, you may want to include a formal software license in the docstring to state the conditions under which the code can be used or modified.
+There are many helpful web resources to <a class="reference external" href="https://tldrlegal.com/">teach you about software licenses</a> and <a class="reference external" href="http://choosealicense.com/">how to choose a license</a>.
+In most cases my preference is the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT License</a>, which is simple and allows software use by anyone.
+An example is below.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;Prints information about an FMI observation station to the screen.</span>
+
+<span class="sd">Usage:</span>
+<span class="sd">    ./stationinfo.py</span>
+
+<span class="sd">License:</span>
+<span class="sd">    MIT License</span>
+
+<span class="sd">    Copyright (c) 2017 David Whipp</span>
+
+<span class="sd">    Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class="sd">    of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
+<span class="sd">    in the Software without restriction, including without limitation the rights</span>
+<span class="sd">    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class="sd">    copies of the Software, and to permit persons to whom the Software is</span>
+<span class="sd">    furnished to do so, subject to the following conditions:</span>
+
+<span class="sd">    The above copyright notice and this permission notice shall be included in all</span>
+<span class="sd">    copies or substantial portions of the Software.</span>
+
+<span class="sd">    THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="sd">    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="sd">    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="sd">    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="sd">    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class="sd">    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
+<span class="sd">    SOFTWARE.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="c1"># Finnish Meterological Institute observation station name and location data</span>
+
+<span class="c1"># Station name for the station in Kaivopuisto, Helsinki, Finland</span>
+<span class="n">stationName</span> <span class="o">=</span> <span class="s1">&#39;Helsinki Kaivopuisto&#39;</span>
+
+<span class="c1"># Station latitude and longitude - Latitude is north, longitude is east</span>
+<span class="n">stationLat</span> <span class="o">=</span> <span class="mf">60.15</span>
+<span class="n">stationLong</span> <span class="o">=</span> <span class="mf">24.96</span>
+
+<span class="c1"># Print station name and location to the screen</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The&quot;</span><span class="p">,</span> <span class="n">stationName</span><span class="p">,</span> <span class="s2">&quot;station is located at&quot;</span><span class="p">,</span> <span class="n">stationLat</span><span class="p">,</span> <span class="s2">&quot;N,&quot;</span><span class="p">,</span> <span class="n">stationLong</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this case I have taken the license information directly from an <a class="reference external" href="http://choosealicense.com/licenses/mit/">online software license template</a>.
+Software licensing is an important consideration when posting your software in online repositories such as GitHub.
+It is one way to protect your intellectual property from being used in ways you do not wish.</p>
+</div>
+<div class="section" id="starting-with-a-shebang">
+<h3>Starting with a shebang<a class="headerlink" href="#starting-with-a-shebang" title="Permalink to this headline">¶</a></h3>
+<p>Starting with a <em>shebang</em> is another thing to consider doing with your scripts.
+Why?
+Well, without going into too much detail, it makes it easier for users to run your script directly from a terminal, rather than needing to use <strong>Spyder</strong> or open an IPython console first.
+If this doesn’t make a great deal of sense, you can get a bit more information on <a class="reference external" href="https://en.wikipedia.org/wiki/Shebang_(Unix)">Wikipedia</a>.</p>
+<p>Starting with a shebang means that the first line of your program starts with the characters <code class="docutils literal notranslate"><span class="pre">#!</span></code> followed by the location of a program that will run the Python software installed on the computer.
+An example is below.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="sd">&#39;&#39;&#39;Prints information about an FMI observation station to the screen.</span>
+
+<span class="sd">Usage:</span>
+<span class="sd">    ./stationinfo.py</span>
+
+<span class="sd">Author:</span>
+<span class="sd">    David Whipp - 10.9.2017</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="c1"># Finnish Meterological Institute observation station name and location data</span>
+
+<span class="c1"># Station name for the station in Kaivopuisto, Helsinki, Finland</span>
+<span class="n">stationName</span> <span class="o">=</span> <span class="s1">&#39;Helsinki Kaivopuisto&#39;</span>
+
+<span class="c1"># Station latitude and longitude - Latitude is north, longitude is east</span>
+<span class="n">stationLat</span> <span class="o">=</span> <span class="mf">60.15</span>
+<span class="n">stationLong</span> <span class="o">=</span> <span class="mf">24.96</span>
+
+<span class="c1"># Print station name and location to the screen</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The&quot;</span><span class="p">,</span> <span class="n">stationName</span><span class="p">,</span> <span class="s2">&quot;station is located at&quot;</span><span class="p">,</span> <span class="n">stationLat</span><span class="p">,</span> <span class="s2">&quot;N,&quot;</span><span class="p">,</span> <span class="n">stationLong</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We’ll leave it at that for now, but if you have questions let us know.</p>
+</div>
+</div>
+<div class="section" id="page-summary">
+<h2>Page summary<a class="headerlink" href="#page-summary" title="Permalink to this headline">¶</a></h2>
+<p>As we continue in the course we will be creating more advanced Python scripts that include more complex code logic and other features we’ve not yet learned.
+With these, we’ll also learn a few tips for incorporating them in our scripts.
+However, an expectation in this course is that you stick to the general template described above when writing your code, which means including appropriate use of inline comments, blank lines, and a docstring.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ex-2.html" class="btn btn-neutral float-right" title="Exercise 2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="python-basic-elements.html" class="btn btn-neutral" title="Basic elements of Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 Tenkanen &amp; Whipp, University of Helsinki.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p> <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> </a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: 2017
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="writing-scripts.html">2017</a></dd>
+            <dd><a href="../../../develop/index.html">develop</a></dd>
+            <dd><a href="../../../master/index.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2017 Autumn',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

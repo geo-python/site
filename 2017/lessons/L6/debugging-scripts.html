@@ -1,0 +1,423 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-105019106-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Debugging Python scripts &mdash; Geo-Python 2017 Autumn documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/GeoPython_favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/geo-python.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exercise 6" href="ex-6.html" />
+    <link rel="prev" title="Dealing with errors" href="interpreting-errors.html" />
+    <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
+     
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Geo-Python
+          
+
+          
+            
+            <img src="../../_static/logo_hy_geo_135.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2017 Autumn
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/installing-anacondas.html">Installing Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/python-vocabulary.html">Vocabulary - Basic terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L1/motivation.html">Motivation for the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/course-environment-components.html">Course environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/intro-to-cloud-environment.html">Using the cloud computing environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/slack-usage.html">Communicating with Slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/A-taste-of-Python.html">A taste of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/exercise-1.html">Exercise 1</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L2/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/intro-to-GitHub.html">Introduction to Version Control and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/GitHub-classroom.html">Using Classroom for Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/working-on-assignment.html">Working on the assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/python-basic-elements.html">Basic elements of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/writing-scripts.html">Writing your own Python scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/ex-2.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/exercise-2-hints.html">Exercise 2 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L3/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/for-loops.html"><code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/conditional-statements.html">Conditional statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/ex-3.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/exercise-3-hints.html">Exercise 3 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 4</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L4/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/modules.html">Loading and using modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/ex-4.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/exercise-4-hints.html">Exercise 4 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 5</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L5/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/pandas-overview.html">What is Pandas?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/pandas-basics.html">Exploring data using Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/pandas-basic-operations.html">Processing data with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/ex-5.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/exercise-5-hints.html">Hints for Exercise 5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 6</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas-analysis.html">Advanced data processing with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpreting-errors.html">Dealing with errors</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Debugging Python scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#source">Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test-your-code-with-known-outputs">Test your code with known outputs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#testing-with-a-simplified-data-file">Testing with a simplified data file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#make-your-code-crash-quickly-and-regularly">Make your code crash quickly and regularly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#make-small-changes-and-track-them">Make small changes and track them</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ex-6.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercise-6-hints.html">Hints for Exercise 6</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 7</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L7/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/python-plotting.html">Plotting in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/plot-anatomy.html">Anatomy of a plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/matplotlib.html">Plotting with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/using-plotly.html">Connecting Matplotlib with plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/pandas-plotting.html">Advanced plotting with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/ex-7.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/exercise-7-hints.html">Hints for Exercise 7</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Geo-Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Debugging Python scripts</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/lessons/L6/debugging-scripts.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+
+
+    
+    
+
+
+
+    <p class="scv-banner scv-sphinx_rtd_theme"><b>Warning:</b> This document is for the development version of Geo-Python.</p>
+<div class="section" id="debugging-python-scripts">
+<h1>Debugging Python scripts<a class="headerlink" href="#debugging-python-scripts" title="Permalink to this headline">¶</a></h1>
+<p>Debugging your scripts can be time consuming, and probably already uses most of the time you devote to working on them.
+There is no way to avoid spending time fixing bugs, especially when you’re learning to program and simply may not yet know how to solve a given programming problem.
+That said, there are ways to be more effective when debugging, which can save you time and frustration.
+Below, we review some tips for debugging.</p>
+<div class="section" id="source">
+<h2>Source<a class="headerlink" href="#source" title="Permalink to this headline">¶</a></h2>
+<p>This lesson is based in part on the <a class="reference external" href="http://swcarpentry.github.io/python-novice-inflammation/09-debugging/">Software Carpentry group’s lesson on debugging</a>.</p>
+</div>
+<div class="section" id="test-your-code-with-known-outputs">
+<h2>Test your code with known outputs<a class="headerlink" href="#test-your-code-with-known-outputs" title="Permalink to this headline">¶</a></h2>
+<p>One of the biggest challenges to debugging your code once you solve the syntax issues is knowing whether or not the code actually works like it should.
+In order to be able to assess this, we need to know the “answer” the code should produce.
+In many cases this means <em>some form</em> of calculating a known value using simplified data or test cases.</p>
+<div class="section" id="testing-with-a-simplified-data-file">
+<h3>Testing with a simplified data file<a class="headerlink" href="#testing-with-a-simplified-data-file" title="Permalink to this headline">¶</a></h3>
+<p>Let’s consider an example of calculating the maximum difference in daily temperature in Helsinki using observations for the past 50 years.
+First off, we don’t know the answer in advance so we cannot simply work on the code until it gives the expected temperature difference.
+Secondly, we can expect that we should have more than 18 000 observations in our data file for the past 50 years, so it will be hard to confirm we get the right answer because of the size of the dataset.
+One thing that can be helpful here is to test your program using some small subset of the data.
+For instance, we could take the top 5 lines of data from the file, which might look like the following:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">STATION</span>           <span class="n">ELEVATION</span>  <span class="n">LATITUDE</span>   <span class="n">LONGITUDE</span>  <span class="n">DATE</span>     <span class="n">PRCP</span>     <span class="n">TAVG</span>     <span class="n">TMAX</span>     <span class="n">TMIN</span>
+<span class="o">-----------------</span> <span class="o">----------</span> <span class="o">----------</span> <span class="o">----------</span> <span class="o">--------</span> <span class="o">--------</span> <span class="o">--------</span> <span class="o">--------</span> <span class="o">--------</span>
+<span class="n">GHCND</span><span class="p">:</span><span class="n">FIE00142080</span>         <span class="mi">51</span>    <span class="mf">60.3269</span>    <span class="mf">24.9603</span> <span class="mi">19520101</span> <span class="mf">0.31</span>     <span class="mi">37</span>       <span class="mi">39</span>       <span class="mi">34</span>
+<span class="n">GHCND</span><span class="p">:</span><span class="n">FIE00142080</span>         <span class="mi">51</span>    <span class="mf">60.3269</span>    <span class="mf">24.9603</span> <span class="mi">19520102</span> <span class="o">-</span><span class="mi">9999</span>    <span class="mi">35</span>       <span class="mi">37</span>       <span class="mi">34</span>
+<span class="n">GHCND</span><span class="p">:</span><span class="n">FIE00142080</span>         <span class="mi">51</span>    <span class="mf">60.3269</span>    <span class="mf">24.9603</span> <span class="mi">19520103</span> <span class="mf">0.14</span>     <span class="mi">33</span>       <span class="mi">36</span>       <span class="o">-</span><span class="mi">9999</span>
+<span class="n">GHCND</span><span class="p">:</span><span class="n">FIE00142080</span>         <span class="mi">51</span>    <span class="mf">60.3269</span>    <span class="mf">24.9603</span> <span class="mi">19520104</span> <span class="mf">0.05</span>     <span class="mi">29</span>       <span class="mi">30</span>       <span class="mi">25</span>
+<span class="n">GHCND</span><span class="p">:</span><span class="n">FIE00142080</span>         <span class="mi">51</span>    <span class="mf">60.3269</span>    <span class="mf">24.9603</span> <span class="mi">19520105</span> <span class="mf">0.06</span>     <span class="mi">27</span>       <span class="mi">30</span>       <span class="mi">25</span>
+</pre></div>
+</div>
+<p>From this, we know two things:</p>
+<ul class="simple">
+<li>We should expect the code to be able to handle no data values equal to -9999, and to not include days with no data values when calculating the maximum temperature difference (<code class="docutils literal notranslate"><span class="pre">TMAX</span></code> - <code class="docutils literal notranslate"><span class="pre">TMIN</span></code>).</li>
+<li>The maximum temperature difference in if we test our code with this data file should be 5°</li>
+</ul>
+<p>In this case, we now know that if we can get our code to return the correct answer with the small test file, perhaps the same can be done for the full dataset.
+In other cases, we may actually know the expected answer, in which case debugging should be a bit easier.</p>
+</div>
+</div>
+<div class="section" id="make-your-code-crash-quickly-and-regularly">
+<h2>Make your code crash quickly and regularly<a class="headerlink" href="#make-your-code-crash-quickly-and-regularly" title="Permalink to this headline">¶</a></h2>
+<p>This may sound silly, but it is a good thing when your code crashes the same way every time you run it.
+If you have different behaviors when you run your code several times without making changes to the code, it will be much more difficult to isolate the problem.
+What we ideally want in a code is to see behavior that is <strong>consistent</strong>.</p>
+<p>In addition, if you expect to debug your program efficiently, you can’t afford to wait 30 minutes every time you run it in order for it to crash.
+If your code crashes when processing a massive data file, you can consider testing with some smaller part of the file.
+Does the code still crash?
+If not, why not?
+Are there some parts of the code that seem to run just fine every time?
+If you can reduce the time needed for a crash, and isolate where in the code the problem lies (perhaps in memory if you’re dealing with really large datasets), you will save yourself time debugging.</p>
+</div>
+<div class="section" id="make-small-changes-and-track-them">
+<h2>Make small changes and track them<a class="headerlink" href="#make-small-changes-and-track-them" title="Permalink to this headline">¶</a></h2>
+<p>We’re teaching you to use <a class="reference external" href="https://github.com/">GitHub.com</a> to store your work, and to commit your changes regularly.
+This is for two reasons.
+First, by keeping track of the changes, you will have a better chance of isolating a problem if you find that suddenly your code doesn’t work.
+You can simply go back to a version of the code that worked and look at what has changed in the version that doesn’t work.
+<strong>This is probably the greatest thing about version control</strong>.
+Secondly, if you make small changes to the code it is easier to see exactly what changed and where.
+When it comes to debugging, this is one of the keys to finding problems quickly.</p>
+<p>It is worth noting that often we don’t keep track and commit every single small change to our codes, but rather commit when things are working as we expected.
+This means that when you debug, you might not keep track of every little change you make.
+This is fine, but it is important when you are debugging that you make small changes in one part of the code, then re-test.
+You should change one thing at a time, test the code, and make more changes if needed.
+Changing several things at once might be appealing, but it will make it harder to see exactly what is causing the problem because you can’t isolate the issue to a single line of the program.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ex-6.html" class="btn btn-neutral float-right" title="Exercise 6" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="interpreting-errors.html" class="btn btn-neutral" title="Dealing with errors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 Tenkanen &amp; Whipp, University of Helsinki.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p> <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> </a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: 2017
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="debugging-scripts.html">2017</a></dd>
+            <dd><a href="../../../develop/index.html">develop</a></dd>
+            <dd><a href="../../../master/index.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2017 Autumn',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

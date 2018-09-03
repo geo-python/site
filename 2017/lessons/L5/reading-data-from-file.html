@@ -1,0 +1,574 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-105019106-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Reading data from a file &mdash; Geo-Python 2017 Autumn documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/GeoPython_favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/geo-python.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
+     
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Geo-Python
+          
+
+          
+            
+            <img src="../../_static/logo_hy_geo_135.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2017 Autumn
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/installing-anacondas.html">Installing Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/python-vocabulary.html">Vocabulary - Basic terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L1/motivation.html">Motivation for the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/course-environment-components.html">Course environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/intro-to-cloud-environment.html">Using the cloud computing environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/slack-usage.html">Communicating with Slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/A-taste-of-Python.html">A taste of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/exercise-1.html">Exercise 1</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L2/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/intro-to-GitHub.html">Introduction to Version Control and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/GitHub-classroom.html">Using Classroom for Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/working-on-assignment.html">Working on the assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/python-basic-elements.html">Basic elements of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/writing-scripts.html">Writing your own Python scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/ex-2.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/exercise-2-hints.html">Exercise 2 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L3/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/for-loops.html"><code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/conditional-statements.html">Conditional statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/ex-3.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/exercise-3-hints.html">Exercise 3 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 4</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L4/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/modules.html">Loading and using modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/ex-4.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/exercise-4-hints.html">Exercise 4 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 5</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas-overview.html">What is Pandas?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas-basics.html">Exploring data using Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas-basic-operations.html">Processing data with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex-5.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercise-5-hints.html">Hints for Exercise 5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 6</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L6/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/pandas-analysis.html">Advanced data processing with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/interpreting-errors.html">Dealing with errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/debugging-scripts.html">Debugging Python scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/ex-6.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/exercise-6-hints.html">Hints for Exercise 6</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 7</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L7/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/python-plotting.html">Plotting in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/plot-anatomy.html">Anatomy of a plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/matplotlib.html">Plotting with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/using-plotly.html">Connecting Matplotlib with plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/pandas-plotting.html">Advanced plotting with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/ex-7.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/exercise-7-hints.html">Hints for Exercise 7</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Geo-Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Reading data from a file</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/lessons/L5/reading-data-from-file.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+
+
+    
+    
+
+
+
+    <p class="scv-banner scv-sphinx_rtd_theme"><b>Warning:</b> This document is for the development version of Geo-Python.</p>
+<div class="section" id="reading-data-from-a-file">
+<h1>Reading data from a file<a class="headerlink" href="#reading-data-from-a-file" title="Permalink to this headline">¶</a></h1>
+<p>The instructions here are for reading files in the traditional Python way.
+<strong>We do not recommend doing this</strong>, as it is more challenging and often more difficult to understand.
+That said, the info is here if you’re curious.
+We’re assuming below that you have downloaded a copy of the Kumpula weather data file from the <a class="reference internal" href="pandas-basics.html"><span class="doc">Exploring data using Pandas lesson</span></a>.
+If not, do that before proceeding.</p>
+<div class="section" id="reading-an-entire-file-at-once">
+<h2>Reading an entire file at once<a class="headerlink" href="#reading-an-entire-file-at-once" title="Permalink to this headline">¶</a></h2>
+<p>There are several ways in which data can be read from a file in Python, but some are more common (or better in some cases) than others.
+Here we will focus on a common way to read files that can be easily used for many types of data files.</p>
+<ol class="arabic">
+<li><p class="first">We will begin by reading an entire file into a Python list.
+To start we need to open the file for reading by typing the following into the <strong>Spyder</strong> editor:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">commands</span> <span class="n">to</span> <span class="n">read</span> <span class="n">file</span><span class="o">...&gt;</span>
+</pre></div>
+</div>
+<p>Here we are using the <code class="docutils literal notranslate"><span class="pre">open()</span></code> function in combination with the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement in Python.
+I suppose an explanation is required.</p>
+<ul class="simple">
+<li>The general format used for opening files in Python is <code class="docutils literal notranslate"><span class="pre">open(&lt;filename&gt;,</span> <span class="pre">&lt;mode&gt;)</span></code>, where <code class="docutils literal notranslate"><span class="pre">filename</span></code> is the name of the file and <code class="docutils literal notranslate"><span class="pre">mode</span></code> is either <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code> for reading a file or <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code> for writing to a file.
+In our case, we open our file (<code class="docutils literal notranslate"><span class="pre">'Kumpula-June-2016-w-metadata.txt'</span></code>) to be read (<code class="docutils literal notranslate"><span class="pre">'r'</span></code>).</li>
+<li>In addition, we are using the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement.
+What this does is open our file and assign access to the file to a variable (<code class="docutils literal notranslate"><span class="pre">infile</span></code>).
+Thus, using the variable <code class="docutils literal notranslate"><span class="pre">infile</span></code> we can access the file contents anywhere within the indented block of code beneath the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement.
+For instance, we will see how to read the file in the next point.</li>
+<li>The main advantage of using the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement is that normally you need to manually close file access in Python (using the <code class="docutils literal notranslate"><span class="pre">file.close()</span></code> method), but when using the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement the file is automatically closed at the end of the indented block.
+This ensures you don’t forget to close it yourself.
+Closing files is important because sometimes the final changes made to a file will not be written until the file is closed, for example.</li>
+</ul>
+</li>
+<li><p class="first">With our file open, we can now proceed to read the file.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="sd">&#39;&#39;&#39;Reads the contents of a file at once.</span>
+
+<span class="sd">Usage:</span>
+<span class="sd">    ./readall.py</span>
+
+<span class="sd">Author:</span>
+<span class="sd">    David Whipp - 2.10.2017</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="c1"># Read entire data file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">infile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>So what we have done here is to use the <code class="docutils literal notranslate"><span class="pre">file.read()</span></code> <em>method</em> to read in the entire file as one long character string.
+What does that mean?
+Well, this means that we now have a variable <code class="docutils literal notranslate"><span class="pre">data</span></code> that contains the entire contents of our data file (<code class="docutils literal notranslate"><span class="pre">Kumpula-June-2016-w-metadata.txt</span></code>).
+Thus, if we save the script above as <code class="docutils literal notranslate"><span class="pre">readall.py</span></code> and run it in <strong>Spyder</strong>, we should see the following output to the IPython console when we print out the contents of <code class="docutils literal notranslate"><span class="pre">data</span></code>:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-1-dbd883db58b7&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;data&#39; is not defined
+</pre></div>
+</div>
+<p>No surprises here, this looks like the contents of the <code class="docutils literal notranslate"><span class="pre">Kumpula-June-2016-w-metadata.txt</span></code> data file.
+If you want to confirm, you’re welcome to open that file in the <strong>Spyder</strong> editor.
+Note that you may have to set <strong>Files of type</strong> to be “All files (*)” in the <strong>Open file</strong> window to see the data files.</p>
+</li>
+<li><p class="first">As mentioned, <code class="docutils literal notranslate"><span class="pre">file.read()</span></code> is a <em>method</em> for file objects that reads all data in as a single (potentially very long) character string.
+You can confirm this using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-2-b5f01a7c0d9a&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;data&#39; is not defined
+</pre></div>
+</div>
+<p>Obviously, it is nice to read the entire file at once, but this may be a problem for very large data files that may not fit in memory on the computer.</p>
+</li>
+<li><p class="first">To convert our character string <code class="docutils literal notranslate"><span class="pre">data</span></code> into a more usable format in which each line is a separate value in a Python list, we can use the <code class="docutils literal notranslate"><span class="pre">str.splitlines()</span></code> method.
+Thus, we can create a list <code class="docutils literal notranslate"><span class="pre">datalist</span></code> that contains each line of the file as follows:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="sd">&#39;&#39;&#39;Reads the contents of a file at once.</span>
+
+<span class="sd">Usage:</span>
+<span class="sd">    ./readall.py</span>
+
+<span class="sd">Author:</span>
+<span class="sd">    David Whipp - 2.10.2017</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="c1"># Read entire data file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">infile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">dataList</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Now each line of the data file will be a character string in the list <code class="docutils literal notranslate"><span class="pre">dataList</span></code>.
+We can confirm this by running the example above and printing out the contents of dataLits, which should output the following to the IPython console:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataList</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-3-70473fa8d2b8&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">dataList</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;dataList&#39; is not defined
+</pre></div>
+</div>
+<p>We are now ready to start interacting with our file data.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="dealing-with-headers-of-known-length">
+<h2>Dealing with headers of known length<a class="headerlink" href="#dealing-with-headers-of-known-length" title="Permalink to this headline">¶</a></h2>
+<p>In many cases, the <em>header</em> in a data file will occupy the top few lines the file and we can simply skip over the header by not storing header data.
+We currently have a Python list <code class="docutils literal notranslate"><span class="pre">dataList</span></code> that contains our data file contents.
+A common task in Python is to separate the values on each line into separate Python lists that can be manipuated independently.
+Below, we will create a set of 4 Python lists, one for each column in our data file, and fill them with the values from the lines of our file.</p>
+<ol class="arabic">
+<li><p class="first">We will first need to create our empty lists for storing the data file values.
+We can do this by creating empty lists beneath the indented block for reading the file.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="sd">&#39;&#39;&#39;Reads the contents of a file at once.</span>
+
+<span class="sd">Usage:</span>
+<span class="sd">    ./readall.py</span>
+
+<span class="sd">Author:</span>
+<span class="sd">    David Whipp - 2.10.2017</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="c1"># Read entire data file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">infile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">dataList</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+
+<span class="c1"># Create empty lists to store file data</span>
+<span class="n">date</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">meanTemp</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">maxTemp</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">minTemp</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+<p><strong>Note</strong>: These empty lists are not indented as part of the file reading block.</p>
+</li>
+<li><p class="first">With the empty lists created, we now need to go through each line of the file, separate the values on each line, and add them to the lists we’ve created.
+We can do this using the <code class="docutils literal notranslate"><span class="pre">str.split()</span></code> method and a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.
+Don’t forget, we want to skip over the <em>header</em>.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="sd">&#39;&#39;&#39;Reads the contents of a file at once.</span>
+
+<span class="sd">Usage:</span>
+<span class="sd">    ./readall.py</span>
+
+<span class="sd">Author:</span>
+<span class="sd">    David Whipp - 2.10.2017</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="c1"># Read entire data file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">infile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">dataList</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+
+<span class="c1"># Create empty lists to store file data</span>
+<span class="n">date</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">meanTemp</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">maxTemp</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">minTemp</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Loop over lines in file, append to lists</span>
+<span class="n">headerLines</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataList</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">line</span> <span class="o">&gt;</span> <span class="n">headerLines</span><span class="p">:</span>
+        <span class="n">splitLine</span> <span class="o">=</span> <span class="n">dataList</span><span class="p">[</span><span class="n">line</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="n">date</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">splitLine</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">meanTemp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">splitLine</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">maxTemp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">splitLine</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">minTemp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">splitLine</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>So, what happened?</p>
+<ul class="simple">
+<li>First, we have used a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to go over each value in the list <code class="docutils literal notranslate"><span class="pre">dataList</span></code>, assigning each line to the variable <code class="docutils literal notranslate"><span class="pre">line</span></code> in the loop.</li>
+<li>Second, we have used an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to only deal with lines below the headers (index 9 and up).</li>
+<li>Third, we have created a new variable <code class="docutils literal notranslate"><span class="pre">splitline</span></code> that is itself a Python list.
+In this case, <code class="docutils literal notranslate"><span class="pre">line.split(',')</span></code> separates all of the values in the line at each comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>) and stores the split values in a list (<code class="docutils literal notranslate"><span class="pre">splitline</span></code>).
+You can see this list for the final line in the data file by typing <code class="docutils literal notranslate"><span class="pre">print(splitline)</span></code> in the IPython console.</li>
+<li>Lastly, since each of the four values in each line of the data file have been separated, we can add the values to the lists we’ve created earlier using the <code class="docutils literal notranslate"><span class="pre">list.append()</span></code> method.
+In this case, we append the corresponding values in the list <code class="docutils literal notranslate"><span class="pre">splitline</span></code> by using their index values.
+This may seem complicated, but if you look at the code line by line, we’re not really doing too many new things here.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="headers-of-a-known-number-of-lines-alternative-approach">
+<h2>Headers of a known number of lines - Alternative approach<a class="headerlink" href="#headers-of-a-known-number-of-lines-alternative-approach" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Let’s start by editing the <code class="docutils literal notranslate"><span class="pre">readall.py</span></code> script we created above to read the other data file (<code class="docutils literal notranslate"><span class="pre">Kumpula-June-2016-w-metadata.txt</span></code>) and saving the modified file as <code class="docutils literal notranslate"><span class="pre">headread.py</span></code>.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="sd">&#39;&#39;&#39;Reads the contents of a file at once.</span>
+
+<span class="sd">Usage:</span>
+<span class="sd">    ./headread.py</span>
+
+<span class="sd">Author:</span>
+<span class="sd">    David Whipp - 2.10.2017</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="c1"># Read entire data file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">infile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">dataList</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+
+<span class="c1"># Create empty lists to store file data</span>
+<span class="n">date</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">meanTemp</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">maxTemp</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">minTemp</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Loop over lines in file, append to lists</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">dataList</span><span class="p">)):</span>
+    <span class="n">splitLine</span> <span class="o">=</span> <span class="n">dataList</span><span class="p">[</span><span class="n">line</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+    <span class="n">date</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">splitLine</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">meanTemp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">splitLine</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">maxTemp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">splitLine</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">minTemp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">splitLine</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>So this looks almost exactly the same as before, but we’re starting the range at <code class="docutils literal notranslate"><span class="pre">9</span></code>, rather and <code class="docutils literal notranslate"><span class="pre">0</span></code>.
+This means we don’t need to have the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to only append below the header.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="more-options">
+<h2>More options<a class="headerlink" href="#more-options" title="Permalink to this headline">¶</a></h2>
+<p>If you’d like to see a few other options for reading files the Pythonic way, you can also check out the <a class="reference external" href="https://github.com/Python-for-geo-people/Lesson-5-Reading-Writing/blob/master/Lesson/reading-data-from-file.md">materials from the 2016 version of this course</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 Tenkanen &amp; Whipp, University of Helsinki.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p> <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> </a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: 2017
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="reading-data-from-file.html">2017</a></dd>
+            <dd><a href="../../../develop/index.html">develop</a></dd>
+            <dd><a href="../../../master/index.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2017 Autumn',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

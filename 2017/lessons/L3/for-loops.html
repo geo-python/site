@@ -1,0 +1,658 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-105019106-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>for loops &mdash; Geo-Python 2017 Autumn documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/GeoPython_favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/geo-python.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Conditional statements" href="conditional-statements.html" />
+    <link rel="prev" title="Lecture" href="lesson-video.html" />
+    <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
+     
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Geo-Python
+          
+
+          
+            
+            <img src="../../_static/logo_hy_geo_135.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2017 Autumn
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/installing-anacondas.html">Installing Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/python-vocabulary.html">Vocabulary - Basic terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L1/motivation.html">Motivation for the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/course-environment-components.html">Course environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/intro-to-cloud-environment.html">Using the cloud computing environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/slack-usage.html">Communicating with Slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/A-taste-of-Python.html">A taste of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/exercise-1.html">Exercise 1</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L2/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/intro-to-GitHub.html">Introduction to Version Control and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/GitHub-classroom.html">Using Classroom for Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/working-on-assignment.html">Working on the assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/python-basic-elements.html">Basic elements of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/writing-scripts.html">Writing your own Python scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/ex-2.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/exercise-2-hints.html">Exercise 2 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 3</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson-video.html">Lecture</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basics-of-for-loops">Basics of <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conditional-statements.html">Conditional statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex-3.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercise-3-hints.html">Exercise 3 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 4</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L4/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/modules.html">Loading and using modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/ex-4.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/exercise-4-hints.html">Exercise 4 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 5</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L5/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/pandas-overview.html">What is Pandas?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/pandas-basics.html">Exploring data using Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/pandas-basic-operations.html">Processing data with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/ex-5.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/exercise-5-hints.html">Hints for Exercise 5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 6</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L6/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/pandas-analysis.html">Advanced data processing with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/interpreting-errors.html">Dealing with errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/debugging-scripts.html">Debugging Python scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/ex-6.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/exercise-6-hints.html">Hints for Exercise 6</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 7</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L7/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/python-plotting.html">Plotting in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/plot-anatomy.html">Anatomy of a plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/matplotlib.html">Plotting with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/using-plotly.html">Connecting Matplotlib with plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/pandas-plotting.html">Advanced plotting with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/ex-7.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/exercise-7-hints.html">Hints for Exercise 7</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Geo-Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li><code class="docutils literal notranslate"><span class="pre">for</span></code> loops</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/lessons/L3/for-loops.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+
+
+    
+    
+
+
+
+    <p class="scv-banner scv-sphinx_rtd_theme"><b>Warning:</b> This document is for the development version of Geo-Python.</p>
+<div class="section" id="for-loops">
+<h1><code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sources">
+<h2>Sources<a class="headerlink" href="#sources" title="Permalink to this headline">¶</a></h2>
+<p>This lesson is based on the <a class="reference external" href="http://software-carpentry.org/">Software Carpentry group’s</a> lessons on <a class="reference external" href="http://swcarpentry.github.io/python-novice-inflammation/">Programming with Python</a>.</p>
+</div>
+<div class="section" id="basics-of-for-loops">
+<h2>Basics of <code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#basics-of-for-loops" title="Permalink to this headline">¶</a></h2>
+<p>Loops allow parts of code to be repeated some number of times.</p>
+<ol class="arabic">
+<li><p class="first">Let’s consider an example.
+Suppose we want to take a word and print out each letter of the word separately.
+We could do the following:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;snow&#39;</span>
+
+<span class="gp">In [2]: </span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">s</span>
+
+<span class="gp">In [3]: </span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">  n</span>
+
+<span class="gp">In [4]: </span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="go">    o</span>
+
+<span class="gp">In [5]: </span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="go">      w</span>
+</pre></div>
+</div>
+<p>But this is a bad idea.
+Why?
+Well there are two reasons.
+First, it does not scale nicely for long strings, and will take forever to type in.
+Second, it won’t work if the word is not 4 characters long.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;ice&#39;</span>
+
+<span class="gp">In [7]: </span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">i</span>
+
+<span class="gp">In [8]: </span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">  c</span>
+
+<span class="gp">In [9]: </span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="go">    e</span>
+
+<span class="gp">In [10]: </span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="go">      ---------------------------------------------------------------------------</span>
+<span class="go">IndexError                                Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-10-929d2b055d22&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 print(word[3])</span>
+
+<span class="go">IndexError: string index out of range</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">We could do a much better job by using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;snow&#39;</span>
+
+<span class="gp">In [12]: </span><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+<span class="go">s</span>
+<span class="go">n</span>
+<span class="go">o</span>
+<span class="go">w</span>
+</pre></div>
+</div>
+<p>Note here that the <code class="docutils literal notranslate"><span class="pre">...</span></code> is displayed in the IPython console when entering code in a loop and you do not need to type in the <code class="docutils literal notranslate"><span class="pre">...</span></code>.
+Not only is this shorter, but it is also more flexible.
+Try out a different word such as <code class="docutils literal notranslate"><span class="pre">freezing</span> <span class="pre">fog</span></code>.
+Still works, right?</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">for</span></code> loops in Python have the general form below.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">:</span>
+    <span class="n">do</span> <span class="n">things</span> <span class="k">with</span> <span class="n">variable</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">variable</span></code> can be any name you like, and the statement of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop must end with a <code class="docutils literal notranslate"><span class="pre">:</span></code>.
+The code that should be executed as part of the loop must be indented beneath the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, and the typical indentation is 4 spaces.
+There is not additional special word needed to end the loop, just change the indentation back to normal.
+<code class="docutils literal notranslate"><span class="pre">for</span></code> loops are useful to repeat some part of the code a <em>definite</em> number of times.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Like many other programming concepts, the idea of looping through actions is something that is already perhaps more familiar to you than you think.
+Consider your actions during a given day.
+Many people have certain routines they follow each day, such as waking up, taking a shower, eating breakfast and brushing their teeth.
+In Python code, we might represent such actions as follows:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">my_life</span><span class="p">:</span>
+    <span class="n">wake_up</span><span class="p">()</span>
+    <span class="n">take_shower</span><span class="p">()</span>
+    <span class="n">eat_breakfast</span><span class="p">()</span>
+    <span class="n">brush_teeth</span><span class="p">()</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">my_life</span></code> would be a list of the days of your life, and the actions you take are represented as functions, such as <code class="docutils literal notranslate"><span class="pre">wake_up()</span></code>.
+Furthermore, by following this kind of list of repeating actions we’re able to start the day effectively even before the first cup of coffee :).</p>
+<p class="last">Need to repeat some part of a program?
+Consider using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop!</p>
+</div>
+</li>
+<li><p class="first">Let’s consider another example.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="gp">In [14]: </span><span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s1">&#39;blizzard&#39;</span><span class="p">:</span>
+<span class="gp">   ....: </span>    <span class="n">length</span> <span class="o">=</span> <span class="n">length</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [15]: </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;There are&#39;</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="s1">&#39;letters&#39;</span><span class="p">)</span>
+<span class="go">There are 8 letters</span>
+</pre></div>
+</div>
+<p>Can you follow what happens in this loop?</p>
+</li>
+<li><p class="first">Note that the variable used in the loop, <code class="docutils literal notranslate"><span class="pre">letter</span></code> in the case above is just a normal variable and still exists after the loop has completed with the final value given to letter.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">letter</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span>
+
+<span class="gp">In [17]: </span><span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s1">&#39;sleet&#39;</span><span class="p">:</span>
+<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+<span class="go">s</span>
+<span class="go">l</span>
+<span class="go">e</span>
+<span class="go">e</span>
+<span class="go">t</span>
+
+<span class="gp">In [18]: </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;After the loop, letter is&#39;</span><span class="p">,</span> <span class="n">letter</span><span class="p">)</span>
+<span class="go">          After the loop, letter is t</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">A loop can be used to iterate over any list of values in Python.
+So far we have considered only character strings, but we could also write a loop that performs a calculation a specified number of times.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+<span class="go">0</span>
+<span class="go">1</span>
+<span class="go">2</span>
+<span class="go">3</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+<p>What happens here?
+Well, in this case, we use a special function called <code class="docutils literal notranslate"><span class="pre">range()</span></code> to give us a list of 5 numbers <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code> and then print each number in the list to the screen.
+When given a integer (whole number) as an argument, <code class="docutils literal notranslate"><span class="pre">range()</span></code> will produce a list of numbers with a length equal to the specified <code class="docutils literal notranslate"><span class="pre">number</span></code>.
+The list starts at <code class="docutils literal notranslate"><span class="pre">0</span></code> and ends with <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">-</span> <span class="pre">1</span></code>.
+You can learn a bit more about range by typing</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [20]: </span><span class="n">help</span><span class="p">(</span><span class="nb">range</span><span class="p">)</span>
+<span class="go">Help on class range in module builtins:</span>
+
+<span class="go">class range(object)</span>
+<span class="go"> |  range(stop) -&gt; range object</span>
+<span class="go"> |  range(start, stop[, step]) -&gt; range object</span>
+<span class="go"> |  </span>
+<span class="go"> |  Return an object that produces a sequence of integers from start (inclusive)</span>
+<span class="go"> |  to stop (exclusive) by step.  range(i, j) produces i, i+1, i+2, ..., j-1.</span>
+<span class="go"> |  start defaults to 0, and stop is omitted!  range(4) produces 0, 1, 2, 3.</span>
+<span class="go"> |  These are exactly the valid indices for a list of 4 elements.</span>
+<span class="go"> |  When step is given, it specifies the increment (or decrement).</span>
+<span class="go"> |  </span>
+<span class="go"> |  Methods defined here:</span>
+<span class="go"> |  </span>
+<span class="go"> |  __bool__(self, /)</span>
+<span class="go"> |      self != 0</span>
+<span class="go"> |  </span>
+<span class="go"> |  __contains__(self, key, /)</span>
+<span class="go"> |      Return key in self.</span>
+<span class="go"> |  </span>
+<span class="go"> |  __eq__(self, value, /)</span>
+<span class="go"> |      Return self==value.</span>
+<span class="go"> |  </span>
+<span class="go"> |  __ge__(self, value, /)</span>
+<span class="go"> |      Return self&gt;=value.</span>
+<span class="go"> |  </span>
+<span class="go"> |  __getattribute__(self, name, /)</span>
+<span class="go"> |      Return getattr(self, name).</span>
+<span class="go"> |  </span>
+<span class="go"> |  __getitem__(self, key, /)</span>
+<span class="go"> |      Return self[key].</span>
+<span class="go"> |  </span>
+<span class="go"> |  __gt__(self, value, /)</span>
+<span class="go"> |      Return self&gt;value.</span>
+<span class="go"> |  </span>
+<span class="go"> |  __hash__(self, /)</span>
+<span class="go"> |      Return hash(self).</span>
+<span class="go"> |  </span>
+<span class="go"> |  __iter__(self, /)</span>
+<span class="go"> |      Implement iter(self).</span>
+<span class="go"> |  </span>
+<span class="go"> |  __le__(self, value, /)</span>
+<span class="go"> |      Return self&lt;=value.</span>
+<span class="go"> |  </span>
+<span class="go"> |  __len__(self, /)</span>
+<span class="go"> |      Return len(self).</span>
+<span class="go"> |  </span>
+<span class="go"> |  __lt__(self, value, /)</span>
+<span class="go"> |      Return self&lt;value.</span>
+<span class="go"> |  </span>
+<span class="go"> |  __ne__(self, value, /)</span>
+<span class="go"> |      Return self!=value.</span>
+<span class="go"> |  </span>
+<span class="go"> |  __new__(*args, **kwargs) from builtins.type</span>
+<span class="go"> |      Create and return a new object.  See help(type) for accurate signature.</span>
+<span class="go"> |  </span>
+<span class="go"> |  __reduce__(...)</span>
+<span class="go"> |      helper for pickle</span>
+<span class="go"> |  </span>
+<span class="go"> |  __repr__(self, /)</span>
+<span class="go"> |      Return repr(self).</span>
+<span class="go"> |  </span>
+<span class="go"> |  __reversed__(...)</span>
+<span class="go"> |      Return a reverse iterator.</span>
+<span class="go"> |  </span>
+<span class="go"> |  count(...)</span>
+<span class="go"> |      rangeobject.count(value) -&gt; integer -- return number of occurrences of value</span>
+<span class="go"> |  </span>
+<span class="go"> |  index(...)</span>
+<span class="go"> |      rangeobject.index(value, [start, [stop]]) -&gt; integer -- return index of value.</span>
+<span class="go"> |      Raise ValueError if the value is not present.</span>
+<span class="go"> |  </span>
+<span class="go"> |  ----------------------------------------------------------------------</span>
+<span class="go"> |  Data descriptors defined here:</span>
+<span class="go"> |  </span>
+<span class="go"> |  start</span>
+<span class="go"> |  </span>
+<span class="go"> |  step</span>
+<span class="go"> |  </span>
+<span class="go"> |  stop</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p>The program below will print numbers to the screen using the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Using the documentation that is produced when you run <code class="docutils literal notranslate"><span class="pre">help(range)</span></code>, what values would you replace the <code class="docutils literal notranslate"><span class="pre">...</span></code> in the parentheses of the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function with to have the following output printed to the screen?</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span>
+<span class="mi">5</span>
+<span class="mi">8</span>
+</pre></div>
+</div>
+<p class="last">Select your answer from the poll options at <a class="reference external" href="https://geo-python.github.io/poll/">https://geo-python.github.io/poll/</a>.</p>
+</div>
+</li>
+<li><p class="first">Often when you use <code class="docutils literal notranslate"><span class="pre">for</span></code> loops, you are looping over the values in a list and either calculating a new value or modifying the existing values.
+Let’s consider an example.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]</span>
+
+<span class="gp">In [22]: </span><span class="k">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+<span class="go">[0.0, 1.0, 2.0, 3.0, 4.0, 5.0]</span>
+
+<span class="gp">In [23]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="n">mylist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mylist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">i</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [24]: </span><span class="k">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+<span class="go">[0.0, 2.0, 4.0, 6.0, 8.0, 10.0]</span>
+</pre></div>
+</div>
+<p>So, what happened?
+We first create a list of 6 numbers.
+Then, we loop over 6 values using the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function and add each value to the existing location in <code class="docutils literal notranslate"><span class="pre">mylist</span></code>.
+What would happen if we ran this for loop a second time?</p>
+</li>
+<li><p class="first">One of the drawbacks in the example above is that we need to know the length of the list before running that <code class="docutils literal notranslate"><span class="pre">for</span></code> loop example.
+However, we already know how to find the length of a list using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function, and we can take advantage of this knowledge to make our <code class="docutils literal notranslate"><span class="pre">for</span></code> loop more flexible.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)):</span>
+<span class="gp">   ....: </span>    <span class="n">mylist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mylist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">i</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [26]: </span><span class="k">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+<span class="go">[0.0, 3.0, 6.0, 9.0, 12.0, 15.0]</span>
+</pre></div>
+</div>
+<p>We’ve done exactly what we had done in the previous example, but replaced the known length of the list <code class="docutils literal notranslate"><span class="pre">6</span></code> with use of the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function to provide the list length.
+Now if we add or remove values in <code class="docutils literal notranslate"><span class="pre">mylist</span></code>, our code will still work as expected.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [27]: </span><span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">18.0</span><span class="p">)</span>
+
+<span class="gp">In [28]: </span><span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">21.0</span><span class="p">)</span>
+
+<span class="gp">In [29]: </span><span class="k">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+<span class="go">[0.0, 3.0, 6.0, 9.0, 12.0, 15.0, 18.0, 21.0]</span>
+
+<span class="gp">In [30]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)):</span>
+<span class="gp">   ....: </span>    <span class="n">mylist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mylist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">i</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [31]: </span><span class="k">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+<span class="go">[0.0, 4.0, 8.0, 12.0, 16.0, 20.0, 24.0, 28.0]</span>
+</pre></div>
+</div>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function with <code class="docutils literal notranslate"><span class="pre">range()</span></code> to perform calcluations using list or array values is an <em>extremely</em> common operation in Python.</p>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p>What output would the following program produce?</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;ice pellets&#39;</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+<p class="last">Select your answer from the poll options at <a class="reference external" href="https://geo-python.github.io/poll/">https://geo-python.github.io/poll/</a>.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conditional-statements.html" class="btn btn-neutral float-right" title="Conditional statements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lesson-video.html" class="btn btn-neutral" title="Lecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 Tenkanen &amp; Whipp, University of Helsinki.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p> <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> </a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: 2017
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="for-loops.html">2017</a></dd>
+            <dd><a href="../../../develop/index.html">develop</a></dd>
+            <dd><a href="../../../master/index.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2017 Autumn',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

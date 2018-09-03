@@ -1,0 +1,642 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-105019106-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Functions &mdash; Geo-Python 2017 Autumn documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/GeoPython_favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/geo-python.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Loading and using modules" href="modules.html" />
+    <link rel="prev" title="Lecture" href="lesson-video.html" />
+    <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
+     
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Geo-Python
+          
+
+          
+            
+            <img src="../../_static/logo_hy_geo_135.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2017 Autumn
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/installing-anacondas.html">Installing Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/python-vocabulary.html">Vocabulary - Basic terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L1/motivation.html">Motivation for the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/course-environment-components.html">Course environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/intro-to-cloud-environment.html">Using the cloud computing environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/slack-usage.html">Communicating with Slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/A-taste-of-Python.html">A taste of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/exercise-1.html">Exercise 1</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L2/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/intro-to-GitHub.html">Introduction to Version Control and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/GitHub-classroom.html">Using Classroom for Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/working-on-assignment.html">Working on the assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/python-basic-elements.html">Basic elements of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/writing-scripts.html">Writing your own Python scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/ex-2.html">Exercise 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/exercise-2-hints.html">Exercise 2 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L3/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/for-loops.html"><code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/conditional-statements.html">Conditional statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/ex-3.html">Exercise 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/exercise-3-hints.html">Exercise 3 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 4</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson-video.html">Lecture</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-a-function">What is a function?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anatomy-of-a-function">Anatomy of a function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calling-functions">Calling functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#saving-and-loading-functions">Saving and loading functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#saving-functions-in-a-script-file">Saving functions in a script file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calling-functions-from-another-script-file">Calling functions from another script file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#temperature-calculator-optional-advanced-topic">Temperature calculator (optional, advanced topic)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Loading and using modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ex-4.html">Exercise 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercise-4-hints.html">Exercise 4 hints</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 5</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L5/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/pandas-overview.html">What is Pandas?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/pandas-basics.html">Exploring data using Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/pandas-basic-operations.html">Processing data with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/ex-5.html">Exercise 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/exercise-5-hints.html">Hints for Exercise 5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 6</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L6/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/pandas-analysis.html">Advanced data processing with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/interpreting-errors.html">Dealing with errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/debugging-scripts.html">Debugging Python scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/ex-6.html">Exercise 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/exercise-6-hints.html">Hints for Exercise 6</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 7</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L7/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/lesson-video.html">Lecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/python-plotting.html">Plotting in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/plot-anatomy.html">Anatomy of a plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/matplotlib.html">Plotting with Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/using-plotly.html">Connecting Matplotlib with plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/pandas-plotting.html">Advanced plotting with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/ex-7.html">Exercise 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/exercise-7-hints.html">Hints for Exercise 7</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Geo-Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Functions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/lessons/L4/functions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+
+
+    
+    
+
+
+
+    <p class="scv-banner scv-sphinx_rtd_theme"><b>Warning:</b> This document is for the development version of Geo-Python.</p>
+<div class="section" id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sources">
+<h2>Sources<a class="headerlink" href="#sources" title="Permalink to this headline">¶</a></h2>
+<p>This lesson is partly based on the <a class="reference external" href="http://software-carpentry.org/">Software Carpentry group’s</a> lessons on <a class="reference external" href="http://swcarpentry.github.io/python-novice-inflammation/">Programming with Python</a>.</p>
+</div>
+<div class="section" id="what-is-a-function">
+<h2>What is a function?<a class="headerlink" href="#what-is-a-function" title="Permalink to this headline">¶</a></h2>
+<p>A function is a block of organized, reusable code that can make your scripts more effective, easier to read, and simple to manage.
+You can think functions as little self-contained programs that can perform a specific task which you can use repeatedly in your code.
+One of the basic principles in good programming is “do not to repeat yourself”.
+In other words, you should avoid having duplicate lines of code in your scripts.
+Functions are a good way to avoid such situations and they can save you a lot of time and effort as you don’t need to tell the computer repeatedly what to do every time it does a common task, such as converting temperatures from Fahrenheit to Celsius.
+During the course we have already used some functions such as the <code class="docutils literal notranslate"><span class="pre">print()</span></code> command which is actually a built-in function in Python.</p>
+</div>
+<div class="section" id="anatomy-of-a-function">
+<h2>Anatomy of a function<a class="headerlink" href="#anatomy-of-a-function" title="Permalink to this headline">¶</a></h2>
+<p>Let’s consider the task from the first lesson when we converted temperatures from Celsius to Fahrenheit.
+Such an operation is a fairly common task when dealing with temperature data.
+Thus we might need to repeat such calculations quite frequently when analysing or comparing weather or climate data between the US and Europe, for example.</p>
+<ol class="arabic">
+<li><p class="first">Let’s define our first function called <code class="docutils literal notranslate"><span class="pre">celsiusToFahr</span></code>:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="k">def</span> <span class="nf">celsiusToFahr</span><span class="p">(</span><span class="n">tempCelsius</span><span class="p">):</span>
+<span class="gp">   ...: </span>    <span class="k">return</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">tempCelsius</span> <span class="o">+</span> <span class="mi">32</span>
+<span class="gp">   ...: </span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="../../_images/Function_anatomy.png"><img alt="Anatomy of a function" src="../../_images/Function_anatomy.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Anatomy of a function</span></p>
+</div>
+<p>The function definition opens with the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code> followed by the name of the function and a list of parameter names in parentheses.
+The body of the function — the statements that are executed when it runs — is indented below the definition line.</p>
+<p>When we <em>call the function</em>, the values we pass to it are assigned to the corresponding parameter variables so that we can use them inside the function (e.g., the variable <code class="docutils literal notranslate"><span class="pre">tempCelsius</span></code> in this function example).
+Inside the function, we use a return statement to define the value that should be given back when the function is used, or called).</p>
+</li>
+</ol>
+</div>
+<div class="section" id="calling-functions">
+<h2>Calling functions<a class="headerlink" href="#calling-functions" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic" start="2">
+<li><p class="first">Now let’s try using our function.
+Calling our self-defined function is no different from calling any other function such as <code class="docutils literal notranslate"><span class="pre">print()</span></code>.
+You need to call it with its name and send your value to the required parameter(s) inside the parentheses:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="n">freezingPoint</span> <span class="o">=</span>  <span class="n">celsiusToFahr</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="gp">In [3]: </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;The freezing point of water in Fahrenheit is:&#39;</span><span class="p">,</span> <span class="n">freezingPoint</span><span class="p">)</span>
+<span class="go">The freezing point of water in Fahrenheit is: 32.0</span>
+
+<span class="gp">In [4]: </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;The boiling point of water in Fahrenheit is:&#39;</span><span class="p">,</span> <span class="n">celsiusToFahr</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="go">                                                   The boiling point of water in Fahrenheit is: 212.0</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Now that we know how to create a function to convert Celsius to Fahrenheit, let’s create another function called <code class="docutils literal notranslate"><span class="pre">kelvinsToCelsius</span></code>:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="k">def</span> <span class="nf">kelvinsToCelsius</span><span class="p">(</span><span class="n">tempKelvins</span><span class="p">):</span>
+<span class="gp">   ...: </span>    <span class="k">return</span> <span class="n">tempKelvins</span> <span class="o">-</span> <span class="mf">273.15</span>
+<span class="gp">   ...: </span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">And let’s use it in the same way as the earlier one:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">absoluteZero</span> <span class="o">=</span> <span class="n">kelvinsToCelsius</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="gp">In [7]: </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Absolute zero in Celsius is:&#39;</span><span class="p">,</span> <span class="n">absoluteZero</span><span class="p">)</span>
+<span class="go">Absolute zero in Celsius is: -273.15</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">What about converting Kelvins to Fahrenheit?
+We could write out a new formula for it, but we don’t need to.
+Instead, we can do the conversion using the two functions we have already created and calling those from the function we are now creating:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="k">def</span> <span class="nf">kelvinsToFahrenheit</span><span class="p">(</span><span class="n">tempKelvins</span><span class="p">):</span>
+<span class="gp">   ...: </span>    <span class="n">tempCelsius</span> <span class="o">=</span> <span class="n">kelvinsToCelsius</span><span class="p">(</span><span class="n">tempKelvins</span><span class="p">)</span>
+<span class="gp">   ...: </span>    <span class="n">tempFahr</span> <span class="o">=</span> <span class="n">celsiusToFahr</span><span class="p">(</span><span class="n">tempCelsius</span><span class="p">)</span>
+<span class="gp">   ...: </span>    <span class="k">return</span> <span class="n">tempFahr</span>
+<span class="gp">   ...: </span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Now let’s use the function:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">absoluteZeroF</span> <span class="o">=</span> <span class="n">kelvinsToFahrenheit</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="gp">In [10]: </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Absolute zero in Fahrenheit is:&#39;</span><span class="p">,</span> <span class="n">absoluteZeroF</span><span class="p">)</span>
+<span class="go">Absolute zero in Fahrenheit is: -459.66999999999996</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="saving-and-loading-functions">
+<h2>Saving and loading functions<a class="headerlink" href="#saving-and-loading-functions" title="Permalink to this headline">¶</a></h2>
+<p>Functions such as the ones we just created can also be called from another script.
+In fact, quite often it is useful to create a dedicated function library for functions that you use frequently, when doing data analysis, for example.
+Basically this is done by listing useful functions in a single <code class="docutils literal notranslate"><span class="pre">.py</span></code> file from which you can then import and use them whenever needed.</p>
+<div class="section" id="saving-functions-in-a-script-file">
+<h3>Saving functions in a script file<a class="headerlink" href="#saving-functions-in-a-script-file" title="Permalink to this headline">¶</a></h3>
+<p>Before we can import our functions we need to create a new script file and save the functions that we just created into a Python file called <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code>.</p>
+<p>We could write the functions again into our script file but we can also take advantage of the <strong>History log</strong> tab in <strong>Spyder</strong> where we should find all commands that we typed in the IPython console <a class="footnote-reference" href="#f1" id="id1">[1]</a>:</p>
+<div class="figure align-center" id="id6">
+<a class="reference internal image-reference" href="../../_images/history_log.PNG"><img alt="The history log in Spyder" src="../../_images/history_log.PNG" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">The history log in Spyder</span></p>
+</div>
+<ol class="arabic">
+<li><p class="first">Copy and paste (only) the functions that we wrote earlier from the History log tab and save them in the <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> script (<em>optionally you can just write them again into the file if you want the practice</em> ).
+It should look like following:</p>
+<div class="figure align-center" id="id7">
+<a class="reference internal image-reference" href="../../_images/temp_converter.PNG"><img alt="The temp_converter.py script" src="../../_images/temp_converter.PNG" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">The <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> script. Note that our function names differ slightly from those in the image.</span></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="calling-functions-from-another-script-file">
+<h3>Calling functions from another script file<a class="headerlink" href="#calling-functions-from-another-script-file" title="Permalink to this headline">¶</a></h3>
+<p>Now that we have saved our temperature conversion functions into a script file we can start using them.</p>
+<ol class="arabic" start="2">
+<li><p class="first">Let’s create another script file called <code class="docutils literal notranslate"><span class="pre">calculator.py</span></code>.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Save the file into the <strong>same folder</strong> where you saved the <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> file <a class="footnote-reference" href="#f2" id="id2">[2]</a>.</p>
+</div>
+</li>
+<li><p class="first">Let’s now import our <code class="docutils literal notranslate"><span class="pre">celsiusToFahr</span></code> function from the other script by adding a specific import statement at the top of our <code class="docutils literal notranslate"><span class="pre">calculator.py</span></code> script.
+Let’s also use the function so that we can see that it is working <a class="footnote-reference" href="#f3" id="id3">[3]</a>:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">temp_converter</span> <span class="k">import</span> <span class="n">celsiusToFahr</span>
+
+<span class="c1"># Testing that the function from another file works</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The freezing point of water in Fahrenheit is:&quot;</span><span class="p">,</span> <span class="n">celsiusToFahr</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Run the code by pressing F5 key or by pressing the play button in Spyder.
+We should now get following output:</p>
+<div class="figure align-center" id="id8">
+<a class="reference internal image-reference" href="../../_images/using_function_from_another_script.PNG"><img alt="Using a function from another script" src="../../_images/using_function_from_another_script.PNG" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Using a function from another script</span></p>
+</div>
+<ul>
+<li><p class="first">It is also possible to import more functions at the same time by listing and separating them with a comma</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">my_script</span> <span class="k">import</span> <span class="n">func1</span><span class="p">,</span> <span class="n">func2</span><span class="p">,</span> <span class="n">func3</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">Sometimes it is useful to import the whole script and all of its functions at once.
+Let’s modify the import statement in our script and test that all functions work <a class="footnote-reference" href="#f4" id="id4">[4]</a>:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">temp_converter</span> <span class="k">as</span> <span class="nn">tc</span>
+
+<span class="c1"># Testing that all functions from another file work</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The freezing point of water in Fahrenheit is:&quot;</span><span class="p">,</span> <span class="n">tc</span><span class="o">.</span><span class="n">celsiusToFahr</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Absolute zero in Celsius is:&#39;</span><span class="p">,</span> <span class="n">tc</span><span class="o">.</span><span class="n">kelvinsToCelsius</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Absolute zero in Fahrenheit is:&#39;</span><span class="p">,</span> <span class="n">tc</span><span class="o">.</span><span class="n">kelvinsToFahrenheit</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="temperature-calculator-optional-advanced-topic">
+<h3>Temperature calculator (optional, advanced topic)<a class="headerlink" href="#temperature-calculator-optional-advanced-topic" title="Permalink to this headline">¶</a></h3>
+<p>So far our functions have had only one parameter, but it is also possible to define a function with multiple parameters.
+Let’s now make a simple <code class="docutils literal notranslate"><span class="pre">tempCalculator</span></code> function that accepts temperatures in Kelvins and returns either Celsius or Fahrenheit.
+The new function will have two parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">tempK</span></code> = The parameter for passing temperature in Kelvin</li>
+<li><code class="docutils literal notranslate"><span class="pre">convertTo</span></code> = The parameter that determines whether to output should be in Celsius or in Fahrenheit (using letters <code class="docutils literal notranslate"><span class="pre">C</span></code> or <code class="docutils literal notranslate"><span class="pre">F</span></code> accordingly)</li>
+</ul>
+<ol class="arabic">
+<li><p class="first">Let’s start defining our function by giving it a name and setting the parameters:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tempCalculator</span><span class="p">(</span><span class="n">tempK</span><span class="p">,</span> <span class="n">convertTo</span><span class="p">):</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Next, we need to add conditional statements that check whether the output temperature is wanted in Celsius or Fahrenheit, and then call corresponding function that was imported from the <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> file.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tempCalculator</span><span class="p">(</span><span class="n">tempK</span><span class="p">,</span> <span class="n">convertTo</span><span class="p">):</span>
+    <span class="c1"># Check if user wants the temperature in Celsius</span>
+    <span class="k">if</span> <span class="n">convertTo</span> <span class="o">==</span> <span class="s2">&quot;C&quot;</span><span class="p">:</span>
+        <span class="c1"># Convert the value to Celsius using the dedicated function for the task that we imported from another script</span>
+        <span class="n">convertedTemp</span> <span class="o">=</span> <span class="n">kelvinsToCelsius</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="n">tempK</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">convertTo</span> <span class="o">==</span> <span class="s2">&quot;F&quot;</span><span class="p">:</span>
+        <span class="c1"># Convert the value to Fahrenheit using the dedicated function for the task that we imported from another script</span>
+        <span class="n">convertedTemp</span> <span class="o">=</span> <span class="n">kelvinsToFahrenheit</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="n">tempK</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Next, we need to add a <strong>return statement</strong> so that our function sends back the value that we are interested in:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tempCalculator</span><span class="p">(</span><span class="n">tempK</span><span class="p">,</span> <span class="n">convertTo</span><span class="p">):</span>
+    <span class="c1"># Check if user wants the temperature in Celsius</span>
+    <span class="k">if</span> <span class="n">convertTo</span> <span class="o">==</span> <span class="s2">&quot;C&quot;</span><span class="p">:</span>
+        <span class="c1"># Convert the value to Celsius using the dedicated function for the task that we imported from another script</span>
+        <span class="n">convertedTemp</span> <span class="o">=</span> <span class="n">kelvinsToCelsius</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="n">tempK</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">convertTo</span> <span class="o">==</span> <span class="s2">&quot;F&quot;</span><span class="p">:</span>
+        <span class="c1"># Convert the value to Fahrenheit using the dedicated function for the task that we imported from another script</span>
+        <span class="n">convertedTemp</span> <span class="o">=</span> <span class="n">kelvinsToFahrenheit</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="n">tempK</span><span class="p">)</span>
+    <span class="c1"># Return the result</span>
+    <span class="k">return</span> <span class="n">convertedTemp</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Lastly, as we want to be good programmers, we add a short docstring at the beginning of our function that tells what the function does and how the parameters work:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tempCalculator</span><span class="p">(</span><span class="n">tempK</span><span class="p">,</span> <span class="n">convertTo</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function for converting temperature in Kelvins to Celsius or Fahrenheit.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tempK: &lt;numerical&gt;</span>
+<span class="sd">        Temperature in Kelvins</span>
+<span class="sd">    convertTo: &lt;str&gt;</span>
+<span class="sd">        Target temperature that can be either Celsius (&#39;C&#39;) or Fahrenheit (&#39;F&#39;). Supported values: &#39;C&#39; | &#39;F&#39;</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    &lt;float&gt;</span>
+<span class="sd">        Converted temperature.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Check if user wants the temperature in Celsius</span>
+    <span class="k">if</span> <span class="n">convertTo</span> <span class="o">==</span> <span class="s2">&quot;C&quot;</span><span class="p">:</span>
+        <span class="c1"># Convert the value to Celsius using the dedicated function for the task that we imported from another script</span>
+        <span class="n">convertedTemp</span> <span class="o">=</span> <span class="n">kelvinsToCelsius</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="n">tempK</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">convertTo</span> <span class="o">==</span> <span class="s2">&quot;F&quot;</span><span class="p">:</span>
+        <span class="c1"># Convert the value to Fahrenheit using the dedicated function for the task that we imported from another script</span>
+        <span class="n">convertedTemp</span> <span class="o">=</span> <span class="n">kelvinsToFahrenheit</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="n">tempK</span><span class="p">)</span>
+    <span class="c1"># Return the result</span>
+    <span class="k">return</span> <span class="n">convertedTemp</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">That’s it!
+Now we have a temperature calculator that has a simple control for the user where s/he can change the output by using the <code class="docutils literal notranslate"><span class="pre">convertTo</span></code> parameter.
+Now as we added the short docstring in the beginning of the function we can use the <code class="docutils literal notranslate"><span class="pre">help()</span></code> function in Python to find out how our function should be used.
+Run the script and try following:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">tempCalculator</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s use it:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tempKelvin</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">temperatureC</span> <span class="o">=</span> <span class="n">tempCalculator</span><span class="p">(</span><span class="n">tempK</span><span class="o">=</span><span class="n">tempKelvin</span><span class="p">,</span> <span class="n">convertTo</span><span class="o">=</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature&quot;</span><span class="p">,</span> <span class="n">tempKelvin</span><span class="p">,</span> <span class="s2">&quot;in Kelvins is&quot;</span><span class="p">,</span> <span class="n">temperatureC</span><span class="p">,</span> <span class="s2">&quot;in Celsius&quot;</span><span class="p">)</span>
+<span class="go">Temperature 30 in Kelvins is -243.14999999999998 in Celsius</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>The history log tab can be found from the same panel where we have executed our codes (bottom-right, next to IPython console).</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>When communicating between script files, it is necessary to keep them in the same folder so that Python can find them (there are other ways but this is the easiest).</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Following the principles of good programming <code class="docutils literal notranslate"><span class="pre">import</span></code> statements that you use should <strong>always</strong> be written at the top of the script file.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td><p class="first">It is also possible to import functions by using specific the <code class="docutils literal notranslate"><span class="pre">*</span></code> character:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">moduleX</span> <span class="k">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>The downside of using <code class="docutils literal notranslate"><span class="pre">*</span></code> symbol to import all functions is that you won’t see which functions are imported, unless checking them from the script itself or using the <code class="docutils literal notranslate"><span class="pre">dir()</span></code> function to list them (see <a class="reference internal" href="modules.html"><span class="doc">the lesson on modules</span></a>).</p>
+<div class="last admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">We do not recommend importing functions using this approach as there is a risk of function name conflicts when doing this.
+Please use with caution</p>
+</div>
+</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="modules.html" class="btn btn-neutral float-right" title="Loading and using modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lesson-video.html" class="btn btn-neutral" title="Lecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 Tenkanen &amp; Whipp, University of Helsinki.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p> <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> </a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: 2017
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="functions.html">2017</a></dd>
+            <dd><a href="../../../develop/index.html">develop</a></dd>
+            <dd><a href="../../../master/index.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2017 Autumn',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
