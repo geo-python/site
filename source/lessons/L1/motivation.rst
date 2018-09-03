@@ -91,11 +91,11 @@ We have essentially the same data plotted above, but now we can see how temperat
 .. raw:: html
 
     <video width="800" controls>
-      <source src="../../_static/Temp-anomalies.mp4" type="video/mp4">
+      <source src="../../_static/Temp-anomalies-2018.mp4" type="video/mp4">
     </video>
-    <p style="text-align:center"><i>Global temperature anomalies by country from 1900-2016. Visualization by Antti Lipponen (<a href="https://twitter.com/anttilip">@anttilip</a>). Source: <a href="https://flic.kr/p/W3wPeE">https://flic.kr/p/W3wPeE</a></i></p>
+    <p style="text-align:center"><i>Global temperature anomalies by country from 1900-2017. Visualization by Antti Lipponen (<a href="https://twitter.com/anttilip">@anttilip</a>). Source: <a href="https://t.co/ZdGPVTM5yO">https://t.co/ZdGPVTM5yO</a></i></p>
 
-This animated radial plot of temperature anomalies conveys a huge amount of information in a simple form.
+This animated "pill packet" plot of temperature anomalies conveys a huge amount of information in a simple form.
 People can immediately understand what is plotted, and the combination of the plot format, colors and animation are very effective.
 What even better is the fact that this animation was made using Python!
 
