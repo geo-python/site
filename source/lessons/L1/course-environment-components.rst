@@ -21,21 +21,27 @@ During the practical exercise sessions you can either use your own computer, or 
 Cloud computing environments
 ----------------------------
 
-You can use the cloud computing environment with any computer at the
+During this course we encourage you to use cloud-based computing environment (Binder or CSC Notebooks) where you can interact with the lesson materials (such as the Jupyter Notebook behind lesson 1)
+and develop your own code for the course exercises. You can use the cloud computing environments with any computer at the
 university or your own computer. All you need is a reasonably fast internet connection and a web browser.
 
 Please note that the cloud computing environments are **temporary**, always remember to download your own work (and / or push it to github).
 
 .. figure:: img/LaunchButtons.png
 
+Each interactive lesson and exercise will have a launch button for both Binder and CSC Notebook.
+Both of the environments should work in a similar manner, but we have two options available in case one of the services is not working properly.
 
 Binder and CSC Notebooks provide a **temporary** JupyterLab environment (tailored for this course) that you can use in a similar manner as
-you would use it on your own computer. The difference is that the computer is
-located in the 'cloud' i.e., it is physically located and runs somewhere else on a server and you can use it remotely from
-any computer with an internet connection.
+you would use it on your own computer. The difference is that the computer is located in the 'cloud' i.e., it is physically
+located and runs somewhere else on a server and you can use it remotely from any computer with an internet connection.
+
 
 Binder
 ~~~~~~~~~~~~~~~~~~~
+
+Binder (https://mybinder.org/) runs custom-made Jupyter Notebooks in your web browser. The original files (notebooks) are hosted on GitHub.
+Binder does not require the user to log in, you can just click on the link in the lesson / exercise and start working.
 
 CSC Notebooks
 ~~~~~~~~~~~~~~~~~~~
@@ -46,6 +52,7 @@ This service is available only for students who are affiliated with Finnish univ
 Once you have logged in, you will see all available Environments on the dashboard.
 
 When using the CSC Notebooks for the first time, you need to join the group created for this course:
+
 1. Go to Account
 2. Join Group `Geo-Python` using the joining code xxxxxx
 
