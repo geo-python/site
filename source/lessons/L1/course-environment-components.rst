@@ -3,9 +3,9 @@ Course environment
 
 In this course we will actively use a course environment that consist of modern tools and applications for:
 
-1. Doing the actual programming using `Jupyter Notebooks and JupyterLab`_
+1. Doing the actual programming with `Jupyter Notebooks and JupyterLab`_ using
     - `your own computer <#using your own computer>`_ or
-    - in a `cloud computing environment <#cloud computing environments>`_
+    - a `cloud computing environment <#cloud computing environments>`_
 2. Sharing and saving your work online with version control (`Git + GitHub`_)
 3. Communicating online (`Using Slack`_)
 4. `Voting / polling during the lectures <#voting-and-polling>`_
