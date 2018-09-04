@@ -32,7 +32,10 @@ The process for creating a `GitHub.com <https://www.github.com>`__ account is st
 Part 2 - Cooking up some Python
 -------------------------------
 
-In this part you should start working with Exercise by accepting our first `GitHub Classroom for the Exercise 1 <https://classroom.github.com/a/EkzHACcX>`__ (click the link).
+.. image:: https://mybinder.org/badge.svg
+   :target: https://mybinder.org/v2/gh/Geo-Python-2018/Binder/master?urlpath=lab
+
+In this part you should start working by launching a new JupyterLab instance from above (unless you have it open already) with Exercise by accepting our first `GitHub Classroom for the Exercise 1 <https://classroom.github.com/a/EkzHACcX>`__ (click the link).
 After clicking the link, you should sign in with your GitHub credentials and you should be directed to the Exercise 1 repository, where are the instructions
 for doing the coding parts of the Exercise 1.
 
