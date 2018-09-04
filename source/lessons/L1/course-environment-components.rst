@@ -13,15 +13,13 @@ In this course we will actively use a course environment that consist of modern 
 
 Jupyter Notebooks and JupyterLab
 --------------------------------
-Jupyter Notebooks and JupyerLab belong to `Project Jupyter <http://jupyter.org/>`__, an open-source project which provides tools for data science.
+Jupyter Notebooks and JupyerLab belong to `Project Jupyter <http://jupyter.org/>`__, an open-source project which provides tools for data science. We will use these tools as the primary environment for python programming during this course.
 
 **Jupyter Notebooks** are documents which contain both computer code, text and other elements (such as figures, links etc.).
 Jupyter Notebooks are perfect for documenting your data science workflow in an interactive format.
 
 **JupyterLab** is an interface for using Jupyter Notebooks. Jupyter lab consists of different components such as a file browser, terminal, image viewer, console, text editor, etc.
-In this course we will use JupyterLab as the default programming environment.
-
-You can either use JupyterLab on your own computer, or via the available cloud computing resources (Binder or CSC Notebooks).
+In this course we will use JupyterLab as the default programming environment. You can either use JupyterLab on your own computer, or via the available cloud computing resources (Binder or CSC Notebooks).
 
 .. figure:: img/JupyterLab.png
    :alt: A Jupyter Notebook open in Jupyter Lab
@@ -75,12 +73,13 @@ Once you have logged in, you will see all available Environments on the dashboar
 When using the CSC Notebooks for the first time, you need to join the group created for this course:
 
 1. Go to Account
-2. Join Group `Geo-Python` using the joining code xxxxxx
+2. Join Group `Geo-Python` using the joining code: xxxxxx
 
 After joining the group, you should be able to view an environment called `JupyterLab`.
-After you have joined the group, you can repeat these steps every time when starting to work on a programming task:
 
-1. Click on the launch CSC Notebook -button (or enter via notebooks.csc.fi)
+Repeat these steps every time when starting to work on a programming task using the CSC Notebooks:
+
+1. Click on the launch CSC Notebook -button on the course webpage (or enter via notebooks.csc.fi)
 2. Click `Launch new` under the JupyterLab - Environment
 3. Wait for a while (go get a coffee!, it will take 2-5 minutes for the environment to be ready)
 4. Click "open in browser"
