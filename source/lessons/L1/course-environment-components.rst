@@ -128,21 +128,6 @@ You can access the polling system of our course from `<https://geo-python.github
     The polling system is active only **during** the lessons. If you access the website outside the lecture times, you
     will most probably see only a white page without any content.
 
-Workflow
---------
-
-The figure below illustrates the basic workflow that we will be using
-throughout this course. We will be using actively all of the
-aforementioned components, i.e., we will:
-
-1. Connect to the Computing Dashboard
-2. Launch a Computer Instance
-3. Connect to our temporary remote computer instance
-4. Download the course materials from GitHub
-5. Save our work permanently to GitHub after every lecture or practical
-   exercise
-
-.. figure:: img/RemoteComputerInstance.png
 
 Page summary
 ------------
@@ -151,4 +136,3 @@ Now you should have (at least) a basic idea about the different
 components of our course environment and what they mean. You don't need
 to understand everything fully at this point as they will become clearer
 when we start using the course environment.
-
