@@ -184,6 +184,9 @@ nbsphinx_prolog = r"""
 
     .. nbinfo::
 
+        Notebook info
+
+
         This page was generated from `{{ docname }}`__.
 
 
