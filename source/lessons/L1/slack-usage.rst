@@ -25,7 +25,7 @@ Activating your account
 -----------------------
 
 We will send an invitation link for all enrolled students to the Slack Team called ``geopython2018``.
-Before you can start using Slack, you should create a new account for Slack (if you don't have one already) and accept our invitation to our team.
+Before you can start using Slack, you should create a new account for Slack (if you don't have one already) and accept the invitation you have received.
 
 Basic usage of Slack
 --------------------
@@ -39,7 +39,7 @@ When entering to our Slack Team you should see something like following where yo
    :alt: Basic view of Slack
    :width: 550px
 
-   Basic view of Slack (click zoom)
+   Basic view of Slack
 
 Notifying a user
 ~~~~~~~~~~~~~~~~
@@ -52,7 +52,7 @@ The example below shows how to do this:
    :alt: You can notify a user
    :width: 550px
 
-   You can target your question/answer to speficic user with ``@`` -character. (click zoom)
+   You can target your question/answer to speficic user with ``@`` -character.
 
 
 Using threads
@@ -65,7 +65,7 @@ to start discussing about and press button in the middle that creates a new thre
    :alt: Organizing discussion with threads.
    :width: 550px
 
-   Organizing discussion with threads. (click zoom)
+   Organizing discussion with threads.
 
 You can view the active thread by pressing the thread that has some replies. The thread opens up as a new panel on the right side where you will see all the discussion that
 is relevant for the question at hand. You can send your comments into that thread by putting your comment on the text box on the right:
@@ -74,7 +74,7 @@ is relevant for the question at hand. You can send your comments into that threa
    :alt: Viewing and answering to a specific thread can be done with dedicated panel on the right.
    :width: 550px
 
-   Viewing and answering to a specific thread can be done with dedicated panel on the right. (click zoom)
+   Viewing and answering to a specific thread can be done with dedicated panel on the right.
 
 General guidelines for communication
 ------------------------------------
