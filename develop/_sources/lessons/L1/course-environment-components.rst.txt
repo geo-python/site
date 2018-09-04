@@ -3,7 +3,9 @@ Course environment
 
 In this course we will actively use a course environment that consist of modern tools and applications for:
 
-1. Doing the actual programming using `Jupyter Notebooks and JupyterLab`_  (on `your own computer <#using your own computer>`_ or in a `cloud computing environment <#cloud computing environments>`_)
+1. Doing the actual programming using `Jupyter Notebooks and JupyterLab`_
+    - `your own computer <#using your own computer>`_ or
+    - in a `cloud computing environment <#cloud computing environments>`_
 2. Sharing and saving your work online with version control (`Git + GitHub`_)
 3. Communicating online (`Using Slack`_)
 4. `Voting / polling during the lectures <#voting-and-polling>`_
@@ -25,6 +27,8 @@ You can either use JupyterLab on your own computer, or via the available cloud c
    :alt: A Jupyter Notebook open in Jupyter Lab
    :width: 550px
 
+   A Jupyter Notebook open in Jupyter Lab
+
 
 Using your own computer
 -------------------------
@@ -35,14 +39,16 @@ During the practical exercise sessions you can either use your own computer, or 
 Cloud computing environments
 ----------------------------
 
-During this course we encourage you to use cloud-based computing environment (Binder or CSC Notebooks) to access interactive online version of the lessons (such as the Jupyter Notebook behind lesson 1)
-and to develop your own code for the course exercises. You can use the cloud computing environments with any computer with a reasonably fast internet connection and a web browser.
+During this course we encourage you use a cloud-based computing environment (Binder or CSC Notebooks) to access interactive online version of the lessons
+and to develop your own code for the course exercises. You can use the cloud computing environments with any computer (as long as it has a reasonably fast internet connection and a web browser).
 
 Please note that the cloud computing environments are **temporary**, always remember to download your own work (and / or push it to github).
 
 .. figure:: img/LaunchButtons.png
    :alt: Launch CSC Notebooks or Binder using the launch-buttons
    :width: 550px
+
+   Launch buttons for Binder and CSC Notebooks can be found at the top of each interactive lesson
 
 Each interactive lesson and exercise will have a launch button for both Binder and CSC Notebook.
 Both of the environments should work in a similar manner, but we have two options available in case one of the services is not working properly.
