@@ -13,13 +13,13 @@ In this course we will actively use a course environment that consist of modern 
 
 Jupyter Notebooks and JupyterLab
 --------------------------------
-Jupyter Notebooks and JupyerLab belong to `Project Jupyter <http://jupyter.org/>`__, an open-source project which provides tools for data science. We will use these tools as the primary environment for python programming during this course.
+Jupyter Notebooks and JupyerLab belong to `Project Jupyter <http://jupyter.org/>`__, an open-source project which provides tools for data science. In this course we will use Jupyter Notebooks and JupyterLab as the default programming environment.
 
 **Jupyter Notebooks** are documents which contain both computer code, text and other elements (such as figures, links etc.).
 Jupyter Notebooks are perfect for documenting your data science workflow in an interactive format.
 
 **JupyterLab** is an interface for using Jupyter Notebooks. Jupyter lab consists of different components such as a file browser, terminal, image viewer, console, text editor, etc.
-In this course we will use JupyterLab as the default programming environment. You can either use JupyterLab on your own computer, or via the available cloud computing resources (Binder or CSC Notebooks).
+You can either use JupyterLab on your own computer, or via the available cloud computing resources (Binder or CSC Notebooks).
 
 .. figure:: img/JupyterLab.png
    :alt: A Jupyter Notebook open in Jupyter Lab

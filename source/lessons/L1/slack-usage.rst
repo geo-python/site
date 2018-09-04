@@ -25,7 +25,7 @@ Activating your account
 -----------------------
 
 We will send an invitation link for all enrolled students to the Slack Team called ``geopython2018``.
-Before you can start using Slack, you should create a new account for Slack (if you don't have one already) and accept our invitation to our team.
+Before you can start using Slack, you should create a new account for Slack (if you don't have one already) and accept the invitation you have received.
 
 Basic usage of Slack
 --------------------
