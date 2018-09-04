@@ -35,8 +35,8 @@ After each week you should be able to achieve following learning goals.
 +---------------------------------+-------------------------------------------------------------------------------------+
 | 5.                              |  At the end of class 5 you should be able to:                                       |
 |                                 |    - Explain what a Python module is and how they can be used                       |
-|                                 |    - Read data from a .csv text file into a program using Pandas                    |
-|                                 |    - Do simple data analysis using pandas data structures and related functions     |
+|                                 |    - Read data into a program from a .csv text file                                 |
+|                                 |    - Do simple data analysis using Numpy and/or Pandas                              |
 |                                 |                                                                                     |
 +---------------------------------+-------------------------------------------------------------------------------------+
 | 6.                              |  At the end of class 6 you should be able to:                                       |
@@ -46,7 +46,7 @@ After each week you should be able to achieve following learning goals.
 |                                 |                                                                                     |
 +---------------------------------+-------------------------------------------------------------------------------------+
 | 7.                              |  At the end of class 7 you should be able to:                                       |
-|                                 |    - Make basic x-y plots of data using Pandas                                      |
+|                                 |    - Make basic x-y plots of data                                                   |
 |                                 |    - Manipulate plot formatting                                                     |
 |                                 |    - Save plots as image files                                                      |
 |                                 |                                                                                     |
