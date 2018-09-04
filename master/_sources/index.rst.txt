@@ -26,45 +26,46 @@ on the laboratory exercises, however the laboratory summary write-ups that you s
 Schedule
 --------
 
-The materials are divided into weekly themes that are published at these pages every Wednesday morning. Lessons are held with following schedule (see :doc:`here for further details about schedule and lecture rooms <course-info/course-info>`).
+The materials are divided into weekly themes that are published at these pages every Wednesday morning before each lesson. Lessons are held with following schedule (see :doc:`here for further details about schedule and lecture rooms <course-info/course-info>`).
 The **learning goals** for each lesson are separately documented :doc:`in here <course-info/learning-goals>`.
 
-+----------------+---------------------------------+
-| Time           | Theme                           |
-+================+=================================+
-| **Class 1**    | Basic concepts of Python and    |
-|   6.9.2017     | computer programs               |
-|                |                                 |
-|                |                                 |
-+----------------+---------------------------------+
-| **Class 2**    | Diving into Python              |
-|  13.9.2017     |                                 |
-|                |                                 |
-|                |                                 |
-+----------------+---------------------------------+
-| **Class 3**    | Repeating tasks and making      |
-|  20.9.2017     | decisions                       |
-|                |                                 |
-|                |                                 |
-+----------------+---------------------------------+
-| **Class 4**    | Creating and using functions    |
-|  27.9.2017     |                                 |
-|                |                                 |
-+----------------+---------------------------------+
-| **Class 5**    | Data analysis with Pandas       |
-|  4.10.2017     | Part I                          |
-|                |                                 |
-+----------------+---------------------------------+
-| **Class 6**    | Data analysis with Pandas       |
-|  11.10.2017    | Part II + Dealing with errors   |
-|                |                                 |
-+----------------+---------------------------------+
-| **Class 7**    | Basics of data visualization    |
-|  18.10.2017    |                                 |
-|                |                                 |
-+----------------+---------------------------------+
++----------+----------------+----------------------+
+| Week     | Lecture date   | Theme                |
++==========+================+======================+
+|**1**     | 5.9.2018       | Basic concepts of    |
+|          |                | Python and computer  |
+|          |                | programs             |
+|          |                |                      |
++----------+----------------+----------------------+
+|**2**     | 12.9.2018      | Diving into Python   |
+|          |                |                      |
+|          |                |                      |
++----------+----------------+----------------------+
+|**3**     |19.9.2018       | Repeating tasks      |
+|          |                | and making decisions |
+|          |                |                      |
+|          |                |                      |
++----------+----------------+----------------------+
+|**4**     | 26.9.2018      | Creating and using   |
+|          |                | functions            |
+|          |                |                      |
++----------+----------------+----------------------+
+|**5**     | 3.10.2018      | Data analysis        |
+|          |                | Part I               |
+|          |                |                      |
++----------+----------------+----------------------+
+|**6**     |  10.10.2018    | Data analysis        |
+|          |                | Part II +            |
+|          |                | Dealing with errors  |
++----------+----------------+----------------------+
+|**7**     | 17.10.2018     | Data visualization   |
+|          |                |                      |
+|          |                |                      |
++----------+----------------+----------------------+
 
 |
+
+**Practical sessions** for enrolled students are organized each week on Thursdays and Fridays (see schedule and rooms :doc:`here <course-info/course-info>`).
 
 .. admonition:: Open Access!
 
@@ -93,3 +94,16 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     course-info/python-vocabulary
     course-info/resources
     course-info/licensing
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 1
+
+    lessons/L1/motivation
+    lessons/L1/overview
+    lessons/L1/course-environment-components
+    lessons/L1/intro-to-cloud-environment
+    lessons/L1/slack-usage
+    notebooks/L1/a-taste-of-python.ipynb
+    lessons/L1/exercise-1
+
