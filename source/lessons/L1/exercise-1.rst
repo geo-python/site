@@ -32,23 +32,9 @@ The process for creating a `GitHub.com <https://www.github.com>`__ account is st
 Part 2 - Cooking up some Python
 -------------------------------
 
-In the "Taste of Python" lesson this week we have learned a few basic things in Python.
-Now you get your chance to demonstrate your skills.
-For this lesson, please do the following:
-
-1. Accept exercise-1 in github classroom
-2. Open jupyter lab and create a new notebook
-3. Create a character string variable called ``name`` and use it to store your first and last names in a single string.
-4. Create an integer variable called ``iceCreamRating`` and use it to store a number between 0 and 10 that reflects your general opinion about how much you enjoy eating ice cream.
-5. Use your Python skills to generate output on the screen similar to that below using a single command typed into the IPython console.
-
-    .. code:: python
-
-        My name is Dave Whipp and I give eating ice cream a score of 9 out of 10!
-
-    Note that your code should replace "Dave Whipp" with the contents of your ``name`` variable, and "9" with your value stored in the variable ``iceCreamRating``.
-
-6. Upload your changes to github.
+In this part you should start working with Exercise by accepting our first `GitHub Classroom for the Exercise 1 <https://classroom.github.com/a/EkzHACcX>`__ (click the link).
+After clicking the link, you should sign in with your GitHub credentials and you should be directed to the Exercise 1 repository, where are the instructions
+for doing the coding parts of the Exercise 1.
 
 What to submit
 --------------
