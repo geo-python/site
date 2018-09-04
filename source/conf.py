@@ -184,16 +184,9 @@ nbsphinx_prolog = r"""
 
     .. nbinfo::
 
-        Notebook info
-
-
-        This page was generated from `{{ docname }}`__.
-
-
+        This page was generated from `{{ docname }}`__<br/>.
         Full interactive online version:
-        :raw-html:`<a href="https://mybinder.org/v2/gh/Geo-Python/{{ env.config.release }}/master?urlpath=lab/tree/{{ docname }}"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a>`
-
-
+        :raw-html:`<a href="https://mybinder.org/v2/gh/Geo-Python/{{ env.config.release }}/master?urlpath=lab/tree/{{ docname }}"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a><br/>`
         Online versions for students:
         :raw-html:`<a href="https://notebooks.csc.fi/#/blueprint/d71cd2d26d924f48820dc22b67a87d8e"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a>`
         :raw-html:`<a href="https://mybinder.org/v2/gh/Geo-Python/{{ env.config.release }}/master?urlpath=lab/tree/{{ docname }}"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a>`
