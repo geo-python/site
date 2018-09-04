@@ -16,33 +16,25 @@ Instructors
 Lecturers
 ~~~~~~~~~
 
+Email: *firstname.lastname@helsinki.fi*
+
 * Henrikki Tenkanen
 
-  * Office: A120, Physicum
-  * Email: *firstname.lastname@helsinki.fi*
+  * Office: A125, Physicum
   * Phone: +358 50 4484436
 
 * David Whipp
 
   * Office: D430, Exactum
-  * Email: *firstname.lastname@helsinki.fi*
   * Phone: +358 50 3199336
 
 Course assistants
 ~~~~~~~~~~~~~~~~~
 
 * Vuokko Heikinheimo
-
-  * Office: A120, Physicum
-  * Email: *firstname.lastname@helsinki.fi*
-
 * Lotta Ylä-Mella
-
-  * Email: *firstname.lastname@helsinki.fi*
-
 * Hertta Lehvävirta
-
-  * Email: *firstname.lastname@helsinki.fi*
+* Oyelowo Oyedayo
 
 
 Course websites

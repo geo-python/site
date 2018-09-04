@@ -41,7 +41,7 @@
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Using the cloud computing environment" href="intro-to-cloud-environment.html" />
+    <link rel="next" title="Communicating with Slack" href="slack-usage.html" />
     <link rel="prev" title="Lesson overview" href="overview.html" />
     <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
      
@@ -116,19 +116,19 @@
 <li class="toctree-l1"><a class="reference internal" href="motivation.html">Motivation for the course</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Lesson overview</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Course environment</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#cloud-computing-environment">Cloud computing environment</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#computing-dashboard">Computing Dashboard</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#computer-instance">Computer Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jupyter-notebooks-and-jupyterlab">Jupyter Notebooks and JupyterLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-your-own-computer">Using your own computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cloud-computing-environments">Cloud computing environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#binder">Binder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csc-notebooks">CSC Notebooks</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#git-github">Git + GitHub</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#communication">Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-slack">Using Slack</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#voting-and-polling">Voting and polling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#workflow">Workflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#page-summary">Page summary</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="intro-to-cloud-environment.html">Using the cloud computing environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="slack-usage.html">Communicating with Slack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html">A taste of Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exercise-1.html">Exercise 1</a></li>
@@ -224,50 +224,76 @@
 <div class="section" id="course-environment">
 <h1>Course environment<a class="headerlink" href="#course-environment" title="Permalink to this headline">¶</a></h1>
 <p>In this course we will actively use a course environment that consist of modern tools and applications for:</p>
-<blockquote>
-<div><ul class="simple">
-<li>doing the actual programming (Anaconda + cloud-computers)</li>
-<li>sharing and saving your work online with version control (Git+GitHub)</li>
-<li>communicating (Slack)</li>
-<li>interacting during the lectures (real-time web-polls)</li>
-</ul>
-</div></blockquote>
-<p>We recommend that students would use their own computers during the lectures and exercises (requires installations), although it is not necessary.
-It is also possible to use cloud-hosted computers to learn to program and complete the course exercises, and there are also Python environment installed on the GIS-labs
-at the Department.</p>
-<p>The course environment comprises four components that will be used
-actively during the course:</p>
 <ol class="arabic simple">
-<li><a class="reference internal" href="#cloud-computing-environment">Cloud computing environment</a></li>
-<li><a class="reference internal" href="#git-github">Git + GitHub</a></li>
-<li><a class="reference internal" href="#communication">Communication</a></li>
+<li><dl class="first docutils">
+<dt>Doing the actual programming with <a class="reference internal" href="#jupyter-notebooks-and-jupyterlab">Jupyter Notebooks and JupyterLab</a> using</dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="#usingyourowncomputer">your own computer</a> or</li>
+<li>a <a class="reference external" href="#cloudcomputingenvironments">cloud computing environment</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Sharing and saving your work online with version control (<a class="reference internal" href="#git-github">Git + GitHub</a>)</li>
+<li>Communicating online (<a class="reference internal" href="#using-slack">Using Slack</a>)</li>
 <li><a class="reference external" href="#voting-and-polling">Voting / polling during the lectures</a></li>
 </ol>
-<div class="section" id="cloud-computing-environment">
-<h2>Cloud computing environment<a class="headerlink" href="#cloud-computing-environment" title="Permalink to this headline">¶</a></h2>
-<p>The cloud computing environment described below is easy to use, but there are few
-things that you need to understand before starting to use it. The good
-news is that you can use the cloud computing environment with any computer at the
-university or your own computer. All you need is a reasonably fast
-internet connection, a web browser and some <a class="reference external" href="https://en.wikipedia.org/wiki/Remote_desktop_software">remote desktop software</a>,
-which is freely available for any computer.</p>
-<div class="section" id="computing-dashboard">
-<h3>Computing Dashboard<a class="headerlink" href="#computing-dashboard" title="Permalink to this headline">¶</a></h3>
-<p>The computing dashboard is a web interface for managing computer
-instances (described below). We will is use it frequently during the
-course. From the dashboard you will launch a new computer instance
-(i.e., start up a cloud computer) every time we are doing any
-programming during the lectures or practicals. You will do all the work
-in this course using such a computer instance.</p>
+<div class="section" id="jupyter-notebooks-and-jupyterlab">
+<h2>Jupyter Notebooks and JupyterLab<a class="headerlink" href="#jupyter-notebooks-and-jupyterlab" title="Permalink to this headline">¶</a></h2>
+<p>Jupyter Notebooks and JupyerLab belong to <a class="reference external" href="http://jupyter.org/">Project Jupyter</a>, an open-source project which provides tools for data science. In this course we will use Jupyter Notebooks and JupyterLab as the default programming environment.</p>
+<p><strong>Jupyter Notebooks</strong> are documents which contain both computer code, text and other elements (such as figures, links etc.).
+Jupyter Notebooks are perfect for documenting your data science workflow in an interactive format.</p>
+<p><strong>JupyterLab</strong> is an interface for using Jupyter Notebooks. Jupyter lab consists of different components such as a file browser, terminal, image viewer, console, text editor, etc.
+You can either use JupyterLab on your own computer, or via the available cloud computing resources (Binder or CSC Notebooks).</p>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../_images/JupyterLab.png"><img alt="A Jupyter Notebook open in Jupyter Lab" src="../../_images/JupyterLab.png" style="width: 550px;" /></a>
+<p class="caption"><span class="caption-text">A Jupyter Notebook open in Jupyter Lab</span></p>
 </div>
-<div class="section" id="computer-instance">
-<h3>Computer Instance<a class="headerlink" href="#computer-instance" title="Permalink to this headline">¶</a></h3>
-<p>A computer instance is basically a <strong>temporary</strong> computer running Ubuntu
-Linux (tailored for this course) that you can use in a similar manner as
-you would use your own computer. The difference is that the computer is
-located in the ‘cloud’ i.e., it is physically located and runs in
-somewhere else (on the servers of <a class="reference external" href="https://www.csc.fi/home">CSC Finland</a>) and you can use it remotely from
-any computer with an internet connection.</p>
+</div>
+<div class="section" id="using-your-own-computer">
+<h2>Using your own computer<a class="headerlink" href="#using-your-own-computer" title="Permalink to this headline">¶</a></h2>
+<p>We recommend that students would use their own computers during the lectures.
+You can either <a class="reference external" href="https://geo-python.github.io/2018/course-info/installing-anacondas.html">install python</a> on your own machine, or use the available <a class="reference internal" href="#cloud-computing-environments">cloud computing environments</a>.
+During the practical exercise sessions you can either use your own computer, or the computers available in the classroom.</p>
+</div>
+<div class="section" id="cloud-computing-environments">
+<h2>Cloud computing environments<a class="headerlink" href="#cloud-computing-environments" title="Permalink to this headline">¶</a></h2>
+<p>During this course we encourage you use a cloud-based computing environment (Binder or CSC Notebooks) to access interactive online version of the lessons
+and to develop your own code for the course exercises. You can use the cloud computing environments with any computer (as long as it has a reasonably fast internet connection and a web browser).</p>
+<p>Please note that the cloud computing environments are <strong>temporary</strong>, always remember to download your own work (and / or push it to github).</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../_images/LaunchButtons.png"><img alt="Launch CSC Notebooks or Binder using the launch-buttons" src="../../_images/LaunchButtons.png" style="width: 550px;" /></a>
+<p class="caption"><span class="caption-text">Launch buttons for Binder and CSC Notebooks can be found at the top of each interactive lesson</span></p>
+</div>
+<p>Each interactive lesson and exercise will have a launch button for both Binder and CSC Notebook.
+Both of the environments should work in a similar manner, but we have two options available in case one of the services is not working properly.</p>
+<p>Binder and CSC Notebooks provide a <strong>temporary</strong> JupyterLab environment (tailored for this course) that you can use in a similar manner as
+you would use it on your own computer. The difference is that the computer is located in the ‘cloud’ i.e., it is physically
+located and runs somewhere else on a server and you can use it remotely from any computer with an internet connection.</p>
+<div class="section" id="binder">
+<h3>Binder<a class="headerlink" href="#binder" title="Permalink to this headline">¶</a></h3>
+<p>Binder (<a class="reference external" href="https://mybinder.org/">https://mybinder.org/</a>) runs custom-made Jupyter Notebooks in your web browser. The original files (notebooks) are hosted on GitHub.
+Binder does not require the user to log in, you can just click on the link in the lesson / exercise and start working.</p>
+</div>
+<div class="section" id="csc-notebooks">
+<h3>CSC Notebooks<a class="headerlink" href="#csc-notebooks" title="Permalink to this headline">¶</a></h3>
+<p>Notebooks by CSC is a computing environment hosted by the Finnish IT Center for Science (CSC).
+This service is available only for students who are affiliated with Finnish universities and research institutes (via the HAKA user authentication).</p>
+<p>Once you have logged in, you will see all available Environments on the dashboard.</p>
+<p>When using the CSC Notebooks for the first time, you need to join the group created for this course:</p>
+<ol class="arabic simple">
+<li>Go to Account</li>
+<li>Join Group <cite>Geo-Python</cite> using the joining code: xxxxxx</li>
+</ol>
+<p>After joining the group, you should be able to view an environment called <cite>JupyterLab</cite>.</p>
+<p>Repeat these steps every time when starting to work on a programming task using the CSC Notebooks:</p>
+<ol class="arabic simple">
+<li>Click on the launch CSC Notebook -button on the course webpage (or enter via notebooks.csc.fi)</li>
+<li>Click <cite>Launch new</cite> under the JupyterLab - Environment</li>
+<li>Wait for a while (go get a coffee!, it will take 2-5 minutes for the environment to be ready)</li>
+<li>Click “open in browser”</li>
+</ol>
+<p><strong>Remember to save your work! The instance is temporary.</strong></p>
 </div>
 </div>
 <div class="section" id="git-github">
@@ -297,10 +323,10 @@ as those in our course.</p>
 here, but for now we are happy to understand the basic idea of what they
 are.</p>
 </div>
-<div class="section" id="communication">
-<h2>Communication<a class="headerlink" href="#communication" title="Permalink to this headline">¶</a></h2>
-<p>During the course we will use actively a application called <a class="reference external" href="http://slack.com">Slack</a> for discussion and
-questions about the lessons and exercises. See more information from a <a class="reference internal" href="slack-usage.html"><span class="doc">separate page how to use it</span></a>.</p>
+<div class="section" id="using-slack">
+<h2>Using Slack<a class="headerlink" href="#using-slack" title="Permalink to this headline">¶</a></h2>
+<p>During the course we will use actively an application called <a class="reference external" href="http://slack.com">Slack</a> for discussion and
+questions about the lessons and exercises. All enrolled students have received an invite link to the <cite>geopython2018</cite> workspace at the start of the course.</p>
 </div>
 <div class="section" id="voting-and-polling">
 <h2>Voting and polling<a class="headerlink" href="#voting-and-polling" title="Permalink to this headline">¶</a></h2>
@@ -312,30 +338,12 @@ You can access the polling system of our course from <a class="reference externa
 will most probably see only a white page without any content.</p>
 </div>
 </div>
-<div class="section" id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
-<p>The figure below illustrates the basic workflow that we will be using
-throughout this course. We will be using actively all of the
-aforementioned components, i.e., we will:</p>
-<ol class="arabic simple">
-<li>Connect to the Computing Dashboard</li>
-<li>Launch a Computer Instance</li>
-<li>Connect to our temporary remote computer instance</li>
-<li>Download the course materials from GitHub</li>
-<li>Save our work permanently to GitHub after every lecture or practical
-exercise</li>
-</ol>
-<div class="figure">
-<img alt="lessons/L1/img/RemoteComputerInstance.png" src="lessons/L1/img/RemoteComputerInstance.png" />
-</div>
-</div>
 <div class="section" id="page-summary">
 <h2>Page summary<a class="headerlink" href="#page-summary" title="Permalink to this headline">¶</a></h2>
 <p>Now you should have (at least) a basic idea about the different
 components of our course environment and what they mean. You don’t need
 to understand everything fully at this point as they will become clearer
 when we start using the course environment.</p>
-<p>Next, we’ll introduce to you <a class="reference internal" href="intro-to-cloud-environment.html"><span class="doc">how the cloud computing environment is used</span></a>.</p>
 </div>
 </div>
 
@@ -347,7 +355,7 @@ when we start using the course environment.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="intro-to-cloud-environment.html" class="btn btn-neutral float-right" title="Using the cloud computing environment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="slack-usage.html" class="btn btn-neutral float-right" title="Communicating with Slack" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="overview.html" class="btn btn-neutral" title="Lesson overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

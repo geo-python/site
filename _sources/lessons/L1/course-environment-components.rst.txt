@@ -3,53 +3,89 @@ Course environment
 
 In this course we will actively use a course environment that consist of modern tools and applications for:
 
- - doing the actual programming (Anaconda + cloud-computers)
- - sharing and saving your work online with version control (Git+GitHub)
- - communicating (Slack)
- - interacting during the lectures (real-time web-polls)
-
-We recommend that students would use their own computers during the lectures and exercises (requires installations), although it is not necessary.
-It is also possible to use cloud-hosted computers to learn to program and complete the course exercises, and there are also Python environment installed on the GIS-labs
-at the Department.
-
-The course environment comprises four components that will be used
-actively during the course:
-
-1. `Cloud computing environment`_
-2. `Git + GitHub`_
-3. `Communication`_
+1. Doing the actual programming with `Jupyter Notebooks and JupyterLab`_ using
+    - `your own computer <#using your own computer>`_ or
+    - a `cloud computing environment <#cloud computing environments>`_
+2. Sharing and saving your work online with version control (`Git + GitHub`_)
+3. Communicating online (`Using Slack`_)
 4. `Voting / polling during the lectures <#voting-and-polling>`_
 
 
-Cloud computing environment
----------------------------
+Jupyter Notebooks and JupyterLab
+--------------------------------
+Jupyter Notebooks and JupyerLab belong to `Project Jupyter <http://jupyter.org/>`__, an open-source project which provides tools for data science. In this course we will use Jupyter Notebooks and JupyterLab as the default programming environment.
 
-The cloud computing environment described below is easy to use, but there are few
-things that you need to understand before starting to use it. The good
-news is that you can use the cloud computing environment with any computer at the
-university or your own computer. All you need is a reasonably fast
-internet connection, a web browser and some `remote desktop software <https://en.wikipedia.org/wiki/Remote_desktop_software>`__,
-which is freely available for any computer.
+**Jupyter Notebooks** are documents which contain both computer code, text and other elements (such as figures, links etc.).
+Jupyter Notebooks are perfect for documenting your data science workflow in an interactive format.
 
-Computing Dashboard
+**JupyterLab** is an interface for using Jupyter Notebooks. Jupyter lab consists of different components such as a file browser, terminal, image viewer, console, text editor, etc.
+You can either use JupyterLab on your own computer, or via the available cloud computing resources (Binder or CSC Notebooks).
+
+.. figure:: img/JupyterLab.png
+   :alt: A Jupyter Notebook open in Jupyter Lab
+   :width: 550px
+
+   A Jupyter Notebook open in Jupyter Lab
+
+
+Using your own computer
+-------------------------
+We recommend that students would use their own computers during the lectures.
+You can either `install python <https://geo-python.github.io/2018/course-info/installing-anacondas.html>`_ on your own machine, or use the available `cloud computing environments`_.
+During the practical exercise sessions you can either use your own computer, or the computers available in the classroom.
+
+Cloud computing environments
+----------------------------
+
+During this course we encourage you use a cloud-based computing environment (Binder or CSC Notebooks) to access interactive online version of the lessons
+and to develop your own code for the course exercises. You can use the cloud computing environments with any computer (as long as it has a reasonably fast internet connection and a web browser).
+
+Please note that the cloud computing environments are **temporary**, always remember to download your own work (and / or push it to github).
+
+.. figure:: img/LaunchButtons.png
+   :alt: Launch CSC Notebooks or Binder using the launch-buttons
+   :width: 550px
+
+   Launch buttons for Binder and CSC Notebooks can be found at the top of each interactive lesson
+
+Each interactive lesson and exercise will have a launch button for both Binder and CSC Notebook.
+Both of the environments should work in a similar manner, but we have two options available in case one of the services is not working properly.
+
+Binder and CSC Notebooks provide a **temporary** JupyterLab environment (tailored for this course) that you can use in a similar manner as
+you would use it on your own computer. The difference is that the computer is located in the 'cloud' i.e., it is physically
+located and runs somewhere else on a server and you can use it remotely from any computer with an internet connection.
+
+
+Binder
 ~~~~~~~~~~~~~~~~~~~
 
-The computing dashboard is a web interface for managing computer
-instances (described below). We will is use it frequently during the
-course. From the dashboard you will launch a new computer instance
-(i.e., start up a cloud computer) every time we are doing any
-programming during the lectures or practicals. You will do all the work
-in this course using such a computer instance.
+Binder (https://mybinder.org/) runs custom-made Jupyter Notebooks in your web browser. The original files (notebooks) are hosted on GitHub.
+Binder does not require the user to log in, you can just click on the link in the lesson / exercise and start working.
 
-Computer Instance
-~~~~~~~~~~~~~~~~~
+CSC Notebooks
+~~~~~~~~~~~~~~~~~~~
 
-A computer instance is basically a **temporary** computer running Ubuntu
-Linux (tailored for this course) that you can use in a similar manner as
-you would use your own computer. The difference is that the computer is
-located in the 'cloud' i.e., it is physically located and runs in
-somewhere else (on the servers of `CSC Finland <https://www.csc.fi/home>`__) and you can use it remotely from
-any computer with an internet connection.
+Notebooks by CSC is a computing environment hosted by the Finnish IT Center for Science (CSC).
+This service is available only for students who are affiliated with Finnish universities and research institutes (via the HAKA user authentication).
+
+Once you have logged in, you will see all available Environments on the dashboard.
+
+When using the CSC Notebooks for the first time, you need to join the group created for this course:
+
+1. Go to Account
+2. Join Group `Geo-Python` using the joining code: xxxxxx
+
+After joining the group, you should be able to view an environment called `JupyterLab`.
+
+Repeat these steps every time when starting to work on a programming task using the CSC Notebooks:
+
+1. Click on the launch CSC Notebook -button on the course webpage (or enter via notebooks.csc.fi)
+2. Click `Launch new` under the JupyterLab - Environment
+3. Wait for a while (go get a coffee!, it will take 2-5 minutes for the environment to be ready)
+4. Click "open in browser"
+
+**Remember to save your work! The instance is temporary.**
+
 
 Git + GitHub
 ------------
@@ -82,11 +118,11 @@ Both Git and GitHub provide many more features than the ones mentioned
 here, but for now we are happy to understand the basic idea of what they
 are.
 
-Communication
+Using Slack
 -------------
 
-During the course we will use actively a application called `Slack <http://slack.com>`__ for discussion and
-questions about the lessons and exercises. See more information from a :doc:`separate page how to use it<slack-usage>`.
+During the course we will use actively an application called `Slack <http://slack.com>`__ for discussion and
+questions about the lessons and exercises. All enrolled students have received an invite link to the `geopython2018` workspace at the start of the course.
 
 Voting and polling
 ------------------
@@ -99,21 +135,6 @@ You can access the polling system of our course from `<https://geo-python.github
     The polling system is active only **during** the lessons. If you access the website outside the lecture times, you
     will most probably see only a white page without any content.
 
-Workflow
---------
-
-The figure below illustrates the basic workflow that we will be using
-throughout this course. We will be using actively all of the
-aforementioned components, i.e., we will:
-
-1. Connect to the Computing Dashboard
-2. Launch a Computer Instance
-3. Connect to our temporary remote computer instance
-4. Download the course materials from GitHub
-5. Save our work permanently to GitHub after every lecture or practical
-   exercise
-
-.. figure:: img/RemoteComputerInstance.png
 
 Page summary
 ------------
@@ -122,6 +143,3 @@ Now you should have (at least) a basic idea about the different
 components of our course environment and what they mean. You don't need
 to understand everything fully at this point as they will become clearer
 when we start using the course environment.
-
-Next, we'll introduce to you :doc:`how the cloud computing environment is used<intro-to-cloud-environment>`.
-
