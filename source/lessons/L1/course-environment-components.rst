@@ -3,17 +3,27 @@ Course environment
 
 In this course we will actively use a course environment that consist of modern tools and applications for:
 
-1. Doing the actual programming (`Using your own computer`_ or a `cloud computing environments`_)
+1. Doing the actual programming using `Jupyter Notebooks and JupyterLab`_  (on `your own computer <#using your own computer>`_ or in a `cloud computing environment <#cloud computing environments>`_)
 2. Sharing and saving your work online with version control (`Git + GitHub`_)
 3. Communicating online (`Using Slack`_)
 4. `Voting / polling during the lectures <#voting-and-polling>`_
 
 
-JupyterLab
--------------------------
+Jupyter Notebooks and JupyterLab
+--------------------------------
+Jupyter Notebooks and JupyerLab belong to `Project Jupyter <http://jupyter.org/>`__, an open-source project which provides tools for data science.
+
+**Jupyter Notebooks** are documents which contain both computer code, text and other elements (such as figures, links etc.).
+Jupyter Notebooks are perfect for documenting your data science workflow in an interactive format.
+
+**JupyterLab** is an interface for using Jupyter Notebooks. Jupyter lab consists of different components such as a file browser, terminal, image viewer, console, text editor, etc.
+In this course we will use JupyterLab as the default programming environment.
+
+You can either use JupyterLab on your own computer, or via the available cloud computing resources (Binder or CSC Notebooks).
+
 
 Using your own computer
---------------------------
+-------------------------
 We recommend that students would use their own computers during the lectures.
 You can either `install python <https://geo-python.github.io/2018/course-info/installing-anacondas.html>`_ on your own machine, or use the available `cloud computing environments`_.
 During the practical exercise sessions you can either use your own computer, or the computers available in the classroom.
@@ -21,13 +31,16 @@ During the practical exercise sessions you can either use your own computer, or 
 Cloud computing environments
 ----------------------------
 
-During this course we encourage you to use cloud-based computing environment (Binder or CSC Notebooks) where you can interact with the lesson materials (such as the Jupyter Notebook behind lesson 1)
-and develop your own code for the course exercises. You can use the cloud computing environments with any computer at the
-university or your own computer. All you need is a reasonably fast internet connection and a web browser.
+During this course we encourage you to use cloud-based computing environment (Binder or CSC Notebooks) to access interactive online version of the lessons (such as the Jupyter Notebook behind lesson 1)
+and to develop your own code for the course exercises. You can use the cloud computing environments with any computer with a reasonably fast internet connection and a web browser.
 
 Please note that the cloud computing environments are **temporary**, always remember to download your own work (and / or push it to github).
 
 .. figure:: img/LaunchButtons.png
+
+.. figure:: img/LaunchButtons.png
+   :alt: Launch CSC Notebooks or Binder using the launch-buttons
+   :width: 550px
 
 Each interactive lesson and exercise will have a launch button for both Binder and CSC Notebook.
 Both of the environments should work in a similar manner, but we have two options available in case one of the services is not working properly.
@@ -101,8 +114,8 @@ are.
 Using Slack
 -------------
 
-During the course we will use actively a application called `Slack <http://slack.com>`__ for discussion and
-questions about the lessons and exercises. See more information from a :doc:`separate page how to use it<slack-usage>`.
+During the course we will use actively an application called `Slack <http://slack.com>`__ for discussion and
+questions about the lessons and exercises. All enrolled students have received an invite link to the `geopython2018` workspace at the start of the course.
 
 Voting and polling
 ------------------
@@ -138,6 +151,4 @@ Now you should have (at least) a basic idea about the different
 components of our course environment and what they mean. You don't need
 to understand everything fully at this point as they will become clearer
 when we start using the course environment.
-
-Next, we'll introduce to you :doc:`how the cloud computing environment is used<intro-to-cloud-environment>`.
 
