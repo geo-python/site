@@ -21,6 +21,10 @@ In this course we will use JupyterLab as the default programming environment.
 
 You can either use JupyterLab on your own computer, or via the available cloud computing resources (Binder or CSC Notebooks).
 
+.. figure:: img/JupyterLab.png
+   :alt: A Jupyter Notebook open in Jupyter Lab
+   :width: 550px
+
 
 Using your own computer
 -------------------------
@@ -35,8 +39,6 @@ During this course we encourage you to use cloud-based computing environment (Bi
 and to develop your own code for the course exercises. You can use the cloud computing environments with any computer with a reasonably fast internet connection and a web browser.
 
 Please note that the cloud computing environments are **temporary**, always remember to download your own work (and / or push it to github).
-
-.. figure:: img/LaunchButtons.png
 
 .. figure:: img/LaunchButtons.png
    :alt: Launch CSC Notebooks or Binder using the launch-buttons
