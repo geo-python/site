@@ -184,7 +184,7 @@ nbsphinx_prolog = r"""
 
     .. nbinfo::
 
-        This page was generated from `{{ docname }}`__<br/>.
+        This page was generated from `{{ docname }}`__.
         Full interactive online version:
         :raw-html:`<a href="https://mybinder.org/v2/gh/Geo-Python/{{ env.config.release }}/master?urlpath=lab/tree/{{ docname }}"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a><br/>`
         Online versions for students:
