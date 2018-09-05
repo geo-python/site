@@ -10,7 +10,7 @@ environment, guide you through how they are used, and conclude with a
 hands-on introduction to some key concepts and elements of programming
 in Python. The main components of this first lesson are below.
 
-1. :doc:`Basic concepts, components and, workflow of the course environment <course-environment-components>`
+1. :doc:`Overview of the course environment <course-environment-components>`
 2. :doc:`Communicating and chatting with Slack <slack-usage>`
 3. :doc:`Our first taste of Python <A-taste-of-Python>`
 4. :doc:`Exercise 1: Creating a Github.com account and using the cloud <exercise-1>`
