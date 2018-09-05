@@ -43,17 +43,16 @@ and to develop your own code for the course exercises. You can use the cloud com
 Please note that the cloud computing environments are **temporary**, always remember to download your own work (and / or push it to github).
 
 .. figure:: img/LaunchButtons2.png
-   :alt: Launch buttons on the `Lesson 1: a Taste of Python <A-taste-of-Python>` page
+   :alt: Launch buttons on the `Lesson 1: a Taste of Python page
    :width: 550px
 
-   Launch buttons on the `Lesson 1: a Taste of Python <A-taste-of-Python>` page
+   Launch buttons on the `Lesson 1: a Taste of Python A-taste-of-Python page
 
 Each interactive lesson and exercise will have a launch button for both Binder and CSC Notebook.
 Both of the environments should work in a similar manner, but we have two options available in case one of the services is not working properly.
 
-Binder and CSC Notebooks provide a **temporary** JupyterLab environment (tailored for this course) that you can use in a similar manner as
-you would use it on your own computer. The difference is that the computer is located in the 'cloud' i.e., it is physically
-located and runs somewhere else on a server and you can use it remotely from any computer with an internet connection.
+Binder and CSC Notebooks provide a **temporary** JupyterLab environment (tailored for this course).
+The difference to working with a local installation is that the computer that runs our commands is located in the 'cloud'.
 
 
 Binder
@@ -62,19 +61,31 @@ Binder
 Binder (https://mybinder.org/) runs custom-made Jupyter Notebooks in your web browser. The original files (notebooks) are hosted on GitHub.
 Binder does not require the user to log in, you can just click on the link in the lesson / exercise and start working.
 
+.. figure:: img/Binder_loading.png
+   :alt: Binder loading
+
+   Binder takes a few moments to load
+
+
+.. figure:: img/Binder_launcher.png
+   :alt: Binder Jupyter Notebook
+
+   JupyterLab ready to be used in Binder
+
+Once the instance is ready, you can navigate to the lesson folders and start working with existing notebooks or create a new one.
+
 **Remember to save your work! The instance is temporary.**
 
 CSC Notebooks
 ~~~~~~~~~~~~~~~~~~~
 
-Notebooks by CSC is a computing environment hosted by the Finnish IT Center for Science (CSC).
+Notebooks by CSC (https://notebooks.csc.fi) is a computing environment hosted by the Finnish IT Center for Science (CSC).
 This service is available only for students who are affiliated with Finnish universities and research institutes (via the HAKA user authentication).
-
-Once you have logged in, you will see all available Environments on the dashboard.
 
 **When using the CSC Notebooks for the first time, you need to join the group created for this course:**
 
-1. Go to Account
+1. Log in
+2. Go to Account
 2. Join Group `Geo-Python` using the joining code: geo-python-tadl4
 
 .. figure:: img/CSC_join_group.png
@@ -131,6 +142,7 @@ Using Slack
 
 During the course we will use actively an application called `Slack <http://slack.com>`__ for discussion and
 questions about the lessons and exercises. All enrolled students have received an invite link to the `geopython2018` workspace at the start of the course.
+:doc:`Read more about Slack  <slack-usage>`.
 
 Voting and polling
 ------------------
