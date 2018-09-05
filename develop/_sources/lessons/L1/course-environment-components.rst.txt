@@ -59,16 +59,21 @@ Binder
 ~~~~~~~~~~~~~~~~~~~
 
 Binder (https://mybinder.org/) runs custom-made Jupyter Notebooks in your web browser. The original files (notebooks) are hosted on GitHub.
-Binder does not require the user to log in, you can just click on the link in the lesson / exercise and start working.
+Binder does not require the user to log in, you can just click on the link in the lesson / exercise and start working. Our course webpages contain two different launch links for Binder:
+
+- *full binder* contains lesson notebooks including all the necessary code
+- *student binder* contains lesson notebooks without pre-filled code
 
 .. figure:: img/Binder_loading.png
    :alt: Binder loading
+   :width: 550px
 
    Binder takes a few moments to load
 
 
 .. figure:: img/Binder_launcher.png
    :alt: Binder Jupyter Notebook
+   :width: 550px
 
    JupyterLab ready to be used in Binder
 
