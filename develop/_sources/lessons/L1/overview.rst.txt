@@ -11,10 +11,9 @@ hands-on introduction to some key concepts and elements of programming
 in Python. The main components of this first lesson are below.
 
 1. :doc:`Basic concepts, components and, workflow of the course environment <course-environment-components>`
-2. :doc:`Introduction to the basic usage of the cloud computing environment <intro-to-cloud-environment>`
-3. :doc:`Communicating and chatting with Slack <slack-usage>`
-4. :doc:`Our first taste of Python <A-taste-of-Python>`
-5. :doc:`Exercise 1: Creating a Github.com account and using the cloud <exercise-1>`
+2. :doc:`Communicating and chatting with Slack <slack-usage>`
+3. :doc:`Our first taste of Python <A-taste-of-Python>`
+4. :doc:`Exercise 1: Creating a Github.com account and using the cloud <exercise-1>`
 
 .. note::
 

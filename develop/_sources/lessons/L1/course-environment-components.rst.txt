@@ -62,6 +62,8 @@ Binder
 Binder (https://mybinder.org/) runs custom-made Jupyter Notebooks in your web browser. The original files (notebooks) are hosted on GitHub.
 Binder does not require the user to log in, you can just click on the link in the lesson / exercise and start working.
 
+**Remember to save your work! The instance is temporary.**
+
 CSC Notebooks
 ~~~~~~~~~~~~~~~~~~~
 
@@ -70,19 +72,25 @@ This service is available only for students who are affiliated with Finnish univ
 
 Once you have logged in, you will see all available Environments on the dashboard.
 
-When using the CSC Notebooks for the first time, you need to join the group created for this course:
+**When using the CSC Notebooks for the first time, you need to join the group created for this course:**
 
 1. Go to Account
-2. Join Group `Geo-Python` using the joining code: xxxxxx
+2. Join Group `Geo-Python` using the joining code: geo-python-tadl4
 
-After joining the group, you should be able to view an environment called `JupyterLab`.
+.. figure:: img/CSC_join_group.png
+   :alt: Join Group in CSC Notebooks
 
-Repeat these steps every time when starting to work on a programming task using the CSC Notebooks:
+After joining the group, you should be able to view an environment called `JupyterLab` on the Dashboard.
 
-1. Click on the launch CSC Notebook -button on the course webpage (or enter via notebooks.csc.fi)
-2. Click `Launch new` under the JupyterLab - Environment
-3. Wait for a while (go get a coffee!, it will take 2-5 minutes for the environment to be ready)
-4. Click "open in browser"
+**Repeat these steps every time when starting to work on a programming task using the CSC Notebooks:**
+
+1. Click on the launch CSC Notebook -button on the course webpage (or enter via notebooks.csc.fi) and log in.
+2. Click `Launch new` under the JupyterLab - Environment on the Dashboard
+3. Click "open in browser" once the instance is ready
+
+
+.. figure:: img/CSC_launch_new.png
+   :alt: Launch new Jupyter Lab instance
 
 **Remember to save your work! The instance is temporary.**
 
