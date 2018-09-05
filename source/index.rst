@@ -26,7 +26,7 @@ on the laboratory exercises, however the laboratory summary write-ups that you s
 Schedule
 --------
 
-The materials are divided into weekly themes that are published at these pages every Wednesday morning. Lessons are held with following schedule (see :doc:`here for further details about schedule and lecture rooms <course-info/course-info>`).
+The materials are divided into weekly themes that are published at these pages every Wednesday morning before each lesson. Lessons are held with following schedule (see :doc:`here for further details about schedule and lecture rooms <course-info/course-info>`).
 The **learning goals** for each lesson are separately documented :doc:`in here <course-info/learning-goals>`.
 
 +----------+----------------+----------------------+
@@ -65,6 +65,8 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
 
 |
 
+**Practical sessions** for enrolled students are organized each week on Thursdays and Fridays (see schedule and rooms :doc:`here <course-info/course-info>`).
+
 .. admonition:: Open Access!
 
     The course is **open for everyone**. The aim of this course is to share the knowledge and help people to get started with their journey for doing science more efficiently and in a reproducible manner
@@ -92,3 +94,15 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     course-info/python-vocabulary
     course-info/resources
     course-info/licensing
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 1
+
+    lessons/L1/motivation
+    lessons/L1/overview
+    lessons/L1/course-environment-components
+    lessons/L1/slack-usage
+    notebooks/L1/a-taste-of-python.ipynb
+    lessons/L1/exercise-1
+

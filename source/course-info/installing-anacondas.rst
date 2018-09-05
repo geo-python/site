@@ -3,16 +3,18 @@ Installing Python
 
 **It is possible to do programming with Python on your own computer**, but first you need to install Python. The purpose of this page is to help you to
 install Python and different Python packages into your own computer. Even though it is possible to install Python from their `homepage <https://www.python.org/>`_,
-**we highly recommend using** `Anaconda <https://www.continuum.io/anaconda-overview>`_ which is an open source distribution of the Python and R programming
+**we highly recommend using** `Anaconda <https://www.anaconda.com/download/>`_ which is an open source distribution of the Python and R programming
 languages for large-scale data processing, predictive analytics, and scientific computing, that aims to simplify package management and deployment. In short,
 it makes life much easier when installing new tools to your Python.
 
 Install Python on Windows
 -------------------------
 
-Following steps have been tested to work on Windows 7 and 10 with Anaconda3 version 4.2.0 (19th November 2016).
+For people working with computers from University of Helsinki: Anaconda should be available from `Helsinki Software portal <https://helpdesk.it.helsinki.fi/en/instructions/computer-and-printing/software/software-portal-installing-additional-software>`__.
 
-`Download Anaconda installer (64 bit) <https://repo.continuum.io/archive/Anaconda3-4.2.0-Windows-x86_64.exe>`_ for Windows.
+Following steps have been tested to work on Windows 7 and 10 with Anaconda3 version 5.2.0 (June 2018) that installs Python 3.6 and various useful packages.
+
+`Download Anaconda installer (64 bit) <https://repo.anaconda.com/archive/Anaconda3-5.2.0-Windows-x86_64.exe>`_ for Windows.
 
 Install Anaconda to your computer by double clicking the installer and install it into a directory you want (needs admin rights).
 Install it to **all users** and use default settings.
@@ -25,7 +27,7 @@ Install it to **all users** and use default settings.
 
 Test that the Anaconda´s package manage called ``conda`` works by
 `opening a command prompt as a admin user <http://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-8.1/>`_
-and running command ``conda --version``. If the command returns a version number of conda (e.g. ``conda 4.3.23``) everything is working correctly.
+and running command ``conda --version``. If the command returns a version number of conda (e.g. ``conda 4.5.9``) everything is working correctly.
 
 Install Python on macOS
 -----------------------

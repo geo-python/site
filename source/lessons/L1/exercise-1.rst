@@ -32,23 +32,12 @@ The process for creating a `GitHub.com <https://www.github.com>`__ account is st
 Part 2 - Cooking up some Python
 -------------------------------
 
-In the "Taste of Python" lesson this week we have learned a few basic things in Python.
-Now you get your chance to demonstrate your skills.
-For this lesson, please do the following:
+.. image:: https://mybinder.org/badge.svg
+   :target: https://mybinder.org/v2/gh/Geo-Python-2018/Binder/master?urlpath=lab
 
-1. Accept exercise-1 in github classroom
-2. Open jupyter lab and create a new notebook
-3. Create a character string variable called ``name`` and use it to store your first and last names in a single string.
-4. Create an integer variable called ``iceCreamRating`` and use it to store a number between 0 and 10 that reflects your general opinion about how much you enjoy eating ice cream.
-5. Use your Python skills to generate output on the screen similar to that below using a single command typed into the IPython console.
-
-    .. code:: python
-
-        My name is Dave Whipp and I give eating ice cream a score of 9 out of 10!
-
-    Note that your code should replace "Dave Whipp" with the contents of your ``name`` variable, and "9" with your value stored in the variable ``iceCreamRating``.
-
-6. Upload your changes to github.
+In this part you should start working by launching a new JupyterLab instance from above (unless you have it open already) with Exercise by accepting our first `GitHub Classroom for the Exercise 1 <https://classroom.github.com/a/EkzHACcX>`__ (click the link).
+After clicking the link, you should sign in with your GitHub credentials and you should be directed to the Exercise 1 repository, where are the instructions
+for doing the coding parts of the Exercise 1.
 
 What to submit
 --------------
@@ -58,7 +47,7 @@ Your assignment is to
 1. Post a message in the `#week-1 <https://geopython2018.slack.com/messages/CCFRM6BGQ>`__ Slack channel with your name, GitHub username and course.
 2. Accept exercise-1 in Github classroom and upload the jupyter notebook containing the Python commands needed to generate the required output for Part 2.
 
-We ask that you complete this exercise by **xx:00 (xx.9)**.
+We ask that you complete this exercise by **09:00 (12.9)**.
 
 .. note::
 

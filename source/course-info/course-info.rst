@@ -16,27 +16,25 @@ Instructors
 Lecturers
 ~~~~~~~~~
 
+Email: *firstname.lastname@helsinki.fi*
+
 * Henrikki Tenkanen
 
-  * Office: A120, Physicum
-  * Email: *firstname.lastname@helsinki.fi*
+  * Office: A125, Physicum
   * Phone: +358 50 4484436
 
 * David Whipp
 
   * Office: D430, Exactum
-  * Email: *firstname.lastname@helsinki.fi*
   * Phone: +358 50 3199336
 
 Course assistants
 ~~~~~~~~~~~~~~~~~
 
 * Vuokko Heikinheimo
-
-  * Office: A120, Physicum
-  * Email: *firstname.lastname@helsinki.fi*
-
 * Lotta Ylä-Mella
+* Hertta Lehvävirta
+* Oyelowo Oyedayo
 
 
 Course websites
@@ -49,11 +47,8 @@ Course websites
   - Slack (Q&A + chat): `<https://geopython2018.slack.com>`_
   - Polling / voting (active during lectures only): `<https://geo-python.github.io/poll>`_
 
-- Automating GIS processes (Period II)
+- Course sites for Period II
 
-  - Course site: `<https://autogis.github.io>`_
-
-- Introduction to Quantitative Geology (Period II)
-
-  - Course site: `<https://introqg.github.io>`_
+  - Automating GIS processes: `<https://autogis.github.io>`_
+  - Introduction to Quantitative Geology: `<https://introqg.github.io>`_
 
