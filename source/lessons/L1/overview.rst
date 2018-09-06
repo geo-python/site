@@ -58,6 +58,9 @@ Lecture video
 
 |
 
+Lecture slides
+--------------
+
 .. admonition:: Lesson slides
 
     `Slides for Lecture 1 (PDF) <../../_static/01-Computers-and-programs.pdf>`__
