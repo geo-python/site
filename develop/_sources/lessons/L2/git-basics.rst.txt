@@ -1,21 +1,21 @@
 Meet Git
 ==================
 
-This page will guide you through step-by-step how to clone a repository from GitHub, modify its contents, and push changes back online. These materials have been adapted for the geo-python course from `GitHubClassroom Campus Advisors -resources <https://github.com/Campus-Advisors>`_ Modules 1 and 2, and inspired by other online resources such as https://git-scm.com/about/.
+This page will guide you through step-by-step how to clone a repository from GitHub, modify its contents, and push changes back online. These materials have been adapted for the geo-python course from `GitHubClassroom Campus Advisors -resources <https://github.com/Campus-Advisors>`_, and inspired by other online resources such as https://git-scm.com/about/.
 
 
 .. figure:: img/Git_illustration.png
 
-    Different stages of version control using Git and Github
+    Different stages of version control using Git and Github (adapted from `Git webpages <https://git-scm.com/about/>`__)
 
 
 After going trough this tutorial, you should be aware of at least the following git-commands:
 
 1. **git clone [url]** - download a project from GitHub
-2. **git add [file]** or **git add .** - add a snapshot of to the staging area
+2. **git add [file]** or **git add .** - add a snapshot of changes to the staging area
 3. **git status** - review the status of your repository (use this command often at every stage!)
-4. **git commit -m "informative message"** - record changes in vesion history
-5. **git pull** - download and incorporate changes. Always pull before you push!
+4. **git commit -m "[informative message]"** - record changes permanently in version history
+5. **git pull** - download and incorporate changes. Always pull before you push (especially when working in a shared repository)!
 6. **git push** - upload local commits to GitHub
 
 For other useful git commands, you can refer to the `GIT CHEAT SHEET <https://education.github.com/git-cheat-sheet-education.pdf>`__
@@ -74,7 +74,7 @@ List directory contents in the terminal using the `ls` command:
 
     $ ls
 
-You should now see the exercise repository in the list! Navigate to the repository usind the `cd`command:
+You should now see the exercise repository in the list! **Navigate to the repository** using the `cd`command:
 
 .. code-block:: bash
 
@@ -86,7 +86,7 @@ List all files inside the repository using the `ls` command, and include hidden 
 
     $ ls -al
 
-Check the status of your repository using  the `git status` command, which provides change information about the repository (this is the most common git command - use it often!):
+**Check the status of your repository** using  the `git status` command, which provides change information about the repository (this is the most common git command - use it often!):
 
 .. code-block:: bash
 
