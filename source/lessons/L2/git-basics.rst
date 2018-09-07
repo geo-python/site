@@ -9,6 +9,18 @@ This page will guide you through step-by-step how to clone a repository from Git
     Different stages of version control using Git and Github
 
 
+After going trough this tutorial, you should be aware of at least the following git-commands:
+
+1. **git clone [url]** - download a project from GitHub
+2. **git add [file]** or **git add .** - add a snapshot of to the staging area
+3. **git status** - review the status of your repository (use this command often at every stage!)
+4. **git commit -m "informative message"** - record changes in vesion history
+5. **git pull** - download and incorporate changes. Always pull before you push!
+6. **git push** - upload local commits to GitHub
+
+For other useful git commands, you can refer to the `GIT CHEAT SHEET <https://education.github.com/git-cheat-sheet-education.pdf>`__
+
+
 Gonfiguration
 -----------------
 
@@ -153,7 +165,6 @@ or just simply
     $ git push
 
 Now, you should see the updates in GitHub (go and have a look)!
-git
 
 If you want to double check that you have a remote location, you can use the `git remote` command (v stands for 'verbose' which prints out more details):
 
@@ -161,19 +172,11 @@ If you want to double check that you have a remote location, you can use the `gi
 
     $ git remote -v
 
-Summary
--------------
 
-So far, you should be aware of the following git-commands:
 
-1. **git clone [url]** - download a project from GitHub
-2. **git add [file]** or **git add .** - add a snapshot of to the staging area
-3. **git status** - review the status of your repository (use this command often at every stage!)
-4. **git commit -m "informative message"** - record changes in vesion history
-5. **git pull** - download and incorporate changes. Always pull before you push!
-6. **git push** - upload local commits to GitHub
+That's all you need to know for know :)
 
-For other useful git commands, you can refer to the `GIT CHEAT SHEET <https://education.github.com/git-cheat-sheet-education.pdf>`__
+
 
 
 
