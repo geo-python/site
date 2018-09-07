@@ -3,9 +3,12 @@ Meet Git
 
 These materials have been adapted for the geo-python course from `GitHubClassroom Campus Advisors -resources <https://github.com/Campus-Advisors>`_ Modules 1 and 2.
 
-**Check to see if you have git installed:**
 
-Type this command in the terminal window:
+
+Gonfiguration
+-----------------
+
+Before starting to work, **check if you have git installed** by typing this command in the terminal window:
 
 .. code-block:: bash
 
@@ -13,9 +16,16 @@ Type this command in the terminal window:
 
 Anything above version 2 is just fine.
 
-**Configure user information**
+Next, configure user information for local repositories. The user name you set will be attached to your commits:
 
-Check git user configuration:
+.. code-block:: bash
+
+    $ git config --global user.name "Mona Lisa"
+
+    $ git config --global user.email "email@example.com"
+
+
+You can check existing user information with these commands:
 
 .. code-block:: bash
 
@@ -23,31 +33,27 @@ Check git user configuration:
 
     $ git config user.email
 
-If these commands return nothing it means that user information has not been configured.
-Configure git to recognize you. The user name you set will be attached to your commits:
-
-.. code-block:: bash
-
-    $ git config user.name "Mona Lisa"
-
-    $ git config --global user.email "email@example.com"
 
 
-**Clone a repository from GitHub**
+Cloning
+---------
 
-A repository, or a "repo", is a location for storing files. In general, it is recommended that each project, library or discrete piece of software should have it's own repository
-In this course each exercise has it's own repository. We will repository for Exercise-1 for practicing how to work with Git and GitHub.
+We will clone an existing repository from GitHub and start modifying it. A repository, or a "repo", is a location for storing files. In general, it is recommended that each project, library or discrete piece of software should have it's own repository
+In this course each exercise has it's own repository. We will clone Exercise-1 repository from week 1 for practicing how to work with Git and GitHub.
 
-Go to GitHub and copy the web URL of your exercise-1 repository
+Go to GitHub and copy the web URL of your exercise-1 repository:
 
-Clone the repository into JupyterLab using this command in the terminal:
+.. figure:: img/github_clone_url.png
+
+Clone the repository into JupyterLab:
 
 .. code-block:: bash
 
     $ git clone [paste your URL here]
 
+.. note::
 
-(note: you can paste text on the terminal trough Shift + Right Click --> paste)
+    You can paste text on the terminal trough Shift + Right Click --> paste
 
 navigate to the repository:
 
@@ -67,9 +73,11 @@ Check the status of your repository (this is the most common git command - use i
 
     $ git status
 
-**Edit content**
 
-Create an empty markdown-file `test.md`. You can either create the file manually (do this if you are using windows!), or in the terminal using the `touch` -command:
+Make changes
+---------------
+
+Create an empty markdown-file `test.md` under the exercise-1-username repository. You can either create the file manually (do this if you are using windows!), or in the terminal using the `touch` -command:
 
 .. code-block:: bash
 
@@ -99,11 +107,13 @@ Modify the file, add for example a few lines of text. Save your changes (Ctrl + 
 check again the status of the repository
 
 .. code-block:: bash
+
     $ git status
 
 Snapshot the file again
 
 .. code-block:: bash
+
     $ git add test.md
 
 .. code-block:: bash
@@ -122,12 +132,13 @@ Check the status
 
     $ git status
 
-**Push your changes to GitHub**
-
+Synchronize changes
+--------------------
 
 Let's make a network call and send data to branch 'master'
 
 .. code-block:: bash
+
     $ git push origin master
 
 Now, you should see the updates in github! (go and have a look)
@@ -135,11 +146,13 @@ Now, you should see the updates in github! (go and have a look)
 Link the remote with the local in a bookmark (in the future, you can just call git push)
 
 .. code-block:: bash
-    $ git push -u origin maste
+
+    $ git push -u origin master
 
 If you want to double check that you have a remote location, you can type in:
 
 .. code-block:: bash
+
     $ git remote
 
 This tells you that a remote location exists. Note: origin is just a default name, you can change this if you wish! The exact address of the remote is shown using the following command.
@@ -147,11 +160,10 @@ This tells you that a remote location exists. Note: origin is just a default nam
 Check remote locations with -v (=verbose)
 
 .. code-block:: bash
+
     $ git remote -v
 
 
-
-*
 
 
 

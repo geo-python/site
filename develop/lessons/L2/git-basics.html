@@ -212,35 +212,42 @@
 <div class="section" id="meet-git">
 <h1>Meet Git<a class="headerlink" href="#meet-git" title="Permalink to this headline">¶</a></h1>
 <p>These materials have been adapted for the geo-python course from <a class="reference external" href="https://github.com/Campus-Advisors">GitHubClassroom Campus Advisors -resources</a> Modules 1 and 2.</p>
-<p><strong>Check to see if you have git installed:</strong></p>
-<p>Type this command in the terminal window:</p>
+<div class="section" id="gonfiguration">
+<h2>Gonfiguration<a class="headerlink" href="#gonfiguration" title="Permalink to this headline">¶</a></h2>
+<p>Before starting to work, <strong>check if you have git installed</strong> by typing this command in the terminal window:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git -- version
 </pre></div>
 </div>
 <p>Anything above version 2 is just fine.</p>
-<p><strong>Configure user information</strong></p>
-<p>Check git user configuration:</p>
+<p>Next, configure user information for local repositories. The user name you set will be attached to your commits:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git config --global user.name <span class="s2">&quot;Mona Lisa&quot;</span>
+
+$ git config --global user.email <span class="s2">&quot;email@example.com&quot;</span>
+</pre></div>
+</div>
+<p>You can check existing user information with these commands:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git config user.name
 
 $ git config user.email
 </pre></div>
 </div>
-<p>If these commands return nothing it means that user information has not been configured.
-Configure git to recognize you. The user name you set will be attached to your commits:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git config user.name <span class="s2">&quot;Mona Lisa&quot;</span>
-
-$ git config --global user.email <span class="s2">&quot;email@example.com&quot;</span>
-</pre></div>
 </div>
-<p><strong>Clone a repository from GitHub</strong></p>
-<p>A repository, or a “repo”, is a location for storing files. In general, it is recommended that each project, library or discrete piece of software should have it’s own repository
-In this course each exercise has it’s own repository. We will repository for Exercise-1 for practicing how to work with Git and GitHub.</p>
-<p>Go to GitHub and copy the web URL of your exercise-1 repository</p>
-<p>Clone the repository into JupyterLab using this command in the terminal:</p>
+<div class="section" id="cloning">
+<h2>Cloning<a class="headerlink" href="#cloning" title="Permalink to this headline">¶</a></h2>
+<p>We will clone an existing repository from GitHub and start modifying it. A repository, or a “repo”, is a location for storing files. In general, it is recommended that each project, library or discrete piece of software should have it’s own repository
+In this course each exercise has it’s own repository. We will clone Exercise-1 repository from week 1 for practicing how to work with Git and GitHub.</p>
+<p>Go to GitHub and copy the web URL of your exercise-1 repository:</p>
+<div class="figure">
+<img alt="lessons/L2/img/github_clone_url.png" src="lessons/L2/img/github_clone_url.png" />
+</div>
+<p>Clone the repository into JupyterLab:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone <span class="o">[</span>paste your URL here<span class="o">]</span>
 </pre></div>
 </div>
-<p>(note: you can paste text on the terminal trough Shift + Right Click –&gt; paste)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can paste text on the terminal trough Shift + Right Click –&gt; paste</p>
+</div>
 <p>navigate to the repository:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> exercise-1-GITHUBUSERNAME
 </pre></div>
@@ -253,8 +260,10 @@ In this course each exercise has it’s own repository. We will repository for E
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git status
 </pre></div>
 </div>
-<p><strong>Edit content</strong></p>
-<p>Create an empty markdown-file <cite>test.md</cite>. You can either create the file manually (do this if you are using windows!), or in the terminal using the <cite>touch</cite> -command:</p>
+</div>
+<div class="section" id="make-changes">
+<h2>Make changes<a class="headerlink" href="#make-changes" title="Permalink to this headline">¶</a></h2>
+<p>Create an empty markdown-file <cite>test.md</cite> under the exercise-1-username repository. You can either create the file manually (do this if you are using windows!), or in the terminal using the <cite>touch</cite> -command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ touch test.md
 </pre></div>
 </div>
@@ -273,7 +282,13 @@ In this course each exercise has it’s own repository. We will repository for E
 </div>
 <p>Modify the file, add for example a few lines of text. Save your changes (Ctrl + S)</p>
 <p>check again the status of the repository</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git status
+</pre></div>
+</div>
 <p>Snapshot the file again</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git add test.md
+</pre></div>
+</div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git status
 </pre></div>
 </div>
@@ -285,16 +300,28 @@ In this course each exercise has it’s own repository. We will repository for E
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git status
 </pre></div>
 </div>
-<p><strong>Push your changes to GitHub</strong></p>
+</div>
+<div class="section" id="synchronize-changes">
+<h2>Synchronize changes<a class="headerlink" href="#synchronize-changes" title="Permalink to this headline">¶</a></h2>
 <p>Let’s make a network call and send data to branch ‘master’</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git push origin master
+</pre></div>
+</div>
 <p>Now, you should see the updates in github! (go and have a look)</p>
 <p>Link the remote with the local in a bookmark (in the future, you can just call git push)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git push -u origin master
+</pre></div>
+</div>
 <p>If you want to double check that you have a remote location, you can type in:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git remote
+</pre></div>
+</div>
 <p>This tells you that a remote location exists. Note: origin is just a default name, you can change this if you wish! The exact address of the remote is shown using the following command.</p>
 <p>Check remote locations with -v (=verbose)</p>
-<ul class="simple">
-<li></li>
-</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git remote -v
+</pre></div>
+</div>
+</div>
 </div>
 
 
