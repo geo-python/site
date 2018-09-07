@@ -1,7 +1,12 @@
 Meet Git
 ==================
 
-These materials have been adapted for the geo-python course from `GitHubClassroom Campus Advisors -resources <https://github.com/Campus-Advisors>`_ Modules 1 and 2.
+This page will guide you through step-by-step how to clone a repository from GitHub, modify its contents, and push changes back online. These materials have been adapted for the geo-python course from `GitHubClassroom Campus Advisors -resources <https://github.com/Campus-Advisors>`_ Modules 1 and 2, and inspired by other online resources such as https://git-scm.com/about/.
+
+
+.. figure:: img/GitHub_clone_link.png
+
+    Different stages of version control using Git and Github
 
 
 Gonfiguration
@@ -82,7 +87,7 @@ At this stage, your terminal window should look something like this:
 Make changes
 ---------------
 
-Create an empty markdown-file `test.md` under the exercise-1 repository. You can either create the file manually (do this if you are using windows!), or in the terminal using the `touch` -command:
+**Create an empty markdown-file** `test.md` under the exercise-1 repository. You can either create the file manually (do this if you are using windows!), or in the terminal using the `touch` -command:
 
 .. code-block:: bash
 
@@ -100,9 +105,7 @@ check the status of the repository:
 
     $ git status
 
-**Add and commit changes**
-
-Add a snapshopt of your changes to the 'staging area'. The staging area is an index that prepares content for the next commit.
+**Add a snapshopt of your changes to the 'staging area'**. The staging area is an index that prepares content for the next commit.
 
 .. code-block:: bash
 
@@ -114,7 +117,7 @@ check again the status of the repository
 
     $ git status
 
-Commit your changes to the repository and include a message to accompany the change
+**Commit your changes** to the repository **and include a message** to accompany the change:
 
 .. code-block:: bash
 
@@ -129,7 +132,7 @@ Check the status of your repository
 Synchronize changes
 --------------------
 
-Let's make a network call and send data to branch 'master' in the remote repository
+Let's make a network call and send data to branch 'master' in the remote repository. During this course you don't have to worry much about branches, but it is good to know that master branch is always the default branch. You can read more about branches `here <https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is>`__.
 
 .. code-block:: bash
 
@@ -149,11 +152,10 @@ If you want to double check that you have a remote location, you can use the `gi
 
     $ git remote -v
 
-
-
-
 Summary
 -------------
+
+So far, you should be aware of the following git-commands:
 
 1. **git clone [url]** - download a project from GitHub
 2. **git add [file]** or **git add .** - add a snapshot of to the staging area
