@@ -34,10 +34,10 @@ You can check existing user information with these commands:
 Cloning
 ---------
 
-We will clone an existing repository from GitHub and start modifying it. A repository, or a "repo", is a location for storing files. In general, it is recommended that each project, library or discrete piece of software should have it's own repository
-In this course each exercise has it's own repository. We will clone Exercise-1 repository from week 1 for practicing how to work with Git and GitHub.
+We will **clone an existing repository from GitHub and start modifying it**. A repository, or a "repo", is a location for storing files. In general, it is recommended that each project, library or discrete piece of software should have it's own repository.
+In this course each exercise has it's own repository.
 
-Navigate to your personal exercise-1 repository in https://github.com/Geo-Python-2018/ and copy the web URL of your exercise-1 repository:
+We will clone Exercise-1 repository from week 1 for practicing how to work with Git and GitHub. Navigate to your personal exercise-1 repository in https://github.com/Geo-Python-2018/ and copy the web URL which you can find under the **Clone or download** -button:
 
 .. figure:: img/GitHub_clone_link.png
 
@@ -75,6 +75,10 @@ Check the status of your repository using  the `git status` command, which provi
 
     $ git status
 
+At this stage, your terminal window should look something like this:
+
+.. figure:: img/Terminal_git_status1.png
+
 Make changes
 ---------------
 
@@ -84,15 +88,14 @@ Create an empty markdown-file `test.md` under the exercise-1 repository. You can
 
     $ touch test.md
 
-
-You can also edit the file contents and save your changes (Ctrl + S).
 List all files inside the repository (you should see the new file listed in the terminal)
 
 .. code-block:: bash
 
     $ ls
 
-check the status of the repository
+check the status of the repository:
+
 .. code-block:: bash
 
     $ git status
