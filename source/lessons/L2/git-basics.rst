@@ -6,7 +6,7 @@ This page will guide you through step-by-step how to clone a repository from Git
 
 .. figure:: img/Git_illustration.png
 
-    Different stages of version control using Git and Github (adapted from `Git webpages <https://git-scm.com/about/>`__)
+    Different stages of version control using Git and Github (adapted from `Git webpages <https://git-scm.com/about/staging-area>`__)
 
 
 After going trough this tutorial, you should be aware of at least the following git-commands:
@@ -51,7 +51,8 @@ You can check existing user information with these commands:
 Cloning
 ---------
 
-We will **clone an existing repository from GitHub and start modifying it**. A repository, or a "repo", is a location for storing files. In general, it is recommended that each project, library or discrete piece of software should have it's own repository.
+We will **clone an existing repository from GitHub and start modifying it**. A repository, or "Git project", or a "repo", is a location for storing files. A repo contains all the files and folders associated with a project and the revision history of each entity.
+In general, it is recommended that each project, library or discrete piece of software should have it's own repository.
 In this course each exercise has it's own repository.
 
 We will clone Exercise-1 repository from week 1 for practicing how to work with Git and GitHub. Navigate to your personal exercise-1 repository in https://github.com/Geo-Python-2018/ and copy the web URL which you can find under the **Clone or download** -button:
@@ -171,6 +172,10 @@ If you want to double check that you have a remote location, you can use the `gi
 .. code-block:: bash
 
     $ git remote -v
+
+.. code-block:: bash
+
+    $ git status
 
 
 
