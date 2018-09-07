@@ -4,7 +4,6 @@ Meet Git
 These materials have been adapted for the geo-python course from `GitHubClassroom Campus Advisors -resources <https://github.com/Campus-Advisors>`_ Modules 1 and 2.
 
 
-
 Gonfiguration
 -----------------
 
@@ -12,18 +11,17 @@ Before starting to work, **check if you have git installed** by typing this comm
 
 .. code-block:: bash
 
-    $ git -- version
+    $ git --version
 
 Anything above version 2 is just fine.
 
-Next, configure user information for local repositories. The user name you set will be attached to your commits:
+Next, **configure user information for local repositories**. The user name you set will be attached to your commits:
 
 .. code-block:: bash
 
-    $ git config --global user.name "Mona Lisa"
+    $ git config --global user.name "Your Name"
 
     $ git config --global user.email "email@example.com"
-
 
 You can check existing user information with these commands:
 
@@ -33,19 +31,17 @@ You can check existing user information with these commands:
 
     $ git config user.email
 
-
-
 Cloning
 ---------
 
 We will clone an existing repository from GitHub and start modifying it. A repository, or a "repo", is a location for storing files. In general, it is recommended that each project, library or discrete piece of software should have it's own repository
 In this course each exercise has it's own repository. We will clone Exercise-1 repository from week 1 for practicing how to work with Git and GitHub.
 
-Go to GitHub and copy the web URL of your exercise-1 repository:
+Navigate to your personal exercise-1 repository in https://github.com/Geo-Python-2018/ and copy the web URL of your exercise-1 repository:
 
-.. figure:: img/github_clone_url.png
+.. figure:: img/GitHub_clone_link.png
 
-Clone the repository into JupyterLab:
+Clone the repository into JupyterLab using the `git clone` command:
 
 .. code-block:: bash
 
@@ -55,24 +51,29 @@ Clone the repository into JupyterLab:
 
     You can paste text on the terminal trough Shift + Right Click --> paste
 
-navigate to the repository:
+List directory contents in the terminal using the `ls` command:
 
 .. code-block:: bash
 
-    $ cd exercise-1-GITHUBUSERNAME
+    $ ls
 
-List all files inside the repository using the ls command, and include hidden files using the -al command
+You should now see the exercise repository in the list! Navigate to the repository usind the `cd`command:
+
+.. code-block:: bash
+
+    $ cd exercise-1-username
+
+List all files inside the repository using the `ls` command, and include hidden files using the -al command
 
 .. code-block:: bash
 
     $ ls -al
 
-Check the status of your repository (this is the most common git command - use it often!) Git status provides change information about the repository.
+Check the status of your repository using  the `git status` command, which provides change information about the repository (this is the most common git command - use it often!):
 
 .. code-block:: bash
 
     $ git status
-
 
 Make changes
 ---------------
