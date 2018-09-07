@@ -4,7 +4,7 @@ Meet Git
 This page will guide you through step-by-step how to clone a repository from GitHub, modify its contents, and push changes back online. These materials have been adapted for the geo-python course from `GitHubClassroom Campus Advisors -resources <https://github.com/Campus-Advisors>`_ Modules 1 and 2, and inspired by other online resources such as https://git-scm.com/about/.
 
 
-.. figure:: img/GitHub_clone_link.png
+.. figure:: img/Git_illustration.png
 
     Different stages of version control using Git and Github
 
@@ -132,19 +132,28 @@ Check the status of your repository
 Synchronize changes
 --------------------
 
-Let's make a network call and send data to branch 'master' in the remote repository. During this course you don't have to worry much about branches, but it is good to know that master branch is always the default branch. You can read more about branches `here <https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is>`__.
+Next, we want to synchronize our changes with the remote repository on GitHub. First, it's good to use `git pull` to double check for remote changes before contributing your own changes.
+
+.. code-block:: bash
+
+    $ git pull
+
+During this course you don't have to worry much about branches, but it is good to know that master branch is always the default branch. You can read more about branches `here <https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is>`__.
+
+Let's make a network call and send data to branch 'master' in the remote repository.
 
 .. code-block:: bash
 
     $ git push origin master
 
-Now, you should see the updates in GitHub! (go and have a look)
-
-Link the remote with the local in a bookmark (after doing this, you can just call `git push`)
+or just simply
 
 .. code-block:: bash
 
-    $ git push -u origin master
+    $ git push
+
+Now, you should see the updates in GitHub (go and have a look)!
+git
 
 If you want to double check that you have a remote location, you can use the `git remote` command (v stands for 'verbose' which prints out more details):
 
@@ -161,7 +170,8 @@ So far, you should be aware of the following git-commands:
 2. **git add [file]** or **git add .** - add a snapshot of to the staging area
 3. **git status** - review the status of your repository (use this command often at every stage!)
 4. **git commit -m "informative message"** - record changes in vesion history
-5. **git push** - upload local commits to GitHub
+5. **git pull** - download and incorporate changes. Always pull before you push!
+6. **git push** - upload local commits to GitHub
 
 For other useful git commands, you can refer to the `GIT CHEAT SHEET <https://education.github.com/git-cheat-sheet-education.pdf>`__
 
