@@ -78,12 +78,14 @@ Check the status of your repository using  the `git status` command, which provi
 Make changes
 ---------------
 
-Create an empty markdown-file `test.md` under the exercise-1-username repository. You can either create the file manually (do this if you are using windows!), or in the terminal using the `touch` -command:
+Create an empty markdown-file `test.md` under the exercise-1 repository. You can either create the file manually (do this if you are using windows!), or in the terminal using the `touch` -command:
 
 .. code-block:: bash
 
     $ touch test.md
 
+
+You can also edit the file contents and save your changes (Ctrl + S).
 List all files inside the repository (you should see the new file listed in the terminal)
 
 .. code-block:: bash
@@ -103,19 +105,7 @@ Add a snapshopt of your changes to the 'staging area'. The staging area is an in
 
     $ git add test.md
 
-Modify the file, add for example a few lines of text. Save your changes (Ctrl + S)
-
 check again the status of the repository
-
-.. code-block:: bash
-
-    $ git status
-
-Snapshot the file again
-
-.. code-block:: bash
-
-    $ git add test.md
 
 .. code-block:: bash
 
@@ -125,9 +115,9 @@ Commit your changes to the repository and include a message to accompany the cha
 
 .. code-block:: bash
 
-    $ git commit -m 'added a test file
+    $ git commit -m "added a test file"
 
-Check the status
+Check the status of your repository
 
 .. code-block:: bash
 
@@ -136,29 +126,21 @@ Check the status
 Synchronize changes
 --------------------
 
-Let's make a network call and send data to branch 'master'
+Let's make a network call and send data to branch 'master' in the remote repository
 
 .. code-block:: bash
 
     $ git push origin master
 
-Now, you should see the updates in github! (go and have a look)
+Now, you should see the updates in GitHub! (go and have a look)
 
-Link the remote with the local in a bookmark (in the future, you can just call git push)
+Link the remote with the local in a bookmark (after doing this, you can just call `git push`)
 
 .. code-block:: bash
 
     $ git push -u origin master
 
-If you want to double check that you have a remote location, you can type in:
-
-.. code-block:: bash
-
-    $ git remote
-
-This tells you that a remote location exists. Note: origin is just a default name, you can change this if you wish! The exact address of the remote is shown using the following command.
-
-Check remote locations with -v (=verbose)
+If you want to double check that you have a remote location, you can use the `git remote` command (v stands for 'verbose' which prints out more details):
 
 .. code-block:: bash
 
