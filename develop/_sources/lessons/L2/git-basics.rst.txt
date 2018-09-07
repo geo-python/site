@@ -152,6 +152,19 @@ If you want to double check that you have a remote location, you can use the `gi
 
 
 
+Summary
+-------------
+
+1. **git clone [url]** - download a project from GitHub
+2. **git add [file]** or **git add .** - add a snapshot of to the staging area
+3. **git status** - review the status of your repository (use this command often at every stage!)
+4. **git commit -m "informative message"** - record changes in vesion history
+5. **git push** - upload local commits to GitHub
+
+For other useful git commands, you can refer to the `GIT CHEAT SHEET <https://education.github.com/git-cheat-sheet-education.pdf>`__
+
+
+
 
 
 
