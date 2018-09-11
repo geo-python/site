@@ -127,6 +127,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#gonfiguration">Gonfiguration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cloning">Cloning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#make-changes">Make changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commit-changes">Commit changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#synchronize-changes">Synchronize changes</a></li>
 </ul>
 </li>
@@ -231,7 +232,7 @@
 <h1>Meet Git<a class="headerlink" href="#meet-git" title="Permalink to this headline">¶</a></h1>
 <p>This page will guide you through step-by-step how to clone a repository from GitHub, modify its contents, and push changes back online.</p>
 <p>These materials have been adapted for the geo-python course from <a class="reference external" href="https://github.com/Campus-Advisors">GitHubClassroom Campus Advisors -resources</a>, and inspired by other online resources such as <a class="reference external" href="https://git-scm.com/about/">https://git-scm.com/about/</a>.</p>
-<div class="figure" id="id3">
+<div class="figure" id="id1">
 <img alt="../../_images/Git_illustration.png" src="../../_images/Git_illustration.png" />
 <p class="caption"><span class="caption-text">Different stages of version control using Git and Github (adapted from <a class="reference external" href="https://git-scm.com/about/staging-area">Git webpages</a>)</span></p>
 </div>
@@ -245,14 +246,17 @@
 <li><strong>git push</strong> - upload local commits to GitHub</li>
 </ol>
 <p>For other useful git commands, you can refer to the <a class="reference external" href="https://education.github.com/git-cheat-sheet-education.pdf">GIT CHEAT SHEET</a></p>
-<p>We will use git from the command line in this tutorial and throughout the course. Code Academy’s <a class="reference external" href="https://www.codecademy.com/articles/command-line-commands">list of command line commands</a> provides
-a good overview of commonly used commands for navigating trough files and folders from the command line. The instructions below are compatible with the Linux terminal (which is available in <span class="xref std std-doc">the course environment</span>).</p>
+<p><strong>We will use git from the command line</strong> in this tutorial and throughout the course. Code Academy’s <a class="reference external" href="https://www.codecademy.com/articles/command-line-commands">list of command line commands</a> provides
+a good overview of commonly used commands for navigating trough files in the Terminal. The instructions below are compatible with the Linux terminal (which is available in <span class="xref std std-doc">the course environment</span>).</p>
 <p>At this point, you should launch JupyterLab and open a terminal window, for example trough Binder:</p>
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/Geo-Python-2018/Binder/master?urlpath=lab"><img alt="https://mybinder.org/badge.svg" src="https://mybinder.org/badge.svg" /></a>
+<div class="figure">
+<img alt="../../_images/open-terminal.png" src="../../_images/open-terminal.png" />
+</div>
 <div class="section" id="gonfiguration">
 <h2>Gonfiguration<a class="headerlink" href="#gonfiguration" title="Permalink to this headline">¶</a></h2>
-<p>Before starting to work, <strong>check if you have git installed</strong> by typing this command in the terminal window:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git --version
+<p>First, <strong>check if you have git installed</strong> by typing this command in the terminal window:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git --version
 </pre></div>
 </div>
 <p>Anything above version 2 is just fine.</p>
@@ -300,15 +304,15 @@ Unpacking objects: <span class="m">100</span>% <span class="o">(</span><span cla
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ls
 </pre></div>
 </div>
-<p>You should now see the exercise repository listed in the terminal (and also in the navigation pane in JupyterLab). <strong>Navigate to the repository</strong> using the <a href="#id1"><span class="problematic" id="id2">`</span></a>cd`command:</p>
+<p>You should now see the exercise repository listed in the terminal (and also in the navigation pane in JupyterLab). <strong>Navigate to the repository</strong> using the <code class="code docutils literal notranslate"><span class="pre">cd</span></code> command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> exercise-1-username
 </pre></div>
 </div>
-<p>List all files inside the repository using the <code class="code docutils literal notranslate"><span class="pre">ls</span></code> command, and include hidden files in a long format using the <code class="code docutils literal notranslate"><span class="pre">-al</span></code> command</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ls -al
+<p>List all files inside the repository using the <code class="code docutils literal notranslate"><span class="pre">ls</span></code> command, and include hidden files in a long format using the <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span></code> (on Windows, use <code class="code docutils literal notranslate"><span class="pre">dir</span> <span class="pre">/a</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ls -a
 </pre></div>
 </div>
-<p><strong>Check the status of your repository</strong> using  the <cite>git status</cite> command, which provides change information about the repository (this is the most common git command - use it often!):</p>
+<p><strong>Check the status of your repository</strong> using  the <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> command, which provides change information about the repository (this is the most common git command - use it often!):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git status
 </pre></div>
 </div>
@@ -317,11 +321,11 @@ At this stage, your terminal window should look something like this:</p>
 <div class="figure">
 <img alt="../../_images/Terminal_git_status1.png" src="../../_images/Terminal_git_status1.png" />
 </div>
-<p>Git status also tells that you are on branch master. During this course you don’t have to worry much about branches, but it is good to know that master branch is always the default branch. A branch is a parallel version of a repository which can be developed separately before merging the changes to the primary version. You can read more about branches <a class="reference external" href="https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is">here</a>.</p>
+<p>Git status also tells that you are on branch master. <strong>During this course you don’t have to worry much about branches</strong>, but it is good to know that master branch is always the default branch. A branch is a parallel version of a repository which can be developed separately before merging the changes to the primary version. You can read more about branches <a class="reference external" href="https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is">here</a>.</p>
 </div>
 <div class="section" id="make-changes">
 <h2>Make changes<a class="headerlink" href="#make-changes" title="Permalink to this headline">¶</a></h2>
-<p><strong>Create an empty markdown-file</strong> <cite>test.md</cite> under the exercise-1 repository. You can either create the file manually (do this if you are using windows!), or in the terminal using the <cite>touch</cite> -command:</p>
+<p><strong>Create an empty markdown-file</strong> <cite>test.md</cite> under the exercise-1 repository. You can either create the file manually (do this if you are using windows!), or in the terminal using the <code class="code docutils literal notranslate"><span class="pre">touch</span></code> -command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ touch test.md
 </pre></div>
 </div>
@@ -333,7 +337,21 @@ At this stage, your terminal window should look something like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git status
 </pre></div>
 </div>
-<p><strong>Add a snapshopt of your changes to the ‘staging area’</strong>. The staging area is an index that prepares content for the next commit.</p>
+<p>Git should tell you that it detected untracked files.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git status
+On branch master
+Your branch is up to date with <span class="s1">&#39;origin/master&#39;</span>.
+
+Untracked files:
+    <span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to include in what will be committed<span class="o">)</span>
+
+        .ipynb_checkpoints/
+        test.md
+
+nothing added to commit but untracked files present <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> to track<span class="o">)</span>
+</pre></div>
+</div>
+<p><strong>Start tracking the file with git</strong> uing the command <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git add test.md
 </pre></div>
 </div>
@@ -341,21 +359,68 @@ At this stage, your terminal window should look something like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git status
 </pre></div>
 </div>
+<p>Git status shows that there is a new file under the “Changes to be committed” -heading:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git add test.md
+$ git status
+On branch master
+Your branch is up to date with <span class="s1">&#39;origin/master&#39;</span>.
+
+Changes to be committed:
+  <span class="o">(</span>use <span class="s2">&quot;git reset HEAD &lt;file&gt;...&quot;</span> to unstage<span class="o">)</span>
+
+        new file:   test.md
+</pre></div>
+</div>
+<p>Next, edit the contents of the test.md -file (you can do this manually! Open up the file and add a few lines of text):</p>
+<div class="figure">
+<img alt="../../_images/edit-testMD.png" src="../../_images/edit-testMD.png" />
+</div>
+<p>check the status of your repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git status
+</pre></div>
+</div>
+<p>Git now tells you that there are changes that are ready to be committed (the new file), and changes that have not yet been staged for commit:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Changes to be committed:
+  <span class="o">(</span>use <span class="s2">&quot;git reset HEAD &lt;file&gt;...&quot;</span> to unstage<span class="o">)</span>
+
+        new file:   test.md
+
+Changes not staged <span class="k">for</span> commit:
+  <span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="o">)</span>
+  <span class="o">(</span>use <span class="s2">&quot;git checkout -- &lt;file&gt;...&quot;</span> to discard changes in working directory<span class="o">)</span>
+
+        modified:   test.md
+</pre></div>
+</div>
+<p><strong>Add a snapshopt of your changes to the ‘staging area’</strong> using the <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>:
+.. code-block:: bash</p>
+<blockquote>
+<div>$ git add test.md</div></blockquote>
+<p>The staging area is an index that prepares content for the next commit.</p>
+</div>
+<div class="section" id="commit-changes">
+<h2>Commit changes<a class="headerlink" href="#commit-changes" title="Permalink to this headline">¶</a></h2>
+<p>Before committing your changes, check again the status of your repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git status
+</pre></div>
+</div>
+<p>Git status tells you that 1 new file (test.md) is ready to be committed:</p>
 <p><strong>Commit your changes</strong> to the repository <strong>and include a message</strong> to accompany the change:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git commit -m <span class="s2">&quot;added a test file&quot;</span>
 </pre></div>
 </div>
-<p>Check the status of your repository</p>
+<p>Check the status:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git status
 </pre></div>
 </div>
 </div>
 <div class="section" id="synchronize-changes">
 <h2>Synchronize changes<a class="headerlink" href="#synchronize-changes" title="Permalink to this headline">¶</a></h2>
-<p>Next, we want to synchronize our changes with the remote repository on GitHub. First, it’s good to use <cite>git pull</cite> to double check for remote changes before contributing your own changes.</p>
+<p>Next, we want to synchronize our changes with the remote repository on GitHub. First, it’s good to use <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> to double check for remote changes before contributing your own changes.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git pull
 </pre></div>
 </div>
+<p>Git should tell you that the repository is <strong>“Already up-to-date”</strong>.</p>
 <p>Let’s make a network call and send data to branch ‘master’ in the remote repository.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git push origin master
 </pre></div>
@@ -364,8 +429,8 @@ At this stage, your terminal window should look something like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git push
 </pre></div>
 </div>
-<p>Now, you should see the updates in GitHub (go and have a look)!</p>
-<p>If you want to double check that you have a remote location, you can use the <cite>git remote</cite> command (v stands for ‘verbose’ which prints out more details):</p>
+<p>Now, you should see the updates in GitHub (go and have a look at your repository in <a class="reference external" href="https://github.com/Geo-Python-2018/">https://github.com/Geo-Python-2018/</a> )!</p>
+<p>If you want to double check that you have a remote location, you can use the <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span></code> command (v stands for ‘verbose’ which prints out more details):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git remote -v
 </pre></div>
 </div>
