@@ -3,7 +3,7 @@ Lesson overview
 
 During the second week we will dive into Python and learn some basic
 elements of Python programming language. We will also continue learning
-how to use the Course Environment and version control with GitHub.
+how to use the Course Environment and version control with Git + GitHub.
 
 1. :doc:`Intro to version control and GitHub <intro-to-GitHub>`
 2. :doc:`Basics of using Git <git-basics>`
