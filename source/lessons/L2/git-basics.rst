@@ -145,7 +145,25 @@ check the status of the repository:
 
     $ git status
 
-**Add a snapshopt of your changes to the 'staging area'**. The staging area is an index that prepares content for the next commit.
+
+Git should tell you that it detected untracked files.
+
+.. code-block:: bash
+
+    $ git status
+    On branch master
+    Your branch is up to date with 'origin/master'.
+
+    Untracked files:
+        (use "git add <file>..." to include in what will be committed)
+
+            .ipynb_checkpoints/
+            test.md
+
+    nothing added to commit but untracked files present (use "git add" to track)
+
+
+**Start tracking the file with git** uing the command :code:`git add`:
 
 .. code-block:: bash
 
@@ -157,7 +175,73 @@ check again the status of the repository
 
     $ git status
 
-You can also edit the contents of the test.md -file and add those changes to the staging area by repeating the above steps.
+Git status shows that there is a new file under the "Changes to be committed" -heading:
+
+.. code-block:: bash
+
+    $ git add test.md
+    $ git status
+    On branch master
+    Your branch is up to date with 'origin/master'.
+
+    Changes to be committed:
+      (use "git reset HEAD <file>..." to unstage)
+
+            new file:   test.md
+
+Next, edit the contents of the test.md -file (you can do this manually! Open up the file and add a few lines of text):
+
+.. figure:: img/edit-testMD.png
+
+check the status of your repository:
+
+.. code-block:: bash
+
+    $ git status
+
+Git now tells you that there are changes that are ready to be committed (the new file), and changes that have not yet been staged for commit:
+
+.. code-block:: bash
+
+    Changes to be committed:
+      (use "git reset HEAD <file>..." to unstage)
+
+            new file:   test.md
+
+    Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git checkout -- <file>..." to discard changes in working directory)
+
+            modified:   test.md
+
+
+**Add a snapshopt of your changes to the 'staging area'** using the :code:`git add`:
+.. code-block:: bash
+
+    $ git add test.md
+
+The staging area is an index that prepares content for the next commit.
+
+Commit changes
+------------------
+
+Before committing your changes, check again the status of your repository:
+
+.. code-block:: bash
+
+    $ git status
+
+Git status tells you that 1 new file (test.md) is ready to be committed:
+
+.. code-block:: bash
+    $ git status
+    On branch master
+    Your branch is up to date with 'origin/master'.
+
+    Changes to be committed:
+      (use "git reset HEAD <file>..." to unstage)
+
+            new file:   test.md
 
 **Commit your changes** to the repository **and include a message** to accompany the change:
 
@@ -165,11 +249,12 @@ You can also edit the contents of the test.md -file and add those changes to the
 
     $ git commit -m "added a test file"
 
-Check the status of your repository
+Check the status:
 
 .. code-block:: bash
 
     $ git status
+
 
 Synchronize changes
 --------------------
