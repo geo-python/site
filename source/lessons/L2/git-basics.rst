@@ -22,20 +22,22 @@ After going trough this tutorial, you should be aware of at least the following 
 
 For other useful git commands, you can refer to the `GIT CHEAT SHEET <https://education.github.com/git-cheat-sheet-education.pdf>`__
 
-We will use git from the command line in this tutorial and throughout the course. Code Academy's `list of command line commands <https://www.codecademy.com/articles/command-line-commands>`__ provides
-a good overview of commonly used commands for navigating trough files and folders from the command line. The instructions below are compatible with the Linux terminal (which is available in :doc:`the course environment <course-environment-components>`).
+**We will use git from the command line** in this tutorial and throughout the course. Code Academy's `list of command line commands <https://www.codecademy.com/articles/command-line-commands>`__ provides
+a good overview of commonly used commands for navigating trough files in the Terminal. The instructions below are compatible with the Linux terminal (which is available in :doc:`the course environment <course-environment-components>`).
 
 At this point, you should launch JupyterLab and open a terminal window, for example trough Binder:
 
 .. image:: https://mybinder.org/badge.svg
    :target: https://mybinder.org/v2/gh/Geo-Python-2018/Binder/master?urlpath=lab
 
+.. figure:: img/open-terminal.png
+
 Gonfiguration
 -----------------
 
-Before starting to work, **check if you have git installed** by typing this command in the terminal window:
+First, **check if you have git installed** by typing this command in the terminal window:
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ git --version
 
@@ -96,19 +98,19 @@ Once cloning is completed, check what happened by listing directory contents in 
 
     $ ls
 
-You should now see the exercise repository listed in the terminal (and also in the navigation pane in JupyterLab). **Navigate to the repository** using the `cd`command:
+You should now see the exercise repository listed in the terminal (and also in the navigation pane in JupyterLab). **Navigate to the repository** using the :code:`cd` command:
 
 .. code-block:: bash
 
     $ cd exercise-1-username
 
-List all files inside the repository using the :code:`ls` command, and include hidden files in a long format using the :code:`-al` command
+List all files inside the repository using the :code:`ls` command, and include hidden files in a long format using the :code:`ls -a` (on Windows, use :code:`dir /a`):
 
 .. code-block:: bash
 
-    $ ls -al
+    $ ls -a
 
-**Check the status of your repository** using  the `git status` command, which provides change information about the repository (this is the most common git command - use it often!):
+**Check the status of your repository** using  the :code:`git status` command, which provides change information about the repository (this is the most common git command - use it often!):
 
 .. code-block:: bash
 
@@ -119,13 +121,13 @@ At this stage, your terminal window should look something like this:
 
 .. figure:: img/Terminal_git_status1.png
 
-Git status also tells that you are on branch master. During this course you don't have to worry much about branches, but it is good to know that master branch is always the default branch. A branch is a parallel version of a repository which can be developed separately before merging the changes to the primary version. You can read more about branches `here <https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is>`__.
+Git status also tells that you are on branch master. **During this course you don't have to worry much about branches**, but it is good to know that master branch is always the default branch. A branch is a parallel version of a repository which can be developed separately before merging the changes to the primary version. You can read more about branches `here <https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is>`__.
 
 
 Make changes
 ---------------
 
-**Create an empty markdown-file** `test.md` under the exercise-1 repository. You can either create the file manually (do this if you are using windows!), or in the terminal using the `touch` -command:
+**Create an empty markdown-file** `test.md` under the exercise-1 repository. You can either create the file manually (do this if you are using windows!), or in the terminal using the :code:`touch` -command:
 
 .. code-block:: bash
 
@@ -170,7 +172,7 @@ Check the status of your repository
 Synchronize changes
 --------------------
 
-Next, we want to synchronize our changes with the remote repository on GitHub. First, it's good to use `git pull` to double check for remote changes before contributing your own changes.
+Next, we want to synchronize our changes with the remote repository on GitHub. First, it's good to use :code:`git pull` to double check for remote changes before contributing your own changes.
 
 .. code-block:: bash
 
@@ -188,9 +190,9 @@ or just simply
 
     $ git push
 
-Now, you should see the updates in GitHub (go and have a look)!
+Now, you should see the updates in GitHub (go and have a look at your repository in https://github.com/Geo-Python-2018/ )!
 
-If you want to double check that you have a remote location, you can use the `git remote` command (v stands for 'verbose' which prints out more details):
+If you want to double check that you have a remote location, you can use the :code:`git remote` command (v stands for 'verbose' which prints out more details):
 
 .. code-block:: bash
 
