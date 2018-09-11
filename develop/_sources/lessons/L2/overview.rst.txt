@@ -8,10 +8,8 @@ how to use the Course Environment and version control with GitHub.
 1. :doc:`Intro to version control and GitHub <intro-to-GitHub>`
 2. :doc:`Basics of using Git <git-basics>`
 3. :doc:`Classroom for GitHub <GitHub-classroom>`
-4. :doc:`Working on the assignments <working-on-assignment>`
-5. `Some basic elements of Python <../../notebooks/L2/Python-basic-elements.ipynb>`_
-6. :doc:`Writing script files <writing-scripts>`
-7. :doc:`Exercise 2: Writing scripts and using GitHub <exercise-2>`
+4. `Some basic elements of Python <../../notebooks/L2/Python-basic-elements.ipynb>`_
+5. :doc:`Exercise 2: Writing scripts and using GitHub <exercise-2>`
 
 Learning goals
 --------------
