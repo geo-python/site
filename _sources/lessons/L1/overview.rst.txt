@@ -43,8 +43,6 @@ Lecture video
 
         - `00:00 - Start of video, shortcuts coming soon... <https://youtu.be/KgDahHlosUU?t=0s>`__
 
-|
-
 .. admonition:: Lesson 1.2 Course overview, computing basics
 
     .. raw:: html
@@ -55,8 +53,6 @@ Lecture video
     **Contents:**
 
         - Shortcuts coming soon...
-
-|
 
 Lecture slides
 --------------
