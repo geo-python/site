@@ -1,6 +1,8 @@
 Working on the assignments
 ==========================
 
+**CAN THIS BE CUT???**
+
 For most assignments you will be modifying the "starter" Python code
 that will be provided as part of the files copied to the assignment
 repository when you accept the assignment. After you get the code
