@@ -125,8 +125,8 @@
 <li class="toctree-l1"><a class="reference internal" href="intro-to-GitHub.html">Introduction to Version Control and GitHub</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Meet Git</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#gonfiguration">Gonfiguration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cloning">Cloning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#make-changes">Make changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clone-a-repository-from-github">Clone a repository from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-changes">Adding changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#commit-changes">Commit changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#synchronize-changes">Synchronize changes</a></li>
 </ul>
@@ -248,7 +248,7 @@
 <p>For other useful git commands, you can refer to the <a class="reference external" href="https://education.github.com/git-cheat-sheet-education.pdf">GIT CHEAT SHEET</a></p>
 <p><strong>We will use git from the command line</strong> in this tutorial and throughout the course. Code Academy’s <a class="reference external" href="https://www.codecademy.com/articles/command-line-commands">list of command line commands</a> provides
 a good overview of commonly used commands for navigating trough files in the Terminal. The instructions below are compatible with the Linux terminal (which is available in <span class="xref std std-doc">the course environment</span>).</p>
-<p>At this point, you should launch JupyterLab and open a terminal window, for example trough Binder:</p>
+<p><strong>At this point, you should launch JupyterLab and open a terminal window, for example trough Binder:</strong></p>
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/Geo-Python-2018/Binder/master?urlpath=lab"><img alt="https://mybinder.org/badge.svg" src="https://mybinder.org/badge.svg" /></a>
 <div class="figure">
 <img alt="../../_images/open-terminal.png" src="../../_images/open-terminal.png" />
@@ -273,8 +273,8 @@ $ git config user.email
 </pre></div>
 </div>
 </div>
-<div class="section" id="cloning">
-<h2>Cloning<a class="headerlink" href="#cloning" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="clone-a-repository-from-github">
+<h2>Clone a repository from GitHub<a class="headerlink" href="#clone-a-repository-from-github" title="Permalink to this headline">¶</a></h2>
 <p>We will <strong>clone an existing repository from GitHub and start modifying it</strong>. A repository, or “Git project”, or a “repo”, is a location for storing files. A repo contains all the files and folders associated with a project and the revision history of each entity.
 In general, it is recommended that each project, library or discrete piece of software should have it’s own repository.
 In this course each exercise has it’s own repository.</p>
@@ -323,8 +323,8 @@ At this stage, your terminal window should look something like this:</p>
 </div>
 <p>Git status also tells that you are on branch master. <strong>During this course you don’t have to worry much about branches</strong>, but it is good to know that master branch is always the default branch. A branch is a parallel version of a repository which can be developed separately before merging the changes to the primary version. You can read more about branches <a class="reference external" href="https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is">here</a>.</p>
 </div>
-<div class="section" id="make-changes">
-<h2>Make changes<a class="headerlink" href="#make-changes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="adding-changes">
+<h2>Adding changes<a class="headerlink" href="#adding-changes" title="Permalink to this headline">¶</a></h2>
 <p><strong>Create an empty markdown-file</strong> <cite>test.md</cite> under the exercise-1 repository. You can either create the file manually (do this if you are using windows!), or in the terminal using the <code class="code docutils literal notranslate"><span class="pre">touch</span></code> -command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ touch test.md
 </pre></div>
@@ -379,7 +379,7 @@ Changes to be committed:
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git status
 </pre></div>
 </div>
-<p>Git now tells you that there are changes that are ready to be committed (the new file), and changes that have not yet been staged for commit:</p>
+<p>Git now tells you that there are changes that are ready to be committed (the new file), and changes that have not yet been staged for commit (modifications to that file):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Changes to be committed:
   <span class="o">(</span>use <span class="s2">&quot;git reset HEAD &lt;file&gt;...&quot;</span> to unstage<span class="o">)</span>
 
@@ -413,6 +413,13 @@ Changes not staged <span class="k">for</span> commit:
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git status
 </pre></div>
 </div>
+<p>Git status tells that your branch is ahead of the remote repository’s master branch by 1 commit, and tells you to use <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> to publish the local changes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jovyan@jupyter-geo-2dpython-2d2018-2dbinder-2d63pkzqdt:~/exercise-1-VuokkoH$ git status
+On branch master
+Your branch is ahead of <span class="s1">&#39;origin/master&#39;</span> by <span class="m">1</span> commit.
+  <span class="o">(</span>use <span class="s2">&quot;git push&quot;</span> to publish your <span class="nb">local</span> commits<span class="o">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="synchronize-changes">
 <h2>Synchronize changes<a class="headerlink" href="#synchronize-changes" title="Permalink to this headline">¶</a></h2>
@@ -421,12 +428,25 @@ Changes not staged <span class="k">for</span> commit:
 </pre></div>
 </div>
 <p>Git should tell you that the repository is <strong>“Already up-to-date”</strong>.</p>
-<p>Let’s make a network call and send data to branch ‘master’ in the remote repository.</p>
+<p>Let’s make a network call and send data to branch ‘master’ in the remote repository using <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git push origin master
 </pre></div>
 </div>
 <p>or just simply</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git push
+</pre></div>
+</div>
+<p>Git will prompt you for unsername and password before pushing the changes online:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jovyan@jupyter-geo-2dpython-2d2018-2dbinder-2d63pkzqdt:~/exercise-1-VuokkoH$ git push
+Username <span class="k">for</span> <span class="s1">&#39;https://github.com&#39;</span>: VuokkoH
+Password <span class="k">for</span> <span class="s1">&#39;https://VuokkoH@github.com&#39;</span>:
+Counting objects: <span class="m">3</span>, <span class="k">done</span>.
+Delta compression using up to <span class="m">8</span> threads.
+Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>, <span class="k">done</span>.
+Writing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>, <span class="m">316</span> bytes <span class="p">|</span> <span class="m">316</span>.00 KiB/s, <span class="k">done</span>.
+Total <span class="m">3</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>
+To https://github.com/Geo-Python-2018/exercise-1-VuokkoH.git
+   b33a43a..c4be7c3  master -&gt; master
 </pre></div>
 </div>
 <p>Now, you should see the updates in GitHub (go and have a look at your repository in <a class="reference external" href="https://github.com/Geo-Python-2018/">https://github.com/Geo-Python-2018/</a> )!</p>
@@ -438,7 +458,8 @@ Changes not staged <span class="k">for</span> commit:
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git status
 </pre></div>
 </div>
-<p>Your master branch should be now up to date in all location! That’s all you need to know about Git for know :)</p>
+<p>Git will tell you that the master branch is up to date and synchronized:</p>
+<p>That’s all you need to know about Git for know :)</p>
 </div>
 </div>
 
