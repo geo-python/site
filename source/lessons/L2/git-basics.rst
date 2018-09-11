@@ -326,13 +326,7 @@ Git will tell you that the master branch is up to date and synchronized:
     Your branch is up to date with 'origin/master'.
 
 
-Your master branch should be now up to date in all location! That's all you need to know about Git for know :)
-
-
-
-
-
-
+That's all you need to know about Git for know :)
 
 
 
