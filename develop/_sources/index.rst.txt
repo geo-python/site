@@ -106,3 +106,14 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     notebooks/L1/a-taste-of-python.ipynb
     lessons/L1/exercise-1
 
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 2
+
+    lessons/L2/intro-to-GitHub
+    lessons/L2/git-basics
+    lessons/L2/GitHub-classroom
+    lessons/L2/working-on-assignment
+    notebooks/L2/Python-basic-elements.ipynb
+    lessons/L2/writing-scripts
+    lessons/L2/exercise-2
