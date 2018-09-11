@@ -125,11 +125,11 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Lesson overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro-to-GitHub.html">Introduction to Version Control and GitHub</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Meet Git</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#clone-a-repository-from-github">Clone a repository from GitHub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#add-changes">Add changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#commit-changes">Commit changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#synchronize-changes">Synchronize changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="GitHub-classroom.html">Using Classroom for Github</a></li>
@@ -259,26 +259,11 @@ a good overview of commonly used commands for navigating trough files in the Ter
 <div class="figure">
 <img alt="../../_images/open-terminal.png" src="../../_images/open-terminal.png" />
 </div>
-<div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <p>First, <strong>check if you have git installed</strong> by typing this command in the terminal window:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git --version
 </pre></div>
 </div>
 <p>Anything above version 2 is just fine.</p>
-<p>Next, <strong>configure user information for local repositories</strong>. The user name you set will be attached to your commits:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git config --global user.name <span class="s2">&quot;[Your Name]&quot;</span>
-
-$ git config --global user.email <span class="s2">&quot;[email@example.com]&quot;</span>
-</pre></div>
-</div>
-<p>You can check existing user information with these commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git config user.name
-
-$ git config user.email
-</pre></div>
-</div>
-</div>
 <div class="section" id="clone-a-repository-from-github">
 <h2>Clone a repository from GitHub<a class="headerlink" href="#clone-a-repository-from-github" title="Permalink to this headline">¶</a></h2>
 <p>We will <strong>clone an existing repository from GitHub and start modifying it</strong>. A repository, or “Git project”, or a “repo”, is a location for storing files. A repo contains all the files and folders associated with a project and the revision history of each entity.
@@ -482,6 +467,27 @@ Your branch is up to date with <span class="s1">&#39;origin/master&#39;</span>.
 </pre></div>
 </div>
 <p>That’s all you need to know about Git for know :)</p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Configuring Git by storing your Git username and email can be useful especially if working from own computer as you do not
+need to fill these information every time when you are e.g. pulling or pushing from remote repository.
+The username you set, will be attached to your commits:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git config --global user.name <span class="s2">&quot;[Your Name]&quot;</span>
+
+$ git config --global user.email <span class="s2">&quot;[email@example.com]&quot;</span>
+</pre></div>
+</div>
+<p>You can check existing user information with these commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git config user.name
+
+$ git config user.email
+</pre></div>
+</div>
+<p>It is also possible to cache your GitHub password (be careful with this!) by running following command from Git shell:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git config --global credential.helper wincred
+</pre></div>
+</div>
 </div>
 </div>
 

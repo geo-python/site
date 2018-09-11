@@ -38,8 +38,6 @@ a good overview of commonly used commands for navigating trough files in the Ter
 
 .. figure:: img/open-terminal.png
 
-Configuration
------------------
 
 First, **check if you have git installed** by typing this command in the terminal window:
 
@@ -48,22 +46,6 @@ First, **check if you have git installed** by typing this command in the termina
     $ git --version
 
 Anything above version 2 is just fine.
-
-Next, **configure user information for local repositories**. The user name you set will be attached to your commits:
-
-.. code-block:: bash
-
-    $ git config --global user.name "[Your Name]"
-
-    $ git config --global user.email "[email@example.com]"
-
-You can check existing user information with these commands:
-
-.. code-block:: bash
-
-    $ git config user.name
-
-    $ git config user.email
 
 Clone a repository from GitHub
 -------------------------------
@@ -339,7 +321,30 @@ Git will tell you that the master branch is up to date and synchronized:
 
 That's all you need to know about Git for know :)
 
+Configuration
+-----------------
 
+Configuring Git by storing your Git username and email can be useful especially if working from own computer as you do not
+need to fill these information every time when you are e.g. pulling or pushing from remote repository.
+The username you set, will be attached to your commits:
 
+.. code-block:: bash
 
+    $ git config --global user.name "[Your Name]"
+
+    $ git config --global user.email "[email@example.com]"
+
+You can check existing user information with these commands:
+
+.. code-block:: bash
+
+    $ git config user.name
+
+    $ git config user.email
+
+It is also possible to cache your GitHub password (be careful with this!) by running following command from Git shell:
+
+.. code-block:: bash
+
+    $ git config --global credential.helper wincred
 
