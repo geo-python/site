@@ -3,11 +3,11 @@ Meet Git
 
 This page will introduce you to the basics of using Git:
 
-1. `Configuration`__
-2. `Clone a repository from GitHub`__
-3. `Add changes`__
-4. `Commit changes`__
-5. `Synchronize changes`__
+1. `Configuration`_
+2. `Clone a repository from GitHub`_
+3. `Add changes`_
+4. `Commit changes`_
+5. `Synchronize changes`_
 
 These materials have been adapted for the geo-python course from `GitHubClassroom Campus Advisors -resources <https://github.com/Campus-Advisors>`_, and inspired by other online resources such as https://git-scm.com/about/.
 
@@ -38,7 +38,7 @@ a good overview of commonly used commands for navigating trough files in the Ter
 
 .. figure:: img/open-terminal.png
 
-Gonfiguration
+Configuration
 -----------------
 
 First, **check if you have git installed** by typing this command in the terminal window:
