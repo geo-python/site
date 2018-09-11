@@ -25,7 +25,7 @@ For other useful git commands, you can refer to the `GIT CHEAT SHEET <https://ed
 **We will use git from the command line** in this tutorial and throughout the course. Code Academy's `list of command line commands <https://www.codecademy.com/articles/command-line-commands>`__ provides
 a good overview of commonly used commands for navigating trough files in the Terminal. The instructions below are compatible with the Linux terminal (which is available in :doc:`the course environment <course-environment-components>`).
 
-At this point, you should launch JupyterLab and open a terminal window, for example trough Binder:
+**At this point, you should launch JupyterLab and open a terminal window, for example trough Binder:**
 
 .. image:: https://mybinder.org/badge.svg
    :target: https://mybinder.org/v2/gh/Geo-Python-2018/Binder/master?urlpath=lab
@@ -59,8 +59,8 @@ You can check existing user information with these commands:
 
     $ git config user.email
 
-Cloning
----------
+Clone a repository from GitHub
+-------------------------------
 
 We will **clone an existing repository from GitHub and start modifying it**. A repository, or "Git project", or a "repo", is a location for storing files. A repo contains all the files and folders associated with a project and the revision history of each entity.
 In general, it is recommended that each project, library or discrete piece of software should have it's own repository.
@@ -124,7 +124,7 @@ At this stage, your terminal window should look something like this:
 Git status also tells that you are on branch master. **During this course you don't have to worry much about branches**, but it is good to know that master branch is always the default branch. A branch is a parallel version of a repository which can be developed separately before merging the changes to the primary version. You can read more about branches `here <https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is>`__.
 
 
-Make changes
+Adding changes
 ---------------
 
 **Create an empty markdown-file** `test.md` under the exercise-1 repository. You can either create the file manually (do this if you are using windows!), or in the terminal using the :code:`touch` -command:
@@ -199,7 +199,7 @@ check the status of your repository:
 
     $ git status
 
-Git now tells you that there are changes that are ready to be committed (the new file), and changes that have not yet been staged for commit:
+Git now tells you that there are changes that are ready to be committed (the new file), and changes that have not yet been staged for commit (modifications to that file):
 
 .. code-block:: bash
 
@@ -255,6 +255,15 @@ Check the status:
 
     $ git status
 
+Git status tells that your branch is ahead of the remote repository's master branch by 1 commit, and tells you to use :code:`git push` to publish the local changes:
+
+.. code-block:: bash
+
+    jovyan@jupyter-geo-2dpython-2d2018-2dbinder-2d63pkzqdt:~/exercise-1-VuokkoH$ git status
+    On branch master
+    Your branch is ahead of 'origin/master' by 1 commit.
+      (use "git push" to publish your local commits)
+
 
 Synchronize changes
 --------------------
@@ -267,7 +276,7 @@ Next, we want to synchronize our changes with the remote repository on GitHub. F
 
 Git should tell you that the repository is **"Already up-to-date"**.
 
-Let's make a network call and send data to branch 'master' in the remote repository.
+Let's make a network call and send data to branch 'master' in the remote repository using :code:`git push`:
 
 .. code-block:: bash
 
@@ -278,6 +287,22 @@ or just simply
 .. code-block:: bash
 
     $ git push
+
+Git will prompt you for unsername and password before pushing the changes online:
+
+.. code-block:: bash
+
+    jovyan@jupyter-geo-2dpython-2d2018-2dbinder-2d63pkzqdt:~/exercise-1-VuokkoH$ git push
+    Username for 'https://github.com': VuokkoH
+    Password for 'https://VuokkoH@github.com':
+    Counting objects: 3, done.
+    Delta compression using up to 8 threads.
+    Compressing objects: 100% (2/2), done.
+    Writing objects: 100% (3/3), 316 bytes | 316.00 KiB/s, done.
+    Total 3 (delta 0), reused 0 (delta 0)
+    To https://github.com/Geo-Python-2018/exercise-1-VuokkoH.git
+       b33a43a..c4be7c3  master -> master
+
 
 Now, you should see the updates in GitHub (go and have a look at your repository in https://github.com/Geo-Python-2018/ )!
 
@@ -292,6 +317,13 @@ Check once more the status of your repository:
 .. code-block:: bash
 
     $ git status
+
+Git will tell you that the master branch is up to date and synchronized:
+
+.. code-block:: bash
+    $ git status
+    On branch master
+    Your branch is up to date with 'origin/master'.
 
 
 Your master branch should be now up to date in all location! That's all you need to know about Git for know :)
