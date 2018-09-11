@@ -110,6 +110,7 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     :maxdepth: 2
     :caption: Lesson 2
 
+    lessons/L2/overview
     lessons/L2/intro-to-GitHub
     lessons/L2/git-basics
     lessons/L2/GitHub-classroom
