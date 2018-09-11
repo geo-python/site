@@ -157,6 +157,8 @@ check again the status of the repository
 
     $ git status
 
+You can also edit the contents of the test.md -file and add those changes to the staging area by repeating the above steps.
+
 **Commit your changes** to the repository **and include a message** to accompany the change:
 
 .. code-block:: bash
@@ -177,6 +179,8 @@ Next, we want to synchronize our changes with the remote repository on GitHub. F
 .. code-block:: bash
 
     $ git pull
+
+Git should tell you that the repository is **"Already up-to-date"**.
 
 Let's make a network call and send data to branch 'master' in the remote repository.
 
