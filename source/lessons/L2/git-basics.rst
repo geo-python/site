@@ -124,10 +124,10 @@ At this stage, your terminal window should look something like this:
 Git status also tells that you are on branch master. **During this course you don't have to worry much about branches**, but it is good to know that master branch is always the default branch. A branch is a parallel version of a repository which can be developed separately before merging the changes to the primary version. You can read more about branches `here <https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is>`__.
 
 
-Adding changes
+Add changes
 ---------------
 
-**Create an empty markdown-file** `test.md` under the exercise-1 repository. You can either create the file manually (do this if you are using windows!), or in the terminal using the :code:`touch` -command:
+**Create an empty markdown-file** named `test.md` under the exercise-1 repository. You can either create the file manually (do this if you are using windows!), or in the terminal using the :code:`touch` -command:
 
 .. code-block:: bash
 
@@ -146,7 +146,7 @@ check the status of the repository:
     $ git status
 
 
-Git should tell you that it detected untracked files.
+Git should tell you that it detected untracked files:
 
 .. code-block:: bash
 
@@ -216,6 +216,7 @@ Git now tells you that there are changes that are ready to be committed (the new
 
 
 **Add a snapshopt of your changes to the 'staging area'** using the :code:`git add`:
+
 .. code-block:: bash
 
     $ git add test.md
@@ -321,6 +322,7 @@ Check once more the status of your repository:
 Git will tell you that the master branch is up to date and synchronized:
 
 .. code-block:: bash
+
     $ git status
     On branch master
     Your branch is up to date with 'origin/master'.
