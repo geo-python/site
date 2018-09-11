@@ -1,7 +1,13 @@
 Meet Git
 ==================
 
-This page will guide you through step-by-step how to clone a repository from GitHub, modify its contents, and push changes back online.
+This page will introduce you to the basics of using Git:
+
+1. `Configuration`__
+2. `Clone a repository from GitHub`__
+3. `Add changes`__
+4. `Commit changes`__
+5. `Synchronize changes`__
 
 These materials have been adapted for the geo-python course from `GitHubClassroom Campus Advisors -resources <https://github.com/Campus-Advisors>`_, and inspired by other online resources such as https://git-scm.com/about/.
 
