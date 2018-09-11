@@ -211,10 +211,11 @@
 </style>
 <div class="section" id="meet-git">
 <h1>Meet Git<a class="headerlink" href="#meet-git" title="Permalink to this headline">¶</a></h1>
-<p>This page will guide you through step-by-step how to clone a repository from GitHub, modify its contents, and push changes back online. These materials have been adapted for the geo-python course from <a class="reference external" href="https://github.com/Campus-Advisors">GitHubClassroom Campus Advisors -resources</a>, and inspired by other online resources such as <a class="reference external" href="https://git-scm.com/about/">https://git-scm.com/about/</a>.</p>
+<p>This page will guide you through step-by-step how to clone a repository from GitHub, modify its contents, and push changes back online.</p>
+<p>These materials have been adapted for the geo-python course from <a class="reference external" href="https://github.com/Campus-Advisors">GitHubClassroom Campus Advisors -resources</a>, and inspired by other online resources such as <a class="reference external" href="https://git-scm.com/about/">https://git-scm.com/about/</a>.</p>
 <div class="figure" id="id3">
 <img alt="../../_images/Git_illustration.png" src="../../_images/Git_illustration.png" />
-<p class="caption"><span class="caption-text">Different stages of version control using Git and Github (adapted from <a class="reference external" href="https://git-scm.com/about/">Git webpages</a>)</span></p>
+<p class="caption"><span class="caption-text">Different stages of version control using Git and Github (adapted from <a class="reference external" href="https://git-scm.com/about/staging-area">Git webpages</a>)</span></p>
 </div>
 <p>After going trough this tutorial, you should be aware of at least the following git-commands:</p>
 <ol class="arabic simple">
@@ -226,17 +227,21 @@
 <li><strong>git push</strong> - upload local commits to GitHub</li>
 </ol>
 <p>For other useful git commands, you can refer to the <a class="reference external" href="https://education.github.com/git-cheat-sheet-education.pdf">GIT CHEAT SHEET</a></p>
+<p>We will use git from the command line in this tutorial and throughout the course. Code Academy’s <a class="reference external" href="https://www.codecademy.com/articles/command-line-commands">list of command line commands</a> provides
+a good overview of commonly used commands for navigating trough files and folders from the command line. The instructions below are compatible with the Linux terminal (which is available in <span class="xref std std-doc">the course environment</span>).</p>
+<p>At this point, you should launch JupyterLab and open a terminal window, for example trough Binder:</p>
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/Geo-Python-2018/Binder/master?urlpath=lab"><img alt="https://mybinder.org/badge.svg" src="https://mybinder.org/badge.svg" /></a>
 <div class="section" id="gonfiguration">
 <h2>Gonfiguration<a class="headerlink" href="#gonfiguration" title="Permalink to this headline">¶</a></h2>
 <p>Before starting to work, <strong>check if you have git installed</strong> by typing this command in the terminal window:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git --version
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git --version
 </pre></div>
 </div>
 <p>Anything above version 2 is just fine.</p>
 <p>Next, <strong>configure user information for local repositories</strong>. The user name you set will be attached to your commits:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git config --global user.name <span class="s2">&quot;Your Name&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git config --global user.name <span class="s2">&quot;[Your Name]&quot;</span>
 
-$ git config --global user.email <span class="s2">&quot;email@example.com&quot;</span>
+$ git config --global user.email <span class="s2">&quot;[email@example.com]&quot;</span>
 </pre></div>
 </div>
 <p>You can check existing user information with these commands:</p>
@@ -248,29 +253,40 @@ $ git config user.email
 </div>
 <div class="section" id="cloning">
 <h2>Cloning<a class="headerlink" href="#cloning" title="Permalink to this headline">¶</a></h2>
-<p>We will <strong>clone an existing repository from GitHub and start modifying it</strong>. A repository, or a “repo”, is a location for storing files. In general, it is recommended that each project, library or discrete piece of software should have it’s own repository.
+<p>We will <strong>clone an existing repository from GitHub and start modifying it</strong>. A repository, or “Git project”, or a “repo”, is a location for storing files. A repo contains all the files and folders associated with a project and the revision history of each entity.
+In general, it is recommended that each project, library or discrete piece of software should have it’s own repository.
 In this course each exercise has it’s own repository.</p>
 <p>We will clone Exercise-1 repository from week 1 for practicing how to work with Git and GitHub. Navigate to your personal exercise-1 repository in <a class="reference external" href="https://github.com/Geo-Python-2018/">https://github.com/Geo-Python-2018/</a> and copy the web URL which you can find under the <strong>Clone or download</strong> -button:</p>
 <div class="figure">
 <img alt="../../_images/GitHub_clone_link.png" src="../../_images/GitHub_clone_link.png" />
 </div>
-<p>Clone the repository into JupyterLab using the <cite>git clone</cite> command:</p>
+<p>Clone the repository into JupyterLab using the <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone <span class="o">[</span>paste your URL here<span class="o">]</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">You can paste text on the terminal trough Shift + Right Click –&gt; paste</p>
+<p class="last">You can paste text on the terminal trough <code class="code docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Right</span> <span class="pre">Click</span> <span class="pre">--&gt;</span> <span class="pre">paste</span></code></p>
 </div>
-<p>List directory contents in the terminal using the <cite>ls</cite> command:</p>
+<p>Git will prompt you for GitHub username and password:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Cloning into <span class="s1">&#39;exercise-1-VuokkoH&#39;</span>...
+Username <span class="k">for</span> <span class="s1">&#39;https://github.com&#39;</span>: VuokkoH
+Password <span class="k">for</span> <span class="s1">&#39;https://VuokkoH@github.com&#39;</span>:
+remote: Counting objects: <span class="m">9</span>, <span class="k">done</span>.
+remote: Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">5</span>/5<span class="o">)</span>, <span class="k">done</span>.
+remote: Total <span class="m">9</span> <span class="o">(</span>delta <span class="m">1</span><span class="o">)</span>, reused <span class="m">9</span> <span class="o">(</span>delta <span class="m">1</span><span class="o">)</span>, pack-reused <span class="m">0</span>
+Unpacking objects: <span class="m">100</span>% <span class="o">(</span><span class="m">9</span>/9<span class="o">)</span>, <span class="k">done</span>.
+</pre></div>
+</div>
+<p>Once cloning is completed, check what happened by listing directory contents in the terminal using the <code class="code docutils literal notranslate"><span class="pre">ls</span></code> command (if you are working on a windows machine, use <code class="code docutils literal notranslate"><span class="pre">dir</span></code> instead):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ls
 </pre></div>
 </div>
-<p>You should now see the exercise repository in the list! <strong>Navigate to the repository</strong> using the <a href="#id1"><span class="problematic" id="id2">`</span></a>cd`command:</p>
+<p>You should now see the exercise repository listed in the terminal (and also in the navigation pane in JupyterLab). <strong>Navigate to the repository</strong> using the <a href="#id1"><span class="problematic" id="id2">`</span></a>cd`command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> exercise-1-username
 </pre></div>
 </div>
-<p>List all files inside the repository using the <cite>ls</cite> command, and include hidden files using the -al command</p>
+<p>List all files inside the repository using the <code class="code docutils literal notranslate"><span class="pre">ls</span></code> command, and include hidden files in a long format using the <code class="code docutils literal notranslate"><span class="pre">-al</span></code> command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ls -al
 </pre></div>
 </div>
@@ -278,10 +294,12 @@ In this course each exercise has it’s own repository.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git status
 </pre></div>
 </div>
-<p>At this stage, your terminal window should look something like this:</p>
+<p>As we didn’t make any changes yet, git should tell that the project is up to date.
+At this stage, your terminal window should look something like this:</p>
 <div class="figure">
 <img alt="../../_images/Terminal_git_status1.png" src="../../_images/Terminal_git_status1.png" />
 </div>
+<p>Git status also tells that you are on branch master. During this course you don’t have to worry much about branches, but it is good to know that master branch is always the default branch. A branch is a parallel version of a repository which can be developed separately before merging the changes to the primary version. You can read more about branches <a class="reference external" href="https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is">here</a>.</p>
 </div>
 <div class="section" id="make-changes">
 <h2>Make changes<a class="headerlink" href="#make-changes" title="Permalink to this headline">¶</a></h2>
@@ -320,7 +338,6 @@ In this course each exercise has it’s own repository.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git pull
 </pre></div>
 </div>
-<p>During this course you don’t have to worry much about branches, but it is good to know that master branch is always the default branch. You can read more about branches <a class="reference external" href="https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is">here</a>.</p>
 <p>Let’s make a network call and send data to branch ‘master’ in the remote repository.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git push origin master
 </pre></div>
@@ -334,7 +351,11 @@ In this course each exercise has it’s own repository.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git remote -v
 </pre></div>
 </div>
-<p>That’s all you need to know for know :)</p>
+<p>Check once more the status of your repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git status
+</pre></div>
+</div>
+<p>Your master branch should be now up to date in all location! That’s all you need to know about Git for know :)</p>
 </div>
 </div>
 

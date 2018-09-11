@@ -1,12 +1,14 @@
 Meet Git
 ==================
 
-This page will guide you through step-by-step how to clone a repository from GitHub, modify its contents, and push changes back online. These materials have been adapted for the geo-python course from `GitHubClassroom Campus Advisors -resources <https://github.com/Campus-Advisors>`_, and inspired by other online resources such as https://git-scm.com/about/.
+This page will guide you through step-by-step how to clone a repository from GitHub, modify its contents, and push changes back online.
+
+These materials have been adapted for the geo-python course from `GitHubClassroom Campus Advisors -resources <https://github.com/Campus-Advisors>`_, and inspired by other online resources such as https://git-scm.com/about/.
 
 
 .. figure:: img/Git_illustration.png
 
-    Different stages of version control using Git and Github (adapted from `Git webpages <https://git-scm.com/about/>`__)
+    Different stages of version control using Git and Github (adapted from `Git webpages <https://git-scm.com/about/staging-area>`__)
 
 
 After going trough this tutorial, you should be aware of at least the following git-commands:
@@ -20,13 +22,20 @@ After going trough this tutorial, you should be aware of at least the following 
 
 For other useful git commands, you can refer to the `GIT CHEAT SHEET <https://education.github.com/git-cheat-sheet-education.pdf>`__
 
+We will use git from the command line in this tutorial and throughout the course. Code Academy's `list of command line commands <https://www.codecademy.com/articles/command-line-commands>`__ provides
+a good overview of commonly used commands for navigating trough files and folders from the command line. The instructions below are compatible with the Linux terminal (which is available in :doc:`the course environment <course-environment-components>`).
+
+At this point, you should launch JupyterLab and open a terminal window, for example trough Binder:
+
+.. image:: https://mybinder.org/badge.svg
+   :target: https://mybinder.org/v2/gh/Geo-Python-2018/Binder/master?urlpath=lab
 
 Gonfiguration
 -----------------
 
 Before starting to work, **check if you have git installed** by typing this command in the terminal window:
 
-.. code-block:: bash
+.. code-block:: sh
 
     $ git --version
 
@@ -36,9 +45,9 @@ Next, **configure user information for local repositories**. The user name you s
 
 .. code-block:: bash
 
-    $ git config --global user.name "Your Name"
+    $ git config --global user.name "[Your Name]"
 
-    $ git config --global user.email "email@example.com"
+    $ git config --global user.email "[email@example.com]"
 
 You can check existing user information with these commands:
 
@@ -51,14 +60,15 @@ You can check existing user information with these commands:
 Cloning
 ---------
 
-We will **clone an existing repository from GitHub and start modifying it**. A repository, or a "repo", is a location for storing files. In general, it is recommended that each project, library or discrete piece of software should have it's own repository.
+We will **clone an existing repository from GitHub and start modifying it**. A repository, or "Git project", or a "repo", is a location for storing files. A repo contains all the files and folders associated with a project and the revision history of each entity.
+In general, it is recommended that each project, library or discrete piece of software should have it's own repository.
 In this course each exercise has it's own repository.
 
 We will clone Exercise-1 repository from week 1 for practicing how to work with Git and GitHub. Navigate to your personal exercise-1 repository in https://github.com/Geo-Python-2018/ and copy the web URL which you can find under the **Clone or download** -button:
 
 .. figure:: img/GitHub_clone_link.png
 
-Clone the repository into JupyterLab using the `git clone` command:
+Clone the repository into JupyterLab using the :code:`git clone` command:
 
 .. code-block:: bash
 
@@ -66,21 +76,33 @@ Clone the repository into JupyterLab using the `git clone` command:
 
 .. note::
 
-    You can paste text on the terminal trough Shift + Right Click --> paste
+    You can paste text on the terminal trough :code:`Shift + Right Click --> paste`
 
-List directory contents in the terminal using the `ls` command:
+Git will prompt you for GitHub username and password:
+
+.. code-block:: bash
+
+    Cloning into 'exercise-1-VuokkoH'...
+    Username for 'https://github.com': VuokkoH
+    Password for 'https://VuokkoH@github.com':
+    remote: Counting objects: 9, done.
+    remote: Compressing objects: 100% (5/5), done.
+    remote: Total 9 (delta 1), reused 9 (delta 1), pack-reused 0
+    Unpacking objects: 100% (9/9), done.
+
+Once cloning is completed, check what happened by listing directory contents in the terminal using the :code:`ls` command (if you are working on a windows machine, use :code:`dir` instead):
 
 .. code-block:: bash
 
     $ ls
 
-You should now see the exercise repository in the list! **Navigate to the repository** using the `cd`command:
+You should now see the exercise repository listed in the terminal (and also in the navigation pane in JupyterLab). **Navigate to the repository** using the `cd`command:
 
 .. code-block:: bash
 
     $ cd exercise-1-username
 
-List all files inside the repository using the `ls` command, and include hidden files using the -al command
+List all files inside the repository using the :code:`ls` command, and include hidden files in a long format using the :code:`-al` command
 
 .. code-block:: bash
 
@@ -92,9 +114,13 @@ List all files inside the repository using the `ls` command, and include hidden 
 
     $ git status
 
+As we didn't make any changes yet, git should tell that the project is up to date.
 At this stage, your terminal window should look something like this:
 
 .. figure:: img/Terminal_git_status1.png
+
+Git status also tells that you are on branch master. During this course you don't have to worry much about branches, but it is good to know that master branch is always the default branch. A branch is a parallel version of a repository which can be developed separately before merging the changes to the primary version. You can read more about branches `here <https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is>`__.
+
 
 Make changes
 ---------------
@@ -150,8 +176,6 @@ Next, we want to synchronize our changes with the remote repository on GitHub. F
 
     $ git pull
 
-During this course you don't have to worry much about branches, but it is good to know that master branch is always the default branch. You can read more about branches `here <https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is>`__.
-
 Let's make a network call and send data to branch 'master' in the remote repository.
 
 .. code-block:: bash
@@ -172,9 +196,14 @@ If you want to double check that you have a remote location, you can use the `gi
 
     $ git remote -v
 
+Check once more the status of your repository:
+
+.. code-block:: bash
+
+    $ git status
 
 
-That's all you need to know for know :)
+Your master branch should be now up to date in all location! That's all you need to know about Git for know :)
 
 
 
