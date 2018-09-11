@@ -163,7 +163,7 @@ Git should tell you that it detected untracked files:
     nothing added to commit but untracked files present (use "git add" to track)
 
 
-**Start tracking the file with git** uing the command :code:`git add`:
+**Start tracking the file with git** using the command :code:`git add`:
 
 .. code-block:: bash
 
@@ -189,7 +189,9 @@ Git status shows that there is a new file under the "Changes to be committed" -h
 
             new file:   test.md
 
-Next, edit the contents of the test.md -file (you can do this manually! Open up the file and add a few lines of text):
+Next, **edit the contents of the test.md -file**
+
+(you can do this manually! Open up the file and add a few lines of text)
 
 .. figure:: img/edit-testMD.png
 
@@ -215,7 +217,7 @@ Git now tells you that there are changes that are ready to be committed (the new
             modified:   test.md
 
 
-**Add a snapshopt of your changes to the 'staging area'** using the :code:`git add`:
+**Add a snapshot of your changes to the 'staging area'** using the :code:`git add`:
 
 .. code-block:: bash
 
@@ -235,6 +237,7 @@ Before committing your changes, check again the status of your repository:
 Git status tells you that 1 new file (test.md) is ready to be committed:
 
 .. code-block:: bash
+
     $ git status
     On branch master
     Your branch is up to date with 'origin/master'.
@@ -260,7 +263,7 @@ Git status tells that your branch is ahead of the remote repository's master bra
 
 .. code-block:: bash
 
-    jovyan@jupyter-geo-2dpython-2d2018-2dbinder-2d63pkzqdt:~/exercise-1-VuokkoH$ git status
+    $ git status
     On branch master
     Your branch is ahead of 'origin/master' by 1 commit.
       (use "git push" to publish your local commits)
