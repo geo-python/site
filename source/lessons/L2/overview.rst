@@ -17,7 +17,7 @@ Learning goals
 After this weeks lesson your should be able to:
 
   - Understand the basic concepts of version control and why it is useful
-  - Access your user space in Github.com and know how to use Git from terminal to clone repositories and push changes
+  - Access your user space in Github.com and know how to use Git from terminal to clone repositories, do commits, and push changes
   - Explain the concept of an index value
 
 Lecture video
