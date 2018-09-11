@@ -7,20 +7,15 @@ Exercise 2
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 2 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/AgzvDCtR>`__.
+    **You can start working on your copy of Exercise 2 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/L4gRzQ92>`__.
 
-You can also take a look at the open course copy of `Exercise 2 in the course GitHub repository <https://github.com/Geo-Python-2017/Exercise-2>`__ (does not require logging in).
+You can also take a look at the open course copy of `Exercise 2 in the course GitHub repository <https://github.com/Geo-Python-2018/Exercise-2>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
 Exercise 2 hints
 ----------------
 
 Here are a few things that may be helpful in completing Exercise 2.
-
-Where to make changes
-~~~~~~~~~~~~~~~~~~~~~
-
-In Problem 1 lines 32-34 and line 40 should not be modified.
 
 List methods
 ~~~~~~~~~~~~
@@ -40,8 +35,7 @@ This is perhaps easiest to see with an example.
         dogs = 0
     print('My name is', name, 'and I own', dogs, 'dogs.')
 
-If you copy and paste this code into the **Spyder** editor and run it, you will see that is gives an ``IndentationError``.
-**Spyder** already makes it clear there is an error in the program by showing a yellow exclamation mark icon on the problem line.
+If you copy and paste this code into the **Jupyter Notebook** cell and run it, you will see that is gives an ``IndentationError``.
 
 .. code:: python
 
