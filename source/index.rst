@@ -10,6 +10,7 @@ Welcome to Geo-Python 2018!
 
 The **Geo-Python** course teaches you the basic concepts of programming using the Python programming language in a format that is easy to learn and understand (no previous programming experience required).
 Each lesson is a tutorial with specific topic(s) where the aim is to gain skills and understanding how to solve common data-related tasks using Python programming (see schedule & learning goals).
+Course is organized by the `Department of Geosciences and Geography <https://www.helsinki.fi/en/faculty-of-science/faculty/geosciences-and-geography>`__ at the University of Helsinki.
 
 Course format
 -------------
