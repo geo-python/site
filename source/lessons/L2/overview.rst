@@ -33,7 +33,7 @@ Lecture video
 
     **Contents:**
 
-        - `00:00 - Start of lesson 2.1 <https://youtu.be/5frBceegQIQ&t=0s>`__
+        - `00:00 - Start of lesson 2.1 <https://www.youtube.com/watch?v=5frBceegQIQ&t=0s>`__
 
 .. admonition:: Lesson 2.2 - Lists, objects and writing Python scripts
 
@@ -45,4 +45,4 @@ Lecture video
 
     **Contents:**
 
-        - `00:00 - Start of lesson 2.2 <https://youtu.be/vbxPox8CFNc&t=0s>`__
+        - `00:00 - Start of lesson 2.2 <https://www.youtube.com/watch?v=vbxPox8CFNc&t=0s>`__
