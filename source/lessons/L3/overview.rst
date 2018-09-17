@@ -5,10 +5,9 @@ This week we will focus on making decisions and repeating tasks in Python.
 Both of these concepts are part of the larger computing idea called *control flow*, which refers to how the execution of different parts of a computer program is determined.
 We will learn how to alter the execution of our scripts are using (1) *loops*, which are used to repeat execution of parts of a program, and (2) *conditional statements*, which use basic logical tests to determine which parts of a program will be run.
 
-1. :doc:`Definite loops <for-loops>`
-2. :doc:`Conditional statements <conditional-statements>`
-3. :doc:`Exercise 3: for loops and conditional statements <ex-3>`
-4. :doc:`Exercise 3 hints <exercise-3-hints>`
+1. `Definite loops <../../notebooks/L3/for-loops.ipynb>`_
+2. `Conditional statements <../../notebooks/L3/conditional-statements.ipynb>`_
+3. :doc:`Exercise 3: for loops and conditional statements <exercise-3>`
 
 Learning goals
 --------------
