@@ -117,3 +117,12 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     lessons/L2/GitHub-classroom
     notebooks/L2/Python-basic-elements.ipynb
     lessons/L2/exercise-2
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 3
+
+    lessons/L3/overview
+    notebooks/L3/for-loops.ipynb
+    notebooks/L3/conditional-statements.ipynb
+    lessons/L3/exercise-3
