@@ -29,12 +29,13 @@ Combining strings
 
 In case you have forgotten, string variables can be added together. For example,
 
-.. ipython:: python
+.. code-block:: python
 
     a = "Taco "
     b = "time"
     c = a + b
     print(c)
+
 
 Nested if statements
 ~~~~~~~~~~~~~~~~~~~~
@@ -44,7 +45,7 @@ conditions after the first condition resolves to True.
 
 Take a look of following example:
 
-.. ipython:: python
+.. code-blck:: python
 
     season = "Winter"
     temperature = 10
