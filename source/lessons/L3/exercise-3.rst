@@ -20,7 +20,7 @@ Here are a few things that may be helpful in completing Exercise 3.
 General tips
 ~~~~~~~~~~~~
 
-1. Start by cloning your personal Exercise 3 repository on your (cloud) computer. See :doc:`instructions for using git from Lesson 2. <../L2/git-basics.rst>`
+1. Start by cloning your personal Exercise 3 repository on your (cloud) computer. See :doc:`instructions for using git from Lesson 2. <../L2/git-basics>`
 2. Remember to commit your changes often!
 3. Follow carefully the instructions about variable names and other details (this week's exercises will bee graded automatically!)
 4. Ask for help in Slack and/or come to the practical sessions if you get stuck :)
