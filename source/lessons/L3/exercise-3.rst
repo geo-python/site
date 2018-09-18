@@ -47,7 +47,7 @@ conditions after the first condition resolves to True.
 
 Take a look of following example:
 
-.. code-blck:: python
+.. code-block:: python
 
     season = "Winter"
     temperature = 10
@@ -63,4 +63,7 @@ Take a look of following example:
             print("Well this is Finland, better wear long trousers!")
    else:
         print("Check the weather forecast!")
+
+
+
 
