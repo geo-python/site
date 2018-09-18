@@ -76,7 +76,7 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
 .. admonition:: Step by step instructions with cloud computing!
 
     The materials are written in a way that you can follow them step by step exactly as they are written, as long as you use the cloud computing resources that
-    we provide for you (unfortunately **for Uni. Helsinki people** only). Read more about our cloud computing environment from :doc:`here <lessons/L1/course-environment-components>`.
+    we provide for you (namely JupyterLab Notebooks using Binder or CSC Cloud computing resources). Read more about our cloud computing environment from :doc:`here <lessons/L1/course-environment-components>`.
     If you work from your own computer, **you need to adjust the file paths to the data** accordingly.
 
 .. admonition:: For teachers
@@ -117,3 +117,12 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     lessons/L2/GitHub-classroom
     notebooks/L2/Python-basic-elements.ipynb
     lessons/L2/exercise-2
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 3
+
+    lessons/L3/overview
+    notebooks/L3/for-loops.ipynb
+    notebooks/L3/conditional-statements.ipynb
+    lessons/L3/exercise-3
