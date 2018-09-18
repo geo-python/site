@@ -20,9 +20,11 @@ Here are a few things that may be helpful in completing Exercise 3.
 General tips
 ~~~~~~~~~~~~
 
-1. Create a general template for your new script files and commit it to GitHub right when you start working on your script(s).
-2. Your scripts should also follow the format described earlier in the course with a block comment at the start of the file, inline comments describing how it works and good use of blank lines to make the code easy to read.
-3. Look carefully at the requirements for each exercise and be sure to follow them.
+1. Start by cloning your personal Exercise 3 repository on your (cloud) computer. See `instructions for using git from Lesson 2. <2018/source/lessons/L2/git-basics.rst>`__
+2. Remember to commit your changes often!
+3. Follow carefully the instructions about variable names and other details (this week's exercises will bee graded automatically!)
+4. Ask for help in Slack and/or come to the practical sessions if you get stuck :)
+
 
 Combining strings
 ~~~~~~~~~~~~~~~~~
