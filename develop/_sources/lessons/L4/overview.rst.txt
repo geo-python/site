@@ -8,7 +8,7 @@ Thus functions and modules are closely related.
 
 1. `Basic concepts of functions <../../notebooks/L4/functions.ipynb>`_
 2. `Loading and using modules <../../notebooks/L4/modules.ipynb>`_
-3. `Writing scripts the "right" way (*optional*) <../../notebooks/L4/writing-scripts.ipynb>`_
+3. `Writing scripts the "right" way <../../notebooks/L4/writing-scripts.ipynb>`_
 4. :doc:`Exercise 4: Classifying and converting temperatures <exercise-4>`
 
 Learning goals
