@@ -1,0 +1,1268 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-105019106-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Functions &mdash; Geo-Python 2018 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Loading and using modules" href="modules.html" />
+    <link rel="prev" title="Lesson overview" href="../../lessons/L4/overview.html" />
+    <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
+     
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Geo-Python
+          
+
+          
+            
+            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2018
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/installing-anacondas.html">Installing Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/python-vocabulary.html">Vocabulary - Basic terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/motivation.html">Motivation for the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/course-environment-components.html">Course environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/slack-usage.html">Communicating with Slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/a-taste-of-python.html">A taste of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/exercise-1.html">Exercise 1</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html">Introduction to Version Control and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/git-basics.html">Meet Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/GitHub-classroom.html">Using Classroom for Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/Python-basic-elements.html">Basic elements of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/exercise-2.html">Exercise 2</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L3/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/for-loops.html">for loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/conditional-statements.html">Conditional statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L3/exercise-3.html">Exercise 3</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 4</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L4/overview.html">Lesson overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#What-is-a-function?">What is a function?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Anatomy-of-a-function">Anatomy of a function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Our-first-function-(aww...)">Our first function (aww…)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Calling-functions">Calling functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Using-our-new-function">Using our new function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Let's-make-another-function">Let’s make another function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Using-our-second-function">Using our second function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Funtions-within-a-function-(Yo-dawg...)">Funtions within a function (Yo dawg…)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Using-our-combined-functions">Using our combined functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#An-introduction-to-script-files">An introduction to script files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#The-general-concept-of-a-.py-script-file">The general concept of a .py script file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Getting-started">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Saving-a-text-file-as-a-Python-file">Saving a text file as a Python file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Saving-and-loading-functions">Saving and loading functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Saving-functions-in-a-script-file">Saving functions in a script file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Calling-functions-from-a-script-file">Calling functions from a script file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Making-sure-we're-in-the-right-working-directory">Making sure we’re in the right working directory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Binder-users">Binder users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#CSC-notebooks-users">CSC notebooks users</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Changing-the-working-directory">Changing the working directory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Binder-users">Binder users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#CSC-notebooks-users">CSC notebooks users</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Importing-our-script-functions">Importing our script functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Using-our-script-functions">Using our script functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Importing-multiple-functions">Importing multiple functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Importing-all-functions-from-a-script">Importing all functions from a script</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Temperature-calculator-(optional,-advanced-topic)">Temperature calculator (<em>optional, advanced topic</em>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Defining-the-function">Defining the function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Adding-some-conditional-statements">Adding some conditional statements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Returning-the-result">Returning the result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Adding-a-docstring">Adding a docstring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Testing-the-new-function">Testing the new function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Using-the-tempCalculator">Using the tempCalculator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Loading and using modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing-scripts.html">Writing our scripts the “right” way</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L4/exercise-4.html">Exercise 4</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Geo-Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Functions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/notebooks/L4/functions.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+
+
+
+
+
+
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="admonition note">
+This page was generated from <a class="reference external" href="https://github.com/Geo-Python/2018/blob/master/source/notebooks/L4/functions.ipynb">source/notebooks/L4/functions.ipynb</a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/geo-python/2018/master?urlpath=lab/tree/source/notebooks/L4/functions.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span>
+<span class="raw-html"><a href="https://mybinder.org/v2/gh/geo-python/notebooks/master?urlpath=lab/tree/notebooks/L4/functions.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-student%20binder-red.svg" style="vertical-align:text-bottom"></a></span>
+<span class="raw-html"><a href="https://notebooks.csc.fi/#/blueprint/d71cd2d26d924f48820dc22b67a87d8e"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a></span></div>
+<div class="section" id="Functions">
+<h1>Functions<a class="headerlink" href="#Functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Sources">
+<h2>Sources<a class="headerlink" href="#Sources" title="Permalink to this headline">¶</a></h2>
+<p>This lesson is partly based on the <a class="reference external" href="http://software-carpentry.org/">Software Carpentry
+group’s</a> lessons on <a class="reference external" href="http://swcarpentry.github.io/python-novice-inflammation/">Programming with
+Python</a>.</p>
+</div>
+<div class="section" id="What-is-a-function?">
+<h2>What is a function?<a class="headerlink" href="#What-is-a-function?" title="Permalink to this headline">¶</a></h2>
+<p>A function is a block of organized, reusable code that can make your
+scripts more effective, easier to read, and simple to manage. You can
+think functions as little self-contained programs that can perform a
+specific task which you can use repeatedly in your code. One of the
+basic principles in good programming is “do not to repeat yourself”. In
+other words, you should avoid having duplicate lines of code in your
+scripts. Functions are a good way to avoid such situations and they can
+save you a lot of time and effort as you don’t need to tell the computer
+repeatedly what to do every time it does a common task, such as
+converting temperatures from Fahrenheit to Celsius. During the course we
+have already used some functions such as the <code class="docutils literal notranslate"><span class="pre">print()</span></code> command which
+is actually a built-in function in Python.</p>
+</div>
+<div class="section" id="Anatomy-of-a-function">
+<h2>Anatomy of a function<a class="headerlink" href="#Anatomy-of-a-function" title="Permalink to this headline">¶</a></h2>
+<p>Let’s consider the task from the first lesson when we converted
+temperatures from Celsius to Fahrenheit. Such an operation is a fairly
+common task when dealing with temperature data. Thus we might need to
+repeat such calculations quite frequently when analysing or comparing
+weather or climate data between the US and Europe, for example.</p>
+<div class="section" id="Our-first-function-(aww...)">
+<h3>Our first function (aww…)<a class="headerlink" href="#Our-first-function-(aww...)" title="Permalink to this headline">¶</a></h3>
+<p>Let’s define our first function called <code class="docutils literal notranslate"><span class="pre">celsiusToFahr</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">celsiusToFahr</span><span class="p">(</span><span class="n">tempCelsius</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">tempCelsius</span> <span class="o">+</span> <span class="mi">32</span>
+</pre></div>
+</div>
+</div>
+<div class="figure" id="id4">
+<img alt="Anatomy of a function." src="../../_images/Function_anatomy-400.png" />
+<p class="caption"><span class="caption-text">Anatomy of a function.</span></p>
+</div>
+<p>The function definition opens with the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code> followed by the
+name of the function and a list of parameter names in parentheses. The
+body of the function — the statements that are executed when it runs —
+is indented below the definition line.</p>
+<p>When we call the function, the values we pass to it are assigned to the
+corresponding parameter variables so that we can use them inside the
+function (e.g., the variable <code class="docutils literal notranslate"><span class="pre">tempCelsius</span></code> in this function example).
+Inside the function, we use a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement to define the value
+that should be given back when the function is used, or called).</p>
+</div>
+</div>
+<div class="section" id="Calling-functions">
+<h2>Calling functions<a class="headerlink" href="#Calling-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Using-our-new-function">
+<h3>Using our new function<a class="headerlink" href="#Using-our-new-function" title="Permalink to this headline">¶</a></h3>
+<p>Now let’s try using our function. Calling our self-defined function is
+no different from calling any other function such as <code class="docutils literal notranslate"><span class="pre">print()</span></code>. You
+need to call it with its name and send your value to the required
+parameter(s) inside the parentheses.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">freezingPoint</span> <span class="o">=</span>  <span class="n">celsiusToFahr</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The freezing point of water in Fahrenheit is:&#39;</span><span class="p">,</span> <span class="n">freezingPoint</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The freezing point of water in Fahrenheit is: 32.0
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The boiling point of water in Fahrenheit is:&#39;</span><span class="p">,</span> <span class="n">celsiusToFahr</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The boiling point of water in Fahrenheit is: 212.0
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Let's-make-another-function">
+<h3>Let’s make another function<a class="headerlink" href="#Let's-make-another-function" title="Permalink to this headline">¶</a></h3>
+<p>Now that we know how to create a function to convert Celsius to
+Fahrenheit, let’s create another function called <code class="docutils literal notranslate"><span class="pre">kelvinsToCelsius</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">kelvinsToCelsius</span><span class="p">(</span><span class="n">tempKelvins</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tempKelvins</span> <span class="o">-</span> <span class="mf">273.15</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Using-our-second-function">
+<h3>Using our second function<a class="headerlink" href="#Using-our-second-function" title="Permalink to this headline">¶</a></h3>
+<p>Let’s use it in the same way as the earlier one.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">absoluteZero</span> <span class="o">=</span> <span class="n">kelvinsToCelsius</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Absolute zero in Celsius is:&#39;</span><span class="p">,</span> <span class="n">absoluteZero</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Absolute zero in Celsius is: -273.15
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Funtions-within-a-function-(Yo-dawg...)">
+<h3>Funtions within a function (Yo dawg…)<a class="headerlink" href="#Funtions-within-a-function-(Yo-dawg...)" title="Permalink to this headline">¶</a></h3>
+<p>What about converting Kelvins to Fahrenheit? We could write out a new
+formula for it, but we don’t need to. Instead, we can do the conversion
+using the two functions we have already created and calling those from
+the function we are now creating.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">kelvinsToFahrenheit</span><span class="p">(</span><span class="n">tempKelvins</span><span class="p">):</span>
+    <span class="n">tempCelsius</span> <span class="o">=</span> <span class="n">kelvinsToCelsius</span><span class="p">(</span><span class="n">tempKelvins</span><span class="p">)</span>
+    <span class="n">tempFahr</span> <span class="o">=</span> <span class="n">celsiusToFahr</span><span class="p">(</span><span class="n">tempCelsius</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tempFahr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Using-our-combined-functions">
+<h3>Using our combined functions<a class="headerlink" href="#Using-our-combined-functions" title="Permalink to this headline">¶</a></h3>
+<p>Now let’s use the function.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">absoluteZeroF</span> <span class="o">=</span> <span class="n">kelvinsToFahrenheit</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Absolute zero in Fahrenheit is:&#39;</span><span class="p">,</span> <span class="n">absoluteZeroF</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Absolute zero in Fahrenheit is: -459.66999999999996
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="An-introduction-to-script-files">
+<h2>An introduction to script files<a class="headerlink" href="#An-introduction-to-script-files" title="Permalink to this headline">¶</a></h2>
+<p>Up until this point we have been keeping our Python code and Markdown
+comments in a single Jupyter notebook document. This is great, but there
+are some cases, like when you have long Python code blocks or a set of
+functions used in many notebooks, in which you may want to have Python
+code in a separate document to make sure your Jupyter notebook is easy
+to read. An alternative to typing in all of the commands you would like
+to run is the list them in a Python <em>script file</em>. A Python script file
+is simply a file containing a list of the commands you would like to
+run, normally with one command per line, and formatted in the same way
+as if you were to type them in. Python script files traditionally use
+the <code class="docutils literal notranslate"><span class="pre">.py</span></code> file extension in their names.</p>
+<div class="section" id="The-general-concept-of-a-.py-script-file">
+<h3>The general concept of a .py script file<a class="headerlink" href="#The-general-concept-of-a-.py-script-file" title="Permalink to this headline">¶</a></h3>
+<p>A Python script file is simply a list of commands that you might
+otherwise type into a Python cell in a Jupyter notebook or a Python
+console. As such, we can quite easily create a basic script file and
+test things out.</p>
+</div>
+<div class="section" id="Getting-started">
+<h3>Getting started<a class="headerlink" href="#Getting-started" title="Permalink to this headline">¶</a></h3>
+<p>First, we need to create a new text file by clicking on <strong>File</strong> -&gt;
+<strong>New</strong> -&gt; <strong>Text File</strong> in the JupyterLab menu bar.</p>
+<div class="figure" id="id5">
+<img alt="Creating a new text file in JupyterLab." src="../../_images/new-text-file-400.png" />
+<p class="caption"><span class="caption-text">Creating a new text file in JupyterLab.</span></p>
+</div>
+<p>This will create a new tab in your JupyterLab window that should look
+something like that below, a blank slate.</p>
+<div class="figure" id="id6">
+<img alt="Our new text file in JupyterLab." src="../../_images/new-text-tab-800.png" />
+<p class="caption"><span class="caption-text">Our new text file in JupyterLab.</span></p>
+</div>
+<p>Start by copying and pasting the text below into your new text file
+editor panel.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">celsiusToFahr</span><span class="p">(</span><span class="n">tempCelsius</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">tempCelsius</span> <span class="o">+</span> <span class="mi">32</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Saving-a-text-file-as-a-Python-file">
+<h3>Saving a text file as a Python file<a class="headerlink" href="#Saving-a-text-file-as-a-Python-file" title="Permalink to this headline">¶</a></h3>
+<p>As it turns out, Python scripts are just regular text files with a
+certain file extension to identify them as source code for Python. In
+order for our new text file to be detected as a Python source file in
+JupyterLab we need to rename it to have a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file extension. You
+can rename the file by right clicking on the tab titled “untitled.txt”
+and renaming it as “temp_converter.py”.</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong></p>
+<p>Be sure you change the <code class="docutils literal notranslate"><span class="pre">.txt</span></code> file extension to <code class="docutils literal notranslate"><span class="pre">.py</span></code>.</p>
+</div>
+<div class="figure" id="id7">
+<img alt="Renaming a text file in JupyterLab." src="../../_images/rename-file-part-1-600.png" />
+<p class="caption"><span class="caption-text">Renaming a text file in JupyterLab.</span></p>
+</div>
+<div class="figure" id="id8">
+<img alt="Changing the file name in JupyterLab." src="../../_images/rename-file-part-2-300.png" />
+<p class="caption"><span class="caption-text">Changing the file name in JupyterLab.</span></p>
+</div>
+<p>If all goes well, you should now see the Python syntax is highlighted in
+different colors in the JupyterLab editor panel.</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong></p>
+<p>Be sure to save your <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> file after making your
+changes.</p>
+</div>
+<p>We’ll return later to some best practices for writing script files, but
+for now let’s continue with how to use our functions saved in the Python
+file we just created.</p>
+</div>
+</div>
+<div class="section" id="Saving-and-loading-functions">
+<h2>Saving and loading functions<a class="headerlink" href="#Saving-and-loading-functions" title="Permalink to this headline">¶</a></h2>
+<p>Functions such as the ones we just created can also be saved in a script
+file and called from Jupyter notebooks in JupyterLab. In fact, quite
+often it is useful to create a dedicated function library for functions
+that you use frequently, when doing data analysis, for example.
+Basically this is done by listing useful functions in a single <code class="docutils literal notranslate"><span class="pre">.py</span></code>
+file from which you can then import and use them whenever needed.</p>
+<div class="section" id="Saving-functions-in-a-script-file">
+<h3>Saving functions in a script file<a class="headerlink" href="#Saving-functions-in-a-script-file" title="Permalink to this headline">¶</a></h3>
+<p>Basically, we’ve just seen how to save some functions to a script file.
+Let’s now add the other functions we had been using to our script.
+Simply copy and paste the text below into your <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code>
+file leaving one blank line between each function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">kelvinsToCelsius</span><span class="p">(</span><span class="n">tempKelvins</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tempKelvins</span> <span class="o">-</span> <span class="mf">273.15</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">kelvinsToFahrenheit</span><span class="p">(</span><span class="n">tempKelvins</span><span class="p">):</span>
+    <span class="n">tempCelsius</span> <span class="o">=</span> <span class="n">kelvinsToCelsius</span><span class="p">(</span><span class="n">tempKelvins</span><span class="p">)</span>
+    <span class="n">tempFahr</span> <span class="o">=</span> <span class="n">celsiusToFahr</span><span class="p">(</span><span class="n">tempCelsius</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tempFahr</span>
+</pre></div>
+</div>
+<p>Don’t forget to save your changes!</p>
+</div>
+</div>
+<div class="section" id="Calling-functions-from-a-script-file">
+<h2>Calling functions from a script file<a class="headerlink" href="#Calling-functions-from-a-script-file" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have saved our temperature conversion functions into a
+script file we can start using them.</p>
+<div class="section" id="Making-sure-we're-in-the-right-working-directory">
+<h3>Making sure we’re in the right working directory<a class="headerlink" href="#Making-sure-we're-in-the-right-working-directory" title="Permalink to this headline">¶</a></h3>
+<p>Hopefully you have saved you <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> file in the same
+location as this Jupyter notebook (<code class="docutils literal notranslate"><span class="pre">functions.ipynb</span></code>). If so, that’s
+good, but we need to do one more thing to be able to start working with
+it. We need to change the working directory in JupyterLab to be the one
+where the <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> exists.</p>
+<p>First, we can check where we are working currently using an IPython
+magic command called <code class="docutils literal notranslate"><span class="pre">%ls</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">ls</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-blue-fg">__pycache__</span>/           <span class="ansi-blue-fg">img</span>/                   temp_converter.py
+functions.ipynb        modules.ipynb          writing-scripts.ipynb
+</pre></div></div>
+</div>
+<p>Your output from <code class="docutils literal notranslate"><span class="pre">%ls</span></code> probably looks different than that above, but
+don’t worry. <code class="docutils literal notranslate"><span class="pre">%ls</span></code> allows us to see the files located in the directory
+where we are currently working.</p>
+<div class="section" id="Binder-users">
+<h4>Binder users<a class="headerlink" href="#Binder-users" title="Permalink to this headline">¶</a></h4>
+<p>If you are using Binder, you might see</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>L1/  L2/  L3/  L4/  Untitled.ipynb
+</pre></div>
+</div>
+<p>for example.</p>
+</div>
+<div class="section" id="CSC-notebooks-users">
+<h4>CSC notebooks users<a class="headerlink" href="#CSC-notebooks-users" title="Permalink to this headline">¶</a></h4>
+<p>Those using the CSC notebooks might see something like</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>installations.sh*  Untitled.ipynb  work/
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Changing-the-working-directory">
+<h3>Changing the working directory<a class="headerlink" href="#Changing-the-working-directory" title="Permalink to this headline">¶</a></h3>
+<p>Hopefully you’ve seen some output from <code class="docutils literal notranslate"><span class="pre">%ls</span></code> like that above. Now we
+need to change into the directory where you’ve saved your
+<code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> file.</p>
+<div class="section" id="Binder-users">
+<h4>Binder users<a class="headerlink" href="#Binder-users" title="Permalink to this headline">¶</a></h4>
+<p>Those using Binder should type the following to change into the
+directory containing the <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> file.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> L4/
+</pre></div>
+</div>
+</div>
+<div class="section" id="CSC-notebooks-users">
+<h4>CSC notebooks users<a class="headerlink" href="#CSC-notebooks-users" title="Permalink to this headline">¶</a></h4>
+<p>Those using the CSC notebooks system should type the following to change
+into the directory containing the <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> file.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> work/notebooks/notebooks/L4/
+</pre></div>
+</div>
+<p>If all has gone well you should now see <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> among the
+files when you type <code class="docutils literal notranslate"><span class="pre">%ls</span></code> in a Python cell. Try that out below.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">ls</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-blue-fg">__pycache__</span>/           <span class="ansi-blue-fg">img</span>/                   temp_converter.py
+functions.ipynb        modules.ipynb          writing-scripts.ipynb
+</pre></div></div>
+</div>
+<p>Now we can continue.</p>
+</div>
+</div>
+<div class="section" id="Importing-our-script-functions">
+<h3>Importing our script functions<a class="headerlink" href="#Importing-our-script-functions" title="Permalink to this headline">¶</a></h3>
+<p>Let’s now import our <code class="docutils literal notranslate"><span class="pre">celsiusToFahr()</span></code> function from the other script
+by adding a specific <code class="docutils literal notranslate"><span class="pre">import</span></code> statementain the Python cell below.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">temp_converter</span> <span class="k">import</span> <span class="n">celsiusToFahr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Using-our-script-functions">
+<h3>Using our script functions<a class="headerlink" href="#Using-our-script-functions" title="Permalink to this headline">¶</a></h3>
+<p>Let’s also use the function so that we can see that it is working.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The freezing point of water in Fahrenheit is:&quot;</span><span class="p">,</span> <span class="n">celsiusToFahr</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The freezing point of water in Fahrenheit is: 32.0
+</pre></div></div>
+</div>
+<p>You should get following output:</p>
+<div class="figure" id="id9">
+<img alt="Testing our imported functions in JupyterLab." src="../../_images/script-test-650.png" />
+<p class="caption"><span class="caption-text">Testing our imported functions in JupyterLab.</span></p>
+</div>
+<div class="section" id="Importing-multiple-functions">
+<h4>Importing multiple functions<a class="headerlink" href="#Importing-multiple-functions" title="Permalink to this headline">¶</a></h4>
+<p>It is also possible to import more functions at the same time by listing
+and separating them with a comma.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">my_script</span> <span class="kn">import</span> <span class="n">func1</span><span class="p">,</span> <span class="n">func2</span><span class="p">,</span> <span class="n">func3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Importing-all-functions-from-a-script">
+<h3>Importing all functions from a script<a class="headerlink" href="#Importing-all-functions-from-a-script" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes it is useful to import the whole script and all of its
+functions at once. Let’s use a different <code class="docutils literal notranslate"><span class="pre">import</span></code> statement and test
+that all functions work.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">temp_converter</span> <span class="k">as</span> <span class="nn">tc</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The freezing point of water in Fahrenheit is:&quot;</span><span class="p">,</span> <span class="n">tc</span><span class="o">.</span><span class="n">celsiusToFahr</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The freezing point of water in Fahrenheit is: 32.0
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Absolute zero in Celsius is:&#39;</span><span class="p">,</span> <span class="n">tc</span><span class="o">.</span><span class="n">kelvinsToCelsius</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Absolute zero in Celsius is: -273.15
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Absolute zero in Fahrenheit is:&#39;</span><span class="p">,</span> <span class="n">tc</span><span class="o">.</span><span class="n">kelvinsToFahrenheit</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Absolute zero in Fahrenheit is: -459.66999999999996
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="Temperature-calculator-(optional,-advanced-topic)">
+<h2>Temperature calculator (<em>optional, advanced topic</em>)<a class="headerlink" href="#Temperature-calculator-(optional,-advanced-topic)" title="Permalink to this headline">¶</a></h2>
+<p>So far our functions have had only one parameter, but it is also
+possible to define a function with multiple parameters. Let’s now make a
+simple <code class="docutils literal notranslate"><span class="pre">tempCalculator</span></code> function that accepts temperatures in Kelvins
+and returns either Celsius or Fahrenheit. The new function will have two
+parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">tempK</span></code> = The parameter for passing temperature in Kelvin</li>
+<li><code class="docutils literal notranslate"><span class="pre">convertTo</span></code> = The parameter that determines whether to output
+should be in Celsius or in Fahrenheit (using letters <code class="docutils literal notranslate"><span class="pre">C</span></code> or <code class="docutils literal notranslate"><span class="pre">F</span></code>
+accordingly)</li>
+</ul>
+<div class="section" id="Defining-the-function">
+<h3>Defining the function<a class="headerlink" href="#Defining-the-function" title="Permalink to this headline">¶</a></h3>
+<p>Let’s start defining our function by giving it a name and setting the
+parameters.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tempCalculator</span><span class="p">(</span><span class="n">tempK</span><span class="p">,</span> <span class="n">convertTo</span><span class="p">):</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Adding-some-conditional-statements">
+<h3>Adding some conditional statements<a class="headerlink" href="#Adding-some-conditional-statements" title="Permalink to this headline">¶</a></h3>
+<p>Next, we need to add conditional statements that check whether the
+output temperature is wanted in Celsius or Fahrenheit, and then call
+corresponding function that was imported from the <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code>
+file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tempCalculator</span><span class="p">(</span><span class="n">tempK</span><span class="p">,</span> <span class="n">convertTo</span><span class="p">):</span>
+    <span class="c1"># Check if user wants the temperature in Celsius</span>
+    <span class="k">if</span> <span class="n">convertTo</span> <span class="o">==</span> <span class="s2">&quot;C&quot;</span><span class="p">:</span>
+        <span class="c1"># Convert the value to Celsius using the dedicated function for the task that we imported from another script</span>
+        <span class="n">convertedTemp</span> <span class="o">=</span> <span class="n">kelvinsToCelsius</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="n">tempK</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">convertTo</span> <span class="o">==</span> <span class="s2">&quot;F&quot;</span><span class="p">:</span>
+        <span class="c1"># Convert the value to Fahrenheit using the dedicated function for the task that we imported from another script</span>
+        <span class="n">convertedTemp</span> <span class="o">=</span> <span class="n">kelvinsToFahrenheit</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="n">tempK</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Returning-the-result">
+<h3>Returning the result<a class="headerlink" href="#Returning-the-result" title="Permalink to this headline">¶</a></h3>
+<p>Next, we need to add a <strong>return statement</strong> so that our function sends
+back the value that we are interested in.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tempCalculator</span><span class="p">(</span><span class="n">tempK</span><span class="p">,</span> <span class="n">convertTo</span><span class="p">):</span>
+    <span class="c1"># Check if user wants the temperature in Celsius</span>
+    <span class="k">if</span> <span class="n">convertTo</span> <span class="o">==</span> <span class="s2">&quot;C&quot;</span><span class="p">:</span>
+        <span class="c1"># Convert the value to Celsius using the dedicated function for the task that we imported from another script</span>
+        <span class="n">convertedTemp</span> <span class="o">=</span> <span class="n">kelvinsToCelsius</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="n">tempK</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">convertTo</span> <span class="o">==</span> <span class="s2">&quot;F&quot;</span><span class="p">:</span>
+        <span class="c1"># Convert the value to Fahrenheit using the dedicated function for the task that we imported from another script</span>
+        <span class="n">convertedTemp</span> <span class="o">=</span> <span class="n">kelvinsToFahrenheit</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="n">tempK</span><span class="p">)</span>
+    <span class="c1"># Return the result</span>
+    <span class="k">return</span> <span class="n">convertedTemp</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Adding-a-docstring">
+<h3>Adding a docstring<a class="headerlink" href="#Adding-a-docstring" title="Permalink to this headline">¶</a></h3>
+<p>Lastly, as we want to be good programmers, we add a short docstring at
+the beginning of our function that tells what the function does and how
+the parameters work.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tempCalculator</span><span class="p">(</span><span class="n">tempK</span><span class="p">,</span> <span class="n">convertTo</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function for converting temperature in Kelvins to Celsius or Fahrenheit.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tempK: &lt;numerical&gt;</span>
+<span class="sd">        Temperature in Kelvins</span>
+<span class="sd">    convertTo: &lt;str&gt;</span>
+<span class="sd">        Target temperature that can be either Celsius (&#39;C&#39;) or Fahrenheit (&#39;F&#39;). Supported values: &#39;C&#39; | &#39;F&#39;</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    &lt;float&gt;</span>
+<span class="sd">        Converted temperature.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Check if user wants the temperature in Celsius</span>
+    <span class="k">if</span> <span class="n">convertTo</span> <span class="o">==</span> <span class="s2">&quot;C&quot;</span><span class="p">:</span>
+        <span class="c1"># Convert the value to Celsius using the dedicated function for the task that we imported from another script</span>
+        <span class="n">convertedTemp</span> <span class="o">=</span> <span class="n">kelvinsToCelsius</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="n">tempK</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">convertTo</span> <span class="o">==</span> <span class="s2">&quot;F&quot;</span><span class="p">:</span>
+        <span class="c1"># Convert the value to Fahrenheit using the dedicated function for the task that we imported from another script</span>
+        <span class="n">convertedTemp</span> <span class="o">=</span> <span class="n">kelvinsToFahrenheit</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="n">tempK</span><span class="p">)</span>
+    <span class="c1"># Return the result</span>
+    <span class="k">return</span> <span class="n">convertedTemp</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Testing-the-new-function">
+<h3>Testing the new function<a class="headerlink" href="#Testing-the-new-function" title="Permalink to this headline">¶</a></h3>
+<p>That’s it! Now we have a temperature calculator that has a simple
+control for the user where s/he can change the output by using the
+<code class="docutils literal notranslate"><span class="pre">convertTo</span></code> parameter. Now as we added the short docstring in the
+beginning of the function we can use the <code class="docutils literal notranslate"><span class="pre">help()</span></code> function in Python
+to find out how our function should be used. Run the Python cell below
+and then try running <code class="docutils literal notranslate"><span class="pre">help(tempCalculator)</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Attention</strong></p>
+<p>Reloading modules from within a Jupyter notebook is a bit of a pain. The
+easiest option is to restart the IPython kernel by going to <strong>Kernel</strong>
+-&gt; <strong>Restart kernel…</strong>. Note that this will delete all variables
+currently stored in memory in the Jupyter notebook you’re using, so you
+may need to re-run some cells.</p>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">temp_converter</span> <span class="k">as</span> <span class="nn">tc</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">help</span><span class="p">(</span><span class="n">tc</span><span class="o">.</span><span class="n">tempCalculator</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Help on function tempCalculator in module temp_converter:
+
+tempCalculator(tempK, convertTo)
+    Function for converting temperature in Kelvins to Celsius or Fahrenheit.
+
+    Parameters
+    ----------
+    tempK: &lt;numerical&gt;
+        Temperature in Kelvins
+    convertTo: &lt;str&gt;
+        Target temperature that can be either Celsius (&#39;C&#39;) or Fahrenheit (&#39;F&#39;). Supported values: &#39;C&#39; | &#39;F&#39;
+
+    Returns
+    -------
+    &lt;float&gt;
+        Converted temperature.
+
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Using-the-tempCalculator">
+<h3>Using the tempCalculator<a class="headerlink" href="#Using-the-tempCalculator" title="Permalink to this headline">¶</a></h3>
+<p>Let’s use it.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tempKelvin</span> <span class="o">=</span> <span class="mi">30</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">temperatureC</span> <span class="o">=</span> <span class="n">tc</span><span class="o">.</span><span class="n">tempCalculator</span><span class="p">(</span><span class="n">tempK</span><span class="o">=</span><span class="n">tempKelvin</span><span class="p">,</span> <span class="n">convertTo</span><span class="o">=</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature&quot;</span><span class="p">,</span> <span class="n">tempKelvin</span><span class="p">,</span> <span class="s2">&quot;in Kelvins is&quot;</span><span class="p">,</span> <span class="n">temperatureC</span><span class="p">,</span> <span class="s2">&quot;in Celsius&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Temperature 30 in Kelvins is -243.14999999999998 in Celsius
+</pre></div></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="modules.html" class="btn btn-neutral float-right" title="Loading and using modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../lessons/L4/overview.html" class="btn btn-neutral" title="Lesson overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p> <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> </a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: master
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../../2017/index.html">2017</a></dd>
+            <dd><a href="../../develop/notebooks/L4/functions.html">develop</a></dd>
+            <dd><a href="../../master/notebooks/L4/functions.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2018',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
