@@ -6,16 +6,10 @@ We will also introduce you to the concept of a *module* (also known as a library
 Each module contains specific functionalities (i.e., functions) that you can use for different tasks.
 Thus functions and modules are closely related.
 
-1. :doc:`Basic concepts of functions <functions>`
-
-    -  `What is a function? <functions.html#what-is-a-function>`__
-    -  `Anatomy of a function <functions.html#anatomy-of-a-function>`__
-    -  `Calling functions <functions.html#calling-functions>`__
-    -  `Saving and loading functions <functions.html#saving-and-loading-functions>`__
-
-2. :doc:`Loading and using modules <modules>`
-3. :doc:`Exercise 4: Classifying and converting temperatures <ex-4>`
-4. :doc:`Exercise 4 hints <exercise-4-hints>`
+1. `Basic concepts of functions <../../notebooks/L4/functions.ipynb>`_
+2. `Loading and using modules <../../notebooks/L4/modules.ipynb>`_
+3. `Writing scripts the "right" way (*optional*) <../../notebooks/L4/writing-scripts.ipynb>`_
+4. :doc:`Exercise 4: Classifying and converting temperatures <exercise-4>`
 
 Learning goals
 --------------

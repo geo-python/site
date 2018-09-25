@@ -34,4 +34,4 @@ def tempCalculator(tempK, convertTo):
         # Convert the value to Fahrenheit using the dedicated function for the task that we imported from another script
         convertedTemp = kelvinsToFahrenheit(tempKelvins=tempK)
     # Return the result
-    return convertedTemp
+    return convertedTemp    
