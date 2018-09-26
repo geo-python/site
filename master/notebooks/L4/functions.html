@@ -149,8 +149,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#Calling-functions">Calling functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Using-our-new-function">Using our new function</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Let's-make-another-function">Let’s make another function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Using-our-second-function">Using our second function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Funtions-within-a-function-(Yo-dawg...)">Funtions within a function (Yo dawg…)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Using-our-second-function">Using our second function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Check-your-understanding">Check your understanding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Functions-within-a-function-(Yo-dawg...)">Functions within a function (Yo dawg…)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Using-our-combined-functions">Using our combined functions</a></li>
 </ul>
 </li>
@@ -616,16 +619,60 @@ Fahrenheit, let’s create another function called <code class="docutils literal
 Absolute zero in Celsius is: -273.15
 </pre></div></div>
 </div>
+<hr><div class="section" id="Check-your-understanding">
+<h4>Check your understanding<a class="headerlink" href="#Check-your-understanding" title="Permalink to this headline">¶</a></h4>
+<p>Let’s see how things are going so far with functions. In the Python cell
+below, please:</p>
+<ul class="simple">
+<li>Create a new function called <code class="docutils literal notranslate"><span class="pre">hello</span></code> with 2 parameters<ul>
+<li>Parameter 1 should be called <code class="docutils literal notranslate"><span class="pre">name</span></code> and you should assign some
+text to this parameter this when using the function</li>
+<li>Parameter 2 should be called <code class="docutils literal notranslate"><span class="pre">age</span></code> and you should provide a
+number value for this parameter when using the function</li>
+</ul>
+</li>
+</ul>
+<p>When using your function, the value that is returned should be a
+character string stating the <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">age</span></code> that were provided,
+which you can assign to a variable called <code class="docutils literal notranslate"><span class="pre">output</span></code>. Printing out
+<code class="docutils literal notranslate"><span class="pre">output</span></code> should produce something like the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+<span class="s1">&#39;Hello, my name is Dave. I am 38 years old.&#39;</span>
+</pre></div>
 </div>
-<div class="section" id="Funtions-within-a-function-(Yo-dawg...)">
-<h3>Funtions within a function (Yo dawg…)<a class="headerlink" href="#Funtions-within-a-function-(Yo-dawg...)" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">&#39;Hello, my name is &#39;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;. I am &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; years old.&#39;</span>
+
+<span class="n">output</span> <span class="o">=</span> <span class="n">hello</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Dave&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">38</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Hello, my name is Dave. I am 38 years old.
+</pre></div></div>
+</div>
+<hr></div>
+</div>
+<div class="section" id="Functions-within-a-function-(Yo-dawg...)">
+<h3>Functions within a function (Yo dawg…)<a class="headerlink" href="#Functions-within-a-function-(Yo-dawg...)" title="Permalink to this headline">¶</a></h3>
 <p>What about converting Kelvins to Fahrenheit? We could write out a new
 formula for it, but we don’t need to. Instead, we can do the conversion
 using the two functions we have already created and calling those from
 the function we are now creating.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [8]:
+<span></span>In [9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -642,7 +689,7 @@ the function we are now creating.</p>
 <p>Now let’s use the function.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [9]:
+<span></span>In [10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -652,7 +699,7 @@ the function we are now creating.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [10]:
+<span></span>In [11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -785,7 +832,7 @@ where the <code class="docutils literal notranslate"><span class="pre">temp_conv
 magic command called <code class="docutils literal notranslate"><span class="pre">%ls</span></code>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [11]:
+<span></span>In [12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -845,7 +892,7 @@ into the directory containing the <code class="docutils literal notranslate"><sp
 files when you type <code class="docutils literal notranslate"><span class="pre">%ls</span></code> in a Python cell. Try that out below.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [12]:
+<span></span>In [13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -871,7 +918,7 @@ functions.ipynb        modules.ipynb          writing-scripts.ipynb
 by adding a specific <code class="docutils literal notranslate"><span class="pre">import</span></code> statementain the Python cell below.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [13]:
+<span></span>In [14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -885,7 +932,7 @@ by adding a specific <code class="docutils literal notranslate"><span class="pre
 <p>Let’s also use the function so that we can see that it is working.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [14]:
+<span></span>In [15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -922,7 +969,7 @@ functions at once. Let’s use a different <code class="docutils literal notrans
 that all functions work.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [15]:
+<span></span>In [16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -932,7 +979,7 @@ that all functions work.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [16]:
+<span></span>In [17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -950,7 +997,7 @@ The freezing point of water in Fahrenheit is: 32.0
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [17]:
+<span></span>In [18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -968,7 +1015,7 @@ Absolute zero in Celsius is: -273.15
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [18]:
+<span></span>In [19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1093,7 +1140,7 @@ may need to re-run some cells.</p>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [19]:
+<span></span>In [20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1103,7 +1150,7 @@ may need to re-run some cells.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [20]:
+<span></span>In [21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1141,7 +1188,7 @@ tempCalculator(tempK, convertTo)
 <p>Let’s use it.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [21]:
+<span></span>In [22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1151,7 +1198,7 @@ tempCalculator(tempK, convertTo)
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [22]:
+<span></span>In [23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1161,7 +1208,7 @@ tempCalculator(tempK, convertTo)
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [23]:
+<span></span>In [24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
