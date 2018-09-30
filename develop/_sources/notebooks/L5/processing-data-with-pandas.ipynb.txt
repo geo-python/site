@@ -1,0 +1,1207 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Processing data with Pandas\n",
+    "\n",
+    "Now you should know the basics of the data structures in Pandas and how to explore your data using some tools that is provided by Pandas.\n",
+    "Next we continue to explore some of the basic data operations that are regularly needed when doing data analysis.\n",
+    "\n",
+    "Let's first read the same data as before into Pandas to have a clean start."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "dataFrame = pd.read_csv('Kumpula-June-2016-w-metadata.txt', sep=',', skiprows=8)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Calculating with DataFrames\n",
+    "\n",
+    "One of the most common things to do in Pandas is to create new columns based on calculations between different variables (columns).\n",
+    "\n",
+    "Creating a new column into our DataFrame is easy by specifying the name of the column and giving it some default value (in this case decimal number 0.0).\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    YEARMODA  TEMP   MAX   MIN  DIFF\n",
+      "0   20160601  65.5  73.6  54.7   0.0\n",
+      "1   20160602  65.8  80.8  55.0   0.0\n",
+      "2   20160603  68.4  77.9  55.6   0.0\n",
+      "3   20160604  57.5  70.9  47.3   0.0\n",
+      "4   20160605  51.4  58.3  43.2   0.0\n",
+      "5   20160606  52.2  59.7  42.8   0.0\n",
+      "6   20160607  56.9  65.1  45.9   0.0\n",
+      "7   20160608  54.2  60.4  47.5   0.0\n",
+      "8   20160609  49.4  54.1  45.7   0.0\n",
+      "9   20160610  49.5  55.9  43.0   0.0\n",
+      "10  20160611  54.0  62.1  41.7   0.0\n",
+      "11  20160612  55.4  64.2  46.0   0.0\n",
+      "12  20160613  58.3  68.2  47.3   0.0\n",
+      "13  20160614  59.7  67.8  47.8   0.0\n",
+      "14  20160615  63.4  70.3  49.3   0.0\n",
+      "15  20160616  57.8  67.5  55.6   0.0\n",
+      "16  20160617  60.4  70.7  55.9   0.0\n",
+      "17  20160618  57.3  62.8  54.0   0.0\n",
+      "18  20160619  56.3  59.2  54.1   0.0\n",
+      "19  20160620  59.3  69.1  52.2   0.0\n",
+      "20  20160621  62.6  71.4  50.4   0.0\n",
+      "21  20160622  61.7  70.2  55.4   0.0\n",
+      "22  20160623  60.9  67.1  54.9   0.0\n",
+      "23  20160624  61.1  68.9  56.7   0.0\n",
+      "24  20160625  65.7  75.4  57.9   0.0\n",
+      "25  20160626  69.6  77.7  60.3   0.0\n",
+      "26  20160627  60.7  70.0  57.6   0.0\n",
+      "27  20160628  65.4  73.0  55.8   0.0\n",
+      "28  20160629  65.8  73.2  59.7   0.0\n",
+      "29  20160630  65.7  72.7  59.2   0.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "dataFrame['DIFF'] = 0.0\n",
+    "print(dataFrame)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Let's check the datatype of our new column"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "dtype('float64')"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "dataFrame['DIFF'].dtypes"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey, so we see that Pandas created a new column and recognized automatically that the data type is float as we passed a 0.0 value to it.\n",
+    "\n",
+    "\n",
+    "We can also easily do calculations inside our DataFrame. Let's update the column ``DIFF`` by calculating the difference between ``MAX`` and ``MIN`` columns to get an idea how much the temperatures have\n",
+    "been varying during different days. Calculations can be done with following syntax where we first specify the column that we want to update (i.e. ``DIFF``) and then do the actual calculation\n",
+    "using the columns that we have in our dataFrameFrame."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    YEARMODA  TEMP   MAX   MIN  DIFF\n",
+      "0   20160601  65.5  73.6  54.7  18.9\n",
+      "1   20160602  65.8  80.8  55.0  25.8\n",
+      "2   20160603  68.4  77.9  55.6  22.3\n",
+      "3   20160604  57.5  70.9  47.3  23.6\n",
+      "4   20160605  51.4  58.3  43.2  15.1\n",
+      "5   20160606  52.2  59.7  42.8  16.9\n",
+      "6   20160607  56.9  65.1  45.9  19.2\n",
+      "7   20160608  54.2  60.4  47.5  12.9\n",
+      "8   20160609  49.4  54.1  45.7   8.4\n",
+      "9   20160610  49.5  55.9  43.0  12.9\n",
+      "10  20160611  54.0  62.1  41.7  20.4\n",
+      "11  20160612  55.4  64.2  46.0  18.2\n",
+      "12  20160613  58.3  68.2  47.3  20.9\n",
+      "13  20160614  59.7  67.8  47.8  20.0\n",
+      "14  20160615  63.4  70.3  49.3  21.0\n",
+      "15  20160616  57.8  67.5  55.6  11.9\n",
+      "16  20160617  60.4  70.7  55.9  14.8\n",
+      "17  20160618  57.3  62.8  54.0   8.8\n",
+      "18  20160619  56.3  59.2  54.1   5.1\n",
+      "19  20160620  59.3  69.1  52.2  16.9\n",
+      "20  20160621  62.6  71.4  50.4  21.0\n",
+      "21  20160622  61.7  70.2  55.4  14.8\n",
+      "22  20160623  60.9  67.1  54.9  12.2\n",
+      "23  20160624  61.1  68.9  56.7  12.2\n",
+      "24  20160625  65.7  75.4  57.9  17.5\n",
+      "25  20160626  69.6  77.7  60.3  17.4\n",
+      "26  20160627  60.7  70.0  57.6  12.4\n",
+      "27  20160628  65.4  73.0  55.8  17.2\n",
+      "28  20160629  65.8  73.2  59.7  13.5\n",
+      "29  20160630  65.7  72.7  59.2  13.5\n"
+     ]
+    }
+   ],
+   "source": [
+    "dataFrame['DIFF'] = dataFrame['MAX'] - dataFrame['MIN']\n",
+    "print(dataFrame)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey so now we can see that the calculations were inserted into the ``DIFF`` column as planned. Notice that you can do calculations directly without first creating the column. Let's test\n",
+    "this by calculating the difference between minimum temperature (``MIN``) and the mean temperature of the day (``TEMP``).\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    YEARMODA  TEMP   MAX   MIN  DIFF  DIFF_Min\n",
+      "0   20160601  65.5  73.6  54.7  18.9      10.8\n",
+      "1   20160602  65.8  80.8  55.0  25.8      10.8\n",
+      "2   20160603  68.4  77.9  55.6  22.3      12.8\n",
+      "3   20160604  57.5  70.9  47.3  23.6      10.2\n",
+      "4   20160605  51.4  58.3  43.2  15.1       8.2\n",
+      "5   20160606  52.2  59.7  42.8  16.9       9.4\n",
+      "6   20160607  56.9  65.1  45.9  19.2      11.0\n",
+      "7   20160608  54.2  60.4  47.5  12.9       6.7\n",
+      "8   20160609  49.4  54.1  45.7   8.4       3.7\n",
+      "9   20160610  49.5  55.9  43.0  12.9       6.5\n",
+      "10  20160611  54.0  62.1  41.7  20.4      12.3\n",
+      "11  20160612  55.4  64.2  46.0  18.2       9.4\n",
+      "12  20160613  58.3  68.2  47.3  20.9      11.0\n",
+      "13  20160614  59.7  67.8  47.8  20.0      11.9\n",
+      "14  20160615  63.4  70.3  49.3  21.0      14.1\n",
+      "15  20160616  57.8  67.5  55.6  11.9       2.2\n",
+      "16  20160617  60.4  70.7  55.9  14.8       4.5\n",
+      "17  20160618  57.3  62.8  54.0   8.8       3.3\n",
+      "18  20160619  56.3  59.2  54.1   5.1       2.2\n",
+      "19  20160620  59.3  69.1  52.2  16.9       7.1\n",
+      "20  20160621  62.6  71.4  50.4  21.0      12.2\n",
+      "21  20160622  61.7  70.2  55.4  14.8       6.3\n",
+      "22  20160623  60.9  67.1  54.9  12.2       6.0\n",
+      "23  20160624  61.1  68.9  56.7  12.2       4.4\n",
+      "24  20160625  65.7  75.4  57.9  17.5       7.8\n",
+      "25  20160626  69.6  77.7  60.3  17.4       9.3\n",
+      "26  20160627  60.7  70.0  57.6  12.4       3.1\n",
+      "27  20160628  65.4  73.0  55.8  17.2       9.6\n",
+      "28  20160629  65.8  73.2  59.7  13.5       6.1\n",
+      "29  20160630  65.7  72.7  59.2  13.5       6.5\n"
+     ]
+    }
+   ],
+   "source": [
+    "dataFrame['DIFF_Min'] = dataFrame['TEMP'] - dataFrame['MIN']\n",
+    "print(dataFrame)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "As you can see, now we created directly a new column with the calculation. In a similar manner, you can do calculations using as many columns as you need and using any kind of math\n",
+    "algebra (e.g. subtracttion, addition, multiplication, division, exponentiation, etc.).\n",
+    "\n",
+    "\n",
+    "We can for example convert the Fahrenheit temperatures in ``TEMP`` column into Celsius using the formula that we have seen already many times:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    YEARMODA  TEMP   MAX   MIN  DIFF  DIFF_Min  TEMP_Celsius\n",
+      "0   20160601  65.5  73.6  54.7  18.9      10.8     18.611111\n",
+      "1   20160602  65.8  80.8  55.0  25.8      10.8     18.777778\n",
+      "2   20160603  68.4  77.9  55.6  22.3      12.8     20.222222\n",
+      "3   20160604  57.5  70.9  47.3  23.6      10.2     14.166667\n",
+      "4   20160605  51.4  58.3  43.2  15.1       8.2     10.777778\n",
+      "5   20160606  52.2  59.7  42.8  16.9       9.4     11.222222\n",
+      "6   20160607  56.9  65.1  45.9  19.2      11.0     13.833333\n",
+      "7   20160608  54.2  60.4  47.5  12.9       6.7     12.333333\n",
+      "8   20160609  49.4  54.1  45.7   8.4       3.7      9.666667\n",
+      "9   20160610  49.5  55.9  43.0  12.9       6.5      9.722222\n",
+      "10  20160611  54.0  62.1  41.7  20.4      12.3     12.222222\n",
+      "11  20160612  55.4  64.2  46.0  18.2       9.4     13.000000\n",
+      "12  20160613  58.3  68.2  47.3  20.9      11.0     14.611111\n",
+      "13  20160614  59.7  67.8  47.8  20.0      11.9     15.388889\n",
+      "14  20160615  63.4  70.3  49.3  21.0      14.1     17.444444\n",
+      "15  20160616  57.8  67.5  55.6  11.9       2.2     14.333333\n",
+      "16  20160617  60.4  70.7  55.9  14.8       4.5     15.777778\n",
+      "17  20160618  57.3  62.8  54.0   8.8       3.3     14.055556\n",
+      "18  20160619  56.3  59.2  54.1   5.1       2.2     13.500000\n",
+      "19  20160620  59.3  69.1  52.2  16.9       7.1     15.166667\n",
+      "20  20160621  62.6  71.4  50.4  21.0      12.2     17.000000\n",
+      "21  20160622  61.7  70.2  55.4  14.8       6.3     16.500000\n",
+      "22  20160623  60.9  67.1  54.9  12.2       6.0     16.055556\n",
+      "23  20160624  61.1  68.9  56.7  12.2       4.4     16.166667\n",
+      "24  20160625  65.7  75.4  57.9  17.5       7.8     18.722222\n",
+      "25  20160626  69.6  77.7  60.3  17.4       9.3     20.888889\n",
+      "26  20160627  60.7  70.0  57.6  12.4       3.1     15.944444\n",
+      "27  20160628  65.4  73.0  55.8  17.2       9.6     18.555556\n",
+      "28  20160629  65.8  73.2  59.7  13.5       6.1     18.777778\n",
+      "29  20160630  65.7  72.7  59.2  13.5       6.5     18.722222\n"
+     ]
+    }
+   ],
+   "source": [
+    "dataFrame['TEMP_Celsius'] = (dataFrame['TEMP'] - 32) / (9/5)\n",
+    "print(dataFrame)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Selecting data using indices\n",
+    "\n",
+    "One quite common procedure in programming that you want to select only specific rows from your data and possibly apply some operations into those rows only.\n",
+    "In Pandas there are different ways of doing this.\n",
+    "\n",
+    "One common way of selecting only specific rows from your DataFrame is done via **index slicing** to extract part of the DataFrame.\n",
+    "\n",
+    "Let's select the first five rows and assign them to a variable called ``rows5``."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "   YEARMODA  TEMP   MAX   MIN  DIFF  DIFF_Min  TEMP_Celsius\n",
+      "0  20160601  65.5  73.6  54.7  18.9      10.8     18.611111\n",
+      "1  20160602  65.8  80.8  55.0  25.8      10.8     18.777778\n",
+      "2  20160603  68.4  77.9  55.6  22.3      12.8     20.222222\n",
+      "3  20160604  57.5  70.9  47.3  23.6      10.2     14.166667\n",
+      "4  20160605  51.4  58.3  43.2  15.1       8.2     10.777778\n"
+     ]
+    }
+   ],
+   "source": [
+    "rows5 = dataFrame[0:5]\n",
+    "print(rows5)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "As you can see, slicing is done in a similar manner as with normal Python lists, i.e. you specify index range you want to select inside the square brackets\n",
+    "``selection = dataFrame[start_index:stop_index]``.\n",
+    "\n",
+    "You can also select an individual row from specific position using ``.loc[]`` indexing. Here we select all the data values from row 8.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "YEARMODA        2.016061e+07\n",
+      "TEMP            4.940000e+01\n",
+      "MAX             5.410000e+01\n",
+      "MIN             4.570000e+01\n",
+      "DIFF            8.400000e+00\n",
+      "DIFF_Min        3.700000e+00\n",
+      "TEMP_Celsius    9.666667e+00\n",
+      "Name: 8, dtype: float64\n"
+     ]
+    }
+   ],
+   "source": [
+    "row8 = dataFrame.loc[8]\n",
+    "print(row8)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Based on what we know about Python lists, what would you expect to see output from the following code?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "ename": "KeyError",
+     "evalue": "'the label [-1] is not in the [index]'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mKeyError\u001b[0m                                  Traceback (most recent call last)",
+      "\u001b[0;32mC:\\HYapp\\Anaconda3\\lib\\site-packages\\pandas\\core\\indexing.py\u001b[0m in \u001b[0;36m_has_valid_type\u001b[0;34m(self, key, axis)\u001b[0m\n\u001b[1;32m   1433\u001b[0m                 \u001b[1;32mif\u001b[0m \u001b[1;32mnot\u001b[0m \u001b[0max\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mcontains\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1434\u001b[0;31m                     \u001b[0merror\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1435\u001b[0m             \u001b[1;32mexcept\u001b[0m \u001b[0mTypeError\u001b[0m \u001b[1;32mas\u001b[0m \u001b[0me\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32mC:\\HYapp\\Anaconda3\\lib\\site-packages\\pandas\\core\\indexing.py\u001b[0m in \u001b[0;36merror\u001b[0;34m()\u001b[0m\n\u001b[1;32m   1428\u001b[0m                 raise KeyError(\"the label [%s] is not in the [%s]\" %\n\u001b[0;32m-> 1429\u001b[0;31m                                (key, self.obj._get_axis_name(axis)))\n\u001b[0m\u001b[1;32m   1430\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mKeyError\u001b[0m: 'the label [-1] is not in the [index]'",
+      "\nDuring handling of the above exception, another exception occurred:\n",
+      "\u001b[0;31mKeyError\u001b[0m                                  Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-13-b56ffaa833f6>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mprint\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mdataFrame\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mloc\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;33m-\u001b[0m\u001b[1;36m1\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;32mC:\\HYapp\\Anaconda3\\lib\\site-packages\\pandas\\core\\indexing.py\u001b[0m in \u001b[0;36m__getitem__\u001b[0;34m(self, key)\u001b[0m\n\u001b[1;32m   1326\u001b[0m         \u001b[1;32melse\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m   1327\u001b[0m             \u001b[0mkey\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mcom\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_apply_if_callable\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mobj\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1328\u001b[0;31m             \u001b[1;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_getitem_axis\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0maxis\u001b[0m\u001b[1;33m=\u001b[0m\u001b[1;36m0\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1329\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m   1330\u001b[0m     \u001b[1;32mdef\u001b[0m \u001b[0m_is_scalar_access\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mself\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mkey\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32mC:\\HYapp\\Anaconda3\\lib\\site-packages\\pandas\\core\\indexing.py\u001b[0m in \u001b[0;36m_getitem_axis\u001b[0;34m(self, key, axis)\u001b[0m\n\u001b[1;32m   1549\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m   1550\u001b[0m         \u001b[1;31m# fall thru to straight lookup\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1551\u001b[0;31m         \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_has_valid_type\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0maxis\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1552\u001b[0m         \u001b[1;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_get_label\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0maxis\u001b[0m\u001b[1;33m=\u001b[0m\u001b[0maxis\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m   1553\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32mC:\\HYapp\\Anaconda3\\lib\\site-packages\\pandas\\core\\indexing.py\u001b[0m in \u001b[0;36m_has_valid_type\u001b[0;34m(self, key, axis)\u001b[0m\n\u001b[1;32m   1440\u001b[0m                 \u001b[1;32mraise\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m   1441\u001b[0m             \u001b[1;32mexcept\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1442\u001b[0;31m                 \u001b[0merror\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1443\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m   1444\u001b[0m         \u001b[1;32mreturn\u001b[0m \u001b[1;32mTrue\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32mC:\\HYapp\\Anaconda3\\lib\\site-packages\\pandas\\core\\indexing.py\u001b[0m in \u001b[0;36merror\u001b[0;34m()\u001b[0m\n\u001b[1;32m   1427\u001b[0m                                     \"key\")\n\u001b[1;32m   1428\u001b[0m                 raise KeyError(\"the label [%s] is not in the [%s]\" %\n\u001b[0;32m-> 1429\u001b[0;31m                                (key, self.obj._get_axis_name(axis)))\n\u001b[0m\u001b[1;32m   1430\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m   1431\u001b[0m             \u001b[1;32mtry\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mKeyError\u001b[0m: 'the label [-1] is not in the [index]'"
+     ]
+    }
+   ],
+   "source": [
+    "print(dataFrame.loc[-1])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "``.loc[]`` indexing returns the values from that position as a ``pd.Series`` where the indices are actually the column names of those variables. Hence, you can access the value of an individual column by referring to its index using following format (both should work):\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "49.4\n",
+      "20160609.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(row8['TEMP'])\n",
+    "print(row8.YEARMODA)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "It is also possible to select multiple rows simultaniously. Here, we select only temperature values (``TEMP``) between indices of 5-10:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5     52.2\n",
+      "6     56.9\n",
+      "7     54.2\n",
+      "8     49.4\n",
+      "9     49.5\n",
+      "10    54.0\n",
+      "Name: TEMP, dtype: float64\n"
+     ]
+    }
+   ],
+   "source": [
+    "temps_5to10 = dataFrame.loc[5:10, 'TEMP']\n",
+    "print(temps_5to10)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "It is also possible to select multiple columns using those same indices. Here, we select ``TEMP`` and the ``TEMP_Celsius`` columns by passing them inside a list (``.loc[start_index:stop_index, list_of_columns]``):"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    TEMP  TEMP_Celsius\n",
+      "5   52.2     11.222222\n",
+      "6   56.9     13.833333\n",
+      "7   54.2     12.333333\n",
+      "8   49.4      9.666667\n",
+      "9   49.5      9.722222\n",
+      "10  54.0     12.222222\n"
+     ]
+    }
+   ],
+   "source": [
+    "temps_5to10 = dataFrame.loc[5:10, ['TEMP', 'TEMP_Celsius']]\n",
+    "print(temps_5to10)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Of course, you can also get all values from those columns. This, can be done by simply referring to the dataFrame and inserting a list of columns inside the square brackets that you want to include.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    TEMP  TEMP_Celsius\n",
+      "0   65.5     18.611111\n",
+      "1   65.8     18.777778\n",
+      "2   68.4     20.222222\n",
+      "3   57.5     14.166667\n",
+      "4   51.4     10.777778\n",
+      "5   52.2     11.222222\n",
+      "6   56.9     13.833333\n",
+      "7   54.2     12.333333\n",
+      "8   49.4      9.666667\n",
+      "9   49.5      9.722222\n",
+      "10  54.0     12.222222\n",
+      "11  55.4     13.000000\n",
+      "12  58.3     14.611111\n",
+      "13  59.7     15.388889\n",
+      "14  63.4     17.444444\n",
+      "15  57.8     14.333333\n",
+      "16  60.4     15.777778\n",
+      "17  57.3     14.055556\n",
+      "18  56.3     13.500000\n",
+      "19  59.3     15.166667\n",
+      "20  62.6     17.000000\n",
+      "21  61.7     16.500000\n",
+      "22  60.9     16.055556\n",
+      "23  61.1     16.166667\n",
+      "24  65.7     18.722222\n",
+      "25  69.6     20.888889\n",
+      "26  60.7     15.944444\n",
+      "27  65.4     18.555556\n",
+      "28  65.8     18.777778\n",
+      "29  65.7     18.722222\n"
+     ]
+    }
+   ],
+   "source": [
+    "temps_only = dataFrame[['TEMP', 'TEMP_Celsius']]\n",
+    "print(temps_only)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Filtering and updating data\n",
+    "\n",
+    "\n",
+    "One really useful feature in Pandas is the ability to easily filter and select rows based on certain criteria using ``.ix[]`` indexing.\n",
+    "The following example shows how to select rows when the Celsius temperature has been higher than 15 degrees into variable ``w_temps`` (warm temperatures).\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    YEARMODA  TEMP   MAX   MIN  DIFF  DIFF_Min  TEMP_Celsius\n",
+      "0   20160601  65.5  73.6  54.7  18.9      10.8     18.611111\n",
+      "1   20160602  65.8  80.8  55.0  25.8      10.8     18.777778\n",
+      "2   20160603  68.4  77.9  55.6  22.3      12.8     20.222222\n",
+      "13  20160614  59.7  67.8  47.8  20.0      11.9     15.388889\n",
+      "14  20160615  63.4  70.3  49.3  21.0      14.1     17.444444\n",
+      "16  20160617  60.4  70.7  55.9  14.8       4.5     15.777778\n",
+      "19  20160620  59.3  69.1  52.2  16.9       7.1     15.166667\n",
+      "20  20160621  62.6  71.4  50.4  21.0      12.2     17.000000\n",
+      "21  20160622  61.7  70.2  55.4  14.8       6.3     16.500000\n",
+      "22  20160623  60.9  67.1  54.9  12.2       6.0     16.055556\n",
+      "23  20160624  61.1  68.9  56.7  12.2       4.4     16.166667\n",
+      "24  20160625  65.7  75.4  57.9  17.5       7.8     18.722222\n",
+      "25  20160626  69.6  77.7  60.3  17.4       9.3     20.888889\n",
+      "26  20160627  60.7  70.0  57.6  12.4       3.1     15.944444\n",
+      "27  20160628  65.4  73.0  55.8  17.2       9.6     18.555556\n",
+      "28  20160629  65.8  73.2  59.7  13.5       6.1     18.777778\n",
+      "29  20160630  65.7  72.7  59.2  13.5       6.5     18.722222\n"
+     ]
+    }
+   ],
+   "source": [
+    "w_temps = dataFrame.ix[dataFrame['TEMP_Celsius'] > 15]\n",
+    "print(w_temps)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "It is also possible to combine multiple criteria at the same time. Here, we select temperatures above 15 degrees that were recorded on the second half of June in 2016 (i.e. ``YEARMODA >= 20160615``).\n",
+    "Combining multiple criteria can be done with ``&`` operator (AND) or ``|`` operator (OR). Notice, that it is often useful to separate the different clauses inside the parentheses ``()``.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "w_temps2 = dataFrame.ix[(dataFrame['TEMP_Celsius'] > 15) & (dataFrame['YEARMODA'] >= 20160615)]\n",
+    "print(w_temps2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Now we have a subset of our DataFrame with only rows where the ``TEMP_Celsius`` is above 15 and the dates in ``YEARMODA`` column start from 15th of June.\n",
+    "\n",
+    "Notice, that the index values (numbers on the left) are still showing the positions from the original DataFrame. It is possible to **reset** the index using ``reset_index()`` function that\n",
+    "might be useful in some cases to be able to slice the data in a similar manner as above. By default the ``reset_index()`` would make a new column called ``index`` to keep track on the previous\n",
+    "index which might be useful in some cases but here not, so we can omit that by passing parameter ``drop=True``."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    YEARMODA  TEMP   MAX   MIN  DIFF  DIFF_Min  TEMP_Celsius\n",
+      "0   20160615  63.4  70.3  49.3  21.0      14.1     17.444444\n",
+      "1   20160617  60.4  70.7  55.9  14.8       4.5     15.777778\n",
+      "2   20160620  59.3  69.1  52.2  16.9       7.1     15.166667\n",
+      "3   20160621  62.6  71.4  50.4  21.0      12.2     17.000000\n",
+      "4   20160622  61.7  70.2  55.4  14.8       6.3     16.500000\n",
+      "5   20160623  60.9  67.1  54.9  12.2       6.0     16.055556\n",
+      "6   20160624  61.1  68.9  56.7  12.2       4.4     16.166667\n",
+      "7   20160625  65.7  75.4  57.9  17.5       7.8     18.722222\n",
+      "8   20160626  69.6  77.7  60.3  17.4       9.3     20.888889\n",
+      "9   20160627  60.7  70.0  57.6  12.4       3.1     15.944444\n",
+      "10  20160628  65.4  73.0  55.8  17.2       9.6     18.555556\n",
+      "11  20160629  65.8  73.2  59.7  13.5       6.1     18.777778\n",
+      "12  20160630  65.7  72.7  59.2  13.5       6.5     18.722222\n"
+     ]
+    }
+   ],
+   "source": [
+    "w_temps2 = w_temps2.reset_index(drop=True)\n",
+    "print(w_temps2)"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "As can be seen, now the index values goes from 0 to 12.\n",
+    "\n",
+    "## Dealing with missing data"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Next we update the first five values of ``TEMP_Celsius`` in our ``w_temps2`` DataFrame to be ``NaN`` (not-a-number). This can be done by utilizing the ``loc[]`` indexing.\n",
+    "    \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    YEARMODA  TEMP   MAX   MIN  DIFF  DIFF_Min  TEMP_Celsius\n",
+      "0   20160615  63.4  70.3  49.3  21.0      14.1           NaN\n",
+      "1   20160617  60.4  70.7  55.9  14.8       4.5           NaN\n",
+      "2   20160620  59.3  69.1  52.2  16.9       7.1           NaN\n",
+      "3   20160621  62.6  71.4  50.4  21.0      12.2           NaN\n",
+      "4   20160622  61.7  70.2  55.4  14.8       6.3           NaN\n",
+      "5   20160623  60.9  67.1  54.9  12.2       6.0     16.055556\n",
+      "6   20160624  61.1  68.9  56.7  12.2       4.4     16.166667\n",
+      "7   20160625  65.7  75.4  57.9  17.5       7.8     18.722222\n",
+      "8   20160626  69.6  77.7  60.3  17.4       9.3     20.888889\n",
+      "9   20160627  60.7  70.0  57.6  12.4       3.1     15.944444\n",
+      "10  20160628  65.4  73.0  55.8  17.2       9.6     18.555556\n",
+      "11  20160629  65.8  73.2  59.7  13.5       6.1     18.777778\n",
+      "12  20160630  65.7  72.7  59.2  13.5       6.5     18.722222\n"
+     ]
+    }
+   ],
+   "source": [
+    "w_temps2.loc[:4, 'TEMP_Celsius'] = None\n",
+    "print(w_temps2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "Now we can see that we have some missing data in our DataFrame."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**NOTE:**    Notice here that you don't necessary need to specify the starting index if you select data starting from the beginning of the file (at index 0), hence you can leave it empty as in the example above.\n",
+    "\n",
+    "Having missing data in your datafile is really common situation and typically you want to deal with it somehow. Common procedures to deal with NaN is to either **remove** them from\n",
+    "the DataFrame or **fill** them with some value. In Pandas both of these options are really easy to do.\n",
+    "\n",
+    "Let's first see how we can remove the NoData values (i.e. clean the data) using ``dropna()`` function. Inside the function\n",
+    "you can pass with ``subset`` parameter a list of column(s) from which the NaN values should be searched from.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    YEARMODA  TEMP   MAX   MIN  DIFF  DIFF_Min  TEMP_Celsius\n",
+      "5   20160623  60.9  67.1  54.9  12.2       6.0     16.055556\n",
+      "6   20160624  61.1  68.9  56.7  12.2       4.4     16.166667\n",
+      "7   20160625  65.7  75.4  57.9  17.5       7.8     18.722222\n",
+      "8   20160626  69.6  77.7  60.3  17.4       9.3     20.888889\n",
+      "9   20160627  60.7  70.0  57.6  12.4       3.1     15.944444\n",
+      "10  20160628  65.4  73.0  55.8  17.2       9.6     18.555556\n",
+      "11  20160629  65.8  73.2  59.7  13.5       6.1     18.777778\n",
+      "12  20160630  65.7  72.7  59.2  13.5       6.5     18.722222\n"
+     ]
+    }
+   ],
+   "source": [
+    "w_temps_clean = w_temps2.dropna(subset=['TEMP_Celsius'])\n",
+    "print(w_temps_clean)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "As you can see, as a result we now have a DataFrame without the NoData values.\n",
+    "\n",
+    "Other option is to fill the NoData with some value using ``fillna()`` -function. Here we fill it with value 0.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    YEARMODA  TEMP   MAX   MIN  DIFF  DIFF_Min  TEMP_Celsius\n",
+      "0   20160615  63.4  70.3  49.3  21.0      14.1      0.000000\n",
+      "1   20160617  60.4  70.7  55.9  14.8       4.5      0.000000\n",
+      "2   20160620  59.3  69.1  52.2  16.9       7.1      0.000000\n",
+      "3   20160621  62.6  71.4  50.4  21.0      12.2      0.000000\n",
+      "4   20160622  61.7  70.2  55.4  14.8       6.3      0.000000\n",
+      "5   20160623  60.9  67.1  54.9  12.2       6.0     16.055556\n",
+      "6   20160624  61.1  68.9  56.7  12.2       4.4     16.166667\n",
+      "7   20160625  65.7  75.4  57.9  17.5       7.8     18.722222\n",
+      "8   20160626  69.6  77.7  60.3  17.4       9.3     20.888889\n",
+      "9   20160627  60.7  70.0  57.6  12.4       3.1     15.944444\n",
+      "10  20160628  65.4  73.0  55.8  17.2       9.6     18.555556\n",
+      "11  20160629  65.8  73.2  59.7  13.5       6.1     18.777778\n",
+      "12  20160630  65.7  72.7  59.2  13.5       6.5     18.722222\n"
+     ]
+    }
+   ],
+   "source": [
+    "w_temps_na_filled = w_temps2.fillna(0)\n",
+    "print(w_temps_na_filled)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "As a result we now have a DataFrame where NoData values are filled with value 0.00000."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Warning:** In many cases filling the data with a specific value might be dangerous because you end up modifying the actual data that might affect the results of your analysis. For example in the example above we would have dramatically changed the mean Celsius temperature because the 0 values are dramatically decreasing the average temperature of the month. Hence, use filling carefully.\n",
+    "\n",
+    "## Sorting data\n",
+    "\n",
+    "\n",
+    "Quite often it is useful to be able to sort your data (descending/ascending) based on values in some column\n",
+    "This can be easily done with Pandas using ``sort_values(by='YourColumnName')`` -function.\n",
+    "\n",
+    "Let's first sort the values on ascending order based on the ``TEMP`` column:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    YEARMODA  TEMP   MAX   MIN  DIFF  DIFF_Min  TEMP_Celsius\n",
+      "8   20160609  49.4  54.1  45.7   8.4       3.7      9.666667\n",
+      "9   20160610  49.5  55.9  43.0  12.9       6.5      9.722222\n",
+      "4   20160605  51.4  58.3  43.2  15.1       8.2     10.777778\n",
+      "5   20160606  52.2  59.7  42.8  16.9       9.4     11.222222\n",
+      "10  20160611  54.0  62.1  41.7  20.4      12.3     12.222222\n",
+      "7   20160608  54.2  60.4  47.5  12.9       6.7     12.333333\n",
+      "11  20160612  55.4  64.2  46.0  18.2       9.4     13.000000\n",
+      "18  20160619  56.3  59.2  54.1   5.1       2.2     13.500000\n",
+      "6   20160607  56.9  65.1  45.9  19.2      11.0     13.833333\n",
+      "17  20160618  57.3  62.8  54.0   8.8       3.3     14.055556\n",
+      "3   20160604  57.5  70.9  47.3  23.6      10.2     14.166667\n",
+      "15  20160616  57.8  67.5  55.6  11.9       2.2     14.333333\n",
+      "12  20160613  58.3  68.2  47.3  20.9      11.0     14.611111\n",
+      "19  20160620  59.3  69.1  52.2  16.9       7.1     15.166667\n",
+      "13  20160614  59.7  67.8  47.8  20.0      11.9     15.388889\n",
+      "16  20160617  60.4  70.7  55.9  14.8       4.5     15.777778\n",
+      "26  20160627  60.7  70.0  57.6  12.4       3.1     15.944444\n",
+      "22  20160623  60.9  67.1  54.9  12.2       6.0     16.055556\n",
+      "23  20160624  61.1  68.9  56.7  12.2       4.4     16.166667\n",
+      "21  20160622  61.7  70.2  55.4  14.8       6.3     16.500000\n",
+      "20  20160621  62.6  71.4  50.4  21.0      12.2     17.000000\n",
+      "14  20160615  63.4  70.3  49.3  21.0      14.1     17.444444\n",
+      "27  20160628  65.4  73.0  55.8  17.2       9.6     18.555556\n",
+      "0   20160601  65.5  73.6  54.7  18.9      10.8     18.611111\n",
+      "24  20160625  65.7  75.4  57.9  17.5       7.8     18.722222\n",
+      "29  20160630  65.7  72.7  59.2  13.5       6.5     18.722222\n",
+      "1   20160602  65.8  80.8  55.0  25.8      10.8     18.777778\n",
+      "28  20160629  65.8  73.2  59.7  13.5       6.1     18.777778\n",
+      "2   20160603  68.4  77.9  55.6  22.3      12.8     20.222222\n",
+      "25  20160626  69.6  77.7  60.3  17.4       9.3     20.888889\n"
+     ]
+    }
+   ],
+   "source": [
+    "sorted_temp_a = dataFrame.sort_values(by='TEMP')\n",
+    "print(sorted_temp_a)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Of course, it is also possible to sort them in descending order with ``ascending=False`` parameter:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    YEARMODA  TEMP   MAX   MIN  DIFF  DIFF_Min  TEMP_Celsius\n",
+      "25  20160626  69.6  77.7  60.3  17.4       9.3     20.888889\n",
+      "2   20160603  68.4  77.9  55.6  22.3      12.8     20.222222\n",
+      "1   20160602  65.8  80.8  55.0  25.8      10.8     18.777778\n",
+      "28  20160629  65.8  73.2  59.7  13.5       6.1     18.777778\n",
+      "29  20160630  65.7  72.7  59.2  13.5       6.5     18.722222\n",
+      "24  20160625  65.7  75.4  57.9  17.5       7.8     18.722222\n",
+      "0   20160601  65.5  73.6  54.7  18.9      10.8     18.611111\n",
+      "27  20160628  65.4  73.0  55.8  17.2       9.6     18.555556\n",
+      "14  20160615  63.4  70.3  49.3  21.0      14.1     17.444444\n",
+      "20  20160621  62.6  71.4  50.4  21.0      12.2     17.000000\n",
+      "21  20160622  61.7  70.2  55.4  14.8       6.3     16.500000\n",
+      "23  20160624  61.1  68.9  56.7  12.2       4.4     16.166667\n",
+      "22  20160623  60.9  67.1  54.9  12.2       6.0     16.055556\n",
+      "26  20160627  60.7  70.0  57.6  12.4       3.1     15.944444\n",
+      "16  20160617  60.4  70.7  55.9  14.8       4.5     15.777778\n",
+      "13  20160614  59.7  67.8  47.8  20.0      11.9     15.388889\n",
+      "19  20160620  59.3  69.1  52.2  16.9       7.1     15.166667\n",
+      "12  20160613  58.3  68.2  47.3  20.9      11.0     14.611111\n",
+      "15  20160616  57.8  67.5  55.6  11.9       2.2     14.333333\n",
+      "3   20160604  57.5  70.9  47.3  23.6      10.2     14.166667\n",
+      "17  20160618  57.3  62.8  54.0   8.8       3.3     14.055556\n",
+      "6   20160607  56.9  65.1  45.9  19.2      11.0     13.833333\n",
+      "18  20160619  56.3  59.2  54.1   5.1       2.2     13.500000\n",
+      "11  20160612  55.4  64.2  46.0  18.2       9.4     13.000000\n",
+      "7   20160608  54.2  60.4  47.5  12.9       6.7     12.333333\n",
+      "10  20160611  54.0  62.1  41.7  20.4      12.3     12.222222\n",
+      "5   20160606  52.2  59.7  42.8  16.9       9.4     11.222222\n",
+      "4   20160605  51.4  58.3  43.2  15.1       8.2     10.777778\n",
+      "9   20160610  49.5  55.9  43.0  12.9       6.5      9.722222\n",
+      "8   20160609  49.4  54.1  45.7   8.4       3.7      9.666667\n"
+     ]
+    }
+   ],
+   "source": [
+    "sorted_temp_d = dataFrame.sort_values(by='TEMP', ascending=False)\n",
+    "print(sorted_temp_d)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Rounding and finding unique values\n",
+    "\n",
+    "\n",
+    "It is possible to round values easily by using ``round()`` function. Here we round the Celsius temperatures with 0-decimals"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    YEARMODA  TEMP   MAX   MIN  DIFF  DIFF_Min  TEMP_Celsius  Celsius_rounded\n",
+      "0   20160601  65.5  73.6  54.7  18.9      10.8     18.611111             19.0\n",
+      "1   20160602  65.8  80.8  55.0  25.8      10.8     18.777778             19.0\n",
+      "2   20160603  68.4  77.9  55.6  22.3      12.8     20.222222             20.0\n",
+      "3   20160604  57.5  70.9  47.3  23.6      10.2     14.166667             14.0\n",
+      "4   20160605  51.4  58.3  43.2  15.1       8.2     10.777778             11.0\n",
+      "5   20160606  52.2  59.7  42.8  16.9       9.4     11.222222             11.0\n",
+      "6   20160607  56.9  65.1  45.9  19.2      11.0     13.833333             14.0\n",
+      "7   20160608  54.2  60.4  47.5  12.9       6.7     12.333333             12.0\n",
+      "8   20160609  49.4  54.1  45.7   8.4       3.7      9.666667             10.0\n",
+      "9   20160610  49.5  55.9  43.0  12.9       6.5      9.722222             10.0\n",
+      "10  20160611  54.0  62.1  41.7  20.4      12.3     12.222222             12.0\n",
+      "11  20160612  55.4  64.2  46.0  18.2       9.4     13.000000             13.0\n",
+      "12  20160613  58.3  68.2  47.3  20.9      11.0     14.611111             15.0\n",
+      "13  20160614  59.7  67.8  47.8  20.0      11.9     15.388889             15.0\n",
+      "14  20160615  63.4  70.3  49.3  21.0      14.1     17.444444             17.0\n",
+      "15  20160616  57.8  67.5  55.6  11.9       2.2     14.333333             14.0\n",
+      "16  20160617  60.4  70.7  55.9  14.8       4.5     15.777778             16.0\n",
+      "17  20160618  57.3  62.8  54.0   8.8       3.3     14.055556             14.0\n",
+      "18  20160619  56.3  59.2  54.1   5.1       2.2     13.500000             13.0\n",
+      "19  20160620  59.3  69.1  52.2  16.9       7.1     15.166667             15.0\n",
+      "20  20160621  62.6  71.4  50.4  21.0      12.2     17.000000             17.0\n",
+      "21  20160622  61.7  70.2  55.4  14.8       6.3     16.500000             16.0\n",
+      "22  20160623  60.9  67.1  54.9  12.2       6.0     16.055556             16.0\n",
+      "23  20160624  61.1  68.9  56.7  12.2       4.4     16.166667             16.0\n",
+      "24  20160625  65.7  75.4  57.9  17.5       7.8     18.722222             19.0\n",
+      "25  20160626  69.6  77.7  60.3  17.4       9.3     20.888889             21.0\n",
+      "26  20160627  60.7  70.0  57.6  12.4       3.1     15.944444             16.0\n",
+      "27  20160628  65.4  73.0  55.8  17.2       9.6     18.555556             19.0\n",
+      "28  20160629  65.8  73.2  59.7  13.5       6.1     18.777778             19.0\n",
+      "29  20160630  65.7  72.7  59.2  13.5       6.5     18.722222             19.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "dataFrame['Celsius_rounded'] = dataFrame['TEMP_Celsius'].round(0)\n",
+    "print(dataFrame)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Now we have rounded our Celsius temperatures. Sometimes it is useful to extract the unique values that you have in your column.\n",
+    "We can do that by using ``unique_values()`` -function:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([ 19.,  20.,  14.,  11.,  12.,  10.,  13.,  15.,  17.,  16.,  21.])"
+      ]
+     },
+     "execution_count": 36,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "unique = dataFrame['Celsius_rounded'].unique()\n",
+    "unique"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "As a result we get an array of unique values in that column."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Note:** Sometimes if you have a long list of unique values, you don't necessary see all the unique values directly as IPython hides them. It is, however, possible to see all those values by printing them as a list:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[19.0, 20.0, 14.0, 11.0, 12.0, 10.0, 13.0, 15.0, 17.0, 16.0, 21.0]\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(list(unique))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "How many days with unique mean temperature did we have in June 2016? We can check that!\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "There were 11 days with unique mean temperatures in June 2016.\n"
+     ]
+    }
+   ],
+   "source": [
+    "uniq_temp_days = len(unique)\n",
+    "print(\"There were\", uniq_temp_days, \"days with unique mean temperatures in June 2016.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Writing data\n",
+    "\n",
+    "Lastly, it is of course important to be able to write the data that you have analyzed into your computer. This is really handy in Pandas as it supports many different data formats\n",
+    "by default (`see more info here <pandas-overview.html#supports-data-read-write-from-multiple-formats>`__).\n",
+    "The most typical output format by far is CSV file. Function ``to_csv()`` can be used to easily save your data in CSV format.\n",
+    "\n",
+    "Let's first save the data from our ``data`` DataFrame into a file called ``Kumpula_temp_results_June_2016.csv`` .\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "output_fp = \"Kumpula_temps_June_2016.csv\"\n",
+    "dataFrame.to_csv(output_fp, sep=',')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "Nice, now we have the data from our DataFrame saved to a file:\n",
+    "(TODO ADD IMAGE?)\n",
+    "\n",
+    "\n",
+    "As you can see, the first value in the datafile contains now the index value of the rows. There are also quite many decimals present in the new columns\n",
+    "that we created. Let's deal with these and save the temperature values from ``w_temps`` DataFrame without the index and with only 1 decimal in the floating point numbers.\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "output_fp2 = \"Kumpula_temps_above15_June_2016.csv\"\n",
+    "dataFrame.to_csv(output_fp2, sep=',', index=False, float_format=\"%.1f\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "Omitting the index can be with ``index=False`` parameter. Specifying how many decimals should be written can be done with ``float_fomat`` -parameter where text ``%.1f`` defines Pandas to use 1 decimals\n",
+    "in all columns when writing the data to a file (changing the value 1 to 2 would write 2 decimals etc.)\n",
+    "\n",
+    ".. figure:: img/pandas_save_file_result_2.PNG\n",
+    "    :width: 500px\n",
+    "\n",
+    "As a results you have a \"cleaner\" output file without the index column, and with only 1 decimal for floating point numbers.\n",
+    "\n",
+    ".. hint::\n",
+    "\n",
+    "    It is quite common that people (especially non-programmers) want you to deliver data in MS Excel format. Saving DataFrame into Excel is also straightforward in Pandas.\n",
+    "    First, you need to initialize a specific ``ExcelWriter`` object, and then you specify the filename and the spreadsheet name where you want to save the DataFrame.\n",
+    "    Optionally, you can also omit the index and specify the float formatting as in our earlier examples:\n",
+    "\n",
+    "    .. ipython:: python\n",
+    "\n",
+    "       excel_output_fp = \"Kumpula_temps_June_2016.xlsx\"\n",
+    "       writer = pd.ExcelWriter(excel_output_fp)\n",
+    "       dataFrame.to_excel(writer, sheet_name=\"Kumpula_temperatures\", index=False, float_format=\"%.1f\")\n",
+    "\n",
+    "    As a result you have the DataFrame in Excel format:\n",
+    "\n",
+    "    .. figure:: img/pandas_save_excel_result_1.PNG\n",
+    "       :width: 500px\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "anaconda-cloud": {},
+  "kernelspec": {
+   "display_name": "Python [default]",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.5.2"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

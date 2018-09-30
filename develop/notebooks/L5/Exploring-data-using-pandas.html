@@ -418,16 +418,17 @@ page) and open this lesson in an interactive mode.</li>
 <li>Have a look at the input data which is a text file containing weather
 observations from Kumpula<ul>
 <li>The data file is available in the binder and CSC notebook
-instances, OR you can download the data file from this link (TODO
-CHECK LINK!)</li>
-<li><code class="docutils literal notranslate"><span class="pre">weather</span> <span class="pre">data</span> <span class="pre">file</span> <span class="pre">&lt;../../_static/data/L5/Kumpula-June-2016-w-metadata.txt&gt;</span></code>__
-(TO BE UPDATED)</li>
+instances,</li>
+<li>OR you can download the data file from this link (TODO CHECK
+LINK!)</li>
 <li>The data file contains observed daily mean, minimum, and maximum
 temperatures from June 2016 recorded from the Kumpula weather
 observation station in Helsinki.</li>
 <li>The data is is derived from a data file of daily temperature
-measurments downloaded from the
-<code class="docutils literal notranslate"><span class="pre">US</span> <span class="pre">National</span> <span class="pre">Oceanographic</span> <span class="pre">and</span> <span class="pre">Atmospheric</span> <span class="pre">Administration's</span> <span class="pre">National</span> <span class="pre">Centers</span> <span class="pre">for</span> <span class="pre">Environmental</span> <span class="pre">Information</span> <span class="pre">climate</span> <span class="pre">database</span> <span class="pre">&lt;https://www.ncdc.noaa.gov/cdo-web/&gt;</span></code>__.</li>
+measurments downloaded from the <a class="reference external" href="https://www.ncdc.noaa.gov/cdo-web/">US National Oceanographic and
+Atmospheric Administration’s National Centers for Environmental
+Information climate
+database</a>.</li>
 <li>There are something like 30 lines of data in the data file.</li>
 </ul>
 </li>
@@ -439,7 +440,7 @@ measurments downloaded from the
 to import the Pandas module.</strong></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [25]:
+<span></span>In [2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -452,7 +453,7 @@ to import the Pandas module.</strong></p>
 <p><strong>Now we’ll read the file data into a variable called ``dataFrame``.</strong></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [26]:
+<span></span>In [3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -468,7 +469,7 @@ now have a new variable defined as <code class="docutils literal notranslate"><s
 file’s contents. You can check the the contents by typing</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [27]:
+<span></span>In [4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -560,24 +561,24 @@ file’s contents. You can check the the contents by typing</p>
 36              72.7      59.2
 </pre></div></div>
 </div>
-<p>3This looks OK, but there are some strange values present such as
-<code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
+<p>This looks OK, but there are some strange values present such as
+<code class="docutils literal notranslate"><span class="pre">NaN</span></code>, and the first lines of the dataframe look a bit weird..</p>
 <p><code class="docutils literal notranslate"><span class="pre">NaN</span></code> stands for “not a number”, and might indicate some problem with
 reading in the contents of the file. Plus, we expected about 30 lines of
 data, but the index values go up to 36 when we print the contents of
-<code class="docutils literal notranslate"><span class="pre">dataFrame</span></code>. Looks like we need to investigate this.</p>
-</div>
-<div class="section" id="TODO-ADD-CONTENT-AND-PRINT-SCREENS-ABOUT-OPENING-THE-FILE">
-<h2>TODO ADD CONTENT AND PRINT SCREENS ABOUT OPENING THE FILE<a class="headerlink" href="#TODO-ADD-CONTENT-AND-PRINT-SCREENS-ABOUT-OPENING-THE-FILE" title="Permalink to this headline">¶</a></h2>
-<p>There is some metadata at the top of the file giving basic information
-about its contents and source. This isn’t data we want to process, so we
-need to skip over that part of the file when we load it.</p>
+<code class="docutils literal notranslate"><span class="pre">dataFrame</span></code>. Looks like we need to investigate this further.</p>
+<p>As we can observe, there are some metadata at the top of the file giving
+basic information about its contents and source. This isn’t data we want
+to process, so we need to skip over that part of the file when we load
+it.</p>
 <p>Fortunately, that’s easy to do in Pandas, we just <strong>need to add the
 ``skiprows`` parameter when we read the file, listing the number of rows
 to skip (8 in this case).</strong></p>
+<p>Let’s try reading the datafile again using Pandas, and this time
+defining the <code class="docutils literal notranslate"><span class="pre">skiprows</span></code> parameter.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [28]:
+<span></span>In [5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -588,7 +589,7 @@ to skip (8 in this case).</strong></p>
 <p>Let’s now print the rows and see what changed.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [29]:
+<span></span>In [6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -658,7 +659,7 @@ contents of the dataframe.</strong> This function returns the first n rows for
 the dataframe. By default, it gives 5 first rows.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [30]:
+<span></span>In [7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -668,7 +669,7 @@ the dataframe. By default, it gives 5 first rows.</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[30]:
+<span></span>Out[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -750,7 +751,7 @@ of the DataFrame data type, something that is known automatically for
 this kind of data.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [32]:
+<span></span>In [8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -772,7 +773,7 @@ might expect.</p>
 ``index`` attribute.</strong></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [33]:
+<span></span>In [9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -797,7 +798,7 @@ are other ways to identify the rows in data using Pandas.</p>
 how many rows you have, you can use the ``len()`` function.</strong></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [34]:
+<span></span>In [10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -819,7 +820,7 @@ following using our data file? Select your answer from the poll options
 at <a class="reference external" href="https://geo-python.github.io/poll/">https://geo-python.github.io/poll/</a>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [35]:
+<span></span>In [11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -832,7 +833,7 @@ at <a class="reference external" href="https://geo-python.github.io/poll/">https
 ``shape`` attribute.</strong></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [36]:
+<span></span>In [12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -854,7 +855,7 @@ above.</p>
 let’s see what type of data the DataFrame is.</strong></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [38]:
+<span></span>In [13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -864,7 +865,7 @@ let’s see what type of data the DataFrame is.</strong></p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[38]:
+<span></span>Out[13]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -877,7 +878,7 @@ let’s see what type of data the DataFrame is.</strong></p>
 data in the columns of the DataFrame is easy.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [41]:
+<span></span>In [14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -904,7 +905,7 @@ precision; int64), while the other values are all decimal values with
 <p><strong>We can select a single column of the data using the column name.</strong></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [44]:
+<span></span>In [15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -955,7 +956,7 @@ Name: TEMP, dtype: float64
 their data type. What about the type of the column itself?</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [45]:
+<span></span>In [16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -965,7 +966,7 @@ their data type. What about the type of the column itself?</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[45]:
+<span></span>Out[16]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -982,7 +983,7 @@ instance, creating a Pandas Series will allow you to interact with these
 values more efficiently in terms of computing time.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [48]:
+<span></span>In [17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1018,7 +1019,7 @@ Series data.</p>
 and <code class="docutils literal notranslate"><span class="pre">std()</span></code> (the standard deviation).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [50]:
+<span></span>In [18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1028,7 +1029,7 @@ and <code class="docutils literal notranslate"><span class="pre">std()</span></c
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[50]:
+<span></span>Out[18]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1042,7 +1043,7 @@ series in order to find the mean value using the <code class="docutils literal n
 attributes in your DataFrame is the <code class="docutils literal notranslate"><span class="pre">describe()</span></code> function.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [53]:
+<span></span>In [19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1052,7 +1053,7 @@ attributes in your DataFrame is the <code class="docutils literal notranslate"><
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[53]:
+<span></span>Out[19]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1148,7 +1149,7 @@ instance, it might be helpful to have those values as character strings.</p>
 <p>Data type conversions is most easily done using the <code class="docutils literal notranslate"><span class="pre">astype()</span></code> method.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [54]:
+<span></span>In [20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1199,7 +1200,7 @@ stored as character strings. A more obvious case is converting to
 integer values.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [56]:
+<span></span>In [21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
