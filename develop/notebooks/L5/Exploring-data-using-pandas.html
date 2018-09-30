@@ -1,0 +1,1346 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-105019106-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Exploring data using Pandas &mdash; Geo-Python 2018 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
+     
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Geo-Python
+          
+
+          
+            
+            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2018
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/installing-anacondas.html">Installing Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/python-vocabulary.html">Vocabulary - Basic terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/motivation.html">Motivation for the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/course-environment-components.html">Course environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/slack-usage.html">Communicating with Slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/a-taste-of-python.html">A taste of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/exercise-1.html">Exercise 1</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html">Introduction to Version Control and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/git-basics.html">Meet Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/GitHub-classroom.html">Using Classroom for Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/Python-basic-elements.html">Basic elements of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/exercise-2.html">Exercise 2</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L3/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/for-loops.html">for loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/conditional-statements.html">Conditional statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L3/exercise-3.html">Exercise 3</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 4</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L4/overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/modules.html">Loading and using modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/writing-scripts.html">Writing our scripts the “right” way</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L4/exercise-4.html">Exercise 4</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Geo-Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Exploring data using Pandas</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/notebooks/L5/Exploring-data-using-pandas.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+
+
+    
+    
+
+
+
+    <p class="scv-banner scv-sphinx_rtd_theme"><b>Warning:</b> This document is for the development version of Geo-Python.</p>
+
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="admonition note">
+This page was generated from <a class="reference external" href="https://github.com/Geo-Python/2018/blob/master/source/notebooks/L5/Exploring-data-using-pandas.ipynb">source/notebooks/L5/Exploring-data-using-pandas.ipynb</a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/geo-python/2018/master?urlpath=lab/tree/source/notebooks/L5/Exploring-data-using-pandas.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span>
+<span class="raw-html"><a href="https://mybinder.org/v2/gh/geo-python/notebooks/master?urlpath=lab/tree/notebooks/L5/Exploring-data-using-pandas.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-student%20binder-red.svg" style="vertical-align:text-bottom"></a></span>
+<span class="raw-html"><a href="https://notebooks.csc.fi/#/blueprint/d71cd2d26d924f48820dc22b67a87d8e"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a></span></div>
+<div class="section" id="Exploring-data-using-Pandas">
+<h1>Exploring data using Pandas<a class="headerlink" href="#Exploring-data-using-Pandas" title="Permalink to this headline">¶</a></h1>
+<p>Our first task in this week’s lesson is to learn how to read and explore
+data files using Pandas. Reading data files using Pandas will make life
+a bit easier compared to the traditional Python way of reading data
+files. If you’re curious about that, you can check out some of the
+<a class="reference external" href="reading-data-from-file">lesson materials from previous years about reading data in the Pythonic
+way</a>.</p>
+<div class="section" id="Preparations-for-this-lesson-(working-environment-and-input-data)">
+<h2>Preparations for this lesson (working environment and input data)<a class="headerlink" href="#Preparations-for-this-lesson-(working-environment-and-input-data)" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Start a jupyter lab instance (using the links at the top of this
+page) and open this lesson in an interactive mode.</li>
+<li>Have a look at the input data which is a text file containing weather
+observations from Kumpula<ul>
+<li>The data file is available in the binder and CSC notebook
+instances, OR you can download the data file from this link (TODO
+CHECK LINK!)</li>
+<li><code class="docutils literal notranslate"><span class="pre">weather</span> <span class="pre">data</span> <span class="pre">file</span> <span class="pre">&lt;../../_static/data/L5/Kumpula-June-2016-w-metadata.txt&gt;</span></code>__
+(TO BE UPDATED)</li>
+<li>The data file contains observed daily mean, minimum, and maximum
+temperatures from June 2016 recorded from the Kumpula weather
+observation station in Helsinki.</li>
+<li>The data is is derived from a data file of daily temperature
+measurments downloaded from the
+<code class="docutils literal notranslate"><span class="pre">US</span> <span class="pre">National</span> <span class="pre">Oceanographic</span> <span class="pre">and</span> <span class="pre">Atmospheric</span> <span class="pre">Administration's</span> <span class="pre">National</span> <span class="pre">Centers</span> <span class="pre">for</span> <span class="pre">Environmental</span> <span class="pre">Information</span> <span class="pre">climate</span> <span class="pre">database</span> <span class="pre">&lt;https://www.ncdc.noaa.gov/cdo-web/&gt;</span></code>__.</li>
+<li>There are something like 30 lines of data in the data file.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="Reading-a-data-file-with-Pandas">
+<h2>Reading a data file with Pandas<a class="headerlink" href="#Reading-a-data-file-with-Pandas" title="Permalink to this headline">¶</a></h2>
+<p>Now we’re ready to read in our temperature data file. <strong>First, we need
+to import the Pandas module.</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<p>That’s it, Pandas is ready to use now.</p>
+<p>Notice we imported the Pandas module with the name <code class="docutils literal notranslate"><span class="pre">pd</span></code>.</p>
+<p><strong>Now we’ll read the file data into a variable called ``dataFrame``.</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fp</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;Kumpula-June-2016-w-metadata.txt&quot;</span>
+<span class="n">dataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> is a general function for reading data files separated
+by commas, spaces, or other common separators. We use it her by simply
+giving the name of the file to read. If all goes as planned, you should
+now have a new variable defined as <code class="docutils literal notranslate"><span class="pre">dataFrame</span></code> that contains the data
+file’s contents. You can check the the contents by typing</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+       # Data file contents: Daily temperatures (mean            min  \
+0                 #                     for June 1-30           2016
+1   # Data source: https://www.ncdc.noaa.gov/cdo-w...            NaN
+2   # Data processing: Extracted temperatures from...   converted to
+3           #                  comma-separated format            NaN
+4                                                   #            NaN
+5                          # David Whipp - 02.10.2017            NaN
+6                                            YEARMODA           TEMP
+7                                            20160601           65.5
+8                                            20160602           65.8
+9                                            20160603           68.4
+10                                           20160604           57.5
+11                                           20160605           51.4
+12                                           20160606           52.2
+13                                           20160607           56.9
+14                                           20160608           54.2
+15                                           20160609           49.4
+16                                           20160610           49.5
+17                                           20160611           54.0
+18                                           20160612           55.4
+19                                           20160613           58.3
+20                                           20160614           59.7
+21                                           20160615           63.4
+22                                           20160616           57.8
+23                                           20160617           60.4
+24                                           20160618           57.3
+25                                           20160619           56.3
+26                                           20160620           59.3
+27                                           20160621           62.6
+28                                           20160622           61.7
+29                                           20160623           60.9
+30                                           20160624           61.1
+31                                           20160625           65.7
+32                                           20160626           69.6
+33                                           20160627           60.7
+34                                           20160628           65.4
+35                                           20160629           65.8
+36                                           20160630           65.7
+
+    max) for Kumpula  Helsinki
+0                NaN       NaN
+1                NaN       NaN
+2                NaN       NaN
+3                NaN       NaN
+4                NaN       NaN
+5                NaN       NaN
+6                MAX       MIN
+7               73.6      54.7
+8               80.8      55.0
+9               77.9      55.6
+10              70.9      47.3
+11              58.3      43.2
+12              59.7      42.8
+13              65.1      45.9
+14              60.4      47.5
+15              54.1      45.7
+16              55.9      43.0
+17              62.1      41.7
+18              64.2      46.0
+19              68.2      47.3
+20              67.8      47.8
+21              70.3      49.3
+22              67.5      55.6
+23              70.7      55.9
+24              62.8      54.0
+25              59.2      54.1
+26              69.1      52.2
+27              71.4      50.4
+28              70.2      55.4
+29              67.1      54.9
+30              68.9      56.7
+31              75.4      57.9
+32              77.7      60.3
+33              70.0      57.6
+34              73.0      55.8
+35              73.2      59.7
+36              72.7      59.2
+</pre></div></div>
+</div>
+<p>3This looks OK, but there are some strange values present such as
+<code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">NaN</span></code> stands for “not a number”, and might indicate some problem with
+reading in the contents of the file. Plus, we expected about 30 lines of
+data, but the index values go up to 36 when we print the contents of
+<code class="docutils literal notranslate"><span class="pre">dataFrame</span></code>. Looks like we need to investigate this.</p>
+</div>
+<div class="section" id="TODO-ADD-CONTENT-AND-PRINT-SCREENS-ABOUT-OPENING-THE-FILE">
+<h2>TODO ADD CONTENT AND PRINT SCREENS ABOUT OPENING THE FILE<a class="headerlink" href="#TODO-ADD-CONTENT-AND-PRINT-SCREENS-ABOUT-OPENING-THE-FILE" title="Permalink to this headline">¶</a></h2>
+<p>There is some metadata at the top of the file giving basic information
+about its contents and source. This isn’t data we want to process, so we
+need to skip over that part of the file when we load it.</p>
+<p>Fortunately, that’s easy to do in Pandas, we just <strong>need to add the
+``skiprows`` parameter when we read the file, listing the number of rows
+to skip (8 in this case).</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">dataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Let’s now print the rows and see what changed.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+    YEARMODA  TEMP   MAX   MIN
+0   20160601  65.5  73.6  54.7
+1   20160602  65.8  80.8  55.0
+2   20160603  68.4  77.9  55.6
+3   20160604  57.5  70.9  47.3
+4   20160605  51.4  58.3  43.2
+5   20160606  52.2  59.7  42.8
+6   20160607  56.9  65.1  45.9
+7   20160608  54.2  60.4  47.5
+8   20160609  49.4  54.1  45.7
+9   20160610  49.5  55.9  43.0
+10  20160611  54.0  62.1  41.7
+11  20160612  55.4  64.2  46.0
+12  20160613  58.3  68.2  47.3
+13  20160614  59.7  67.8  47.8
+14  20160615  63.4  70.3  49.3
+15  20160616  57.8  67.5  55.6
+16  20160617  60.4  70.7  55.9
+17  20160618  57.3  62.8  54.0
+18  20160619  56.3  59.2  54.1
+19  20160620  59.3  69.1  52.2
+20  20160621  62.6  71.4  50.4
+21  20160622  61.7  70.2  55.4
+22  20160623  60.9  67.1  54.9
+23  20160624  61.1  68.9  56.7
+24  20160625  65.7  75.4  57.9
+25  20160626  69.6  77.7  60.3
+26  20160627  60.7  70.0  57.6
+27  20160628  65.4  73.0  55.8
+28  20160629  65.8  73.2  59.7
+29  20160630  65.7  72.7  59.2
+</pre></div></div>
+</div>
+<p>That looks more like it.</p>
+<p>So, what happened? Why did the dataframe look weird before we skipped
+the first rows? Well, the file data was read into a Pandas
+<strong>DataFrame</strong>, which is just a two-dimensional structure used for
+storing data like a spreadsheet. The first rows containing metadata did
+not belong to the actual data array.</p>
+<p>In fact, one of the neat things in Pandas is that that DataFrames have
+labelled axes (rows and columns). For our example, we have the rows
+labeled with an index value (<code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">29</span></code>), and columns labelled
+<code class="docutils literal notranslate"><span class="pre">YEARMODA</span></code>, <code class="docutils literal notranslate"><span class="pre">TEMP</span></code>, <code class="docutils literal notranslate"><span class="pre">MAX</span></code>, and <code class="docutils literal notranslate"><span class="pre">MIN</span></code>. This is nice because we
+can easily use these labels to divide up our data and make interacting
+with it easier as you’ll see later in the lesson.</p>
+<p>The example above, trying to read a datafile with some header text (the
+metadata in this case), is <em>very</em> common. Reading data into Pandas is
+pretty easy, but it helps to have a sense of what the datafile looks
+like before you try to read it. The challenge can be that large
+datafiles might not nicely print on screen using the
+<code class="docutils literal notranslate"><span class="pre">print()</span></code>-function so it might be better to look at only the top 5-10
+lines of the file rather than loading the entire thing.</p>
+<p><strong>We can use ``pandas.DataFrame.head`` -function to quickly check the
+contents of the dataframe.</strong> This function returns the first n rows for
+the dataframe. By default, it gives 5 first rows.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">dataFrame</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>Out[30]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEARMODA</th>
+      <th>TEMP</th>
+      <th>MAX</th>
+      <th>MIN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>20160601</td>
+      <td>65.5</td>
+      <td>73.6</td>
+      <td>54.7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>20160602</td>
+      <td>65.8</td>
+      <td>80.8</td>
+      <td>55.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>20160603</td>
+      <td>68.4</td>
+      <td>77.9</td>
+      <td>55.6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>20160604</td>
+      <td>57.5</td>
+      <td>70.9</td>
+      <td>47.3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20160605</td>
+      <td>51.4</td>
+      <td>58.3</td>
+      <td>43.2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Now we can move on to exploring our data.</p>
+</div>
+<div class="section" id="Exploring-our-dataset">
+<h2>Exploring our dataset<a class="headerlink" href="#Exploring-our-dataset" title="Permalink to this headline">¶</a></h2>
+<p>So this is a big deal for us. We now have some basic Python skills and
+the ability to read in data from a file for processing. A normal first
+step when you load new data is to explore the dataset a bit to
+understand what is there and its format.</p>
+<p><strong>Let’s start by looking at the different columns we have in our
+DataFrame.</strong> We can find this in the <code class="docutils literal notranslate"><span class="pre">columns</span></code> attribute that is part
+of the DataFrame data type, something that is known automatically for
+this kind of data.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Index([&#39;YEARMODA&#39;, &#39;TEMP&#39;, &#39;MAX&#39;, &#39;MIN&#39;], dtype=&#39;object&#39;)
+</pre></div></div>
+</div>
+<p>Here we see the names of the different columns in the datafile, as one
+might expect.</p>
+<p><strong>We can also find information about the rows in the datafile using the
+``index`` attribute.</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+RangeIndex(start=0, stop=30, step=1)
+</pre></div></div>
+</div>
+<p>Here we see how the data is indexed, starting at 0, ending at 30, and
+with an increment of 1 between each value. This is basically the same
+way in which Python lists are indexed, but it suggests that maybe there
+are other ways to identify the rows in data using Pandas.</p>
+<p>Again, we’ll see a bit more about this later.</p>
+<p>For now, it is also useful to point out that <strong>if you want to just know
+how many rows you have, you can use the ``len()`` function.</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#print(len(dataFrame.index))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+30
+</pre></div></div>
+</div>
+<p>Based on what we have seen so far, what would be output if you did the
+following using our data file? Select your answer from the poll options
+at <a class="reference external" href="https://geo-python.github.io/poll/">https://geo-python.github.io/poll/</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#dataFrame = pd.read_csv(&#39;Kumpula-June-2016-w-metadata.txt&#39;, skiprows=9)</span>
+<span class="c1">#print(dataFrame.columns)</span>
+</pre></div>
+</div>
+</div>
+<p><strong>We can also get a quick sense of the size of the dataset using the
+``shape`` attribute.</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(30, 4)
+</pre></div></div>
+</div>
+<p>Here we see that our dataset has 30 rows, 4 columns, just as we saw
+above.</p>
+<p>Now let’s consider the types of data we have in our DataFrame. <strong>First,
+let’s see what type of data the DataFrame is.</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>Out[38]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
+<p>No surprises here, our Pandas DataFrame is a Pandas DataFrame ;).</p>
+<p>What about the data types of each column? Again, finding the types of
+data in the columns of the DataFrame is easy.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+YEARMODA      int64
+TEMP        float64
+MAX         float64
+MIN         float64
+dtype: object
+</pre></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> attribute holds the data types for each column, nice.
+Here we see that <code class="docutils literal notranslate"><span class="pre">YEARMODA</span></code> is an integer value (with 64-bit
+precision; int64), while the other values are all decimal values with
+64-bit precision (float64).</p>
+<p><strong>We can select a single column of the data using the column name.</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [44]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0     65.5
+1     65.8
+2     68.4
+3     57.5
+4     51.4
+5     52.2
+6     56.9
+7     54.2
+8     49.4
+9     49.5
+10    54.0
+11    55.4
+12    58.3
+13    59.7
+14    63.4
+15    57.8
+16    60.4
+17    57.3
+18    56.3
+19    59.3
+20    62.6
+21    61.7
+22    60.9
+23    61.1
+24    65.7
+25    69.6
+26    60.7
+27    65.4
+28    65.8
+29    65.7
+Name: TEMP, dtype: float64
+</pre></div></div>
+</div>
+<p>As you can see, selecting a given column is straightforward.</p>
+<p>Furthermore, printing out its values shows not only the values, but also
+their data type. What about the type of the column itself?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [45]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>Out[45]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
+<p>Interesting.</p>
+<p>So rather than seeing a DataFrame type or float64, a selected column
+from a DataFrame is called a <em>Series</em> in Pandas.</p>
+<p>A Pandas Series is just a 1-D list of values.In fact, you can create a
+Pandas Series from a Python list. If you have long lists of numbers, for
+instance, creating a Pandas Series will allow you to interact with these
+values more efficiently in terms of computing time.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [48]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">]</span>
+<span class="n">mySeries</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mySeries</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0    1.0
+1    2.0
+2    3.0
+3    4.0
+4    5.0
+5    6.0
+6    7.0
+dtype: float64
+</pre></div></div>
+</div>
+<p>As you can see, <code class="docutils literal notranslate"><span class="pre">myList</span></code> is converted to a Pandas Series using the
+<code class="docutils literal notranslate"><span class="pre">ps.Series()</span></code> function. Also, note that Pandas is smart about the
+conversion, detecting a single floating point value (<code class="docutils literal notranslate"><span class="pre">7.0</span></code>) and
+assigning all values in the Series the data type float64.</p>
+<p>Just like DataFrames, Pandas Series have a set of attributes they know
+about themselves and methods they can use to make calculations using the
+Series data.</p>
+<p>Useful methods include <code class="docutils literal notranslate"><span class="pre">mean()</span></code>, <code class="docutils literal notranslate"><span class="pre">median()</span></code>, <code class="docutils literal notranslate"><span class="pre">min()</span></code>, <code class="docutils literal notranslate"><span class="pre">max()</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">std()</span></code> (the standard deviation).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [50]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>Out[50]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>59.73
+</pre></div>
+</div>
+</div>
+<p>Here, we don’t even need to store <code class="docutils literal notranslate"><span class="pre">dataFrame['TEMP']</span></code> as a separate
+series in order to find the mean value using the <code class="docutils literal notranslate"><span class="pre">mean()</span></code> method</p>
+<p>One useful function to get an overview of the basic statistics for all
+attributes in your DataFrame is the <code class="docutils literal notranslate"><span class="pre">describe()</span></code> function.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [53]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">dataFrame</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>Out[53]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEARMODA</th>
+      <th>TEMP</th>
+      <th>MAX</th>
+      <th>MIN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>3.000000e+01</td>
+      <td>30.000000</td>
+      <td>30.000000</td>
+      <td>30.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2.016062e+07</td>
+      <td>59.730000</td>
+      <td>67.940000</td>
+      <td>51.750000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>8.803408e+00</td>
+      <td>5.475472</td>
+      <td>6.651761</td>
+      <td>5.634484</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2.016060e+07</td>
+      <td>49.400000</td>
+      <td>54.100000</td>
+      <td>41.700000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2.016061e+07</td>
+      <td>56.450000</td>
+      <td>63.150000</td>
+      <td>47.300000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2.016062e+07</td>
+      <td>60.050000</td>
+      <td>69.000000</td>
+      <td>54.050000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2.016062e+07</td>
+      <td>64.900000</td>
+      <td>72.375000</td>
+      <td>55.750000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2.016063e+07</td>
+      <td>69.600000</td>
+      <td>80.800000</td>
+      <td>60.300000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Finally, there are occasions where you’ll need to convert data in a
+Series to another data type.</p>
+<p>If you’re planning to print a large number of value to the screen, for
+instance, it might be helpful to have those values as character strings.</p>
+<p>Data type conversions is most easily done using the <code class="docutils literal notranslate"><span class="pre">astype()</span></code> method.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [54]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0     65.5
+1     65.8
+2     68.4
+3     57.5
+4     51.4
+5     52.2
+6     56.9
+7     54.2
+8     49.4
+9     49.5
+10    54.0
+11    55.4
+12    58.3
+13    59.7
+14    63.4
+15    57.8
+16    60.4
+17    57.3
+18    56.3
+19    59.3
+20    62.6
+21    61.7
+22    60.9
+23    61.1
+24    65.7
+25    69.6
+26    60.7
+27    65.4
+28    65.8
+29    65.7
+Name: TEMP, dtype: object
+</pre></div></div>
+</div>
+<p>In this case, the object data type indicates the temperature values are
+stored as character strings. A more obvious case is converting to
+integer values.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [56]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0     65
+1     65
+2     68
+3     57
+4     51
+5     52
+6     56
+7     54
+8     49
+9     49
+10    54
+11    55
+12    58
+13    59
+14    63
+15    57
+16    60
+17    57
+18    56
+19    59
+20    62
+21    61
+22    60
+23    61
+24    65
+25    69
+26    60
+27    65
+28    65
+29    65
+Name: TEMP, dtype: int32
+</pre></div></div>
+</div>
+<p>Here you can clearly see the temperature values are now whole numbers.</p>
+<p><strong>NOTE:</strong></p>
+<p><strong>Be careful with type conversions from floating point values to
+integers.</strong> The conversion simply drops the stuff to the right of the
+decimal point, so all values are rounded down to the nearest whole
+number. For example, 99.99 will be rounded to 99 as an integer. This can
+be dangerous in some cases.</p>
+<p>Hence, it might be good to round the values before converting them to
+integers. Chaining the round and type conversion functions solves this
+issue as the <code class="docutils literal notranslate"><span class="pre">.round(0).astype(int)</span></code> command first rounds the values
+with zero decimals and then converts those values into integers.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p> <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> </a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: develop
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="Exploring-data-using-pandas.html">develop</a></dd>
+            <dd><a href="../../../master/index.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2018',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
