@@ -22,10 +22,11 @@
     "\n",
     "2. Have a look at the input data which is a text file containing weather observations from Kumpula\n",
     "\n",
-    "    - The data file is available in the binder and CSC notebook instances, \n",
+    "    - The data file name is [Kumpula-June-2016-w-metadata.txt](Kumpula-June-2016-w-metadata.txt)\n",
+    "    - The file is available in the binder and CSC notebook instances, under L5 folder \n",
     "    - OR you can download the data file from this link (TODO CHECK LINK!)\n",
     "    - The data file contains observed daily mean, minimum, and maximum temperatures from June 2016 recorded from the Kumpula weather observation station in Helsinki.\n",
-    "    - The data is is derived from a data file of daily temperature measurments downloaded from the [US National Oceanographic and Atmospheric Administration's National Centers for Environmental Information climate database](https://www.ncdc.noaa.gov/cdo-web/).\n",
+    "    - The data has been derived from a data file of daily temperature measurments downloaded from the [US National Oceanographic and Atmospheric Administration's National Centers for Environmental Information climate database](https://www.ncdc.noaa.gov/cdo-web/).\n",
     "    - There are something like 30 lines of data in the data file.\n",
     "\n",
     "\n",
@@ -59,12 +60,12 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**Now we'll read the file data into a variable called ``dataFrame``.**"
+    "**Now we'll read the file data into a variable called ``dataFrame``.** Using the ``pandas.read_csv`` -function. "
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 14,
    "metadata": {
     "collapsed": true
    },
@@ -78,13 +79,14 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "``pd.read_csv()`` is a general function for reading data files separated by commas, spaces, or other common separators. We use it her by simply giving the name of the file to read. If all goes as planned, you should now have a new variable defined as ``dataFrame`` that contains the data file's contents. \n",
-    "You can check the the contents by typing"
+    "``pd.read_csv()`` is a general function for reading data files separated by commas, spaces, or other common separators. For a full list of parameters for this function, please refer to [pandas documentation for pandas.read_csv](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html).\n",
+    "\n",
+    "Here we use the function simply by giving the filename as an input parameter. If all goes as planned, you should now have a new variable defined as ``dataFrame`` in memory that contains the data file's contents. You can check the the contents of this variable by typing"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 15,
    "metadata": {
     "collapsed": false
    },
@@ -190,8 +192,29 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "As we can observe, there are some metadata at the top of the file giving basic information about its contents and source. This isn't data we want to process, so we need to skip over that part of the file when we load it.\n",
-    "   \n",
+    "As we can observe, there are some metadata at the top of the file giving basic information about its contents and source. This isn't data we want to process, so we need to skip over that part of the file when we load it."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "```\n",
+    "# Data file contents: Daily temperatures (mean, min, max) for Kumpula, Helsinki\n",
+    "#                     for June 1-30, 2016\n",
+    "# Data source: https://www.ncdc.noaa.gov/cdo-web/search?datasetid=GHCND\n",
+    "# Data processing: Extracted temperatures from raw data file, converted to\n",
+    "#                  comma-separated format\n",
+    "#\n",
+    "# David Whipp - 02.10.2017\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "Fortunately, that's easy to do in Pandas, we just **need to add the ``skiprows`` parameter when we read the file, listing the number of rows to skip (8 in this case).**\n",
     "\n",
     "Let's try reading the datafile again using Pandas, and this time defining the ``skiprows`` parameter."
@@ -199,7 +222,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 18,
    "metadata": {
     "collapsed": false
    },
@@ -217,7 +240,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 19,
    "metadata": {
     "collapsed": false
    },
@@ -271,20 +294,23 @@
     "That looks more like it.\n",
     "\n",
     "So, what happened? Why did the dataframe look weird before we skipped the first rows? \n",
-    "Well, the file data was read into a Pandas **DataFrame**, which is just a two-dimensional structure used for storing data like a spreadsheet. The first rows containing metadata did not belong to the actual data array.\n",
     "\n",
-    "In fact, one of the neat things in Pandas is that that DataFrames have labelled axes (rows and columns). \n",
-    "For our example, we have the rows labeled with an index value (``0`` to ``29``), and columns labelled ``YEARMODA``, ``TEMP``, ``MAX``, and ``MIN``. This is nice because we can easily use these labels to divide up our data and make interacting with it easier as you'll see later in the lesson.\n",
+    "Well, the file data was read into a Pandas **DataFrame**, which is  a two-dimensional structure used for storing table-like data. A pandas dataframe contains a collection of columns, which can all be a different value type (string, float, int, boolean, etc.).\n",
     "\n",
-    "The example above, trying to read a datafile with some header text (the metadata in this case), is *very* common. Reading data into Pandas is pretty easy, but it helps to have a sense of what the datafile looks like before you try to read it. \n",
-    "The challenge can be that large datafiles might not nicely print on screen using the ``print()``-function so it might be better to look at only the top 5-10 lines of the file rather than loading the entire thing. \n",
+    "In our first attempt to read data from the text file, the first rows containing metadata did not belong to the actual data array, and that's why the output looked weird.\n",
+    "\n",
+    "In fact, one of the neat things in Pandas is that that DataFrames have labelled axes (rows and columns).  For our example, we have the rows labeled with an index value (``0`` to ``29``), and columns labelled ``YEARMODA``, ``TEMP``, ``MAX``, and ``MIN``. This is nice because we can easily use these labels to divide up our data and make interacting with it easier as you'll see later in the lesson.\n",
+    "\n",
+    "The example above, trying to read a datafile with some header text (the metadata in this case), is *very* common. Reading data into Pandas is pretty easy, but **it helps to have a sense of what the datafile looks like before you try to read it**. \n",
+    "\n",
+    "The challenge can also be that large datafiles might not nicely print on screen using the ``print()``-function so it might be better to look at only the top 5-10 lines of the file rather than loading the entire thing. \n",
     "\n",
     "**We can  use ``pandas.DataFrame.head`` -function to quickly check the contents of the dataframe.** This function returns the first n rows for the dataframe. By default, it gives 5 first rows."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 20,
    "metadata": {
     "collapsed": false
    },
@@ -365,7 +391,7 @@
        "4  20160605  51.4  58.3  43.2"
       ]
      },
-     "execution_count": 7,
+     "execution_count": 20,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -394,7 +420,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 21,
    "metadata": {
     "collapsed": false
    },
@@ -427,7 +453,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 22,
    "metadata": {
     "collapsed": false
    },
@@ -457,7 +483,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": 23,
    "metadata": {
     "collapsed": false
    },
@@ -473,25 +499,6 @@
    "source": [
     "#print(len(dataFrame.index))\n",
     "print(len(dataFrame))"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "Based on what we have seen so far, what would be output if you did the following using our data file? Select your answer from the poll options at https://geo-python.github.io/poll/."
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 11,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [],
-   "source": [
-    "#dataFrame = pd.read_csv('Kumpula-June-2016-w-metadata.txt', skiprows=9)\n",
-    "#print(dataFrame.columns)"
    ]
   },
   {
@@ -568,12 +575,46 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "What about the data types of each column? Again, finding the types of data in the columns of the DataFrame is easy."
+    "**NOTE:** We can also use IPython magic to figure out what kind of variable we have in memory. IPython magic command `%who` will display names of those variables that you have defined during this session. Magic command `%whose` prints out more information about these variables:"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 24,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Variable    Type         Data/Info\n",
+      "----------------------------------\n",
+      "dataFrame   DataFrame        YEARMODA  TEMP   MAX <...>0160630  65.7  72.7  59.2\n",
+      "fp          str          Kumpula-June-2016-w-metadata.txt\n",
+      "pd          module       <module 'pandas' from 'C:<...>es\\\\pandas\\\\__init__.py'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Display variable names:\n",
+    "#%who\n",
+    "\n",
+    "# Display variable name, type and info\n",
+    "%whos\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "So, what about the data types of each column in our dataFrame? Finding the types of data in the columns of the DataFrame is easy:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
    "metadata": {
     "collapsed": false
    },
@@ -606,12 +647,12 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**We can select a single column of the data using the column name.**"
+    "**We can also select a single column of the data using the column name:**"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 15,
+   "execution_count": 26,
    "metadata": {
     "collapsed": false
    },
@@ -662,15 +703,13 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "As you can see, selecting a given column is straightforward.\n",
-    "\n",
     "Furthermore, printing out its values shows not only the values, but also their data type.\n",
     "What about the type of the column itself?"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 16,
+   "execution_count": 27,
    "metadata": {
     "collapsed": false
    },
@@ -681,7 +720,7 @@
        "pandas.core.series.Series"
       ]
      },
-     "execution_count": 16,
+     "execution_count": 27,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -701,14 +740,14 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "So rather than seeing a DataFrame type or float64, a selected column from a DataFrame is called a *Series* in Pandas.\n",
+    "So rather than seeing a DataFrame type or float64, a selected column from a DataFrame is called a *Series* in Pandas. Series are the building blocks of pandas DataFrames.\n",
     "\n",
-    "A Pandas Series is just a 1-D list of values.In fact, you can create a Pandas Series from a Python list. If you have long lists of numbers, for instance, creating a Pandas Series will allow you to interact with these values more efficiently in terms of computing time."
+    "A Pandas Series is kind of a 1-D list of values with an index. In fact, you can create a Pandas Series from a Python list. If you have long lists of numbers, for instance, creating a Pandas Series will allow you to interact with these values more efficiently in terms of computing time."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 29,
    "metadata": {
     "collapsed": false
    },
@@ -752,7 +791,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 30,
    "metadata": {
     "collapsed": false
    },
@@ -763,7 +802,7 @@
        "59.73"
       ]
      },
-     "execution_count": 18,
+     "execution_count": 30,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -788,7 +827,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 19,
+   "execution_count": 31,
    "metadata": {
     "collapsed": false
    },
@@ -893,7 +932,7 @@
        "max    2.016063e+07  69.600000  80.800000  60.300000"
       ]
      },
-     "execution_count": 19,
+     "execution_count": 31,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -915,7 +954,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 20,
+   "execution_count": 32,
    "metadata": {
     "collapsed": false
    },
@@ -972,7 +1011,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 21,
+   "execution_count": 33,
    "metadata": {
     "collapsed": false
    },
