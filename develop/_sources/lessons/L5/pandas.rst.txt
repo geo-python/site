@@ -2,7 +2,7 @@ Pandas lesson
 =============
 
 .. toctree::
-   :maxdepth: 2
+    :maxdepth: 2
 
     pandas-overview
     ../../notebooks/L5/pandas/Exploring-data-using-pandas.ipynb
