@@ -1,4 +1,5 @@
-# Pandas lesson
+Pandas lesson
+=============
 
 Below you will find links to the Lesson 5 materials based on using Pandas.
 These materials are intended for students continuing on to the **Automating GIS processes course**.
