@@ -7,5 +7,5 @@ These materials are intended for students continuing on to the **Automating GIS 
    :maxdepth: 2
 
     pandas-overview
-    ../../notebooks/L5/Exploring-data-using-pandas.ipynb
-    ../../notebooks/L5/processing-data-with-pandas.ipynb
+    ../../notebooks/L5/pandas/Exploring-data-using-pandas.ipynb
+    ../../notebooks/L5/pandas/processing-data-with-pandas.ipynb
