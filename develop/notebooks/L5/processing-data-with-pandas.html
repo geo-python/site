@@ -432,14 +432,18 @@ regularly needed when doing data analysis.</p>
 start, and focus on a few new aspects of importing data:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [12]:
+<span></span>In [2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="n">fp</span> <span class="o">=</span> <span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span>
+<span class="c1"># Import data from text file</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span>
 <span class="n">dataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># Import data from text file</span>
+<span class="c1">#dataFrame = pd.read_csv(r&#39;Kumpula-June-2016-w-metadata.txt&#39;, sep=&#39;,&#39;, skiprows=8)</span>
 </pre></div>
 </div>
 </div>
@@ -447,28 +451,19 @@ start, and focus on a few new aspects of importing data:</p>
 the filepath string. - <strong>Delimiter to use:</strong> parameter <code class="docutils literal notranslate"><span class="pre">sep=','</span></code> in
 the <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> function.</p>
 <p>In our case, both of these details are not needed (the code works
-correctly without them), but they might come in handy in the future. The
-letter ‘r’ makes sure that the filepath is interpreted correctly.
-Without the r, backslashes are treated as escape characters. With the r,
-backslashes are treated as literal. This happens often if you define
-full filepaths as input. What would for example happen here:
-<code class="docutils literal notranslate"><span class="pre">fp</span> <span class="pre">=</span> <span class="pre">C:\notebooks\L5\Kumpula-June-2016-w-metadata.txt</span></code> ? (try it
-out!)</p>
-<p>The default delimiter in the read_csv()-function is logically a comma
-(<code class="docutils literal notranslate"><span class="pre">,</span></code>). If needed, you can also define other characers and expressions
-as delimiter. The correct delimiter in our case however is the comma.</p>
-<p>Also, you can write the input filepath directly inside the read_csv()
-function (the code below does exactly the same thing as the code above):</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">dataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+correctly without them), but they might come in handy in the future.</p>
+<p><strong>The letter ‘r’</strong> makes sure that the filepath is interpreted
+correctly. Without the ‘r’, backslashes are treated as escape
+characters. With the r, backslashes are treated as literal. This happens
+often if you define full filepaths as input. What would for example
+happen here: <code class="docutils literal notranslate"><span class="pre">fp</span> <span class="pre">=</span> <span class="pre">C:\notebooks\L5\Kumpula-June-2016-w-metadata.txt</span></code> ?
+(try it out!)</p>
+<p><strong>The delimiter</strong> in the read_csv()-function is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>) by
+default. If needed, you can also define other characers and expressions
+as delimiter. The correct delimiter in our case, considering our input
+data
+<a class="reference external" href="Kumpula-June-2016-w-metadata.txt">Kumpula-June-2016-w-metadata.txt</a>
+is the comma.</p>
 <div class="section" id="Calculating-with-DataFrames">
 <h2>Calculating with DataFrames<a class="headerlink" href="#Calculating-with-DataFrames" title="Permalink to this headline">¶</a></h2>
 <p>One of the most common things to do in Pandas is to create new columns
@@ -478,7 +473,7 @@ of the column and giving it some default value (in this case decimal
 number 0.0).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [24]:
+<span></span>In [3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -528,7 +523,7 @@ number 0.0).</p>
 <p>Let’s check the datatype of our new column</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [25]:
+<span></span>In [4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -538,7 +533,7 @@ number 0.0).</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[25]:
+<span></span>Out[4]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -558,7 +553,7 @@ syntax where we first specify the column that we want to update (i.e.
 have in our dataFrameFrame.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [26]:
+<span></span>In [5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -612,7 +607,7 @@ between minimum temperature (<code class="docutils literal notranslate"><span cl
 day (<code class="docutils literal notranslate"><span class="pre">TEMP</span></code>).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [27]:
+<span></span>In [6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -668,7 +663,7 @@ column into Celsius using the formula that we have seen already many
 times:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [37]:
+<span></span>In [7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -727,7 +722,7 @@ done via <strong>index slicing</strong> to extract part of the DataFrame.</p>
 <code class="docutils literal notranslate"><span class="pre">rows5</span></code>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [38]:
+<span></span>In [8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -756,7 +751,7 @@ square brackets <code class="docutils literal notranslate"><span class="pre">sel
 <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> indexing. Here we select all the data values from row 8.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [39]:
+<span></span>In [9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -782,71 +777,15 @@ Name: 8, dtype: float64
 </div>
 <p>Based on what we know about Python lists, what would you expect to see
 output from the following code?</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [40]:
+<span></span>In [11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span></span><span class="c1">#print(dataFrame.loc[-1])</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-fg">C:\HYapp\Anaconda3\lib\site-packages\pandas\core\indexing.py</span> in <span class="ansi-cyan-fg">_has_valid_type</span><span class="ansi-blue-fg">(self, key, axis)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1433</span>                 <span class="ansi-green-intense-fg ansi-bold">if</span> <span class="ansi-green-intense-fg ansi-bold">not</span> ax<span class="ansi-yellow-intense-fg ansi-bold">.</span>contains<span class="ansi-yellow-intense-fg ansi-bold">(</span>key<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-fg">-&gt; 1434</span><span class="ansi-red-fg">                     </span>error<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1435</span>             <span class="ansi-green-intense-fg ansi-bold">except</span> TypeError <span class="ansi-green-intense-fg ansi-bold">as</span> e<span class="ansi-yellow-intense-fg ansi-bold">:</span>
-
-<span class="ansi-green-fg">C:\HYapp\Anaconda3\lib\site-packages\pandas\core\indexing.py</span> in <span class="ansi-cyan-fg">error</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">   1428</span>                 raise KeyError(&#34;the label [%s] is not in the [%s]&#34; %
-<span class="ansi-green-fg">-&gt; 1429</span><span class="ansi-red-fg">                                (key, self.obj._get_axis_name(axis)))
-</span><span class="ansi-green-intense-fg ansi-bold">   1430</span>
-
-<span class="ansi-red-fg">KeyError</span>: &#39;the label [-1] is not in the [index]&#39;
-
-During handling of the above exception, another exception occurred:
-
-<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-40-b56ffaa833f6&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-yellow-intense-fg ansi-bold">(</span>dataFrame<span class="ansi-yellow-intense-fg ansi-bold">.</span>loc<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-yellow-intense-fg ansi-bold">-</span><span class="ansi-cyan-intense-fg ansi-bold">1</span><span class="ansi-yellow-intense-fg ansi-bold">]</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-
-<span class="ansi-green-fg">C:\HYapp\Anaconda3\lib\site-packages\pandas\core\indexing.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1326</span>         <span class="ansi-green-intense-fg ansi-bold">else</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   1327</span>             key <span class="ansi-yellow-intense-fg ansi-bold">=</span> com<span class="ansi-yellow-intense-fg ansi-bold">.</span>_apply_if_callable<span class="ansi-yellow-intense-fg ansi-bold">(</span>key<span class="ansi-yellow-intense-fg ansi-bold">,</span> self<span class="ansi-yellow-intense-fg ansi-bold">.</span>obj<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">-&gt; 1328</span><span class="ansi-red-fg">             </span><span class="ansi-green-intense-fg ansi-bold">return</span> self<span class="ansi-yellow-intense-fg ansi-bold">.</span>_getitem_axis<span class="ansi-yellow-intense-fg ansi-bold">(</span>key<span class="ansi-yellow-intense-fg ansi-bold">,</span> axis<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-cyan-intense-fg ansi-bold">0</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1329</span>
-<span class="ansi-green-intense-fg ansi-bold">   1330</span>     <span class="ansi-green-intense-fg ansi-bold">def</span> _is_scalar_access<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">,</span> key<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-
-<span class="ansi-green-fg">C:\HYapp\Anaconda3\lib\site-packages\pandas\core\indexing.py</span> in <span class="ansi-cyan-fg">_getitem_axis</span><span class="ansi-blue-fg">(self, key, axis)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1549</span>
-<span class="ansi-green-intense-fg ansi-bold">   1550</span>         <span class="ansi-red-intense-fg ansi-bold"># fall thru to straight lookup</span>
-<span class="ansi-green-fg">-&gt; 1551</span><span class="ansi-red-fg">         </span>self<span class="ansi-yellow-intense-fg ansi-bold">.</span>_has_valid_type<span class="ansi-yellow-intense-fg ansi-bold">(</span>key<span class="ansi-yellow-intense-fg ansi-bold">,</span> axis<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1552</span>         <span class="ansi-green-intense-fg ansi-bold">return</span> self<span class="ansi-yellow-intense-fg ansi-bold">.</span>_get_label<span class="ansi-yellow-intense-fg ansi-bold">(</span>key<span class="ansi-yellow-intense-fg ansi-bold">,</span> axis<span class="ansi-yellow-intense-fg ansi-bold">=</span>axis<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1553</span>
-
-<span class="ansi-green-fg">C:\HYapp\Anaconda3\lib\site-packages\pandas\core\indexing.py</span> in <span class="ansi-cyan-fg">_has_valid_type</span><span class="ansi-blue-fg">(self, key, axis)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1440</span>                 <span class="ansi-green-intense-fg ansi-bold">raise</span>
-<span class="ansi-green-intense-fg ansi-bold">   1441</span>             <span class="ansi-green-intense-fg ansi-bold">except</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-fg">-&gt; 1442</span><span class="ansi-red-fg">                 </span>error<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1443</span>
-<span class="ansi-green-intense-fg ansi-bold">   1444</span>         <span class="ansi-green-intense-fg ansi-bold">return</span> <span class="ansi-green-intense-fg ansi-bold">True</span>
-
-<span class="ansi-green-fg">C:\HYapp\Anaconda3\lib\site-packages\pandas\core\indexing.py</span> in <span class="ansi-cyan-fg">error</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">   1427</span>                                     &#34;key&#34;)
-<span class="ansi-green-intense-fg ansi-bold">   1428</span>                 raise KeyError(&#34;the label [%s] is not in the [%s]&#34; %
-<span class="ansi-green-fg">-&gt; 1429</span><span class="ansi-red-fg">                                (key, self.obj._get_axis_name(axis)))
-</span><span class="ansi-green-intense-fg ansi-bold">   1430</span>
-<span class="ansi-green-intense-fg ansi-bold">   1431</span>             <span class="ansi-green-intense-fg ansi-bold">try</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-
-<span class="ansi-red-fg">KeyError</span>: &#39;the label [-1] is not in the [index]&#39;
-</pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> indexing returns the values from that position as a
 <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> where the indices are actually the column names of those
@@ -854,7 +793,7 @@ variables. Hence, you can access the value of an individual column by
 referring to its index using following format (both should work):</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [41]:
+<span></span>In [12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -876,7 +815,7 @@ referring to its index using following format (both should work):</p>
 select only temperature values (<code class="docutils literal notranslate"><span class="pre">TEMP</span></code>) between indices of 5-10:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [42]:
+<span></span>In [13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -904,7 +843,7 @@ Here, we select <code class="docutils literal notranslate"><span class="pre">TEM
 them inside a list (<code class="docutils literal notranslate"><span class="pre">.loc[start_index:stop_index,</span> <span class="pre">list_of_columns]</span></code>):</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [43]:
+<span></span>In [14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -932,7 +871,7 @@ done by simply referring to the dataFrame and inserting a list of
 columns inside the square brackets that you want to include.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [44]:
+<span></span>In [15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1030,7 +969,7 @@ Notice, that it is often useful to separate the different clauses inside
 the parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [49]:
+<span></span>In [17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1072,7 +1011,7 @@ to keep track on the previous index which might be useful in some cases
 but here not, so we can omit that by passing parameter <code class="docutils literal notranslate"><span class="pre">drop=True</span></code>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [50]:
+<span></span>In [18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1106,12 +1045,12 @@ but here not, so we can omit that by passing parameter <code class="docutils lit
 </div>
 <div class="section" id="Dealing-with-missing-data">
 <h2>Dealing with missing data<a class="headerlink" href="#Dealing-with-missing-data" title="Permalink to this headline">¶</a></h2>
-<p>Next we manipulate the first five values of <code class="docutils literal notranslate"><span class="pre">TEMP_Celsius</span></code> in our
+<p>Next, we manipulate the first five values of <code class="docutils literal notranslate"><span class="pre">TEMP_Celsius</span></code> in our
 <code class="docutils literal notranslate"><span class="pre">w_temps2</span></code> DataFrame to be <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (not-a-number). This can be done
 using the <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> indexing.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [53]:
+<span></span>In [19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1156,7 +1095,7 @@ data) using <code class="docutils literal notranslate"><span class="pre">dropna(
 should be searched from.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [54]:
+<span></span>In [20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1187,7 +1126,7 @@ values.</p>
 -function. Here we fill it with value 0.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [55]:
+<span></span>In [21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1236,7 +1175,7 @@ done with Pandas using <code class="docutils literal notranslate"><span class="p
 column:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [56]:
+<span></span>In [22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1287,7 +1226,7 @@ column:</p>
 <code class="docutils literal notranslate"><span class="pre">ascending=False</span></code> parameter:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [57]:
+<span></span>In [23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1341,7 +1280,7 @@ column:</p>
 Here we round the Celsius temperatures with 0-decimals</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [58]:
+<span></span>In [24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1393,7 +1332,7 @@ extract the unique values that you have in your column. We can do that
 by using <code class="docutils literal notranslate"><span class="pre">unique_values()</span></code> -function:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [59]:
+<span></span>In [25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1404,11 +1343,11 @@ by using <code class="docutils literal notranslate"><span class="pre">unique_val
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[59]:
+<span></span>Out[25]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([ 19.,  20.,  14.,  11.,  12.,  10.,  13.,  15.,  17.,  16.,  21.])
+<span></span>array([19., 20., 14., 11., 12., 10., 13., 15., 17., 16., 21.])
 </pre></div>
 </div>
 </div>
@@ -1419,7 +1358,7 @@ is, however, possible to see all those values by printing them as a
 list:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [60]:
+<span></span>In [26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1439,7 +1378,7 @@ list:</p>
 can check that!</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [61]:
+<span></span>In [27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1469,7 +1408,7 @@ can be used to easily save your data in CSV format.</p>
 <code class="docutils literal notranslate"><span class="pre">Kumpula_temp_results_June_2016.csv</span></code> .</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [62]:
+<span></span>In [28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1487,7 +1426,7 @@ values from <code class="docutils literal notranslate"><span class="pre">w_temps
 decimal in the floating point numbers.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [63]:
+<span></span>In [29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1497,10 +1436,14 @@ decimal in the floating point numbers.</p>
 </div>
 </div>
 <p>Omitting the index can be with <code class="docutils literal notranslate"><span class="pre">index=False</span></code> parameter. Specifying how
-many decimals should be written can be done with <code class="docutils literal notranslate"><span class="pre">float_fomat</span></code>
+many decimals should be written can be done with <code class="docutils literal notranslate"><span class="pre">float_format</span></code>
 -parameter where text <code class="docutils literal notranslate"><span class="pre">%.1f</span></code> defines Pandas to use 1 decimals in all
 columns when writing the data to a file (changing the value 1 to 2 would
 write 2 decimals etc.)</p>
+<div class="figure" id="id2">
+<img alt="Text file with" src="../../_images/pandas_save_file_result_2.PNG" />
+<p class="caption"><span class="caption-text">Text file with</span></p>
+</div>
 <p>As a results you have a “cleaner” output file without the index column,
 and with only 1 decimal for floating point numbers.</p>
 <p><strong>DATAFRAME TO EXCEL, PLEASE?</strong></p>
@@ -1513,7 +1456,7 @@ can also omit the index and specify the float formatting as in our
 earlier examples:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [65]:
+<span></span>In [30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1529,7 +1472,12 @@ earlier examples:</p>
 </div>
 </div>
 <p>As a result you have the DataFrame in Excel format in your working
-directory:</p>
+directory: <img alt="Excel spreadsheet" src="../../_images/pandas_save_excel_result_1.PNG" /></p>
+<p>That’s all for this week’s lesson! We will dive deeper into data
+analysis with pandas next week. In the meanwhile, you can complete
+Exercise 5, and have a look at <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/">Pandas online
+documentation</a> for
+more information.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [ ]:
