@@ -142,8 +142,6 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     :caption: Lesson 5
 
     lessons/L5/overview
-    lessons/L5/lesson-video
-    lessons/L5/pandas-overview
-    notebooks/L5/Exploring-data-using-pandas.ipynb
-    notebooks/L5/processing-data-with-pandas.ipynb
+    lessons/L5/numpy
+    lessons/L5/pandas
     lessons/L5/exercise-5
