@@ -2,38 +2,12 @@ Lesson overview
 ===============
 
 
-Data analysis with pandas
--------------------------
-In this lesson we will learn basics in reading and writing data from/to a file, and do some basic data manipulation
-and analysis using a Python module called **Pandas**.
+This week we have two versions of the exercise, one for the geography course, and one for the geology course:
 
-**The learning goals for the pandas part of lesson 5 are to:**
+    - Automating GIS Processes: Data Analysis with Pandas
+    - Intro to Quantitative Geology: Data Analysis with Numpy
 
-- Read data from a text file into Python using Pandas
-- Do simple data analysis using Pandas data structures and related functions
-- Write data from Pandas to a file
 
-`Pandas <http://pandas.pydata.org/>`__ is a modern and feature rich data analysis framework for Python that is designed
-to make data analysis and manipulation straightforward and powerful using easy-to-use data structures and operations.
-
-0. :doc:`Summary of early course feedback <midterm-feedback>`
-1. :doc:`What is Pandas? <pandas-overview>`
-2. Exploring data using Pandas <../../notebooks/L5/Exploring-data-using-pandas.ipynb>`_
-
-   - `Reading a file with Pandas <pandas-basics.html#reading-a-data-file-with-pandas>`__
-   - `Exploring our dataset <pandas-basics.html#exploring-out-dataset>`__
-
-3. `Processing data with Pandas <../../notebooks/L5/processing-data-with-pandas.ipynb>`_
-
-   - `Calculating with DataFrames <pandas-basic-operations.html#calculating-with-dataframes>`__
-   - `Selecting data using indices <pandas-basic-operations.html#selecting-data-using-indices>`__
-   - `Filtering and updating data <pandas-basic-operations.html#filtering-and-updating-data>`__
-   - `Dealing with missing data <pandas-basic-operations.html#dealing-with-missing-data>`__
-   - `Sorting data <pandas-basic-operations.html#sorting-data>`__
-   - `Rounding and finding unique values <pandas-basic-operations.html#rounding-and-finding-unique-values>`__
-   - `Writing data <pandas-basic-operations.html#writing-data>`__
-
-4. :doc:`Exercise 5 <exercise-5>`
 
 
 
