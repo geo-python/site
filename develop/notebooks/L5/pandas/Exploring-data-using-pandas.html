@@ -764,10 +764,24 @@ This page was generated from <a class="reference external" href="https://github.
 <div class="section" id="Exploring-data-using-Pandas">
 <h1>Exploring data using Pandas<a class="headerlink" href="#Exploring-data-using-Pandas" title="Permalink to this headline">¶</a></h1>
 <p>Our first task in this week’s lesson is to learn how to read and explore
-data files using Pandas. Reading data files using Pandas will make life
-a bit easier compared to the traditional Python way of reading data
-files. If you’re curious about that, you can check out some of the
-<a class="reference external" href="reading-data-from-file">lesson materials from previous years about reading data in the Pythonic
+data files using Pandas.</p>
+<p>While exploring the weather data, we will get familiar with Pandas data
+structures: <em>Series</em> and <em>DataFrame</em>. <strong>Pandas DataFrame</strong> (a
+2-dimensional data structure) is used for storing and mainpulating
+table-like data (data with rows and columns) in Python. You can think of
+Pandas DataFrame as an attribute table (an excel-like spreadsheet, but
+much better!). <strong>Pandas Series</strong> (a 1-dimensional data structure) is
+used for storing and manipulating an sequence of values. Pandas Series
+is kind of like a list, but more clever. One row or one column in a
+Pandas DataFrame is actually a Pandas Series. For a comprehensive
+overview of pandas data structures, you can have a look at Wes
+MacKinney’s book <strong>Python for Data Analysis (2nd Edition, 2017)</strong> and
+<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/dsintro.html">Pandas online documentation about data
+structures</a>.</p>
+<p>Reading data files using Pandas will make life a bit easier compared to
+the traditional Python way of reading data files. If you’re curious
+about that, you can check out some of the <a class="reference external" href="https://geo-python.github.io/2018/2017/lessons/L5/reading-data-from-file.html">lesson materials from
+previous years about reading data in the Pythonic
 way</a>.</p>
 <div class="section" id="Preparations-for-this-lesson-(working-environment-and-input-data)">
 <h2>Preparations for this lesson (working environment and input data)<a class="headerlink" href="#Preparations-for-this-lesson-(working-environment-and-input-data)" title="Permalink to this headline">¶</a></h2>
@@ -780,8 +794,6 @@ observations from Kumpula<ul>
 <a class="reference external" href="Kumpula-June-2016-w-metadata.txt">Kumpula-June-2016-w-metadata.txt</a></li>
 <li>The file is available in the binder and CSC notebook instances,
 under L5 folder</li>
-<li>OR you can download the data file from this link (TODO CHECK
-LINK!)</li>
 <li>The data file contains observed daily mean, minimum, and maximum
 temperatures from June 2016 recorded from the Kumpula weather
 observation station in Helsinki.</li>
@@ -801,7 +813,7 @@ database</a>.</li>
 to import the Pandas module.</strong></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [2]:
+<span></span>In [46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -815,15 +827,12 @@ to import the Pandas module.</strong></p>
 Using the <code class="docutils literal notranslate"><span class="pre">pandas.read_csv</span></code> -function.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [14]:
+<span></span>In [47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># store filepath in a variable</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span>
-
-<span class="c1"># Read the file using pandas</span>
-<span class="n">dataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<span></span><span class="c1"># Read the file using pandas</span>
+<span class="n">dataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -837,7 +846,7 @@ defined as <code class="docutils literal notranslate"><span class="pre">dataFram
 contents. You can check the the contents of this variable by typing</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [15]:
+<span></span>In [48]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -933,12 +942,14 @@ contents. You can check the the contents of this variable by typing</p>
 <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, and the first lines of the dataframe look a bit weird..</p>
 <p><code class="docutils literal notranslate"><span class="pre">NaN</span></code> stands for “not a number”, and might indicate some problem with
 reading in the contents of the file. Plus, we expected about 30 lines of
-data, but the index values go up to 36 when we print the contents of
-<code class="docutils literal notranslate"><span class="pre">dataFrame</span></code>. Looks like we need to investigate this further.</p>
+data, but the index values go up to 36 when we print the contents of the
+<code class="docutils literal notranslate"><span class="pre">dataFrame</span></code> variable. Looks like we need to investigate this further.</p>
 <p>As we can observe, there are some metadata at the top of the file giving
 basic information about its contents and source. This isn’t data we want
 to process, so we need to skip over that part of the file when we load
 it.</p>
+<p>Here are the 8 first rows of data in the text file (note that the 8th
+row is blank):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data file contents: Daily temperatures (mean, min, max) for Kumpula, Helsinki</span>
 <span class="c1">#                     for June 1-30, 2016</span>
 <span class="c1"># Data source: https://www.ncdc.noaa.gov/cdo-web/search?datasetid=GHCND</span>
@@ -955,7 +966,7 @@ to skip (8 in this case).</strong></p>
 defining the <code class="docutils literal notranslate"><span class="pre">skiprows</span></code> parameter.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [18]:
+<span></span>In [49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -966,7 +977,7 @@ defining the <code class="docutils literal notranslate"><span class="pre">skipro
 <p>Let’s now print the rows and see what changed.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [19]:
+<span></span>In [50]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1022,17 +1033,34 @@ value type (string, float, int, boolean, etc.).</p>
 <p>In our first attempt to read data from the text file, the first rows
 containing metadata did not belong to the actual data array, and that’s
 why the output looked weird.</p>
+<p><strong>By default, the ``read_csv``-function infers column names from the
+first line of the file.</strong> For other options, see parameter <code class="docutils literal notranslate"><span class="pre">header</span></code> in
+the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html">read_csv
+documentation</a>.</p>
+<p><strong>What would happen if we skipped 9 rows? (try it out!)</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
 <p>In fact, one of the neat things in Pandas is that that DataFrames have
 labelled axes (rows and columns). For our example, we have the rows
 labeled with an index value (<code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">29</span></code>), and columns labelled
 <code class="docutils literal notranslate"><span class="pre">YEARMODA</span></code>, <code class="docutils literal notranslate"><span class="pre">TEMP</span></code>, <code class="docutils literal notranslate"><span class="pre">MAX</span></code>, and <code class="docutils literal notranslate"><span class="pre">MIN</span></code>. This is nice because we
 can easily use these labels to divide up our data and make interacting
 with it easier as you’ll see later in the lesson.</p>
-<p>The example above, trying to read a datafile with some header text (the
-metadata in this case), is <em>very</em> common. Reading data into Pandas is
-pretty easy, but <strong>it helps to have a sense of what the datafile looks
-like before you try to read it</strong>.</p>
-<p>The challenge can also be that large datafiles might not nicely print on
+<p>The example above, when trying to read a datafile with some header text
+(the metadata in this case), is <em>very</em> common. Reading data into Pandas
+is pretty easy, but <strong>it helps to have a sense of what the datafile
+looks like before you try to read it</strong>.</p>
+<p>After reading in the data, it is always good to check that everything
+went well (for example as we did with the print-statement above). The
+challenge can also be that large datafiles might not nicely print on
 screen using the <code class="docutils literal notranslate"><span class="pre">print()</span></code>-function so it might be better to look at
 only the top 5-10 lines of the file rather than loading the entire
 thing.</p>
@@ -1041,7 +1069,7 @@ contents of the dataframe.</strong> This function returns the first n rows for
 the dataframe. By default, it gives 5 first rows.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [20]:
+<span></span>In [51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1051,22 +1079,22 @@ the dataframe. By default, it gives 5 first rows.</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[20]:
+<span></span>Out[51]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -1123,17 +1151,17 @@ the dataframe. By default, it gives 5 first rows.</p>
 </div>
 <div class="section" id="Exploring-our-dataset">
 <h2>Exploring our dataset<a class="headerlink" href="#Exploring-our-dataset" title="Permalink to this headline">¶</a></h2>
-<p>So this is a big deal for us. We now have some basic Python skills and
-the ability to read in data from a file for processing. A normal first
-step when you load new data is to explore the dataset a bit to
-understand what is there and its format.</p>
+<p>We now have some basic Python skills and the ability to read in data
+from a file for processing. A normal first step when you load new data
+is to explore the dataset a bit to understand how the data is
+structured, and what kind of values are stored in there.</p>
 <p><strong>Let’s start by looking at the different columns we have in our
 DataFrame.</strong> We can find this in the <code class="docutils literal notranslate"><span class="pre">columns</span></code> attribute that is part
-of the DataFrame data type, something that is known automatically for
-this kind of data.</p>
+of the DataFrame object (columns is an in-built attribute in the
+DataFrame data type).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [21]:
+<span></span>In [52]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1155,7 +1183,7 @@ might expect.</p>
 ``index`` attribute.</strong></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [22]:
+<span></span>In [53]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1180,7 +1208,7 @@ are other ways to identify the rows in data using Pandas.</p>
 how many rows you have, you can use the ``len()`` function.</strong></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [23]:
+<span></span>In [54]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1201,7 +1229,7 @@ how many rows you have, you can use the ``len()`` function.</strong></p>
 ``shape`` attribute.</strong></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [12]:
+<span></span>In [55]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1223,7 +1251,7 @@ above.</p>
 let’s see what type of data the DataFrame is.</strong></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [13]:
+<span></span>In [56]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1233,7 +1261,7 @@ let’s see what type of data the DataFrame is.</strong></p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[13]:
+<span></span>Out[56]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1249,7 +1277,7 @@ Magic command <code class="docutils literal notranslate"><span class="pre">%whos
 variables:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [24]:
+<span></span>In [57]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1258,7 +1286,6 @@ variables:</p>
 
 <span class="c1"># Display variable name, type and info</span>
 <span class="o">%</span><span class="k">whos</span>
-
 </pre></div>
 </div>
 </div>
@@ -1267,18 +1294,20 @@ variables:</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Variable    Type         Data/Info
-----------------------------------
-dataFrame   DataFrame        YEARMODA  TEMP   MAX &lt;...&gt;0160630  65.7  72.7  59.2
-fp          str          Kumpula-June-2016-w-metadata.txt
-pd          module       &lt;module &#39;pandas&#39; from &#39;C:&lt;...&gt;es\\pandas\\__init__.py&#39;&gt;
+Variable      Type         Data/Info
+------------------------------------
+dataFrame     DataFrame        YEARMODA  TEMP   MAX &lt;...&gt;0160630  65.7  72.7  59.2
+myDataFrame   DataFrame       number\n0     1.0\n1  &lt;...&gt;5.0\n5     6.0\n6     7.0
+myList        list         n=7
+mySeries      Series       0    1.0\n1    2.0\n2    &lt;...&gt;n6    7.0\ndtype: float64
+pd            module       &lt;module &#39;pandas&#39; from &#39;C:&lt;...&gt;es\\pandas\\__init__.py&#39;&gt;
 </pre></div></div>
 </div>
 <p>So, what about the data types of each column in our dataFrame? Finding
 the types of data in the columns of the DataFrame is easy:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [25]:
+<span></span>In [58]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1306,7 +1335,7 @@ precision; int64), while the other values are all decimal values with
 name:</strong></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [26]:
+<span></span>In [59]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1356,7 +1385,7 @@ Name: TEMP, dtype: float64
 their data type. What about the type of the column itself?</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [27]:
+<span></span>In [60]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1366,7 +1395,7 @@ their data type. What about the type of the column itself?</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[27]:
+<span></span>Out[60]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1376,16 +1405,15 @@ their data type. What about the type of the column itself?</p>
 </div>
 <p>Interesting.</p>
 <p>So rather than seeing a DataFrame type or float64, a selected column
-from a DataFrame is called a <em>Series</em> in Pandas. Series are the building
-blocks of pandas DataFrames.</p>
-<p>A Pandas Series is kind of a 1-D list of values with an index. In fact,
-you can create a Pandas Series from a Python list. If you have long
-lists of numbers, for instance, creating a Pandas Series will allow you
-to interact with these values more efficiently in terms of computing
-time.</p>
+from a DataFrame is called a <em>Series</em> in Pandas. Here, we will briefly
+see how you can create a Pandas Series from a Python list (and further
+convert it into a Pandas DataFrame..).</p>
+<p>If you have long lists of numbers, for instance, creating a Pandas
+Series will allow you to interact with these values more efficiently in
+terms of computing time.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [29]:
+<span></span>In [61]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1414,6 +1442,92 @@ dtype: float64
 <code class="docutils literal notranslate"><span class="pre">ps.Series()</span></code> function. Also, note that Pandas is smart about the
 conversion, detecting a single floating point value (<code class="docutils literal notranslate"><span class="pre">7.0</span></code>) and
 assigning all values in the Series the data type float64.</p>
+<p>In turn, we could convert this series back into a pandas dataframe by
+calling the
+<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html">pandas.DataFrame</a>
+-function:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [62]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Check data type of the input</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">mySeries</span><span class="p">))</span>
+
+<span class="c1"># Create a pandas dataframe</span>
+<span class="n">myDataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mySeries</span><span class="p">)</span>
+
+<span class="c1">#Check the data type</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">myDataFrame</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;class &#39;pandas.core.series.Series&#39;&gt;
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [63]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">myDataFrame</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+     0
+0  1.0
+1  2.0
+2  3.0
+3  4.0
+4  5.0
+5  6.0
+6  7.0
+</pre></div></div>
+</div>
+<p>So, now we have a pandas dataframe with one column of data, and an
+associated index. By default, the column name (label) has been set to
+‘0’. We can still give our column a new name:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [64]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">myDataFrame</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;number&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myDataFrame</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   number
+0     1.0
+1     2.0
+2     3.0
+3     4.0
+4     5.0
+5     6.0
+6     7.0
+</pre></div></div>
+</div>
+<p>Let’s continue with our original DataFrame <code class="docutils literal notranslate"><span class="pre">dataFrame</span></code> and columns
+stored in there.</p>
 <p>Just like DataFrames, Pandas Series have a set of attributes they know
 about themselves and methods they can use to make calculations using the
 Series data.</p>
@@ -1421,7 +1535,7 @@ Series data.</p>
 and <code class="docutils literal notranslate"><span class="pre">std()</span></code> (the standard deviation).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [30]:
+<span></span>In [65]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1431,7 +1545,7 @@ and <code class="docutils literal notranslate"><span class="pre">std()</span></c
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[30]:
+<span></span>Out[65]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1445,7 +1559,7 @@ series in order to find the mean value using the <code class="docutils literal n
 attributes in your DataFrame is the <code class="docutils literal notranslate"><span class="pre">describe()</span></code> function.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [31]:
+<span></span>In [66]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1455,22 +1569,22 @@ attributes in your DataFrame is the <code class="docutils literal notranslate"><
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[31]:
+<span></span>Out[66]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -1544,14 +1658,14 @@ attributes in your DataFrame is the <code class="docutils literal notranslate"><
 </table>
 </div></div>
 </div>
-<p>Finally, there are occasions where you’ll need to convert data in a
-Series to another data type.</p>
+<p>Finally, there are occasions where you’ll need to convert data stored
+within a Series to another data type.</p>
 <p>If you’re planning to print a large number of value to the screen, for
 instance, it might be helpful to have those values as character strings.</p>
 <p>Data type conversions is most easily done using the <code class="docutils literal notranslate"><span class="pre">astype()</span></code> method.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [32]:
+<span></span>In [67]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1602,7 +1716,7 @@ stored as character strings. A more obvious case is converting to
 integer values.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [33]:
+<span></span>In [68]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1659,16 +1773,50 @@ be dangerous in some cases.</p>
 integers. Chaining the round and type conversion functions solves this
 issue as the <code class="docutils literal notranslate"><span class="pre">.round(0).astype(int)</span></code> command first rounds the values
 with zero decimals and then converts those values into integers.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [69]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<span></span><span class="c1"># Integer, truncated:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Truncated values:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># Add empty line:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rounded values:&quot;</span><span class="p">)</span>
+<span class="c1">#Integer, rounded:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Truncated values:
+0    65
+1    65
+2    68
+3    57
+4    51
+Name: TEMP, dtype: int32
+
+
+Rounded values:
+0    66
+1    66
+2    68
+3    58
+4    51
+Name: TEMP, dtype: int32
+</pre></div></div>
+</div>
+<p>That’s it! Next, we will have a look at <a class="reference internal" href="processing-data-with-pandas.html"><span class="doc">basic operations for data
+analysis in Pandas</span></a>.</p>
 </div>
 </div>
 

@@ -16,7 +16,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 45,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -26,12 +26,8 @@
    "source": [
     "import pandas as pd\n",
     "\n",
-    "# Import data from text file\n",
     "fp = r'Kumpula-June-2016-w-metadata.txt'\n",
-    "dataFrame = pd.read_csv(fp, sep=',', skiprows=8)\n",
-    "\n",
-    "# Import data from text file \n",
-    "#dataFrame = pd.read_csv(r'Kumpula-June-2016-w-metadata.txt', sep=',', skiprows=8)"
+    "dataFrame = pd.read_csv(fp, sep=',', skiprows=8)"
    ]
   },
   {
@@ -41,15 +37,13 @@
     "editable": true
    },
    "source": [
-    "Please note two things in the code above:\n",
+    "**Please note** two things in the code above:\n",
     "- **'r' prefix** in front of the filepath string. \n",
     "- **Delimiter to use:** parameter `sep=','` in the `read_csv()` function. \n",
     "\n",
-    "In our case, both of these details are not needed (the code works correctly without them), but they might come in handy in the future. \n",
+    "In our case, both of these details are not needed (the code works correctly without them), but they might come in handy in the future. The letter 'r' makes sure that the filepath is interpreted correctly. Without the r, backslashes are treated as escape characters. With the r, backslashes are treated as literal. You can read more about [escape characters here](https://python-reference.readthedocs.io/en/latest/docs/str/escapes.html). This happens often if you define full filepaths as input. What would for example happen here: `fp = C:\\notebooks\\L5\\Kumpula-June-2016-w-metadata.txt` ? (try it out!)\n",
     "\n",
-    "**The letter 'r'** makes sure that the filepath is interpreted correctly. Without the 'r', backslashes are treated as escape characters. With the r, backslashes are treated as literal. This happens often if you define full filepaths as input. What would for example happen here: `fp = C:\\notebooks\\L5\\Kumpula-June-2016-w-metadata.txt` ? (try it out!)\n",
-    "\n",
-    "**The delimiter** in the read_csv()-function is a comma (`,`) by default. If needed, you can also define other characers and expressions as delimiter. The correct delimiter in our case, considering our input data [Kumpula-June-2016-w-metadata.txt](Kumpula-June-2016-w-metadata.txt) is the comma."
+    "**The default delimiter in the read_csv()-function is logically a comma (`,`)**. If needed, you can also define other characers and expressions as delimiter. For options, see [Pandas documentation for the read_csv -function](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html). The correct delimiter in our case however is the comma, so the default option works for us."
    ]
   },
   {
@@ -68,7 +62,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 46,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -130,7 +124,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 47,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -143,7 +137,7 @@
        "dtype('float64')"
       ]
      },
-     "execution_count": 4,
+     "execution_count": 47,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -159,17 +153,17 @@
     "editable": true
    },
    "source": [
-    "Okey, so we see that Pandas created a new column and recognized automatically that the data type is float as we passed a 0.0 value to it.\n",
+    "Okey, so we see that **Pandas created a new column** and recognized automatically that the data type is float as we passed a 0.0 value to it.\n",
     "\n",
     "\n",
-    "We can also easily do calculations inside our DataFrame. Let's update the column ``DIFF`` by calculating the difference between ``MAX`` and ``MIN`` columns to get an idea how much the temperatures have\n",
-    "been varying during different days. Calculations can be done with following syntax where we first specify the column that we want to update (i.e. ``DIFF``) and then do the actual calculation\n",
+    "We can also easily do calculations inside our DataFrame. Let's update the column `DIFF` by calculating the difference between `MAX` and ``MIN` columns to get an idea how much the temperatures have\n",
+    "been varying during different days. Calculations can be done with following syntax where we first specify the column that we want to update (i.e. `DIFF`) and then do the actual calculation\n",
     "using the columns that we have in our dataFrameFrame."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 48,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -226,14 +220,14 @@
     "editable": true
    },
    "source": [
-    "The calculations were stored into the ``DIFF`` column as planned. \n",
+    "The calculations were stored into the `DIFF` column as planned. \n",
     "\n",
-    "Notice that you can create new columns on-the-fly at the same time when doing the calculation. Let's test this by calculating the difference between minimum temperature (``MIN``) and the mean temperature of the day (``TEMP``).\n"
+    "Notice that you can create new columns on-the-fly at the same time when doing the calculation. **Let's test this by calculating the difference between minimum temperature (`MIN`) and the mean temperature of the day (`TEMP`)**.\n"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 49,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -299,7 +293,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 50,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -368,7 +362,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 51,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -389,8 +383,8 @@
     }
    ],
    "source": [
-    "rows5 = dataFrame[0:5]\n",
-    "print(rows5)"
+    "selected_rows = dataFrame[0:5]\n",
+    "print(selected_rows)"
    ]
   },
   {
@@ -408,7 +402,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 52,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -431,31 +425,8 @@
     }
    ],
    "source": [
-    "row8 = dataFrame.loc[8]\n",
-    "print(row8)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {
-    "deletable": true,
-    "editable": true
-   },
-   "source": [
-    "Based on what we know about Python lists, what would you expect to see output from the following code?"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 11,
-   "metadata": {
-    "collapsed": false,
-    "deletable": true,
-    "editable": true
-   },
-   "outputs": [],
-   "source": [
-    "#print(dataFrame.loc[-1])"
+    "selected_row = dataFrame.loc[8]\n",
+    "print(selected_row)"
    ]
   },
   {
@@ -470,7 +441,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 53,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -487,8 +458,8 @@
     }
    ],
    "source": [
-    "print(row8['TEMP'])\n",
-    "print(row8.YEARMODA)"
+    "print(selected_row['TEMP'])\n",
+    "print(selected_row.YEARMODA)"
    ]
   },
   {
@@ -503,7 +474,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": 54,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -525,8 +496,8 @@
     }
    ],
    "source": [
-    "temps_5to10 = dataFrame.loc[5:10, 'TEMP']\n",
-    "print(temps_5to10)"
+    "selected_temps = dataFrame.loc[5:10, 'TEMP']\n",
+    "print(selected_temps)"
    ]
   },
   {
@@ -536,12 +507,12 @@
     "editable": true
    },
    "source": [
-    "It is also possible to select multiple columns using those same indices. Here, we select ``TEMP`` and the ``TEMP_Celsius`` columns by passing them inside a list (``.loc[start_index:stop_index, list_of_columns]``):"
+    "It is also possible to select multiple columns using those same indices. Here, we select `TEMP` and the `TEMP_Celsius` columns by passing them inside a list (`.loc[start_index:stop_index, list_of_columns]`):"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 55,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -563,8 +534,8 @@
     }
    ],
    "source": [
-    "temps_5to10 = dataFrame.loc[5:10, ['TEMP', 'TEMP_Celsius']]\n",
-    "print(temps_5to10)"
+    "selected_temps = dataFrame.loc[5:10, ['TEMP', 'TEMP_Celsius']]\n",
+    "print(selected_temps)"
    ]
   },
   {
@@ -579,7 +550,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 15,
+   "execution_count": 56,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -625,8 +596,8 @@
     }
    ],
    "source": [
-    "temps_only = dataFrame[['TEMP', 'TEMP_Celsius']]\n",
-    "print(temps_only)"
+    "temps = dataFrame[['TEMP', 'TEMP_Celsius']]\n",
+    "print(temps)"
    ]
   },
   {
@@ -645,7 +616,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 48,
+   "execution_count": 57,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -695,7 +666,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 58,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -744,7 +715,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 59,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -788,12 +759,12 @@
     "\n",
     "## Dealing with missing data\n",
     "\n",
-    "Next, we manipulate the first five values of ``TEMP_Celsius`` in our ``w_temps2`` DataFrame to be ``NaN`` (not-a-number). This can be done using the ``loc[]`` indexing."
+    "Next we manipulate the first five values of ``TEMP_Celsius`` in our ``w_temps2`` DataFrame to be ``NaN`` (not-a-number). This can be done using the ``loc[]`` indexing."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 19,
+   "execution_count": 60,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -855,7 +826,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 20,
+   "execution_count": 61,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -897,7 +868,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 21,
+   "execution_count": 62,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -927,7 +898,7 @@
    ],
    "source": [
     "w_temps_na_filled = w_temps2.fillna(0)\n",
-    "print(w_temps_na_filled)\n"
+    "print(w_temps_na_filled)"
    ]
   },
   {
@@ -960,7 +931,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 22,
+   "execution_count": 63,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -1017,12 +988,12 @@
     "editable": true
    },
    "source": [
-    "Of course, it is also possible to sort them in descending order with ``ascending=False`` parameter:\n"
+    "Of course, it is also possible to sort them in descending order with `ascending=False` parameter:\n"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
+   "execution_count": 64,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -1087,7 +1058,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 24,
+   "execution_count": 65,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -1150,7 +1121,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 25,
+   "execution_count": 66,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -1163,7 +1134,7 @@
        "array([19., 20., 14., 11., 12., 10., 13., 15., 17., 16., 21.])"
       ]
      },
-     "execution_count": 25,
+     "execution_count": 66,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1195,7 +1166,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 26,
+   "execution_count": 67,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -1226,7 +1197,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 27,
+   "execution_count": 68,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -1264,7 +1235,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 28,
+   "execution_count": 69,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -1285,7 +1256,7 @@
    "source": [
     "\n",
     "Nice, now we have the data from our DataFrame saved to a file:\n",
-    "(TODO ADD IMAGE?)\n",
+    "![file output 1](img/pandas_save_file_result_1.PNG)\n",
     "\n",
     "\n",
     "As you can see, the first value in the datafile contains now the index value of the rows. There are also quite many decimals present in the new columns\n",
@@ -1295,7 +1266,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 29,
+   "execution_count": 70,
    "metadata": {
     "collapsed": true,
     "deletable": true,
@@ -1315,7 +1286,7 @@
    },
    "source": [
     "\n",
-    "Omitting the index can be with ``index=False`` parameter. Specifying how many decimals should be written can be done with ``float_format`` -parameter where text ``%.1f`` defines Pandas to use 1 decimals\n",
+    "Omitting the index can be with `index=False` parameter. Specifying how many decimals should be written can be done with `float_format` -parameter where text `%.1f` defines Pandas to use 1 decimals\n",
     "in all columns when writing the data to a file (changing the value 1 to 2 would write 2 decimals etc.)\n",
     "\n",
     "![Text file with](img/pandas_save_file_result_2.PNG)\n",
@@ -1324,12 +1295,12 @@
     "\n",
     "**DATAFRAME TO EXCEL, PLEASE?**\n",
     "\n",
-    "It is quite common that people (especially non-programmers) want you to deliver data in MS Excel format. Saving DataFrame into Excel is also straightforward in Pandas. First, you need to initialize a specific ``ExcelWriter`` object, and then you specify the filename and the spreadsheet name where you want to save the DataFrame. Optionally, you can also omit the index and specify the float formatting as in our earlier examples:"
+    "It is quite common that people (especially non-programmers) want you to deliver data in MS Excel format. Saving DataFrame into Excel is also straightforward in Pandas. First, you need to initialize a specific `ExcelWriter` object, and then you specify the filename and the spreadsheet name where you want to save the DataFrame. Optionally, you can also omit the index and specify the float formatting as in our earlier examples:"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 30,
+   "execution_count": 71,
    "metadata": {
     "collapsed": true,
     "deletable": true,
@@ -1355,14 +1326,8 @@
    },
    "source": [
     "As a result you have the DataFrame in Excel format in your working directory:\n",
+    "\n",
     "![Excel spreadsheet](img/pandas_save_excel_result_1.PNG)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "That's all for this week's lesson! We will dive deeper into data analysis with pandas next week. In the meanwhile, you can complete Exercise 5, and have a look at [Pandas online documentation](https://pandas.pydata.org/pandas-docs/stable/) for more information."
    ]
   },
   {
