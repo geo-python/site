@@ -802,13 +802,13 @@ regularly needed when doing data analysis.</p>
 start, and focus on a few new aspects of importing data:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [13]:
+<span></span>In [2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="n">fp</span> <span class="o">=</span> <span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span>
 <span class="n">dataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -825,23 +825,11 @@ letter ‘r’ makes sure that the filepath is interpreted correctly.
 Without the r, backslashes are treated as escape characters. With the r,
 backslashes are treated as literal. This happens often if you define
 full filepaths as input. What would for example happen here:
-<code class="docutils literal notranslate"><span class="pre">fp</span> <span class="pre">=</span> <span class="pre">C:\notebooks\L5\Kumpula-June-2016-w-metadata.txt</span></code> ? (try it
+<code class="docutils literal notranslate"><span class="pre">fp</span> <span class="pre">=</span> <span class="pre">'C:\notebooks\L5\Kumpula-June-2016-w-metadata.txt'</span></code> ? (try it
 out!)</p>
 <p>The default delimiter in the read_csv()-function is logically a comma
 (<code class="docutils literal notranslate"><span class="pre">,</span></code>). If needed, you can also define other characers and expressions
 as delimiter. The correct delimiter in our case however is the comma.</p>
-<p>Also, you can write the input filepath directly inside the read_csv()
-function (the code below does exactly the same thing as the code above):</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [14]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">dataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 <div class="section" id="Calculating-with-DataFrames">
 <h2>Calculating with DataFrames<a class="headerlink" href="#Calculating-with-DataFrames" title="Permalink to this headline">¶</a></h2>
 <p>One of the most common things to do in Pandas is to create new columns
@@ -851,11 +839,14 @@ of the column and giving it some default value (in this case decimal
 number 0.0).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [15]:
+<span></span>In [3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;DIFF&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span></span><span class="c1"># Define a new column &quot;DIFF&quot;</span>
+<span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;DIFF&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1"># Print the dataframe</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -901,17 +892,18 @@ number 0.0).</p>
 <p>Let’s check the datatype of our new column</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [16]:
+<span></span>In [4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;DIFF&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtypes</span>
+<span></span><span class="c1"># Check datatypes</span>
+<span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;DIFF&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[16]:
+<span></span>Out[4]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -931,11 +923,14 @@ syntax where we first specify the column that we want to update (i.e.
 have in our dataFrameFrame.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [17]:
+<span></span>In [5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;DIFF&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;MAX&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;MIN&#39;</span><span class="p">]</span>
+<span></span><span class="c1">#Calculate max min difference</span>
+<span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;DIFF&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;MAX&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;MIN&#39;</span><span class="p">]</span>
+
+<span class="c1"># Print the dataframe</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -985,11 +980,14 @@ between minimum temperature (<code class="docutils literal notranslate"><span cl
 day (<code class="docutils literal notranslate"><span class="pre">TEMP</span></code>).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [18]:
+<span></span>In [6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;DIFF_Min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;MIN&#39;</span><span class="p">]</span>
+<span></span><span class="c1"># Calculate difference between temp and min column values</span>
+<span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;DIFF_Min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;MIN&#39;</span><span class="p">]</span>
+
+<span class="c1"># Print the dataframe</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1041,12 +1039,15 @@ column into Celsius using the formula that we have seen already many
 times:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [19]:
+<span></span>In [7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">9</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
+<span></span><span class="c1"># Create a new column and convert temp fahrenheit to celsius:</span>
+<span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">9</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1">#Check output</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1055,37 +1056,12 @@ times:</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-    YEARMODA  TEMP   MAX   MIN  DIFF  DIFF_Min  TEMP_Celsius
-0   20160601  65.5  73.6  54.7  18.9      10.8     18.611111
-1   20160602  65.8  80.8  55.0  25.8      10.8     18.777778
-2   20160603  68.4  77.9  55.6  22.3      12.8     20.222222
-3   20160604  57.5  70.9  47.3  23.6      10.2     14.166667
-4   20160605  51.4  58.3  43.2  15.1       8.2     10.777778
-5   20160606  52.2  59.7  42.8  16.9       9.4     11.222222
-6   20160607  56.9  65.1  45.9  19.2      11.0     13.833333
-7   20160608  54.2  60.4  47.5  12.9       6.7     12.333333
-8   20160609  49.4  54.1  45.7   8.4       3.7      9.666667
-9   20160610  49.5  55.9  43.0  12.9       6.5      9.722222
-10  20160611  54.0  62.1  41.7  20.4      12.3     12.222222
-11  20160612  55.4  64.2  46.0  18.2       9.4     13.000000
-12  20160613  58.3  68.2  47.3  20.9      11.0     14.611111
-13  20160614  59.7  67.8  47.8  20.0      11.9     15.388889
-14  20160615  63.4  70.3  49.3  21.0      14.1     17.444444
-15  20160616  57.8  67.5  55.6  11.9       2.2     14.333333
-16  20160617  60.4  70.7  55.9  14.8       4.5     15.777778
-17  20160618  57.3  62.8  54.0   8.8       3.3     14.055556
-18  20160619  56.3  59.2  54.1   5.1       2.2     13.500000
-19  20160620  59.3  69.1  52.2  16.9       7.1     15.166667
-20  20160621  62.6  71.4  50.4  21.0      12.2     17.000000
-21  20160622  61.7  70.2  55.4  14.8       6.3     16.500000
-22  20160623  60.9  67.1  54.9  12.2       6.0     16.055556
-23  20160624  61.1  68.9  56.7  12.2       4.4     16.166667
-24  20160625  65.7  75.4  57.9  17.5       7.8     18.722222
-25  20160626  69.6  77.7  60.3  17.4       9.3     20.888889
-26  20160627  60.7  70.0  57.6  12.4       3.1     15.944444
-27  20160628  65.4  73.0  55.8  17.2       9.6     18.555556
-28  20160629  65.8  73.2  59.7  13.5       6.1     18.777778
-29  20160630  65.7  72.7  59.2  13.5       6.5     18.722222
+   YEARMODA  TEMP   MAX   MIN  DIFF  DIFF_Min  TEMP_Celsius
+0  20160601  65.5  73.6  54.7  18.9      10.8     18.611111
+1  20160602  65.8  80.8  55.0  25.8      10.8     18.777778
+2  20160603  68.4  77.9  55.6  22.3      12.8     20.222222
+3  20160604  57.5  70.9  47.3  23.6      10.2     14.166667
+4  20160605  51.4  58.3  43.2  15.1       8.2     10.777778
 </pre></div></div>
 </div>
 </div>
@@ -1100,11 +1076,13 @@ done via <strong>index slicing</strong> to extract part of the DataFrame.</p>
 <code class="docutils literal notranslate"><span class="pre">rows5</span></code>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [20]:
+<span></span>In [11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">rows5</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span></span><span class="c1"># Select first five rows of dataframe</span>
+<span class="n">rows5</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">rows5</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1129,11 +1107,13 @@ square brackets <code class="docutils literal notranslate"><span class="pre">sel
 <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> indexing. Here we select all the data values from row 8.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [21]:
+<span></span>In [12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">row8</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+<span></span><span class="c1"># Select one row using index</span>
+<span class="n">row8</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">row8</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1159,12 +1139,12 @@ variables. Hence, you can access the value of an individual column by
 referring to its index using following format (both should work):</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [22]:
+<span></span>In [13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">row8</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">row8</span><span class="o">.</span><span class="n">YEARMODA</span><span class="p">)</span>
+<span></span><span class="c1">#Print one attribute from the selected row</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">row8</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1174,18 +1154,19 @@ referring to its index using following format (both should work):</p>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 49.4
-20160609.0
 </pre></div></div>
 </div>
 <p>It is also possible to select multiple rows simultaniously. Here, we
 select only temperature values (<code class="docutils literal notranslate"><span class="pre">TEMP</span></code>) between indices of 5-10:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [23]:
+<span></span>In [14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">temps_5to10</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;TEMP&#39;</span><span class="p">]</span>
+<span></span><span class="c1"># Select temp column values between indices 5 and 10</span>
+<span class="n">temps_5to10</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;TEMP&#39;</span><span class="p">]</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">temps_5to10</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1209,11 +1190,13 @@ Here, we select <code class="docutils literal notranslate"><span class="pre">TEM
 them inside a list (<code class="docutils literal notranslate"><span class="pre">.loc[start_index:stop_index,</span> <span class="pre">list_of_columns]</span></code>):</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [24]:
+<span></span>In [15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">temps_5to10</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]]</span>
+<span></span><span class="c1"># Select temp and temp_celsius column values between indices 5 and 10</span>
+<span class="n">temps_5to10</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]]</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">temps_5to10</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1237,11 +1220,13 @@ done by simply referring to the dataFrame and inserting a list of
 columns inside the square brackets that you want to include.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [25]:
+<span></span>In [16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">temps_only</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]]</span>
+<span></span><span class="c1"># Select all rows from temp and temp_celsius columns</span>
+<span class="n">temps_only</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]]</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">temps_only</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1293,11 +1278,12 @@ shows how to select rows when the Celsius temperature has been higher
 than 15 degrees into variable <code class="docutils literal notranslate"><span class="pre">w_temps</span></code> (warm temperatures).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [26]:
+<span></span>In [17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">w_temps</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">]</span>
+<span></span><span class="c1"># Select rows with temp celsius higher than 15 degrees</span>
+<span class="n">w_temps</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">w_temps</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1335,11 +1321,12 @@ Notice, that it is often useful to separate the different clauses inside
 the parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [27]:
+<span></span>In [19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">w_temps2</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;YEARMODA&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">20160615</span><span class="p">)]</span>
+<span></span><span class="c1"># Select rows with temp celsius higher than 15 degrees from late June 2016</span>
+<span class="n">w_temps2</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;YEARMODA&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">20160615</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">w_temps2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1377,11 +1364,12 @@ to keep track on the previous index which might be useful in some cases
 but here not, so we can omit that by passing parameter <code class="docutils literal notranslate"><span class="pre">drop=True</span></code>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [28]:
+<span></span>In [20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">w_temps2</span> <span class="o">=</span> <span class="n">w_temps2</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span><span class="c1"># Reset index</span>
+<span class="n">w_temps2</span> <span class="o">=</span> <span class="n">w_temps2</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">w_temps2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1416,11 +1404,12 @@ but here not, so we can omit that by passing parameter <code class="docutils lit
 using the <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> indexing.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [29]:
+<span></span>In [21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">w_temps2</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span><span class="c1"># Set temp_celsius as none in the first five rows</span>
+<span class="n">w_temps2</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">w_temps2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1461,11 +1450,13 @@ data) using <code class="docutils literal notranslate"><span class="pre">dropna(
 should be searched from.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [30]:
+<span></span>In [22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">w_temps_clean</span> <span class="o">=</span> <span class="n">w_temps2</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">])</span>
+<span></span><span class="c1"># Drop no data values based on temp_celsius column</span>
+<span class="n">w_temps_clean</span> <span class="o">=</span> <span class="n">w_temps2</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">])</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">w_temps_clean</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1492,13 +1483,14 @@ values.</p>
 -function. Here we fill it with value 0.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [31]:
+<span></span>In [23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">w_temps_na_filled</span> <span class="o">=</span> <span class="n">w_temps2</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">w_temps_na_filled</span><span class="p">)</span>
+<span></span><span class="c1"># Fill na values with 0</span>
+<span class="n">w_temps_na_filled</span> <span class="o">=</span> <span class="n">w_temps2</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="n">w_temps_na_filled</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1541,11 +1533,13 @@ done with Pandas using <code class="docutils literal notranslate"><span class="p
 column:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [32]:
+<span></span>In [24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sorted_temp_a</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;TEMP&#39;</span><span class="p">)</span>
+<span></span><span class="c1"># Sort dataframe, ascending</span>
+<span class="n">sorted_temp_a</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;TEMP&#39;</span><span class="p">)</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">sorted_temp_a</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1592,11 +1586,12 @@ column:</p>
 <code class="docutils literal notranslate"><span class="pre">ascending=False</span></code> parameter:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [33]:
+<span></span>In [25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sorted_temp_d</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span><span class="c1"># Sort dataframe, descending</span>
+<span class="n">sorted_temp_d</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sorted_temp_d</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1646,11 +1641,12 @@ column:</p>
 Here we round the Celsius temperatures with 0-decimals</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [34]:
+<span></span>In [28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;Celsius_rounded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span></span><span class="c1"># Create new column, and round celsius values</span>
+<span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;Celsius_rounded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1698,18 +1694,19 @@ extract the unique values that you have in your column. We can do that
 by using <code class="docutils literal notranslate"><span class="pre">unique_values()</span></code> -function:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [35]:
+<span></span>In [29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">unique</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;Celsius_rounded&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span></span><span class="c1"># Get unique celsius values</span>
+<span class="n">unique</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;Celsius_rounded&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 <span class="n">unique</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[35]:
+<span></span>Out[29]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1724,11 +1721,12 @@ is, however, possible to see all those values by printing them as a
 list:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [36]:
+<span></span>In [30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">unique</span><span class="p">))</span>
+<span></span><span class="c1"># unique values as list</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">unique</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1748,7 +1746,8 @@ can check that!</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">uniq_temp_days</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique</span><span class="p">)</span>
+<span></span><span class="c1"># Number of unique values</span>
+<span class="n">uniq_temp_days</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There were&quot;</span><span class="p">,</span> <span class="n">uniq_temp_days</span><span class="p">,</span> <span class="s2">&quot;days with unique mean temperatures in June 2016.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1778,13 +1777,15 @@ can be used to easily save your data in CSV format.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">output_fp</span> <span class="o">=</span> <span class="s2">&quot;Kumpula_temps_June_2016.csv&quot;</span>
+<span></span><span class="c1"># define output filename</span>
+<span class="n">output_fp</span> <span class="o">=</span> <span class="s2">&quot;Kumpula_temps_June_2016.csv&quot;</span>
+
+<span class="c1"># Save dataframe to csv</span>
 <span class="n">dataFrame</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<p>Nice, now we have the data from our DataFrame saved to a file: (TODO ADD
-IMAGE?)</p>
+<p>Nice, now we have the data from our DataFrame saved to a file: <img alt="Text file output1" src="../../../_images/pandas_save_file_result_2.PNG" /></p>
 <p>As you can see, the first value in the datafile contains now the index
 value of the rows. There are also quite many decimals present in the new
 columns that we created. Let’s deal with these and save the temperature
@@ -1792,7 +1793,7 @@ values from <code class="docutils literal notranslate"><span class="pre">w_temps
 decimal in the floating point numbers.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [39]:
+<span></span>In [31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1807,8 +1808,8 @@ many decimals should be written can be done with <code class="docutils literal n
 columns when writing the data to a file (changing the value 1 to 2 would
 write 2 decimals etc.)</p>
 <div class="figure" id="id2">
-<img alt="Text file with" src="notebooks/L5/pandas/img/pandas_save_file_result_2.PNG" />
-<p class="caption"><span class="caption-text">Text file with</span></p>
+<img alt="Text file output2" src="../../../_images/pandas_save_file_result_2.PNG" />
+<p class="caption"><span class="caption-text">Text file output2</span></p>
 </div>
 <p>As a results you have a “cleaner” output file without the index column,
 and with only 1 decimal for floating point numbers.</p>
@@ -1840,7 +1841,7 @@ earlier examples:</p>
 <p>As a result you have the DataFrame in Excel format in your working
 directory:</p>
 <div class="figure" id="id3">
-<img alt="Excel spreadsheet" src="notebooks/L5/pandas/img/pandas_save_excel_result_1.PNG" />
+<img alt="Excel spreadsheet" src="../../../_images/pandas_save_excel_result_1.PNG" />
 <p class="caption"><span class="caption-text">Excel spreadsheet</span></p>
 </div>
 </div>
