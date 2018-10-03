@@ -136,3 +136,12 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     notebooks/L4/modules.ipynb
     notebooks/L4/writing-scripts.ipynb
     lessons/L4/exercise-4
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 5
+
+    lessons/L5/overview
+    lessons/L5/numpy
+    lessons/L5/pandas
+    lessons/L5/exercise-5
