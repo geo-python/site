@@ -450,7 +450,15 @@
 </ul>
 <p class="caption"><span class="caption-text">Lesson 5</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Lesson overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#lecture-videos">Lecture videos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#pandas">Pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#numpy">NumPy</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="numpy.html">NumPy lesson</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html">Exploring data using NumPy</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#What-is-NumPy?">What is NumPy?</a></li>
@@ -525,7 +533,11 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Exercise 5</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#exercise-5-hints-for-pandas">Exercise 5 hints for PANDAS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-5-hints-for-pandas">Exercise 5 hints for Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-5-hints-for-numpy">Exercise 5 hints for NumPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#formatting-output-to-written-to-files">Formatting output to written to files</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -621,18 +633,17 @@
 <h1>Exercise 5<a class="headerlink" href="#exercise-5" title="Permalink to this headline">¶</a></h1>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">Please feel free to use the link below to create your personal copy of this assignment using GitHub Classroom.
-However, note that <strong>we provide assignment feedback only for students enrolled in the course at the University of Helsinki</strong>.</p>
+<p class="last">Please note that <strong>we provide assignment feedback only for students enrolled in the course at the University of Helsinki</strong>.</p>
 </div>
 <div class="admonition-start-your-assignment admonition">
 <p class="first admonition-title">Start your assignment</p>
-<p>You can start working on your copy of Exercise 5 by <a class="reference external" href="https://classroom.github.com/a/xlPEDOv7">accepting the GitHub Classroom assignment</a>.</p>
+<p><strong>You can start working on your copy of Exercise 5 by</strong> <a class="reference external" href="https://classroom.github.com/a/xlPEDOv7">accepting the GitHub Classroom assignment</a>.</p>
 <p class="last"><strong>Exercise 5 is due by the start of lecture in week 6</strong>.</p>
 </div>
 <p>You can also take a look at the open course copy of <a class="reference external" href="https://github.com/Geo-Python-2018/Exercise-5">Exercise 5 in the course GitHub repository</a> (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.</p>
 <div class="section" id="exercise-5-hints-for-pandas">
-<h2>Exercise 5 hints for PANDAS<a class="headerlink" href="#exercise-5-hints-for-pandas" title="Permalink to this headline">¶</a></h2>
+<h2>Exercise 5 hints for Pandas<a class="headerlink" href="#exercise-5-hints-for-pandas" title="Permalink to this headline">¶</a></h2>
 <p>Below are some tips for working on Exercise 5.</p>
 <p>Selecting date ranges</p>
 <p>In the Problem 4 part 2, the aim is to select rows that belong to certain month. The key here is to understand that
@@ -643,6 +654,24 @@ year of the observation, <code class="docutils literal notranslate"><span class=
 </pre></div>
 </div>
 <p>Here, the value <code class="docutils literal notranslate"><span class="pre">201708010000</span></code> corresponds to the first day of August at 00:00 hour.</p>
+</div>
+<div class="section" id="exercise-5-hints-for-numpy">
+<h2>Exercise 5 hints for NumPy<a class="headerlink" href="#exercise-5-hints-for-numpy" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="formatting-output-to-written-to-files">
+<h3>Formatting output to written to files<a class="headerlink" href="#formatting-output-to-written-to-files" title="Permalink to this headline">¶</a></h3>
+<p>You can specify the format of the saved data using the <code class="docutils literal notranslate"><span class="pre">fmt</span></code> parameter with <code class="docutils literal notranslate"><span class="pre">np.savetxt()</span></code>.
+Let’s consider an example.
+We have two columns in a NumPy array called <code class="docutils literal notranslate"><span class="pre">data</span></code> that we would like to output to a file called <code class="docutils literal notranslate"><span class="pre">test.csv</span></code>.
+The first column contains integer values, the second are floating point values that we would like to round to 4 decimal places.
+We could create a comma-separated data file as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;test.csv&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%i</span><span class="s1">, </span><span class="si">%.4f</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this case, the <code class="docutils literal notranslate"><span class="pre">fmt</span></code> parameter should contain two values separated by a comma, one for each output format.
+The <code class="docutils literal notranslate"><span class="pre">%</span></code> sign indicates a variable for the output (one of the columns), <code class="docutils literal notranslate"><span class="pre">i</span></code> indicates an integer value, and <code class="docutils literal notranslate"><span class="pre">.4f</span></code> indicates a floating point value with 4 numbers after the decimal point.</p>
+<p>You can find additional data about formatting output at <a class="reference external" href="https://pyformat.info/">https://pyformat.info</a>.
+NumPy, for example, uses the “old” formatting style mentioned on that site.</p>
+</div>
 </div>
 </div>
 

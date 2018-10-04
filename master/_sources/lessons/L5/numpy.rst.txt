@@ -7,6 +7,5 @@ These materials are intended for students continuing on to the **Introduction to
 .. toctree::
     :maxdepth: 2
 
-    numpy-overview
     ../../notebooks/L5/numpy/1-Exploring-data-using-numpy.ipynb
     ../../notebooks/L5/numpy/2-Processing-data-with-NumPy.ipynb
