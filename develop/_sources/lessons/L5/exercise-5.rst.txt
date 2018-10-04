@@ -3,12 +3,11 @@ Exercise 5
 
 .. warning::
 
-    Please feel free to use the link below to create your personal copy of this assignment using GitHub Classroom.
-    However, note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
+    Please note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
 
 .. admonition:: Start your assignment
 
-    You can start working on your copy of Exercise 5 by `accepting the GitHub Classroom assignment <https://classroom.github.com/a/xlPEDOv7>`__.
+    **You can start working on your copy of Exercise 5 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/xlPEDOv7>`__.
 
     **Exercise 5 is due by the start of lecture in week 6**.
 
@@ -16,8 +15,8 @@ You can also take a look at the open course copy of `Exercise 5 in the course Gi
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
 
-Exercise 5 hints for PANDAS
-----------------------------
+Exercise 5 hints for Pandas
+---------------------------
 
 Below are some tips for working on Exercise 5.
 
@@ -35,3 +34,26 @@ Using these values it is possible to make simple mathematical queries such as fi
     august_values = data.loc[data['YR--MODAHRMN'] >= 201708010000]
 
 Here, the value ``201708010000`` corresponds to the first day of August at 00:00 hour.
+
+Exercise 5 hints for NumPy
+---------------------------
+
+Formatting output to written to files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can specify the format of the saved data using the ``fmt`` parameter with ``np.savetxt()``.
+Let's consider an example.
+We have two columns in a NumPy array called ``data`` that we would like to output to a file called ``test.csv``.
+The first column contains integer values, the second are floating point values that we would like to round to 4 decimal places.
+We could create a comma-separated data file as follows:
+
+.. code:: python
+
+    np.savetxt('test.csv', data, delimiter=',', fmt='%i, %.4f')
+
+In this case, the ``fmt`` parameter should contain two values separated by a comma, one for each output format.
+The ``%`` sign indicates a variable for the output (one of the columns), ``i`` indicates an integer value, and ``.4f`` indicates a floating point value with 4 numbers after the decimal point.
+
+You can find additional data about formatting output at `https://pyformat.info
+<https://pyformat.info/>`_.
+NumPy, for example, uses the "old" formatting style mentioned on that site.
