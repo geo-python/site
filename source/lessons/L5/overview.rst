@@ -18,7 +18,7 @@ We recommend that students continuing on to the **Automating GIS processes** cou
 Those continuing on in the **Introduction to Quantitative Geology** course should follow the **NumPy** lessons.
 
 1. `Exploring data using NumPy <../../notebooks/L5/1-Exploring-data-using-numpy.ipynb>`_
-2. `Processing data with Pandas <../../notebooks/L5/2-Processing-data-with-numpy.ipynb>`_
+2. `Processing data with Pandas <../../notebooks/L5/2-Processing-data-with-NumPy.ipynb>`_
 3. :doc:`Exercise 5: Data analysis I <exercise-5>`
 
 Learning goals
