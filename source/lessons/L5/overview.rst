@@ -10,7 +10,7 @@ to make data analysis and manipulation straightforward and powerful using easy-t
 
 We recommend that students continuing on to the **Automating GIS processes** course follow the lessons using **Pandas** below.
 
-1. `What is Pandas? <pandas-overview>`_
+1. :doc:`What is Pandas? <pandas-overview>`
 2. `Exploring data using Pandas <../../notebooks/L5/Exploring-data-using-pandas.ipynb>`_
 3. `Processing data with Pandas <../../notebooks/L5/Processing-data-with-pandas.ipynb>`_
 4. :doc:`Exercise 5: Data analysis I <exercise-5>`
