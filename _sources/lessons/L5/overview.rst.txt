@@ -33,7 +33,20 @@ Lecture videos
 Pandas
 ~~~~~~
 
-Pandas lesson videos coming soon...
+.. admonition:: Lesson 5.1P - Exploring data using Pandas
+
+    .. raw:: html
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ChBmDtYHEXk?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <p>Dave Whipp & Henrikki Tenkanen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+
+.. admonition:: Lesson 5.2P - Processing data with Pandas
+
+    .. raw:: html
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/76Q73sbiw7I?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <p>Dave Whipp & Henrikki Tenkanen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+
 
 NumPy
 ~~~~~
@@ -51,3 +64,18 @@ NumPy
 
         <iframe width="560" height="315" src="https://www.youtube.com/embed/wyDwIZQzfi8?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <p>Dave Whipp & Henrikki Tenkanen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+
+.. admonition:: Lesson 5.3 - Exercise 5 preview
+
+    .. raw:: html
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/25hURxi1Epw?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <p>Dave Whipp & Henrikki Tenkanen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+
+.. admonition:: Lesson 5.4 - Exercise 4 review
+
+    .. raw:: html
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/2gKg394s5fk?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <p>Dave Whipp & Henrikki Tenkanen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+
