@@ -1,10 +1,24 @@
-Hints for Exercise 6
-====================
+Exercise 6
+==========
 
-Below are some tips for working on Exercise 6.
+.. warning::
+
+    Please note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
+
+.. admonition:: Start your assignment
+
+    **You can start working on your copy of Exercise 6 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/xlPEDOv7>`__.
+
+    **Exercise 6 is due by the start of lecture in week 7**.
+
+You can also take a look at the open course copy of `Exercise 6 in the course GitHub repository <https://github.com/Geo-Python-2018/Exercise-6>`__ (does not require logging in).
+Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
+
+Exercise 6 hints for Pandas
+---------------------------
 
 Data format for problems 1-3
-----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The first 5 rows of the data file look like the following:
 
@@ -21,14 +35,14 @@ Dates of the observations are given in the format YYYYMMDD.
 No-data values are indicated with ``-9999``.
 
 Reading in fixed-width text files
----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Rather than having separation by commas, our data file this week has a variable number of spaces between values.
 Previously, we read in comma-separated values using the option ``sep=','`` for the Pandas ``read_csv()`` function.
 For a variable number of spaces, we can simply change the ``sep`` value to be ``sep='\s+'``.
 
 Skipping the second row of a file
----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The ``skiprows=n`` option of the Pandas ``read_csv()`` function is an easy way to skip the first *n* rows of a file when reading it.
 If we wanted to skip the first two rows of our data file, we could thus use ``skiprows=2``.
@@ -37,7 +51,7 @@ In this way, one can skip reading the second row of a file using a list with an 
 In other words, you can use ``skiprows=[1]``.
 
 Joining data from one DataFrame to another
-------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 One quite useful functionality in Pandas is the ability to conduct a **table join**
 where data from one DataFrame is merged with another DataFrame based on a common **key**.
