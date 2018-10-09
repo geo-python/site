@@ -145,3 +145,12 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     lessons/L5/numpy
     lessons/L5/pandas
     lessons/L5/exercise-5
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 6
+
+    lessons/L6/overview
+
+    lessons/L5/pandas
+    lessons/L5/exercise-5
