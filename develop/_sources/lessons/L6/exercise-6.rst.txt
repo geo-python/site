@@ -22,7 +22,7 @@ Data format for problems 1-3
 
 The first 5 rows of the data file look like the following:
 
-.. code::
+.. code:: python
 
     STATION           ELEVATION  LATITUDE   LONGITUDE  DATE     PRCP     TAVG     TMAX     TMIN     
     ----------------- ---------- ---------- ---------- -------- -------- -------- -------- -------- 
