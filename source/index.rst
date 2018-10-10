@@ -142,8 +142,8 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     :caption: Lesson 5
 
     lessons/L5/overview
-    lessons/L5/numpy
     lessons/L5/pandas
+    lessons/L5/numpy
     lessons/L5/exercise-5
 
 .. toctree::
@@ -151,6 +151,8 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     :caption: Lesson 6
 
     lessons/L6/overview
-
     lessons/L5/pandas
-    lessons/L5/exercise-5
+    lessons/L6/numpy
+    lessons/L6/interpreting-errors
+    lessons/L6/debugging-scripts
+    lessons/L5/exercise-6
