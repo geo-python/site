@@ -11,13 +11,10 @@ to make data analysis and manipulation straightforward and powerful using easy-t
 We recommend that students continuing on to the **Automating GIS processes** course follow the lessons using **Pandas** below.
 
 1. :doc:`Pandas lesson <pandas>`
-2. :doc:`Exercise 6: Data analysis II <exercise-6>`
 
 Those continuing on in the **Introduction to Quantitative Geology** course should follow the **NumPy** lessons.
 
 1. :doc:`NumPy lesson <numpy>`
-2. :doc:`Exercise 6: Data analysis II <exercise-6>`
-
 
 In the second half of the lesson we will focus on debugging.
 Many new programmers struggle with removing problems in their code (debugging) because they start randomly making changes without a clear picture of what is wrong or even what the code should do!
@@ -25,7 +22,7 @@ By learning a few basic ideas about debugging and interpreting error messages, w
 
 1. :doc:`Interpreting error messages <interpreting-errors>`
 2. :doc:`Debugging your scripts <debugging-scripts>`
-3. :doc:`Exercise 6 <exercise-6>`
+3. :doc:`Exercise 6: Data analysis II <exercise-6>`
 
 Learning goals
 --------------
