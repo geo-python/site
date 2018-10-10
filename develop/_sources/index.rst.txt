@@ -155,4 +155,4 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     lessons/L6/numpy
     lessons/L6/interpreting-errors
     lessons/L6/debugging-scripts
-    lessons/L5/exercise-6
+    lessons/L6/exercise-6
