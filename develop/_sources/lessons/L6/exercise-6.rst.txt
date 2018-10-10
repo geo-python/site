@@ -7,9 +7,9 @@ Exercise 6
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 6 by** accepting the GitHub Classroom assignment (link will be posted soon...).
+    **You can start working on your copy of Exercise 6 by** accepting `the GitHub Classroom assignment <https://classroom.github.com/a/afub-sCk>`__.
 
-    **Exercise 6 is due by the start of lecture in week 7**.
+    **Exercise 6 is due by 16:00 on Wednesday 17.10**.
 
 You can also take a look at the open course copy of `Exercise 6 in the course GitHub repository <https://github.com/Geo-Python-2018/Exercise-6>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
