@@ -25,15 +25,14 @@ By learning a few basic ideas about debugging and interpreting error messages, w
 
 1. :doc:`Interpreting error messages <interpreting-errors>`
 2. :doc:`Debugging your scripts <debugging-scripts>`
-3. :doc:`Exercise 6 <ex-6>`
-4. :doc:`Hints for Exercise 6 <exercise-6-hints>`
+3. :doc:`Exercise 6 <exercise-6>`
 
 Learning goals
 --------------
 
 After this weeks lesson your should be able to:
 
-- Analyze data in Python using different functions of Pandas
+- Analyze data in Python using different functions of Pandas/NumPy
 - Understand common Python errors
 - Follow a simple set of guidelines to debug programs efficiently
 
