@@ -1,7 +1,7 @@
 Lesson overview
 ===============
 
-In this lesson we will continue to develop our data analysis skills using `Pandas <http://pandas.pydata.org/>`__ and also learn a bit about debugging our scripts and interpreting errors.
+In this lesson we will continue to develop our data analysis skills and also learn a bit about debugging our scripts and interpreting errors.
 
 This year we're teaching these concepts using your choice of two different Python module options: **Pandas** and **NumPy**.
 `Pandas <http://pandas.pydata.org/>`__ is a modern and feature rich data analysis framework for Python that is designed
@@ -10,11 +10,11 @@ to make data analysis and manipulation straightforward and powerful using easy-t
 
 We recommend that students continuing on to the **Automating GIS processes** course follow the lessons using **Pandas** below.
 
-1. :doc:`Pandas lesson <pandas>`
+- :doc:`Pandas lesson <pandas>`
 
 Those continuing on in the **Introduction to Quantitative Geology** course should follow the **NumPy** lessons.
 
-1. :doc:`NumPy lesson <numpy>`
+- :doc:`NumPy lesson <numpy>`
 
 In the second half of the lesson we will focus on debugging.
 Many new programmers struggle with removing problems in their code (debugging) because they start randomly making changes without a clear picture of what is wrong or even what the code should do!
