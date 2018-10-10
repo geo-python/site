@@ -7,7 +7,7 @@ Exercise 6
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 6 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/xlPEDOv7>`__.
+    **You can start working on your copy of Exercise 6 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/afub-sCk>`__.
 
     **Exercise 6 is due by the start of lecture in week 7**.
 
