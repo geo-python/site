@@ -7,5 +7,4 @@ These materials are intended for students continuing on to the **Automating GIS 
 .. toctree::
     :maxdepth: 2
 
-    pandas-overview
-    ../../notebooks/L6/pandas/source/advanced-data-processing-with-pandas.ipynb
+    ../../notebooks/L6/pandas/advanced-data-processing-with-pandas.ipynb
