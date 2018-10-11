@@ -762,12 +762,30 @@ Closing files is important because sometimes the final changes made to a file wi
 What does that mean?
 Well, this means that we now have a variable <code class="docutils literal notranslate"><span class="pre">data</span></code> that contains the entire contents of our data file (<code class="docutils literal notranslate"><span class="pre">Kumpula-June-2016-w-metadata.txt</span></code>).
 Thus, if we save the script above as <code class="docutils literal notranslate"><span class="pre">readall.py</span></code> and run it in <strong>Spyder</strong>, we should see the following output to the IPython console when we print out the contents of <code class="docutils literal notranslate"><span class="pre">data</span></code>:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-1-dbd883db58b7&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;data&#39; is not defined
+</pre></div>
+</div>
 <p>No surprises here, this looks like the contents of the <code class="docutils literal notranslate"><span class="pre">Kumpula-June-2016-w-metadata.txt</span></code> data file.
 If you want to confirm, you’re welcome to open that file in the <strong>Spyder</strong> editor.
 Note that you may have to set <strong>Files of type</strong> to be “All files (*)” in the <strong>Open file</strong> window to see the data files.</p>
 </li>
 <li><p class="first">As mentioned, <code class="docutils literal notranslate"><span class="pre">file.read()</span></code> is a <em>method</em> for file objects that reads all data in as a single (potentially very long) character string.
 You can confirm this using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-2-b5f01a7c0d9a&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;data&#39; is not defined
+</pre></div>
+</div>
 <p>Obviously, it is nice to read the entire file at once, but this may be a problem for very large data files that may not fit in memory on the computer.</p>
 </li>
 <li><p class="first">To convert our character string <code class="docutils literal notranslate"><span class="pre">data</span></code> into a more usable format in which each line is a separate value in a Python list, we can use the <code class="docutils literal notranslate"><span class="pre">str.splitlines()</span></code> method.
@@ -790,6 +808,15 @@ Thus, we can create a list <code class="docutils literal notranslate"><span clas
 </div>
 <p>Now each line of the data file will be a character string in the list <code class="docutils literal notranslate"><span class="pre">dataList</span></code>.
 We can confirm this by running the example above and printing out the contents of dataLits, which should output the following to the IPython console:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataList</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-3-70473fa8d2b8&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">dataList</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;dataList&#39; is not defined
+</pre></div>
+</div>
 <p>We are now ready to start interacting with our file data.</p>
 </li>
 </ol>
