@@ -716,8 +716,8 @@
 </div>
 <div class="admonition-start-your-assignment admonition">
 <p class="first admonition-title">Start your assignment</p>
-<p><strong>You can start working on your copy of Exercise 6 by</strong> accepting the GitHub Classroom assignment (link will be posted soon…).</p>
-<p class="last"><strong>Exercise 6 is due by the start of lecture in week 7</strong>.</p>
+<p><strong>You can start working on your copy of Exercise 6 by</strong> accepting <a class="reference external" href="https://classroom.github.com/a/afub-sCk">the GitHub Classroom assignment</a>.</p>
+<p class="last"><strong>Exercise 6 is due by 16:00 on Wednesday 17.10</strong>.</p>
 </div>
 <p>You can also take a look at the open course copy of <a class="reference external" href="https://github.com/Geo-Python-2018/Exercise-6">Exercise 6 in the course GitHub repository</a> (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.</p>
@@ -726,6 +726,13 @@ Note that you should not try to make changes to this copy of the exercise, but r
 <div class="section" id="data-format-for-problems-1-3">
 <h3>Data format for problems 1-3<a class="headerlink" href="#data-format-for-problems-1-3" title="Permalink to this headline">¶</a></h3>
 <p>The first 5 rows of the data file look like the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">STATION</span>           <span class="n">ELEVATION</span>  <span class="n">LATITUDE</span>   <span class="n">LONGITUDE</span>  <span class="n">DATE</span>     <span class="n">PRCP</span>     <span class="n">TAVG</span>     <span class="n">TMAX</span>     <span class="n">TMIN</span>
+<span class="o">-----------------</span> <span class="o">----------</span> <span class="o">----------</span> <span class="o">----------</span> <span class="o">--------</span> <span class="o">--------</span> <span class="o">--------</span> <span class="o">--------</span> <span class="o">--------</span>
+<span class="n">GHCND</span><span class="p">:</span><span class="n">FIE00142080</span>         <span class="mi">51</span>    <span class="mf">60.3269</span>    <span class="mf">24.9603</span> <span class="mi">19520101</span> <span class="mf">0.31</span>     <span class="mi">37</span>       <span class="mi">39</span>       <span class="mi">34</span>
+<span class="n">GHCND</span><span class="p">:</span><span class="n">FIE00142080</span>         <span class="mi">51</span>    <span class="mf">60.3269</span>    <span class="mf">24.9603</span> <span class="mi">19520102</span> <span class="o">-</span><span class="mi">9999</span>    <span class="mi">35</span>       <span class="mi">37</span>       <span class="mi">34</span>
+<span class="n">GHCND</span><span class="p">:</span><span class="n">FIE00142080</span>         <span class="mi">51</span>    <span class="mf">60.3269</span>    <span class="mf">24.9603</span> <span class="mi">19520103</span> <span class="mf">0.14</span>     <span class="mi">33</span>       <span class="mi">36</span>       <span class="o">-</span><span class="mi">9999</span>
+</pre></div>
+</div>
 <p>As you can see, we have rainfall data (<code class="docutils literal notranslate"><span class="pre">PRCP</span></code>) in inches, and temperature data (<code class="docutils literal notranslate"><span class="pre">TAVG</span></code>, <code class="docutils literal notranslate"><span class="pre">TMAX</span></code>, and <code class="docutils literal notranslate"><span class="pre">TMIN</span></code>) in degrees Fahrenheit.
 Dates of the observations are given in the format YYYYMMDD.
 No-data values are indicated with <code class="docutils literal notranslate"><span class="pre">-9999</span></code>.</p>
@@ -751,8 +758,39 @@ where data from one DataFrame is merged with another DataFrame based on a common
 Hence, making a table join requires that you have at least one common variable in both
 of the DataFrames that can be used to combine the data together.</p>
 <p>Consider a following example. Let’s first create some test data to our DataFrames.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">data1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;20170101&#39;</span><span class="p">,</span> <span class="s1">&#39;Pluto&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;20170102&#39;</span><span class="p">,</span> <span class="s1">&#39;Panda&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;20170103&#39;</span><span class="p">,</span> <span class="s1">&#39;Snoopy&#39;</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="s1">&#39;Favourite_dog&#39;</span><span class="p">])</span>
+
+<span class="gp">In [2]: </span><span class="n">data2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;20170101&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;20170101&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;20170102&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;20170104&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;20170104&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="s1">&#39;Value&#39;</span><span class="p">])</span>
+
+<span class="gp">In [3]: </span><span class="n">data1</span>
+<span class="gh">Out[3]: </span><span class="go"></span>
+<span class="go">       Time Favourite_dog</span>
+<span class="go">0  20170101         Pluto</span>
+<span class="go">1  20170102         Panda</span>
+<span class="go">2  20170103        Snoopy</span>
+
+<span class="gp">In [4]: </span><span class="n">data2</span>
+<span class="go">                                                                                                                 Out[4]: </span>
+<span class="go">       Time  Value</span>
+<span class="go">0  20170101      1</span>
+<span class="go">1  20170101      2</span>
+<span class="go">2  20170102      3</span>
+<span class="go">3  20170104      3</span>
+<span class="go">4  20170104      8</span>
+</pre></div>
+</div>
 <p>As we can see here, there different number of rows in the DataFrames. Important thing to notice is that there seems to be a common column called <code class="docutils literal notranslate"><span class="pre">Time</span></code> that we can use to
 join these DataFrames together. In Pandas we can conduct a table join with <code class="docutils literal notranslate"><span class="pre">merge</span></code> -function. Consider following example where we join the data <strong>from</strong> <code class="docutils literal notranslate"><span class="pre">data2</span></code> DataFrame <strong>to</strong> <code class="docutils literal notranslate"><span class="pre">data1</span></code> DataFrame.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">join1</span> <span class="o">=</span> <span class="n">data1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+
+<span class="gp">In [6]: </span><span class="n">join1</span>
+<span class="gh">Out[6]: </span><span class="go"></span>
+<span class="go">       Time Favourite_dog  Value</span>
+<span class="go">0  20170101         Pluto      1</span>
+<span class="go">1  20170101         Pluto      2</span>
+<span class="go">2  20170102         Panda      3</span>
+</pre></div>
+</div>
 <p>Ahaa! Now we can see that we managed to get the <code class="docutils literal notranslate"><span class="pre">Value</span></code> column from <code class="docutils literal notranslate"><span class="pre">data2</span></code> in our <code class="docutils literal notranslate"><span class="pre">data1</span></code> DataFrame (here we just assigned those values to a new variable <code class="docutils literal notranslate"><span class="pre">join1</span></code>).
 Notice also that the <code class="docutils literal notranslate"><span class="pre">Pluto</span></code> is two times in the joined DataFrame although, it was only once in the original one. Hence, Pandas automatically duplicates the values in such
 columns where there are more matching values in one DataFrame compared to the other.</p>
@@ -760,6 +798,19 @@ columns where there are more matching values in one DataFrame compared to the ot
 This might be okey, but in some cases it is useful to also bring <strong>all</strong> values from another DataFrame even though there would not be a matching value in the column that used for making the join (i.e. the <code class="docutils literal notranslate"><span class="pre">key</span></code>).</p>
 <p>We can bring all the values from another DataFrame by specifyin parameter <code class="docutils literal notranslate"><span class="pre">how='outer'</span></code>, i.e. we will make an <strong>outer</strong> join.
 Let’s consider another example with the outer join.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">join2</span> <span class="o">=</span> <span class="n">data1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+
+<span class="gp">In [8]: </span><span class="n">join2</span>
+<span class="gh">Out[8]: </span><span class="go"></span>
+<span class="go">       Time Favourite_dog  Value</span>
+<span class="go">0  20170101         Pluto    1.0</span>
+<span class="go">1  20170101         Pluto    2.0</span>
+<span class="go">2  20170102         Panda    3.0</span>
+<span class="go">3  20170103        Snoopy    NaN</span>
+<span class="go">4  20170104           NaN    3.0</span>
+<span class="go">5  20170104           NaN    8.0</span>
+</pre></div>
+</div>
 <p>Cool! Nowe we have all the values included from both DataFrames and if Pandas did not find a common value in the <code class="docutils literal notranslate"><span class="pre">key</span></code> column, it still kept them and inserted <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values into <code class="docutils literal notranslate"><span class="pre">Favourite_dog</span></code> column and <code class="docutils literal notranslate"><span class="pre">Value</span></code> column.
 Overall, knowing how to conduct a table join can be really handy in many different situations.
 See more examples and documentation from <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/merging.html">official documentation of Pandas</a>.</p>
