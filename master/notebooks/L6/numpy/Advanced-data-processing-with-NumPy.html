@@ -546,11 +546,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../lessons/L6/overview.html">Lesson overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../lessons/L6/overview.html#learning-goals">Learning goals</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../lessons/L6/overview.html#lesson-videos">Lesson videos</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../lessons/L6/overview.html#pandas">Pandas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../lessons/L6/overview.html#numpy">Numpy</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../lessons/L6/overview.html#lesson-videos">Lesson videos</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../lessons/L6/pandas.html">Pandas lesson</a><ul>
@@ -578,14 +574,24 @@
 <li class="toctree-l3"><a class="reference internal" href="#Examining-our-data">Examining our data</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Basic-observations">Basic observations</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Checking-for-missing/bad-data">Checking for missing/bad data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Calculations-within-a-date-range">Calculations within a date range</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Calculations-within-a-date-range">Calculations within a date range</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Removing-missing-data">Removing missing data</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Average-annual-temperature,-method-1">Average annual temperature, method 1</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Average-monthly-temperatures">Average monthly temperatures</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Splitting-dates-into-separate-year,-month,-day">Splitting dates into separate year, month, day</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Splitting-dates-into-separate-year,-month,-and-day">Splitting dates into separate year, month, and day</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Splitting-a-single-date-string">Splitting a single date string</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Splitting-dates-in-a-NumPy-array">Splitting dates in a NumPy array</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Finding-averages-in-a-date-range">Finding averages in a date range</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Finding-the-average-monthly-max-temperature">Finding the average monthly max temperature</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Using-functions-on-NumPy-array-data">Using functions on NumPy array data</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Computing-monthly-average-temperatures-for-a-range-of-years">Computing monthly average temperatures for a range of years</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Comparing-monthly-temperatures">Comparing monthly temperatures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Calculating-temperature-anomalies">Calculating temperature anomalies</a></li>
 </ul>
 </li>
 </ul>
@@ -955,13 +961,13 @@ more.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[[ 2.0070101e+07 -9.9990000e+03  5.0000000e+01  3.2000000e+01]
- [ 2.0070102e+07 -9.9990000e+03  4.3000000e+01  2.6000000e+01]
- [ 2.0070103e+07 -9.9990000e+03  4.6000000e+01  3.0000000e+01]
- ...
- [ 2.0171229e+07 -9.9990000e+03  2.0000000e+01  1.1000000e+01]
- [ 2.0171230e+07 -9.9990000e+03  1.7000000e+01  4.0000000e+00]
- [ 2.0171231e+07 -9.9990000e+03  1.7000000e+01 -3.0000000e+00]]
+[[  2.00701010e+07  -9.99900000e+03   5.00000000e+01   3.20000000e+01]
+ [  2.00701020e+07  -9.99900000e+03   4.30000000e+01   2.60000000e+01]
+ [  2.00701030e+07  -9.99900000e+03   4.60000000e+01   3.00000000e+01]
+ ...,
+ [  2.01712290e+07  -9.99900000e+03   2.00000000e+01   1.10000000e+01]
+ [  2.01712300e+07  -9.99900000e+03   1.70000000e+01   4.00000000e+00]
+ [  2.01712310e+07  -9.99900000e+03   1.70000000e+01  -3.00000000e+00]]
 </pre></div></div>
 </div>
 </div>
@@ -1003,13 +1009,13 @@ look for numbers below <code class="docutils literal notranslate"><span class="p
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[[ 2.0070101e+07            nan  5.0000000e+01  3.2000000e+01]
- [ 2.0070102e+07            nan  4.3000000e+01  2.6000000e+01]
- [ 2.0070103e+07            nan  4.6000000e+01  3.0000000e+01]
- ...
- [ 2.0171229e+07            nan  2.0000000e+01  1.1000000e+01]
- [ 2.0171230e+07            nan  1.7000000e+01  4.0000000e+00]
- [ 2.0171231e+07            nan  1.7000000e+01 -3.0000000e+00]]
+[[  2.00701010e+07              nan   5.00000000e+01   3.20000000e+01]
+ [  2.00701020e+07              nan   4.30000000e+01   2.60000000e+01]
+ [  2.00701030e+07              nan   4.60000000e+01   3.00000000e+01]
+ ...,
+ [  2.01712290e+07              nan   2.00000000e+01   1.10000000e+01]
+ [  2.01712300e+07              nan   1.70000000e+01   4.00000000e+00]
+ [  2.01712310e+07              nan   1.70000000e+01  -3.00000000e+00]]
 </pre></div></div>
 </div>
 <p>Now we see the expected <code class="docutils literal notranslate"><span class="pre">nan</span></code> values in place of the <code class="docutils literal notranslate"><span class="pre">-9999</span></code> values.
@@ -1046,7 +1052,7 @@ slicing.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[20070101. 20070102. 20070103. ... 20171229. 20171230. 20171231.]
+[ 20070101.  20070102.  20070103. ...,  20171229.  20171230.  20171231.]
 </pre></div></div>
 </div>
 <p>Looks good, let’s do the others.</p>
@@ -1207,12 +1213,15 @@ Number of average temps: 0
 <p>Oh no! So we don’t have any average temperature observations. Looks like
 we’ll have to use another array for exploring the temperature data.</p>
 </div>
+</div>
 <div class="section" id="Calculations-within-a-date-range">
-<h3>Calculations within a date range<a class="headerlink" href="#Calculations-within-a-date-range" title="Permalink to this headline">¶</a></h3>
+<h2>Calculations within a date range<a class="headerlink" href="#Calculations-within-a-date-range" title="Permalink to this headline">¶</a></h2>
 <p>One common thing we’d like to do is calculate something about our data
 over a fixed time range, for example, one year. We’ve seen this idea
-previously, but just to remind you we can do this by masking our data.
-First, let’s check for any missing data in the <code class="docutils literal notranslate"><span class="pre">tmax</span></code> array.</p>
+previously, but just to remind you we can do this by masking our data.</p>
+<div class="section" id="Removing-missing-data">
+<h3>Removing missing data<a class="headerlink" href="#Removing-missing-data" title="Permalink to this headline">¶</a></h3>
+<p>First, let’s check for any missing data in the <code class="docutils literal notranslate"><span class="pre">tmax</span></code> array.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [16]:
@@ -1298,7 +1307,7 @@ temperature for one year. In this case, let’s go for 2010.</p>
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>60.8027397260274
+<span></span>60.802739726027397
 </pre></div>
 </div>
 </div>
@@ -1329,7 +1338,8 @@ character string values rather than <code class="docutils literal notranslate"><
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
 <span></span>array([&#39;20070101.0&#39;, &#39;20070102.0&#39;, &#39;20070103.0&#39;, ..., &#39;20171229.0&#39;,
-       &#39;20171230.0&#39;, &#39;20171231.0&#39;], dtype=&#39;&lt;U32&#39;)
+       &#39;20171230.0&#39;, &#39;20171231.0&#39;],
+      dtype=&#39;&lt;U32&#39;)
 </pre></div>
 </div>
 </div>
@@ -1371,16 +1381,20 @@ is the day. Looks like we need to convert the date to an integer first.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&#39;20070101&#39; &#39;20070102&#39; &#39;20070103&#39; ... &#39;20171229&#39; &#39;20171230&#39; &#39;20171231&#39;]
+[&#39;20070101&#39; &#39;20070102&#39; &#39;20070103&#39; ..., &#39;20171229&#39; &#39;20171230&#39; &#39;20171231&#39;]
 </pre></div></div>
 </div>
 <p>That’s better.</p>
 </div>
-<div class="section" id="Splitting-dates-into-separate-year,-month,-day">
-<h3>Splitting dates into separate year, month, day<a class="headerlink" href="#Splitting-dates-into-separate-year,-month,-day" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="Splitting-dates-into-separate-year,-month,-and-day">
+<h2>Splitting dates into separate year, month, and day<a class="headerlink" href="#Splitting-dates-into-separate-year,-month,-and-day" title="Permalink to this headline">¶</a></h2>
 <p>Now we can go about splitting our dates into separate arrays for the
-year, month, and day. As a reminder, it is first useful to recall that
-character strings can be sliced using index values just like arrays.</p>
+year, month, and day.</p>
+<div class="section" id="Splitting-a-single-date-string">
+<h3>Splitting a single date string<a class="headerlink" href="#Splitting-a-single-date-string" title="Permalink to this headline">¶</a></h3>
+<p>As a reminder, it is first useful to recall that character strings can
+be sliced using index values just like arrays.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [26]:
@@ -1433,6 +1447,9 @@ character strings can be sliced using index values just like arrays.</p>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="Splitting-dates-in-a-NumPy-array">
+<h3>Splitting dates in a NumPy array<a class="headerlink" href="#Splitting-dates-in-a-NumPy-array" title="Permalink to this headline">¶</a></h3>
 <p>With this in mind, we can now attempt the same in our NumPy array
 <code class="docutils literal notranslate"><span class="pre">date_clean_str</span></code>.</p>
 <div class="nbinput nblast docutils container">
@@ -1470,7 +1487,7 @@ character strings can be sliced using index values just like arrays.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&#39;2007&#39; &#39;2007&#39; &#39;2007&#39; ... &#39;2017&#39; &#39;2017&#39; &#39;2017&#39;]
+[&#39;2007&#39; &#39;2007&#39; &#39;2007&#39; ..., &#39;2017&#39; &#39;2017&#39; &#39;2017&#39;]
 </pre></div></div>
 </div>
 <p>OK, so we have the year now, but what happened with the
@@ -1515,13 +1532,16 @@ do the same for the months and days.</p>
 </div>
 </div>
 </div>
-<div class="section" id="Finding-the-average-monthly-max-temperature">
-<h3>Finding the average monthly max temperature<a class="headerlink" href="#Finding-the-average-monthly-max-temperature" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="Finding-averages-in-a-date-range">
+<h2>Finding averages in a date range<a class="headerlink" href="#Finding-averages-in-a-date-range" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have separate arrays for the year, month, and day we can do
 some fun stuff like calculate the monthly average temperature for a
-given year. Let’s take 2010 again as our example and find the average
-temperatures for each month in 2010. For this, we can use a <code class="docutils literal notranslate"><span class="pre">for</span></code>
-loop.</p>
+given year.</p>
+<div class="section" id="Finding-the-average-monthly-max-temperature">
+<h3>Finding the average monthly max temperature<a class="headerlink" href="#Finding-the-average-monthly-max-temperature" title="Permalink to this headline">¶</a></h3>
+<p>Let’s take 2010 again as our example and find the average temperatures
+for each month in 2010. For this, we can use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [34]:
@@ -1540,7 +1560,7 @@ loop.</p>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">for</span> <span class="n">month_now</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">month</span><span class="p">):</span>
-    <span class="n">means_2010</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmax_clean</span><span class="p">[</span><span class="n">month</span> <span class="o">==</span> <span class="n">month_now</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">means_2010</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmax_clean</span><span class="p">[(</span><span class="n">month</span> <span class="o">==</span> <span class="n">month_now</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">year</span> <span class="o">==</span> <span class="s1">&#39;2010&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
     <span class="n">index</span> <span class="o">=</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
 </div>
@@ -1560,8 +1580,9 @@ loop.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[32.71847507 34.0483871  47.72941176 61.29393939 73.50439883 82.15805471
- 86.02058824 84.08554572 77.43030303 64.65982405 50.8662614  37.66961652]
+[ 29.77419355  32.46428571  52.51612903  65.76666667  71.96774194
+  80.23333333  87.5483871   85.          74.36666667  65.5483871
+  51.83333333  30.80645161]
 </pre></div></div>
 </div>
 <p>OK, so let’s break this down as there were a few things that happened
@@ -1578,7 +1599,8 @@ data as you’ll see in this week’s exercise.</li>
 using <code class="docutils literal notranslate"><span class="pre">np.unique()</span></code>).</li>
 <li>For each month we found the max temperature using the condition
 <code class="docutils literal notranslate"><span class="pre">month</span> <span class="pre">==</span> <span class="pre">month_now</span></code>, and taking the <code class="docutils literal notranslate"><span class="pre">tmax_clean.mean()</span></code> for that
-month.</li>
+month. We also limit the months to those in 2010 by using the
+<code class="docutils literal notranslate"><span class="pre">year</span> <span class="pre">==</span> <span class="pre">'2010'</span></code> condition.</li>
 <li>We added <code class="docutils literal notranslate"><span class="pre">1</span></code> to the <code class="docutils literal notranslate"><span class="pre">index</span></code> value to ensure the next mean value
 goes into the correct location in the <code class="docutils literal notranslate"><span class="pre">means_2010</span></code> array.</li>
 </ol>
@@ -1629,8 +1651,9 @@ Fahrenheit to Celsius using a familiar function.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 0.39915282  1.13799283  8.73856209 16.27441077 23.05799935 27.86558595
- 30.01143791 28.93641429 25.23905724 18.14434669 10.48125633  3.14978696]
+[ -1.23655914   0.25793651  11.39784946  18.75925926  22.20430108
+  26.7962963   30.86021505  29.44444444  23.53703704  18.63799283
+  11.01851852  -0.66308244]
 </pre></div></div>
 </div>
 <p>Finally, something easy to do with NumPy! All we have to do hear is plug
@@ -1696,7 +1719,7 @@ and 2015.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-32.38690476190476
+32.3869047619
 </pre></div></div>
 </div>
 <p>Looks about right, but perhaps we can check the value in Celsius to see
@@ -1716,13 +1739,13 @@ whether that makes sense for winter in the northern hemisphere.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-0.21494708994708844
+0.214947089947
 </pre></div></div>
 </div>
 <p>Right around 0°C, looks good!</p>
 </div>
-<div class="section" id="Comparing-monthly-temperatures">
-<h3>Comparing monthly temperatures<a class="headerlink" href="#Comparing-monthly-temperatures" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Calculating-temperature-anomalies">
+<h3>Calculating temperature anomalies<a class="headerlink" href="#Calculating-temperature-anomalies" title="Permalink to this headline">¶</a></h3>
 <p>One thing we can do now that we have a mean temperature for February in
 2010-2015 is to compare one of those years to the average max
 temperature in the time period. This would give us a temperature
@@ -1753,12 +1776,13 @@ give that a shot.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1.661482334869433
+0.077380952381
 </pre></div></div>
 </div>
-<p>As we can see, February of 2010 was 1.7° Fahrenheit warmer than the
-average February between 2010 and 2015. We’ll explore exactly this kind
-of thing in more detail in this week’s exercise.</p>
+<p>As we can see, February of 2010 was only 0.08° Fahrenheit warmer than
+the average February between 2010 and 2015. Pretty typical February, it
+would seem. We’ll explore exactly this kind of thing in more detail in
+this week’s exercise.</p>
 </div>
 </div>
 </div>

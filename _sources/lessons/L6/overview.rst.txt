@@ -38,19 +38,26 @@ Lesson videos
 
 .. admonition:: Lesson 6.1 - Advanced data processing
 
-Pandas
-~~~~~~
+    Pandas
+    ~~~~~~
 
     .. raw:: html
 
         <iframe width="560" height="315" src="https://www.youtube.com/embed/MfMQk3H4enM" frameborder="0" allowfullscreen></iframe>
         <p>Dave Whipp & Henrikki Tenkanen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
-Numpy
-~~~~~
+    Numpy
+    ~~~~~
 
-Will be added soon..
+    .. raw:: html
 
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/9Ruse6mDJLc?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <p>Dave Whipp & Henrikki Tenkanen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+
+    .. raw:: html
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/j7yEr5n1WAE?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <p>Dave Whipp & Henrikki Tenkanen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
 .. admonition:: Lesson 6.2 - Errors, and Debugging
 
@@ -59,6 +66,12 @@ Will be added soon..
         <iframe width="560" height="315" src="https://www.youtube.com/embed/G5Gpopiaqdk" frameborder="0" allowfullscreen></iframe>
         <p>Dave Whipp & Henrikki Tenkanen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
+.. admonition:: Lesson 6 - Exercise 6 preview (NumPy version)
+
+    .. raw:: html
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/MvRu8iFF1po?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <p>Dave Whipp & Henrikki Tenkanen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
 
 
