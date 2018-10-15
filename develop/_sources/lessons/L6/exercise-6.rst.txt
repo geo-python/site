@@ -111,7 +111,7 @@ You might be tempted to create an empty array for the temperature values for eac
 Instead, I would recommend a different approach where only years with data are included in the monthly averages, and we do not create the empty array first.
 Below is an example of such an approach.
 
-.. ipython:: python
+.. code-block:: python
 
     # Note 2016 is missing
     year = np.array(['2014', '2014', '2015', '2017'])
@@ -127,7 +127,7 @@ Below is an example of such an approach.
             # NOTE: Here you should use an array slice to get tavg values only for month_now of year_now
             #       I am just filling in the average of 10 random values for now, since I don't have tavg defined
             num_m = np.random.rand(10).mean()
-            #
+            
             # Add the monthly average temperature to the temp_monthly list
             num_monthly.append(num_m)
     
@@ -168,7 +168,7 @@ Filling the array can be done several ways, but the example below is one "simple
 
 .. ipython:: python
 
-    # Fill in some junk values to sho
+    # Loop over all months
     for i in range(len(temp_monthly)):
         # Here we can use a cute little trick to find the current month to compare to for the anomaly calculation
         # month_monthly will have all of the months that correspond to the temp_monthly values.

@@ -846,23 +846,26 @@ There are a number of ways you can do this, like many things in Python programmi
 You might be tempted to create an empty array for the temperature values for each month and year in the range of dates, but this is not an ideal solution in case there are months or years missing data (<em>Hint: there are</em>).
 Instead, I would recommend a different approach where only years with data are included in the monthly averages, and we do not create the empty array first.
 Below is an example of such an approach.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># Note 2016 is missing</span>
-<span class="gp">In [9]: </span><span class="n">year</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;2014&#39;</span><span class="p">,</span> <span class="s1">&#39;2014&#39;</span><span class="p">,</span> <span class="s1">&#39;2015&#39;</span><span class="p">,</span> <span class="s1">&#39;2017&#39;</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note 2016 is missing</span>
+<span class="n">year</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;2014&#39;</span><span class="p">,</span> <span class="s1">&#39;2014&#39;</span><span class="p">,</span> <span class="s1">&#39;2015&#39;</span><span class="p">,</span> <span class="s1">&#39;2017&#39;</span><span class="p">])</span>
+<span class="n">month</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">])</span>
 
-<span class="gp">In [10]: </span><span class="n">month</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">])</span>
+<span class="c1"># Make empty lists to store temperature values and their month</span>
+<span class="n">num_monthly</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="go"># Make empty lists to store temperature values and their month</span>
-<span class="gp">In [11]: </span><span class="n">num_monthly</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># Loop over all unique years</span>
+<span class="k">for</span> <span class="n">year_now</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">year</span><span class="p">):</span>
+    <span class="c1"># Loop over all unique months</span>
+    <span class="k">for</span> <span class="n">month_now</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">month</span><span class="p">):</span>
+        <span class="c1"># NOTE: Here you should use an array slice to get tavg values only for month_now of year_now</span>
+        <span class="c1">#       I am just filling in the average of 10 random values for now, since I don&#39;t have tavg defined</span>
+        <span class="n">num_m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
-<span class="go"># Loop over all unique years</span>
-<span class="gp">In [12]: </span><span class="k">for</span> <span class="n">year_now</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">year</span><span class="p">):</span>
-<span class="gp">   ....: </span>    <span class="k">for</span> <span class="n">month_now</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">month</span><span class="p">):</span>
-<span class="gp">   ....: </span>        <span class="n">num_m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="gp">   ....: </span>        <span class="n">num_monthly</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num_m</span><span class="p">)</span>
-<span class="gp">   ....: </span>
+        <span class="c1"># Add the monthly average temperature to the temp_monthly list</span>
+        <span class="n">num_monthly</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num_m</span><span class="p">)</span>
 
-<span class="go"># Finally, we can convert num_monthly to a NumPy array</span>
-<span class="gp">In [13]: </span><span class="n">num_monthly</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">num_monthly</span><span class="p">)</span>
+<span class="c1"># Finally, we can convert num_monthly to a NumPy array</span>
+<span class="n">num_monthly</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">num_monthly</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This will work even if years are missing, or listed multiple times in the data you’re handling.
@@ -884,12 +887,12 @@ The lesson materials should give you some idea of how to handle this, and it is 
 <p>To find the temperature anomalies, you will need the average temperatures for the each month in the years 1952-1980 (i.e., 12 values), and the monthly average temperatures for each year and month over the years 1952-2016 (many values).
 The array of anomalies itself will be the same size as the number of monthly average temperatures you found in problem 2, so you can create that in advance.
 Filling the array can be done several ways, but the example below is one “simple” appraach.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># Fill in some junk values to sho</span>
-<span class="gp">In [14]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">temp_monthly</span><span class="p">)):</span>
-<span class="gp">   ....: </span>    <span class="n">ref_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">month_monthly</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
-<span class="gp">   ....: </span>    <span class="n">ref_temp_now</span> <span class="o">=</span> <span class="n">ref_temps</span><span class="p">[</span><span class="n">ref_index</span><span class="p">]</span>
-<span class="gp">   ....: </span>    <span class="n">anomaly</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
-<span class="gp">   ....: </span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># Loop over all months</span>
+<span class="gp">In [9]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">temp_monthly</span><span class="p">)):</span>
+<span class="gp">   ...: </span>    <span class="n">ref_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">month_monthly</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="gp">   ...: </span>    <span class="n">ref_temp_now</span> <span class="o">=</span> <span class="n">ref_temps</span><span class="p">[</span><span class="n">ref_index</span><span class="p">]</span>
+<span class="gp">   ...: </span>    <span class="n">anomaly</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="gp">   ...: </span>
 </pre></div>
 </div>
 </div>
