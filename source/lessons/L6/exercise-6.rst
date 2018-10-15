@@ -157,16 +157,7 @@ To find the temperature anomalies, you will need the average temperatures for th
 The array of anomalies itself will be the same size as the number of monthly average temperatures you found in problem 2, so you can create that in advance.
 Filling the array can be done several ways, but the example below is one "simple" appraach.
 
-.. ipython:: python
-   :suppress:
-
-    anomaly = np.zeros(6)
-    ref_temps = np.array([4.6, 5.7, 6.8])
-    temp_monthly = np.array([1.0, 2.3, 4.5, 6.3, 4.2, 2.7])
-    month_monthly = np.array(['01', '02', '03', '01', '02', '03'])
-    year_monthly = np.array(['2014', '2014', '2014', '2015', '2015', '2015'])
-
-.. ipython:: python
+.. code-block:: python
 
     # Loop over all months
     for i in range(len(temp_monthly)):
@@ -175,7 +166,7 @@ Filling the array can be done several ways, but the example below is one "simple
         # If we convert '01' to an integer and subtract 1, that will allow us to compare to the first value in ref_temps, the one for January (i.e., index 0).
         ref_index = int(month_monthly[i]) - 1
         ref_temp_now = ref_temps[ref_index]
-        #
+        
         # Here you should calculate the temperature anomaly. I'm filling in 1.0 since I think you folks can handle this part :)
         anomaly[i] = 1.0
 
@@ -184,12 +175,12 @@ Checking your work for problem 2
 
 In case you want to double check that you are getting the correct answers for problem 2, you code should produce the following when you run the commands below.
 
-.. code:: python
+.. code-block:: python
 
     print(temp_monthly[:7])
     [ 29.47826087  24.8         13.80769231  39.60714286  44.66666667  56.5  61.21428571]
 
-.. code:: python
+.. code-block:: python
 
     print(temp_monthly_celsius[:7])
     [ -1.40096618  -4.         -10.10683761   4.22619048   7.03703704  13.61111111  16.23015873]
@@ -199,12 +190,12 @@ Checking your work for problem 3
 
 In case you want to double check that you are getting the correct answers for problem 3, you code should produce the following when you run the commands below.
 
-.. code:: python
+.. code-block:: python
 
     print(ref_temps[:7])
     [ -5.87734242  -6.9904821   -3.84126984   2.42787524   9.52261307  14.71189774  16.49888143]
 
-.. code:: python
+.. code-block:: python
 
     print(anomaly[:11])
     [ 4.47637624  2.9904821  -6.26556777  1.79831523 -2.48557603 -1.10078663 -0.2687227 -0.86436896 -1.44938108 -2.78452381 -2.7044648 ]
