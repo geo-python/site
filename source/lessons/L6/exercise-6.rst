@@ -127,7 +127,7 @@ Below is an example of such an approach.
             # NOTE: Here you should use an array slice to get tavg values only for month_now of year_now
             #       I am just filling in the average of 10 random values for now, since I don't have tavg defined
             num_m = np.random.rand(10).mean()
-
+            #
             # Add the monthly average temperature to the temp_monthly list
             num_monthly.append(num_m)
     
@@ -175,7 +175,7 @@ Filling the array can be done several ways, but the example below is one "simple
         # If we convert '01' to an integer and subtract 1, that will allow us to compare to the first value in ref_temps, the one for January (i.e., index 0).
         ref_index = int(month_monthly[i]) - 1
         ref_temp_now = ref_temps[ref_index]
-    
+        #
         # Here you should calculate the temperature anomaly. I'm filling in 1.0 since I think you folks can handle this part :)
         anomaly[i] = 1.0
 
