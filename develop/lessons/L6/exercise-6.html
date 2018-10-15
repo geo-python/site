@@ -627,7 +627,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#joining-data-from-one-dataframe-to-another">Joining data from one DataFrame to another</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Exercise 6 hints for Pandas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-6-hints-for-numpy">Exercise 6 hints for NumPy</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#calculating-average-temperatures-for-each-month-e-g-february-1954">Calculating average temperatures for each month (e.g., February 1954)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#calculating-average-temperatures-for-all-months-e-g-february-1952-1980">Calculating average temperatures for all months (e.g., February 1952-1980)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#calculating-temperatures-anomalies">Calculating temperatures anomalies</a></li>
@@ -837,8 +837,8 @@ Overall, knowing how to conduct a table join can be really handy in many differe
 See more examples and documentation from <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/merging.html">official documentation of Pandas</a>.</p>
 </div>
 </div>
-<div class="section" id="id1">
-<h2>Exercise 6 hints for Pandas<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exercise-6-hints-for-numpy">
+<h2>Exercise 6 hints for NumPy<a class="headerlink" href="#exercise-6-hints-for-numpy" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="calculating-average-temperatures-for-each-month-e-g-february-1954">
 <h3>Calculating average temperatures for each month (e.g., February 1954)<a class="headerlink" href="#calculating-average-temperatures-for-each-month-e-g-february-1954" title="Permalink to this headline">¶</a></h3>
 <p>In problem 2 you’re asked to calculate average temperatures for every month between 1952-2016.
@@ -856,26 +856,12 @@ Below is an example of such an approach.</p>
 
 <span class="go"># Loop over all unique years</span>
 <span class="gp">In [12]: </span><span class="k">for</span> <span class="n">year_now</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">year</span><span class="p">):</span>
-<span class="gp">   ....: </span>    <span class="k">for</span> <span class="n">month_now</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">months</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="k">for</span> <span class="n">month_now</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">month</span><span class="p">):</span>
 <span class="gp">   ....: </span>        <span class="n">num_m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="gp">   ....: </span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-12-219bacffa695&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">for</span> <span class="n">year_now</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">year</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">for</span> <span class="n">month_now</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">months</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="n">num_m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
-<span class="ne">NameError</span>: name &#39;months&#39; is not defined
-
-        <span class="c1"># Add the monthly average temperature to the temp_monthly list</span>
+<span class="go">        # Add the monthly average temperature to the temp_monthly list</span>
 <span class="gp">In [13]: </span><span class="n">num_monthly</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num_m</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                                                                                                                          ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-13-59f35e2f7cdb&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 num_monthly.append(num_m)</span>
-
-<span class="go">NameError: name &#39;num_m&#39; is not defined</span>
 
 <span class="go"># Finally, we can convert num_monthly to a NumPy array</span>
 <span class="gp">In [14]: </span><span class="n">num_monthly</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">num_monthly</span><span class="p">)</span>
@@ -931,7 +917,6 @@ Filling the array can be done several ways, but the example below is one “simp
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">anomaly</span><span class="p">[:</span><span class="mi">11</span><span class="p">])</span>
-
 <span class="p">[</span> <span class="mf">4.47637624</span>  <span class="mf">2.9904821</span>  <span class="o">-</span><span class="mf">6.26556777</span>  <span class="mf">1.79831523</span> <span class="o">-</span><span class="mf">2.48557603</span> <span class="o">-</span><span class="mf">1.10078663</span> <span class="o">-</span><span class="mf">0.2687227</span> <span class="o">-</span><span class="mf">0.86436896</span> <span class="o">-</span><span class="mf">1.44938108</span> <span class="o">-</span><span class="mf">2.78452381</span> <span class="o">-</span><span class="mf">2.7044648</span> <span class="p">]</span>
 </pre></div>
 </div>

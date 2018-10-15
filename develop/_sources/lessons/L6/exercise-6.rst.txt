@@ -99,8 +99,8 @@ Cool! Nowe we have all the values included from both DataFrames and if Pandas di
 Overall, knowing how to conduct a table join can be really handy in many different situations.
 See more examples and documentation from `official documentation of Pandas <https://pandas.pydata.org/pandas-docs/stable/merging.html>`__.
 
-Exercise 6 hints for Pandas
----------------------------
+Exercise 6 hints for NumPy
+--------------------------
 
 Calculating average temperatures for each month (e.g., February 1954)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -123,7 +123,7 @@ Below is an example of such an approach.
     # Loop over all unique years
     for year_now in np.unique(year):
         # Loop over all unique months
-        for month_now in np.unique(months):
+        for month_now in np.unique(month):
             # NOTE: Here you should use an array slice to get tavg values only for month_now of year_now
             #       I am just filling in the average of 10 random values for now, since I don't have tavg defined
             num_m = np.random.rand(10).mean()
@@ -175,7 +175,7 @@ Filling the array can be done several ways, but the example below is one "simple
         # If we convert '01' to an integer and subtract 1, that will allow us to compare to the first value in ref_temps, the one for January (i.e., index 0).
         ref_index = int(month_monthly[i]) - 1
         ref_temp_now = ref_temps[ref_index]
-
+    
         # Here you should calculate the temperature anomaly. I'm filling in 1.0 since I think you folks can handle this part :)
         anomaly[i] = 1.0
 
@@ -207,5 +207,4 @@ In case you want to double check that you are getting the correct answers for pr
 .. code:: python
 
     print(anomaly[:11])
-
     [ 4.47637624  2.9904821  -6.26556777  1.79831523 -2.48557603 -1.10078663 -0.2687227 -0.86436896 -1.44938108 -2.78452381 -2.7044648 ]
