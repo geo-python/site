@@ -887,12 +887,16 @@ The lesson materials should give you some idea of how to handle this, and it is 
 <p>To find the temperature anomalies, you will need the average temperatures for the each month in the years 1952-1980 (i.e., 12 values), and the monthly average temperatures for each year and month over the years 1952-2016 (many values).
 The array of anomalies itself will be the same size as the number of monthly average temperatures you found in problem 2, so you can create that in advance.
 Filling the array can be done several ways, but the example below is one “simple” appraach.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># Loop over all months</span>
-<span class="gp">In [9]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">temp_monthly</span><span class="p">)):</span>
-<span class="gp">   ...: </span>    <span class="n">ref_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">month_monthly</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
-<span class="gp">   ...: </span>    <span class="n">ref_temp_now</span> <span class="o">=</span> <span class="n">ref_temps</span><span class="p">[</span><span class="n">ref_index</span><span class="p">]</span>
-<span class="gp">   ...: </span>    <span class="n">anomaly</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
-<span class="gp">   ...: </span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Loop over all months</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">temp_monthly</span><span class="p">)):</span>
+    <span class="c1"># Here we can use a cute little trick to find the current month to compare to for the anomaly calculation</span>
+    <span class="c1"># month_monthly will have all of the months that correspond to the temp_monthly values.</span>
+    <span class="c1"># If we convert &#39;01&#39; to an integer and subtract 1, that will allow us to compare to the first value in ref_temps, the one for January (i.e., index 0).</span>
+    <span class="n">ref_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">month_monthly</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">ref_temp_now</span> <span class="o">=</span> <span class="n">ref_temps</span><span class="p">[</span><span class="n">ref_index</span><span class="p">]</span>
+
+    <span class="c1"># Here you should calculate the temperature anomaly. I&#39;m filling in 1.0 since I think you folks can handle this part :)</span>
+    <span class="n">anomaly</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
 </pre></div>
 </div>
 </div>
