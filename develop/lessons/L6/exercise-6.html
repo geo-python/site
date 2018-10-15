@@ -858,13 +858,11 @@ Below is an example of such an approach.</p>
 <span class="gp">In [12]: </span><span class="k">for</span> <span class="n">year_now</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">year</span><span class="p">):</span>
 <span class="gp">   ....: </span>    <span class="k">for</span> <span class="n">month_now</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">month</span><span class="p">):</span>
 <span class="gp">   ....: </span>        <span class="n">num_m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="gp">   ....: </span>        <span class="n">num_monthly</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num_m</span><span class="p">)</span>
 <span class="gp">   ....: </span>
 
-<span class="go">        # Add the monthly average temperature to the temp_monthly list</span>
-<span class="gp">In [13]: </span><span class="n">num_monthly</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num_m</span><span class="p">)</span>
-
 <span class="go"># Finally, we can convert num_monthly to a NumPy array</span>
-<span class="gp">In [14]: </span><span class="n">num_monthly</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">num_monthly</span><span class="p">)</span>
+<span class="gp">In [13]: </span><span class="n">num_monthly</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">num_monthly</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This will work even if years are missing, or listed multiple times in the data you’re handling.
@@ -887,13 +885,11 @@ The lesson materials should give you some idea of how to handle this, and it is 
 The array of anomalies itself will be the same size as the number of monthly average temperatures you found in problem 2, so you can create that in advance.
 Filling the array can be done several ways, but the example below is one “simple” appraach.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># Fill in some junk values to sho</span>
-<span class="gp">In [15]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">temp_monthly</span><span class="p">)):</span>
+<span class="gp">In [14]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">temp_monthly</span><span class="p">)):</span>
 <span class="gp">   ....: </span>    <span class="n">ref_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">month_monthly</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
 <span class="gp">   ....: </span>    <span class="n">ref_temp_now</span> <span class="o">=</span> <span class="n">ref_temps</span><span class="p">[</span><span class="n">ref_index</span><span class="p">]</span>
+<span class="gp">   ....: </span>    <span class="n">anomaly</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="gp">   ....: </span>
-
-<span class="go">    # Here you should calculate the temperature anomaly. I&#39;m filling in 1.0 since I think you folks can handle this part :)</span>
-<span class="gp">In [16]: </span><span class="n">anomaly</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
 </pre></div>
 </div>
 </div>
