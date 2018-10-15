@@ -98,3 +98,104 @@ Let's consider another example with the outer join.
 Cool! Nowe we have all the values included from both DataFrames and if Pandas did not find a common value in the ``key`` column, it still kept them and inserted ``NaN`` values into ``Favourite_dog`` column and ``Value`` column.
 Overall, knowing how to conduct a table join can be really handy in many different situations.
 See more examples and documentation from `official documentation of Pandas <https://pandas.pydata.org/pandas-docs/stable/merging.html>`__.
+
+Exercise 6 hints for NumPy
+--------------------------
+
+Calculating average temperatures for each month (e.g., February 1954)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In problem 2 you're asked to calculate average temperatures for every month between 1952-2016.
+There are a number of ways you can do this, like many things in Python programming.
+You might be tempted to create an empty array for the temperature values for each month and year in the range of dates, but this is not an ideal solution in case there are months or years missing data (*Hint: there are*).
+Instead, I would recommend a different approach where only years with data are included in the monthly averages, and we do not create the empty array first.
+Below is an example of such an approach.
+
+.. code-block:: python
+
+    # Note 2016 is missing
+    year = np.array(['2014', '2014', '2015', '2017'])
+    month = np.array(['01', '01', '02', '03'])
+
+    # Make empty lists to store temperature values and their month
+    num_monthly = []
+
+    # Loop over all unique years
+    for year_now in np.unique(year):
+        # Loop over all unique months
+        for month_now in np.unique(month):
+            # NOTE: Here you should use an array slice to get tavg values only for month_now of year_now
+            #       I am just filling in the average of 10 random values for now, since I don't have tavg defined
+            num_m = np.random.rand(10).mean()
+            
+            # Add the monthly average temperature to the temp_monthly list
+            num_monthly.append(num_m)
+    
+    # Finally, we can convert num_monthly to a NumPy array
+    num_monthly = np.array(num_monthly)
+
+This will work even if years are missing, or listed multiple times in the data you're handling.
+We could add a test to check that the array slice for a given month is not empty, to protect against the case where we were missing data for some random month during a year when we have data for other months, but don't worry about that for now.
+And in case it isn't clear, ``np.array()`` converts a list to a NumPy array.
+
+**There is one other thing you'll need to do!**
+Because we need to know which month and year the average temperatures are from, you should also make two other empty lists like you would for the monthly temperatures.
+In those lists you can simply store the month and year every time you store a monthly average temperature, in just the same way.
+You'll also have to convert those to NumPy arrays.
+
+Calculating average temperatures for all months (e.g., February 1952-1980)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In problem 3 you have to first find the average temperatures for each of the 12 months for the years 1952-1980.
+For this you can simply us a ``for`` loop to loop over each month and find the mean temperatures for that month and all years between 1952-1980.
+The lesson materials should give you some idea of how to handle this, and it is less complicated than the example from problem 2 of finding monthly average temperatures for each unique month and year.
+
+Calculating temperatures anomalies
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To find the temperature anomalies, you will need the average temperatures for the each month in the years 1952-1980 (i.e., 12 values), and the monthly average temperatures for each year and month over the years 1952-2016 (many values).
+The array of anomalies itself will be the same size as the number of monthly average temperatures you found in problem 2, so you can create that in advance.
+Filling the array can be done several ways, but the example below is one "simple" appraach.
+
+.. code-block:: python
+
+    # Loop over all months
+    for i in range(len(temp_monthly)):
+        # Here we can use a cute little trick to find the current month to compare to for the anomaly calculation
+        # month_monthly will have all of the months that correspond to the temp_monthly values.
+        # If we convert '01' to an integer and subtract 1, that will allow us to compare to the first value in ref_temps, the one for January (i.e., index 0).
+        ref_index = int(month_monthly[i]) - 1
+        ref_temp_now = ref_temps[ref_index]
+        
+        # Here you should calculate the temperature anomaly. I'm filling in 1.0 since I think you folks can handle this part :)
+        anomaly[i] = 1.0
+
+Checking your work for problem 2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In case you want to double check that you are getting the correct answers for problem 2, you code should produce the following when you run the commands below.
+
+.. code-block:: python
+
+    print(temp_monthly[:7])
+    [ 29.47826087  24.8         13.80769231  39.60714286  44.66666667  56.5  61.21428571]
+
+.. code-block:: python
+
+    print(temp_monthly_celsius[:7])
+    [ -1.40096618  -4.         -10.10683761   4.22619048   7.03703704  13.61111111  16.23015873]
+
+Checking your work for problem 3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In case you want to double check that you are getting the correct answers for problem 3, you code should produce the following when you run the commands below.
+
+.. code-block:: python
+
+    print(ref_temps[:7])
+    [ -5.87734242  -6.9904821   -3.84126984   2.42787524   9.52261307  14.71189774  16.49888143]
+
+.. code-block:: python
+
+    print(anomaly[:11])
+    [ 4.47637624  2.9904821  -6.26556777  1.79831523 -2.48557603 -1.10078663 -0.2687227 -0.86436896 -1.44938108 -2.78452381 -2.7044648 ]
