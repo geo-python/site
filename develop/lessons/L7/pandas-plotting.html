@@ -1,0 +1,1320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-105019106-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Advanced plotting with Pandas &mdash; Geo-Python 2018 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
+     
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Geo-Python
+          
+
+          
+            
+            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2018
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/course-info.html#course-meetings-in-period-i">Course meetings in Period I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/course-info.html#instructors">Instructors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/course-info.html#lecturers">Lecturers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/course-info.html#course-assistants">Course assistants</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/course-info.html#course-websites">Course websites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/grading.html#general-grading-breakdown">General grading breakdown</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/installing-anacondas.html">Installing Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/installing-anacondas.html#install-python-on-windows">Install Python on Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/installing-anacondas.html#install-python-on-macos">Install Python on macOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/installing-anacondas.html#install-python-on-linux">Install Python on Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/installing-anacondas.html#how-to-find-out-which-conda-command-to-use-when-installing-a-package">How to find out which conda -command to use when installing a package?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/installing-anacondas.html#the-easiest-way">The easiest way</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/installing-anacondas.html#alternative-way-to-install-packages-if-typical-doesn-t-work">Alternative way to install packages if typical doesn’t work</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/python-vocabulary.html">Vocabulary - Basic terms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/python-vocabulary.html#python-vocabulary">Python vocabulary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/python-vocabulary.html#basic-vocabulary-of-version-control">Basic vocabulary of Version Control</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#books">Books</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#python-tutorials">Python tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#git-github-tutorials">Git + Github tutorials</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/licensing.html#instructional-materials">Instructional materials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/licensing.html#you-are-free-to">you are free to</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/licensing.html#under-the-following-terms">Under the following terms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/licensing.html#notices">Notices</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/licensing.html#code-snippets-software">Code snippets / software</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L1/motivation.html">Motivation for the course</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/motivation.html#effective-data-visualization">Effective data visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/overview.html#lecture-video">Lecture video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/overview.html#lecture-slides">Lecture slides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/course-environment-components.html">Course environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/course-environment-components.html#jupyter-notebooks-and-jupyterlab">Jupyter Notebooks and JupyterLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/course-environment-components.html#using-your-own-computer">Using your own computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/course-environment-components.html#cloud-computing-environments">Cloud computing environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L1/course-environment-components.html#binder">Binder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/course-environment-components.html#csc-notebooks">CSC Notebooks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/course-environment-components.html#git-github">Git + GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/course-environment-components.html#using-slack">Using Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/course-environment-components.html#voting-and-polling">Voting and polling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/course-environment-components.html#page-summary">Page summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/slack-usage.html">Communicating with Slack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/slack-usage.html#overview-of-slack">Overview of Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/slack-usage.html#activating-your-account">Activating your account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/slack-usage.html#basic-usage-of-slack">Basic usage of Slack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L1/slack-usage.html#notifying-a-user">Notifying a user</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/slack-usage.html#using-threads">Using threads</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/slack-usage.html#general-guidelines-for-communication">General guidelines for communication</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html">A taste of Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#About-this-document">About this document</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Getting-started">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Variables,-arithmetic-and-modules">Variables, arithmetic and modules</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Simple-Python-math">Simple Python math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Math-operations">Math operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Combining-functions">Combining functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Variables">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Updating-variables">Updating variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Variable-values">Variable values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Data-types">Data types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/exercise-1.html">Exercise 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/exercise-1.html#part-1-creating-a-github-com-account-and-using-slack">Part 1 - Creating a GitHub.com account and using Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/exercise-1.html#part-2-cooking-up-some-python">Part 2 - Cooking up some Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/exercise-1.html#what-to-submit">What to submit</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L2/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/overview.html#lecture-video">Lecture video</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/intro-to-GitHub.html">Introduction to Version Control and GitHub</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/intro-to-GitHub.html#familiar">Familiar?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/intro-to-GitHub.html#what-is-version-control">What is version control?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/intro-to-GitHub.html#why-to-use-it">Why to use it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/intro-to-GitHub.html#basic-vocabulary-of-version-control">Basic vocabulary of Version Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/intro-to-GitHub.html#what-is-github">What is GitHub?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/intro-to-GitHub.html#relies-on-git">Relies on Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/intro-to-GitHub.html#social-collaborative-network">Social (collaborative) network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/intro-to-GitHub.html#open-source-science">Open source / science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/intro-to-GitHub.html#documentation">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/intro-to-GitHub.html#online-tools">Online tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/intro-to-GitHub.html#issue-tracking">Issue tracking</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/intro-to-GitHub.html#resources">Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/git-basics.html">Meet Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/git-basics.html#clone-a-repository-from-github">Clone a repository from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/git-basics.html#add-changes">Add changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/git-basics.html#commit-changes">Commit changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/git-basics.html#synchronize-changes">Synchronize changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/git-basics.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/GitHub-classroom.html">Using Classroom for Github</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/GitHub-classroom.html#classroom-for-github">Classroom for GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html">Basic elements of Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Data-types-revisited">Data types revisited</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Let's-start-with-some-data">Let’s start with some data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Reminder:-Data-types-and-their-compatibility">Reminder: Data types and their compatibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Converting-data-from-one-type-to-another">Converting data from one type to another</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Combining-text-and-numbers">Combining text and numbers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Lists-and-indices">Lists and indices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Creating-a-list">Creating a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Index-values">Index values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#A-useful-analog---Bill-the-vending-machine">A useful analog - Bill the vending machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Number-of-items-in-a-list">Number of items in a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Index-value-tips">Index value tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Modifying-list-values">Modifying list values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Data-types-in-lists">Data types in lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Adding-and-removing-values-from-lists">Adding and removing values from lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#The-concept-of-objects">The concept of objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#A-(bad)-example-of-methods">A (bad) example of methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Some-other-useful-list-methods">Some other useful list methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Reversing-a-list">Reversing a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Sorting-a-list">Sorting a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#List-attributes">List attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/exercise-2.html">Exercise 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/exercise-2.html#exercise-2-hints">Exercise 2 hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/exercise-2.html#list-methods">List methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/exercise-2.html#indentation-woes">Indentation woes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L3/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/overview.html#lecture">Lecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/L3/for-loops.html">for loops</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L3/for-loops.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L3/for-loops.html#Basics-of-for-loops">Basics of for loops</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/for-loops.html#A-(bad)-example">A (bad) example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/for-loops.html#Introducing-the-for-loop">Introducing the for loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/for-loops.html#for-loop-format">for loop format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L3/for-loops.html#Your-daily-for-loop">Your daily for loop</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/for-loops.html#Another-for-loop-example">Another for loop example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/for-loops.html#for-loop-variables">for loop variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/for-loops.html#for-loops-and-lists">for loops and lists</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L3/for-loops.html#Poll-question-pause">Poll question pause</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/for-loops.html#Calculating-values-in-for-loops">Calculating values in for loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/for-loops.html#Looping-over-the-length-of-lists">Looping over the length of lists</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L3/for-loops.html#Poll-question-pause">Poll question pause</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/L3/conditional-statements.html">Conditional statements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L3/conditional-statements.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L3/conditional-statements.html#Basics-of-conditional-statements">Basics of conditional statements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/conditional-statements.html#A-simple-conditional-statement">A simple conditional statement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L3/conditional-statements.html#A-familiar-conditional-scenario">A familiar conditional scenario</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/conditional-statements.html#else-is-not-required">else is not required</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/conditional-statements.html#Introducing-second-test">Introducing second test</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L3/conditional-statements.html#Poll-question-pause">Poll question pause</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/conditional-statements.html#Combining-conditions">Combining conditions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L3/conditional-statements.html#Another-familiar-conditional-scenario">Another familiar conditional scenario</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/exercise-3.html">Exercise 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/exercise-3.html#exercise-3-hints">Exercise 3 hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/exercise-3.html#general-tips">General tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/exercise-3.html#combining-strings">Combining strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/exercise-3.html#nested-if-statements">Nested if statements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 4</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L4/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L4/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/overview.html#lecture">Lecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/L4/functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/functions.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/functions.html#What-is-a-function?">What is a function?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/functions.html#Anatomy-of-a-function">Anatomy of a function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Our-first-function-(aww...)">Our first function (aww…)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/functions.html#Calling-functions">Calling functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Using-our-new-function">Using our new function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Let's-make-another-function">Let’s make another function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Using-our-second-function">Using our second function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L4/functions.html#Check-your-understanding">Check your understanding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Functions-within-a-function-(Yo-dawg...)">Functions within a function (Yo dawg…)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Using-our-combined-functions">Using our combined functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/functions.html#An-introduction-to-script-files">An introduction to script files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#The-general-concept-of-a-.py-script-file">The general concept of a .py script file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Getting-started">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Saving-a-text-file-as-a-Python-file">Saving a text file as a Python file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/functions.html#Saving-and-loading-functions">Saving and loading functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Saving-functions-in-a-script-file">Saving functions in a script file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/functions.html#Calling-functions-from-a-script-file">Calling functions from a script file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Making-sure-we're-in-the-right-working-directory">Making sure we’re in the right working directory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L4/functions.html#Binder-users">Binder users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L4/functions.html#CSC-notebooks-users">CSC notebooks users</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Changing-the-working-directory">Changing the working directory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L4/functions.html#Binder-users">Binder users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L4/functions.html#CSC-notebooks-users">CSC notebooks users</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Importing-our-script-functions">Importing our script functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Using-our-script-functions">Using our script functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L4/functions.html#Importing-multiple-functions">Importing multiple functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Importing-all-functions-from-a-script">Importing all functions from a script</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/functions.html#Temperature-calculator-(optional,-advanced-topic)">Temperature calculator (<em>optional, advanced topic</em>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Defining-the-function">Defining the function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Adding-some-conditional-statements">Adding some conditional statements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Returning-the-result">Returning the result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Adding-a-docstring">Adding a docstring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Testing-the-new-function">Testing the new function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Using-the-tempCalculator">Using the tempCalculator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/L4/modules.html">Loading and using modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/modules.html#What-is-a-module?">What is a module?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/modules.html#How-can-modules-be-loaded?">How can modules be loaded?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/modules.html#Loading-a-module">Loading a module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/modules.html#Renaming-imported-modules">Renaming imported modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/modules.html#Importing-a-single-function">Importing a single function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/modules.html#Importing-part-of-a-module">Importing part of a module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/modules.html#How-can-modules-be-used?">How can modules be used?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/modules.html#What-should-I-not-do?">What should I not do?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/modules.html#from-X-import-*">from X import *</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/modules.html#Poor-names-when-renaming-on-import">Poor names when renaming on import</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/L4/writing-scripts.html">Writing our scripts the “right” way</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/writing-scripts.html#Inline-comments">Inline comments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/writing-scripts.html#Use-line-breaks-wisely">Use line breaks wisely</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/writing-scripts.html#Use-a-docstring">Use a docstring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/writing-scripts.html#Advanced-topics">Advanced topics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/writing-scripts.html#Adding-a-license">Adding a license</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/writing-scripts.html#Starting-with-a-shebang">Starting with a shebang</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/writing-scripts.html#Page-summary">Page summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/exercise-4.html">Exercise 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L4/exercise-4.html#exercise-4-hints">Exercise 4 hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/exercise-4.html#importing-variables-from-a-script">Importing variables from a script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/exercise-4.html#counting-values-from-a-list">Counting values from a list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 5</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L5/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L5/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/overview.html#lecture-videos">Lecture videos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/overview.html#pandas">Pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/overview.html#numpy">NumPy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/pandas.html">Pandas lesson</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L5/pandas-overview.html">What is Pandas?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/pandas-overview.html#easy-to-use-data-structures">Easy-to-use data structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/pandas-overview.html#combines-functionalities-from-many-python-modules">Combines functionalities from many Python modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/pandas-overview.html#supports-data-read-write-from-multiple-formats">Supports data read/write from multiple formats</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L5/pandas/Exploring-data-using-pandas.html">Exploring data using Pandas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/pandas/Exploring-data-using-pandas.html#Preparations-for-this-lesson-(working-environment-and-input-data)">Preparations for this lesson (working environment and input data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/pandas/Exploring-data-using-pandas.html#Reading-a-data-file-with-Pandas">Reading a data file with Pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/pandas/Exploring-data-using-pandas.html#Exploring-our-dataset">Exploring our dataset</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L5/pandas/processing-data-with-pandas.html">Processing data with Pandas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/pandas/processing-data-with-pandas.html#Calculating-with-DataFrames">Calculating with DataFrames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/pandas/processing-data-with-pandas.html#Selecting-data-using-indices">Selecting data using indices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/pandas/processing-data-with-pandas.html#Filtering-and-updating-data">Filtering and updating data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/pandas/processing-data-with-pandas.html#Dealing-with-missing-data">Dealing with missing data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/pandas/processing-data-with-pandas.html#Sorting-data">Sorting data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/pandas/processing-data-with-pandas.html#Rounding-and-finding-unique-values">Rounding and finding unique values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/pandas/processing-data-with-pandas.html#Writing-data">Writing data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/numpy.html">NumPy lesson</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html">Exploring data using NumPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#What-is-NumPy?">What is NumPy?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Preparation-(the-key-to-success)">Preparation (the key to success)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Reading-a-data-file-with-NumPy">Reading a data file with NumPy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Importing-NumPy">Importing NumPy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Reading-a-data-file">Reading a data file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Inspecting-our-data-file">Inspecting our data file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Reading-our-data-file,-round-2">Reading our data file, round 2</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Exploring-our-dataset">Exploring our dataset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Checking-the-array-data-type">Checking the array data type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Checking-the-data-array-type">Checking the data array type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Checking-the-size-of-the-dataset">Checking the size of the dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Working-with-our-data---Index-slicing">Working with our data - Index slicing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Slicing-our-data-into-columns">Slicing our data into columns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Checking-the-data-in-memory">Checking the data in memory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Basic-data-calculations-in-NumPy">Basic data calculations in NumPy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Data-type-conversions">Data type conversions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html">Processing data with NumPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Calculating-with-NumPy-arrays">Calculating with NumPy arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Creating-arrays">Creating arrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Calcuating-values-using-other-arrays">Calcuating values using other arrays</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Filtering-data">Filtering data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Using-data-masks">Using data masks</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Removing-missing/bad-data">Removing missing/bad data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Rounding-and-finding-unique-values">Rounding and finding unique values</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Finding-unique-values">Finding unique values</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Saving-our-data-to-a-file">Saving our data to a file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Re-creating-our-2D-data-array">Re-creating our 2D data array</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Saving-our-data">Saving our data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/exercise-5.html">Exercise 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L5/exercise-5.html#exercise-5-hints-for-pandas">Exercise 5 hints for Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/exercise-5.html#exercise-5-hints-for-numpy">Exercise 5 hints for NumPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/exercise-5.html#formatting-output-to-written-to-files">Formatting output to written to files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 6</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L6/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/overview.html#lesson-videos">Lesson videos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/pandas.html">Pandas lesson</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L6/pandas/advanced-data-processing-with-pandas.html">Advanced data processing with Pandas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/pandas/advanced-data-processing-with-pandas.html#Reading-the-data">Reading the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/pandas/advanced-data-processing-with-pandas.html#Exploring-data-and-renaming-columns">Exploring data and renaming columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/pandas/advanced-data-processing-with-pandas.html#Iterating-rows-and-using-self-made-functions-in-Pandas">Iterating rows and using self-made functions in Pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/pandas/advanced-data-processing-with-pandas.html#String-manipulation-in-Pandas">String manipulation in Pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/pandas/advanced-data-processing-with-pandas.html#Aggregating-data-in-Pandas-by-grouping">Aggregating data in Pandas by grouping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/pandas/advanced-data-processing-with-pandas.html#Finding-outliers-from-the-data">Finding outliers from the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/pandas/advanced-data-processing-with-pandas.html#Repeating-the-data-analysis-with-larger-dataset">Repeating the data analysis with larger dataset</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/numpy.html">NumPy lesson</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html">Advanced data processing with NumPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Getting-started">Getting started</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Previewing-the-data-file.">Previewing the data file.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Importing-NumPy-and-loading-the-data">Importing NumPy and loading the data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Converting-the-missing-data-to-nan-values">Converting the missing data to nan values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Splitting-the-data-into-column-arrays">Splitting the data into column arrays</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Examining-our-data">Examining our data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Basic-observations">Basic observations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Checking-for-missing/bad-data">Checking for missing/bad data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Calculations-within-a-date-range">Calculations within a date range</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Removing-missing-data">Removing missing data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Average-annual-temperature,-method-1">Average annual temperature, method 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Average-monthly-temperatures">Average monthly temperatures</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Splitting-dates-into-separate-year,-month,-and-day">Splitting dates into separate year, month, and day</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Splitting-a-single-date-string">Splitting a single date string</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Splitting-dates-in-a-NumPy-array">Splitting dates in a NumPy array</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Finding-averages-in-a-date-range">Finding averages in a date range</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Finding-the-average-monthly-max-temperature">Finding the average monthly max temperature</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Using-functions-on-NumPy-array-data">Using functions on NumPy array data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Computing-monthly-average-temperatures-for-a-range-of-years">Computing monthly average temperatures for a range of years</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Calculating-temperature-anomalies">Calculating temperature anomalies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/interpreting-errors.html">Dealing with errors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/interpreting-errors.html#interpreting-error-messages">Interpreting error messages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/interpreting-errors.html#common-errors-and-exceptions">Common errors and exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/interpreting-errors.html#reading-error-messages">Reading error messages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/interpreting-errors.html#assertions">Assertions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/interpreting-errors.html#more-information">More information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/debugging-scripts.html">Debugging Python scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/debugging-scripts.html#source">Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/debugging-scripts.html#test-your-code-with-known-outputs">Test your code with known outputs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/debugging-scripts.html#testing-with-a-simplified-data-file">Testing with a simplified data file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/debugging-scripts.html#make-your-code-crash-quickly-and-regularly">Make your code crash quickly and regularly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/debugging-scripts.html#make-small-changes-and-track-them">Make small changes and track them</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/exercise-6.html">Exercise 6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/exercise-6.html#exercise-6-hints-for-pandas">Exercise 6 hints for Pandas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/exercise-6.html#data-format-for-problems-1-3">Data format for problems 1-3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/exercise-6.html#reading-in-fixed-width-text-files">Reading in fixed-width text files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/exercise-6.html#skipping-the-second-row-of-a-file">Skipping the second row of a file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/exercise-6.html#joining-data-from-one-dataframe-to-another">Joining data from one DataFrame to another</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/exercise-6.html#exercise-6-hints-for-numpy">Exercise 6 hints for NumPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/exercise-6.html#calculating-average-temperatures-for-each-month-e-g-february-1954">Calculating average temperatures for each month (e.g., February 1954)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/exercise-6.html#calculating-average-temperatures-for-all-months-e-g-february-1952-1980">Calculating average temperatures for all months (e.g., February 1952-1980)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/exercise-6.html#calculating-temperatures-anomalies">Calculating temperatures anomalies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/exercise-6.html#checking-your-work-for-problem-2">Checking your work for problem 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/exercise-6.html#checking-your-work-for-problem-3">Checking your work for problem 3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Geo-Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Advanced plotting with Pandas</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/lessons/L7/pandas-plotting.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+
+
+    
+    
+
+
+
+    <p class="scv-banner scv-sphinx_rtd_theme"><b>Warning:</b> This document is for the development version of Geo-Python.</p>
+
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="advanced-plotting-with-pandas">
+<h1>Advanced plotting with Pandas<a class="headerlink" href="#advanced-plotting-with-pandas" title="Permalink to this headline">¶</a></h1>
+<p>At this point you should know the basics of making plots with Matplotlib module. It is also possible to do Matplotlib plots directly
+from Pandas because many of the basic functionalities of Matplotlib are integrated into Pandas.
+In this part, we will show how to visualize data using Pandas and create plots such as this:</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../_images/temp_plot2.png"><img alt="../../_images/temp_plot2.png" src="../../_images/temp_plot2.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="downloading-the-data-and-preparing">
+<h2>Downloading the data and preparing<a class="headerlink" href="#downloading-the-data-and-preparing" title="Permalink to this headline">¶</a></h2>
+<p>For our second lesson plotting data using Pandas we will use hourly weather data from Helsinki.
+<strong>Download</strong> the <a class="reference external" href="../../_static/data/L7/1924927457196dat.txt">weather data file from here</a>.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Save a copy of this file in your home directory or a directory for the materials for this week’s lesson.</li>
+<li>The data file contains observed hourly temperatures, windspeeds, etc. covering years 2012 and 2013. Observations were recorded from the Malmi airport weather station in Helsinki.
+It is derived from a data file of daily temperature measurments downloaded from the <a class="reference external" href="https://www7.ncdc.noaa.gov/CDO/cdopoemain.cmd?datasetabbv=DS3505&amp;countryabbv=&amp;georegionabbv=&amp;resolution=40">US National Oceanographic and Atmospheric Administration’s National Centers for Environmental Information climate database</a>.</li>
+<li>There should be around 16.5 thousand rows in the data.</li>
+</ul>
+</div></blockquote>
+<p>The first rows of the data looks like following:</p>
+</div>
+<div class="section" id="parsing-datetime-when-reading-data">
+<h2>Parsing datetime when reading data<a class="headerlink" href="#parsing-datetime-when-reading-data" title="Permalink to this headline">¶</a></h2>
+<p>One of the most useful and powerful features in Pandas is its ability to work with time data.
+In Pandas, we can even read the data from a file and tell to Pandas that values from certain column should be
+interpreted as time, and we can actually use that as our index, which is cool! You will see later why.</p>
+<p>Let’s start by importing some modules that will be useful when plotting.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="gp">In [3]: </span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="gp">In [4]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+<p>Next, let’s read the data into Pandas and determine that the values from <code class="docutils literal notranslate"><span class="pre">YR--MODAHRMN</span></code> column should be interpreted and converted into a time index.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">fp</span> <span class="o">=</span> <span class="s2">&quot;1924927457196dat.txt&quot;</span>
+</pre></div>
+</div>
+<p>When reading the data we can use <code class="docutils literal notranslate"><span class="pre">parse_dates</span></code> parameter to parse the time information</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;YR--MODAHRMN&#39;</span><span class="p">],</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;**&#39;</span><span class="p">,</span> <span class="s1">&#39;***&#39;</span><span class="p">,</span> <span class="s1">&#39;****&#39;</span><span class="p">,</span> <span class="s1">&#39;*****&#39;</span><span class="p">,</span> <span class="s1">&#39;******&#39;</span><span class="p">])</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-5-5291211b00bc&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;YR--MODAHRMN&#39;</span><span class="p">],</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;**&#39;</span><span class="p">,</span> <span class="s1">&#39;***&#39;</span><span class="p">,</span> <span class="s1">&#39;****&#39;</span><span class="p">,</span> <span class="s1">&#39;*****&#39;</span><span class="p">,</span> <span class="s1">&#39;******&#39;</span><span class="p">])</span>
+
+<span class="nn">~/virtualenv/python3.6.3/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">parser_f</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, escapechar, comment, encoding, dialect, tupleize_cols, error_bad_lines, warn_bad_lines, skipfooter, doublequote, delim_whitespace, low_memory, memory_map, float_precision)</span>
+<span class="g g-Whitespace">    </span><span class="mi">676</span>                     <span class="n">skip_blank_lines</span><span class="o">=</span><span class="n">skip_blank_lines</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">677</span> 
+<span class="ne">--&gt; </span><span class="mi">678</span>         <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">679</span> 
+<span class="g g-Whitespace">    </span><span class="mi">680</span>     <span class="n">parser_f</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">name</span>
+
+<span class="nn">~/virtualenv/python3.6.3/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">438</span> 
+<span class="g g-Whitespace">    </span><span class="mi">439</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">440</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">441</span> 
+<span class="g g-Whitespace">    </span><span class="mi">442</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+
+<span class="nn">~/virtualenv/python3.6.3/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">785</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;has_index_names&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s1">&#39;has_index_names&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">786</span> 
+<span class="ne">--&gt; </span><span class="mi">787</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">788</span> 
+<span class="g g-Whitespace">    </span><span class="mi">789</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~/virtualenv/python3.6.3/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1012</span>     <span class="k">def</span> <span class="nf">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1013</span>         <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1014</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="n">CParserWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1015</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1016</span>             <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s1">&#39;python&#39;</span><span class="p">:</span>
+
+<span class="nn">~/virtualenv/python3.6.3/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1706</span>         <span class="n">kwds</span><span class="p">[</span><span class="s1">&#39;usecols&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usecols</span>
+<span class="g g-Whitespace">   </span><span class="mi">1707</span> 
+<span class="ne">-&gt; </span><span class="mi">1708</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1709</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1710</span>         <span class="n">passed_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="ow">is</span> <span class="bp">None</span>
+
+<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader.__cinit__</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader._setup_parser_source</span><span class="nt">()</span>
+
+<span class="ne">FileNotFoundError</span>: File b&#39;/home/travis/build/geo-python/2018/data/L7/1924927457196dat.txt&#39; does not exist
+</pre></div>
+</div>
+<p>Let’s check the datatypes of our columns.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">data</span><span class="o">.</span><span class="n">dtypes</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-6-6226a73926db&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span><span class="o">.</span><span class="n">dtypes</span>
+
+<span class="ne">NameError</span>: name &#39;data&#39; is not defined
+</pre></div>
+</div>
+<p>As we can see the data type of <code class="docutils literal notranslate"><span class="pre">YR--MODAHRMN</span></code> column (third from above) is of type <code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code>.
+This means that the values on that column are interpreted as time objects.
+Let’s see how our data look like.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-7-304fa4ce4ebd&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;data&#39; is not defined
+</pre></div>
+</div>
+<p>As we can see the values on <code class="docutils literal notranslate"><span class="pre">YR--MODAHRMN</span></code> indeed look like time information where the first part represents the date (<code class="docutils literal notranslate"><span class="pre">yyyy-mm-dd</span></code>) and the second part represents the <code class="docutils literal notranslate"><span class="pre">hours:minutes:seconds</span></code>.</p>
+<p>Before continue with plotting in Pandas, let’s process our data a bit by selecting only few columns, renaming them and converting the Fahrenheit temperatures into Celsius.
+If you don’t remember how the following steps work, you might want to take another look on <a class="reference external" href="../L6/pandas-analysis.html#exploring-data-and-renaming-columns.html">Lesson 6 materials</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select data</span>
+<span class="n">selected_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;YR--MODAHRMN&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;SPD&#39;</span><span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">selected_cols</span><span class="p">]</span>
+
+<span class="c1"># Rename columns</span>
+<span class="n">name_conversion</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;YR--MODAHRMN&#39;</span><span class="p">:</span> <span class="s1">&#39;TIME&#39;</span><span class="p">,</span> <span class="s1">&#39;SPD&#39;</span><span class="p">:</span> <span class="s1">&#39;SPEED&#39;</span><span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">name_conversion</span><span class="p">)</span>
+
+<span class="c1"># Convert Fahrenheit temperature into Celsius</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Celsius&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1.8</span>
+</pre></div>
+</div>
+<p>Let’s confirm that everything looks correct.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-8-304fa4ce4ebd&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;data&#39; is not defined
+</pre></div>
+</div>
+<p>Okey, great now our data looks better, and we can continue.
+Let’s see how our data looks like by plotting the Celsius temperatures.</p>
+</div>
+<div class="section" id="basic-line-plot-in-pandas">
+<h2>Basic line plot in Pandas<a class="headerlink" href="#basic-line-plot-in-pandas" title="Permalink to this headline">¶</a></h2>
+<p>In Pandas, it is extremely easy to plot data from your DataFrame. You can do this by using <code class="docutils literal notranslate"><span class="pre">plot()</span></code> function.
+Let’s plot all the Celsius temperatures (y-axis) against the time (x-axis). You can specify the columns that you want to plot
+with <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> parameters:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;TIME&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Celsius&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/pandas_plot_1.png"><img alt="../../_images/pandas_plot_1.png" src="../../_images/pandas_plot_1.png" style="width: 450px;" /></a>
+<p>Cool, it was this easy to produce a line plot that can be used to understand our data better.
+We can clearly see that there is quite a lot of variation in the temperatures, and different seasons pop up quite clearly from the data.</p>
+</div>
+<div class="section" id="selecting-data-based-on-time-in-pandas">
+<h2>Selecting data based on time in Pandas<a class="headerlink" href="#selecting-data-based-on-time-in-pandas" title="Permalink to this headline">¶</a></h2>
+<p>What is obvious from the figure above, is that the hourly level data is actually slightly too accurate for plotting data covering two full years.
+Let’s see a trick, how we can really easily aggregate the data using Pandas.</p>
+<p>First we need to set the <code class="docutils literal notranslate"><span class="pre">TIME</span></code> as the index of our DataFrame. We can do this by using <code class="docutils literal notranslate"><span class="pre">set_index()</span></code> parameter.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;TIME&#39;</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-10-8c0ed9f335b0&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;TIME&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;data&#39; is not defined
+
+<span class="gp">In [11]: </span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="go">                                                                                                                                                                                                                                                                                   ---------------------------------------------------------------------------</span>
+<span class="go">NameError                                 Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-11-304fa4ce4ebd&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 data.head()</span>
+
+<span class="go">NameError: name &#39;data&#39; is not defined</span>
+</pre></div>
+</div>
+<p>As we can see now the index of our data is not a sequential number from 0 up to 16569, but a <code class="docutils literal notranslate"><span class="pre">datetime</span> <span class="pre">index</span></code> that represents time.
+What is cool about this thing is that you can really easily e.g. select data from a single day using basic Pandas indexing.</p>
+<p>Let’s select data from first day of January in 2013 to demonstrate. We can slice the data by inserting the start date and end date that we want to include in our dataset.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [12]: </span><span class="n">first_jan</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;2013-01-01&#39;</span><span class="p">:</span> <span class="s1">&#39;2013-01-01&#39;</span><span class="p">]</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-12-9e67bb0a689f&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">first_jan</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;2013-01-01&#39;</span><span class="p">:</span> <span class="s1">&#39;2013-01-01&#39;</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;data&#39; is not defined
+
+<span class="gp">In [13]: </span><span class="n">first_jan</span>
+<span class="go">                                                                                                                                                                                                                                                                                                  ---------------------------------------------------------------------------</span>
+<span class="go">NameError                                 Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-13-eed6fee4a07b&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 first_jan</span>
+
+<span class="go">NameError: name &#39;first_jan&#39; is not defined</span>
+</pre></div>
+</div>
+<p>Cool! This is quite much easier to do than when parsing the date information using string manipulation (as we did on Lesson 6).
+In a similar manner you can also specify more accurately the time that you want to select. Let’s now select only first 12 hours of the same day</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="n">first_jan_12h</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;2013-01-01 00:00&#39;</span><span class="p">:</span> <span class="s1">&#39;2013-01-01 12:00&#39;</span><span class="p">]</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-14-c2dbd2b8f57e&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">first_jan_12h</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;2013-01-01 00:00&#39;</span><span class="p">:</span> <span class="s1">&#39;2013-01-01 12:00&#39;</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;data&#39; is not defined
+
+<span class="gp">In [15]: </span><span class="n">first_jan_12h</span>
+<span class="go">                                                                                                                                                                                                                                                                                                                  ---------------------------------------------------------------------------</span>
+<span class="go">NameError                                 Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-15-e4cc32f971ed&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 first_jan_12h</span>
+
+<span class="go">NameError: name &#39;first_jan_12h&#39; is not defined</span>
+</pre></div>
+</div>
+<p>Great. As we can see it is really easy to select data based on times as well.</p>
+</div>
+<div class="section" id="aggregating-data-with-resample-and-datetime-index">
+<h2>Aggregating data with <code class="docutils literal notranslate"><span class="pre">resample()</span></code> and datetime index<a class="headerlink" href="#aggregating-data-with-resample-and-datetime-index" title="Permalink to this headline">¶</a></h2>
+<p>Let’s now continue with our original problem which was to aggregate the data into daily observations.
+We can do this easily by using a <code class="docutils literal notranslate"><span class="pre">resample()</span></code> function that does the aggregation for us by utilizing our <code class="docutils literal notranslate"><span class="pre">datetime</span></code> index.
+We can specify the <code class="docutils literal notranslate"><span class="pre">rule</span></code> how we aggregate the data. In below, we use <code class="docutils literal notranslate"><span class="pre">'D'</span></code> to specify that we want to aggregate our data based on <strong>Daily</strong> averages.
+The last function in following command basically determines that we want to calculate the mean from our data values.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">daily</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">rule</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-16-36ab1d38d6b9&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">daily</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">rule</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;data&#39; is not defined
+
+<span class="gp">In [17]: </span><span class="n">daily</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="go">                                                                                                                                                                                                                                                                                            ---------------------------------------------------------------------------</span>
+<span class="go">NameError                                 Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-17-5d7e38248b75&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 daily.head()</span>
+
+<span class="go">NameError: name &#39;daily&#39; is not defined</span>
+</pre></div>
+</div>
+<p>Awesome, now we have values on a daily level that we were able to aggregate with one simple command. Of course it is also possible to aggregate
+based on multiple different time intervals such as hours (<code class="docutils literal notranslate"><span class="pre">H</span></code>), weeks (<code class="docutils literal notranslate"><span class="pre">W</span></code>) months (<code class="docutils literal notranslate"><span class="pre">M</span></code>), etc. See all possible aggregation types (=*offset aliases*) from <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases">Pandas documentation</a></p>
+<p>Let’s now plot our daily temperatures in a similar manner as earlier. Note, that now our time is the index of our DataFrame, so we can pass that into our plotting function. Let’s also change the width and the color of our line to red).
+The <code class="docutils literal notranslate"><span class="pre">kind</span></code> parameter can be used to specify what kind of plot you want to visualize. There many different ones available in Pandas, however,
+we will now only use basic line plots in this tutorial. See many different kind of plots from official <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/visualization.html">Pandas documentation about visualization</a>.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">daily</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">daily</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Celsius&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/pandas_plot_2.png"><img alt="../../_images/pandas_plot_2.png" src="../../_images/pandas_plot_2.png" style="width: 600px;" /></a>
+<p>Now we can see that our plot does not look so “crowded” as we have only daily observations instead of hourly.
+What we can also see is that Pandas actually formats now the x-axis tick-labels really nicely (showing month names and years below them) because we are using the datetime-index to plot the data.</p>
+<p>We can also save this figure to disk by using <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function. With <code class="docutils literal notranslate"><span class="pre">dpi</span></code> parameter it is possible to specify the resolution of the Figure.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;temp_plot1.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In previous lesson, we did this by using string manipulation and grouping the data that are really useful skills, but the technique showed here,
+is much more convenient way of producing the same result.</p>
+</div>
+</div>
+<div class="section" id="making-subplots">
+<h2>Making subplots<a class="headerlink" href="#making-subplots" title="Permalink to this headline">¶</a></h2>
+<p>Let’s continue working with the weather data and learn how to do subplots, i.e.
+such Figures where you have multiple plots in different panels as was shown in the beginning.</p>
+<p>Let’s start by changing our plotting style into a nicely looking <code class="docutils literal notranslate"><span class="pre">seaborn-whitegrid</span></code>.
+You can take a look of different readily-available styles from <a class="reference external" href="https://tonysyu.github.io/raw_content/matplotlib-style-gallery/gallery.html">here</a> .</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [20]: </span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-whitegrid&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s first divide our data into different seasons: Winter (December-February), Spring (March-May),
+Summer (June-August), and Fall (Septempber-November).</p>
+<p>We can do this really easily by selecting data based on the datetime index that we learned earlier.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="n">winter</span> <span class="o">=</span> <span class="n">daily</span><span class="p">[</span><span class="s1">&#39;2012-12-01&#39;</span><span class="p">:</span> <span class="s1">&#39;2013-02-28&#39;</span><span class="p">]</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-21-ed2f9feafc3a&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">winter</span> <span class="o">=</span> <span class="n">daily</span><span class="p">[</span><span class="s1">&#39;2012-12-01&#39;</span><span class="p">:</span> <span class="s1">&#39;2013-02-28&#39;</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;daily&#39; is not defined
+
+<span class="gp">In [22]: </span><span class="n">spring</span> <span class="o">=</span> <span class="n">daily</span><span class="p">[</span><span class="s1">&#39;2013-03-01&#39;</span><span class="p">:</span> <span class="s1">&#39;2013-05-31&#39;</span><span class="p">]</span>
+<span class="go">                                                                                                                                                                                                                                                                                                 ---------------------------------------------------------------------------</span>
+<span class="go">NameError                                 Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-22-58c444162c20&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 spring = daily[&#39;2013-03-01&#39;: &#39;2013-05-31&#39;]</span>
+
+<span class="go">NameError: name &#39;daily&#39; is not defined</span>
+
+<span class="gp">In [23]: </span><span class="n">summer</span> <span class="o">=</span> <span class="n">daily</span><span class="p">[</span><span class="s1">&#39;2013-06-01&#39;</span><span class="p">:</span> <span class="s1">&#39;2013-08-31&#39;</span><span class="p">]</span>
+<span class="go">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ---------------------------------------------------------------------------</span>
+<span class="go">NameError                                 Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-23-4b3909151fa1&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 summer = daily[&#39;2013-06-01&#39;: &#39;2013-08-31&#39;]</span>
+
+<span class="go">NameError: name &#39;daily&#39; is not defined</span>
+
+<span class="gp">In [24]: </span><span class="n">fall</span> <span class="o">=</span> <span class="n">daily</span><span class="p">[</span><span class="s1">&#39;2013-09-01&#39;</span><span class="p">:</span> <span class="s1">&#39;2013-11-30&#39;</span><span class="p">]</span>
+<span class="go">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ---------------------------------------------------------------------------</span>
+<span class="go">NameError                                 Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-24-49ebfba388b6&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 fall = daily[&#39;2013-09-01&#39;: &#39;2013-11-30&#39;]</span>
+
+<span class="go">NameError: name &#39;daily&#39; is not defined</span>
+</pre></div>
+</div>
+<p>Let’s check what we have e.g. in winter DataFrame now.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="n">winter</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-25-1c9b666b1bb7&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">winter</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;winter&#39; is not defined
+</pre></div>
+</div>
+<p>We can plot them separately first, just to see how they look.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [26]: </span><span class="n">winter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">winter</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="s1">&#39;Celsius&#39;</span><span class="p">);</span>
+
+<span class="gp">In [27]: </span><span class="n">spring</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spring</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="s1">&#39;Celsius&#39;</span><span class="p">);</span>
+
+<span class="gp">In [28]: </span><span class="n">summer</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">summer</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="s1">&#39;Celsius&#39;</span><span class="p">);</span>
+
+<span class="gp">In [29]: </span><span class="n">fall</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fall</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="s1">&#39;Celsius&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/pandas_plot_3.png"><img alt="../../_images/pandas_plot_3.png" src="../../_images/pandas_plot_3.png" style="width: 280px;" /></a>
+<a class="reference internal image-reference" href="../../_images/pandas_plot_4.png"><img alt="../../_images/pandas_plot_4.png" src="../../_images/pandas_plot_4.png" style="width: 280px;" /></a>
+<a class="reference internal image-reference" href="../../_images/pandas_plot_5.png"><img alt="../../_images/pandas_plot_5.png" src="../../_images/pandas_plot_5.png" style="width: 280px;" /></a>
+<a class="reference internal image-reference" href="../../_images/pandas_plot_6.png"><img alt="../../_images/pandas_plot_6.png" src="../../_images/pandas_plot_6.png" style="width: 280px;" /></a>
+<p>Okey, so from these plots we can already see that the temperatures in different seasons are quite different, which is quite obvious of course.
+It is important to notice that the scale of the y-axis changes in these different plots. If we would like to compare different seasons to each other
+we need to make sure that the temperature scale is similar with all different seasons.</p>
+<p>We want to have our y-axis limits so that the upper limit is the maximum temperature + 5 degrees
+in our data (full year), and the lowest is the minimum temperature - 5 degrees, accordingly.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [30]: </span><span class="n">min_temp</span> <span class="o">=</span> <span class="n">daily</span><span class="p">[</span><span class="s1">&#39;Celsius&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">5</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-30-e66e1abfcf77&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">min_temp</span> <span class="o">=</span> <span class="n">daily</span><span class="p">[</span><span class="s1">&#39;Celsius&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">5</span>
+
+<span class="ne">NameError</span>: name &#39;daily&#39; is not defined
+
+<span class="gp">In [31]: </span><span class="n">max_temp</span> <span class="o">=</span> <span class="n">daily</span><span class="p">[</span><span class="s1">&#39;Celsius&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="go">                                                                                                                                                                                                                                                                                            ---------------------------------------------------------------------------</span>
+<span class="go">NameError                                 Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-31-730001d6078a&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 max_temp = daily[&#39;Celsius&#39;].max() + 5</span>
+
+<span class="go">NameError: name &#39;daily&#39; is not defined</span>
+
+<span class="gp">In [32]: </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Min:&quot;</span><span class="p">,</span> <span class="n">min_temp</span><span class="p">,</span> <span class="s2">&quot;Max:&quot;</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">)</span>
+<span class="go">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ---------------------------------------------------------------------------</span>
+<span class="go">NameError                                 Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-32-544d2e353831&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 print(&quot;Min:&quot;, min_temp, &quot;Max:&quot;, max_temp)</span>
+
+<span class="go">NameError: name &#39;min_temp&#39; is not defined</span>
+</pre></div>
+</div>
+<p>Okey so we can see that the minimum temperature in our data is approximately -21 degrees and the maximum is +24 degrees.
+We can now use those values to standardize the y-axis scale of our plot.</p>
+<p>Let’s now continue and see how we can plot all these graphs different into the same Figure.
+We can create a 2x2 panel for our visualization using matplotlib’s <code class="docutils literal notranslate"><span class="pre">subplots()</span></code> function where we specify how many rows and columns we want to have in our Figure.
+We can also specify the size  of our figure with <code class="docutils literal notranslate"><span class="pre">figsize()</span></code> parameter that takes the <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code> values (in inches) as input.’</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [33]: </span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+
+<span class="gp">In [34]: </span><span class="n">axes</span>
+<span class="gh">Out[34]: </span><span class="go"></span>
+<span class="go">array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fe486262780&gt;,</span>
+<span class="go">        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fe48874a7b8&gt;],</span>
+<span class="go">       [&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fe486297c50&gt;,</span>
+<span class="go">        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fe4862462b0&gt;]], dtype=object)</span>
+</pre></div>
+</div>
+<p>We can see that as a result we have now a list containing two nested lists where the first one contains the axis for column 1 and 2 on <strong>row 1</strong>
+and the second list contains the axis for columns 1 and 2 for <strong>row 2</strong>.
+We can parse these axes into own variables so it is easier to work with them.’</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [35]: </span><span class="n">ax11</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="gp">In [36]: </span><span class="n">ax12</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="gp">In [37]: </span><span class="n">ax21</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="gp">In [38]: </span><span class="n">ax22</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Now we have four different axis variables for different panels in our Figure.
+Next we can use them to plot the seasonal data into them.
+Let’s first plot the seasons and give different colors for the lines, and specify the y-scale limits to be the same with all subplots.
+With parameter <code class="docutils literal notranslate"><span class="pre">c</span></code> it is possible to specify the color of the line. You can find an extensive list of possible colors and RGB-color codes
+from <a class="reference external" href="http://www.rapidtables.com/web/color/RGB_Color.htm">this link</a>. With <code class="docutils literal notranslate"><span class="pre">lw</span></code> parameter you can specify the width of the line.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [39]: </span><span class="n">line_width</span> <span class="o">=</span> <span class="mf">2.5</span>
+
+<span class="gp">In [40]: </span><span class="n">winter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">winter</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Celsius&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax11</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">));</span>
+
+<span class="gp">In [41]: </span><span class="n">spring</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">spring</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Celsius&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax12</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">));</span>
+
+<span class="gp">In [42]: </span><span class="n">summer</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">summer</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Celsius&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax21</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">));</span>
+
+<span class="gp">In [43]: </span><span class="n">fall</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">fall</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Celsius&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax22</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="figure">
+<a class="reference internal image-reference" href="lessons/L7/../../../data/L7/pandas_subplot_1.png"><img alt="lessons/L7/../../../data/L7/pandas_subplot_1.png" src="lessons/L7/../../../data/L7/pandas_subplot_1.png" style="width: 800px;" /></a>
+</div>
+<p>Great, now we have all the plots in same Figure! However, we can see that there are some problems with our x-axis as the number of ticks is different in different subplots.
+We can change that. It is basically possible to adjust all elements of your visualization. Quite many of them can be adjusted
+by referring to the <code class="docutils literal notranslate"><span class="pre">axis</span></code> object and modifying different parameters from there.</p>
+<p>The following parts where we adjust the asthetics of the subplots might be a bit difficult to understand, but don’t worry if you don’t understand everything.
+With other data types of data (other than time data) modifying e.g. the tick intervals is much easier.</p>
+<p>Let’s first clean all the x-axis ticks. We can do that by going through all the axis and setting an empty list as ticks.
+At the same time we can specify that the y-ticks should be visible every 5 degree intervals. For this purpose, we can take advantage of <code class="docutils literal notranslate"><span class="pre">arange()</span></code> function from numpy module. We can also set the size of our ticklabels larger at this point.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [44]: </span><span class="n">yticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mi">25</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax11</span><span class="p">,</span> <span class="n">ax12</span><span class="p">,</span> <span class="n">ax21</span><span class="p">,</span> <span class="n">ax22</span><span class="p">]:</span>
+    <span class="c1"># Clear x axis ticks</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">([])</span>
+    <span class="c1"># Specifu y-axis ticks</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">(</span><span class="n">yticks</span><span class="p">)</span>
+    <span class="c1"># Specify major tick-label sizes larger</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>Let’s specify that we want to have daily ticks for all our plots. This can be done by utilizing a specific functionality from matplotlib called <code class="docutils literal notranslate"><span class="pre">dates</span></code> that we can use to specify the ticks.
+This part is quite advanced plotting, so again, do not worry if you don’t understand everything.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">dates</span>
+
+<span class="c1"># Iterate over all four axes that we have and apply same procedures to each one of them</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax11</span><span class="p">,</span> <span class="n">ax12</span><span class="p">,</span> <span class="n">ax21</span><span class="p">,</span> <span class="n">ax22</span><span class="p">]:</span>
+    <span class="c1"># Set minor ticks with day numbers</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">dates</span><span class="o">.</span><span class="n">DayLocator</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_formatter</span><span class="p">(</span><span class="n">dates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">))</span>
+    <span class="c1"># Set major ticks with month names</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">dates</span><span class="o">.</span><span class="n">MonthLocator</span><span class="p">())</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">dates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">%b&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="figure">
+<a class="reference internal image-reference" href="lessons/L7/../../../data/L7/pandas_subplot_2.png"><img alt="lessons/L7/../../../data/L7/pandas_subplot_2.png" src="lessons/L7/../../../data/L7/pandas_subplot_2.png" style="width: 800px;" /></a>
+</div>
+<p>Perfect now we have similar scales for all of our subplots.</p>
+<p>As a last step let’s add text on top of the plots to specify the seasons. Adding text on top of your plot
+can be done easily with <code class="docutils literal notranslate"><span class="pre">text()</span></code> function. When using the <code class="docutils literal notranslate"><span class="pre">text()</span></code> function you need to specify (at least)
+the x-position, y-position and the text which will be added to the plot.</p>
+<p>Let’s specify the location for the Winter, Spring, Summer and Fall annotations.
+In here, we can use the same y-position for all of our plots. However, with x-position we need to specify the position as
+<code class="docutils literal notranslate"><span class="pre">datetime()</span></code> objects because the x-axis includes datetime values.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="n">all_y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">23</span>
+
+<span class="gp">In [46]: </span><span class="n">wint_x</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="gp">In [47]: </span><span class="n">spr_x</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="gp">In [48]: </span><span class="n">sum_x</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+
+<span class="gp">In [49]: </span><span class="n">fal_x</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s add those texts on top of our subplots.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [50]: </span><span class="n">ax11</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">wint_x</span><span class="p">,</span> <span class="n">all_y</span><span class="p">,</span> <span class="s1">&#39;Winter&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+
+<span class="gp">In [51]: </span><span class="n">ax12</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">spr_x</span><span class="p">,</span> <span class="n">all_y</span><span class="p">,</span> <span class="s1">&#39;Spring&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+
+<span class="gp">In [52]: </span><span class="n">ax21</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">sum_x</span><span class="p">,</span> <span class="n">all_y</span><span class="p">,</span> <span class="s1">&#39;Summer&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+
+<span class="gp">In [53]: </span><span class="n">ax22</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">fal_x</span><span class="p">,</span> <span class="n">all_y</span><span class="p">,</span> <span class="s1">&#39;Fall&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Let’s add a common Y-label for the figure and a title, this can be done by adding another subplot that covers the area of the whole
+Figure and adding labels on top of that.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [54]: </span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="bp">False</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Let’s make sure that there are no ticks or labels added</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [55]: </span><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="gp">In [56]: </span><span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelcolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="s1">&#39;off&#39;</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="s1">&#39;off&#39;</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="s1">&#39;off&#39;</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s now add common y-label and a title for our plot.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [57]: </span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature in Celsius&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="s1">&#39;Arial&#39;</span><span class="p">);</span>
+
+<span class="gp">In [58]: </span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Seasonal variations in temperature&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="s1">&#39;Arial&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>By calling <code class="docutils literal notranslate"><span class="pre">plt.tightlayout()</span></code> it is possible to remove most of the extra whitespace around your figure.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [59]: </span><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Finally, we can save our subplot to disk in a similar manner as before.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [60]: </span><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;Temperature_seasons_subplot.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure">
+<a class="reference internal image-reference" href="../../_images/temp_plot2.png"><img alt="../../_images/temp_plot2.png" src="../../_images/temp_plot2.png" style="width: 800px;" /></a>
+</div>
+<p>And voilá! Now we have a fairly nice looking figure with four subplots. Now you know few really useful tricks
+how to manipulate the aesthetics of your plot, and how to create subplots which is really useful skill to learn!
+Now it is time to be creative and practice your visualization skills with an exercise.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p> <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> </a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: develop
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../../../2017/lessons/L7/pandas-plotting.html">2017</a></dd>
+            <dd><a href="pandas-plotting.html">develop</a></dd>
+            <dd><a href="../../../master/index.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'2018',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

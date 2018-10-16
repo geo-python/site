@@ -1,0 +1,1075 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-105019106-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Exercise 7 &mdash; Geo-Python 2018 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
+     
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Geo-Python
+          
+
+          
+            
+            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2018
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/course-info.html#course-meetings-in-period-i">Course meetings in Period I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/course-info.html#instructors">Instructors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/course-info.html#lecturers">Lecturers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/course-info.html#course-assistants">Course assistants</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/course-info.html#course-websites">Course websites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/grading.html#general-grading-breakdown">General grading breakdown</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/installing-anacondas.html">Installing Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/installing-anacondas.html#install-python-on-windows">Install Python on Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/installing-anacondas.html#install-python-on-macos">Install Python on macOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/installing-anacondas.html#install-python-on-linux">Install Python on Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/installing-anacondas.html#how-to-find-out-which-conda-command-to-use-when-installing-a-package">How to find out which conda -command to use when installing a package?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/installing-anacondas.html#the-easiest-way">The easiest way</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/installing-anacondas.html#alternative-way-to-install-packages-if-typical-doesn-t-work">Alternative way to install packages if typical doesn’t work</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/python-vocabulary.html">Vocabulary - Basic terms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/python-vocabulary.html#python-vocabulary">Python vocabulary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/python-vocabulary.html#basic-vocabulary-of-version-control">Basic vocabulary of Version Control</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#books">Books</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#python-tutorials">Python tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#git-github-tutorials">Git + Github tutorials</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/licensing.html#instructional-materials">Instructional materials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/licensing.html#you-are-free-to">you are free to</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/licensing.html#under-the-following-terms">Under the following terms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/licensing.html#notices">Notices</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/licensing.html#code-snippets-software">Code snippets / software</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L1/motivation.html">Motivation for the course</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/motivation.html#effective-data-visualization">Effective data visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/overview.html#lecture-video">Lecture video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/overview.html#lecture-slides">Lecture slides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/course-environment-components.html">Course environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/course-environment-components.html#jupyter-notebooks-and-jupyterlab">Jupyter Notebooks and JupyterLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/course-environment-components.html#using-your-own-computer">Using your own computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/course-environment-components.html#cloud-computing-environments">Cloud computing environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L1/course-environment-components.html#binder">Binder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/course-environment-components.html#csc-notebooks">CSC Notebooks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/course-environment-components.html#git-github">Git + GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/course-environment-components.html#using-slack">Using Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/course-environment-components.html#voting-and-polling">Voting and polling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/course-environment-components.html#page-summary">Page summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/slack-usage.html">Communicating with Slack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/slack-usage.html#overview-of-slack">Overview of Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/slack-usage.html#activating-your-account">Activating your account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/slack-usage.html#basic-usage-of-slack">Basic usage of Slack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L1/slack-usage.html#notifying-a-user">Notifying a user</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/slack-usage.html#using-threads">Using threads</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/slack-usage.html#general-guidelines-for-communication">General guidelines for communication</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html">A taste of Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#About-this-document">About this document</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Getting-started">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Variables,-arithmetic-and-modules">Variables, arithmetic and modules</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Simple-Python-math">Simple Python math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Math-operations">Math operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Combining-functions">Combining functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Variables">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Updating-variables">Updating variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Variable-values">Variable values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L1/a-taste-of-python.html#Data-types">Data types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/exercise-1.html">Exercise 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/exercise-1.html#part-1-creating-a-github-com-account-and-using-slack">Part 1 - Creating a GitHub.com account and using Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/exercise-1.html#part-2-cooking-up-some-python">Part 2 - Cooking up some Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/exercise-1.html#what-to-submit">What to submit</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L2/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/overview.html#lecture-video">Lecture video</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/intro-to-GitHub.html">Introduction to Version Control and GitHub</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/intro-to-GitHub.html#familiar">Familiar?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/intro-to-GitHub.html#what-is-version-control">What is version control?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/intro-to-GitHub.html#why-to-use-it">Why to use it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/intro-to-GitHub.html#basic-vocabulary-of-version-control">Basic vocabulary of Version Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/intro-to-GitHub.html#what-is-github">What is GitHub?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/intro-to-GitHub.html#relies-on-git">Relies on Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/intro-to-GitHub.html#social-collaborative-network">Social (collaborative) network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/intro-to-GitHub.html#open-source-science">Open source / science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/intro-to-GitHub.html#documentation">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/intro-to-GitHub.html#online-tools">Online tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/intro-to-GitHub.html#issue-tracking">Issue tracking</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/intro-to-GitHub.html#resources">Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/git-basics.html">Meet Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/git-basics.html#clone-a-repository-from-github">Clone a repository from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/git-basics.html#add-changes">Add changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/git-basics.html#commit-changes">Commit changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/git-basics.html#synchronize-changes">Synchronize changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/git-basics.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/GitHub-classroom.html">Using Classroom for Github</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/GitHub-classroom.html#classroom-for-github">Classroom for GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html">Basic elements of Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Data-types-revisited">Data types revisited</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Let's-start-with-some-data">Let’s start with some data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Reminder:-Data-types-and-their-compatibility">Reminder: Data types and their compatibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Converting-data-from-one-type-to-another">Converting data from one type to another</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Combining-text-and-numbers">Combining text and numbers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Lists-and-indices">Lists and indices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Creating-a-list">Creating a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Index-values">Index values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#A-useful-analog---Bill-the-vending-machine">A useful analog - Bill the vending machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Number-of-items-in-a-list">Number of items in a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Index-value-tips">Index value tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Modifying-list-values">Modifying list values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Data-types-in-lists">Data types in lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Adding-and-removing-values-from-lists">Adding and removing values from lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#The-concept-of-objects">The concept of objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#A-(bad)-example-of-methods">A (bad) example of methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Some-other-useful-list-methods">Some other useful list methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Reversing-a-list">Reversing a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#Sorting-a-list">Sorting a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L2/Python-basic-elements.html#List-attributes">List attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/exercise-2.html">Exercise 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/exercise-2.html#exercise-2-hints">Exercise 2 hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/exercise-2.html#list-methods">List methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/exercise-2.html#indentation-woes">Indentation woes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L3/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/overview.html#lecture">Lecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/L3/for-loops.html">for loops</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L3/for-loops.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L3/for-loops.html#Basics-of-for-loops">Basics of for loops</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/for-loops.html#A-(bad)-example">A (bad) example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/for-loops.html#Introducing-the-for-loop">Introducing the for loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/for-loops.html#for-loop-format">for loop format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L3/for-loops.html#Your-daily-for-loop">Your daily for loop</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/for-loops.html#Another-for-loop-example">Another for loop example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/for-loops.html#for-loop-variables">for loop variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/for-loops.html#for-loops-and-lists">for loops and lists</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L3/for-loops.html#Poll-question-pause">Poll question pause</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/for-loops.html#Calculating-values-in-for-loops">Calculating values in for loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/for-loops.html#Looping-over-the-length-of-lists">Looping over the length of lists</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L3/for-loops.html#Poll-question-pause">Poll question pause</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/L3/conditional-statements.html">Conditional statements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L3/conditional-statements.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L3/conditional-statements.html#Basics-of-conditional-statements">Basics of conditional statements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/conditional-statements.html#A-simple-conditional-statement">A simple conditional statement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L3/conditional-statements.html#A-familiar-conditional-scenario">A familiar conditional scenario</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/conditional-statements.html#else-is-not-required">else is not required</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/conditional-statements.html#Introducing-second-test">Introducing second test</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L3/conditional-statements.html#Poll-question-pause">Poll question pause</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L3/conditional-statements.html#Combining-conditions">Combining conditions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L3/conditional-statements.html#Another-familiar-conditional-scenario">Another familiar conditional scenario</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/exercise-3.html">Exercise 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/exercise-3.html#exercise-3-hints">Exercise 3 hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/exercise-3.html#general-tips">General tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/exercise-3.html#combining-strings">Combining strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/exercise-3.html#nested-if-statements">Nested if statements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 4</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L4/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L4/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/overview.html#lecture">Lecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/L4/functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/functions.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/functions.html#What-is-a-function?">What is a function?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/functions.html#Anatomy-of-a-function">Anatomy of a function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Our-first-function-(aww...)">Our first function (aww…)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/functions.html#Calling-functions">Calling functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Using-our-new-function">Using our new function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Let's-make-another-function">Let’s make another function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Using-our-second-function">Using our second function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L4/functions.html#Check-your-understanding">Check your understanding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Functions-within-a-function-(Yo-dawg...)">Functions within a function (Yo dawg…)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Using-our-combined-functions">Using our combined functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/functions.html#An-introduction-to-script-files">An introduction to script files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#The-general-concept-of-a-.py-script-file">The general concept of a .py script file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Getting-started">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Saving-a-text-file-as-a-Python-file">Saving a text file as a Python file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/functions.html#Saving-and-loading-functions">Saving and loading functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Saving-functions-in-a-script-file">Saving functions in a script file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/functions.html#Calling-functions-from-a-script-file">Calling functions from a script file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Making-sure-we're-in-the-right-working-directory">Making sure we’re in the right working directory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L4/functions.html#Binder-users">Binder users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L4/functions.html#CSC-notebooks-users">CSC notebooks users</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Changing-the-working-directory">Changing the working directory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L4/functions.html#Binder-users">Binder users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L4/functions.html#CSC-notebooks-users">CSC notebooks users</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Importing-our-script-functions">Importing our script functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Using-our-script-functions">Using our script functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L4/functions.html#Importing-multiple-functions">Importing multiple functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Importing-all-functions-from-a-script">Importing all functions from a script</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/functions.html#Temperature-calculator-(optional,-advanced-topic)">Temperature calculator (<em>optional, advanced topic</em>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Defining-the-function">Defining the function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Adding-some-conditional-statements">Adding some conditional statements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Returning-the-result">Returning the result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Adding-a-docstring">Adding a docstring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Testing-the-new-function">Testing the new function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/functions.html#Using-the-tempCalculator">Using the tempCalculator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/L4/modules.html">Loading and using modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/modules.html#What-is-a-module?">What is a module?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/modules.html#How-can-modules-be-loaded?">How can modules be loaded?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/modules.html#Loading-a-module">Loading a module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/modules.html#Renaming-imported-modules">Renaming imported modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/modules.html#Importing-a-single-function">Importing a single function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/modules.html#Importing-part-of-a-module">Importing part of a module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/modules.html#How-can-modules-be-used?">How can modules be used?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/modules.html#What-should-I-not-do?">What should I not do?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/modules.html#from-X-import-*">from X import *</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/modules.html#Poor-names-when-renaming-on-import">Poor names when renaming on import</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/L4/writing-scripts.html">Writing our scripts the “right” way</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/writing-scripts.html#Inline-comments">Inline comments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/writing-scripts.html#Use-line-breaks-wisely">Use line breaks wisely</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/writing-scripts.html#Use-a-docstring">Use a docstring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/writing-scripts.html#Advanced-topics">Advanced topics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/writing-scripts.html#Adding-a-license">Adding a license</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L4/writing-scripts.html#Starting-with-a-shebang">Starting with a shebang</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L4/writing-scripts.html#Page-summary">Page summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/exercise-4.html">Exercise 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L4/exercise-4.html#exercise-4-hints">Exercise 4 hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/exercise-4.html#importing-variables-from-a-script">Importing variables from a script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/exercise-4.html#counting-values-from-a-list">Counting values from a list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 5</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L5/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L5/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/overview.html#lecture-videos">Lecture videos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/overview.html#pandas">Pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/overview.html#numpy">NumPy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/pandas.html">Pandas lesson</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L5/pandas-overview.html">What is Pandas?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/pandas-overview.html#easy-to-use-data-structures">Easy-to-use data structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/pandas-overview.html#combines-functionalities-from-many-python-modules">Combines functionalities from many Python modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/pandas-overview.html#supports-data-read-write-from-multiple-formats">Supports data read/write from multiple formats</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L5/pandas/Exploring-data-using-pandas.html">Exploring data using Pandas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/pandas/Exploring-data-using-pandas.html#Preparations-for-this-lesson-(working-environment-and-input-data)">Preparations for this lesson (working environment and input data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/pandas/Exploring-data-using-pandas.html#Reading-a-data-file-with-Pandas">Reading a data file with Pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/pandas/Exploring-data-using-pandas.html#Exploring-our-dataset">Exploring our dataset</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L5/pandas/processing-data-with-pandas.html">Processing data with Pandas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/pandas/processing-data-with-pandas.html#Calculating-with-DataFrames">Calculating with DataFrames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/pandas/processing-data-with-pandas.html#Selecting-data-using-indices">Selecting data using indices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/pandas/processing-data-with-pandas.html#Filtering-and-updating-data">Filtering and updating data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/pandas/processing-data-with-pandas.html#Dealing-with-missing-data">Dealing with missing data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/pandas/processing-data-with-pandas.html#Sorting-data">Sorting data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/pandas/processing-data-with-pandas.html#Rounding-and-finding-unique-values">Rounding and finding unique values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/pandas/processing-data-with-pandas.html#Writing-data">Writing data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/numpy.html">NumPy lesson</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html">Exploring data using NumPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#What-is-NumPy?">What is NumPy?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Preparation-(the-key-to-success)">Preparation (the key to success)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Reading-a-data-file-with-NumPy">Reading a data file with NumPy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Importing-NumPy">Importing NumPy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Reading-a-data-file">Reading a data file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Inspecting-our-data-file">Inspecting our data file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Reading-our-data-file,-round-2">Reading our data file, round 2</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Exploring-our-dataset">Exploring our dataset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Checking-the-array-data-type">Checking the array data type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Checking-the-data-array-type">Checking the data array type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Checking-the-size-of-the-dataset">Checking the size of the dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Working-with-our-data---Index-slicing">Working with our data - Index slicing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Slicing-our-data-into-columns">Slicing our data into columns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Checking-the-data-in-memory">Checking the data in memory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Basic-data-calculations-in-NumPy">Basic data calculations in NumPy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Data-type-conversions">Data type conversions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html">Processing data with NumPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Calculating-with-NumPy-arrays">Calculating with NumPy arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Creating-arrays">Creating arrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Calcuating-values-using-other-arrays">Calcuating values using other arrays</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Filtering-data">Filtering data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Using-data-masks">Using data masks</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Removing-missing/bad-data">Removing missing/bad data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Rounding-and-finding-unique-values">Rounding and finding unique values</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Finding-unique-values">Finding unique values</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Saving-our-data-to-a-file">Saving our data to a file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Re-creating-our-2D-data-array">Re-creating our 2D data array</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L5/numpy/2-Processing-data-with-NumPy.html#Saving-our-data">Saving our data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/exercise-5.html">Exercise 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L5/exercise-5.html#exercise-5-hints-for-pandas">Exercise 5 hints for Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/exercise-5.html#exercise-5-hints-for-numpy">Exercise 5 hints for NumPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/exercise-5.html#formatting-output-to-written-to-files">Formatting output to written to files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 6</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L6/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/overview.html#lesson-videos">Lesson videos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/pandas.html">Pandas lesson</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L6/pandas/advanced-data-processing-with-pandas.html">Advanced data processing with Pandas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/pandas/advanced-data-processing-with-pandas.html#Reading-the-data">Reading the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/pandas/advanced-data-processing-with-pandas.html#Exploring-data-and-renaming-columns">Exploring data and renaming columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/pandas/advanced-data-processing-with-pandas.html#Iterating-rows-and-using-self-made-functions-in-Pandas">Iterating rows and using self-made functions in Pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/pandas/advanced-data-processing-with-pandas.html#String-manipulation-in-Pandas">String manipulation in Pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/pandas/advanced-data-processing-with-pandas.html#Aggregating-data-in-Pandas-by-grouping">Aggregating data in Pandas by grouping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/pandas/advanced-data-processing-with-pandas.html#Finding-outliers-from-the-data">Finding outliers from the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/pandas/advanced-data-processing-with-pandas.html#Repeating-the-data-analysis-with-larger-dataset">Repeating the data analysis with larger dataset</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/numpy.html">NumPy lesson</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html">Advanced data processing with NumPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Getting-started">Getting started</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Previewing-the-data-file.">Previewing the data file.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Importing-NumPy-and-loading-the-data">Importing NumPy and loading the data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Converting-the-missing-data-to-nan-values">Converting the missing data to nan values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Splitting-the-data-into-column-arrays">Splitting the data into column arrays</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Examining-our-data">Examining our data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Basic-observations">Basic observations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Checking-for-missing/bad-data">Checking for missing/bad data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Calculations-within-a-date-range">Calculations within a date range</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Removing-missing-data">Removing missing data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Average-annual-temperature,-method-1">Average annual temperature, method 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Average-monthly-temperatures">Average monthly temperatures</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Splitting-dates-into-separate-year,-month,-and-day">Splitting dates into separate year, month, and day</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Splitting-a-single-date-string">Splitting a single date string</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Splitting-dates-in-a-NumPy-array">Splitting dates in a NumPy array</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Finding-averages-in-a-date-range">Finding averages in a date range</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Finding-the-average-monthly-max-temperature">Finding the average monthly max temperature</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Using-functions-on-NumPy-array-data">Using functions on NumPy array data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Computing-monthly-average-temperatures-for-a-range-of-years">Computing monthly average temperatures for a range of years</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notebooks/L6/numpy/Advanced-data-processing-with-NumPy.html#Calculating-temperature-anomalies">Calculating temperature anomalies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/interpreting-errors.html">Dealing with errors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/interpreting-errors.html#interpreting-error-messages">Interpreting error messages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/interpreting-errors.html#common-errors-and-exceptions">Common errors and exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/interpreting-errors.html#reading-error-messages">Reading error messages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/interpreting-errors.html#assertions">Assertions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/interpreting-errors.html#more-information">More information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/debugging-scripts.html">Debugging Python scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/debugging-scripts.html#source">Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/debugging-scripts.html#test-your-code-with-known-outputs">Test your code with known outputs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/debugging-scripts.html#testing-with-a-simplified-data-file">Testing with a simplified data file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/debugging-scripts.html#make-your-code-crash-quickly-and-regularly">Make your code crash quickly and regularly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/debugging-scripts.html#make-small-changes-and-track-them">Make small changes and track them</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/exercise-6.html">Exercise 6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/exercise-6.html#exercise-6-hints-for-pandas">Exercise 6 hints for Pandas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/exercise-6.html#data-format-for-problems-1-3">Data format for problems 1-3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/exercise-6.html#reading-in-fixed-width-text-files">Reading in fixed-width text files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/exercise-6.html#skipping-the-second-row-of-a-file">Skipping the second row of a file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/exercise-6.html#joining-data-from-one-dataframe-to-another">Joining data from one DataFrame to another</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/exercise-6.html#exercise-6-hints-for-numpy">Exercise 6 hints for NumPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/exercise-6.html#calculating-average-temperatures-for-each-month-e-g-february-1954">Calculating average temperatures for each month (e.g., February 1954)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/exercise-6.html#calculating-average-temperatures-for-all-months-e-g-february-1952-1980">Calculating average temperatures for all months (e.g., February 1952-1980)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/exercise-6.html#calculating-temperatures-anomalies">Calculating temperatures anomalies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/exercise-6.html#checking-your-work-for-problem-2">Checking your work for problem 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/exercise-6.html#checking-your-work-for-problem-3">Checking your work for problem 3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Geo-Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Exercise 7</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/lessons/L7/exercise-7.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+
+
+    
+    
+
+
+
+    <p class="scv-banner scv-sphinx_rtd_theme"><b>Warning:</b> This document is for the development version of Geo-Python.</p>
+
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="exercise-7">
+<h1>Exercise 7<a class="headerlink" href="#exercise-7" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Please feel free to use the link below to create your personal copy of this assignment using GitHub Classroom.
+However, note that <strong>we provide assignment feedback only for students enrolled in the course at the University of Helsinki</strong>.</p>
+</div>
+<div class="admonition-start-your-assignment admonition">
+<p class="first admonition-title">Start your assignment</p>
+<p>You can start working on your copy of Exercise 7 by <a class="reference external" href="https://classroom.github.com/a/C3OJUyOu">accepting the GitHub Classroom assignment</a>.</p>
+<p class="last"><strong>Exercise 7 is due by 16:00 on 27.10</strong>.</p>
+</div>
+<p>You can also take a look at the open course copy of <a class="reference external" href="https://github.com/Geo-Python-2017/Exercise-7">Exercise 7 in the course GitHub repository</a> (does not require logging in).
+Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.</p>
+<div class="section" id="hints-for-exercise-7">
+<h2>Hints for Exercise 7<a class="headerlink" href="#hints-for-exercise-7" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="converting-a-column-of-date-strings-into-datetime-format">
+<h2>Converting a column of date-strings into datetime format<a class="headerlink" href="#converting-a-column-of-date-strings-into-datetime-format" title="Permalink to this headline">¶</a></h2>
+<p>In some cases Pandas cannot understand and parse automatically the date information from a column when you read the
+data with <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> function. In these cases, you need to parse the date information afterwards.</p>
+<p>Let’s see an example with following data</p>
+<p>Let’s try to read the data and parse the date.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DATE&#39;</span><span class="p">])</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-1-f20dd3876fdc&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DATE&#39;</span><span class="p">])</span>
+
+<span class="nn">~/virtualenv/python3.6.3/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">parser_f</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, escapechar, comment, encoding, dialect, tupleize_cols, error_bad_lines, warn_bad_lines, skipfooter, doublequote, delim_whitespace, low_memory, memory_map, float_precision)</span>
+<span class="g g-Whitespace">    </span><span class="mi">676</span>                     <span class="n">skip_blank_lines</span><span class="o">=</span><span class="n">skip_blank_lines</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">677</span> 
+<span class="ne">--&gt; </span><span class="mi">678</span>         <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">679</span> 
+<span class="g g-Whitespace">    </span><span class="mi">680</span>     <span class="n">parser_f</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">name</span>
+
+<span class="nn">~/virtualenv/python3.6.3/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">438</span> 
+<span class="g g-Whitespace">    </span><span class="mi">439</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">440</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">441</span> 
+<span class="g g-Whitespace">    </span><span class="mi">442</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+
+<span class="nn">~/virtualenv/python3.6.3/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">785</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;has_index_names&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s1">&#39;has_index_names&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">786</span> 
+<span class="ne">--&gt; </span><span class="mi">787</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">788</span> 
+<span class="g g-Whitespace">    </span><span class="mi">789</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~/virtualenv/python3.6.3/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1012</span>     <span class="k">def</span> <span class="nf">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1013</span>         <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1014</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="n">CParserWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1015</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1016</span>             <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s1">&#39;python&#39;</span><span class="p">:</span>
+
+<span class="nn">~/virtualenv/python3.6.3/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1706</span>         <span class="n">kwds</span><span class="p">[</span><span class="s1">&#39;usecols&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usecols</span>
+<span class="g g-Whitespace">   </span><span class="mi">1707</span> 
+<span class="ne">-&gt; </span><span class="mi">1708</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1709</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1710</span>         <span class="n">passed_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="ow">is</span> <span class="bp">None</span>
+
+<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader.__cinit__</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader._setup_parser_source</span><span class="nt">()</span>
+
+<span class="ne">FileNotFoundError</span>: File b&#39;/home/travis/build/geo-python/2018/data/L7/hintData.txt&#39; does not exist
+
+<span class="gp">In [2]: </span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="go">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ---------------------------------------------------------------------------</span>
+<span class="go">NameError                                 Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-2-304fa4ce4ebd&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 data.head()</span>
+
+<span class="go">NameError: name &#39;data&#39; is not defined</span>
+
+<span class="gp">In [3]: </span><span class="n">data</span><span class="o">.</span><span class="n">dtypes</span>
+<span class="go">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ---------------------------------------------------------------------------</span>
+<span class="go">NameError                                 Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-3-6226a73926db&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 data.dtypes</span>
+
+<span class="go">NameError: name &#39;data&#39; is not defined</span>
+</pre></div>
+</div>
+<p>As we can see from above, Pandas was not able to convert the datatype of <code class="docutils literal notranslate"><span class="pre">DATE</span></code> into <code class="docutils literal notranslate"><span class="pre">datetime</span></code> format.
+This is because the DATE values does not include information about the day of the year but only the year and month.</p>
+<p>There is a way to tell to Pandas to read the <code class="docutils literal notranslate"><span class="pre">DATE</span></code> information with a custom format such as the one we have here
+with <code class="docutils literal notranslate"><span class="pre">pd.to_timestamp()</span></code> function where we can specify with <code class="docutils literal notranslate"><span class="pre">format</span></code> parameter the custom format how the dates
+are represented in the data. Consider following example:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;DATE&#39;</span><span class="p">],</span> <span class="n">format</span><span class="o">=</span><span class="s1">&#39;%Y%m&#39;</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-4-1c7d066de4f0&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;DATE&#39;</span><span class="p">],</span> <span class="n">format</span><span class="o">=</span><span class="s1">&#39;%Y%m&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;data&#39; is not defined
+
+<span class="gp">In [5]: </span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="go">                                                                                                                                                                                                                                                                                                                    ---------------------------------------------------------------------------</span>
+<span class="go">NameError                                 Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-5-304fa4ce4ebd&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 data.head()</span>
+
+<span class="go">NameError: name &#39;data&#39; is not defined</span>
+
+<span class="gp">In [6]: </span><span class="n">data</span><span class="o">.</span><span class="n">dtypes</span>
+<span class="go">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ---------------------------------------------------------------------------</span>
+<span class="go">NameError                                 Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-6-6226a73926db&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 data.dtypes</span>
+
+<span class="go">NameError: name &#39;data&#39; is not defined</span>
+</pre></div>
+</div>
+<p>Great, now we have the data in <code class="docutils literal notranslate"><span class="pre">datetime</span></code> format!</p>
+</div>
+<div class="section" id="creating-an-empty-dataframe-with-a-datetime-index">
+<h2>Creating an empty DataFrame with a datetime index<a class="headerlink" href="#creating-an-empty-dataframe-with-a-datetime-index" title="Permalink to this headline">¶</a></h2>
+<p>For Problem 2 in this exercise you are asked to calculate average seasonal ages for each year in our data file.
+The easiest way to do this is to create an empty DataFrame to store the seaonal temperatures, with one temperature for each year and season.
+Thus, the DataFrame should have columns for each season and the date as an index.
+In order to do this, we’ll need first to create a variable to store the dates for the index, then create the DataFrame using that index.
+Let’s consider an example for my world, where there are two seasons: <code class="docutils literal notranslate"><span class="pre">coldSeason</span></code> and <code class="docutils literal notranslate"><span class="pre">warmSeason</span></code>.
+For each season, I want list the number of times I wore a jacket, with data from the past 4 years.
+I can start by making a variable with 1 date for each of the past 4 years using the Pandas <code class="docutils literal notranslate"><span class="pre">pd.date_range()</span></code> function.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">timeIndex</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2014&#39;</span><span class="p">,</span> <span class="s1">&#39;2017&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;AS&#39;</span><span class="p">)</span>
+
+<span class="gp">In [8]: </span><span class="k">print</span><span class="p">(</span><span class="n">timeIndex</span><span class="p">)</span>
+<span class="go">DatetimeIndex([&#39;2014-01-01&#39;, &#39;2015-01-01&#39;, &#39;2016-01-01&#39;, &#39;2017-01-01&#39;], dtype=&#39;datetime64[ns]&#39;, freq=&#39;AS-JAN&#39;)</span>
+</pre></div>
+</div>
+<p>As you can see, we now have a variable <code class="docutils literal notranslate"><span class="pre">timeIndex</span></code> in the Pandas datetime format with dates for January 1 of the past 4 years.
+The starting and ending years are clear, and the <code class="docutils literal notranslate"><span class="pre">freq='AS'</span></code> indicates the frequecy of dates between the listed starting and ending times.
+In this case, <code class="docutils literal notranslate"><span class="pre">AS</span></code> refers to annual values (1 time per year) at the start of the year.</p>
+<p>With the <code class="docutils literal notranslate"><span class="pre">timeIndex</span></code> variable, we can now create our empty DataFrame to store the seasonal jacket numbers using the Pandas <code class="docutils literal notranslate"><span class="pre">pd.DataFrame()</span></code> function.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">seasonData</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">timeIndex</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;coldSeason&#39;</span><span class="p">,</span> <span class="s1">&#39;warmSeason&#39;</span><span class="p">])</span>
+
+<span class="gp">In [10]: </span><span class="k">print</span><span class="p">(</span><span class="n">seasonData</span><span class="p">)</span>
+<span class="go">           coldSeason warmSeason</span>
+<span class="go">2014-01-01        NaN        NaN</span>
+<span class="go">2015-01-01        NaN        NaN</span>
+<span class="go">2016-01-01        NaN        NaN</span>
+<span class="go">2017-01-01        NaN        NaN</span>
+</pre></div>
+</div>
+<p>Now we have our empty DataFrame where I can fill in the number of times I needed a jacket in each season using the date index!</p>
+</div>
+<div class="section" id="slicing-up-the-seasons">
+<h2>Slicing up the seasons<a class="headerlink" href="#slicing-up-the-seasons" title="Permalink to this headline">¶</a></h2>
+<p>The other main task in Problem 2 is to sort values from the different months into seasonal average values.
+There are several ways in which this can be done, but one nice way to do it is using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to loop over each year of data you consider and then fill in the seasonal values for that year.
+For each year, you want to identify the slice of dates that correspond to that season, calculate their mean, then store that result in the corresponding location in the new DataFrame created in the previous hint.
+For the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop itself, it may be easiest to start with the second full year of data (1953), since we do not have temperatures for December of 1951.
+If you loop over the years from 1953-2016, you can then easily calculate the seasonal average temperatures for each season.
+For the winter, you can use <code class="docutils literal notranslate"><span class="pre">year</span> <span class="pre">-</span> <span class="pre">1</span></code> to find the temperature for December, assuming <code class="docutils literal notranslate"><span class="pre">year</span></code> is your variable for the current year in your <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. This approach can be used also in relation to Problem 3 and 4.</p>
+<p>In <a class="reference external" href="https://geo-python.github.io/2017/lessons/L7/pandas-plotting.html#selecting-data-based-on-time-in-pandas">this week’s lesson</a> we saw how to select a range of dates, but we did not cover how to take the mean value of the slice and store it.
+Because a slice of a DataFrame is still a DataFrame object, we can simply use the <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> method to calculate the mean of that slice.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">meanValue</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;2016-12&#39;</span><span class="p">:</span><span class="s1">&#39;2017-02&#39;</span><span class="p">][</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This would assign the mean value for the <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> field between December 2016 and February 2017 to the variable <code class="docutils literal notranslate"><span class="pre">meanValue</span></code>.
+In terms of storing the output value, we can use the <code class="docutils literal notranslate"><span class="pre">DataFrame.loc()</span></code> function.
+For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">year</span><span class="p">,</span> <span class="s1">&#39;coldSeason&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+<p>This would store the value <code class="docutils literal notranslate"><span class="pre">5</span></code> in the column <code class="docutils literal notranslate"><span class="pre">coldSeason</span></code> at index <code class="docutils literal notranslate"><span class="pre">year</span></code> of <code class="docutils literal notranslate"><span class="pre">dataFrame</span></code>.
+That’s a tricky sentence, but hopefully the idea is clear :).</p>
+</div>
+<div class="section" id="labels-and-legends">
+<h2>Labels and legends<a class="headerlink" href="#labels-and-legends" title="Permalink to this headline">¶</a></h2>
+<p>In the plot for Problem 2 you’re asked to include a line legend for each subplot.
+To do this, you need to do two things:</p>
+<ol class="arabic simple">
+<li>You need to add a <code class="docutils literal notranslate"><span class="pre">label</span></code> value when you create the plot using the <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> function.
+This is as easy as adding a parameter that say <code class="docutils literal notranslate"><span class="pre">label='some</span> <span class="pre">text'</span></code> when you call <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>.</li>
+<li>You’ll need to display the line legend, which can be done by calling <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code> for each subplot.</li>
+</ol>
+</div>
+<div class="section" id="saving-multiple-plots-into-a-directory">
+<h2>Saving multiple plots into a directory<a class="headerlink" href="#saving-multiple-plots-into-a-directory" title="Permalink to this headline">¶</a></h2>
+<p>In Problems 3 and 4 the aim is to create 65 individual plots, and save those into your computer.
+In these kind of situations, the smartest thing to do is to use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and at the end of each
+loop, save the image into a folder that you have specified. There are some useful tricks related to saving
+files and generating good file names automatically.</p>
+<p>A good approach when saving multiple files into a folder, is to define a separate variable where you store
+only the directory path. Then during every loop you combine this directory path, and the file name together.
+This can be done by using a function <code class="docutils literal notranslate"><span class="pre">os.path.join()</span></code> which is part of <code class="docutils literal notranslate"><span class="pre">os</span></code> built-in Python module.</p>
+<p>Consider following example:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="gp">In [12]: </span><span class="n">myfolder</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\MyUserName\Temp_visualizations&quot;</span>
+
+<span class="gp">In [13]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;My_File_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.png&quot;</span>
+<span class="gp">   ....: </span>    <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">myfolder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+<span class="go">C:\MyUserName\Temp_visualizations/My_File_0.png</span>
+<span class="go">C:\MyUserName\Temp_visualizations/My_File_1.png</span>
+<span class="go">C:\MyUserName\Temp_visualizations/My_File_2.png</span>
+<span class="go">C:\MyUserName\Temp_visualizations/My_File_3.png</span>
+<span class="go">C:\MyUserName\Temp_visualizations/My_File_4.png</span>
+</pre></div>
+</div>
+<p>Here, we created a folder path and a unique filename, and in the end parsed a full filepath that could be
+used to save a plot into that location on your computer.</p>
+</div>
+<div class="section" id="creating-an-animation-from-multiple-images">
+<h2>Creating an animation from multiple images<a class="headerlink" href="#creating-an-animation-from-multiple-images" title="Permalink to this headline">¶</a></h2>
+<p>In Problems 3 and 4 the aim was to plot multiple images on a predefined folder. An optional task
+was to create an animation out of those figures. Animating the figures in Problems 3 and 4 is fairly
+straightforward task to do in Python. All you need to do is to install a module called <code class="docutils literal notranslate"><span class="pre">imageio</span></code> and
+run couple lines of code that I show below.</p>
+<p>But, first you need to install <code class="docutils literal notranslate"><span class="pre">imageio</span></code> module.</p>
+<p>Installing the module can be done by running following command <strong>from the command prompt / terminal</strong> with <strong>admin rights</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda install -c conda-forge imageio
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If everything works fine you should not see any errors coming into the screen. If you receive an error, the most typical
+one is that you did not have <strong>admin rights</strong> when trying to install the module. In such case, you should open command prompt
+with admin rights (Command prompt –&gt; right click –&gt; Run as administrator..)</p>
+</div>
+<p>When you have imageio installed you should be able to import it, in Spyder:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="kn">import</span> <span class="nn">imageio</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-14-6c572eed1cf0&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">imageio</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;imageio&#39;
+</pre></div>
+</div>
+<div class="section" id="creating-the-animation">
+<h3>Creating the animation<a class="headerlink" href="#creating-the-animation" title="Permalink to this headline">¶</a></h3>
+<p>Following commands should produce a nice gif-animation out of your plots. The idea is that you list all the
+files from the folder where you saved the plots using <code class="docutils literal notranslate"><span class="pre">glob</span></code> function, and then pass that file list into imageio
+function called <code class="docutils literal notranslate"><span class="pre">imageio.mimsave()</span></code>. A following example shows how to do that.</p>
+<p>First we list all the files from folder that has <code class="docutils literal notranslate"><span class="pre">.png</span></code> file format using <code class="docutils literal notranslate"><span class="pre">glob</span></code>. The <code class="docutils literal notranslate"><span class="pre">*</span></code> wildcard character tells to computer that
+the name of the file can be anything (the purpose of the star). <code class="docutils literal notranslate"><span class="pre">.png</span></code> after the star tells that the filename should end with <code class="docutils literal notranslate"><span class="pre">.png</span></code> characters.
+If there are some other files with other file format than .png, they will be excluded.
+Finally, we create the animation into the computer.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">imageio</span>
+
+<span class="c1"># Find all files from given folder that has .png file-format</span>
+<span class="n">search_criteria</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\MyUserName\Temp_visualizations\*.png&quot;</span>
+
+<span class="c1"># Execute the glob function that returns a list of filepaths</span>
+<span class="n">figure_paths</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">search_criteria</span><span class="p">)</span>
+
+<span class="c1"># Save the animation to disk with 48 ms durations</span>
+<span class="n">output_gif_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\MyUserName\Temp_animation.gif&quot;</span>
+<span class="n">imageio</span><span class="o">.</span><span class="n">mimsave</span><span class="p">(</span><span class="n">output_gif_path</span><span class="p">,</span> <span class="p">[</span><span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span> <span class="k">for</span> <span class="n">fp</span> <span class="ow">in</span> <span class="n">figure_paths</span><span class="p">],</span> <span class="n">duration</span><span class="o">=</span><span class="mf">0.48</span><span class="p">,</span> <span class="n">subrectangles</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With these lines of code you should be able to create a nice animation out of your plots!</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p> <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> </a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: develop
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../../../2017/index.html">2017</a></dd>
+            <dd><a href="exercise-7.html">develop</a></dd>
+            <dd><a href="../../../master/index.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'2018',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
