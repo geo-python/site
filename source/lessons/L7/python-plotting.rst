@@ -11,9 +11,8 @@ Python has many nice and useful modules that can be used for plotting, such as:
 - `Bokeh <http://bokeh.pydata.org/en/latest/>`__ - Modern plotting library for static / interactive web-based plots such as graphs, maps, charts etc. (`Bokeh gallery <http://bokeh.pydata.org/en/latest/docs/gallery.html>`__)
 - `Plotly <https://plot.ly/python/>`__ - Modern plotting library for static / interactive web-based plots such as graphs, maps, charts etc. Some features are commercial. (`Plotly gallery <https://plot.ly/python/#basic-charts>`__)
 - `Dash <https://plot.ly/products/dash/>`__ - Dash is a Python framework for building analytical web applications. No JavaScript required.
-- `ggplot <https://github.com/yhat/ggplot>`__ - Familiar with doing plots in R using ggplot2? You can use ggplot in Python too! `(ggplot examples) <https://github.com/yhat/ggplot/blob/master/docs/Gallery.ipynb>`__
+- `ggplot <http://yhat.github.io/ggpy/>`__ - Familiar with doing plots in R using ggplot2? You can use ggplot in Python too! `(ggplot examples) <http://yhat.github.io/ggpy/>`__
 - `HoloViews <http://holoviews.org/>`__ and `GeoViews <http://geo.holoviews.org/>`__ - New! Let the data visualize itself. (see this `HoloViews introductory video <https://www.youtube.com/watch?v=hNsR2H7Lrg0>`__)
-
 
   - Modern and powerful visualization libraries built on top of Matplotlib and Bokeh that makes exploring and visualizing your data quicker than ever before
   - HoloViews is designed for basic plotting (`HoloViews tutorial <http://holoviews.org/Tutorials/index.html>`__ and `HoloViews examples <http://holoviews.org/Examples/index.html>`__)
@@ -34,8 +33,3 @@ In our courses, we will be start our plotting experiments with Matplotlib and Pl
 
    Later, in the Automating GIS processes course, we will be learning a little bit of Bokeh as well.
    We will work in Matplotlib in the Introduction to Quantitative Geology course.
-
-.. tip::
-
-   For interactive visualizations in Python, it can be extremely useful to use a specific software called `Jupyter <https://jupyter.readthedocs.io/en/latest/index.html#>`__ that is extensively used nowadays for documenting, presenting and visualizing interactive plots in Python using specific `Notebooks <https://tmp58.tmpnb.org/user/JfCwgSeJpZUg/notebooks/Welcome%20to%20Python.ipynb>`__.
-   Jupyter Notebook is also installed in our cloud computer instances.
