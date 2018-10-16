@@ -4,8 +4,8 @@ Anatomy of a plot
 Before starting to do plotting it is useful if we take a look and try to understand **what actually is a plot?**
 We won't go too deep into the details of different plots (as it is not the purpose of this lesson) but we rather give a short introduction to different plots that can be done with Python, and what kind of (typical) elements a plot has.
 
-There are a variety of different kinds of plot (also known as graphs or charts or diagrams etc. - Our dear child has many names) available that have been designed to represent visually the characteristics of a dataset.
-Here is a list of few different types of plots that can be used to visualize different kinds of datasets:
+There are a variety of different kinds of plots (also known as graphs, charts, diagrams, etc. - Our dear child has many names) available that have been designed to visually represent the characteristics of a dataset.
+Here is a list of several different types of plots that can be used to visualize different kinds of datasets:
 
 - `Bar chart <https://en.wikipedia.org/wiki/Bar_chart>`__
 - `Histogram <https://en.wikipedia.org/wiki/Histogram>`__
@@ -19,10 +19,10 @@ Here is a list of few different types of plots that can be used to visualize dif
 - `Treemap <https://en.wikipedia.org/wiki/Treemap>`__
 - `Network chart <https://en.wikipedia.org/wiki/Network_chart>`__
 
-There are certain elements that are common in most of the plots (not all).
-It is useful to know at least the basic terminology since it makes it easier to find help and information from the internet when you start doing or modifying your own plot.
+In spite of the variety of plots, there are certain elements that are common in most of the plots (not all).
+Thus, it is useful to know at least the basic terminology since it makes it easier to find help and information from the internet when you start doing or modifying your own plot.
 
-Following figure illustrates different elements of a basic line chart.
+The following figure illustrates different elements of a basic line plot.
 
 .. figure:: img/basic-elements-of-plot.png
    :width: 600px
@@ -35,7 +35,7 @@ Common terms when doing plotting
 --------------------------------
 
 These common terms may vary a little bit depending on the plotting library that you use.
-These are few typical terms used when doing plotting in Matplotlib.
+These are few typical terms used when doing plotting in Matplotlib, for example.
 
 - **axis** - Axis of the graph that are typically x, y and z (for 3D plots).
 - **title** - Title of the whole plot.
