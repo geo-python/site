@@ -690,9 +690,6 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Exercise 7</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#hints-for-exercise-7">Hints for Exercise 7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#converting-a-column-of-date-strings-into-datetime-format">Converting a column of date-strings into datetime format</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#creating-an-empty-dataframe-with-a-datetime-index">Creating an empty DataFrame with a datetime index</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#slicing-up-the-seasons">Slicing up the seasons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#labels-and-legends">Labels and legends</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#saving-multiple-plots-into-a-directory">Saving multiple plots into a directory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#creating-an-animation-from-multiple-images">Creating an animation from multiple images</a><ul>
@@ -801,172 +798,17 @@
 </div>
 <div class="admonition-start-your-assignment admonition">
 <p class="first admonition-title">Start your assignment</p>
-<p><strong>You can start working on your copy of Exercise 7 by</strong> accepting <a href="#id1"><span class="problematic" id="id2">`the GitHub Classroom assignment &lt;&gt;`__</span></a>.</p>
+<p><strong>You can start working on your copy of Exercise 7 by</strong> accepting the GitHub Classroom assignment (we will update the link soon)..</p>
 <p class="last"><strong>Exercise 7 is due by 16:00 on 28.10</strong>.</p>
 </div>
-<p>You can also take a look at the open course copy of <a class="reference external" href="https://github.com/Geo-Python-2018/Exercise-7">Exercise 7 in the course GitHub repository</a> (does not require logging in).
+<p>You can also take a look at the open course copy of <strong>Exercise 7 in the course GitHub repository (updated soon..)</strong> (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.</p>
 <div class="section" id="hints-for-exercise-7">
 <h2>Hints for Exercise 7<a class="headerlink" href="#hints-for-exercise-7" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="converting-a-column-of-date-strings-into-datetime-format">
-<h2>Converting a column of date-strings into datetime format<a class="headerlink" href="#converting-a-column-of-date-strings-into-datetime-format" title="Permalink to this headline">¶</a></h2>
-<p>In some cases Pandas cannot understand and parse automatically the date information from a column when you read the
-data with <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> function. In these cases, you need to parse the date information afterwards.</p>
-<p>Let’s see an example with following data</p>
-<p>Let’s try to read the data and parse the date.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DATE&#39;</span><span class="p">])</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-1-f20dd3876fdc&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DATE&#39;</span><span class="p">])</span>
-
-<span class="nn">~/virtualenv/python3.6.3/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">parser_f</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, escapechar, comment, encoding, dialect, tupleize_cols, error_bad_lines, warn_bad_lines, skipfooter, doublequote, delim_whitespace, low_memory, memory_map, float_precision)</span>
-<span class="g g-Whitespace">    </span><span class="mi">676</span>                     <span class="n">skip_blank_lines</span><span class="o">=</span><span class="n">skip_blank_lines</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">677</span> 
-<span class="ne">--&gt; </span><span class="mi">678</span>         <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">679</span> 
-<span class="g g-Whitespace">    </span><span class="mi">680</span>     <span class="n">parser_f</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">name</span>
-
-<span class="nn">~/virtualenv/python3.6.3/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">438</span> 
-<span class="g g-Whitespace">    </span><span class="mi">439</span>     <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">440</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">441</span> 
-<span class="g g-Whitespace">    </span><span class="mi">442</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-
-<span class="nn">~/virtualenv/python3.6.3/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">785</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;has_index_names&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s1">&#39;has_index_names&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">786</span> 
-<span class="ne">--&gt; </span><span class="mi">787</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">788</span> 
-<span class="g g-Whitespace">    </span><span class="mi">789</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">~/virtualenv/python3.6.3/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1012</span>     <span class="k">def</span> <span class="nf">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1013</span>         <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1014</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="n">CParserWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1015</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1016</span>             <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s1">&#39;python&#39;</span><span class="p">:</span>
-
-<span class="nn">~/virtualenv/python3.6.3/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1706</span>         <span class="n">kwds</span><span class="p">[</span><span class="s1">&#39;usecols&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usecols</span>
-<span class="g g-Whitespace">   </span><span class="mi">1707</span> 
-<span class="ne">-&gt; </span><span class="mi">1708</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1709</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1710</span>         <span class="n">passed_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="ow">is</span> <span class="bp">None</span>
-
-<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader.__cinit__</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader._setup_parser_source</span><span class="nt">()</span>
-
-<span class="ne">FileNotFoundError</span>: File b&#39;/home/travis/build/geo-python/2018/data/L7/hintData.txt&#39; does not exist
-
-<span class="gp">In [2]: </span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="go">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-2-304fa4ce4ebd&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 data.head()</span>
-
-<span class="go">NameError: name &#39;data&#39; is not defined</span>
-
-<span class="gp">In [3]: </span><span class="n">data</span><span class="o">.</span><span class="n">dtypes</span>
-<span class="go">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-3-6226a73926db&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 data.dtypes</span>
-
-<span class="go">NameError: name &#39;data&#39; is not defined</span>
-</pre></div>
-</div>
-<p>As we can see from above, Pandas was not able to convert the datatype of <code class="docutils literal notranslate"><span class="pre">DATE</span></code> into <code class="docutils literal notranslate"><span class="pre">datetime</span></code> format.
-This is because the DATE values does not include information about the day of the year but only the year and month.</p>
-<p>There is a way to tell to Pandas to read the <code class="docutils literal notranslate"><span class="pre">DATE</span></code> information with a custom format such as the one we have here
-with <code class="docutils literal notranslate"><span class="pre">pd.to_timestamp()</span></code> function where we can specify with <code class="docutils literal notranslate"><span class="pre">format</span></code> parameter the custom format how the dates
-are represented in the data. Consider following example:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;DATE&#39;</span><span class="p">],</span> <span class="n">format</span><span class="o">=</span><span class="s1">&#39;%Y%m&#39;</span><span class="p">)</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-4-1c7d066de4f0&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;DATE&#39;</span><span class="p">],</span> <span class="n">format</span><span class="o">=</span><span class="s1">&#39;%Y%m&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;data&#39; is not defined
-
-<span class="gp">In [5]: </span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="go">                                                                                                                                                                                                                                                                                                                    ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-5-304fa4ce4ebd&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 data.head()</span>
-
-<span class="go">NameError: name &#39;data&#39; is not defined</span>
-
-<span class="gp">In [6]: </span><span class="n">data</span><span class="o">.</span><span class="n">dtypes</span>
-<span class="go">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-6-6226a73926db&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 data.dtypes</span>
-
-<span class="go">NameError: name &#39;data&#39; is not defined</span>
-</pre></div>
-</div>
-<p>Great, now we have the data in <code class="docutils literal notranslate"><span class="pre">datetime</span></code> format!</p>
-</div>
-<div class="section" id="creating-an-empty-dataframe-with-a-datetime-index">
-<h2>Creating an empty DataFrame with a datetime index<a class="headerlink" href="#creating-an-empty-dataframe-with-a-datetime-index" title="Permalink to this headline">¶</a></h2>
-<p>For Problem 2 in this exercise you are asked to calculate average seasonal ages for each year in our data file.
-The easiest way to do this is to create an empty DataFrame to store the seaonal temperatures, with one temperature for each year and season.
-Thus, the DataFrame should have columns for each season and the date as an index.
-In order to do this, we’ll need first to create a variable to store the dates for the index, then create the DataFrame using that index.
-Let’s consider an example for my world, where there are two seasons: <code class="docutils literal notranslate"><span class="pre">coldSeason</span></code> and <code class="docutils literal notranslate"><span class="pre">warmSeason</span></code>.
-For each season, I want list the number of times I wore a jacket, with data from the past 4 years.
-I can start by making a variable with 1 date for each of the past 4 years using the Pandas <code class="docutils literal notranslate"><span class="pre">pd.date_range()</span></code> function.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">timeIndex</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2014&#39;</span><span class="p">,</span> <span class="s1">&#39;2017&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;AS&#39;</span><span class="p">)</span>
-
-<span class="gp">In [8]: </span><span class="k">print</span><span class="p">(</span><span class="n">timeIndex</span><span class="p">)</span>
-<span class="go">DatetimeIndex([&#39;2014-01-01&#39;, &#39;2015-01-01&#39;, &#39;2016-01-01&#39;, &#39;2017-01-01&#39;], dtype=&#39;datetime64[ns]&#39;, freq=&#39;AS-JAN&#39;)</span>
-</pre></div>
-</div>
-<p>As you can see, we now have a variable <code class="docutils literal notranslate"><span class="pre">timeIndex</span></code> in the Pandas datetime format with dates for January 1 of the past 4 years.
-The starting and ending years are clear, and the <code class="docutils literal notranslate"><span class="pre">freq='AS'</span></code> indicates the frequecy of dates between the listed starting and ending times.
-In this case, <code class="docutils literal notranslate"><span class="pre">AS</span></code> refers to annual values (1 time per year) at the start of the year.</p>
-<p>With the <code class="docutils literal notranslate"><span class="pre">timeIndex</span></code> variable, we can now create our empty DataFrame to store the seasonal jacket numbers using the Pandas <code class="docutils literal notranslate"><span class="pre">pd.DataFrame()</span></code> function.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">seasonData</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">timeIndex</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;coldSeason&#39;</span><span class="p">,</span> <span class="s1">&#39;warmSeason&#39;</span><span class="p">])</span>
-
-<span class="gp">In [10]: </span><span class="k">print</span><span class="p">(</span><span class="n">seasonData</span><span class="p">)</span>
-<span class="go">           coldSeason warmSeason</span>
-<span class="go">2014-01-01        NaN        NaN</span>
-<span class="go">2015-01-01        NaN        NaN</span>
-<span class="go">2016-01-01        NaN        NaN</span>
-<span class="go">2017-01-01        NaN        NaN</span>
-</pre></div>
-</div>
-<p>Now we have our empty DataFrame where I can fill in the number of times I needed a jacket in each season using the date index!</p>
-</div>
-<div class="section" id="slicing-up-the-seasons">
-<h2>Slicing up the seasons<a class="headerlink" href="#slicing-up-the-seasons" title="Permalink to this headline">¶</a></h2>
-<p>The other main task in Problem 2 is to sort values from the different months into seasonal average values.
-There are several ways in which this can be done, but one nice way to do it is using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to loop over each year of data you consider and then fill in the seasonal values for that year.
-For each year, you want to identify the slice of dates that correspond to that season, calculate their mean, then store that result in the corresponding location in the new DataFrame created in the previous hint.
-For the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop itself, it may be easiest to start with the second full year of data (1953), since we do not have temperatures for December of 1951.
-If you loop over the years from 1953-2016, you can then easily calculate the seasonal average temperatures for each season.
-For the winter, you can use <code class="docutils literal notranslate"><span class="pre">year</span> <span class="pre">-</span> <span class="pre">1</span></code> to find the temperature for December, assuming <code class="docutils literal notranslate"><span class="pre">year</span></code> is your variable for the current year in your <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. This approach can be used also in relation to Problem 3 and 4.</p>
-<p>In <a class="reference external" href="https://geo-python.github.io/2017/lessons/L7/pandas-plotting.html#selecting-data-based-on-time-in-pandas">this week’s lesson</a> we saw how to select a range of dates, but we did not cover how to take the mean value of the slice and store it.
-Because a slice of a DataFrame is still a DataFrame object, we can simply use the <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> method to calculate the mean of that slice.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">meanValue</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;2016-12&#39;</span><span class="p">:</span><span class="s1">&#39;2017-02&#39;</span><span class="p">][</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>This would assign the mean value for the <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> field between December 2016 and February 2017 to the variable <code class="docutils literal notranslate"><span class="pre">meanValue</span></code>.
-In terms of storing the output value, we can use the <code class="docutils literal notranslate"><span class="pre">DataFrame.loc()</span></code> function.
-For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">year</span><span class="p">,</span> <span class="s1">&#39;coldSeason&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
-</pre></div>
-</div>
-<p>This would store the value <code class="docutils literal notranslate"><span class="pre">5</span></code> in the column <code class="docutils literal notranslate"><span class="pre">coldSeason</span></code> at index <code class="docutils literal notranslate"><span class="pre">year</span></code> of <code class="docutils literal notranslate"><span class="pre">dataFrame</span></code>.
-That’s a tricky sentence, but hopefully the idea is clear :).</p>
-</div>
 <div class="section" id="labels-and-legends">
 <h2>Labels and legends<a class="headerlink" href="#labels-and-legends" title="Permalink to this headline">¶</a></h2>
-<p>In the plot for Problem 2 you’re asked to include a line legend for each subplot.
+<p>In the plot for Problem 3 you’re asked to include a line legend for each subplot.
 To do this, you need to do two things:</p>
 <ol class="arabic simple">
 <li>You need to add a <code class="docutils literal notranslate"><span class="pre">label</span></code> value when you create the plot using the <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> function.
@@ -984,15 +826,15 @@ files and generating good file names automatically.</p>
 only the directory path. Then during every loop you combine this directory path, and the file name together.
 This can be done by using a function <code class="docutils literal notranslate"><span class="pre">os.path.join()</span></code> which is part of <code class="docutils literal notranslate"><span class="pre">os</span></code> built-in Python module.</p>
 <p>Consider following example:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">os</span>
 
-<span class="gp">In [12]: </span><span class="n">myfolder</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\MyUserName\Temp_visualizations&quot;</span>
+<span class="gp">In [2]: </span><span class="n">myfolder</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\MyUserName\Temp_visualizations&quot;</span>
 
-<span class="gp">In [13]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-<span class="gp">   ....: </span>    <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;My_File_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.png&quot;</span>
-<span class="gp">   ....: </span>    <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">myfolder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
-<span class="gp">   ....: </span>
+<span class="gp">In [3]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="gp">   ...: </span>    <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;My_File_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.png&quot;</span>
+<span class="gp">   ...: </span>    <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">myfolder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+<span class="gp">   ...: </span>    <span class="k">print</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+<span class="gp">   ...: </span>
 <span class="go">C:\MyUserName\Temp_visualizations/My_File_0.png</span>
 <span class="go">C:\MyUserName\Temp_visualizations/My_File_1.png</span>
 <span class="go">C:\MyUserName\Temp_visualizations/My_File_2.png</span>
@@ -1021,10 +863,10 @@ one is that you did not have <strong>admin rights</strong> when trying to instal
 with admin rights (Command prompt –&gt; right click –&gt; Run as administrator..)</p>
 </div>
 <p>When you have imageio installed you should be able to import it, in Spyder:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="kn">import</span> <span class="nn">imageio</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="kn">import</span> <span class="nn">imageio</span>
 <span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-14-6c572eed1cf0&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="nn">&lt;ipython-input-4-6c572eed1cf0&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">imageio</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;imageio&#39;
