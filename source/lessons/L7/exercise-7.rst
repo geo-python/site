@@ -11,7 +11,7 @@ Exercise 7
 
     **Exercise 7 is due by 16:00 on 28.10**.
 
-You can also take a look at the open course copy of `Exercise 7 in the course GitHub repository <https://github.com/Geo-Python-2018/Exercise-7>`__ (does not require logging in).
+You can also take a look at the open course copy of **Exercise 7 in the course GitHub repository (updated soon..)** (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
 Hints for Exercise 7
