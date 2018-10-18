@@ -7,16 +7,18 @@ Exercise 7
 
 .. admonition:: Start your assignment
 
-    .. note::
+    **Pandas**
 
-        **Pandas**
+    **You can start working on your copy of Exercise 7 (Pandas version) by** accepting the `GitHub Classroom assignment <https://classroom.github.com/a/nFG7H5VK>`__
 
-        **You can start working on your copy of Exercise 7 (Pandas version) by** accepting the `GitHub Classroom assignment <https://classroom.github.com/a/nFG7H5VK>`__
+    **Exercise 7 is due by 16:00 on 28.10**.
 
-        **Exercise 7 is due by 16:00 on 28.10**.
+    You can also take a look at the open course copy of `Exercise 7 (Pandas version) in the course GitHub repository <https://github.com/Geo-Python-2018/Exercise-7P>`__ (does not require logging in).
+    Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
-        You can also take a look at the open course copy of `Exercise 7 in the course GitHub repository <https://github.com/Geo-Python-2018/Exercise-7P>`__ (does not require logging in).
-        Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
+    **Numpy**
+
+    *Will be updated soon*.
 
 Hints for Exercise 7
 --------------------
