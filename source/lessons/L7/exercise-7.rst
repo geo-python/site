@@ -18,7 +18,13 @@ Exercise 7
 
     **Numpy**
 
-    *Will be updated soon*.
+    **You can start working on your copy of Exercise 7 (NumPy version) by** accepting the `GitHub Classroom assignment <https://classroom.github.com/a/5ghFMPJP>`__
+
+    **Exercise 7 is due by 16:00 on 28.10**.
+
+    You can also take a look at the open course copy of `Exercise 7 (NumPy version) in the course GitHub repository <https://github.com/Geo-Python-2018/Exercise-7N>`__ (does not require logging in).
+    Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
+    
 
 Hints for Exercise 7
 --------------------
