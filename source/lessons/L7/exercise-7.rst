@@ -30,7 +30,7 @@ Hints for Exercise 7
 --------------------
 
 Labels and legends
-------------------
+~~~~~~~~~~~~~~~~~~
 
 In the plot for Problem 3 you're asked to include a line legend for each subplot.
 To do this, you need to do two things:
@@ -40,7 +40,7 @@ To do this, you need to do two things:
 2. You'll need to display the line legend, which can be done by calling ``plt.legend()`` for each subplot.
 
 Saving multiple plots into a directory
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In Problems 3 and 4 the aim is to create 65 individual plots, and save those into your computer.
 In these kind of situations, the smartest thing to do is to use a ``for`` loop and at the end of each
@@ -66,7 +66,7 @@ Here, we created a folder path and a unique filename, and in the end parsed a fu
 used to save a plot into that location on your computer.
 
 Creating an animation from multiple images
-------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In Problems 3 and 4 the aim was to plot multiple images on a predefined folder. An optional task
 was to create an animation out of those figures. Animating the figures in Problems 3 and 4 is fairly
@@ -122,3 +122,46 @@ Finally, we create the animation into the computer.
     imageio.mimsave(output_gif_path, [imageio.imread(fp) for fp in figure_paths], duration=0.48, subrectangles=True)
 
 With these lines of code you should be able to create a nice animation out of your plots!
+
+NumPy-specific hints
+--------------------
+
+Extracting seasonal dates and temperatures (in many years)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+One of the tasks this week is to split many years of temperature anomaly data into seasonal groups (arrays in our case).
+While it is possible to use the values in the ``date_monthly`` array to do this, your life may be easier if you simply use only the months of the seasons to split the data into separate seasonal arrays.
+You can do this using masks, and although it is not totally correct, you can feel free to split your data into the following season month ranges (all within a given year).
+
++---------+----------+
+| Season  | Months   |
++=========+==========+
+| Winter  | 12, 1, 2 |
++---------+----------+
+| Spring  | 3-5      |
++---------+----------+
+| Summer  | 6-8      |
++---------+----------+
+| Fall    | 9-11     |
++---------+----------+
+
+The main point here is that although the winter of 1953 would normally include December 1952, January of 1953, and February of 1953, you can feel free to use the anomalies from January, February, and December of 1953.
+Of course, you're welcome to try to figure out how to do this the "right" way, but it is more challenging :).
+
+Finding seasonal average temperatures (by year)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When averaging the seasonal temperatures, we can take advantage of knowing how many years of seasonal values we will have (i.e., the number of unique years in our dataset).
+You can use this to create some arrays (of zeros, for example) to store the seasonal average values.
+Once you have those arrays, you can use a ``for`` loop to go over each year and store the average anomaly values for each season.
+An example of this kind of loop is below.
+
+.. code:: python
+
+    index = 0
+    for year in unique_years:
+        winter_yearly[index] = anomaly_season[year_season.astype(int) == year].mean()
+        index += 1
+
+The idea here is that you can easily loop over each year, check the condition that the year of the data slice equals the year in the loop, extract that slice from the anomaly data, and calculate the mean.
+There are other ways you could do this same loop, but here we use ``index`` to store place the seasonal average values in the correct location in each array.
