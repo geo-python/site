@@ -689,11 +689,16 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Exercise 7</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#hints-for-exercise-7">Hints for Exercise 7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#labels-and-legends">Labels and legends</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#saving-multiple-plots-into-a-directory">Saving multiple plots into a directory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#creating-an-animation-from-multiple-images">Creating an animation from multiple images</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hints-for-exercise-7">Hints for Exercise 7</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#labels-and-legends">Labels and legends</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#saving-multiple-plots-into-a-directory">Saving multiple plots into a directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-an-animation-from-multiple-images">Creating an animation from multiple images</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#creating-the-animation">Creating the animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#numpy-specific-hints">NumPy-specific hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#extracting-seasonal-dates-and-temperatures-in-many-years">Extracting seasonal dates and temperatures (in many years)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#finding-seasonal-average-temperatures-by-year">Finding seasonal average temperatures (by year)</a></li>
 </ul>
 </li>
 </ul>
@@ -808,9 +813,8 @@ Note that you should not try to make changes to this copy of the exercise, but r
 </div>
 <div class="section" id="hints-for-exercise-7">
 <h2>Hints for Exercise 7<a class="headerlink" href="#hints-for-exercise-7" title="Permalink to this headline">¶</a></h2>
-</div>
 <div class="section" id="labels-and-legends">
-<h2>Labels and legends<a class="headerlink" href="#labels-and-legends" title="Permalink to this headline">¶</a></h2>
+<h3>Labels and legends<a class="headerlink" href="#labels-and-legends" title="Permalink to this headline">¶</a></h3>
 <p>In the plot for Problem 3 you’re asked to include a line legend for each subplot.
 To do this, you need to do two things:</p>
 <ol class="arabic simple">
@@ -820,7 +824,7 @@ This is as easy as adding a parameter that say <code class="docutils literal not
 </ol>
 </div>
 <div class="section" id="saving-multiple-plots-into-a-directory">
-<h2>Saving multiple plots into a directory<a class="headerlink" href="#saving-multiple-plots-into-a-directory" title="Permalink to this headline">¶</a></h2>
+<h3>Saving multiple plots into a directory<a class="headerlink" href="#saving-multiple-plots-into-a-directory" title="Permalink to this headline">¶</a></h3>
 <p>In Problems 3 and 4 the aim is to create 65 individual plots, and save those into your computer.
 In these kind of situations, the smartest thing to do is to use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and at the end of each
 loop, save the image into a folder that you have specified. There are some useful tricks related to saving
@@ -849,7 +853,7 @@ This can be done by using a function <code class="docutils literal notranslate">
 used to save a plot into that location on your computer.</p>
 </div>
 <div class="section" id="creating-an-animation-from-multiple-images">
-<h2>Creating an animation from multiple images<a class="headerlink" href="#creating-an-animation-from-multiple-images" title="Permalink to this headline">¶</a></h2>
+<h3>Creating an animation from multiple images<a class="headerlink" href="#creating-an-animation-from-multiple-images" title="Permalink to this headline">¶</a></h3>
 <p>In Problems 3 and 4 the aim was to plot multiple images on a predefined folder. An optional task
 was to create an animation out of those figures. Animating the figures in Problems 3 and 4 is fairly
 straightforward task to do in Python. All you need to do is to install a module called <code class="docutils literal notranslate"><span class="pre">imageio</span></code> and
@@ -868,6 +872,7 @@ with admin rights (Command prompt –&gt; right click –&gt; Run as administrat
 <p>When you have imageio installed you should be able to import it, in Spyder:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="kn">import</span> <span class="nn">imageio</span>
 </pre></div>
+</div>
 </div>
 <div class="section" id="creating-the-animation">
 <h3>Creating the animation<a class="headerlink" href="#creating-the-animation" title="Permalink to this headline">¶</a></h3>
@@ -893,6 +898,57 @@ Finally, we create the animation into the computer.</p>
 </pre></div>
 </div>
 <p>With these lines of code you should be able to create a nice animation out of your plots!</p>
+</div>
+</div>
+<div class="section" id="numpy-specific-hints">
+<h2>NumPy-specific hints<a class="headerlink" href="#numpy-specific-hints" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="extracting-seasonal-dates-and-temperatures-in-many-years">
+<h3>Extracting seasonal dates and temperatures (in many years)<a class="headerlink" href="#extracting-seasonal-dates-and-temperatures-in-many-years" title="Permalink to this headline">¶</a></h3>
+<p>One of the tasks this week is to split many years of temperature anomaly data into seasonal groups (arrays in our case).
+While it is possible to use the values in the <code class="docutils literal notranslate"><span class="pre">date_monthly</span></code> array to do this, your life may be easier if you simply use only the months of the seasons to split the data into separate seasonal arrays.
+You can do this using masks, and although it is not totally correct, you can feel free to split your data into the following season month ranges (all within a given year).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="47%" />
+<col width="53%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Season</th>
+<th class="head">Months</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Winter</td>
+<td>12, 1, 2</td>
+</tr>
+<tr class="row-odd"><td>Spring</td>
+<td>3-5</td>
+</tr>
+<tr class="row-even"><td>Summer</td>
+<td>6-8</td>
+</tr>
+<tr class="row-odd"><td>Fall</td>
+<td>9-11</td>
+</tr>
+</tbody>
+</table>
+<p>The main point here is that although the winter of 1953 would normally include December 1952, January of 1953, and February of 1953, you can feel free to use the anomalies from January, February, and December of 1953.
+Of course, you’re welcome to try to figure out how to do this the “right” way, but it is more challenging :).</p>
+</div>
+<div class="section" id="finding-seasonal-average-temperatures-by-year">
+<h3>Finding seasonal average temperatures (by year)<a class="headerlink" href="#finding-seasonal-average-temperatures-by-year" title="Permalink to this headline">¶</a></h3>
+<p>When averaging the seasonal temperatures, we can take advantage of knowing how many years of seasonal values we will have (i.e., the number of unique years in our dataset).
+You can use this to create some arrays (of zeros, for example) to store the seasonal average values.
+Once you have those arrays, you can use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to go over each year and store the average anomaly values for each season.
+An example of this kind of loop is below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">unique_years</span><span class="p">:</span>
+    <span class="n">winter_yearly</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">anomaly_season</span><span class="p">[</span><span class="n">year_season</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">==</span> <span class="n">year</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>The idea here is that you can easily loop over each year, check the condition that the year of the data slice equals the year in the loop, extract that slice from the anomaly data, and calculate the mean.
+There are other ways you could do this same loop, but here we use <code class="docutils literal notranslate"><span class="pre">index</span></code> to store place the seasonal average values in the correct location in each array.</p>
 </div>
 </div>
 </div>
