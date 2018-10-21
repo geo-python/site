@@ -39,6 +39,19 @@ To do this, you need to do two things:
    This is as easy as adding a parameter that say ``label='some text'`` when you call ``plt.plot()``.
 2. You'll need to display the line legend, which can be done by calling ``plt.legend()`` for each subplot.
 
+Using ``enumerate()``
+~~~~~~~~~~~~~~~~~~~~~
+
+In case the ``enumerate()`` function is causing you some confusion, here is a simple example.
+The general idea is that ``enumerate()`` will return both the value in a list and its index when you use it.
+Let's see if this helps...
+
+.. ipython:: python
+
+    animals=['dog', 'cat', 'frog']
+    for index, animal in enumerate(animals):
+        print(animal, 'is in location', index)
+
 Saving multiple plots into a directory
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -64,6 +77,22 @@ Consider following example:
 
 Here, we created a folder path and a unique filename, and in the end parsed a full filepath that could be
 used to save a plot into that location on your computer.
+
+Preventing plot display
+~~~~~~~~~~~~~~~~~~~~~~~
+
+When creating the series of images needed for the animation in Problem 5, you may be stuck with many plots being displayed in JupyterLab.
+You can suppress the display of plots by calling ``plt.close()`` after the ``plt.savefig(...)`` command.
+In other words, you can do
+
+.. code-block:: python
+
+    ...
+    plt.savefig(...)
+    plt.close()
+    ...
+
+which will close the plot before it would normally be displayed.
 
 Creating an animation from multiple images
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
