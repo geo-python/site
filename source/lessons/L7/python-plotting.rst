@@ -12,11 +12,11 @@ Python has many nice and useful modules that can be used for plotting, such as:
 - `Plotly <https://plot.ly/python/>`__ - Modern plotting library for static / interactive web-based plots such as graphs, maps, charts etc. Some features are commercial. (`Plotly gallery <https://plot.ly/python/#basic-charts>`__)
 - `Dash <https://plot.ly/products/dash/>`__ - Dash is a Python framework for building analytical web applications. No JavaScript required.
 - `ggplot <http://yhat.github.io/ggpy/>`__ - Familiar with doing plots in R using ggplot2? You can use ggplot in Python too! `(ggplot examples) <http://yhat.github.io/ggpy/>`__
-- `HoloViews <http://holoviews.org/>`__ and `GeoViews <http://geo.holoviews.org/>`__ - New! Let the data visualize itself. (see this `HoloViews introductory video <https://www.youtube.com/watch?v=hNsR2H7Lrg0>`__)
+- `HoloViews <http://holoviews.org/>`__ and `GeoViews <http://geo.holoviews.org/>`__ - Let the data visualize itself. (see this `HoloViews introductory video <https://www.youtube.com/watch?v=hNsR2H7Lrg0>`__)
 
   - Modern and powerful visualization libraries built on top of Matplotlib and Bokeh that makes exploring and visualizing your data quicker than ever before
   - HoloViews is designed for basic plotting (`HoloViews tutorial <http://holoviews.org/Tutorials/index.html>`__ and `HoloViews examples <http://holoviews.org/Examples/index.html>`__)
-  - GeoViews is designed for creating nice and interactive maps (`GeoViews gallery <https://www.continuum.io/blog/developer-blog/introducing-geoviews>`__)
+  - GeoViews is designed for creating nice and interactive maps (`GeoViews gallery <http://geo.holoviews.org/gallery/index.html>`__)
 
 .. attention::
 
