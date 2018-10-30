@@ -23,4 +23,23 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-Lesson videos will be posted once they are available.
+.. admonition:: Lesson 7.1 - Plotting in Python, Introduction to Matplotlib
+
+    .. raw:: html
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/fJslp1gcWWM?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Dave Whipp & Henrikki Tenkanen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+
+.. admonition:: Lesson 7.2 - Advanced plotting with Matplotlib
+
+    .. raw:: html
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/YxchP5MziC4?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Dave Whipp & Henrikki Tenkanen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+
+.. admonition:: Lesson 7 - Review of Exercise 6
+
+    .. raw:: html
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ROTX3dmQPKE?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Dave Whipp & Henrikki Tenkanen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
