@@ -757,7 +757,9 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/L4/modules.ipynb.txt" rel="nofollow"> View page source</a>
+            
+              <a href="https://github.com/Automating-GIS-processes/2018/blob/develop/source/notebooks/L4/modules.ipynb" class="fa fa-github"> Edit on GitHub</a>
+            
           
         
       </li>
@@ -834,18 +836,18 @@ div.nblast {
 
 /* input prompt */
 div.nbinput div.prompt pre {
-    color: #303F9F;
+    color: #307FC1;
 }
 
 /* output prompt */
 div.nboutput div.prompt pre {
-    color: #D84315;
+    color: #BF5B3D;
 }
 
 /* all prompts */
 div.nbinput div.prompt,
 div.nboutput div.prompt {
-    min-width: 8ex;
+    min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
     text-align: right;
@@ -885,9 +887,9 @@ div.nboutput div.output_area {
 
 /* input area */
 div.nbinput div.input_area {
-    border: 1px solid #cfcfcf;
+    border: 1px solid #e0e0e0;
     border-radius: 2px;
-    background: #f7f7f7;
+    background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
@@ -895,7 +897,7 @@ div.nboutput div[class*=MathJax] {
     text-align: left !important;
 }
 
-/* override sphinx.ext.pngmath center alignment in output cells */
+/* override sphinx.ext.imgmath center alignment in output cells */
 div.nboutput div.math p {
     text-align: left;
 }
@@ -945,6 +947,40 @@ div.nboutput div.output_area.stderr {
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
 
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
@@ -961,6 +997,11 @@ div.nboutput div.output_area.stderr {
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
 }
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
 </style>
 <div class="admonition note">
 This page was generated from <a class="reference external" href="https://github.com/Geo-Python/2018/blob/master/source/notebooks/L4/modules.ipynb">source/notebooks/L4/modules.ipynb</a>.
@@ -971,25 +1012,17 @@ This page was generated from <a class="reference external" href="https://github.
 <h1>Loading and using modules<a class="headerlink" href="#Loading-and-using-modules" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="What-is-a-module?">
 <h2>What is a module?<a class="headerlink" href="#What-is-a-module?" title="Permalink to this headline">¶</a></h2>
-<p>A <em>module</em> in Python is simply a Python <code class="docutils literal notranslate"><span class="pre">.py</span></code> file that contains a
-list of related functions that can be loaded and used. Modules are
-similar to what are more generally called libraries in programming
-languages, which again contain code related to a specific task such as
-mathematical operations. There are a <em>HUGE</em> number of Python modules,
-and many of them greatly extend what can be done in a normal Python
-program. In fact, the abundance of free Python modules is one of the
-best reasons to learn and start using Python.</p>
+<p>A <em>module</em> in Python is simply a Python <code class="docutils literal notranslate"><span class="pre">.py</span></code> file that contains a list of related functions that can be loaded and used. Modules are similar to what are more generally called libraries in programming languages, which again contain code related to a specific task such as mathematical operations. There are a <em>HUGE</em> number of Python modules, and many of them greatly extend what can be done in a normal Python program. In fact, the abundance of free Python modules is one of the best reasons to
+learn and start using Python.</p>
 </div>
 <div class="section" id="How-can-modules-be-loaded?">
 <h2>How can modules be loaded?<a class="headerlink" href="#How-can-modules-be-loaded?" title="Permalink to this headline">¶</a></h2>
 <p>Python modules can be loaded in a number of different ways.</p>
 <div class="section" id="Loading-a-module">
 <h3>Loading a module<a class="headerlink" href="#Loading-a-module" title="Permalink to this headline">¶</a></h3>
-<p>Let’s start simple with the math module. Here, we’ll load the math
-module using the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement.</p>
+<p>Let’s start simple with the math module. Here, we’ll load the math module using the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -998,8 +1031,7 @@ module using the <code class="docutils literal notranslate"><span class="pre">im
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1008,8 +1040,7 @@ module using the <code class="docutils literal notranslate"><span class="pre">im
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1017,22 +1048,13 @@ module using the <code class="docutils literal notranslate"><span class="pre">im
 </pre></div>
 </div>
 </div>
-<p>Here we have loaded the math module by typing <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code>, which
-tells Python to read in the functions in the math module and make them
-available for use. In our example, we see that we can use a function
-within the math library by typing the name of the module first, a
-period, and then the name of function we would like to use afterward
-(e.g., <code class="docutils literal notranslate"><span class="pre">math.sqrt()</span></code>). Built-in functions such as <code class="docutils literal notranslate"><span class="pre">print()</span></code> do not
-require the name of the module first since nothing is explicitly
-imported.</p>
+<p>Here we have loaded the math module by typing <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code>, which tells Python to read in the functions in the math module and make them available for use. In our example, we see that we can use a function within the math library by typing the name of the module first, a period, and then the name of function we would like to use afterward (e.g., <code class="docutils literal notranslate"><span class="pre">math.sqrt()</span></code>). Built-in functions such as <code class="docutils literal notranslate"><span class="pre">print()</span></code> do not require the name of the module first since nothing is explicitly imported.</p>
 </div>
 <div class="section" id="Renaming-imported-modules">
 <h3>Renaming imported modules<a class="headerlink" href="#Renaming-imported-modules" title="Permalink to this headline">¶</a></h3>
-<p>We can also rename modules when they are imported. This can be helpful
-when using modules with longer names.</p>
+<p>We can also rename modules when they are imported. This can be helpful when using modules with longer names.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1041,8 +1063,7 @@ when using modules with longer names.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1051,8 +1072,7 @@ when using modules with longer names.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1061,8 +1081,7 @@ when using modules with longer names.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1071,8 +1090,7 @@ when using modules with longer names.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1080,20 +1098,13 @@ when using modules with longer names.</p>
 </pre></div>
 </div>
 </div>
-<p>In this example we now see that when the math module is imported, it is
-imported to be usable with the name <code class="docutils literal notranslate"><span class="pre">m</span></code> instead of <code class="docutils literal notranslate"><span class="pre">math</span></code>. It
-doesn’t matter much in our toy example here since math is not a long
-module name, but we will see other examples later in the course where
-renaming the modules is very helpful (e.g., matplotlib).</p>
+<p>In this example we now see that when the math module is imported, it is imported to be usable with the name <code class="docutils literal notranslate"><span class="pre">m</span></code> instead of <code class="docutils literal notranslate"><span class="pre">math</span></code>. It doesn’t matter much in our toy example here since math is not a long module name, but we will see other examples later in the course where renaming the modules is very helpful (e.g., matplotlib).</p>
 </div>
 <div class="section" id="Importing-a-single-function">
 <h3>Importing a single function<a class="headerlink" href="#Importing-a-single-function" title="Permalink to this headline">¶</a></h3>
-<p>It is also possible to import only a single function from a module,
-rather than the entire module. This is sometimes useful when using large
-modules that have much more available than the desired use.</p>
+<p>It is also possible to import only a single function from a module, rather than the entire module. This is sometimes useful when using large modules that have much more available than the desired use.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1102,8 +1113,7 @@ modules that have much more available than the desired use.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1112,8 +1122,7 @@ modules that have much more available than the desired use.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1121,21 +1130,13 @@ modules that have much more available than the desired use.</p>
 </pre></div>
 </div>
 </div>
-<p>Though this can be useful, it has the drawback that the imported
-function could conflict with other built-in or imported function names,
-and you lose the information about which module contains the function.
-You should only do this when you truly need to.</p>
+<p>Though this can be useful, it has the drawback that the imported function could conflict with other built-in or imported function names, and you lose the information about which module contains the function. You should only do this when you truly need to.</p>
 </div>
 <div class="section" id="Importing-part-of-a-module">
 <h3>Importing part of a module<a class="headerlink" href="#Importing-part-of-a-module" title="Permalink to this headline">¶</a></h3>
-<p>Some modules have sub-modules that can also be imported without
-importing the entire module. We may see examples of this later when
-making data plots using the pyplot sub-module of the <a class="reference external" href="http://matplotlib.org/">Matplotlib
-module</a>. In case you’re curious, here is an
-example.</p>
+<p>Some modules have sub-modules that can also be imported without importing the entire module. We may see examples of this later when making data plots using the pyplot sub-module of the <a class="reference external" href="http://matplotlib.org/">Matplotlib module</a>. In case you’re curious, here is an example.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1144,8 +1145,7 @@ example.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1154,8 +1154,7 @@ example.</p>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1171,22 +1170,15 @@ example.</p>
 </pre></div>
 </div>
 </div>
-<p>This creates a new figure window for a pyplot figure. Again, we’ll see
-how this works and what it means later in the course.</p>
+<p>This creates a new figure window for a pyplot figure. Again, we’ll see how this works and what it means later in the course.</p>
 </div>
 </div>
 <div class="section" id="How-can-modules-be-used?">
 <h2>How can modules be used?<a class="headerlink" href="#How-can-modules-be-used?" title="Permalink to this headline">¶</a></h2>
-<p>As we see above, the easiest way to use a module is to import it an then
-use its functions by typing <code class="docutils literal notranslate"><span class="pre">modulename.functionname()</span></code> and providing
-the necessary arguments. Yes, it is that simple.</p>
-<p>However, there are times you may not know the names of all of the
-functions in a given module, or which are part of a module. You can view
-the list of functions that are part of a module by using the <code class="docutils literal notranslate"><span class="pre">dir()</span></code>
-function.</p>
+<p>As we see above, the easiest way to use a module is to import it an then use its functions by typing <code class="docutils literal notranslate"><span class="pre">modulename.functionname()</span></code> and providing the necessary arguments. Yes, it is that simple.</p>
+<p>However, there are times you may not know the names of all of the functions in a given module, or which are part of a module. You can view the list of functions that are part of a module by using the <code class="docutils literal notranslate"><span class="pre">dir()</span></code> function.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1202,11 +1194,9 @@ function.</p>
 [&#39;__doc__&#39;, &#39;__file__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;, &#39;acos&#39;, &#39;acosh&#39;, &#39;asin&#39;, &#39;asinh&#39;, &#39;atan&#39;, &#39;atan2&#39;, &#39;atanh&#39;, &#39;ceil&#39;, &#39;copysign&#39;, &#39;cos&#39;, &#39;cosh&#39;, &#39;degrees&#39;, &#39;e&#39;, &#39;erf&#39;, &#39;erfc&#39;, &#39;exp&#39;, &#39;expm1&#39;, &#39;fabs&#39;, &#39;factorial&#39;, &#39;floor&#39;, &#39;fmod&#39;, &#39;frexp&#39;, &#39;fsum&#39;, &#39;gamma&#39;, &#39;gcd&#39;, &#39;hypot&#39;, &#39;inf&#39;, &#39;isclose&#39;, &#39;isfinite&#39;, &#39;isinf&#39;, &#39;isnan&#39;, &#39;ldexp&#39;, &#39;lgamma&#39;, &#39;log&#39;, &#39;log10&#39;, &#39;log1p&#39;, &#39;log2&#39;, &#39;modf&#39;, &#39;nan&#39;, &#39;pi&#39;, &#39;pow&#39;, &#39;radians&#39;, &#39;sin&#39;, &#39;sinh&#39;, &#39;sqrt&#39;, &#39;tan&#39;, &#39;tanh&#39;, &#39;tau&#39;, &#39;trunc&#39;]
 </pre></div></div>
 </div>
-<p>So that’s helpful, but what about when you don’t know what a given
-function does? The easiest solution is to use the <code class="docutils literal notranslate"><span class="pre">help()</span></code> function.</p>
+<p>So that’s helpful, but what about when you don’t know what a given function does? The easiest solution is to use the <code class="docutils literal notranslate"><span class="pre">help()</span></code> function.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1235,24 +1225,12 @@ sin(...)
 <p>Here are a few things to avoid.</p>
 <div class="section" id="from-X-import-*">
 <h3>from X import *<a class="headerlink" href="#from-X-import-*" title="Permalink to this headline">¶</a></h3>
-<p>Don’t use <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">X</span> <span class="pre">import</span> <span class="pre">*</span></code>. This may be easier to understand by way
-of an example, but assuming <code class="docutils literal notranslate"><span class="pre">X</span></code> above is a Python module,
-<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">X</span> <span class="pre">import</span> <span class="pre">*</span></code> will import all of the functions in module X. Though
-you might think this is helpful, it is much better to simply
-<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">X</span></code> or <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">X</span> <span class="pre">as</span> <span class="pre">Y</span></code> to keep the connection between the
-functions and their module. It is also much more likely you will
-encounter conflicting names when using <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">X</span> <span class="pre">import</span> <span class="pre">*</span></code>.</p>
+<p>Don’t use <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">X</span> <span class="pre">import</span> <span class="pre">*</span></code>. This may be easier to understand by way of an example, but assuming <code class="docutils literal notranslate"><span class="pre">X</span></code> above is a Python module, <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">X</span> <span class="pre">import</span> <span class="pre">*</span></code> will import all of the functions in module X. Though you might think this is helpful, it is much better to simply <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">X</span></code> or <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">X</span> <span class="pre">as</span> <span class="pre">Y</span></code> to keep the connection between the functions and their module. It is also much more likely you will encounter conflicting names when using <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">X</span> <span class="pre">import</span> <span class="pre">*</span></code>.</p>
 </div>
 <div class="section" id="Poor-names-when-renaming-on-import">
 <h3>Poor names when renaming on import<a class="headerlink" href="#Poor-names-when-renaming-on-import" title="Permalink to this headline">¶</a></h3>
-<p>Don’t use confusing names when renaming on import. Be smart when you
-import modules. If you want to make the module name shorter on import,
-pick a reasonable abbreviation. For instance, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib</span> <span class="pre">as</span> <span class="pre">m</span></code>
-could be confusing, especially if you’re also using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span> <span class="pre">as</span> <span class="pre">m</span></code>
-in other Jupyter notebooks or script files. Similarly,
-<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib</span> <span class="pre">as</span> <span class="pre">math</span></code> is perfectly OK syntax in Python, but
-bound to cause a world of trouble. Remember, people need to be able to
-read and understand the code you write, keep it simple and logical.</p>
+<p>Don’t use confusing names when renaming on import. Be smart when you import modules. If you want to make the module name shorter on import, pick a reasonable abbreviation. For instance, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib</span> <span class="pre">as</span> <span class="pre">m</span></code> could be confusing, especially if you’re also using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span> <span class="pre">as</span> <span class="pre">m</span></code> in other Jupyter notebooks or script files. Similarly, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib</span> <span class="pre">as</span> <span class="pre">math</span></code> is perfectly OK syntax in Python, but bound to cause a world of trouble. Remember, people need to be able to read and understand
+the code you write, keep it simple and logical.</p>
 </div>
 </div>
 </div>
@@ -1278,6 +1256,7 @@ read and understand the code you write, keep it simple and logical.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki
+      Last updated on Dec 23, 2018.
 
     </p>
   </div>

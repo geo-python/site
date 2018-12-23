@@ -759,7 +759,9 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/notebooks/L5/numpy/1-Exploring-data-using-numpy.ipynb.txt" rel="nofollow"> View page source</a>
+            
+              <a href="https://github.com/Automating-GIS-processes/2018/blob/develop/source/notebooks/L5/numpy/1-Exploring-data-using-numpy.ipynb" class="fa fa-github"> Edit on GitHub</a>
+            
           
         
       </li>
@@ -836,18 +838,18 @@ div.nblast {
 
 /* input prompt */
 div.nbinput div.prompt pre {
-    color: #303F9F;
+    color: #307FC1;
 }
 
 /* output prompt */
 div.nboutput div.prompt pre {
-    color: #D84315;
+    color: #BF5B3D;
 }
 
 /* all prompts */
 div.nbinput div.prompt,
 div.nboutput div.prompt {
-    min-width: 8ex;
+    min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
     text-align: right;
@@ -887,9 +889,9 @@ div.nboutput div.output_area {
 
 /* input area */
 div.nbinput div.input_area {
-    border: 1px solid #cfcfcf;
+    border: 1px solid #e0e0e0;
     border-radius: 2px;
-    background: #f7f7f7;
+    background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
@@ -897,7 +899,7 @@ div.nboutput div[class*=MathJax] {
     text-align: left !important;
 }
 
-/* override sphinx.ext.pngmath center alignment in output cells */
+/* override sphinx.ext.imgmath center alignment in output cells */
 div.nboutput div.math p {
     text-align: left;
 }
@@ -947,6 +949,40 @@ div.nboutput div.output_area.stderr {
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
 
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
@@ -963,6 +999,11 @@ div.nboutput div.output_area.stderr {
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
 }
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
 </style>
 <div class="admonition note">
 This page was generated from <a class="reference external" href="https://github.com/Geo-Python/2018/blob/master/source/notebooks/L5/numpy/1-Exploring-data-using-numpy.ipynb">source/notebooks/L5/numpy/1-Exploring-data-using-numpy.ipynb</a>.
@@ -971,32 +1012,16 @@ This page was generated from <a class="reference external" href="https://github.
 <span class="raw-html"><a href="https://notebooks.csc.fi/#/blueprint/d71cd2d26d924f48820dc22b67a87d8e"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a></span></div>
 <div class="section" id="Exploring-data-using-NumPy">
 <h1>Exploring data using NumPy<a class="headerlink" href="#Exploring-data-using-NumPy" title="Permalink to this headline">¶</a></h1>
-<p>Our first task in this week’s lesson is to learn how to read and explore
-data files using <a class="reference external" href="http://www.numpy.org/">NumPy</a>. Reading data files
-using NumPy will make life a bit easier compared to the traditional
-Python way of reading data files. If you’re curious about that, you can
-check out some of the lesson materials from past years about <a class="reference external" href="https://geo-python.github.io/2018/2017/lessons/L5/reading-data-from-file.html">reading
-data in the Pythonic
-way</a>.</p>
+<p>Our first task in this week’s lesson is to learn how to read and explore data files using <a class="reference external" href="http://www.numpy.org/">NumPy</a>. Reading data files using NumPy will make life a bit easier compared to the traditional Python way of reading data files. If you’re curious about that, you can check out some of the lesson materials from past years about <a class="reference external" href="https://geo-python.github.io/2018/2017/lessons/L5/reading-data-from-file.html">reading data in the Pythonic way</a>.</p>
 <div class="section" id="What-is-NumPy?">
 <h2>What is NumPy?<a class="headerlink" href="#What-is-NumPy?" title="Permalink to this headline">¶</a></h2>
-<p>NumPy is a library for Python designed for efficient scientific
-(numerical) computing. It is an essential library in Python that is used
-under the hood in many other modules (including
-<a class="reference external" href="https://pandas.pydata.org/">Pandas</a>). Here, we will get a sense of a
-few things NumPy can do.</p>
+<p>NumPy is a library for Python designed for efficient scientific (numerical) computing. It is an essential library in Python that is used under the hood in many other modules (including <a class="reference external" href="https://pandas.pydata.org/">Pandas</a>). Here, we will get a sense of a few things NumPy can do.</p>
 </div>
 <div class="section" id="Preparation-(the-key-to-success)">
 <h2>Preparation (the key to success)<a class="headerlink" href="#Preparation-(the-key-to-success)" title="Permalink to this headline">¶</a></h2>
-<p>Presumably you have already opened this Jupyter notebook (if not, do so
-now using one of the links above), and our first task is to change the
-working directory to the one containing the files for this week’s lesson
-(in this case the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> directory. You can do that by first checking
-which directory Jupyter is operating in using the <code class="docutils literal notranslate"><span class="pre">%ls</span></code> IPython magic
-command.</p>
+<p>Presumably you have already opened this Jupyter notebook (if not, do so now using one of the links above), and our first task is to change the working directory to the one containing the files for this week’s lesson (in this case the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> directory. You can do that by first checking which directory Jupyter is operating in using the <code class="docutils literal notranslate"><span class="pre">%ls</span></code> IPython magic command.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1004,12 +1029,9 @@ command.</p>
 </pre></div>
 </div>
 </div>
-<p>If you see files like <code class="docutils literal notranslate"><span class="pre">1-Exploring-data-using-numpy.ipynb</span></code>, you’re all
-set. If not, you can change the working directory using the <code class="docutils literal notranslate"><span class="pre">%cd</span></code>
-magic command. For example,</p>
+<p>If you see files like <code class="docutils literal notranslate"><span class="pre">1-Exploring-data-using-numpy.ipynb</span></code>, you’re all set. If not, you can change the working directory using the <code class="docutils literal notranslate"><span class="pre">%cd</span></code> magic command. For example,</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1026,21 +1048,15 @@ magic command. For example,</p>
 /Users/whipp/Work/Teaching-and-seminars/HY/Geo-Python/Fall-2018-git/source/notebooks/L5/numpy
 </pre></div></div>
 </div>
-<p>The command above gives an error in this case because we’re in a
-different directory, but you get the point. If you need some additional
-help to get into the right working directory, you can refer back to the
-lesson on functions where we covered changing the working directory in
-more detail.</p>
+<p>The command above gives an error in this case because we’re in a different directory, but you get the point. If you need some additional help to get into the right working directory, you can refer back to the lesson on functions where we covered changing the working directory in more detail.</p>
 </div>
 <div class="section" id="Reading-a-data-file-with-NumPy">
 <h2>Reading a data file with NumPy<a class="headerlink" href="#Reading-a-data-file-with-NumPy" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="Importing-NumPy">
 <h3>Importing NumPy<a class="headerlink" href="#Importing-NumPy" title="Permalink to this headline">¶</a></h3>
-<p>Now we’re ready to read in our temperature data file. First, we need to
-import the NumPy module.</p>
+<p>Now we’re ready to read in our temperature data file. First, we need to import the NumPy module.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1048,17 +1064,13 @@ import the NumPy module.</p>
 </pre></div>
 </div>
 </div>
-<p>That’s it! NumPy is now ready to use. Notice that we have imported the
-NumPy module with the name <code class="docutils literal notranslate"><span class="pre">np</span></code>.</p>
+<p>That’s it! NumPy is now ready to use. Notice that we have imported the NumPy module with the name <code class="docutils literal notranslate"><span class="pre">np</span></code>.</p>
 </div>
 <div class="section" id="Reading-a-data-file">
 <h3>Reading a data file<a class="headerlink" href="#Reading-a-data-file" title="Permalink to this headline">¶</a></h3>
-<p>Now we’ll read the file data into a variable called <code class="docutils literal notranslate"><span class="pre">data</span></code>. We can
-start by defining the location (filepath) of the data file in the
-variable <code class="docutils literal notranslate"><span class="pre">fp</span></code>.</p>
+<p>Now we’ll read the file data into a variable called <code class="docutils literal notranslate"><span class="pre">data</span></code>. We can start by defining the location (filepath) of the data file in the variable <code class="docutils literal notranslate"><span class="pre">fp</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1068,8 +1080,7 @@ variable <code class="docutils literal notranslate"><span class="pre">fp</span><
 </div>
 <p>Now we can read the file using the NumPy <code class="docutils literal notranslate"><span class="pre">genfromtxt()</span></code> function.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1077,19 +1088,10 @@ variable <code class="docutils literal notranslate"><span class="pre">fp</span><
 </pre></div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code> is a general function for reading data files
-separated by commas, spaces, or other common separators. For a full list
-of parameters for this function, please refer to the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html">NumPy
-documentation for
-numpy.genfromtxt()</a>.</p>
-<p>Here we use the function simply by giving the filename as an input
-parameter. If all goes as planned, you should now have a new variable
-defined as <code class="docutils literal notranslate"><span class="pre">data</span></code> in memory that contains the contents of the data
-file. You can check the the contents of this variable by typing the
-following:</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code> is a general function for reading data files separated by commas, spaces, or other common separators. For a full list of parameters for this function, please refer to the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html">NumPy documentation for numpy.genfromtxt()</a>.</p>
+<p>Here we use the function simply by giving the filename as an input parameter. If all goes as planned, you should now have a new variable defined as <code class="docutils literal notranslate"><span class="pre">data</span></code> in memory that contains the contents of the data file. You can check the the contents of this variable by typing the following:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1109,18 +1111,10 @@ following:</p>
 </div>
 <div class="section" id="Inspecting-our-data-file">
 <h3>Inspecting our data file<a class="headerlink" href="#Inspecting-our-data-file" title="Permalink to this headline">¶</a></h3>
-<p>Hmm…something doesn’t look right here. You were perhaps expecting some
-temperature data, right? Instead we have only a list of <code class="docutils literal notranslate"><span class="pre">nan</span></code> values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">nan</span></code> stands for “not a number”, and might indicate some problem with
-reading in the contents of the file. Looks like we need to investigate
-this further.</p>
-<p>We can begin our investigation by opening the data file in JupyterLab by
-right-clicking on the <code class="docutils literal notranslate"><span class="pre">Kumpula-June-2016-w-metadata.txt</span></code> data file and
-selecting <strong>Open</strong>.</p>
-<div class="figure" id="id2">
-<img alt="Opening a file in JupyterLab" src="../../../_images/open-text-file.png" />
-<p class="caption"><span class="caption-text">Opening a file in JupyterLab</span></p>
-</div>
+<p>Hmm…something doesn’t look right here. You were perhaps expecting some temperature data, right? Instead we have only a list of <code class="docutils literal notranslate"><span class="pre">nan</span></code> values.</p>
+<p><code class="docutils literal notranslate"><span class="pre">nan</span></code> stands for “not a number”, and might indicate some problem with reading in the contents of the file. Looks like we need to investigate this further.</p>
+<p>We can begin our investigation by opening the data file in JupyterLab by right-clicking on the <code class="docutils literal notranslate"><span class="pre">Kumpula-June-2016-w-metadata.txt</span></code> data file and selecting <strong>Open</strong>.</p>
+<p><img alt="Opening a file in JupyterLab" src="../../../_images/open-text-file.png" /></p>
 <p>You should see something like the following:</p>
 # Data file contents: Daily temperatures (mean, min, max) for Kumpula, Helsinki
 #                     for June 1-30, 2016
@@ -1135,21 +1129,15 @@ YEARMODA,TEMP,MAX,MIN
 20160602,65.8,80.8,55.0
 ...<p>We can observe a few important things:</p>
 <ul class="simple">
-<li>There are some metadata at the top of the file (a <em>header</em>) that
-provide basic information about its contents and source. This isn’t
-data we want to process, so we need to skip over that part of the
-file when we load it.<ul>
-<li>We can skip the top header lines in the file using the
-<code class="docutils literal notranslate"><span class="pre">skip_header</span></code> parameter.</li>
+<li>There are some metadata at the top of the file (a <em>header</em>) that provide basic information about its contents and source. This isn’t data we want to process, so we need to skip over that part of the file when we load it.<ul>
+<li>We can skip the top header lines in the file using the <code class="docutils literal notranslate"><span class="pre">skip_header</span></code> parameter.</li>
 </ul>
 </li>
 <li>The values in the data file are separated by commas.<ul>
-<li>We can specify the value separator using the <code class="docutils literal notranslate"><span class="pre">delimiter</span></code>
-parameter.</li>
+<li>We can specify the value separator using the <code class="docutils literal notranslate"><span class="pre">delimiter</span></code> parameter.</li>
 </ul>
 </li>
-<li>The top row of values below the header contains names of the column
-variables.<ul>
+<li>The top row of values below the header contains names of the column variables.<ul>
 <li>We’ll deal with those later.</li>
 </ul>
 </li>
@@ -1159,8 +1147,7 @@ variables.<ul>
 <h3>Reading our data file, round 2<a class="headerlink" href="#Reading-our-data-file,-round-2" title="Permalink to this headline">¶</a></h3>
 <p>Let’s try reading again with this information in mind.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1168,13 +1155,10 @@ variables.<ul>
 </pre></div>
 </div>
 </div>
-<p>Note that we now skip the header lines (first 9 lines) using
-<code class="docutils literal notranslate"><span class="pre">skip_header=9</span></code> and tell NumPy the files is comma-separated using
-<code class="docutils literal notranslate"><span class="pre">delimiter=','</span></code>.</p>
+<p>Note that we now skip the header lines (first 9 lines) using <code class="docutils literal notranslate"><span class="pre">skip_header=9</span></code> and tell NumPy the files is comma-separated using <code class="docutils literal notranslate"><span class="pre">delimiter=','</span></code>.</p>
 <p>Let’s print out the contents of <code class="docutils literal notranslate"><span class="pre">data</span></code> now and see how things look.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1220,32 +1204,14 @@ variables.<ul>
 </pre></div></div>
 </div>
 <p>That’s more like it.</p>
-<p>OK, so let’s review what just happened. Well, the file data was read
-into a NumPy <em>ndarray</em>, which is a type of NumPy <em>n</em>-dimensional
-structure used for storing data like a matrix. What?!? Yeah, in our case
-we have a two dimensional data struture similar to a spreadsheet.
-Everything is together in a single large data structure at the moment,
-but we’ll see later in the lesson how to divide up our data and make
-interacting with it easier.</p>
+<p>OK, so let’s review what just happened. Well, the file data was read into a NumPy <em>ndarray</em>, which is a type of NumPy <em>n</em>-dimensional structure used for storing data like a matrix. What?!? Yeah, in our case we have a two dimensional data struture similar to a spreadsheet. Everything is together in a single large data structure at the moment, but we’ll see later in the lesson how to divide up our data and make interacting with it easier.</p>
 <p>Now we can move on to exploring our data.</p>
 <div class="section" id="Checking-data-file-formats">
 <h4>Checking data file formats<a class="headerlink" href="#Checking-data-file-formats" title="Permalink to this headline">¶</a></h4>
-<p>The example above, trying to read a datafile with some header text (the
-metadata in this case), is <em>very</em> common. Reading data into NumPy is
-pretty easy, but it helps to have a sense of what the datafile looks
-like before you try to read it. The challenge can be that large
-datafiles might not nicely (or quickly) load into the JupyterLab editor,
-so it might be better to look at only the top 5-10 lines of the file
-rather than loading the entire thing. Fortunately, there are solutions
-to that problem.</p>
-<p>When you’re trying to think over how to read in a data file you can take
-advantage of common command-line tools like <strong>head</strong>. <strong>head</strong> is a
-simple program to read lines from the start of a data file and print
-them to the screen. You can use <strong>head</strong> from the command line in
-JupyterLab by first opening a JupyterLab terminal from the JupyterLab
-menu bar (<strong>File</strong> -&gt; <strong>New</strong> -&gt; <strong>Terminal</strong>). Once in the terminal,
-you can simply navigate to the directory containing your datafile and
-type <strong>head</strong> followed by the file name:</p>
+<p>The example above, trying to read a datafile with some header text (the metadata in this case), is <em>very</em> common. Reading data into NumPy is pretty easy, but it helps to have a sense of what the datafile looks like before you try to read it. The challenge can be that large datafiles might not nicely (or quickly) load into the JupyterLab editor, so it might be better to look at only the top 5-10 lines of the file rather than loading the entire thing. Fortunately, there are solutions to that
+problem.</p>
+<p>When you’re trying to think over how to read in a data file you can take advantage of common command-line tools like <strong>head</strong>. <strong>head</strong> is a simple program to read lines from the start of a data file and print them to the screen. You can use <strong>head</strong> from the command line in JupyterLab by first opening a JupyterLab terminal from the JupyterLab menu bar (<strong>File</strong> -&gt; <strong>New</strong> -&gt; <strong>Terminal</strong>). Once in the terminal, you can simply navigate to the directory containing your datafile and type <strong>head</strong>
+followed by the file name:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ head Kumpula-June-2016-w-metadata.txt
 <span class="c1"># Data file contents: Daily temperatures (mean, min, max) for Kumpula, Helsinki</span>
 <span class="c1">#                     for June 1-30, 2016</span>
@@ -1259,9 +1225,7 @@ YEARMODA,TEMP,MAX,MIN
 <span class="m">20160601</span>,65.5,73.6,54.7
 </pre></div>
 </div>
-<p>As you can see, <strong>head</strong> gives you the first 10 lines of the file by
-default. You can use the <code class="docutils literal notranslate"><span class="pre">-n</span></code> flag to get a larger or smaller number
-of lines.</p>
+<p>As you can see, <strong>head</strong> gives you the first 10 lines of the file by default. You can use the <code class="docutils literal notranslate"><span class="pre">-n</span></code> flag to get a larger or smaller number of lines.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ head -n <span class="m">5</span> Kumpula-June-2016-w-metadata.txt
 <span class="c1"># Data file contents: Daily temperatures (mean, min, max) for Kumpula, Helsinki</span>
 <span class="c1">#                     for June 1-30, 2016</span>
@@ -1275,17 +1239,12 @@ of lines.</p>
 </div>
 <div class="section" id="Exploring-our-dataset">
 <h2>Exploring our dataset<a class="headerlink" href="#Exploring-our-dataset" title="Permalink to this headline">¶</a></h2>
-<p>So this is a big deal for us. We now have some basic Python skills and
-the ability to read in data from a file for processing. A normal first
-step when you load new data is to explore the dataset a bit to
-understand what is there and its format.</p>
+<p>So this is a big deal for us. We now have some basic Python skills and the ability to read in data from a file for processing. A normal first step when you load new data is to explore the dataset a bit to understand what is there and its format.</p>
 <div class="section" id="Checking-the-array-data-type">
 <h3>Checking the array data type<a class="headerlink" href="#Checking-the-array-data-type" title="Permalink to this headline">¶</a></h3>
-<p>Perhaps as a first step, we can check the type of data we have in our
-NumPy array <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
+<p>Perhaps as a first step, we can check the type of data we have in our NumPy array <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1294,8 +1253,7 @@ NumPy array <code class="docutils literal notranslate"><span class="pre">data</s
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1307,12 +1265,9 @@ NumPy array <code class="docutils literal notranslate"><span class="pre">data</s
 </div>
 <div class="section" id="Checking-the-data-array-type">
 <h3>Checking the data array type<a class="headerlink" href="#Checking-the-data-array-type" title="Permalink to this headline">¶</a></h3>
-<p>Let’s now have a look at the data types in our ndarray. We can find this
-in the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> attribute that is part of the ndarray data type,
-something that is known automatically for this kind of data.</p>
+<p>Let’s now have a look at the data types in our ndarray. We can find this in the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> attribute that is part of the ndarray data type, something that is known automatically for this kind of data.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1331,17 +1286,14 @@ float64
 <p>Here we see the data are floating point values with 64-bit precision.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note:</strong></p>
-<p>There are some exceptions, but normal NumPy arrays will all have the
-same data type.</p>
+<p>There are some exceptions, but normal NumPy arrays will all have the same data type.</p>
 </div>
 </div>
 <div class="section" id="Checking-the-size-of-the-dataset">
 <h3>Checking the size of the dataset<a class="headerlink" href="#Checking-the-size-of-the-dataset" title="Permalink to this headline">¶</a></h3>
-<p>We can also check to see how many rows and columns we have in the
-dataset using the <code class="docutils literal notranslate"><span class="pre">shape</span></code> attribute.</p>
+<p>We can also check to see how many rows and columns we have in the dataset using the <code class="docutils literal notranslate"><span class="pre">shape</span></code> attribute.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1363,8 +1315,7 @@ dataset using the <code class="docutils literal notranslate"><span class="pre">s
 <h3>Working with our data - Index slicing<a class="headerlink" href="#Working-with-our-data---Index-slicing" title="Permalink to this headline">¶</a></h3>
 <p>Let’s have another quick look at our data.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1409,14 +1360,9 @@ dataset using the <code class="docutils literal notranslate"><span class="pre">s
  [2.0160630e+07 6.5700000e+01 7.2700000e+01 5.9200000e+01]]
 </pre></div></div>
 </div>
-<p>This is OK, but we can certainly make it easier to work with. We can
-start by slicing our data up into different columns and creating new
-variables with the column data. Slices from our array can be extracted
-using the <em>index values</em>. In our case, we have two indices in our 2D
-data structure. For example, the index values <code class="docutils literal notranslate"><span class="pre">[2,0]</span></code></p>
+<p>This is OK, but we can certainly make it easier to work with. We can start by slicing our data up into different columns and creating new variables with the column data. Slices from our array can be extracted using the <em>index values</em>. In our case, we have two indices in our 2D data structure. For example, the index values <code class="docutils literal notranslate"><span class="pre">[2,0]</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1425,8 +1371,7 @@ data structure. For example, the index values <code class="docutils literal notr
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1435,12 +1380,9 @@ data structure. For example, the index values <code class="docutils literal notr
 </div>
 </div>
 <p>give us the value at row 2, column 0.</p>
-<p>We can also use ranges of rows and columns using the <code class="docutils literal notranslate"><span class="pre">:</span></code> character.
-For example, we could get the first 5 rows of values in column zero by
-typing</p>
+<p>We can also use ranges of rows and columns using the <code class="docutils literal notranslate"><span class="pre">:</span></code> character. For example, we could get the first 5 rows of values in column zero by typing</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1449,8 +1391,7 @@ typing</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1459,12 +1400,9 @@ typing</p>
 </div>
 </div>
 <p>Not bad, right?</p>
-<p>In fact, we don’t even necessarily need the lower bound for this slice
-of data because NumPy will assume it for us if we don’t list it. Let’s
-see another example.</p>
+<p>In fact, we don’t even necessarily need the lower bound for this slice of data because NumPy will assume it for us if we don’t list it. Let’s see another example.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1473,8 +1411,7 @@ see another example.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1482,20 +1419,13 @@ see another example.</p>
 </pre></div>
 </div>
 </div>
-<p>Here, the lower bound of the index range <code class="docutils literal notranslate"><span class="pre">0</span></code> is assumed and we get all
-rows up to (but not including) index <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p>
+<p>Here, the lower bound of the index range <code class="docutils literal notranslate"><span class="pre">0</span></code> is assumed and we get all rows up to (but not including) index <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p>
 </div>
 <div class="section" id="Slicing-our-data-into-columns">
 <h3>Slicing our data into columns<a class="headerlink" href="#Slicing-our-data-into-columns" title="Permalink to this headline">¶</a></h3>
-<p>Now let’s use the ideas of index slicing to cut our 2D data into 4
-separate columns that will be easier to work with. As you might recall
-from the header of the file, we have 4 data values: <code class="docutils literal notranslate"><span class="pre">YEARMODA</span></code>,
-<code class="docutils literal notranslate"><span class="pre">TEMP</span></code>, <code class="docutils literal notranslate"><span class="pre">MAX</span></code>, and <code class="docutils literal notranslate"><span class="pre">MIN</span></code>. We can exract all of the values from a
-given column by not listing and upper or lower bound for the index
-slice. For example,</p>
+<p>Now let’s use the ideas of index slicing to cut our 2D data into 4 separate columns that will be easier to work with. As you might recall from the header of the file, we have 4 data values: <code class="docutils literal notranslate"><span class="pre">YEARMODA</span></code>, <code class="docutils literal notranslate"><span class="pre">TEMP</span></code>, <code class="docutils literal notranslate"><span class="pre">MAX</span></code>, and <code class="docutils literal notranslate"><span class="pre">MIN</span></code>. We can exract all of the values from a given column by not listing and upper or lower bound for the index slice. For example,</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1504,8 +1434,7 @@ slice. For example,</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1527,8 +1456,7 @@ slice. For example,</p>
 </div>
 <p>OK, this looks promising. Let’s quickly handle the others.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1538,18 +1466,13 @@ slice. For example,</p>
 </pre></div>
 </div>
 </div>
-<p>Now we have 4 variables, one for each column in the data file. This
-should make life easier when we want to perform some calculations on our
-data.</p>
+<p>Now we have 4 variables, one for each column in the data file. This should make life easier when we want to perform some calculations on our data.</p>
 </div>
 <div class="section" id="Checking-the-data-in-memory">
 <h3>Checking the data in memory<a class="headerlink" href="#Checking-the-data-in-memory" title="Permalink to this headline">¶</a></h3>
-<p>We can see the types of data we have defined at this point, the variable
-names, and their types using the <code class="docutils literal notranslate"><span class="pre">%whos</span></code> magic command. This is quite
-handy.</p>
+<p>We can see the types of data we have defined at this point, the variable names, and their types using the <code class="docutils literal notranslate"><span class="pre">%whos</span></code> magic command. This is quite handy.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1576,13 +1499,9 @@ temp_min   ndarray    30: 30 elems, type `float64`, 240 bytes
 </div>
 <div class="section" id="Basic-data-calculations-in-NumPy">
 <h3>Basic data calculations in NumPy<a class="headerlink" href="#Basic-data-calculations-in-NumPy" title="Permalink to this headline">¶</a></h3>
-<p>NumPy ndarrays have a set of attributes they know about themselves and
-methods they can use to make calculations using the data. Useful methods
-include <code class="docutils literal notranslate"><span class="pre">mean()</span></code>, <code class="docutils literal notranslate"><span class="pre">min()</span></code>, <code class="docutils literal notranslate"><span class="pre">max()</span></code>, and <code class="docutils literal notranslate"><span class="pre">std()</span></code> (the standard
-deviation). For example, we can easily find the mean temperature.</p>
+<p>NumPy ndarrays have a set of attributes they know about themselves and methods they can use to make calculations using the data. Useful methods include <code class="docutils literal notranslate"><span class="pre">mean()</span></code>, <code class="docutils literal notranslate"><span class="pre">min()</span></code>, <code class="docutils literal notranslate"><span class="pre">max()</span></code>, and <code class="docutils literal notranslate"><span class="pre">std()</span></code> (the standard deviation). For example, we can easily find the mean temperature.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1601,14 +1520,9 @@ deviation). For example, we can easily find the mean temperature.</p>
 </div>
 <div class="section" id="Data-type-conversions">
 <h3>Data type conversions<a class="headerlink" href="#Data-type-conversions" title="Permalink to this headline">¶</a></h3>
-<p>Lastly, we can convert our ndarray data from one data type to another
-using the <code class="docutils literal notranslate"><span class="pre">astype()</span></code> method. As we see in the output from <code class="docutils literal notranslate"><span class="pre">%whos</span></code>
-above, our <code class="docutils literal notranslate"><span class="pre">date</span></code> array contains <code class="docutils literal notranslate"><span class="pre">float64</span></code> data, but it was simply
-integer values in the data file. We can convert <code class="docutils literal notranslate"><span class="pre">date</span></code> to integers by
-typing</p>
+<p>Lastly, we can convert our ndarray data from one data type to another using the <code class="docutils literal notranslate"><span class="pre">astype()</span></code> method. As we see in the output from <code class="docutils literal notranslate"><span class="pre">%whos</span></code> above, our <code class="docutils literal notranslate"><span class="pre">date</span></code> array contains <code class="docutils literal notranslate"><span class="pre">float64</span></code> data, but it was simply integer values in the data file. We can convert <code class="docutils literal notranslate"><span class="pre">date</span></code> to integers by typing</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1617,8 +1531,7 @@ typing</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1638,8 +1551,7 @@ typing</p>
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1648,8 +1560,7 @@ typing</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1683,6 +1594,7 @@ typing</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki
+      Last updated on Dec 23, 2018.
 
     </p>
   </div>

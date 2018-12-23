@@ -831,18 +831,18 @@ div.nblast {
 
 /* input prompt */
 div.nbinput div.prompt pre {
-    color: #303F9F;
+    color: #307FC1;
 }
 
 /* output prompt */
 div.nboutput div.prompt pre {
-    color: #D84315;
+    color: #BF5B3D;
 }
 
 /* all prompts */
 div.nbinput div.prompt,
 div.nboutput div.prompt {
-    min-width: 8ex;
+    min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
     text-align: right;
@@ -882,9 +882,9 @@ div.nboutput div.output_area {
 
 /* input area */
 div.nbinput div.input_area {
-    border: 1px solid #cfcfcf;
+    border: 1px solid #e0e0e0;
     border-radius: 2px;
-    background: #f7f7f7;
+    background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
@@ -892,7 +892,7 @@ div.nboutput div[class*=MathJax] {
     text-align: left !important;
 }
 
-/* override sphinx.ext.pngmath center alignment in output cells */
+/* override sphinx.ext.imgmath center alignment in output cells */
 div.nboutput div.math p {
     text-align: left;
 }
@@ -942,6 +942,40 @@ div.nboutput div.output_area.stderr {
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
 
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
@@ -958,6 +992,11 @@ div.nboutput div.output_area.stderr {
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
 }
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
 </style>
 <div class="admonition note">
 This page was generated from <a class="reference external" href="https://github.com/Geo-Python/2018/blob/master/source/notebooks/L2/Python-basic-elements.ipynb">source/notebooks/L2/Python-basic-elements.ipynb</a>.
@@ -966,38 +1005,23 @@ This page was generated from <a class="reference external" href="https://github.
 <span class="raw-html"><a href="https://notebooks.csc.fi/#/blueprint/d71cd2d26d924f48820dc22b67a87d8e"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a></span></div>
 <div class="section" id="Basic-elements-of-Python">
 <h1>Basic elements of Python<a class="headerlink" href="#Basic-elements-of-Python" title="Permalink to this headline">¶</a></h1>
-<p>In this lesson we will revisit data types, learn how data can be stored
-in Python lists, and about the concept of objects in programming.</p>
+<p>In this lesson we will revisit data types, learn how data can be stored in Python lists, and about the concept of objects in programming.</p>
 <div class="section" id="Sources">
 <h2>Sources<a class="headerlink" href="#Sources" title="Permalink to this headline">¶</a></h2>
-<p>Like the previous lesson, this lesson is inspired by the <a class="reference external" href="https://swcarpentry.github.io/python-novice-inflammation/">Programming
-with Python
-lessons</a>
-from the <a class="reference external" href="https://swcarpentry.github.io/">Software Carpentry
-organization</a>.</p>
+<p>Like the previous lesson, this lesson is inspired by the <a class="reference external" href="https://swcarpentry.github.io/python-novice-inflammation/">Programming with Python lessons</a> from the <a class="reference external" href="https://swcarpentry.github.io/">Software Carpentry organization</a>.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong></p>
-<p>There are some Python cells in this notebook that <em>already</em> contain
-code. You just need to press <strong>Shift</strong>-<strong>Enter</strong> to run those cells.
-We’re trying to avoid having you race to keep up typing in basic things
-for the lesson so you can focus on the main points :D.</p>
+<p>There are some Python cells in this notebook that <em>already</em> contain code. You just need to press <strong>Shift</strong>-<strong>Enter</strong> to run those cells. We’re trying to avoid having you race to keep up typing in basic things for the lesson so you can focus on the main points :D.</p>
 </div>
 </div>
 <div class="section" id="Data-types-revisited">
 <h2>Data types revisited<a class="headerlink" href="#Data-types-revisited" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="Let's-start-with-some-data">
 <h3>Let’s start with some data<a class="headerlink" href="#Let's-start-with-some-data" title="Permalink to this headline">¶</a></h3>
-<p>We saw a bit about variables and their values in the lesson last week,
-and we continue today with some variables related to <a class="reference external" href="http://en.ilmatieteenlaitos.fi/observation-stations">FMI observation
-stations in
-Finland</a>. For
-each station, a number of pieces of information are given, including the
-name of the station, an FMI station ID number (FMISID), its latitude,
-its longitude, and the station type. We can store this information and
-some additional information for a given station in Python as follows:</p>
+<p>We saw a bit about variables and their values in the lesson last week, and we continue today with some variables related to <a class="reference external" href="http://en.ilmatieteenlaitos.fi/observation-stations">FMI observation stations in Finland</a>. For each station, a number of pieces of information are given, including the name of the station, an FMI station ID number (FMISID), its latitude, its longitude, and the station type. We can store this information and some additional information for a given station in Python as
+follows:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1006,8 +1030,7 @@ some additional information for a given station in Python as follows:</p>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1016,8 +1039,7 @@ some additional information for a given station in Python as follows:</p>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1026,8 +1048,7 @@ some additional information for a given station in Python as follows:</p>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1036,8 +1057,7 @@ some additional information for a given station in Python as follows:</p>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1045,17 +1065,13 @@ some additional information for a given station in Python as follows:</p>
 </pre></div>
 </div>
 </div>
-<p>Here we have 5 values assigned to variables related to a single
-observation station. Each variable has a unique name and they can store
-different types of data.</p>
+<p>Here we have 5 values assigned to variables related to a single observation station. Each variable has a unique name and they can store different types of data.</p>
 </div>
 <div class="section" id="Reminder:-Data-types-and-their-compatibility">
 <h3>Reminder: Data types and their compatibility<a class="headerlink" href="#Reminder:-Data-types-and-their-compatibility" title="Permalink to this headline">¶</a></h3>
-<p>We can explore the different types of data stored in variables using the
-<code class="docutils literal notranslate"><span class="pre">type()</span></code> function.</p>
+<p>We can explore the different types of data stored in variables using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1064,8 +1080,7 @@ different types of data.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1074,8 +1089,7 @@ different types of data.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1084,8 +1098,7 @@ different types of data.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1094,8 +1107,7 @@ different types of data.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1104,8 +1116,7 @@ different types of data.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1113,25 +1124,17 @@ different types of data.</p>
 </pre></div>
 </div>
 </div>
-<p>As expected, we see that the <code class="docutils literal notranslate"><span class="pre">stationName</span></code> is a character string, the
-<code class="docutils literal notranslate"><span class="pre">stationID</span></code> is an integer, and the <code class="docutils literal notranslate"><span class="pre">stationLat</span></code> is a floating point
-number.</p>
+<p>As expected, we see that the <code class="docutils literal notranslate"><span class="pre">stationName</span></code> is a character string, the <code class="docutils literal notranslate"><span class="pre">stationID</span></code> is an integer, and the <code class="docutils literal notranslate"><span class="pre">stationLat</span></code> is a floating point number.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong></p>
-<p>We haven’t mentioned it explicitly yet, but the variable names in this
-lesson use another popular variable format called <em>camelCase</em>. In
-camelCase the words in the variable name are not separated by
-underscores or any other character, but rather the first letter is
-capitalized for all words in the name other than the first one.</p>
+<p>We haven’t mentioned it explicitly yet, but the variable names in this lesson use another popular variable format called <em>camelCase</em>. In camelCase the words in the variable name are not separated by underscores or any other character, but rather the first letter is capitalized for all words in the name other than the first one.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong></p>
-<p>Remember, the data types are important because some are not compatible
-with one another.</p>
+<p>Remember, the data types are important because some are not compatible with one another.</p>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1152,21 +1155,13 @@ with one another.</p>
 <span class="ansi-red-fg">TypeError</span>: must be str, not int
 </pre></div></div>
 </div>
-<p>Here we get a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> because Python does not know to combine a
-string of characters (<code class="docutils literal notranslate"><span class="pre">stationName</span></code>) with an integer value
-(<code class="docutils literal notranslate"><span class="pre">stationID</span></code>).</p>
+<p>Here we get a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> because Python does not know to combine a string of characters (<code class="docutils literal notranslate"><span class="pre">stationName</span></code>) with an integer value (<code class="docutils literal notranslate"><span class="pre">stationID</span></code>).</p>
 </div>
 <div class="section" id="Converting-data-from-one-type-to-another">
 <h3>Converting data from one type to another<a class="headerlink" href="#Converting-data-from-one-type-to-another" title="Permalink to this headline">¶</a></h3>
-<p>It is not the case that things like the <code class="docutils literal notranslate"><span class="pre">stationName</span></code> and
-<code class="docutils literal notranslate"><span class="pre">stationID</span></code> cannot be combined at all, but in order to combine a
-character string with a number we need to perform a data type conversion
-to make them compatible. For example, we can could convert the
-<code class="docutils literal notranslate"><span class="pre">stationID</span></code> integer value into a character string using the <code class="docutils literal notranslate"><span class="pre">str()</span></code>
-function.</p>
+<p>It is not the case that things like the <code class="docutils literal notranslate"><span class="pre">stationName</span></code> and <code class="docutils literal notranslate"><span class="pre">stationID</span></code> cannot be combined at all, but in order to combine a character string with a number we need to perform a data type conversion to make them compatible. For example, we can could convert the <code class="docutils literal notranslate"><span class="pre">stationID</span></code> integer value into a character string using the <code class="docutils literal notranslate"><span class="pre">str()</span></code> function.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1175,8 +1170,7 @@ function.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1185,8 +1179,7 @@ function.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1195,8 +1188,7 @@ function.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1212,31 +1204,22 @@ function.</p>
 132310
 </pre></div></div>
 </div>
-<p>As you can see, <code class="docutils literal notranslate"><span class="pre">str()</span></code> converts a numerical value into a character
-string with the same numbers as before.</p>
+<p>As you can see, <code class="docutils literal notranslate"><span class="pre">str()</span></code> converts a numerical value into a character string with the same numbers as before.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong></p>
-<p>Similar to using <code class="docutils literal notranslate"><span class="pre">str()</span></code> to convert numbers to character strings,
-<code class="docutils literal notranslate"><span class="pre">int()</span></code> can be used to convert strings or floating point numbers to
-integers and <code class="docutils literal notranslate"><span class="pre">float()</span></code> can be used to convert strings or integers to
-floating point numbers.</p>
+<p>Similar to using <code class="docutils literal notranslate"><span class="pre">str()</span></code> to convert numbers to character strings, <code class="docutils literal notranslate"><span class="pre">int()</span></code> can be used to convert strings or floating point numbers to integers and <code class="docutils literal notranslate"><span class="pre">float()</span></code> can be used to convert strings or integers to floating point numbers.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Attention</strong></p>
 <p><strong>Poll pause - Questions 2.2, 2.3</strong></p>
-<p>Please visit the <a class="reference external" href="https://geo-python.github.io/poll">class polling
-page</a> to participate (<em>those
-present in lecture</em>).</p>
+<p>Please visit the <a class="reference external" href="https://geo-python.github.io/poll">class polling page</a> to participate (<em>those present in lecture</em>).</p>
 </div>
 </div>
 <div class="section" id="Combining-text-and-numbers">
 <h3>Combining text and numbers<a class="headerlink" href="#Combining-text-and-numbers" title="Permalink to this headline">¶</a></h3>
-<p>Although most mathematical operations operate on numerical values, a
-common way to combine character strings is using the addition operator
-<code class="docutils literal notranslate"><span class="pre">+</span></code>.</p>
+<p>Although most mathematical operations operate on numerical values, a common way to combine character strings is using the addition operator <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1245,8 +1228,7 @@ common way to combine character strings is using the addition operator
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1262,25 +1244,17 @@ common way to combine character strings is using the addition operator
 Helsinki Kaivopuisto: 132310
 </pre></div></div>
 </div>
-<p>Note that here we are converting <code class="docutils literal notranslate"><span class="pre">stationID</span></code> to a character string
-using the <code class="docutils literal notranslate"><span class="pre">str()</span></code> function within the assignment to the variable
-<code class="docutils literal notranslate"><span class="pre">stationNameAndID</span></code>. Alternatively, we could have simply added
-<code class="docutils literal notranslate"><span class="pre">stationName</span></code> and <code class="docutils literal notranslate"><span class="pre">stationIDStr</span></code>.</p>
+<p>Note that here we are converting <code class="docutils literal notranslate"><span class="pre">stationID</span></code> to a character string using the <code class="docutils literal notranslate"><span class="pre">str()</span></code> function within the assignment to the variable <code class="docutils literal notranslate"><span class="pre">stationNameAndID</span></code>. Alternatively, we could have simply added <code class="docutils literal notranslate"><span class="pre">stationName</span></code> and <code class="docutils literal notranslate"><span class="pre">stationIDStr</span></code>.</p>
 </div>
 </div>
 <div class="section" id="Lists-and-indices">
 <h2>Lists and indices<a class="headerlink" href="#Lists-and-indices" title="Permalink to this headline">¶</a></h2>
-<p>Above we have seen a bit of data related to one of several FMI
-observation stations in the Helsinki area. Rather than having individual
-variables for each of those stations, we can store many related values
-in a <em>collection</em>. The simplest type of collection in Python is a
-<strong>list</strong>.</p>
+<p>Above we have seen a bit of data related to one of several FMI observation stations in the Helsinki area. Rather than having individual variables for each of those stations, we can store many related values in a <em>collection</em>. The simplest type of collection in Python is a <strong>list</strong>.</p>
 <div class="section" id="Creating-a-list">
 <h3>Creating a list<a class="headerlink" href="#Creating-a-list" title="Permalink to this headline">¶</a></h3>
 <p>Let’s first create a list of selected stationName values.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1289,8 +1263,7 @@ in a <em>collection</em>. The simplest type of collection in Python is a
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1307,8 +1280,7 @@ in a <em>collection</em>. The simplest type of collection in Python is a
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1317,8 +1289,7 @@ in a <em>collection</em>. The simplest type of collection in Python is a
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1326,19 +1297,13 @@ in a <em>collection</em>. The simplest type of collection in Python is a
 </pre></div>
 </div>
 </div>
-<p>Here we have a list of 4 <code class="docutils literal notranslate"><span class="pre">stationName</span></code> values in a list called
-<code class="docutils literal notranslate"><span class="pre">stationNames</span></code>. As you can see, the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function recognizes
-this as a list. Lists can be created using the square brackets (<code class="docutils literal notranslate"><span class="pre">[</span></code>
-and <code class="docutils literal notranslate"><span class="pre">]</span></code>), with commas separating the values in the list.</p>
+<p>Here we have a list of 4 <code class="docutils literal notranslate"><span class="pre">stationName</span></code> values in a list called <code class="docutils literal notranslate"><span class="pre">stationNames</span></code>. As you can see, the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function recognizes this as a list. Lists can be created using the square brackets (<code class="docutils literal notranslate"><span class="pre">[</span></code> and <code class="docutils literal notranslate"><span class="pre">]</span></code>), with commas separating the values in the list.</p>
 </div>
 <div class="section" id="Index-values">
 <h3>Index values<a class="headerlink" href="#Index-values" title="Permalink to this headline">¶</a></h3>
-<p>To access an individual value in the list we need to use an <strong>index
-value</strong>. An index value is a number that refers to a given position in
-the list. Let’s check out the first value in our list as an example:</p>
+<p>To access an individual value in the list we need to use an <strong>index value</strong>. An index value is a number that refers to a given position in the list. Let’s check out the first value in our list as an example:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1354,13 +1319,9 @@ the list. Let’s check out the first value in our list as an example:</p>
 Helsinki Kaisaniemi
 </pre></div></div>
 </div>
-<p>Wait, what? This is the second value in the list we’ve created, what is
-wrong? As it turns out, Python (and many other programming languages)
-start values stored in collections with the index value 0. Thus, to get
-the value for the first item in the list, we must use index 0.</p>
+<p>Wait, what? This is the second value in the list we’ve created, what is wrong? As it turns out, Python (and many other programming languages) start values stored in collections with the index value 0. Thus, to get the value for the first item in the list, we must use index 0.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1380,21 +1341,10 @@ Helsinki Harmaja
 </div>
 <div class="section" id="A-useful-analog---Bill-the-vending-machine">
 <h3>A useful analog - Bill the vending machine<a class="headerlink" href="#A-useful-analog---Bill-the-vending-machine" title="Permalink to this headline">¶</a></h3>
-<p>As it turns out, index values are extremely useful, very commonly used
-in many programming languages, yet often a point of confusion for new
-programmers. Thus, we need to have a trick for remembering what an index
-value is and how they are used. For this, we need to be introduced to
-Bill.</p>
+<p>As it turns out, index values are extremely useful, very commonly used in many programming languages, yet often a point of confusion for new programmers. Thus, we need to have a trick for remembering what an index value is and how they are used. For this, we need to be introduced to Bill.</p>
 <p><img alt="Bill the vending machine" src="../../_images/bill-the-vending-machine.png" /> <em>Bill, the vending machine.</em></p>
-<p>As you can see, Bill is a vending machine that contains 6 items. Like
-Python lists, the list of items available from Bill starts at 0 and
-increases in increments of 1.</p>
-<p>The way Bill works is that you insert your money, then select the
-location of the item you wish to receive. In an analogy to Python, we
-could say Bill is simply a list of food items and the buttons you push
-to get them are the index values. For example, if you would like to buy
-a taco from Bill, you would push button <code class="docutils literal notranslate"><span class="pre">3</span></code>. An equivalent operation
-in Python could simply be</p>
+<p>As you can see, Bill is a vending machine that contains 6 items. Like Python lists, the list of items available from Bill starts at 0 and increases in increments of 1.</p>
+<p>The way Bill works is that you insert your money, then select the location of the item you wish to receive. In an analogy to Python, we could say Bill is simply a list of food items and the buttons you push to get them are the index values. For example, if you would like to buy a taco from Bill, you would push button <code class="docutils literal notranslate"><span class="pre">3</span></code>. An equivalent operation in Python could simply be</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">Bill</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 <span class="n">Taco</span>
 </pre></div>
@@ -1404,8 +1354,7 @@ in Python could simply be</p>
 <h3>Number of items in a list<a class="headerlink" href="#Number-of-items-in-a-list" title="Permalink to this headline">¶</a></h3>
 <p>We can find the length of a list using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1414,8 +1363,7 @@ in Python could simply be</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1423,16 +1371,13 @@ in Python could simply be</p>
 </pre></div>
 </div>
 </div>
-<p>Just as expected, there are 4 values in our list and
-<code class="docutils literal notranslate"><span class="pre">len(stationNames)</span></code> returns a value of <code class="docutils literal notranslate"><span class="pre">4</span></code>.</p>
+<p>Just as expected, there are 4 values in our list and <code class="docutils literal notranslate"><span class="pre">len(stationNames)</span></code> returns a value of <code class="docutils literal notranslate"><span class="pre">4</span></code>.</p>
 </div>
 <div class="section" id="Index-value-tips">
 <h3>Index value tips<a class="headerlink" href="#Index-value-tips" title="Permalink to this headline">¶</a></h3>
-<p>If we know the length of the list, we can now use it to find the value
-of the last item in the list, right?</p>
+<p>If we know the length of the list, we can now use it to find the value of the last item in the list, right?</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1453,13 +1398,9 @@ of the last item in the list, right?</p>
 <span class="ansi-red-fg">IndexError</span>: list index out of range
 </pre></div></div>
 </div>
-<p>What, an <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>?!? That’s right, since our list starts with
-index 0 and has 4 values, the index of the last item in the list is
-<code class="docutils literal notranslate"><span class="pre">len(SampleIDs)</span> <span class="pre">-</span> <span class="pre">1</span></code>. That isn’t ideal, but fortunately there’s a nice
-trick in Python to find the last item in a list.</p>
+<p>What, an <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>?!? That’s right, since our list starts with index 0 and has 4 values, the index of the last item in the list is <code class="docutils literal notranslate"><span class="pre">len(SampleIDs)</span> <span class="pre">-</span> <span class="pre">1</span></code>. That isn’t ideal, but fortunately there’s a nice trick in Python to find the last item in a list.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1476,8 +1417,7 @@ trick in Python to find the last item in a list.</p>
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1494,8 +1434,7 @@ Helsinki Kumpula
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1511,13 +1450,9 @@ Helsinki Kumpula
 Helsinki Harmaja
 </pre></div></div>
 </div>
-<p>Yes, in Python you can go backwards through lists by using negative
-index values. Index <code class="docutils literal notranslate"><span class="pre">-1</span></code> gives the last value in the list and index
-<code class="docutils literal notranslate"><span class="pre">-len(SampleIDs)</span></code> would give the first. Of course, you still need to
-keep the index values within their ranges.</p>
+<p>Yes, in Python you can go backwards through lists by using negative index values. Index <code class="docutils literal notranslate"><span class="pre">-1</span></code> gives the last value in the list and index <code class="docutils literal notranslate"><span class="pre">-len(SampleIDs)</span></code> would give the first. Of course, you still need to keep the index values within their ranges.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1541,20 +1476,14 @@ keep the index values within their ranges.</p>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Attention</strong></p>
 <p><strong>Poll pause - Question 2.4</strong></p>
-<p>Please visit the <a class="reference external" href="https://geo-python.github.io/poll">class polling
-page</a> to participate (<em>those
-present in lecture</em>).</p>
+<p>Please visit the <a class="reference external" href="https://geo-python.github.io/poll">class polling page</a> to participate (<em>those present in lecture</em>).</p>
 </div>
 </div>
 <div class="section" id="Modifying-list-values">
 <h3>Modifying list values<a class="headerlink" href="#Modifying-list-values" title="Permalink to this headline">¶</a></h3>
-<p>Another nice feature of lists is that they are <em>mutable</em>, meaning that
-the values in a list that has been defined can be modified. Consider a
-list of the observation station types corresponding to the station names
-in the <code class="docutils literal notranslate"><span class="pre">stationNames</span></code> list.</p>
+<p>Another nice feature of lists is that they are <em>mutable</em>, meaning that the values in a list that has been defined can be modified. Consider a list of the observation station types corresponding to the station names in the <code class="docutils literal notranslate"><span class="pre">stationNames</span></code> list.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1571,13 +1500,9 @@ in the <code class="docutils literal notranslate"><span class="pre">stationNames
 [&#39;Weather stations&#39;, &#39;Weather stations&#39;, &#39;Weather stations&#39;, &#39;Weather stations&#39;]
 </pre></div></div>
 </div>
-<p>Now as we saw before, the station type for Helsinki Kaivopuisto should
-be ‘Mareographs’, not ‘Weather stations’. Fortunately, this is an easy
-fix. We simply replace the value at the corresponding location in the
-list with the correct one.</p>
+<p>Now as we saw before, the station type for Helsinki Kaivopuisto should be ‘Mareographs’, not ‘Weather stations’. Fortunately, this is an easy fix. We simply replace the value at the corresponding location in the list with the correct one.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1597,13 +1522,9 @@ list with the correct one.</p>
 </div>
 <div class="section" id="Data-types-in-lists">
 <h3>Data types in lists<a class="headerlink" href="#Data-types-in-lists" title="Permalink to this headline">¶</a></h3>
-<p>Lists can also store more than one type of data. Let’s consider that in
-addition to having a list of each station name, FMISID, latitude, etc.
-we would like to have a list of all of the values for station ‘Helsinki
-Kaivopuisto’.</p>
+<p>Lists can also store more than one type of data. Let’s consider that in addition to having a list of each station name, FMISID, latitude, etc. we would like to have a list of all of the values for station ‘Helsinki Kaivopuisto’.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1620,11 +1541,9 @@ Kaivopuisto’.</p>
 [&#39;Helsinki Kaivopuisto&#39;, 132310, 60.15, 24.96, &#39;Mareographs&#39;]
 </pre></div></div>
 </div>
-<p>Here we have one list with 3 different types of data in it. We can
-confirm this using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function.</p>
+<p>Here we have one list with 3 different types of data in it. We can confirm this using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1633,8 +1552,7 @@ confirm this using the <code class="docutils literal notranslate"><span class="p
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1643,8 +1561,7 @@ confirm this using the <code class="docutils literal notranslate"><span class="p
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1653,8 +1570,7 @@ confirm this using the <code class="docutils literal notranslate"><span class="p
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1663,8 +1579,7 @@ confirm this using the <code class="docutils literal notranslate"><span class="p
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1673,8 +1588,7 @@ confirm this using the <code class="docutils literal notranslate"><span class="p
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1683,8 +1597,7 @@ confirm this using the <code class="docutils literal notranslate"><span class="p
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1693,8 +1606,7 @@ confirm this using the <code class="docutils literal notranslate"><span class="p
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1705,12 +1617,9 @@ confirm this using the <code class="docutils literal notranslate"><span class="p
 </div>
 <div class="section" id="Adding-and-removing-values-from-lists">
 <h3>Adding and removing values from lists<a class="headerlink" href="#Adding-and-removing-values-from-lists" title="Permalink to this headline">¶</a></h3>
-<p>Finally, we can add and remove values from lists to change their
-lengths. Let’s consider that we no longer want to include the first
-value in the <code class="docutils literal notranslate"><span class="pre">stationNames</span></code> list.</p>
+<p>Finally, we can add and remove values from lists to change their lengths. Let’s consider that we no longer want to include the first value in the <code class="docutils literal notranslate"><span class="pre">stationNames</span></code> list.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1727,8 +1636,7 @@ value in the <code class="docutils literal notranslate"><span class="pre">statio
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1737,8 +1645,7 @@ value in the <code class="docutils literal notranslate"><span class="pre">statio
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1754,12 +1661,9 @@ value in the <code class="docutils literal notranslate"><span class="pre">statio
 [&#39;Helsinki Kaisaniemi&#39;, &#39;Helsinki Kaivopuisto&#39;, &#39;Helsinki Kumpula&#39;]
 </pre></div></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">del</span></code> allows values in lists to be removed. It can also be used to
-delete values from memory in Python. If we would instead like to add a
-few samples to the stationNames list, we can do so as follows.</p>
+<p><code class="docutils literal notranslate"><span class="pre">del</span></code> allows values in lists to be removed. It can also be used to delete values from memory in Python. If we would instead like to add a few samples to the stationNames list, we can do so as follows.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1769,8 +1673,7 @@ few samples to the stationNames list, we can do so as follows.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1786,34 +1689,18 @@ few samples to the stationNames list, we can do so as follows.</p>
 [&#39;Helsinki Kaisaniemi&#39;, &#39;Helsinki Kaivopuisto&#39;, &#39;Helsinki Kumpula&#39;, &#39;Helsinki lighthouse&#39;, &#39;Helsinki Malmi airfield&#39;]
 </pre></div></div>
 </div>
-<p>As you can see, we add values one at a time using
-<code class="docutils literal notranslate"><span class="pre">stationNames.append()</span></code>. <code class="docutils literal notranslate"><span class="pre">list.append()</span></code> is called a method in
-Python, which is a function that works for a given data type (a list in
-this case). We’ll see a bit more about these below.</p>
+<p>As you can see, we add values one at a time using <code class="docutils literal notranslate"><span class="pre">stationNames.append()</span></code>. <code class="docutils literal notranslate"><span class="pre">list.append()</span></code> is called a method in Python, which is a function that works for a given data type (a list in this case). We’ll see a bit more about these below.</p>
 </div>
 <div class="section" id="The-concept-of-objects">
 <h3>The concept of objects<a class="headerlink" href="#The-concept-of-objects" title="Permalink to this headline">¶</a></h3>
-<p>Python is one of a number of computer programming languages that are
-called ‘object-oriented languages’. It may take quite some time to
-understand what this means, but the simple explanation is that we can
-consider the variables that we define to be ‘objects’ that can contain
-both data known as <strong>attributes</strong> and a specific set of functions known
-as <strong>methods</strong>. The previous sentence could also take some time to
-understand by itself, but using an example the concept of ‘objects’ is
-much easier to understand.</p>
+<p>Python is one of a number of computer programming languages that are called ‘object-oriented languages’. It may take quite some time to understand what this means, but the simple explanation is that we can consider the variables that we define to be ‘objects’ that can contain both data known as <strong>attributes</strong> and a specific set of functions known as <strong>methods</strong>. The previous sentence could also take some time to understand by itself, but using an example the concept of ‘objects’ is much easier
+to understand.</p>
 </div>
 <div class="section" id="A-(bad)-example-of-methods">
 <h3>A (bad) example of methods<a class="headerlink" href="#A-(bad)-example-of-methods" title="Permalink to this headline">¶</a></h3>
-<p>Let’s consider our list <code class="docutils literal notranslate"><span class="pre">stationNames</span></code>. As we know, we already have
-data in the list <code class="docutils literal notranslate"><span class="pre">stationNames</span></code>, and we can modify that data using
-built-in methods such as <code class="docutils literal notranslate"><span class="pre">stationNames.append()</span></code>. In this case, the
-method <code class="docutils literal notranslate"><span class="pre">append()</span></code> is something that exists for lists, but not for
-other data types. It is intuitive that you might like to add (or append)
-things to a list, but perhaps it does not make sense to append to other
-data types.</p>
+<p>Let’s consider our list <code class="docutils literal notranslate"><span class="pre">stationNames</span></code>. As we know, we already have data in the list <code class="docutils literal notranslate"><span class="pre">stationNames</span></code>, and we can modify that data using built-in methods such as <code class="docutils literal notranslate"><span class="pre">stationNames.append()</span></code>. In this case, the method <code class="docutils literal notranslate"><span class="pre">append()</span></code> is something that exists for lists, but not for other data types. It is intuitive that you might like to add (or append) things to a list, but perhaps it does not make sense to append to other data types.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1822,8 +1709,7 @@ data types.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1840,8 +1726,7 @@ data types.</p>
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1850,8 +1735,7 @@ data types.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1860,8 +1744,7 @@ data types.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1882,18 +1765,13 @@ data types.</p>
 <span class="ansi-red-fg">AttributeError</span>: &#39;int&#39; object has no attribute &#39;append&#39;
 </pre></div></div>
 </div>
-<p>Here we get an <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> because there is no method built in to
-the <code class="docutils literal notranslate"><span class="pre">int</span></code> data type to append to <code class="docutils literal notranslate"><span class="pre">int</span></code> data. While <code class="docutils literal notranslate"><span class="pre">append()</span></code>
-makes sense for <code class="docutils literal notranslate"><span class="pre">list</span></code> data, it is not sensible for <code class="docutils literal notranslate"><span class="pre">int</span></code> data,
-which is the reason no such method exists for <code class="docutils literal notranslate"><span class="pre">int</span></code> data.</p>
+<p>Here we get an <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> because there is no method built in to the <code class="docutils literal notranslate"><span class="pre">int</span></code> data type to append to <code class="docutils literal notranslate"><span class="pre">int</span></code> data. While <code class="docutils literal notranslate"><span class="pre">append()</span></code> makes sense for <code class="docutils literal notranslate"><span class="pre">list</span></code> data, it is not sensible for <code class="docutils literal notranslate"><span class="pre">int</span></code> data, which is the reason no such method exists for <code class="docutils literal notranslate"><span class="pre">int</span></code> data.</p>
 </div>
 <div class="section" id="Some-other-useful-list-methods">
 <h3>Some other useful list methods<a class="headerlink" href="#Some-other-useful-list-methods" title="Permalink to this headline">¶</a></h3>
-<p>With lists we can do a number of useful things, such as count the number
-of times a value occurs in a list or where it occurs.</p>
+<p>With lists we can do a number of useful things, such as count the number of times a value occurs in a list or where it occurs.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1902,8 +1780,7 @@ of times a value occurs in a list or where it occurs.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1912,8 +1789,7 @@ of times a value occurs in a list or where it occurs.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1922,8 +1798,7 @@ of times a value occurs in a list or where it occurs.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1931,18 +1806,13 @@ of times a value occurs in a list or where it occurs.</p>
 </pre></div>
 </div>
 </div>
-<p>The good news here is that our selected station name is only in the list
-once. Should we need to modify it for some reason, we also now know
-where it is in the list (index <code class="docutils literal notranslate"><span class="pre">2</span></code>).</p>
+<p>The good news here is that our selected station name is only in the list once. Should we need to modify it for some reason, we also now know where it is in the list (index <code class="docutils literal notranslate"><span class="pre">2</span></code>).</p>
 </div>
 <div class="section" id="Reversing-a-list">
 <h3>Reversing a list<a class="headerlink" href="#Reversing-a-list" title="Permalink to this headline">¶</a></h3>
-<p>There are two other common methods for lists that we need to see. First,
-there is the <code class="docutils literal notranslate"><span class="pre">.reverse()</span></code> method, used to reverse the order of items
-in a list.</p>
+<p>There are two other common methods for lists that we need to see. First, there is the <code class="docutils literal notranslate"><span class="pre">.reverse()</span></code> method, used to reverse the order of items in a list.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1951,8 +1821,7 @@ in a list.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1971,22 +1840,14 @@ in a list.</p>
 <p>Yay, it works!</p>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Caution</strong></p>
-<p>A common mistake when sorting lists is to do something like
-<code class="docutils literal notranslate"><span class="pre">stationNames</span> <span class="pre">=</span> <span class="pre">stationNames.reverse()</span></code>. <strong>Do not do this!</strong> When
-reversing lists with <code class="docutils literal notranslate"><span class="pre">.reverse()</span></code> the <code class="docutils literal notranslate"><span class="pre">None</span></code> value is returned (this
-is why there is no screen ouput when running
-<code class="docutils literal notranslate"><span class="pre">stationNames.reverse()</span></code>). If you then assign the output of
-<code class="docutils literal notranslate"><span class="pre">stationNames.reverse()</span></code> to <code class="docutils literal notranslate"><span class="pre">stationNames</span></code> you will reverse the
-list, but then overwrite its contents with the returned value <code class="docutils literal notranslate"><span class="pre">None</span></code>.
-This means you’ve deleted the list contents (!).</p>
+<p>A common mistake when sorting lists is to do something like <code class="docutils literal notranslate"><span class="pre">stationNames</span> <span class="pre">=</span> <span class="pre">stationNames.reverse()</span></code>. <strong>Do not do this!</strong> When reversing lists with <code class="docutils literal notranslate"><span class="pre">.reverse()</span></code> the <code class="docutils literal notranslate"><span class="pre">None</span></code> value is returned (this is why there is no screen ouput when running <code class="docutils literal notranslate"><span class="pre">stationNames.reverse()</span></code>). If you then assign the output of <code class="docutils literal notranslate"><span class="pre">stationNames.reverse()</span></code> to <code class="docutils literal notranslate"><span class="pre">stationNames</span></code> you will reverse the list, but then overwrite its contents with the returned value <code class="docutils literal notranslate"><span class="pre">None</span></code>. This means you’ve deleted the list contents (!).</p>
 </div>
 </div>
 <div class="section" id="Sorting-a-list">
 <h3>Sorting a list<a class="headerlink" href="#Sorting-a-list" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">.sort()</span></code> method works the same way.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1995,8 +1856,7 @@ This means you’ve deleted the list contents (!).</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2012,22 +1872,15 @@ This means you’ve deleted the list contents (!).</p>
 [&#39;Helsinki Kaisaniemi&#39;, &#39;Helsinki Kaivopuisto&#39;, &#39;Helsinki Kumpula&#39;, &#39;Helsinki Malmi airfield&#39;, &#39;Helsinki lighthouse&#39;]
 </pre></div></div>
 </div>
-<p>As you can see, the list has been sorted alphabetically using the
-<code class="docutils literal notranslate"><span class="pre">.sort()</span></code> method, but there is no screen output when this occurs.
-Again, if you were to assign that output to <code class="docutils literal notranslate"><span class="pre">stationNames</span></code> the list
-would get sorted, but the contents would then be assigned <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>As you can see, the list has been sorted alphabetically using the <code class="docutils literal notranslate"><span class="pre">.sort()</span></code> method, but there is no screen output when this occurs. Again, if you were to assign that output to <code class="docutils literal notranslate"><span class="pre">stationNames</span></code> the list would get sorted, but the contents would then be assigned <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong></p>
-<p>As you may have noticed, <code class="docutils literal notranslate"><span class="pre">Helsinki</span> <span class="pre">Malmi</span> <span class="pre">airfield</span></code> comes before
-<code class="docutils literal notranslate"><span class="pre">Helsinki</span> <span class="pre">lighthouse</span></code> in the sorted list. This is because alphabetical
-sorting in Python places capital letters before lowercase letters.</p>
+<p>As you may have noticed, <code class="docutils literal notranslate"><span class="pre">Helsinki</span> <span class="pre">Malmi</span> <span class="pre">airfield</span></code> comes before <code class="docutils literal notranslate"><span class="pre">Helsinki</span> <span class="pre">lighthouse</span></code> in the sorted list. This is because alphabetical sorting in Python places capital letters before lowercase letters.</p>
 </div>
 </div>
 <div class="section" id="List-attributes">
 <h3>List attributes<a class="headerlink" href="#List-attributes" title="Permalink to this headline">¶</a></h3>
-<p>We won’t discuss any list attributes because as far as we know there
-aren’t any, but we’ll encounter some very useful attributes of other
-data types in the future.</p>
+<p>We won’t discuss any list attributes because as far as we know there aren’t any, but we’ll encounter some very useful attributes of other data types in the future.</p>
 </div>
 </div>
 </div>

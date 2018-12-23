@@ -831,18 +831,18 @@ div.nblast {
 
 /* input prompt */
 div.nbinput div.prompt pre {
-    color: #303F9F;
+    color: #307FC1;
 }
 
 /* output prompt */
 div.nboutput div.prompt pre {
-    color: #D84315;
+    color: #BF5B3D;
 }
 
 /* all prompts */
 div.nbinput div.prompt,
 div.nboutput div.prompt {
-    min-width: 8ex;
+    min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
     text-align: right;
@@ -882,9 +882,9 @@ div.nboutput div.output_area {
 
 /* input area */
 div.nbinput div.input_area {
-    border: 1px solid #cfcfcf;
+    border: 1px solid #e0e0e0;
     border-radius: 2px;
-    background: #f7f7f7;
+    background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
@@ -892,7 +892,7 @@ div.nboutput div[class*=MathJax] {
     text-align: left !important;
 }
 
-/* override sphinx.ext.pngmath center alignment in output cells */
+/* override sphinx.ext.imgmath center alignment in output cells */
 div.nboutput div.math p {
     text-align: left;
 }
@@ -942,6 +942,40 @@ div.nboutput div.output_area.stderr {
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
 
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
@@ -958,6 +992,11 @@ div.nboutput div.output_area.stderr {
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
 }
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
 </style>
 <div class="admonition note">
 This page was generated from <a class="reference external" href="https://github.com/Geo-Python/2018/blob/master/source/notebooks/L4/functions.ipynb">source/notebooks/L4/functions.ipynb</a>.
@@ -968,38 +1007,21 @@ This page was generated from <a class="reference external" href="https://github.
 <h1>Functions<a class="headerlink" href="#Functions" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="Sources">
 <h2>Sources<a class="headerlink" href="#Sources" title="Permalink to this headline">¶</a></h2>
-<p>This lesson is partly based on the <a class="reference external" href="http://software-carpentry.org/">Software Carpentry
-group’s</a> lessons on <a class="reference external" href="http://swcarpentry.github.io/python-novice-inflammation/">Programming with
-Python</a>.</p>
+<p>This lesson is partly based on the <a class="reference external" href="http://software-carpentry.org/">Software Carpentry group’s</a> lessons on <a class="reference external" href="http://swcarpentry.github.io/python-novice-inflammation/">Programming with Python</a>.</p>
 </div>
 <div class="section" id="What-is-a-function?">
 <h2>What is a function?<a class="headerlink" href="#What-is-a-function?" title="Permalink to this headline">¶</a></h2>
-<p>A function is a block of organized, reusable code that can make your
-scripts more effective, easier to read, and simple to manage. You can
-think functions as little self-contained programs that can perform a
-specific task which you can use repeatedly in your code. One of the
-basic principles in good programming is “do not to repeat yourself”. In
-other words, you should avoid having duplicate lines of code in your
-scripts. Functions are a good way to avoid such situations and they can
-save you a lot of time and effort as you don’t need to tell the computer
-repeatedly what to do every time it does a common task, such as
-converting temperatures from Fahrenheit to Celsius. During the course we
-have already used some functions such as the <code class="docutils literal notranslate"><span class="pre">print()</span></code> command which
-is actually a built-in function in Python.</p>
+<p>A function is a block of organized, reusable code that can make your scripts more effective, easier to read, and simple to manage. You can think functions as little self-contained programs that can perform a specific task which you can use repeatedly in your code. One of the basic principles in good programming is “do not to repeat yourself”. In other words, you should avoid having duplicate lines of code in your scripts. Functions are a good way to avoid such situations and they can save you a
+lot of time and effort as you don’t need to tell the computer repeatedly what to do every time it does a common task, such as converting temperatures from Fahrenheit to Celsius. During the course we have already used some functions such as the <code class="docutils literal notranslate"><span class="pre">print()</span></code> command which is actually a built-in function in Python.</p>
 </div>
 <div class="section" id="Anatomy-of-a-function">
 <h2>Anatomy of a function<a class="headerlink" href="#Anatomy-of-a-function" title="Permalink to this headline">¶</a></h2>
-<p>Let’s consider the task from the first lesson when we converted
-temperatures from Celsius to Fahrenheit. Such an operation is a fairly
-common task when dealing with temperature data. Thus we might need to
-repeat such calculations quite frequently when analysing or comparing
-weather or climate data between the US and Europe, for example.</p>
+<p>Let’s consider the task from the first lesson when we converted temperatures from Celsius to Fahrenheit. Such an operation is a fairly common task when dealing with temperature data. Thus we might need to repeat such calculations quite frequently when analysing or comparing weather or climate data between the US and Europe, for example.</p>
 <div class="section" id="Our-first-function-(aww...)">
 <h3>Our first function (aww…)<a class="headerlink" href="#Our-first-function-(aww...)" title="Permalink to this headline">¶</a></h3>
 <p>Let’s define our first function called <code class="docutils literal notranslate"><span class="pre">celsiusToFahr</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1008,32 +1030,18 @@ weather or climate data between the US and Europe, for example.</p>
 </pre></div>
 </div>
 </div>
-<div class="figure" id="id4">
-<img alt="Anatomy of a function." src="../../_images/Function_anatomy-400.png" />
-<p class="caption"><span class="caption-text">Anatomy of a function.</span></p>
-</div>
-<p>The function definition opens with the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code> followed by the
-name of the function and a list of parameter names in parentheses. The
-body of the function — the statements that are executed when it runs —
-is indented below the definition line.</p>
-<p>When we call the function, the values we pass to it are assigned to the
-corresponding parameter variables so that we can use them inside the
-function (e.g., the variable <code class="docutils literal notranslate"><span class="pre">tempCelsius</span></code> in this function example).
-Inside the function, we use a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement to define the value
-that should be given back when the function is used, or called).</p>
+<p><img alt="Anatomy of a function." src="../../_images/Function_anatomy-400.png" /></p>
+<p>The function definition opens with the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code> followed by the name of the function and a list of parameter names in parentheses. The body of the function — the statements that are executed when it runs — is indented below the definition line.</p>
+<p>When we call the function, the values we pass to it are assigned to the corresponding parameter variables so that we can use them inside the function (e.g., the variable <code class="docutils literal notranslate"><span class="pre">tempCelsius</span></code> in this function example). Inside the function, we use a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement to define the value that should be given back when the function is used, or called).</p>
 </div>
 </div>
 <div class="section" id="Calling-functions">
 <h2>Calling functions<a class="headerlink" href="#Calling-functions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="Using-our-new-function">
 <h3>Using our new function<a class="headerlink" href="#Using-our-new-function" title="Permalink to this headline">¶</a></h3>
-<p>Now let’s try using our function. Calling our self-defined function is
-no different from calling any other function such as <code class="docutils literal notranslate"><span class="pre">print()</span></code>. You
-need to call it with its name and send your value to the required
-parameter(s) inside the parentheses.</p>
+<p>Now let’s try using our function. Calling our self-defined function is no different from calling any other function such as <code class="docutils literal notranslate"><span class="pre">print()</span></code>. You need to call it with its name and send your value to the required parameter(s) inside the parentheses.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1042,8 +1050,7 @@ parameter(s) inside the parentheses.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1060,8 +1067,7 @@ The freezing point of water in Fahrenheit is: 32.0
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1080,11 +1086,9 @@ The boiling point of water in Fahrenheit is: 212.0
 </div>
 <div class="section" id="Let's-make-another-function">
 <h3>Let’s make another function<a class="headerlink" href="#Let's-make-another-function" title="Permalink to this headline">¶</a></h3>
-<p>Now that we know how to create a function to convert Celsius to
-Fahrenheit, let’s create another function called <code class="docutils literal notranslate"><span class="pre">kelvinsToCelsius</span></code>.</p>
+<p>Now that we know how to create a function to convert Celsius to Fahrenheit, let’s create another function called <code class="docutils literal notranslate"><span class="pre">kelvinsToCelsius</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1098,8 +1102,7 @@ Fahrenheit, let’s create another function called <code class="docutils literal
 <h3>Using our second function<a class="headerlink" href="#Using-our-second-function" title="Permalink to this headline">¶</a></h3>
 <p>Let’s use it in the same way as the earlier one.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1108,8 +1111,7 @@ Fahrenheit, let’s create another function called <code class="docutils literal
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1127,28 +1129,21 @@ Absolute zero in Celsius is: -273.15
 </div>
 <hr><div class="section" id="Check-your-understanding">
 <h4>Check your understanding<a class="headerlink" href="#Check-your-understanding" title="Permalink to this headline">¶</a></h4>
-<p>Let’s see how things are going so far with functions. In the Python cell
-below, please:</p>
+<p>Let’s see how things are going so far with functions. In the Python cell below, please:</p>
 <ul class="simple">
 <li>Create a new function called <code class="docutils literal notranslate"><span class="pre">hello</span></code> with 2 parameters<ul>
-<li>Parameter 1 should be called <code class="docutils literal notranslate"><span class="pre">name</span></code> and you should assign some
-text to this parameter this when using the function</li>
-<li>Parameter 2 should be called <code class="docutils literal notranslate"><span class="pre">age</span></code> and you should provide a
-number value for this parameter when using the function</li>
+<li>Parameter 1 should be called <code class="docutils literal notranslate"><span class="pre">name</span></code> and you should assign some text to this parameter this when using the function</li>
+<li>Parameter 2 should be called <code class="docutils literal notranslate"><span class="pre">age</span></code> and you should provide a number value for this parameter when using the function</li>
 </ul>
 </li>
 </ul>
-<p>When using your function, the value that is returned should be a
-character string stating the <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">age</span></code> that were provided,
-which you can assign to a variable called <code class="docutils literal notranslate"><span class="pre">output</span></code>. Printing out
-<code class="docutils literal notranslate"><span class="pre">output</span></code> should produce something like the following:</p>
+<p>When using your function, the value that is returned should be a character string stating the <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">age</span></code> that were provided, which you can assign to a variable called <code class="docutils literal notranslate"><span class="pre">output</span></code>. Printing out <code class="docutils literal notranslate"><span class="pre">output</span></code> should produce something like the following:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
 <span class="s1">&#39;Hello, my name is Dave. I am 38 years old.&#39;</span>
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1172,13 +1167,9 @@ Hello, my name is Dave. I am 38 years old.
 </div>
 <div class="section" id="Functions-within-a-function-(Yo-dawg...)">
 <h3>Functions within a function (Yo dawg…)<a class="headerlink" href="#Functions-within-a-function-(Yo-dawg...)" title="Permalink to this headline">¶</a></h3>
-<p>What about converting Kelvins to Fahrenheit? We could write out a new
-formula for it, but we don’t need to. Instead, we can do the conversion
-using the two functions we have already created and calling those from
-the function we are now creating.</p>
+<p>What about converting Kelvins to Fahrenheit? We could write out a new formula for it, but we don’t need to. Instead, we can do the conversion using the two functions we have already created and calling those from the function we are now creating.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1194,8 +1185,7 @@ the function we are now creating.</p>
 <h3>Using our combined functions<a class="headerlink" href="#Using-our-combined-functions" title="Permalink to this headline">¶</a></h3>
 <p>Now let’s use the function.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1204,8 +1194,7 @@ the function we are now creating.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1225,40 +1214,19 @@ Absolute zero in Fahrenheit is: -459.66999999999996
 </div>
 <div class="section" id="An-introduction-to-script-files">
 <h2>An introduction to script files<a class="headerlink" href="#An-introduction-to-script-files" title="Permalink to this headline">¶</a></h2>
-<p>Up until this point we have been keeping our Python code and Markdown
-comments in a single Jupyter notebook document. This is great, but there
-are some cases, like when you have long Python code blocks or a set of
-functions used in many notebooks, in which you may want to have Python
-code in a separate document to make sure your Jupyter notebook is easy
-to read. An alternative to typing in all of the commands you would like
-to run is the list them in a Python <em>script file</em>. A Python script file
-is simply a file containing a list of the commands you would like to
-run, normally with one command per line, and formatted in the same way
-as if you were to type them in. Python script files traditionally use
-the <code class="docutils literal notranslate"><span class="pre">.py</span></code> file extension in their names.</p>
+<p>Up until this point we have been keeping our Python code and Markdown comments in a single Jupyter notebook document. This is great, but there are some cases, like when you have long Python code blocks or a set of functions used in many notebooks, in which you may want to have Python code in a separate document to make sure your Jupyter notebook is easy to read. An alternative to typing in all of the commands you would like to run is the list them in a Python <em>script file</em>. A Python script file
+is simply a file containing a list of the commands you would like to run, normally with one command per line, and formatted in the same way as if you were to type them in. Python script files traditionally use the <code class="docutils literal notranslate"><span class="pre">.py</span></code> file extension in their names.</p>
 <div class="section" id="The-general-concept-of-a-.py-script-file">
 <h3>The general concept of a .py script file<a class="headerlink" href="#The-general-concept-of-a-.py-script-file" title="Permalink to this headline">¶</a></h3>
-<p>A Python script file is simply a list of commands that you might
-otherwise type into a Python cell in a Jupyter notebook or a Python
-console. As such, we can quite easily create a basic script file and
-test things out.</p>
+<p>A Python script file is simply a list of commands that you might otherwise type into a Python cell in a Jupyter notebook or a Python console. As such, we can quite easily create a basic script file and test things out.</p>
 </div>
 <div class="section" id="Getting-started">
 <h3>Getting started<a class="headerlink" href="#Getting-started" title="Permalink to this headline">¶</a></h3>
-<p>First, we need to create a new text file by clicking on <strong>File</strong> -&gt;
-<strong>New</strong> -&gt; <strong>Text File</strong> in the JupyterLab menu bar.</p>
-<div class="figure" id="id5">
-<img alt="Creating a new text file in JupyterLab." src="../../_images/new-text-file-400.png" />
-<p class="caption"><span class="caption-text">Creating a new text file in JupyterLab.</span></p>
-</div>
-<p>This will create a new tab in your JupyterLab window that should look
-something like that below, a blank slate.</p>
-<div class="figure" id="id6">
-<img alt="Our new text file in JupyterLab." src="../../_images/new-text-tab-800.png" />
-<p class="caption"><span class="caption-text">Our new text file in JupyterLab.</span></p>
-</div>
-<p>Start by copying and pasting the text below into your new text file
-editor panel.</p>
+<p>First, we need to create a new text file by clicking on <strong>File</strong> -&gt; <strong>New</strong> -&gt; <strong>Text File</strong> in the JupyterLab menu bar.</p>
+<p><img alt="Creating a new text file in JupyterLab." src="../../_images/new-text-file-400.png" /></p>
+<p>This will create a new tab in your JupyterLab window that should look something like that below, a blank slate.</p>
+<p><img alt="Our new text file in JupyterLab." src="../../_images/new-text-tab-800.png" /></p>
+<p>Start by copying and pasting the text below into your new text file editor panel.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">celsiusToFahr</span><span class="p">(</span><span class="n">tempCelsius</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">tempCelsius</span> <span class="o">+</span> <span class="mi">32</span>
 </pre></div>
@@ -1266,50 +1234,27 @@ editor panel.</p>
 </div>
 <div class="section" id="Saving-a-text-file-as-a-Python-file">
 <h3>Saving a text file as a Python file<a class="headerlink" href="#Saving-a-text-file-as-a-Python-file" title="Permalink to this headline">¶</a></h3>
-<p>As it turns out, Python scripts are just regular text files with a
-certain file extension to identify them as source code for Python. In
-order for our new text file to be detected as a Python source file in
-JupyterLab we need to rename it to have a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file extension. You
-can rename the file by right clicking on the tab titled “untitled.txt”
-and renaming it as “temp_converter.py”.</p>
+<p>As it turns out, Python scripts are just regular text files with a certain file extension to identify them as source code for Python. In order for our new text file to be detected as a Python source file in JupyterLab we need to rename it to have a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file extension. You can rename the file by right clicking on the tab titled “untitled.txt” and renaming it as “temp_converter.py”.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong></p>
 <p>Be sure you change the <code class="docutils literal notranslate"><span class="pre">.txt</span></code> file extension to <code class="docutils literal notranslate"><span class="pre">.py</span></code>.</p>
 </div>
-<div class="figure" id="id7">
-<img alt="Renaming a text file in JupyterLab." src="../../_images/rename-file-part-1-600.png" />
-<p class="caption"><span class="caption-text">Renaming a text file in JupyterLab.</span></p>
-</div>
-<div class="figure" id="id8">
-<img alt="Changing the file name in JupyterLab." src="../../_images/rename-file-part-2-300.png" />
-<p class="caption"><span class="caption-text">Changing the file name in JupyterLab.</span></p>
-</div>
-<p>If all goes well, you should now see the Python syntax is highlighted in
-different colors in the JupyterLab editor panel.</p>
+<p><img alt="Renaming a text file in JupyterLab." src="../../_images/rename-file-part-1-600.png" /></p>
+<p><img alt="Changing the file name in JupyterLab." src="../../_images/rename-file-part-2-300.png" /></p>
+<p>If all goes well, you should now see the Python syntax is highlighted in different colors in the JupyterLab editor panel.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong></p>
-<p>Be sure to save your <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> file after making your
-changes.</p>
+<p>Be sure to save your <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> file after making your changes.</p>
 </div>
-<p>We’ll return later to some best practices for writing script files, but
-for now let’s continue with how to use our functions saved in the Python
-file we just created.</p>
+<p>We’ll return later to some best practices for writing script files, but for now let’s continue with how to use our functions saved in the Python file we just created.</p>
 </div>
 </div>
 <div class="section" id="Saving-and-loading-functions">
 <h2>Saving and loading functions<a class="headerlink" href="#Saving-and-loading-functions" title="Permalink to this headline">¶</a></h2>
-<p>Functions such as the ones we just created can also be saved in a script
-file and called from Jupyter notebooks in JupyterLab. In fact, quite
-often it is useful to create a dedicated function library for functions
-that you use frequently, when doing data analysis, for example.
-Basically this is done by listing useful functions in a single <code class="docutils literal notranslate"><span class="pre">.py</span></code>
-file from which you can then import and use them whenever needed.</p>
+<p>Functions such as the ones we just created can also be saved in a script file and called from Jupyter notebooks in JupyterLab. In fact, quite often it is useful to create a dedicated function library for functions that you use frequently, when doing data analysis, for example. Basically this is done by listing useful functions in a single <code class="docutils literal notranslate"><span class="pre">.py</span></code> file from which you can then import and use them whenever needed.</p>
 <div class="section" id="Saving-functions-in-a-script-file">
 <h3>Saving functions in a script file<a class="headerlink" href="#Saving-functions-in-a-script-file" title="Permalink to this headline">¶</a></h3>
-<p>Basically, we’ve just seen how to save some functions to a script file.
-Let’s now add the other functions we had been using to our script.
-Simply copy and paste the text below into your <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code>
-file leaving one blank line between each function.</p>
+<p>Basically, we’ve just seen how to save some functions to a script file. Let’s now add the other functions we had been using to our script. Simply copy and paste the text below into your <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> file leaving one blank line between each function.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">kelvinsToCelsius</span><span class="p">(</span><span class="n">tempKelvins</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">tempKelvins</span> <span class="o">-</span> <span class="mf">273.15</span>
 </pre></div>
@@ -1325,20 +1270,13 @@ file leaving one blank line between each function.</p>
 </div>
 <div class="section" id="Calling-functions-from-a-script-file">
 <h2>Calling functions from a script file<a class="headerlink" href="#Calling-functions-from-a-script-file" title="Permalink to this headline">¶</a></h2>
-<p>Now that we have saved our temperature conversion functions into a
-script file we can start using them.</p>
+<p>Now that we have saved our temperature conversion functions into a script file we can start using them.</p>
 <div class="section" id="Making-sure-we're-in-the-right-working-directory">
 <h3>Making sure we’re in the right working directory<a class="headerlink" href="#Making-sure-we're-in-the-right-working-directory" title="Permalink to this headline">¶</a></h3>
-<p>Hopefully you have saved you <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> file in the same
-location as this Jupyter notebook (<code class="docutils literal notranslate"><span class="pre">functions.ipynb</span></code>). If so, that’s
-good, but we need to do one more thing to be able to start working with
-it. We need to change the working directory in JupyterLab to be the one
-where the <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> exists.</p>
-<p>First, we can check where we are working currently using an IPython
-magic command called <code class="docutils literal notranslate"><span class="pre">%ls</span></code>.</p>
+<p>Hopefully you have saved you <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> file in the same location as this Jupyter notebook (<code class="docutils literal notranslate"><span class="pre">functions.ipynb</span></code>). If so, that’s good, but we need to do one more thing to be able to start working with it. We need to change the working directory in JupyterLab to be the one where the <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> exists.</p>
+<p>First, we can check where we are working currently using an IPython magic command called <code class="docutils literal notranslate"><span class="pre">%ls</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1355,9 +1293,7 @@ magic command called <code class="docutils literal notranslate"><span class="pre
 functions.ipynb        modules.ipynb          writing-scripts.ipynb
 </pre></div></div>
 </div>
-<p>Your output from <code class="docutils literal notranslate"><span class="pre">%ls</span></code> probably looks different than that above, but
-don’t worry. <code class="docutils literal notranslate"><span class="pre">%ls</span></code> allows us to see the files located in the directory
-where we are currently working.</p>
+<p>Your output from <code class="docutils literal notranslate"><span class="pre">%ls</span></code> probably looks different than that above, but don’t worry. <code class="docutils literal notranslate"><span class="pre">%ls</span></code> allows us to see the files located in the directory where we are currently working.</p>
 <div class="section" id="Binder-users">
 <h4>Binder users<a class="headerlink" href="#Binder-users" title="Permalink to this headline">¶</a></h4>
 <p>If you are using Binder, you might see</p>
@@ -1376,29 +1312,23 @@ where we are currently working.</p>
 </div>
 <div class="section" id="Changing-the-working-directory">
 <h3>Changing the working directory<a class="headerlink" href="#Changing-the-working-directory" title="Permalink to this headline">¶</a></h3>
-<p>Hopefully you’ve seen some output from <code class="docutils literal notranslate"><span class="pre">%ls</span></code> like that above. Now we
-need to change into the directory where you’ve saved your
-<code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> file.</p>
+<p>Hopefully you’ve seen some output from <code class="docutils literal notranslate"><span class="pre">%ls</span></code> like that above. Now we need to change into the directory where you’ve saved your <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> file.</p>
 <div class="section" id="Binder-users">
 <h4>Binder users<a class="headerlink" href="#Binder-users" title="Permalink to this headline">¶</a></h4>
-<p>Those using Binder should type the following to change into the
-directory containing the <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> file.</p>
+<p>Those using Binder should type the following to change into the directory containing the <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> file.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> L4/
 </pre></div>
 </div>
 </div>
 <div class="section" id="CSC-notebooks-users">
 <h4>CSC notebooks users<a class="headerlink" href="#CSC-notebooks-users" title="Permalink to this headline">¶</a></h4>
-<p>Those using the CSC notebooks system should type the following to change
-into the directory containing the <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> file.</p>
+<p>Those using the CSC notebooks system should type the following to change into the directory containing the <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> file.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> work/notebooks/notebooks/L4/
 </pre></div>
 </div>
-<p>If all has gone well you should now see <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> among the
-files when you type <code class="docutils literal notranslate"><span class="pre">%ls</span></code> in a Python cell. Try that out below.</p>
+<p>If all has gone well you should now see <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> among the files when you type <code class="docutils literal notranslate"><span class="pre">%ls</span></code> in a Python cell. Try that out below.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1420,11 +1350,9 @@ functions.ipynb        modules.ipynb          writing-scripts.ipynb
 </div>
 <div class="section" id="Importing-our-script-functions">
 <h3>Importing our script functions<a class="headerlink" href="#Importing-our-script-functions" title="Permalink to this headline">¶</a></h3>
-<p>Let’s now import our <code class="docutils literal notranslate"><span class="pre">celsiusToFahr()</span></code> function from the other script
-by adding a specific <code class="docutils literal notranslate"><span class="pre">import</span></code> statementain the Python cell below.</p>
+<p>Let’s now import our <code class="docutils literal notranslate"><span class="pre">celsiusToFahr()</span></code> function from the other script by adding a specific <code class="docutils literal notranslate"><span class="pre">import</span></code> statementain the Python cell below.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1437,8 +1365,7 @@ by adding a specific <code class="docutils literal notranslate"><span class="pre
 <h3>Using our script functions<a class="headerlink" href="#Using-our-script-functions" title="Permalink to this headline">¶</a></h3>
 <p>Let’s also use the function so that we can see that it is working.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1455,14 +1382,10 @@ The freezing point of water in Fahrenheit is: 32.0
 </pre></div></div>
 </div>
 <p>You should get following output:</p>
-<div class="figure" id="id9">
-<img alt="Testing our imported functions in JupyterLab." src="../../_images/script-test-650.png" />
-<p class="caption"><span class="caption-text">Testing our imported functions in JupyterLab.</span></p>
-</div>
+<p><img alt="Testing our imported functions in JupyterLab." src="../../_images/script-test-650.png" /></p>
 <div class="section" id="Importing-multiple-functions">
 <h4>Importing multiple functions<a class="headerlink" href="#Importing-multiple-functions" title="Permalink to this headline">¶</a></h4>
-<p>It is also possible to import more functions at the same time by listing
-and separating them with a comma.</p>
+<p>It is also possible to import more functions at the same time by listing and separating them with a comma.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">my_script</span> <span class="kn">import</span> <span class="n">func1</span><span class="p">,</span> <span class="n">func2</span><span class="p">,</span> <span class="n">func3</span>
 </pre></div>
 </div>
@@ -1470,12 +1393,9 @@ and separating them with a comma.</p>
 </div>
 <div class="section" id="Importing-all-functions-from-a-script">
 <h3>Importing all functions from a script<a class="headerlink" href="#Importing-all-functions-from-a-script" title="Permalink to this headline">¶</a></h3>
-<p>Sometimes it is useful to import the whole script and all of its
-functions at once. Let’s use a different <code class="docutils literal notranslate"><span class="pre">import</span></code> statement and test
-that all functions work.</p>
+<p>Sometimes it is useful to import the whole script and all of its functions at once. Let’s use a different <code class="docutils literal notranslate"><span class="pre">import</span></code> statement and test that all functions work.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1484,8 +1404,7 @@ that all functions work.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1502,8 +1421,7 @@ The freezing point of water in Fahrenheit is: 32.0
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1520,8 +1438,7 @@ Absolute zero in Celsius is: -273.15
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1541,31 +1458,21 @@ Absolute zero in Fahrenheit is: -459.66999999999996
 </div>
 <div class="section" id="Temperature-calculator-(optional,-advanced-topic)">
 <h2>Temperature calculator (<em>optional, advanced topic</em>)<a class="headerlink" href="#Temperature-calculator-(optional,-advanced-topic)" title="Permalink to this headline">¶</a></h2>
-<p>So far our functions have had only one parameter, but it is also
-possible to define a function with multiple parameters. Let’s now make a
-simple <code class="docutils literal notranslate"><span class="pre">tempCalculator</span></code> function that accepts temperatures in Kelvins
-and returns either Celsius or Fahrenheit. The new function will have two
-parameters:</p>
+<p>So far our functions have had only one parameter, but it is also possible to define a function with multiple parameters. Let’s now make a simple <code class="docutils literal notranslate"><span class="pre">tempCalculator</span></code> function that accepts temperatures in Kelvins and returns either Celsius or Fahrenheit. The new function will have two parameters:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">tempK</span></code> = The parameter for passing temperature in Kelvin</li>
-<li><code class="docutils literal notranslate"><span class="pre">convertTo</span></code> = The parameter that determines whether to output
-should be in Celsius or in Fahrenheit (using letters <code class="docutils literal notranslate"><span class="pre">C</span></code> or <code class="docutils literal notranslate"><span class="pre">F</span></code>
-accordingly)</li>
+<li><code class="docutils literal notranslate"><span class="pre">convertTo</span></code> = The parameter that determines whether to output should be in Celsius or in Fahrenheit (using letters <code class="docutils literal notranslate"><span class="pre">C</span></code> or <code class="docutils literal notranslate"><span class="pre">F</span></code> accordingly)</li>
 </ul>
 <div class="section" id="Defining-the-function">
 <h3>Defining the function<a class="headerlink" href="#Defining-the-function" title="Permalink to this headline">¶</a></h3>
-<p>Let’s start defining our function by giving it a name and setting the
-parameters.</p>
+<p>Let’s start defining our function by giving it a name and setting the parameters.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tempCalculator</span><span class="p">(</span><span class="n">tempK</span><span class="p">,</span> <span class="n">convertTo</span><span class="p">):</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="Adding-some-conditional-statements">
 <h3>Adding some conditional statements<a class="headerlink" href="#Adding-some-conditional-statements" title="Permalink to this headline">¶</a></h3>
-<p>Next, we need to add conditional statements that check whether the
-output temperature is wanted in Celsius or Fahrenheit, and then call
-corresponding function that was imported from the <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code>
-file.</p>
+<p>Next, we need to add conditional statements that check whether the output temperature is wanted in Celsius or Fahrenheit, and then call corresponding function that was imported from the <code class="docutils literal notranslate"><span class="pre">temp_converter.py</span></code> file.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tempCalculator</span><span class="p">(</span><span class="n">tempK</span><span class="p">,</span> <span class="n">convertTo</span><span class="p">):</span>
     <span class="c1"># Check if user wants the temperature in Celsius</span>
     <span class="k">if</span> <span class="n">convertTo</span> <span class="o">==</span> <span class="s2">&quot;C&quot;</span><span class="p">:</span>
@@ -1579,8 +1486,7 @@ file.</p>
 </div>
 <div class="section" id="Returning-the-result">
 <h3>Returning the result<a class="headerlink" href="#Returning-the-result" title="Permalink to this headline">¶</a></h3>
-<p>Next, we need to add a <strong>return statement</strong> so that our function sends
-back the value that we are interested in.</p>
+<p>Next, we need to add a <strong>return statement</strong> so that our function sends back the value that we are interested in.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tempCalculator</span><span class="p">(</span><span class="n">tempK</span><span class="p">,</span> <span class="n">convertTo</span><span class="p">):</span>
     <span class="c1"># Check if user wants the temperature in Celsius</span>
     <span class="k">if</span> <span class="n">convertTo</span> <span class="o">==</span> <span class="s2">&quot;C&quot;</span><span class="p">:</span>
@@ -1596,9 +1502,7 @@ back the value that we are interested in.</p>
 </div>
 <div class="section" id="Adding-a-docstring">
 <h3>Adding a docstring<a class="headerlink" href="#Adding-a-docstring" title="Permalink to this headline">¶</a></h3>
-<p>Lastly, as we want to be good programmers, we add a short docstring at
-the beginning of our function that tells what the function does and how
-the parameters work.</p>
+<p>Lastly, as we want to be good programmers, we add a short docstring at the beginning of our function that tells what the function does and how the parameters work.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tempCalculator</span><span class="p">(</span><span class="n">tempK</span><span class="p">,</span> <span class="n">convertTo</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function for converting temperature in Kelvins to Celsius or Fahrenheit.</span>
@@ -1630,23 +1534,13 @@ the parameters work.</p>
 </div>
 <div class="section" id="Testing-the-new-function">
 <h3>Testing the new function<a class="headerlink" href="#Testing-the-new-function" title="Permalink to this headline">¶</a></h3>
-<p>That’s it! Now we have a temperature calculator that has a simple
-control for the user where s/he can change the output by using the
-<code class="docutils literal notranslate"><span class="pre">convertTo</span></code> parameter. Now as we added the short docstring in the
-beginning of the function we can use the <code class="docutils literal notranslate"><span class="pre">help()</span></code> function in Python
-to find out how our function should be used. Run the Python cell below
-and then try running <code class="docutils literal notranslate"><span class="pre">help(tempCalculator)</span></code>.</p>
+<p>That’s it! Now we have a temperature calculator that has a simple control for the user where s/he can change the output by using the <code class="docutils literal notranslate"><span class="pre">convertTo</span></code> parameter. Now as we added the short docstring in the beginning of the function we can use the <code class="docutils literal notranslate"><span class="pre">help()</span></code> function in Python to find out how our function should be used. Run the Python cell below and then try running <code class="docutils literal notranslate"><span class="pre">help(tempCalculator)</span></code>.</p>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Attention</strong></p>
-<p>Reloading modules from within a Jupyter notebook is a bit of a pain. The
-easiest option is to restart the IPython kernel by going to <strong>Kernel</strong>
--&gt; <strong>Restart kernel…</strong>. Note that this will delete all variables
-currently stored in memory in the Jupyter notebook you’re using, so you
-may need to re-run some cells.</p>
+<p>Reloading modules from within a Jupyter notebook is a bit of a pain. The easiest option is to restart the IPython kernel by going to <strong>Kernel</strong> -&gt; <strong>Restart kernel…</strong>. Note that this will delete all variables currently stored in memory in the Jupyter notebook you’re using, so you may need to re-run some cells.</p>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1655,8 +1549,7 @@ may need to re-run some cells.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1693,8 +1586,7 @@ tempCalculator(tempK, convertTo)
 <h3>Using the tempCalculator<a class="headerlink" href="#Using-the-tempCalculator" title="Permalink to this headline">¶</a></h3>
 <p>Let’s use it.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1703,8 +1595,7 @@ tempCalculator(tempK, convertTo)
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1713,8 +1604,7 @@ tempCalculator(tempK, convertTo)
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>

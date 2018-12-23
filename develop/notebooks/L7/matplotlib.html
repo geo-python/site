@@ -757,7 +757,9 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/L7/matplotlib.ipynb.txt" rel="nofollow"> View page source</a>
+            
+              <a href="https://github.com/Automating-GIS-processes/2018/blob/develop/source/notebooks/L7/matplotlib.ipynb" class="fa fa-github"> Edit on GitHub</a>
+            
           
         
       </li>
@@ -834,18 +836,18 @@ div.nblast {
 
 /* input prompt */
 div.nbinput div.prompt pre {
-    color: #303F9F;
+    color: #307FC1;
 }
 
 /* output prompt */
 div.nboutput div.prompt pre {
-    color: #D84315;
+    color: #BF5B3D;
 }
 
 /* all prompts */
 div.nbinput div.prompt,
 div.nboutput div.prompt {
-    min-width: 8ex;
+    min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
     text-align: right;
@@ -885,9 +887,9 @@ div.nboutput div.output_area {
 
 /* input area */
 div.nbinput div.input_area {
-    border: 1px solid #cfcfcf;
+    border: 1px solid #e0e0e0;
     border-radius: 2px;
-    background: #f7f7f7;
+    background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
@@ -895,7 +897,7 @@ div.nboutput div[class*=MathJax] {
     text-align: left !important;
 }
 
-/* override sphinx.ext.pngmath center alignment in output cells */
+/* override sphinx.ext.imgmath center alignment in output cells */
 div.nboutput div.math p {
     text-align: left;
 }
@@ -945,6 +947,40 @@ div.nboutput div.output_area.stderr {
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
 
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
@@ -961,6 +997,11 @@ div.nboutput div.output_area.stderr {
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
 }
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
 </style>
 <div class="admonition note">
 This page was generated from <a class="reference external" href="https://github.com/Geo-Python/2018/blob/master/source/notebooks/L7/matplotlib.ipynb">source/notebooks/L7/matplotlib.ipynb</a>.
@@ -969,33 +1010,20 @@ This page was generated from <a class="reference external" href="https://github.
 <span class="raw-html"><a href="https://notebooks.csc.fi/#/blueprint/d71cd2d26d924f48820dc22b67a87d8e"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a></span></div>
 <div class="section" id="Plotting-with-Matplotlib">
 <h1>Plotting with Matplotlib<a class="headerlink" href="#Plotting-with-Matplotlib" title="Permalink to this headline">¶</a></h1>
-<p>Though there are many options for plotting data in Python, we will be
-using <a class="reference external" href="https://matplotlib.org/">Matplotlib</a>. In particular, we will
-be using the <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> module in Matplotlib, which provides MATLAB-like
-plotting. The reason for this is simple: Matplotlib is the most common
-module used for plotting in Python and many examples of plotting you may
-find online will be using Matplotlib.</p>
+<p>Though there are many options for plotting data in Python, we will be using <a class="reference external" href="https://matplotlib.org/">Matplotlib</a>. In particular, we will be using the <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> module in Matplotlib, which provides MATLAB-like plotting. The reason for this is simple: Matplotlib is the most common module used for plotting in Python and many examples of plotting you may find online will be using Matplotlib.</p>
 <div class="section" id="Our-dataset">
 <h2>Our dataset<a class="headerlink" href="#Our-dataset" title="Permalink to this headline">¶</a></h2>
-<p>For our first lesson plotting data using Matplotlib we will again be
-using the weather data file from Lesson 5.</p>
+<p>For our first lesson plotting data using Matplotlib we will again be using the weather data file from Lesson 5.</p>
 <ul class="simple">
-<li>The data file (<code class="docutils literal notranslate"><span class="pre">Kumpula-June-2016-w-metadata.txt</span></code>) is in the
-<code class="docutils literal notranslate"><span class="pre">data</span></code> subdirectory.</li>
-<li>It contains observed daily mean, minimum, and maximum temperatures
-from June 2016 recorded from the Kumpula weather observation station
-in Helsinki. It is derived from a data file of daily temperature
-measurments downloaded from the <a class="reference external" href="https://www.ncdc.noaa.gov/cdo-web/">US National Oceanographic and
-Atmospheric Administration’s National Centers for Environmental
-Information climate database</a>.</li>
+<li>The data file (<code class="docutils literal notranslate"><span class="pre">Kumpula-June-2016-w-metadata.txt</span></code>) is in the <code class="docutils literal notranslate"><span class="pre">data</span></code> subdirectory.</li>
+<li>It contains observed daily mean, minimum, and maximum temperatures from June 2016 recorded from the Kumpula weather observation station in Helsinki. It is derived from a data file of daily temperature measurments downloaded from the <a class="reference external" href="https://www.ncdc.noaa.gov/cdo-web/">US National Oceanographic and Atmospheric Administration’s National Centers for Environmental Information climate database</a>.</li>
 </ul>
 </div>
 <div class="section" id="Getting-started">
 <h2>Getting started<a class="headerlink" href="#Getting-started" title="Permalink to this headline">¶</a></h2>
 <p>Let’s start by importing the pyplot submodule of Matplotlib.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1003,17 +1031,13 @@ Information climate database</a>.</li>
 </pre></div>
 </div>
 </div>
-<p>Note again that we are renaming the Matplotlib pyplot submodule when we
-import it. Perhaps now it is more clear why you might want to rename a
-module on import. Having to type <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> every time you
-use one of its methods would be a pain.</p>
+<p>Note again that we are renaming the Matplotlib pyplot submodule when we import it. Perhaps now it is more clear why you might want to rename a module on import. Having to type <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> every time you use one of its methods would be a pain.</p>
 <div class="section" id="Loading-the-data-with-NumPy">
 <h3>Loading the data with NumPy<a class="headerlink" href="#Loading-the-data-with-NumPy" title="Permalink to this headline">¶</a></h3>
 <p>Those who have learned to use NumPy should load their data as follows.</p>
 <p>To start, we will need to import NumPy.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1023,8 +1047,7 @@ use one of its methods would be a pain.</p>
 </div>
 <p>Now we can read in the data file in the same way we have for Lesson 5.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1033,11 +1056,9 @@ use one of its methods would be a pain.</p>
 </pre></div>
 </div>
 </div>
-<p>As you may recall, we will now have a data file with 4 columns. Let’s
-rename each of those below.</p>
+<p>As you may recall, we will now have a data file with 4 columns. Let’s rename each of those below.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1054,8 +1075,7 @@ rename each of those below.</p>
 <p>Those who have learned to use Pandas should load their data as follows.</p>
 <p>To start, we will need to import Pandas.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1065,8 +1085,7 @@ rename each of those below.</p>
 </div>
 <p>Now we can read in the data file in the same way we have for Lesson 5.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1074,13 +1093,9 @@ rename each of those below.</p>
 </pre></div>
 </div>
 </div>
-<p>OK, great. One thing we’ll do a bit differently this week is that we’re
-going to split the data from <code class="docutils literal notranslate"><span class="pre">dataFrame</span></code> into separate Pandas value
-arrays so we can plot things in the same way as with NumPy. We can split
-the data into separate series as follows:</p>
+<p>OK, great. One thing we’ll do a bit differently this week is that we’re going to split the data from <code class="docutils literal notranslate"><span class="pre">dataFrame</span></code> into separate Pandas value arrays so we can plot things in the same way as with NumPy. We can split the data into separate series as follows:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1091,17 +1106,14 @@ the data into separate series as follows:</p>
 </pre></div>
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">.values</span></code> attribute of a Pandas series returns only the numerical
-values of the given series, not the index list.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">.values</span></code> attribute of a Pandas series returns only the numerical values of the given series, not the index list.</p>
 </div>
 </div>
 <div class="section" id="Our-first-plot">
 <h2>Our first plot<a class="headerlink" href="#Our-first-plot" title="Permalink to this headline">¶</a></h2>
-<p>OK, so let’s get to plotting! We can start by using the Matplotlib
-plt.plot() function.</p>
+<p>OK, so let’s get to plotting! We can start by using the Matplotlib plt.plot() function.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1112,8 +1124,7 @@ plt.plot() function.</p>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1129,22 +1140,14 @@ plt.plot() function.</p>
 </div>
 </div>
 <p>If all goes well, you should see the plot above.</p>
-<p>OK, so what happened here? Well, first we assigned the values we would
-like to plot, the year and temperature, to the variables <code class="docutils literal notranslate"><span class="pre">x</span></code> and
-<code class="docutils literal notranslate"><span class="pre">y</span></code>. This isn’t necessary, <em>per se</em>, but does make it easier to see
-what is plotted. Next, it is perhaps pretty obvious that <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>
-is a function in pyplot that produces a simple <em>x</em>-<em>y</em> plot.
-Conveniently, plots are automatically displayed in Jupyter notebooks, so
-there is no need for the additional <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> function you might
-see in examples you can find online.</p>
+<p>OK, so what happened here? Well, first we assigned the values we would like to plot, the year and temperature, to the variables <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>. This isn’t necessary, <em>per se</em>, but does make it easier to see what is plotted. Next, it is perhaps pretty obvious that <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> is a function in pyplot that produces a simple <em>x</em>-<em>y</em> plot. Conveniently, plots are automatically displayed in Jupyter notebooks, so there is no need for the additional <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> function you might see in examples
+you can find online.</p>
 </div>
 <div class="section" id="Basic-plot-formatting">
 <h2>Basic plot formatting<a class="headerlink" href="#Basic-plot-formatting" title="Permalink to this headline">¶</a></h2>
-<p>We can make our plot look a bit nicer and provide more information by
-using a few additional pyplot options.</p>
+<p>We can make our plot look a bit nicer and provide more information by using a few additional pyplot options.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1156,8 +1159,7 @@ using a few additional pyplot options.</p>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1173,25 +1175,13 @@ using a few additional pyplot options.</p>
 </div>
 </div>
 <p>This should produce the plot above.</p>
-<p>Now we see our temperature data as a red dashed line with circles
-showing the data points. This comes from the additional <code class="docutils literal notranslate"><span class="pre">ro--</span></code> used
-with <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>. In this case, <code class="docutils literal notranslate"><span class="pre">r</span></code> tells the <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>
-function to use red color, <code class="docutils literal notranslate"><span class="pre">o</span></code> tells it to show circles at the points,
-and <code class="docutils literal notranslate"><span class="pre">--</span></code> says to use a dashed line. You can use <code class="docutils literal notranslate"><span class="pre">help(plt.plot)</span></code> to
-find out more about formatting plots. Better yet, check out the
-<cite>documentation for ``plt.plot()`</cite>
-online &lt;<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html">https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html</a>&gt;`__.
-We have also added a title and axis labels, but their use is
-straightforward.</p>
+<p>Now we see our temperature data as a red dashed line with circles showing the data points. This comes from the additional <code class="docutils literal notranslate"><span class="pre">ro--</span></code> used with <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>. In this case, <code class="docutils literal notranslate"><span class="pre">r</span></code> tells the <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> function to use red color, <code class="docutils literal notranslate"><span class="pre">o</span></code> tells it to show circles at the points, and <code class="docutils literal notranslate"><span class="pre">--</span></code> says to use a dashed line. You can use <code class="docutils literal notranslate"><span class="pre">help(plt.plot)</span></code> to find out more about formatting plots. Better yet, check out the <cite>documentation for ``plt.plot()`</cite>
+online &lt;<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html">https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html</a>&gt;`__. We have also added a title and axis labels, but their use is straightforward.</p>
 <div class="section" id="Embiggening*-the-plot">
 <h3>Embiggening* the plot<a class="headerlink" href="#Embiggening*-the-plot" title="Permalink to this headline">¶</a></h3>
-<p>While the plot sizes we’re working with are OK, it would be nice to have
-them displayed a bit larger. Fortunately, there is an easy way to make
-the plots larger in Jupyter notebooks. To set the default plot size to
-be larger, simply run the Python cell below.</p>
+<p>While the plot sizes we’re working with are OK, it would be nice to have them displayed a bit larger. Fortunately, there is an easy way to make the plots larger in Jupyter notebooks. To set the default plot size to be larger, simply run the Python cell below.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1199,15 +1189,9 @@ be larger, simply run the Python cell below.</p>
 </pre></div>
 </div>
 </div>
-<p>The cell above sets the default plot size to be 12 inches wide by 6
-inches tall. Feel free to change these values if you prefer.</p>
-<p>To test whether this is working as expected, simply re-run one of the
-earlier cells that generated a plot.</p>
-<p>* To
-<em>`embiggen &lt;https://en.oxforddictionaries.com/definition/embiggen&gt;`__</em>
-means to enlarge. It’s a perfectly
-<a class="reference external" href="https://en.oxforddictionaries.com/definition/cromulent">cromulent</a>
-word.</p>
+<p>The cell above sets the default plot size to be 12 inches wide by 6 inches tall. Feel free to change these values if you prefer.</p>
+<p>To test whether this is working as expected, simply re-run one of the earlier cells that generated a plot.</p>
+<p>* To <em>`embiggen &lt;https://en.oxforddictionaries.com/definition/embiggen&gt;`__</em> means to enlarge. It’s a perfectly <a class="reference external" href="https://en.oxforddictionaries.com/definition/cromulent">cromulent</a> word.</p>
 </div>
 <div class="section" id="Adding-text-labels-to-a-plot">
 <h3>Adding text labels to a plot<a class="headerlink" href="#Adding-text-labels-to-a-plot" title="Permalink to this headline">¶</a></h3>
@@ -1215,11 +1199,7 @@ word.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">20160604.0</span><span class="p">,</span> <span class="mf">68.0</span><span class="p">,</span> <span class="s1">&#39;High temperature in early June&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This will display the text “High temperature in early June” at the
-location <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">20160604.0</span></code> (i.e., June 4, 2016), <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">68.0</span></code> on the
-plot. We’ll see how to do this in a live example in just a second. With
-our approach to plotting thus far, the commands related to an individual
-plot should all be in the same Python cell.</p>
+<p>This will display the text “High temperature in early June” at the location <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">20160604.0</span></code> (i.e., June 4, 2016), <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">68.0</span></code> on the plot. We’ll see how to do this in a live example in just a second. With our approach to plotting thus far, the commands related to an individual plot should all be in the same Python cell.</p>
 </div>
 <div class="section" id="Changing-the-axis-ranges">
 <h3>Changing the axis ranges<a class="headerlink" href="#Changing-the-axis-ranges" title="Permalink to this headline">¶</a></h3>
@@ -1227,14 +1207,9 @@ plot should all be in the same Python cell.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">20160601</span><span class="p">,</span> <span class="mi">20160615</span><span class="p">,</span> <span class="mf">55.0</span><span class="p">,</span> <span class="mf">70.0</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>The format for <code class="docutils literal notranslate"><span class="pre">plt.axis()</span></code> is <code class="docutils literal notranslate"><span class="pre">[xmin,</span> <span class="pre">xmax,</span> <span class="pre">ymin,</span> <span class="pre">ymax]</span></code> enclosed
-in square brackets (i.e., a Python list). Here, the <em>x</em> range would be
-changed to the equivalents of June 1, 2016 to June 15, 2016 and the <em>y</em>
-range would be 55.0-70.0. The complete set of commands to plot would
-thus be:</p>
+<p>The format for <code class="docutils literal notranslate"><span class="pre">plt.axis()</span></code> is <code class="docutils literal notranslate"><span class="pre">[xmin,</span> <span class="pre">xmax,</span> <span class="pre">ymin,</span> <span class="pre">ymax]</span></code> enclosed in square brackets (i.e., a Python list). Here, the <em>x</em> range would be changed to the equivalents of June 1, 2016 to June 15, 2016 and the <em>y</em> range would be 55.0-70.0. The complete set of commands to plot would thus be:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1248,8 +1223,7 @@ thus be:</p>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1268,12 +1242,9 @@ thus be:</p>
 </div>
 <div class="section" id="Bar-plots-in-Matplotlib">
 <h2>Bar plots in Matplotlib<a class="headerlink" href="#Bar-plots-in-Matplotlib" title="Permalink to this headline">¶</a></h2>
-<p>In addition to line plots, there are many other options for plotting in
-Matplotlib. Bar plots are one option, which can be used quite similarly
-to line plots.</p>
+<p>In addition to line plots, there are many other options for plotting in Matplotlib. Bar plots are one option, which can be used quite similarly to line plots.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1287,8 +1258,7 @@ to line plots.</p>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1303,25 +1273,14 @@ to line plots.</p>
 <img alt="../../_images/notebooks_L7_matplotlib_29_1.png" src="../../_images/notebooks_L7_matplotlib_29_1.png" />
 </div>
 </div>
-<p>You can find more about how to format bar charts on the <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.bar.html?highlight=matplotlib%20pyplot%20bar#matplotlib.pyplot.bar">Matplotlib
-documentation
-website</a>.</p>
+<p>You can find more about how to format bar charts on the <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.bar.html?highlight=matplotlib%20pyplot%20bar#matplotlib.pyplot.bar">Matplotlib documentation website</a>.</p>
 </div>
 <div class="section" id="Saving-your-plots-as-image-files">
 <h2>Saving your plots as image files<a class="headerlink" href="#Saving-your-plots-as-image-files" title="Permalink to this headline">¶</a></h2>
-<p>Saving plots created using Matplotlib done several ways. The
-recommendation for use outside of Jupyter notebooks is to use the
-<code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function. When using <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code>, you simply
-give a list of commands to generate a plot and list <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code>
-with some parameters as the last command. The file name is required, and
-the image format will be determined based on the listed file extension.</p>
-<p>Matplotlib plots can be saved in a number of useful file formats,
-including PNG, PDF, and EPS. PNG is a nice format for raster images, and
-EPS is probably easiest to use for vector graphics. Let’s check out an
-example and save our lovely bar plot.</p>
+<p>Saving plots created using Matplotlib done several ways. The recommendation for use outside of Jupyter notebooks is to use the <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function. When using <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code>, you simply give a list of commands to generate a plot and list <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> with some parameters as the last command. The file name is required, and the image format will be determined based on the listed file extension.</p>
+<p>Matplotlib plots can be saved in a number of useful file formats, including PNG, PDF, and EPS. PNG is a nice format for raster images, and EPS is probably easiest to use for vector graphics. Let’s check out an example and save our lovely bar plot.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1342,13 +1301,9 @@ example and save our lovely bar plot.</p>
 <img alt="../../_images/notebooks_L7_matplotlib_32_0.png" src="../../_images/notebooks_L7_matplotlib_32_0.png" />
 </div>
 </div>
-<p>If you refresh your <strong>Files</strong> tab on the left side of the JupyterLab
-window you should now see <code class="docutils literal notranslate"><span class="pre">bar-plot.png</span></code> listed. We could try to save
-another version in higher resolution with a minor change to our plot
-commands above.</p>
+<p>If you refresh your <strong>Files</strong> tab on the left side of the JupyterLab window you should now see <code class="docutils literal notranslate"><span class="pre">bar-plot.png</span></code> listed. We could try to save another version in higher resolution with a minor change to our plot commands above.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1369,40 +1324,22 @@ commands above.</p>
 <img alt="../../_images/notebooks_L7_matplotlib_34_0.png" src="../../_images/notebooks_L7_matplotlib_34_0.png" />
 </div>
 </div>
-<hr><p>We’re only introducing a tiny amount of what can be done with pyplot. In
-most cases, when we would like to create some more complicated type of
-plot, we would search using <a class="reference external" href="https://www.google.fi/">Google</a> or visit
-the <a class="reference external" href="http://matplotlib.org/gallery.html">Matplotlib plot gallery</a>.
-The great thing about the <a class="reference external" href="http://matplotlib.org/gallery.html">Matplotlib plot
-gallery</a> is that not only can you
-find example plots there, but you can also find the Python commands used
-to create the plots. This makes it easy to take a working example from
-the gallery and modify it for your use.</p>
-<div class="figure" id="id2">
-<img alt="The Matplotlib plot gallery" src="../../_images/matplotlib-gallery.png" />
-<p class="caption"><span class="caption-text">The Matplotlib plot gallery</span></p>
-</div>
+<hr><p>We’re only introducing a tiny amount of what can be done with pyplot. In most cases, when we would like to create some more complicated type of plot, we would search using <a class="reference external" href="https://www.google.fi/">Google</a> or visit the <a class="reference external" href="http://matplotlib.org/gallery.html">Matplotlib plot gallery</a>. The great thing about the <a class="reference external" href="http://matplotlib.org/gallery.html">Matplotlib plot gallery</a> is that not only can you find example plots there, but you can also find the Python commands used to create the plots.
+This makes it easy to take a working example from the gallery and modify it for your use.</p>
+<p><img alt="The Matplotlib plot gallery" src="../../_images/matplotlib-gallery.png" /></p>
 <p>Your job in this task is to:</p>
 <ol class="arabic simple">
-<li>Visit the <a class="reference external" href="http://matplotlib.org/gallery.html">Matplotlib plot
-gallery</a></li>
+<li>Visit the <a class="reference external" href="http://matplotlib.org/gallery.html">Matplotlib plot gallery</a></li>
 <li>Find an interesting plot and click on it</li>
 <li>Copy the code you find listed beneath the plot on the page that loads</li>
-<li>Paste that into an Python cell in this notebook and run it to
-reproduce the plot</li>
+<li>Paste that into an Python cell in this notebook and run it to reproduce the plot</li>
 </ol>
-<p>After you have reproduced the plot, you are welcome to try to make a
-small change to the plot commands and see what happens. For this, you
-can simply edit the Python cell contents and re-run.</p>
-<hr><p>For this task, you should use the values for arrays <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>
-calculated earlier in this part of the lesson, and use <code class="docutils literal notranslate"><span class="pre">plt.axis()</span></code> to
-limit the plot to the following <em>x</em> and <em>y</em> ranges: <em>x = June 7-14</em>, <em>y
-= 45.0-65.0</em>.</p>
+<p>After you have reproduced the plot, you are welcome to try to make a small change to the plot commands and see what happens. For this, you can simply edit the Python cell contents and re-run.</p>
+<hr><p>For this task, you should use the values for arrays <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> calculated earlier in this part of the lesson, and use <code class="docutils literal notranslate"><span class="pre">plt.axis()</span></code> to limit the plot to the following <em>x</em> and <em>y</em> ranges: <em>x = June 7-14</em>, <em>y = 45.0-65.0</em>.</p>
 <ul class="simple">
 <li>What do you expect to see in this case?</li>
 </ul>
-<p><strong>Note</strong>: In order to get the plot to display properly, you will need to
-first type in the <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> command, then <code class="docutils literal notranslate"><span class="pre">plt.axis()</span></code>.</p>
+<p><strong>Note</strong>: In order to get the plot to display properly, you will need to first type in the <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> command, then <code class="docutils literal notranslate"><span class="pre">plt.axis()</span></code>.</p>
 </div>
 </div>
 
@@ -1427,6 +1364,7 @@ first type in the <code class="docutils literal notranslate"><span class="pre">p
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki
+      Last updated on Dec 23, 2018.
 
     </p>
   </div>

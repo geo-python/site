@@ -794,6 +794,11 @@
 .admonition > p:before {
     margin-right: 4px;  /* make room for the exclamation icon */
 }
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
 </style>
 <div class="admonition note">
 This page was generated from <a class="reference external" href="https://github.com/Geo-Python/2018/blob/master/source/notebooks/L4/writing-scripts.ipynb">source/notebooks/L4/writing-scripts.ipynb</a>.
@@ -802,23 +807,11 @@ This page was generated from <a class="reference external" href="https://github.
 <span class="raw-html"><a href="https://notebooks.csc.fi/#/blueprint/d71cd2d26d924f48820dc22b67a87d8e"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a></span></div>
 <div class="section" id="Writing-our-scripts-the-&quot;right&quot;-way">
 <h1>Writing our scripts the “right” way<a class="headerlink" href="#Writing-our-scripts-the-"right"-way" title="Permalink to this headline">¶</a></h1>
-<p>The script example for functions we have seen so far works, but one of
-the big advantages of using scripts is including features that make the
-code easier to read and understand. These include comments in the code,
-which explain what the code does, but are not executed when the code is
-run. As your scripts get longer and more complicated, features such as
-comments will become essential. Below are some suggestions to make sure
-your code is formatted nicely and easy to understand.</p>
+<p>The script example for functions we have seen so far works, but one of the big advantages of using scripts is including features that make the code easier to read and understand. These include comments in the code, which explain what the code does, but are not executed when the code is run. As your scripts get longer and more complicated, features such as comments will become essential. Below are some suggestions to make sure your code is formatted nicely and easy to understand.</p>
 <div class="section" id="Inline-comments">
 <h2>Inline comments<a class="headerlink" href="#Inline-comments" title="Permalink to this headline">¶</a></h2>
-<p>Inline comments are comments within the code that explain what certain
-lines of the code do. To you, it may seem obvious how the code works,
-but if you share it with another person perhaps they will not feel the
-same way. This is particularly true when you start using scripts instead
-of Jupyter notebooks, where you might not feel you can include as much
-text describing your code. Because we want to teach you to code in an
-effective way, it is a very good idea to make your scripts as easy to
-read as possible for people. Consider the example below.</p>
+<p>Inline comments are comments within the code that explain what certain lines of the code do. To you, it may seem obvious how the code works, but if you share it with another person perhaps they will not feel the same way. This is particularly true when you start using scripts instead of Jupyter notebooks, where you might not feel you can include as much text describing your code. Because we want to teach you to code in an effective way, it is a very good idea to make your scripts as easy to read
+as possible for people. Consider the example below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finnish Meterological Institute observation station name and location data</span>
 <span class="c1"># Station name for the station in Kaivopuisto, Helsinki, Finland</span>
 <span class="n">stationName</span> <span class="o">=</span> <span class="s1">&#39;Helsinki Kaivopuisto&#39;</span>
@@ -829,20 +822,12 @@ read as possible for people. Consider the example below.</p>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The&quot;</span><span class="p">,</span> <span class="n">stationName</span><span class="p">,</span> <span class="s2">&quot;station is located at&quot;</span><span class="p">,</span> <span class="n">stationLat</span><span class="p">,</span> <span class="s2">&quot;N,&quot;</span><span class="p">,</span> <span class="n">stationLong</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Here, we have provided a a bit more information about the data in this
-script by adding inline comments. Inline comments begin with a <code class="docutils literal notranslate"><span class="pre">#</span></code>
-(number sign or hash), and all characters that follow on that line will
-be ignored by Python. Adding comments to scripts is essential for
-scientists like ourselves to both help us remember how a script works
-and to make it easier to share with colleagues. It is best to get into
-the habit of adding comments as you write, especially if you’re not
-using a Jupyter notebook.</p>
+<p>Here, we have provided a a bit more information about the data in this script by adding inline comments. Inline comments begin with a <code class="docutils literal notranslate"><span class="pre">#</span></code> (number sign or hash), and all characters that follow on that line will be ignored by Python. Adding comments to scripts is essential for scientists like ourselves to both help us remember how a script works and to make it easier to share with colleagues. It is best to get into the habit of adding comments as you write, especially if you’re not using a
+Jupyter notebook.</p>
 </div>
 <div class="section" id="Use-line-breaks-wisely">
 <h2>Use line breaks wisely<a class="headerlink" href="#Use-line-breaks-wisely" title="Permalink to this headline">¶</a></h2>
-<p><em>Line breaks</em>, or blank lines, in your scripts can greatly improve
-readability, and help divide different sections of the script. Perhaps
-it is obvious, but Python will ignore blank lines in a script.</p>
+<p><em>Line breaks</em>, or blank lines, in your scripts can greatly improve readability, and help divide different sections of the script. Perhaps it is obvious, but Python will ignore blank lines in a script.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finnish Meterological Institute observation station name and location data</span>
 
 <span class="c1"># Station name for the station in Kaivopuisto, Helsinki, Finland</span>
@@ -859,12 +844,7 @@ it is obvious, but Python will ignore blank lines in a script.</p>
 </div>
 <div class="section" id="Use-a-docstring">
 <h2>Use a docstring<a class="headerlink" href="#Use-a-docstring" title="Permalink to this headline">¶</a></h2>
-<p>A <em>docstring</em> is a form of block comment at the start of your script
-that clearly states its purpose and how to run the program. A <em>block
-comment</em> is similar to the inline comments above, but starts with
-<code class="docutils literal notranslate"><span class="pre">'''</span></code> and comments out all code between the start and another closing
-set of <code class="docutils literal notranslate"><span class="pre">'''</span></code>. You can also include your name, and possibly add
-licensing information in the docstring.</p>
+<p>A <em>docstring</em> is a form of block comment at the start of your script that clearly states its purpose and how to run the program. A <em>block comment</em> is similar to the inline comments above, but starts with <code class="docutils literal notranslate"><span class="pre">'''</span></code> and comments out all code between the start and another closing set of <code class="docutils literal notranslate"><span class="pre">'''</span></code>. You can also include your name, and possibly add licensing information in the docstring.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;Prints information about an FMI observation station to the screen.</span>
 
 <span class="sd">Usage:</span>
@@ -887,22 +867,14 @@ licensing information in the docstring.</p>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The&quot;</span><span class="p">,</span> <span class="n">stationName</span><span class="p">,</span> <span class="s2">&quot;station is located at&quot;</span><span class="p">,</span> <span class="n">stationLat</span><span class="p">,</span> <span class="s2">&quot;N,&quot;</span><span class="p">,</span> <span class="n">stationLong</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In this example the script is simple, but many Python programs have
-optional values that can be used by the code when it is run, making the
-usage statement crucial.</p>
+<p>In this example the script is simple, but many Python programs have optional values that can be used by the code when it is run, making the usage statement crucial.</p>
 </div>
 <div class="section" id="Advanced-topics">
 <h2>Advanced topics<a class="headerlink" href="#Advanced-topics" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="Adding-a-license">
 <h3>Adding a license<a class="headerlink" href="#Adding-a-license" title="Permalink to this headline">¶</a></h3>
-<p>Depending on what you aim to do with your script, you may want to
-include a formal software license in the docstring to state the
-conditions under which the code can be used or modified. There are many
-helpful web resources to <a class="reference external" href="https://tldrlegal.com/">teach you about software
-licenses</a> and <a class="reference external" href="http://choosealicense.com/">how to choose a
-license</a>. In most cases my preference is
-the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT License</a>, which is
-simple and allows software use by anyone. An example is below.</p>
+<p>Depending on what you aim to do with your script, you may want to include a formal software license in the docstring to state the conditions under which the code can be used or modified. There are many helpful web resources to <a class="reference external" href="https://tldrlegal.com/">teach you about software licenses</a> and <a class="reference external" href="http://choosealicense.com/">how to choose a license</a>. In most cases my preference is the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT License</a>, which is simple and allows software use by anyone. An
+example is below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;Prints information about an FMI observation station to the screen.</span>
 
 <span class="sd">Usage:</span>
@@ -945,26 +917,12 @@ simple and allows software use by anyone. An example is below.</p>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The&quot;</span><span class="p">,</span> <span class="n">stationName</span><span class="p">,</span> <span class="s2">&quot;station is located at&quot;</span><span class="p">,</span> <span class="n">stationLat</span><span class="p">,</span> <span class="s2">&quot;N,&quot;</span><span class="p">,</span> <span class="n">stationLong</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In this case I have taken the license information directly from an
-<a class="reference external" href="http://choosealicense.com/licenses/mit/">online software license
-template</a>. Software
-licensing is an important consideration when posting your software in
-online repositories such as GitHub. It is one way to protect your
-intellectual property from being used in ways you do not wish.</p>
+<p>In this case I have taken the license information directly from an <a class="reference external" href="http://choosealicense.com/licenses/mit/">online software license template</a>. Software licensing is an important consideration when posting your software in online repositories such as GitHub. It is one way to protect your intellectual property from being used in ways you do not wish.</p>
 </div>
 <div class="section" id="Starting-with-a-shebang">
 <h3>Starting with a shebang<a class="headerlink" href="#Starting-with-a-shebang" title="Permalink to this headline">¶</a></h3>
-<p>Starting with a shebang is another thing to consider doing with your
-scripts. Why? Well, without going into too much detail, it makes it
-easier for users to run your script directly from a terminal, rather
-than needing to use a Jupyter notebook or open an Python console first.
-If this doesn’t make a great deal of sense, you can get a bit more
-information on
-<a class="reference external" href="https://en.wikipedia.org/wiki/Shebang_(Unix)">Wikipedia</a>.</p>
-<p>Starting with a shebang means that the first line of your program starts
-with the characters <code class="docutils literal notranslate"><span class="pre">#!</span></code> followed by the location of a program that
-will run the Python software installed on the computer. An example is
-below.</p>
+<p>Starting with a shebang is another thing to consider doing with your scripts. Why? Well, without going into too much detail, it makes it easier for users to run your script directly from a terminal, rather than needing to use a Jupyter notebook or open an Python console first. If this doesn’t make a great deal of sense, you can get a bit more information on <a class="reference external" href="https://en.wikipedia.org/wiki/Shebang_(Unix)">Wikipedia</a>.</p>
+<p>Starting with a shebang means that the first line of your program starts with the characters <code class="docutils literal notranslate"><span class="pre">#!</span></code> followed by the location of a program that will run the Python software installed on the computer. An example is below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="sd">&#39;&#39;&#39;Prints information about an FMI observation station to the screen.</span>
 
@@ -993,13 +951,7 @@ below.</p>
 </div>
 <div class="section" id="Page-summary">
 <h2>Page summary<a class="headerlink" href="#Page-summary" title="Permalink to this headline">¶</a></h2>
-<p>As we continue in the course we will be creating more advanced Python
-scripts that include more complex code logic and other features we’ve
-not yet learned. With these, we’ll also learn a few tips for
-incorporating them in our scripts. However, an expectation in this
-course is that you stick to the general template described above when
-writing your script files, which means including appropriate use of
-inline comments, blank lines, and a docstring.</p>
+<p>As we continue in the course we will be creating more advanced Python scripts that include more complex code logic and other features we’ve not yet learned. With these, we’ll also learn a few tips for incorporating them in our scripts. However, an expectation in this course is that you stick to the general template described above when writing your script files, which means including appropriate use of inline comments, blank lines, and a docstring.</p>
 </div>
 </div>
 
