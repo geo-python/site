@@ -95,6 +95,9 @@ def setup(app):
 
 html_logo = 'img/HY-logo-2017.png'
 
+# Add last modified to all pages
+html_last_updated_fmt = ""
+
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
