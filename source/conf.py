@@ -126,7 +126,7 @@ html_context = {
     'display_github': True,
     # Set the following variables to generate the resulting github URL for each page.
     # Format Template: https://{{ github_host|default("github.com") }}/{{ github_user }}/{{ github_repo }}/blob/{{ github_version }}{{ conf_py_path }}{{ pagename }}{{ suffix }}
-    'github_user': 'Automating-GIS-processes',
+    'github_user': 'geo-python',
     'github_repo': '2018',
     'github_version': 'master/',
     'conf_py_path': '/source/'
