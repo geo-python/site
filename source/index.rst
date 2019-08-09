@@ -5,7 +5,7 @@
 
 .. figure:: img/banner/GeoPython_banner.png
 
-Welcome to Geo-Python 2018!
+Welcome to Geo-Python 2019!
 ===========================
 
 The **Geo-Python** course teaches you the basic concepts of programming using the Python programming language in a format that is easy to learn and understand (no previous programming experience required).
