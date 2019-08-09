@@ -28,13 +28,30 @@
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'2018',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
@@ -46,21 +63,16 @@
     <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
      
 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -852,27 +864,27 @@ where data from one DataFrame is merged with another DataFrame based on a common
 Hence, making a table join requires that you have at least one common variable in both
 of the DataFrames that can be used to combine the data together.</p>
 <p>Consider a following example. Let’s first create some test data to our DataFrames.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">data1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;20170101&#39;</span><span class="p">,</span> <span class="s1">&#39;Pluto&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;20170102&#39;</span><span class="p">,</span> <span class="s1">&#39;Panda&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;20170103&#39;</span><span class="p">,</span> <span class="s1">&#39;Snoopy&#39;</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="s1">&#39;Favourite_dog&#39;</span><span class="p">])</span>
+<pre class="literal-block">
+In [1]: data1 = pd.DataFrame(data=[['20170101', 'Pluto'], ['20170102', 'Panda'], ['20170103', 'Snoopy']], columns=['Time', 'Favourite_dog'])
 
-<span class="gp">In [2]: </span><span class="n">data2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;20170101&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;20170101&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;20170102&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;20170104&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;20170104&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="s1">&#39;Value&#39;</span><span class="p">])</span>
+In [2]: data2 = pd.DataFrame(data=[['20170101', 1], ['20170101', 2], ['20170102', 3], ['20170104', 3], ['20170104', 8]], columns=['Time', 'Value'])
 
-<span class="gp">In [3]: </span><span class="n">data1</span>
-<span class="gh">Out[3]: </span><span class="go"></span>
-<span class="go">       Time Favourite_dog</span>
-<span class="go">0  20170101         Pluto</span>
-<span class="go">1  20170102         Panda</span>
-<span class="go">2  20170103        Snoopy</span>
+In [3]: data1
+Out[3]: 
+       Time Favourite_dog
+0  20170101         Pluto
+1  20170102         Panda
+2  20170103        Snoopy
 
-<span class="gp">In [4]: </span><span class="n">data2</span>
-<span class="go">                                                                                                                 Out[4]: </span>
-<span class="go">       Time  Value</span>
-<span class="go">0  20170101      1</span>
-<span class="go">1  20170101      2</span>
-<span class="go">2  20170102      3</span>
-<span class="go">3  20170104      3</span>
-<span class="go">4  20170104      8</span>
-</pre></div>
-</div>
+In [4]: data2
+Out[4]: 
+       Time  Value
+0  20170101      1
+1  20170101      2
+2  20170102      3
+3  20170104      3
+4  20170104      8
+</pre>
 <p>As we can see here, there different number of rows in the DataFrames. Important thing to notice is that there seems to be a common column called <code class="docutils literal notranslate"><span class="pre">Time</span></code> that we can use to
 join these DataFrames together. In Pandas we can conduct a table join with <code class="docutils literal notranslate"><span class="pre">merge</span></code> -function. Consider following example where we join the data <strong>from</strong> <code class="docutils literal notranslate"><span class="pre">data2</span></code> DataFrame <strong>to</strong> <code class="docutils literal notranslate"><span class="pre">data1</span></code> DataFrame.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">join1</span> <span class="o">=</span> <span class="n">data1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
@@ -1011,7 +1023,7 @@ Filling the array can be done several ways, but the example below is one “simp
         <a href="../L7/overview.html" class="btn btn-neutral float-right" title="Lesson overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="debugging-scripts.html" class="btn btn-neutral" title="Debugging Python scripts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="debugging-scripts.html" class="btn btn-neutral float-left" title="Debugging Python scripts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1021,7 +1033,9 @@ Filling the array can be done several ways, but the example below is one “simp
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki
-      Last updated on Oct 15, 2018.
+      <span class="lastupdated">
+        Last updated on Oct 15, 2018.
+      </span>
 
     </p>
   </div>
@@ -1047,6 +1061,10 @@ Filling the array can be done several ways, but the example below is one “simp
     </span>
     <div class="rst-other-versions">
         <dl>
+            <dt>Tags</dt>
+            <dd><a href="../../../2018/lessons/L6/exercise-6.html">2018</a></dd>
+        </dl>
+        <dl>
             <dt>Branches</dt>
             <dd><a href="../../../2017/index.html">2017</a></dd>
             <dd><a href="../../../develop/lessons/L6/exercise-6.html">develop</a></dd>
@@ -1056,36 +1074,16 @@ Filling the array can be done several ways, but the example below is one “simp
 </div>
 
 
-  
-
-    
-    
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../../',
-              VERSION:'2018',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

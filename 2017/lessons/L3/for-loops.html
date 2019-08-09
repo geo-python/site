@@ -30,13 +30,30 @@
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'2017 Autumn',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
@@ -48,21 +65,16 @@
     <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
      
 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -275,46 +287,46 @@
 <li><p class="first">Let’s consider an example.
 Suppose we want to take a word and print out each letter of the word separately.
 We could do the following:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;snow&#39;</span>
+<pre class="literal-block">
+In [1]: word = 'snow'
 
-<span class="gp">In [2]: </span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="go">s</span>
+In [2]: print(word[0])
+s
 
-<span class="gp">In [3]: </span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="go">  n</span>
+In [3]: print(word[1])
+n
 
-<span class="gp">In [4]: </span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="go">    o</span>
+In [4]: print(word[2])
+o
 
-<span class="gp">In [5]: </span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-<span class="go">      w</span>
-</pre></div>
-</div>
+In [5]: print(word[3])
+w
+</pre>
 <p>But this is a bad idea.
 Why?
 Well there are two reasons.
 First, it does not scale nicely for long strings, and will take forever to type in.
 Second, it won’t work if the word is not 4 characters long.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;ice&#39;</span>
+<pre class="literal-block">
+In [6]: word = 'ice'
 
-<span class="gp">In [7]: </span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="go">i</span>
+In [7]: print(word[0])
+i
 
-<span class="gp">In [8]: </span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="go">  c</span>
+In [8]: print(word[1])
+c
 
-<span class="gp">In [9]: </span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="go">    e</span>
+In [9]: print(word[2])
+e
 
-<span class="gp">In [10]: </span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-<span class="go">      ---------------------------------------------------------------------------</span>
-<span class="go">IndexError                                Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-10-929d2b055d22&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(word[3])</span>
+In [10]: print(word[3])
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+&lt;ipython-input-10-929d2b055d22&gt; in &lt;module&gt;()
+----&gt; 1 print(word[3])
 
-<span class="go">IndexError: string index out of range</span>
-</pre></div>
-</div>
+IndexError: string index out of range
+</pre>
 </li>
 <li><p class="first">We could do a much better job by using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;snow&#39;</span>
@@ -376,21 +388,21 @@ Consider using a <code class="docutils literal notranslate"><span class="pre">fo
 <p>Can you follow what happens in this loop?</p>
 </li>
 <li><p class="first">Note that the variable used in the loop, <code class="docutils literal notranslate"><span class="pre">letter</span></code> in the case above is just a normal variable and still exists after the loop has completed with the final value given to letter.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">letter</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span>
+<pre class="literal-block">
+In [16]: letter = 'x'
 
-<span class="gp">In [17]: </span><span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s1">&#39;sleet&#39;</span><span class="p">:</span>
-<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
-<span class="gp">   ....: </span>
-<span class="go">s</span>
-<span class="go">l</span>
-<span class="go">e</span>
-<span class="go">e</span>
-<span class="go">t</span>
+In [17]: for letter in 'sleet':
+   ....:     print(letter)
+   ....: 
+s
+l
+e
+e
+t
 
-<span class="gp">In [18]: </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;After the loop, letter is&#39;</span><span class="p">,</span> <span class="n">letter</span><span class="p">)</span>
-<span class="go">          After the loop, letter is t</span>
-</pre></div>
-</div>
+In [18]: print('After the loop, letter is', letter)
+After the loop, letter is t
+</pre>
 </li>
 <li><p class="first">A loop can be used to iterate over any list of values in Python.
 So far we have considered only character strings, but we could also write a loop that performs a calculation a specified number of times.</p>
@@ -582,7 +594,7 @@ Now if we add or remove values in <code class="docutils literal notranslate"><sp
         <a href="conditional-statements.html" class="btn btn-neutral float-right" title="Conditional statements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="lesson-video.html" class="btn btn-neutral" title="Lecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="lesson-video.html" class="btn btn-neutral float-left" title="Lecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -617,6 +629,10 @@ Now if we add or remove values in <code class="docutils literal notranslate"><sp
     </span>
     <div class="rst-other-versions">
         <dl>
+            <dt>Tags</dt>
+            <dd><a href="../../../2018/index.html">2018</a></dd>
+        </dl>
+        <dl>
             <dt>Branches</dt>
             <dd><a href="for-loops.html">2017</a></dd>
             <dd><a href="../../../develop/index.html">develop</a></dd>
@@ -626,36 +642,16 @@ Now if we add or remove values in <code class="docutils literal notranslate"><sp
 </div>
 
 
-  
-
-    
-    
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../../',
-              VERSION:'2017 Autumn',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

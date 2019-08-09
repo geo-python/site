@@ -30,13 +30,30 @@
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'2017 Autumn',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
@@ -48,21 +65,16 @@
     <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
      
 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -294,16 +306,16 @@ We can store this information and some additional information for a given statio
 Each variable has a unique name and they can store different types of data.</p>
 </li>
 <li><p class="first">We can explore the different types of data stored in variables using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="nb">type</span><span class="p">(</span><span class="n">stationName</span><span class="p">)</span>
-<span class="gh">Out[6]: </span><span class="go">str</span>
+<pre class="literal-block">
+In [6]: type(stationName)
+Out[6]: str
 
-<span class="gp">In [7]: </span><span class="nb">type</span><span class="p">(</span><span class="n">stationID</span><span class="p">)</span>
-<span class="go">            Out[7]: int</span>
+In [7]: type(stationID)
+Out[7]: int
 
-<span class="gp">In [8]: </span><span class="nb">type</span><span class="p">(</span><span class="n">stationLat</span><span class="p">)</span>
-<span class="go">                        Out[8]: float</span>
-</pre></div>
-</div>
+In [8]: type(stationLat)
+Out[8]: float
+</pre>
 <p>As expected, we see that the <code class="docutils literal notranslate"><span class="pre">stationName</span></code> is a character string, the <code class="docutils literal notranslate"><span class="pre">stationID</span></code> is an integer, and the <code class="docutils literal notranslate"><span class="pre">stationLat</span></code> is a floating point number.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -322,15 +334,15 @@ Each variable has a unique name and they can store different types of data.</p>
 </li>
 <li><p class="first">It is not the case that things like the the <code class="docutils literal notranslate"><span class="pre">stationName</span></code> and <code class="docutils literal notranslate"><span class="pre">stationID</span></code> cannot be combined at all, but in order to combine a character string with a number we need to perform a data <em>type conversion</em>.
 For example, we can could convert the <code class="docutils literal notranslate"><span class="pre">stationID</span></code> into a character string using the <code class="docutils literal notranslate"><span class="pre">str()</span></code> function.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">stationIDStr</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">stationID</span><span class="p">)</span>
+<pre class="literal-block">
+In [10]: stationIDStr = str(stationID)
 
-<span class="gp">In [11]: </span><span class="nb">type</span><span class="p">(</span><span class="n">stationIDStr</span><span class="p">)</span>
-<span class="gh">Out[11]: </span><span class="go">str</span>
+In [11]: type(stationIDStr)
+Out[11]: str
 
-<span class="gp">In [12]: </span><span class="k">print</span><span class="p">(</span><span class="n">stationIDStr</span><span class="p">)</span>
-<span class="go">             132310</span>
-</pre></div>
-</div>
+In [12]: print(stationIDStr)
+132310
+</pre>
 <p>As you can see, <code class="docutils literal notranslate"><span class="pre">str()</span></code> converts a numerical value into a character string with the same numbers as before.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -361,15 +373,15 @@ Rather than having individual variables for each of those stations, we can store
 The simplest type of <em>collection</em> in Python is a <strong>list</strong>.</p>
 <ol class="arabic">
 <li><p class="first">Let’s first create a list of selected <code class="docutils literal notranslate"><span class="pre">stationName</span></code> values.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="n">stationNames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Helsinki Harmaja&#39;</span><span class="p">,</span> <span class="s1">&#39;Helsinki Kaisaniemi&#39;</span><span class="p">,</span> <span class="s1">&#39;Helsinki Kaivopuisto&#39;</span><span class="p">,</span> <span class="s1">&#39;Helsinki Kumpula&#39;</span><span class="p">]</span>
+<pre class="literal-block">
+In [15]: stationNames = ['Helsinki Harmaja', 'Helsinki Kaisaniemi', 'Helsinki Kaivopuisto', 'Helsinki Kumpula']
 
-<span class="gp">In [16]: </span><span class="k">print</span><span class="p">(</span><span class="n">stationNames</span><span class="p">)</span>
-<span class="go">[&#39;Helsinki Harmaja&#39;, &#39;Helsinki Kaisaniemi&#39;, &#39;Helsinki Kaivopuisto&#39;, &#39;Helsinki Kumpula&#39;]</span>
+In [16]: print(stationNames)
+['Helsinki Harmaja', 'Helsinki Kaisaniemi', 'Helsinki Kaivopuisto', 'Helsinki Kumpula']
 
-<span class="gp">In [17]: </span><span class="nb">type</span><span class="p">(</span><span class="n">stationNames</span><span class="p">)</span>
-<span class="go">                                                                                        Out[17]: list</span>
-</pre></div>
-</div>
+In [17]: type(stationNames)
+Out[17]: list
+</pre>
 <p>Here we have a list of 4 <code class="docutils literal notranslate"><span class="pre">stationName</span></code> values in a list called <code class="docutils literal notranslate"><span class="pre">stationNames</span></code>.
 As you can see, the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function recognizes this as a list.
 Lists can be created using the square brackets (<code class="docutils literal notranslate"><span class="pre">[</span></code> and <code class="docutils literal notranslate"><span class="pre">]</span></code>), with commas separating the values in the list.</p>
@@ -429,16 +441,16 @@ The equivalent operation in Python would simply be</p>
 <p>What, an <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>?
 That’s right, since our list starts with index 0 and has 4 values, the index of the last item in the list is <code class="docutils literal notranslate"><span class="pre">len(SampleIDs)</span> <span class="pre">-</span> <span class="pre">1</span></code>.
 That isn’t ideal, but fortunately there’s a nice trick in Python to find the last item in a list.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [23]: </span><span class="k">print</span><span class="p">(</span><span class="n">stationNames</span><span class="p">)</span>
-<span class="go">[&#39;Helsinki Harmaja&#39;, &#39;Helsinki Kaisaniemi&#39;, &#39;Helsinki Kaivopuisto&#39;, &#39;Helsinki Kumpula&#39;]</span>
+<pre class="literal-block">
+In [23]: print(stationNames)
+['Helsinki Harmaja', 'Helsinki Kaisaniemi', 'Helsinki Kaivopuisto', 'Helsinki Kumpula']
 
-<span class="gp">In [24]: </span><span class="k">print</span><span class="p">(</span><span class="n">stationNames</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<span class="go">                                                                                        Helsinki Kumpula</span>
+In [24]: print(stationNames[-1])
+Helsinki Kumpula
 
-<span class="gp">In [25]: </span><span class="k">print</span><span class="p">(</span><span class="n">stationNames</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">])</span>
-<span class="go">                                                                                                         Helsinki Harmaja</span>
-</pre></div>
-</div>
+In [25]: print(stationNames[-4])
+Helsinki Harmaja
+</pre>
 <p>Yes, in Python you can go backwards through lists by using negative index values.
 Index -1 gives the last value in the list and index <code class="docutils literal notranslate"><span class="pre">-len(SampleIDs)</span></code> would give the first.
 Of course, you still need to keep the index values within their ranges.</p>
@@ -485,19 +497,19 @@ Let’s consider that in addition to having a list of each station name, FMISID,
 </div>
 <p>Here we have one list with 3 different type of data in it.
 We can confirm this using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [33]: </span><span class="nb">type</span><span class="p">(</span><span class="n">stationHelKaivo</span><span class="p">)</span>
-<span class="gh">Out[33]: </span><span class="go">list</span>
+<pre class="literal-block">
+In [33]: type(stationHelKaivo)
+Out[33]: list
 
-<span class="gp">In [34]: </span><span class="nb">type</span><span class="p">(</span><span class="n">stationHelKaivo</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>    <span class="c1"># The station name</span>
-<span class="go">              Out[34]: str</span>
+In [34]: type(stationHelKaivo[0])    # The station name
+Out[34]: str
 
-<span class="gp">In [35]: </span><span class="nb">type</span><span class="p">(</span><span class="n">stationHelKaivo</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>    <span class="c1"># The FMISID</span>
-<span class="go">                           Out[35]: int</span>
+In [35]: type(stationHelKaivo[1])    # The FMISID
+Out[35]: int
 
-<span class="gp">In [36]: </span><span class="nb">type</span><span class="p">(</span><span class="n">stationHelKaivo</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>    <span class="c1"># The station latitude</span>
-<span class="go">                                        Out[36]: float</span>
-</pre></div>
-</div>
+In [36]: type(stationHelKaivo[2])    # The station latitude
+Out[36]: float
+</pre>
 </li>
 <li><p class="first">Finally, we can add and remove values from lists to change their lengths.
 Let’s consider that we no longer want to include the first value in the <code class="docutils literal notranslate"><span class="pre">stationNames</span></code> list.</p>
@@ -536,13 +548,13 @@ The previous sentence could take quite some time to understand by itself, but us
 <li><p class="first">Let’s consider our list <code class="docutils literal notranslate"><span class="pre">stationNames</span></code>.
 As we know, we already have data in the list <code class="docutils literal notranslate"><span class="pre">stationNames</span></code>, and we can modify that data using built-in <em>methods</em> such as <code class="docutils literal notranslate"><span class="pre">stationNames.append()</span></code>.
 We can also do other things such as count the number of times a value occurs in a list, or where it occurs.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [43]: </span><span class="n">stationNames</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;Helsinki Kumpula&#39;</span><span class="p">)</span>    <span class="c1"># The count method counts the number of occurences of a value</span>
-<span class="gh">Out[43]: </span><span class="go">1</span>
+<pre class="literal-block">
+In [43]: stationNames.count('Helsinki Kumpula')    # The count method counts the number of occurences of a value
+Out[43]: 1
 
-<span class="gp">In [44]: </span><span class="n">stationNames</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;Helsinki Kumpula&#39;</span><span class="p">)</span>    <span class="c1"># The index method gives the index value of an item in a list</span>
-<span class="go">           Out[44]: 2</span>
-</pre></div>
-</div>
+In [44]: stationNames.index('Helsinki Kumpula')    # The index method gives the index value of an item in a list
+Out[44]: 2
+</pre>
 <p>The good news here is that our selected station name is only in the list once.
 Should we need to modify it for some reason, we also now know where it is in the list (index <code class="docutils literal notranslate"><span class="pre">2</span></code>).</p>
 </li>
@@ -596,7 +608,7 @@ This is because alphabetical sorting in Python places capital letters before low
         <a href="writing-scripts.html" class="btn btn-neutral float-right" title="Writing your own Python scripts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="working-on-assignment.html" class="btn btn-neutral" title="Working on the assignments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="working-on-assignment.html" class="btn btn-neutral float-left" title="Working on the assignments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -631,6 +643,10 @@ This is because alphabetical sorting in Python places capital letters before low
     </span>
     <div class="rst-other-versions">
         <dl>
+            <dt>Tags</dt>
+            <dd><a href="../../../2018/index.html">2018</a></dd>
+        </dl>
+        <dl>
             <dt>Branches</dt>
             <dd><a href="python-basic-elements.html">2017</a></dd>
             <dd><a href="../../../develop/index.html">develop</a></dd>
@@ -640,36 +656,16 @@ This is because alphabetical sorting in Python places capital letters before low
 </div>
 
 
-  
-
-    
-    
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../../',
-              VERSION:'2017 Autumn',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

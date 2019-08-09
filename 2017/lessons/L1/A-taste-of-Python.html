@@ -30,13 +30,30 @@
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'2017 Autumn',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
@@ -48,21 +65,16 @@
     <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
      
 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -303,35 +315,35 @@ In the lesson that follows, simply enter the commands into the IPython console a
 operations you can perform using Python.</p>
 <ol class="arabic">
 <li><p class="first">Python can be used as a simple calculator.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="gh">Out[1]: </span><span class="go">2</span>
+<pre class="literal-block">
+In [1]: 1 + 1
+Out[1]: 2
 
-<span class="gp">In [2]: </span><span class="mi">5</span> <span class="o">*</span> <span class="mi">7</span>
-<span class="go">          Out[2]: 35</span>
-</pre></div>
-</div>
+In [2]: 5 * 7
+Out[2]: 35
+</pre>
 </li>
 <li><p class="first">You can use Python for more advanced math by using <em>functions</em>.
 Functions are pieces of code that perform a single action such as
 printing information to the screen (e.g., the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function).
 Functions exist for a huge number of operations in Python.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-3-2b5fc2868c51&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<pre class="literal-block">
+In [3]: sin(3)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-3-2b5fc2868c51&gt; in &lt;module&gt;()
+----&gt; 1 sin(3)
 
-<span class="ne">NameError</span>: name &#39;sin&#39; is not defined
+NameError: name 'sin' is not defined
 
-<span class="gp">In [4]: </span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                          ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-4-317e033d29d5&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 sqrt(4)</span>
+In [4]: sqrt(4)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-4-317e033d29d5&gt; in &lt;module&gt;()
+----&gt; 1 sqrt(4)
 
-<span class="go">NameError: name &#39;sqrt&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'sqrt' is not defined
+</pre>
 <p>Wait, what? Python can’t calculate square roots or do basic
 trigonometry? Of course it can, but we need one more step.</p>
 </li>
@@ -379,47 +391,47 @@ trigonometry? Of course it can, but we need one more step.</p>
 </tbody>
 </table>
 <p>For anything more advanced, we need to load a <em>module</em>.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="kn">import</span> <span class="nn">math</span>
+<pre class="literal-block">
+In [5]: import math
 
-<span class="gp">In [6]: </span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[6]: </span><span class="go">0.1411200080598672</span>
+In [6]: math.sin(3)
+Out[6]: 0.1411200080598672
 
-<span class="gp">In [7]: </span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="go">                           Out[7]: 2.0</span>
-</pre></div>
-</div>
+In [7]: math.sqrt(4)
+Out[7]: 2.0
+</pre>
 <p>A <em>module</em>, also known as a <em>library</em>, is a group of code items such as functions that are related to one another.
 Modules are loaded using <code class="docutils literal notranslate"><span class="pre">import</span></code>.
 Functions that are part of the module <code class="docutils literal notranslate"><span class="pre">modulename</span></code> could then be used by typing <code class="docutils literal notranslate"><span class="pre">modulename.functionname()</span></code>.
 For example, <code class="docutils literal notranslate"><span class="pre">sin()</span></code> is a function that is part of the <code class="docutils literal notranslate"><span class="pre">math</span></code> module, and used by typing <code class="docutils literal notranslate"><span class="pre">math.sin()</span></code> with some number between the parentheses.
 Modules may also contain constants such as <code class="docutils literal notranslate"><span class="pre">math.pi</span></code>.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">math</span><span class="o">.</span><span class="n">pi</span>
-<span class="gh">Out[8]: </span><span class="go">3.141592653589793</span>
+<pre class="literal-block">
+In [8]: math.pi
+Out[8]: 3.141592653589793
 
-<span class="gp">In [9]: </span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-<span class="go">                          Out[9]: 1.2246467991473532e-16</span>
-</pre></div>
-</div>
+In [9]: math.sin(math.pi)
+Out[9]: 1.2246467991473532e-16
+</pre>
 </li>
 <li><p class="first">Functions can also be combined.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="k">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
-<span class="go">2.0</span>
+<pre class="literal-block">
+In [10]: print(math.sqrt(4))
+2.0
 
-<span class="gp">In [11]: </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;The square root of 4 is&#39;</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
-<span class="go">    The square root of 4 is 2.0</span>
-</pre></div>
-</div>
+In [11]: print('The square root of 4 is',math.sqrt(4))
+The square root of 4 is 2.0
+</pre>
 </li>
 <li><p class="first"><em>Variables</em> can be used to store values calculated in expressions and used for other calculations.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [12]: </span><span class="n">temp_celsius</span> <span class="o">=</span> <span class="mf">10.0</span>
+<pre class="literal-block">
+In [12]: temp_celsius = 10.0
 
-<span class="gp">In [13]: </span><span class="k">print</span><span class="p">(</span><span class="n">temp_celsius</span><span class="p">)</span>
-<span class="go">10.0</span>
+In [13]: print(temp_celsius)
+10.0
 
-<span class="gp">In [14]: </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;temperature in Fahrenheit:&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">temp_celsius</span> <span class="o">+</span> <span class="mi">32</span><span class="p">)</span>
-<span class="go">     temperature in Fahrenheit: 50.0</span>
-</pre></div>
-</div>
+In [14]: print('temperature in Fahrenheit:', 9/5 * temp_celsius + 32)
+temperature in Fahrenheit: 50.0
+</pre>
 <p>Above, we also see one common format for <em>good</em> variable naming, separation of words by underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">temp_celsius</span></code>).
 This is called pothole_case_naming.
 We’ll see another below.</p>
@@ -501,23 +513,23 @@ In addition, you can view this same information using the Variable explorer pane
 </table>
 <p>The data types are displayed when using <code class="docutils literal notranslate"><span class="pre">%whos</span></code>, but can also be found using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function.
 As you will see, the data types are important because some are not compatible with one another.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [22]: </span><span class="n">weatherForecast</span> <span class="o">=</span> <span class="s1">&#39;Hot&#39;</span>
+<pre class="literal-block">
+In [22]: weatherForecast = 'Hot'
 
-<span class="gp">In [23]: </span><span class="nb">type</span><span class="p">(</span><span class="n">weatherForecast</span><span class="p">)</span>
-<span class="gh">Out[23]: </span><span class="go">str</span>
+In [23]: type(weatherForecast)
+Out[23]: str
 
-<span class="gp">In [24]: </span><span class="nb">type</span><span class="p">(</span><span class="n">temperatureInFahrenheit</span><span class="p">)</span>
-<span class="go">             Out[24]: float</span>
+In [24]: type(temperatureInFahrenheit)
+Out[24]: float
 
-<span class="gp">In [25]: </span><span class="n">temperatureInFahrenheit</span> <span class="o">=</span> <span class="n">temperatureInFahrenheit</span> <span class="o">+</span> <span class="mf">5.0</span> <span class="o">*</span> <span class="n">weatherForecast</span>
-<span class="go">                            ---------------------------------------------------------------------------</span>
-<span class="go">TypeError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-25-1d5d069c47c8&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 temperatureInFahrenheit = temperatureInFahrenheit + 5.0 * weatherForecast</span>
+In [25]: temperatureInFahrenheit = temperatureInFahrenheit + 5.0 * weatherForecast
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+&lt;ipython-input-25-1d5d069c47c8&gt; in &lt;module&gt;()
+----&gt; 1 temperatureInFahrenheit = temperatureInFahrenheit + 5.0 * weatherForecast
 
-<span class="go">TypeError: can&#39;t multiply sequence by non-int of type &#39;float&#39;</span>
-</pre></div>
-</div>
+TypeError: can't multiply sequence by non-int of type 'float'
+</pre>
 </li>
 </ol>
 </div>
@@ -540,7 +552,7 @@ In the coming weeks we will explore each of these items, and many more, in great
         <a href="exercise-1.html" class="btn btn-neutral float-right" title="Exercise 1" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="slack-usage.html" class="btn btn-neutral" title="Communicating with Slack" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="slack-usage.html" class="btn btn-neutral float-left" title="Communicating with Slack" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -575,6 +587,10 @@ In the coming weeks we will explore each of these items, and many more, in great
     </span>
     <div class="rst-other-versions">
         <dl>
+            <dt>Tags</dt>
+            <dd><a href="../../../2018/index.html">2018</a></dd>
+        </dl>
+        <dl>
             <dt>Branches</dt>
             <dd><a href="A-taste-of-Python.html">2017</a></dd>
             <dd><a href="../../../develop/index.html">develop</a></dd>
@@ -584,36 +600,16 @@ In the coming weeks we will explore each of these items, and many more, in great
 </div>
 
 
-  
-
-    
-    
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../../',
-              VERSION:'2017 Autumn',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

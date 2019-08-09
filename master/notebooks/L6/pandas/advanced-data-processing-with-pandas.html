@@ -28,13 +28,30 @@
   
 
   
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'2018',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/banner.css" type="text/css" />
@@ -46,21 +63,16 @@
     <link href="../../../_static/geo-python.css" rel="stylesheet" type="text/css">
      
 
-
-  
-  <script src="../../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -1003,7 +1015,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-This page was generated from <a href="#id2"><span class="problematic" id="id3">`source/notebooks/L6/pandas/advanced-data-processing-with-pandas.ipynb`__</span></a>.
+This page was generated from <a class="reference external" href="https://github.com/Geo-Python/2018/blob/master/source/notebooks/L6/pandas/advanced-data-processing-with-pandas.ipynb">source/notebooks/L6/pandas/advanced-data-processing-with-pandas.ipynb</a>.
 <span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/geo-python/2018/master?urlpath=lab/tree/source/notebooks/L6/pandas/advanced-data-processing-with-pandas.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span>
 <span class="raw-html"><a href="https://mybinder.org/v2/gh/geo-python/notebooks/master?urlpath=lab/tree/notebooks/L6/pandas/advanced-data-processing-with-pandas.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-student%20binder-red.svg" style="vertical-align:text-bottom"></a></span>
 <span class="raw-html"><a href="https://notebooks.csc.fi/#/blueprint/d71cd2d26d924f48820dc22b67a87d8e"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a></span></div>
@@ -1509,7 +1521,7 @@ Row type:
 <p>That might be a problem as we might not be able to compare e.g. the average wind speeds and the speeds during the gust together as they are measured with different intervals. This kind of mismatch between sampling rates of measurements is actually quite typical when working with real data.</p>
 <p>How we can solve this problem, is to aggregate the wind speeds into hourly level data so that the attributes become comparable. First we need to be able to group the values by hour. This can be done e.g. by slicing the date+hour time from the <strong>``TIME``</strong> -column (i.e. removing the minutes from the end of the value).</p>
 <p>Doing this requires two steps: 1. Convert the <code class="docutils literal notranslate"><span class="pre">TIME</span></code> column from <code class="docutils literal notranslate"><span class="pre">int</span></code> into <code class="docutils literal notranslate"><span class="pre">str</span></code> datatype. 2. Include only numbers up to hourly accuracy (exclude minutes) by slicing texts</p>
-<p><strong>Note:</strong> There are also more advanced functions in Pandas to do time series manipulations by utilizing <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.to_datetime.html">**``datetime``**</a> datatype and <a href="#id2"><span class="problematic" id="id4">`**``resample()``** &lt;https://pandas.pydata.org/pandas-docs/stable/timeseries.html#resampling&gt;&gt;`__</span></a> -function, but we won’t cover those here. You can read the Pandas docs if you are interested.</p>
+<p><strong>Note:</strong> There are also more advanced functions in Pandas to do time series manipulations by utilizing <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.to_datetime.html">**``datetime``**</a> datatype and <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/timeseries.html#resampling%3E">**``resample()``**</a> -function, but we won’t cover those here. You can read the Pandas docs if you are interested.</p>
 <ul class="simple">
 <li>Let’s convert the time into string. And check that the data type changes:</li>
 </ul>
@@ -2388,7 +2400,7 @@ Name: TIME_h, dtype: int64
         <a href="../../../lessons/L6/numpy.html" class="btn btn-neutral float-right" title="NumPy lesson" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../../lessons/L6/pandas.html" class="btn btn-neutral" title="Pandas lesson" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../../lessons/L6/pandas.html" class="btn btn-neutral float-left" title="Pandas lesson" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -2398,7 +2410,9 @@ Name: TIME_h, dtype: int64
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki
-      Last updated on Dec 24, 2018.
+      <span class="lastupdated">
+        Last updated on Dec 24, 2018.
+      </span>
 
     </p>
   </div>
@@ -2424,6 +2438,10 @@ Name: TIME_h, dtype: int64
     </span>
     <div class="rst-other-versions">
         <dl>
+            <dt>Tags</dt>
+            <dd><a href="../../../../2018/notebooks/L6/pandas/advanced-data-processing-with-pandas.html">2018</a></dd>
+        </dl>
+        <dl>
             <dt>Branches</dt>
             <dd><a href="../../../../2017/index.html">2017</a></dd>
             <dd><a href="../../../../develop/notebooks/L6/pandas/advanced-data-processing-with-pandas.html">develop</a></dd>
@@ -2433,36 +2451,16 @@ Name: TIME_h, dtype: int64
 </div>
 
 
-  
-
-    
-    
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../../../',
-              VERSION:'2018',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

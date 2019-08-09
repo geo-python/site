@@ -30,13 +30,30 @@
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'2017 Autumn',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
@@ -48,21 +65,16 @@
     <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
      
 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -279,23 +291,23 @@ Next we continue to explore some of the basic data operations that are regularly
 <h2>Calculating with DataFrames<a class="headerlink" href="#calculating-with-dataframes" title="Permalink to this headline">¶</a></h2>
 <p>One of the most common things to do in Pandas is to create new columns based on calculations between different variables (columns).</p>
 <p>Creating a new column into our DataFrame is easy by specifying the name of the column and giving it some default value (in this case decimal number 0.0).</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;DIFF&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-1-467690b2748d&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;DIFF&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+<pre class="literal-block">
+In [1]: dataFrame['DIFF'] = 0.0
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-1-467690b2748d&gt; in &lt;module&gt;()
+----&gt; 1 dataFrame['DIFF'] = 0.0
 
-<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+NameError: name 'dataFrame' is not defined
 
-<span class="gp">In [2]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                 ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-2-23b7e8dbf202&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(dataFrame)</span>
+In [2]: print(dataFrame)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-2-23b7e8dbf202&gt; in &lt;module&gt;()
+----&gt; 1 print(dataFrame)
 
-<span class="go">NameError: name &#39;dataFrame&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'dataFrame' is not defined
+</pre>
 <p>Let’s check the datatype of our new column</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;DIFF&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtypes</span>
 <span class="gt">---------------------------------------------------------------------------</span>
@@ -310,62 +322,62 @@ Next we continue to explore some of the basic data operations that are regularly
 <p>We can also easily do calculations inside our DataFrame. Let’s update the column <code class="docutils literal notranslate"><span class="pre">DIFF</span></code> by calculating the difference between <code class="docutils literal notranslate"><span class="pre">MAX</span></code> and <code class="docutils literal notranslate"><span class="pre">MIN</span></code> columns to get an idea how much the temperatures have
 been varying during different days. Calculations can be done with following syntax where we first specify the column that we want to update (i.e. <code class="docutils literal notranslate"><span class="pre">DIFF</span></code>) and then do the actual calculation
 using the columns that we have in our dataFrameFrame.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;DIFF&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;MAX&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;MIN&#39;</span><span class="p">]</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-4-3f5e45abd704&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;DIFF&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;MAX&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;MIN&#39;</span><span class="p">]</span>
+<pre class="literal-block">
+In [4]: dataFrame['DIFF'] = dataFrame['MAX'] - dataFrame['MIN']
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-4-3f5e45abd704&gt; in &lt;module&gt;()
+----&gt; 1 dataFrame['DIFF'] = dataFrame['MAX'] - dataFrame['MIN']
 
-<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+NameError: name 'dataFrame' is not defined
 
-<span class="gp">In [5]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                                                 ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-5-23b7e8dbf202&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(dataFrame)</span>
+In [5]: print(dataFrame)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-5-23b7e8dbf202&gt; in &lt;module&gt;()
+----&gt; 1 print(dataFrame)
 
-<span class="go">NameError: name &#39;dataFrame&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'dataFrame' is not defined
+</pre>
 <p>Okey so now we can see that the calculations were inserted into the <code class="docutils literal notranslate"><span class="pre">DIFF</span></code> column as planned. Notice that you can do calculations directly without first creating the column. Let’s test
 this by calculating the difference between minimum temperature (<code class="docutils literal notranslate"><span class="pre">MIN</span></code>) and the mean temperature of the day (<code class="docutils literal notranslate"><span class="pre">TEMP</span></code>).</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;DIFF_Min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;MIN&#39;</span><span class="p">]</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-6-4e18ca0589cb&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;DIFF_Min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;MIN&#39;</span><span class="p">]</span>
+<pre class="literal-block">
+In [6]: dataFrame['DIFF_Min'] = dataFrame['TEMP'] - dataFrame['MIN']
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-6-4e18ca0589cb&gt; in &lt;module&gt;()
+----&gt; 1 dataFrame['DIFF_Min'] = dataFrame['TEMP'] - dataFrame['MIN']
 
-<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+NameError: name 'dataFrame' is not defined
 
-<span class="gp">In [7]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                                                      ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-7-23b7e8dbf202&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(dataFrame)</span>
+In [7]: print(dataFrame)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-7-23b7e8dbf202&gt; in &lt;module&gt;()
+----&gt; 1 print(dataFrame)
 
-<span class="go">NameError: name &#39;dataFrame&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'dataFrame' is not defined
+</pre>
 <p>As you can see, now we created directly a new column with the calculation. In a similar manner, you can do calculations using as many columns as you need and using any kind of math
 algebra (e.g. subtracttion, addition, multiplication, division, exponentiation, etc.).</p>
 <p>We can for example convert the Fahrenheit temperatures in <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> column into Celsius using the formula that we have seen already many times:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">9</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-8-b731cc09f71d&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">9</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span>
+<pre class="literal-block">
+In [8]: dataFrame['TEMP_Celsius'] = (dataFrame['TEMP'] - 32) / (9/5)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-8-b731cc09f71d&gt; in &lt;module&gt;()
+----&gt; 1 dataFrame['TEMP_Celsius'] = (dataFrame['TEMP'] - 32) / (9/5)
 
-<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+NameError: name 'dataFrame' is not defined
 
-<span class="gp">In [9]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                                                      ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-9-23b7e8dbf202&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(dataFrame)</span>
+In [9]: print(dataFrame)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-9-23b7e8dbf202&gt; in &lt;module&gt;()
+----&gt; 1 print(dataFrame)
 
-<span class="go">NameError: name &#39;dataFrame&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'dataFrame' is not defined
+</pre>
 </div>
 <div class="section" id="selecting-data-using-indices">
 <h2>Selecting data using indices<a class="headerlink" href="#selecting-data-using-indices" title="Permalink to this headline">¶</a></h2>
@@ -373,43 +385,43 @@ algebra (e.g. subtracttion, addition, multiplication, division, exponentiation, 
 In Pandas there are different ways of doing this.</p>
 <p>One common way of selecting only specific rows from your DataFrame is done via <strong>index slicing</strong> to extract part of the DataFrame.</p>
 <p>Let’s select the first five rows and assign them to a variable called <code class="docutils literal notranslate"><span class="pre">rows5</span></code>.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">rows5</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-10-d3acb6d06e91&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">rows5</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<pre class="literal-block">
+In [10]: rows5 = dataFrame[0:5]
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-10-d3acb6d06e91&gt; in &lt;module&gt;()
+----&gt; 1 rows5 = dataFrame[0:5]
 
-<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+NameError: name 'dataFrame' is not defined
 
-<span class="gp">In [11]: </span><span class="k">print</span><span class="p">(</span><span class="n">rows5</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                 ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-11-ed7163f96669&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(rows5)</span>
+In [11]: print(rows5)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-11-ed7163f96669&gt; in &lt;module&gt;()
+----&gt; 1 print(rows5)
 
-<span class="go">NameError: name &#39;rows5&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'rows5' is not defined
+</pre>
 <p>As you can see, slicing is done in a similar manner as with normal Python lists, i.e. you specify index range you want to select inside the square brackets
 <code class="docutils literal notranslate"><span class="pre">selection</span> <span class="pre">=</span> <span class="pre">dataFrame[start_index:stop_index]</span></code>.</p>
 <p>You can also select an individual row from specific position using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> indexing. Here we select all the data values from row 8.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [12]: </span><span class="n">row8</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-12-cb34aff2ba32&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">row8</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+<pre class="literal-block">
+In [12]: row8 = dataFrame.loc[8]
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-12-cb34aff2ba32&gt; in &lt;module&gt;()
+----&gt; 1 row8 = dataFrame.loc[8]
 
-<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+NameError: name 'dataFrame' is not defined
 
-<span class="gp">In [13]: </span><span class="k">print</span><span class="p">(</span><span class="n">row8</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                  ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-13-f4466fc18549&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(row8)</span>
+In [13]: print(row8)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-13-f4466fc18549&gt; in &lt;module&gt;()
+----&gt; 1 print(row8)
 
-<span class="go">NameError: name &#39;row8&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'row8' is not defined
+</pre>
 <div class="admonition attention">
 <p class="first admonition-title">Attention</p>
 <p>Based on what we know about Python lists, what would you expect to see output from the following code?</p>
@@ -419,161 +431,161 @@ In Pandas there are different ways of doing this.</p>
 <p class="last">Select your answer from the poll options at <a class="reference external" href="https://geo-python.github.io/poll/">https://geo-python.github.io/poll/</a>.</p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> indexing returns the values from that position as a <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> where the indices are actually the column names of those variables. Hence, you can access the value of an individual column by referring to its index using following format (both should work):</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="k">print</span><span class="p">(</span><span class="n">row8</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">])</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-14-cb950ac14330&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">row8</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">])</span>
+<pre class="literal-block">
+In [14]: print(row8['TEMP'])
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-14-cb950ac14330&gt; in &lt;module&gt;()
+----&gt; 1 print(row8['TEMP'])
 
-<span class="ne">NameError</span>: name &#39;row8&#39; is not defined
+NameError: name 'row8' is not defined
 
-<span class="gp">In [15]: </span><span class="k">print</span><span class="p">(</span><span class="n">row8</span><span class="o">.</span><span class="n">YEARMODA</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                         ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-15-3a172b663da7&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(row8.YEARMODA)</span>
+In [15]: print(row8.YEARMODA)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-15-3a172b663da7&gt; in &lt;module&gt;()
+----&gt; 1 print(row8.YEARMODA)
 
-<span class="go">NameError: name &#39;row8&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'row8' is not defined
+</pre>
 <p>It is also possible to select multiple rows simultaniously. Here, we select only temperature values (<code class="docutils literal notranslate"><span class="pre">TEMP</span></code>) between indices of 5-10:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">temps_5to10</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;TEMP&#39;</span><span class="p">]</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-16-b11a046cfae5&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">temps_5to10</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;TEMP&#39;</span><span class="p">]</span>
+<pre class="literal-block">
+In [16]: temps_5to10 = dataFrame.loc[5:10, 'TEMP']
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-16-b11a046cfae5&gt; in &lt;module&gt;()
+----&gt; 1 temps_5to10 = dataFrame.loc[5:10, 'TEMP']
 
-<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+NameError: name 'dataFrame' is not defined
 
-<span class="gp">In [17]: </span><span class="k">print</span><span class="p">(</span><span class="n">temps_5to10</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                                    ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-17-3ace724319ea&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(temps_5to10)</span>
+In [17]: print(temps_5to10)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-17-3ace724319ea&gt; in &lt;module&gt;()
+----&gt; 1 print(temps_5to10)
 
-<span class="go">NameError: name &#39;temps_5to10&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'temps_5to10' is not defined
+</pre>
 <p>It is also possible to select multiple columns using those same indices. Here, we select <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> and the <code class="docutils literal notranslate"><span class="pre">TEMP_Celsius</span></code> columns by passing them inside a list (<code class="docutils literal notranslate"><span class="pre">.loc[start_index:stop_index,</span> <span class="pre">list_of_columns]</span></code>):</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">temps_5to10</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]]</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-18-afa97d7f37e8&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">temps_5to10</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]]</span>
+<pre class="literal-block">
+In [18]: temps_5to10 = dataFrame.loc[5:10, ['TEMP', 'TEMP_Celsius']]
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-18-afa97d7f37e8&gt; in &lt;module&gt;()
+----&gt; 1 temps_5to10 = dataFrame.loc[5:10, ['TEMP', 'TEMP_Celsius']]
 
-<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+NameError: name 'dataFrame' is not defined
 
-<span class="gp">In [19]: </span><span class="k">print</span><span class="p">(</span><span class="n">temps_5to10</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                                                      ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-19-3ace724319ea&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(temps_5to10)</span>
+In [19]: print(temps_5to10)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-19-3ace724319ea&gt; in &lt;module&gt;()
+----&gt; 1 print(temps_5to10)
 
-<span class="go">NameError: name &#39;temps_5to10&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'temps_5to10' is not defined
+</pre>
 <p>Of course, you can also get all values from those columns. This, can be done by simply referring to the dataFrame and inserting a list of columns inside the square brackets that you want to include.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [20]: </span><span class="n">temps_only</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]]</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-20-a66480fe3896&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">temps_only</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]]</span>
+<pre class="literal-block">
+In [20]: temps_only = dataFrame[['TEMP', 'TEMP_Celsius']]
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-20-a66480fe3896&gt; in &lt;module&gt;()
+----&gt; 1 temps_only = dataFrame[['TEMP', 'TEMP_Celsius']]
 
-<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+NameError: name 'dataFrame' is not defined
 
-<span class="gp">In [21]: </span><span class="k">print</span><span class="p">(</span><span class="n">temps_only</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                                           ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-21-1a9428ee6f37&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(temps_only)</span>
+In [21]: print(temps_only)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-21-1a9428ee6f37&gt; in &lt;module&gt;()
+----&gt; 1 print(temps_only)
 
-<span class="go">NameError: name &#39;temps_only&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'temps_only' is not defined
+</pre>
 </div>
 <div class="section" id="filtering-and-updating-data">
 <h2>Filtering and updating data<a class="headerlink" href="#filtering-and-updating-data" title="Permalink to this headline">¶</a></h2>
 <p>One really useful feature in Pandas is the ability to easily filter and select rows based on certain criteria using <code class="docutils literal notranslate"><span class="pre">.ix[]</span></code> indexing.
 The following example shows how to select rows when the Celsius temperature has been higher than 15 degrees into variable <code class="docutils literal notranslate"><span class="pre">w_temps</span></code> (warm temperatures).</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [22]: </span><span class="n">w_temps</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">]</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-22-6c84ba90db30&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">w_temps</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">]</span>
+<pre class="literal-block">
+In [22]: w_temps = dataFrame.ix[dataFrame['TEMP_Celsius'] &gt; 15]
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-22-6c84ba90db30&gt; in &lt;module&gt;()
+----&gt; 1 w_temps = dataFrame.ix[dataFrame['TEMP_Celsius'] &gt; 15]
 
-<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+NameError: name 'dataFrame' is not defined
 
-<span class="gp">In [23]: </span><span class="k">print</span><span class="p">(</span><span class="n">w_temps</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                                                 ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-23-cbf24b9bc9d0&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(w_temps)</span>
+In [23]: print(w_temps)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-23-cbf24b9bc9d0&gt; in &lt;module&gt;()
+----&gt; 1 print(w_temps)
 
-<span class="go">NameError: name &#39;w_temps&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'w_temps' is not defined
+</pre>
 <p>It is also possible to combine multiple criteria at the same time. Here, we select temperatures above 15 degrees that were recorded on the second half of June in 2016 (i.e. <code class="docutils literal notranslate"><span class="pre">YEARMODA</span> <span class="pre">&gt;=</span> <span class="pre">20160615</span></code>).
 Combining multiple criteria can be done with <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> operator (AND) or <code class="docutils literal notranslate"><span class="pre">|</span></code> operator (OR). Notice, that it is often useful to separate the different clauses inside the parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [24]: </span><span class="n">w_temps2</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">ix</span><span class="p">[(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;YEARMODA&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">20160615</span><span class="p">)]</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-24-9105d55e97a3&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">w_temps2</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">ix</span><span class="p">[(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;YEARMODA&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">20160615</span><span class="p">)]</span>
+<pre class="literal-block">
+In [24]: w_temps2 = dataFrame.ix[(dataFrame['TEMP_Celsius'] &gt; 15) &amp; (dataFrame['YEARMODA'] &gt;= 20160615)]
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-24-9105d55e97a3&gt; in &lt;module&gt;()
+----&gt; 1 w_temps2 = dataFrame.ix[(dataFrame['TEMP_Celsius'] &gt; 15) &amp; (dataFrame['YEARMODA'] &gt;= 20160615)]
 
-<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+NameError: name 'dataFrame' is not defined
 
-<span class="gp">In [25]: </span><span class="k">print</span><span class="p">(</span><span class="n">w_temps2</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                                                                                          ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-25-6f06883d8519&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(w_temps2)</span>
+In [25]: print(w_temps2)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-25-6f06883d8519&gt; in &lt;module&gt;()
+----&gt; 1 print(w_temps2)
 
-<span class="go">NameError: name &#39;w_temps2&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'w_temps2' is not defined
+</pre>
 <p>Now we have a subset of our DataFrame with only rows where the <code class="docutils literal notranslate"><span class="pre">TEMP_Celsius</span></code> is above 15 and the dates in <code class="docutils literal notranslate"><span class="pre">YEARMODA</span></code> column start from 15th of June.</p>
 <p>Notice, that the index values (numbers on the left) are still showing the positions from the original DataFrame. It is possible to <strong>reset</strong> the index using <code class="docutils literal notranslate"><span class="pre">reset_index()</span></code> function that
 might be useful in some cases to be able to slice the data in a similar manner as above. By default the <code class="docutils literal notranslate"><span class="pre">reset_index()</span></code> would make a new column called <code class="docutils literal notranslate"><span class="pre">index</span></code> to keep track on the previous
 index which might be useful in some cases but here not, so we can omit that by passing parameter <code class="docutils literal notranslate"><span class="pre">drop=True</span></code>.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [26]: </span><span class="n">w_temps2</span> <span class="o">=</span> <span class="n">w_temps2</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-26-cf18e9f68848&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">w_temps2</span> <span class="o">=</span> <span class="n">w_temps2</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<pre class="literal-block">
+In [26]: w_temps2 = w_temps2.reset_index(drop=True)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-26-cf18e9f68848&gt; in &lt;module&gt;()
+----&gt; 1 w_temps2 = w_temps2.reset_index(drop=True)
 
-<span class="ne">NameError</span>: name &#39;w_temps2&#39; is not defined
+NameError: name 'w_temps2' is not defined
 
-<span class="gp">In [27]: </span><span class="k">print</span><span class="p">(</span><span class="n">w_temps2</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                                    ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-27-6f06883d8519&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(w_temps2)</span>
+In [27]: print(w_temps2)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-27-6f06883d8519&gt; in &lt;module&gt;()
+----&gt; 1 print(w_temps2)
 
-<span class="go">NameError: name &#39;w_temps2&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'w_temps2' is not defined
+</pre>
 <p>As can be seen, now the index values goes from 0 to 12.</p>
 </div>
 <div class="section" id="dealing-with-missing-data">
 <h2>Dealing with missing data<a class="headerlink" href="#dealing-with-missing-data" title="Permalink to this headline">¶</a></h2>
 <p>Next we update the first five values of <code class="docutils literal notranslate"><span class="pre">TEMP_Celsius</span></code> in our <code class="docutils literal notranslate"><span class="pre">w_temps2</span></code> DataFrame to be <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (not-a-number). This can be done by utilizing the <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> indexing.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [28]: </span><span class="n">w_temps2</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-28-3251b4a5c3b5&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">w_temps2</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+<pre class="literal-block">
+In [28]: w_temps2.loc[:4, 'TEMP_Celsius'] = None
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-28-3251b4a5c3b5&gt; in &lt;module&gt;()
+----&gt; 1 w_temps2.loc[:4, 'TEMP_Celsius'] = None
 
-<span class="ne">NameError</span>: name &#39;w_temps2&#39; is not defined
+NameError: name 'w_temps2' is not defined
 
-<span class="gp">In [29]: </span><span class="k">print</span><span class="p">(</span><span class="n">w_temps2</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                                 ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-29-6f06883d8519&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(w_temps2)</span>
+In [29]: print(w_temps2)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-29-6f06883d8519&gt; in &lt;module&gt;()
+----&gt; 1 print(w_temps2)
 
-<span class="go">NameError: name &#39;w_temps2&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'w_temps2' is not defined
+</pre>
 <p>Now we can see that we have some missing data in our DataFrame.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -583,42 +595,42 @@ index which might be useful in some cases but here not, so we can omit that by p
 the DataFrame or <strong>fill</strong> them with some value. In Pandas both of these options are really easy to do.</p>
 <p>Let’s first see how we can remove the NoData values (i.e. clean the data) using <code class="docutils literal notranslate"><span class="pre">dropna()</span></code> function. Inside the function
 you can pass with <code class="docutils literal notranslate"><span class="pre">subset</span></code> parameter a list of column(s) from which the NaN values should be searched from.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [30]: </span><span class="n">w_temps_clean</span> <span class="o">=</span> <span class="n">w_temps2</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">])</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-30-fce4ded4bd09&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">w_temps_clean</span> <span class="o">=</span> <span class="n">w_temps2</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">])</span>
+<pre class="literal-block">
+In [30]: w_temps_clean = w_temps2.dropna(subset=['TEMP_Celsius'])
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-30-fce4ded4bd09&gt; in &lt;module&gt;()
+----&gt; 1 w_temps_clean = w_temps2.dropna(subset=['TEMP_Celsius'])
 
-<span class="ne">NameError</span>: name &#39;w_temps2&#39; is not defined
+NameError: name 'w_temps2' is not defined
 
-<span class="gp">In [31]: </span><span class="k">print</span><span class="p">(</span><span class="n">w_temps_clean</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                                                  ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-31-d20b7d7caa04&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(w_temps_clean)</span>
+In [31]: print(w_temps_clean)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-31-d20b7d7caa04&gt; in &lt;module&gt;()
+----&gt; 1 print(w_temps_clean)
 
-<span class="go">NameError: name &#39;w_temps_clean&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'w_temps_clean' is not defined
+</pre>
 <p>As you can see, as a result we now have a DataFrame without the NoData values.</p>
 <p>Other option is to fill the NoData with some value using <code class="docutils literal notranslate"><span class="pre">fillna()</span></code> -function. Here we fill it with value 0.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [32]: </span><span class="n">w_temps_na_filled</span> <span class="o">=</span> <span class="n">w_temps2</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-32-91a0325d8ba1&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">w_temps_na_filled</span> <span class="o">=</span> <span class="n">w_temps2</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<pre class="literal-block">
+In [32]: w_temps_na_filled = w_temps2.fillna(0)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-32-91a0325d8ba1&gt; in &lt;module&gt;()
+----&gt; 1 w_temps_na_filled = w_temps2.fillna(0)
 
-<span class="ne">NameError</span>: name &#39;w_temps2&#39; is not defined
+NameError: name 'w_temps2' is not defined
 
-<span class="gp">In [33]: </span><span class="k">print</span><span class="p">(</span><span class="n">w_temps_na_filled</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                                ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-33-cf35110e4b76&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(w_temps_na_filled)</span>
+In [33]: print(w_temps_na_filled)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-33-cf35110e4b76&gt; in &lt;module&gt;()
+----&gt; 1 print(w_temps_na_filled)
 
-<span class="go">NameError: name &#39;w_temps_na_filled&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'w_temps_na_filled' is not defined
+</pre>
 <p>As a result we now have a DataFrame where NoData values are filled with value 0.00000.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
@@ -631,81 +643,81 @@ we would have dramatically changed the mean Celsius temperature because the 0 va
 <p>Quite often it is useful to be able to sort your data (descending/ascending) based on values in some column
 This can be easily done with Pandas using <code class="docutils literal notranslate"><span class="pre">sort_values(by='YourColumnName')</span></code> -function.</p>
 <p>Let’s first sort the values on ascending order based on the <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> column:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [34]: </span><span class="n">sorted_temp_a</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;TEMP&#39;</span><span class="p">)</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-34-65b63b18249e&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sorted_temp_a</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;TEMP&#39;</span><span class="p">)</span>
+<pre class="literal-block">
+In [34]: sorted_temp_a = dataFrame.sort_values(by='TEMP')
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-34-65b63b18249e&gt; in &lt;module&gt;()
+----&gt; 1 sorted_temp_a = dataFrame.sort_values(by='TEMP')
 
-<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+NameError: name 'dataFrame' is not defined
 
-<span class="gp">In [35]: </span><span class="k">print</span><span class="p">(</span><span class="n">sorted_temp_a</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                                           ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-35-3393d4da6d85&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(sorted_temp_a)</span>
+In [35]: print(sorted_temp_a)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-35-3393d4da6d85&gt; in &lt;module&gt;()
+----&gt; 1 print(sorted_temp_a)
 
-<span class="go">NameError: name &#39;sorted_temp_a&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'sorted_temp_a' is not defined
+</pre>
 <p>Of course, it is also possible to sort them in descending order with <code class="docutils literal notranslate"><span class="pre">ascending=False</span></code> parameter:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [36]: </span><span class="n">sorted_temp_d</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-36-f81bb97822d3&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sorted_temp_d</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<pre class="literal-block">
+In [36]: sorted_temp_d = dataFrame.sort_values(by='TEMP', ascending=False)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-36-f81bb97822d3&gt; in &lt;module&gt;()
+----&gt; 1 sorted_temp_d = dataFrame.sort_values(by='TEMP', ascending=False)
 
-<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+NameError: name 'dataFrame' is not defined
 
-<span class="gp">In [37]: </span><span class="k">print</span><span class="p">(</span><span class="n">sorted_temp_d</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                                                            ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-37-7fb5979785a6&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(sorted_temp_d)</span>
+In [37]: print(sorted_temp_d)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-37-7fb5979785a6&gt; in &lt;module&gt;()
+----&gt; 1 print(sorted_temp_d)
 
-<span class="go">NameError: name &#39;sorted_temp_d&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'sorted_temp_d' is not defined
+</pre>
 </div>
 <div class="section" id="rounding-and-finding-unique-values">
 <h2>Rounding and finding unique values<a class="headerlink" href="#rounding-and-finding-unique-values" title="Permalink to this headline">¶</a></h2>
 <p>It is possible to round values easily by using <code class="docutils literal notranslate"><span class="pre">round()</span></code> function. Here we round the Celsius temperatures with 0-decimals</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [38]: </span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;Celsius_rounded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-38-279cbb9149b0&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;Celsius_rounded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP_Celsius&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<pre class="literal-block">
+In [38]: dataFrame['Celsius_rounded'] = dataFrame['TEMP_Celsius'].round(0)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-38-279cbb9149b0&gt; in &lt;module&gt;()
+----&gt; 1 dataFrame['Celsius_rounded'] = dataFrame['TEMP_Celsius'].round(0)
 
-<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+NameError: name 'dataFrame' is not defined
 
-<span class="gp">In [39]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                                                            ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-39-23b7e8dbf202&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(dataFrame)</span>
+In [39]: print(dataFrame)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-39-23b7e8dbf202&gt; in &lt;module&gt;()
+----&gt; 1 print(dataFrame)
 
-<span class="go">NameError: name &#39;dataFrame&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'dataFrame' is not defined
+</pre>
 <p>Now we have rounded our Celsius temperatures. Sometimes it is useful to extract the unique values that you have in your column.
 We can do that by using <code class="docutils literal notranslate"><span class="pre">unique_values()</span></code> -function:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [40]: </span><span class="n">unique</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;Celsius_rounded&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-40-47fcb7836a00&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">unique</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;Celsius_rounded&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<pre class="literal-block">
+In [40]: unique = dataFrame['Celsius_rounded'].unique()
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-40-47fcb7836a00&gt; in &lt;module&gt;()
+----&gt; 1 unique = dataFrame['Celsius_rounded'].unique()
 
-<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+NameError: name 'dataFrame' is not defined
 
-<span class="gp">In [41]: </span><span class="n">unique</span>
-<span class="go">                                                                                                                                                                                                                                                                                                         ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-41-65177198fa9c&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 unique</span>
+In [41]: unique
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-41-65177198fa9c&gt; in &lt;module&gt;()
+----&gt; 1 unique
 
-<span class="go">NameError: name &#39;unique&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'unique' is not defined
+</pre>
 <p>As a result we get an array of unique values in that column.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -721,23 +733,23 @@ We can do that by using <code class="docutils literal notranslate"><span class="
 </div>
 </div>
 <p>How many days with unique mean temperature did we have in June 2016? We can check that!</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [43]: </span><span class="n">uniq_temp_days</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique</span><span class="p">)</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-43-8719dceea370&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">uniq_temp_days</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique</span><span class="p">)</span>
+<pre class="literal-block">
+In [43]: uniq_temp_days = len(unique)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-43-8719dceea370&gt; in &lt;module&gt;()
+----&gt; 1 uniq_temp_days = len(unique)
 
-<span class="ne">NameError</span>: name &#39;unique&#39; is not defined
+NameError: name 'unique' is not defined
 
-<span class="gp">In [44]: </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;There were&quot;</span><span class="p">,</span> <span class="n">uniq_temp_days</span><span class="p">,</span> <span class="s2">&quot;days with unique mean temperatures in June 2016.&quot;</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                    ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-44-a41766ad2f08&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 print(&quot;There were&quot;, uniq_temp_days, &quot;days with unique mean temperatures in June 2016.&quot;)</span>
+In [44]: print(&quot;There were&quot;, uniq_temp_days, &quot;days with unique mean temperatures in June 2016.&quot;)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-44-a41766ad2f08&gt; in &lt;module&gt;()
+----&gt; 1 print(&quot;There were&quot;, uniq_temp_days, &quot;days with unique mean temperatures in June 2016.&quot;)
 
-<span class="go">NameError: name &#39;uniq_temp_days&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'uniq_temp_days' is not defined
+</pre>
 </div>
 <div class="section" id="writing-data">
 <h2>Writing data<a class="headerlink" href="#writing-data" title="Permalink to this headline">¶</a></h2>
@@ -784,32 +796,32 @@ in all columns when writing the data to a file (changing the value 1 to 2 would 
 <p>It is quite common that people (especially non-programmers) want you to deliver data in MS Excel format. Saving DataFrame into Excel is also straightforward in Pandas.
 First, you need to initialize a specific <code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code> object, and then you specify the filename and the spreadsheet name where you want to save the DataFrame.
 Optionally, you can also omit the index and specify the float formatting as in our earlier examples:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [49]: </span><span class="n">excel_output_fp</span> <span class="o">=</span> <span class="s2">&quot;Kumpula_temps_June_2016.xlsx&quot;</span>
+<pre class="literal-block">
+In [49]: excel_output_fp = &quot;Kumpula_temps_June_2016.xlsx&quot;
 
-<span class="gp">In [50]: </span><span class="n">writer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelWriter</span><span class="p">(</span><span class="n">excel_output_fp</span><span class="p">)</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-50-17f6f6c3da7e&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">writer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelWriter</span><span class="p">(</span><span class="n">excel_output_fp</span><span class="p">)</span>
+In [50]: writer = pd.ExcelWriter(excel_output_fp)
+---------------------------------------------------------------------------
+ModuleNotFoundError                       Traceback (most recent call last)
+&lt;ipython-input-50-17f6f6c3da7e&gt; in &lt;module&gt;()
+----&gt; 1 writer = pd.ExcelWriter(excel_output_fp)
 
-<span class="nn">~/virtualenv/python3.6.3/lib/python3.6/site-packages/pandas/io/excel.py</span> in <span class="ni">__init__</span><span class="nt">(self, path, engine, **engine_kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">996</span>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">engine_kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">997</span>         <span class="c1"># Use the openpyxl module as the Excel writer.</span>
-<span class="ne">--&gt; </span><span class="mi">998</span>         <span class="kn">from</span> <span class="nn">openpyxl.workbook</span> <span class="kn">import</span> <span class="n">Workbook</span>
-<span class="g g-Whitespace">    </span><span class="mi">999</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1000</span>         <span class="nb">super</span><span class="p">(</span><span class="n">_OpenpyxlWriter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">**</span><span class="n">engine_kwargs</span><span class="p">)</span>
+~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/excel/_openpyxl.py in __init__(self, path, engine, mode, **engine_kwargs)
+     17     def __init__(self, path, engine=None, mode=&quot;w&quot;, **engine_kwargs):
+     18         # Use the openpyxl module as the Excel writer.
+---&gt; 19         from openpyxl.workbook import Workbook
+     20 
+     21         super().__init__(path, mode=mode, **engine_kwargs)
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;openpyxl&#39;
+ModuleNotFoundError: No module named 'openpyxl'
 
-<span class="gp">In [51]: </span><span class="n">dataFrame</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;Kumpula_temperatures&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%.1f</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="go">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ---------------------------------------------------------------------------</span>
-<span class="go">NameError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-51-c8c2004e9003&gt; in &lt;module&gt;()</span>
-<span class="go">----&gt; 1 dataFrame.to_excel(writer, sheet_name=&quot;Kumpula_temperatures&quot;, index=False, float_format=&quot;%.1f&quot;)</span>
+In [51]: dataFrame.to_excel(writer, sheet_name=&quot;Kumpula_temperatures&quot;, index=False, float_format=&quot;%.1f&quot;)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-51-c8c2004e9003&gt; in &lt;module&gt;()
+----&gt; 1 dataFrame.to_excel(writer, sheet_name=&quot;Kumpula_temperatures&quot;, index=False, float_format=&quot;%.1f&quot;)
 
-<span class="go">NameError: name &#39;dataFrame&#39; is not defined</span>
-</pre></div>
-</div>
+NameError: name 'dataFrame' is not defined
+</pre>
 <p>As a result you have the DataFrame in Excel format:</p>
 <div class="last figure">
 <a class="reference internal image-reference" href="../../_images/pandas_save_excel_result_1.PNG"><img alt="../../_images/pandas_save_excel_result_1.PNG" src="../../_images/pandas_save_excel_result_1.PNG" style="width: 500px;" /></a>
@@ -829,7 +841,7 @@ Optionally, you can also omit the index and specify the float formatting as in o
         <a href="ex-5.html" class="btn btn-neutral float-right" title="Exercise 5" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="pandas-basics.html" class="btn btn-neutral" title="Exploring data using Pandas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="pandas-basics.html" class="btn btn-neutral float-left" title="Exploring data using Pandas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -864,6 +876,10 @@ Optionally, you can also omit the index and specify the float formatting as in o
     </span>
     <div class="rst-other-versions">
         <dl>
+            <dt>Tags</dt>
+            <dd><a href="../../../2018/index.html">2018</a></dd>
+        </dl>
+        <dl>
             <dt>Branches</dt>
             <dd><a href="pandas-basic-operations.html">2017</a></dd>
             <dd><a href="../../../develop/index.html">develop</a></dd>
@@ -873,36 +889,16 @@ Optionally, you can also omit the index and specify the float formatting as in o
 </div>
 
 
-  
-
-    
-    
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../../',
-              VERSION:'2017 Autumn',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
