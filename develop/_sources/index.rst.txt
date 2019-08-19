@@ -30,39 +30,39 @@ Schedule
 The materials are divided into weekly themes that are published at these pages every Wednesday morning before each lesson. Lessons are held with following schedule (see :doc:`here for further details about schedule and lecture rooms <course-info/course-info>`).
 The **learning goals** for each lesson are separately documented :doc:`in here <course-info/learning-goals>`.
 
-+----------+----------------+----------------------+
-| Week     | Lecture date   | Theme                |
-+==========+================+======================+
-|**1**     | 5.9.2018       | Basic concepts of    |
-|          |                | Python and computer  |
-|          |                | programs             |
-|          |                |                      |
-+----------+----------------+----------------------+
-|**2**     | 12.9.2018      | Diving into Python   |
-|          |                |                      |
-|          |                |                      |
-+----------+----------------+----------------------+
-|**3**     |19.9.2018       | Repeating tasks      |
-|          |                | and making decisions |
-|          |                |                      |
-|          |                |                      |
-+----------+----------------+----------------------+
-|**4**     | 26.9.2018      | Creating and using   |
-|          |                | functions            |
-|          |                |                      |
-+----------+----------------+----------------------+
-|**5**     | 3.10.2018      | Data analysis        |
-|          |                | Part I               |
-|          |                |                      |
-+----------+----------------+----------------------+
-|**6**     |  10.10.2018    | Data analysis        |
-|          |                | Part II +            |
-|          |                | Dealing with errors  |
-+----------+----------------+----------------------+
-|**7**     | 17.10.2018     | Data visualization   |
-|          |                |                      |
-|          |                |                      |
-+----------+----------------+----------------------+
++----------+----------------------+
+| Week     | Theme                |
++==========+======================+
+|**1**     | Basic concepts of    |
+|          | Python and computer  |
+|          | programs             |
+|          |                      |
++----------+----------------------+
+|**2**     | Diving into Python   |
+|          |                      |
+|          |                      |
++----------+----------------------+
+|**3**     | Repeating tasks      |
+|          | and making decisions |
+|          |                      |
+|          |                      |
++----------+----------------------+
+|**4**     | Creating and using   |
+|          | functions            |
+|          |                      |
++----------+----------------------+
+|**5**     | Data analysis        |
+|          | Part I               |
+|          |                      |
++----------+----------------------+
+|**6**     | Data analysis        |
+|          | Part II +            |
+|          | Dealing with errors  |
++----------+----------------------+
+|**7**     | Data visualization   |
+|          |                      |
+|          |                      |
++----------+----------------------+
 
 |
 
