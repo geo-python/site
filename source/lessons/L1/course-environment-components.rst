@@ -146,7 +146,7 @@ Slack
 ------
 
 During the course we will use actively an application called `Slack <http://slack.com>`__ for discussion and
-questions about the lessons and exercises. All enrolled students have received an invite link to the `geopython2018` workspace at the start of the course.
+questions about the lessons and exercises. All enrolled students have received an invite link to the `geopython2019` workspace at the start of the course.
 :doc:`Read more about Slack  <slack-usage>`.
 
 Voting and polling
