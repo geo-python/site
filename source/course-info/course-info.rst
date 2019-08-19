@@ -55,6 +55,6 @@ Course websites
 
 - Course websites for Period II
 
-  - Automating GIS processes: `<https://autogis.github.io>`_
-  - Introduction to Quantitative Geology: `<https://introqg.github.io>`_
+  - Automating GIS processes (GEOG-329): `<https://autogis.github.io>`_
+  - Introduction to Quantitative Geology (GEOK_3031): `<https://introqg.github.io>`_
 
