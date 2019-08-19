@@ -10,8 +10,8 @@ This course will also teach you several skills related to open science. Each wee
 | 1.                              |  After week 1 you will be able to:                                                  |
 |                                 |     - Explain the basic concepts of a                                               |
 |                                 |        1. computer,                                                                 |
-|                                 |        2. a program, and                                                            |
-|                                 |        3. a programming language                                                    |
+|                                 |        2. program, and                                                              |
+|                                 |        3. programming language                                                      |
 |                                 |    - Define & use variables                                                         |
 |                                 |    - Describe the concept of a data type                                            |
 |                                 |    - Convert data types in Python                                                   |
