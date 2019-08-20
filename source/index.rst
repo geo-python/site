@@ -27,8 +27,9 @@ on the laboratory exercises, however the laboratory summary write-ups that you s
 Schedule
 --------
 
-The materials are divided into weekly themes that are published at these pages every Wednesday morning before each lesson. Lessons are held with following schedule (see :doc:`here for further details about schedule and lecture rooms <course-info/course-info>`).
-The **learning goals** for each lesson are separately documented :doc:`in here <course-info/learning-goals>`.
+Lessons and practical exercise sessions are held at the University of Helsinki during the autumn semester. Please find teaching dates and rooms :doc:`under course-info <course-info/course-info>`).
+The course runs for seven weeks, and **we publish updated course materials at these pages every Wednesday morning before the lesson.**
+Themes for each week are listed below. Read more about the weekly :doc:`learning goals in here <course-info/learning-goals>`.
 
 +----------+----------------------+
 | Week     | Theme                |
@@ -63,10 +64,6 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
 |          |                      |
 |          |                      |
 +----------+----------------------+
-
-|
-
-**Practical sessions** for enrolled students are organized each week on Thursdays and Fridays (see schedule and rooms :doc:`here <course-info/course-info>`).
 
 .. admonition:: Open Access!
 
