@@ -92,7 +92,7 @@ CSC Notebooks is available only for students who are affiliated with Finnish uni
 
     1. Log in
     2. Go to Account-tab
-    3. Join Group ``Geo-Python`` using the joining code: **geo-python-tadl4**
+    3. Join Group **Geo-Python** using the joining code: ``geo-python-tadl4``
 
     After joining the group, you should be able to view an environment called `JupyterLab` on the Dashboard.
 
