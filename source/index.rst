@@ -104,7 +104,7 @@ Themes for each week are listed below. Read more about the weekly :doc:`learning
     notebooks/L1/a-taste-of-python.ipynb
     lessons/L1/exercise-1
 
-.. 
+..
     .. toctree::
         :maxdepth: 2
         :caption: Lesson 2
