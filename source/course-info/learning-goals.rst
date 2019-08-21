@@ -8,17 +8,19 @@ This course will also teach you several skills related to open science. Each wee
 | Class                           | Learning goals                                                                      |
 +=================================+=====================================================================================+
 | 1.                              |  After week 1 you will be able to:                                                  |
-|                                 |     - explain the basic concepts of a                                               |
+|                                 |    - be familiar with the that tools we are using during this course                |
+|                                 |    - explain the basic concepts of a                                                |
 |                                 |        1. computer,                                                                 |
 |                                 |        2. program, and                                                              |
 |                                 |        3. programming language                                                      |
 |                                 |    - define and use variables                                                       |
 |                                 |    - describe the concept of a data type                                            |
-|                                 |    - convert data types in Python                                                   |
+|                                 |    - determine the data type of a variable in Python                                |
 |                                 |                                                                                     |
 +---------------------------------+-------------------------------------------------------------------------------------+
 | 2.                              |  After week 2 you will be able to:                                                  |
-|                                 |     - understand the basics of version control                                      |
+|                                 |      - understand the basics of version control                                     |
+|                                 |     - conduct basic data type conversions                                           |
 |                                 |     - store and access values in a list                                             |
 |                                 |     - explain the concept of an index value                                         |
 |                                 |     - use Jupyter notebook for writing and documenting your code                    |
