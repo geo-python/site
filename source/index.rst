@@ -154,14 +154,3 @@ Themes for each week are listed below. Read more about the weekly :doc:`learning
         lessons/L6/interpreting-errors
         lessons/L6/debugging-scripts
         lessons/L6/exercise-6
-.. 
-    .. toctree::
-        :maxdepth: 2
-        :caption: Lesson 7
-.. 
-        lessons/L7/overview
-        lessons/L7/python-plotting
-        lessons/L7/plot-anatomy
-        notebooks/L7/matplotlib.ipynb
-        notebooks/L7/advanced-plotting.ipynb
-        lessons/L7/exercise-7
