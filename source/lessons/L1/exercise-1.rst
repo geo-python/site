@@ -47,7 +47,7 @@ Your assignment is to
 1. Post a message in the `#week-1 <https://geopython2019.slack.com/messages/CM157NX41>`__ Slack channel with your name, GitHub username and course.
 2. Accept exercise-1 in Github classroom and upload the jupyter notebook containing the Python commands needed to generate the required output for Part 2.
 
-We ask that you complete this exercise by **09:00 next Wednesday(11 September 2019)**.
+We ask that you complete this exercise by no later than **09:00 next Wednesday (11 September 2019)**.
 
 .. note::
 
