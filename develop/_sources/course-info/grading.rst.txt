@@ -5,12 +5,12 @@ General grading breakdown
 -------------------------
 Course grades will be given using the standard six-level grading scale from 0 to 5:
 
-    5 (Excellent)
-    4 (Very Good)
-    3 (Good)
-    2 (Satisfactory)
-    1 (Passable)
-    0 (Fail)
+- 5 (Excellent)
+- 4 (Very Good)
+- 3 (Good)
+- 2 (Satisfactory)
+- 1 (Passable)
+- 0 (Fail)
 
 For the Geo-Python part of the course your grade will be based on weekly laboratory exercises, 7 in total.
 
