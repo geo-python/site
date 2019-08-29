@@ -27,7 +27,7 @@ on the laboratory exercises, however the laboratory summary write-ups that you s
 Schedule
 --------
 
-Lessons and practical exercise sessions are held at the University of Helsinki during the autumn semester. Please find teaching dates and rooms :doc:`under course-info <course-info/course-info>`).
+Lessons and practical exercise sessions are held at the University of Helsinki during the autumn semester. Please find teaching dates and rooms under :doc:`general info <course-info/course-info>`).
 The course runs for seven weeks, and **we publish updated course materials at these pages every Wednesday morning before the lesson.**
 Themes for each week are listed below. Read more about the weekly :doc:`learning goals in here <course-info/learning-goals>`.
 
