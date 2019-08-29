@@ -20,13 +20,13 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Geo-Python'
-copyright = '2018, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki'
+copyright = '2019, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki'
 author = 'David Whipp, Henrikki Tenkanen and Vuokko Heikinheimo'
 
 # The short X.Y version
-version = '2018'
+version = '2019'
 # The full version, including alpha/beta/rc tags
-release = '2018'
+release = '2019'
 
 
 # -- General configuration ---------------------------------------------------
@@ -223,4 +223,4 @@ nbsphinx_allow_errors = True
 
 # Sphinx versioning settings
 scv_show_banner = True
-scv_whitelist_branches = ('master', 'develop', '2017')
+scv_whitelist_branches = ('master', 'develop')

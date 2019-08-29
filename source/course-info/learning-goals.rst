@@ -1,53 +1,60 @@
 Learning goals
 ==============
 
-After each week you should be able to achieve following learning goals.
+During the Geo-Python course you will learn the basics of programming and scientific data analysis in the Python programming language.
+This course will also teach you several skills related to open science. Each week you will learn new skills building upon the content of the previous weeks:
 
 +---------------------------------+-------------------------------------------------------------------------------------+
 | Class                           | Learning goals                                                                      |
 +=================================+=====================================================================================+
-| 1.                              |  - Explain the basic concepts of a                                                  |
+| 1.                              |  After week 1 you will be able to:                                                  |
+|                                 |     - explain the basic concepts of a                                               |
 |                                 |        1. computer,                                                                 |
-|                                 |        2. a program, and                                                            |
-|                                 |        3. a programming language                                                    |
-|                                 |  - Define & use variables                                                           |
-|                                 |  - Describe the concept of a data type                                              |
-|                                 |  - Know how to determine a data type in Python                                      |
+|                                 |        2. program, and                                                              |
+|                                 |        3. programming language                                                      |
+|                                 |    - define and use variables                                                       |
+|                                 |    - describe the concept of a data type                                            |
+|                                 |    - convert data types in Python                                                   |
 |                                 |                                                                                     |
 +---------------------------------+-------------------------------------------------------------------------------------+
-| 2.                              |  At the end of class 2 you should be able to:                                       |
-|                                 |     - Access your user space in Github.com                                          |
-|                                 |     - Explain the concept of an index value                                         |
-|                                 |     - Use Spyder IDE to create, edit and test scripts                               |
+| 2.                              |  After week 2 you will be able to:                                                  |
+|                                 |     - understand the basics of version control                                      |
+|                                 |     - store and access values in a list                                             |
+|                                 |     - explain the concept of an index value                                         |
+|                                 |     - use Jupyter notebook for writing and documenting your code                    |
 |                                 |                                                                                     |
 +---------------------------------+-------------------------------------------------------------------------------------+
-| 3.                              |  At the end of class 3 you should be able to:                                       |
-|                                 |    - Create a for loop and use it to repeat a section of code                       |
-|                                 |    - Use if, elif, and else statements to make decisions in their programs          |
-|                                 |    - Explain how values can be compared using comparison operators                  |
+| 3.                              |   After week 3 you will be able to:                                                 |
+|                                 |    - create a for loop and use it to repeat a section of code                       |
+|                                 |    - understand the logic of conditional statements and comparison operators        |
+|                                 |    - write a short piece of pseudo-code                                             |
+|                                 |    - format and indent the code when using for-loops and conditional statements     |
 |                                 |                                                                                     |
 +---------------------------------+-------------------------------------------------------------------------------------+
-| 4.                              |  At the end of class 4 you should be able to:                                       |
-|                                 |    - Explain how functions are used and why they are so useful                      |
-|                                 |    - Create your own functions to calculate an output value based on an input value |
-|                                 |    - Save functions to a script file for future use                                 |
+| 4.                              |   After week 4 you will be able to:                                                 |
+|                                 |    - explain how functions are used and why they are useful                         |
+|                                 |    - create simple functions with parameters and return values                      |
+|                                 |    - save functions to a separate script file                                       |
+|                                 |    - write docstrings for functions and script files                                |
 |                                 |                                                                                     |
 +---------------------------------+-------------------------------------------------------------------------------------+
-| 5.                              |  At the end of class 5 you should be able to:                                       |
-|                                 |    - Explain what a Python module is and how they can be used                       |
-|                                 |    - Read data into a program from a .csv text file                                 |
-|                                 |    - Do simple data analysis using Numpy and/or Pandas                              |
+| 5.                              |   After week 5 you will be able to:                                                 |
+|                                 |    - explain what a Python module is and how they can be used                       |
+|                                 |    - search for documentation about a module                                        |
+|                                 |    - read tabular data from a file using the Pandas module                          |
+|                                 |    - understand the structure and basic functionality of a Pandas DataFrame         |
+|                                 |    - explore data in a Pandas DataFrame                                             |
 |                                 |                                                                                     |
 +---------------------------------+-------------------------------------------------------------------------------------+
-| 6.                              |  At the end of class 6 you should be able to:                                       |
-|                                 |    - Analyze tabular data in Python (using skills you have learned)                 |
-|                                 |    - Understand common Python errors                                                |
-|                                 |    - Follow a simple set of guidelines to debug programs efficiently                |
+| 6.                              |   After week 6 you will be able to:                                                 |
+|                                 |    - manage and analyze tabular data using Pandas                                   |
+|                                 |    - understand common Python errors                                                |
+|                                 |    - follow a simple set of guidelines to debug programs efficiently                |
 |                                 |                                                                                     |
 +---------------------------------+-------------------------------------------------------------------------------------+
-| 7.                              |  At the end of class 7 you should be able to:                                       |
-|                                 |    - Make basic x-y plots of data                                                   |
-|                                 |    - Manipulate plot formatting                                                     |
-|                                 |    - Save plots as image files                                                      |
+| 7.                              |   After week 7 you will be able to:                                                 |
+|                                 |    - visualize tabular data using matplotlib                                        |
+|                                 |    - manipulate plot formatting                                                     |
+|                                 |    - save plots as image files                                                      |
 |                                 |                                                                                     |
 +---------------------------------+-------------------------------------------------------------------------------------+
