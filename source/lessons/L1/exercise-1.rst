@@ -1,19 +1,14 @@
 Exercise 1
 ==========
 
-.. warning::
-
-    Please note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
-
-The exercise for this week should be pretty simple and comprises two parts.
-First, you need to go to GitHub.com and create an account.
-Second, you need to go through the process of using one of the cloud computers from start to finish.
-Both tasks are described below, as well as what you need to submit for each task.
+The exercise for this week has two parts.
+First, you need to go to GitHub.com, create an account and let us know your GitHub username via Slack.
+Secondly, you will cook up some python using the skills you learned during the first lesson!
 
 Part 1 - Creating a GitHub.com account and using Slack
 ------------------------------------------------------
 
-The process for creating a `GitHub.com <https://www.github.com>`__ account is straightforward.
+A) create an account on `GitHub.com <https://www.github.com>`__ :
 
 1. Open a web browser and navigate to https://www.github.com.
 2. On the `GitHub.com <https://www.github.com>`__ home page, click on **Sign up** on the top right.
@@ -27,7 +22,9 @@ The process for creating a `GitHub.com <https://www.github.com>`__ account is st
 
 3. Enter a username, email address, and password. Click Create an account.
 4. When prompted to select a plan, choose the free option. We will provide private repositories through the course GitHub organization account.
-5. Once you have created your `GitHub.com <https://www.github.com>`__ account post a message in the `#week-1 <https://geopython2019.slack.com/messages/CM157NX41>`__ Slack channel with your name,  username and course. For example, "Dave Whipp, davewhipp, IntroQG" or "Henrikki Tenkanen, HTenkanen, AutoGIS". This will help us know you were able to create your account, that you have also figured out how to use Slack, and we'll have all of your `GitHub.com <https://www.github.com>`__ usernames in one place :).
+
+B) Once you have a GitHub account, go to **Slack** and **post a message** in the `#week-1 <https://geopython2019.slack.com/messages/CM157NX41>`__ channel with your **full name, GitHub username and which course are you taking**. For example, ``Dave Whipp, davewhipp, Geo-Python`` or ``Henrikki Tenkanen, HTenkanen, AutoGIS``. This will help us know you were able to create your account, that you have also figured out how to use Slack, and we'll know who is who on GitHub :).
+
 
 Part 2 - Cooking up some Python
 -------------------------------
@@ -35,17 +32,31 @@ Part 2 - Cooking up some Python
 .. image:: https://mybinder.org/badge.svg
    :target: https://mybinder.org/v2/gh/Geo-Python-2018/Binder/master?urlpath=lab
 
-In this part you should start working by launching a new JupyterLab instance from above (unless you have it open already) with Exercise by accepting our first `GitHub Classroom for the Exercise 1 <https://classroom.github.com/a/EkzHACcX>`__ (click the link).
-After clicking the link, you should sign in with your GitHub credentials and you should be directed to the Exercise 1 repository, where are the instructions
-for doing the coding parts of the Exercise 1.
+Time to start coding!
+
+1. Get the recipe by accepting our first `GitHub Classroom for the Exercise 1 <https://classroom.github.com/a/EkzHACcX>`__ (click the link).
+
+    *After accepting the assignment, you are directed to your personal Exercise 1 repository (for example: ``Exercise-1-VuokkoH``), which is a private version of the exercise only visible to you and the course instructors. This repository contains the instructions for doing the coding parts of Exercise 1.*
+
+2. Launch a new JupyterLab instance from the launch button above - we do the cooking in there
+
+    *You can use either binder or CSC Notebooks. Just remember to save your work!*
+
+3. Download your solution, and upload it to GitHub.com into your personal Exercise-1 repository.
+
+    *This week, we upload the exercise manually to GitHub. Next week, you will learn how to push and pull the exercises directly from GitHub to Jupyter Lab using Git!*
+
 
 What to submit
 --------------
 
-Your assignment is to
+In sum, your task is to
 
-1. Post a message in the `#week-1 <https://geopython2019.slack.com/messages/CM157NX41>`__ Slack channel with your name, GitHub username and course.
-2. Accept exercise-1 in Github classroom and upload the jupyter notebook containing the Python commands needed to generate the required output for Part 2.
+1. Post a message in the `#week-1 <https://geopython2019.slack.com/messages/CM157NX41>`__ channel at `geopython2019.slack.com <https://geopython2019.slack.com>`__ with your name, GitHub username and course.
+
+    *We have sent an invite link to all registered participants before the first lesson.
+
+2. Accept Exercise-1 in Github classroom and upload the jupyter notebook containing the Python commands needed to generate the required output for Part 2.
 
 We ask that you complete this exercise by **09:00 next Wednesday(11 September 2019)**.
 
@@ -55,3 +66,7 @@ We ask that you complete this exercise by **09:00 next Wednesday(11 September 20
     The private exercise repositories are visible only to you, and the course instructors.
 
 
+
+.. warning::
+
+    Please note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
