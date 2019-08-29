@@ -1,14 +1,15 @@
 Exercise 1
 ==========
 
-The exercise for this week has two parts.
-First, create an account on GitHub.com, and share your username with us via Slack.
-Next, you will cook up some python using the skills you learned during the first lesson!
+.. note::
+
+    Please complete this exercise by **09:00 Wednesday, 11 September 2019**.
+
+The exercise for this week has two parts. In the first part, you will create an account on GitHub.com, and share your username with us via Slack.
+In the second part, you will cook up some python using the skills you learned during the first lesson!
 
 Part 1 - Creating a GitHub.com account and using Slack
 ------------------------------------------------------
-
-A) create an account on `GitHub.com <https://www.github.com>`__ :
 
 1. Open a web browser and navigate to https://www.github.com.
 2. On the `GitHub.com <https://www.github.com>`__ home page, click on **Sign up** on the top right.
@@ -22,8 +23,9 @@ A) create an account on `GitHub.com <https://www.github.com>`__ :
 
 3. Enter a username, email address, and password. Click Create an account.
 4. When prompted to select a plan, choose the free option. We will provide private repositories through the course GitHub organization account.
+5. Once you have a GitHub account, go to **Slack** and **post a message** in the `#week-1 <https://geopython2019.slack.com/messages/CM157NX41>`__ channel with your **full name, GitHub username and which course are you taking**.
 
-B) Once you have a GitHub account, go to **Slack** and **post a message** in the `#week-1 <https://geopython2019.slack.com/messages/CM157NX41>`__ channel with your **full name, GitHub username and which course are you taking**. For example, ``Dave Whipp, davewhipp, Geo-Python`` or ``Henrikki Tenkanen, HTenkanen, AutoGIS``. This will help us know you were able to create your account, that you have also figured out how to use Slack, and we'll know who is who on GitHub :).
+For example, ``Dave Whipp, davewhipp, Geo-Python`` or ``Henrikki Tenkanen, HTenkanen, AutoGIS``. This will help us know you were able to create your account, that you have also figured out how to use Slack, and we'll know who is who on GitHub :).
 
 
 Part 2 - Cooking up some Python
@@ -54,7 +56,7 @@ In sum, your task is to
 
 1. Post a message in the `#week-1 <https://geopython2019.slack.com/messages/CM157NX41>`__ channel at `geopython2019.slack.com <https://geopython2019.slack.com>`__ with your name, GitHub username and course.
 
-    *We have sent an invite link to all registered participants before the first lesson.
+    *We have sent an invite link to all registered participants before the first lesson.*
 
 2. Accept Exercise-1 in Github classroom and upload the jupyter notebook containing the solutions for Part 2.
 
