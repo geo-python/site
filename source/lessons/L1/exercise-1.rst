@@ -2,8 +2,8 @@ Exercise 1
 ==========
 
 The exercise for this week has two parts.
-First, you need to go to GitHub.com, create an account and let us know your GitHub username via Slack.
-Secondly, you will cook up some python using the skills you learned during the first lesson!
+First, create an account on GitHub.com, and share your username with us via Slack.
+Next, you will cook up some python using the skills you learned during the first lesson!
 
 Part 1 - Creating a GitHub.com account and using Slack
 ------------------------------------------------------
@@ -44,7 +44,7 @@ Time to start coding!
 
 3. Download your solution, and upload it to GitHub.com into your personal Exercise-1 repository.
 
-    *This week, we upload the exercise manually to GitHub. Next week, you will learn how to push and pull the exercises directly from GitHub to Jupyter Lab using Git!*
+    *This week, we upload the exercise manually to GitHub. Next week, you will learn how to pull and push the exercises directly from GitHub to Jupyter Lab using Git!*
 
 
 What to submit
