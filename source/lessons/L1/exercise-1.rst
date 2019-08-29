@@ -56,9 +56,9 @@ In sum, your task is to
 
     *We have sent an invite link to all registered participants before the first lesson.
 
-2. Accept Exercise-1 in Github classroom and upload the jupyter notebook containing the Python commands needed to generate the required output for Part 2.
+2. Accept Exercise-1 in Github classroom and upload the jupyter notebook containing the solutions for Part 2.
 
-We ask that you complete this exercise by **09:00 next Wednesday(11 September 2019)**.
+We ask that you complete this exercise by **09:00 next Wednesday, 11 September 2019**.
 
 .. note::
 
