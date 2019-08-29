@@ -5,7 +5,7 @@
 
 .. figure:: img/banner/GeoPython_banner.png
 
-Welcome to Geo-Python 2018!
+Welcome to Geo-Python 2019!
 ===========================
 
 The **Geo-Python** course teaches you the basic concepts of programming using the Python programming language in a format that is easy to learn and understand (no previous programming experience required).
@@ -27,46 +27,43 @@ on the laboratory exercises, however the laboratory summary write-ups that you s
 Schedule
 --------
 
-The materials are divided into weekly themes that are published at these pages every Wednesday morning before each lesson. Lessons are held with following schedule (see :doc:`here for further details about schedule and lecture rooms <course-info/course-info>`).
-The **learning goals** for each lesson are separately documented :doc:`in here <course-info/learning-goals>`.
+Lessons and practical exercise sessions are held at the University of Helsinki during the autumn semester. Please find teaching dates and rooms under :doc:`general info <course-info/course-info>`).
+The course runs for seven weeks, and **we publish updated course materials at these pages every Wednesday morning before the lesson.**
+Themes for each week are listed below. Read more about the weekly :doc:`learning goals in here <course-info/learning-goals>`.
 
-+----------+----------------+----------------------+
-| Week     | Lecture date   | Theme                |
-+==========+================+======================+
-|**1**     | 5.9.2018       | Basic concepts of    |
-|          |                | Python and computer  |
-|          |                | programs             |
-|          |                |                      |
-+----------+----------------+----------------------+
-|**2**     | 12.9.2018      | Diving into Python   |
-|          |                |                      |
-|          |                |                      |
-+----------+----------------+----------------------+
-|**3**     |19.9.2018       | Repeating tasks      |
-|          |                | and making decisions |
-|          |                |                      |
-|          |                |                      |
-+----------+----------------+----------------------+
-|**4**     | 26.9.2018      | Creating and using   |
-|          |                | functions            |
-|          |                |                      |
-+----------+----------------+----------------------+
-|**5**     | 3.10.2018      | Data analysis        |
-|          |                | Part I               |
-|          |                |                      |
-+----------+----------------+----------------------+
-|**6**     |  10.10.2018    | Data analysis        |
-|          |                | Part II +            |
-|          |                | Dealing with errors  |
-+----------+----------------+----------------------+
-|**7**     | 17.10.2018     | Data visualization   |
-|          |                |                      |
-|          |                |                      |
-+----------+----------------+----------------------+
-
-|
-
-**Practical sessions** for enrolled students are organized each week on Thursdays and Fridays (see schedule and rooms :doc:`here <course-info/course-info>`).
++----------+----------------------+
+| Week     | Theme                |
++==========+======================+
+|**1**     | Basic concepts of    |
+|          | Python and computer  |
+|          | programs             |
+|          |                      |
++----------+----------------------+
+|**2**     | Diving into Python   |
+|          |                      |
+|          |                      |
++----------+----------------------+
+|**3**     | Repeating tasks      |
+|          | and making decisions |
+|          |                      |
+|          |                      |
++----------+----------------------+
+|**4**     | Creating and using   |
+|          | functions            |
+|          |                      |
++----------+----------------------+
+|**5**     | Data analysis        |
+|          | Part I               |
+|          |                      |
++----------+----------------------+
+|**6**     | Data analysis        |
+|          | Part II +            |
+|          | Dealing with errors  |
++----------+----------------------+
+|**7**     | Data visualization   |
+|          |                      |
+|          |                      |
++----------+----------------------+
 
 .. admonition:: Open Access!
 
@@ -95,75 +92,76 @@ The **learning goals** for each lesson are separately documented :doc:`in here <
     course-info/python-vocabulary
     course-info/resources
     course-info/licensing
+.. 
+    .. toctree::
+        :maxdepth: 2
+        :caption: Lesson 1
+       
+        lessons/L1/motivation
+        lessons/L1/overview
+        lessons/L1/course-environment-components
+        lessons/L1/slack-usage
+        notebooks/L1/a-taste-of-python.ipynb
+        lessons/L1/exercise-1
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 1
+.. 
+    .. toctree::
+        :maxdepth: 2
+        :caption: Lesson 2
+ 
+        lessons/L2/overview
+        lessons/L2/intro-to-GitHub
+        lessons/L2/git-basics
+        lessons/L2/GitHub-classroom
+        notebooks/L2/Python-basic-elements.ipynb
+        lessons/L2/exercise-2
 
-    lessons/L1/motivation
-    lessons/L1/overview
-    lessons/L1/course-environment-components
-    lessons/L1/slack-usage
-    notebooks/L1/a-taste-of-python.ipynb
-    lessons/L1/exercise-1
+    .. toctree::
+        :maxdepth: 2
+        :caption: Lesson 3
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 2
+        lessons/L3/overview
+        notebooks/L3/for-loops.ipynb
+        notebooks/L3/conditional-statements.ipynb
+        lessons/L3/exercise-3
 
-    lessons/L2/overview
-    lessons/L2/intro-to-GitHub
-    lessons/L2/git-basics
-    lessons/L2/GitHub-classroom
-    notebooks/L2/Python-basic-elements.ipynb
-    lessons/L2/exercise-2
+    .. toctree::
+        :maxdepth: 2
+        :caption: Lesson 4
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 3
+        lessons/L4/overview
+        notebooks/L4/functions.ipynb
+        notebooks/L4/modules.ipynb
+        notebooks/L4/writing-scripts.ipynb
+        lessons/L4/exercise-4
 
-    lessons/L3/overview
-    notebooks/L3/for-loops.ipynb
-    notebooks/L3/conditional-statements.ipynb
-    lessons/L3/exercise-3
+    .. toctree::
+        :maxdepth: 2
+        :caption: Lesson 5
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 4
+        lessons/L5/overview
+        lessons/L5/pandas
+        lessons/L5/numpy
+        lessons/L5/exercise-5
 
-    lessons/L4/overview
-    notebooks/L4/functions.ipynb
-    notebooks/L4/modules.ipynb
-    notebooks/L4/writing-scripts.ipynb
-    lessons/L4/exercise-4
+    .. toctree::
+        :maxdepth: 2
+        :caption: Lesson 6
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 5
+        lessons/L6/overview
+        lessons/L6/pandas
+        lessons/L6/numpy
+        lessons/L6/interpreting-errors
+        lessons/L6/debugging-scripts
+        lessons/L6/exercise-6
 
-    lessons/L5/overview
-    lessons/L5/pandas
-    lessons/L5/numpy
-    lessons/L5/exercise-5
+    .. toctree::
+        :maxdepth: 2
+        :caption: Lesson 7
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 6
-
-    lessons/L6/overview
-    lessons/L6/pandas
-    lessons/L6/numpy
-    lessons/L6/interpreting-errors
-    lessons/L6/debugging-scripts
-    lessons/L6/exercise-6
-
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 7
-
-    lessons/L7/overview
-    lessons/L7/python-plotting
-    lessons/L7/plot-anatomy
-    notebooks/L7/matplotlib.ipynb
-    notebooks/L7/advanced-plotting.ipynb
-    lessons/L7/exercise-7
+        lessons/L7/overview
+        lessons/L7/python-plotting
+        lessons/L7/plot-anatomy
+        notebooks/L7/matplotlib.ipynb
+        notebooks/L7/advanced-plotting.ipynb
+        lessons/L7/exercise-7

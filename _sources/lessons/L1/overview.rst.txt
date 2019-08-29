@@ -27,7 +27,8 @@ After this weeks lesson your should be able to:
   - know what kind of tools we are using during the course
   - explain the basic concepts of a computer, a program, and a programming language
   - define and use variables
-  - describe the concept of a data type and know how to determine the data type of a variable in Python
+  - describe the concept of a data type
+  - determine the data type of a variable in Python
 
 Lecture video
 -------------

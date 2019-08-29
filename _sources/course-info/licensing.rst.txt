@@ -1,7 +1,7 @@
 License and terms of usage
 ==========================
 
-We hope that the materials provided here would be helpful for others. Thus, we share all the lesson materials openly, and also our source codes and lesson materials are openly available `from GitHub <https://github.com/Geo-Python/2017>`_.
+We hope that the materials provided here would be helpful for others. Thus, we share all the lesson materials openly, and also our source codes and lesson materials are openly available `from GitHub <https://github.com/Geo-Python/site>`_.
 There, you can also find information how to use the materials and modify them to your own purposes. **However**, if you modify the lesson materials we wish that you would also share your materials openly e.g. on GitHub where
 everyone could benefit from you work, in a similar manner as we provide these materials for you. We also welcome collaboration and ideas of how to improve the materials on these pages.
 Contact us via :doc:`email <course-info>` or fork the docs on **GitHub**.
