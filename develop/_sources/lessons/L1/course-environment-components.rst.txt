@@ -3,49 +3,42 @@ Course environment
 
 During this course, we will use different tools and applications for programming and communications:
 
-1. `Jupyter Notebooks and JupyterLab`_ for the actual programming. You have two options for accessing the programming environment:
-    - `Using JupyterLab on your own computer <#using-your-own-computer>`_
+1. `JupyterLab`_ for the actual programming. You have two options for accessing the programming environment:
     - `Using JupyterLab on a cloud computing environment <#cloud-computing-environments>`_
+    - `Using JupyterLab on your own computer <#using-your-own-computer>`_
 2. `Git and GitHub`_ for version control and documentation
 3. `Slack`_ for communicating among course participants
 4. `Voting / polling  <#voting-and-polling>`_ for interactive questions during the lectures
 
 
-Jupyter Notebooks and JupyterLab
---------------------------------
-Jupyter Notebooks and JupyerLab belong to `Project Jupyter <http://jupyter.org/>`__, an open-source project which provides tools for data science. In this course we will use Jupyter Notebooks and JupyterLab as the default programming environment.
+JupyterLab
+------------
+`JupyerLab <https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html>`__ is an open-source web-based user interface for doing data science.
+The Jupyter lab interface consists of different components such as a file browser, terminal, image viewer, console, text editor, etc.
+All of the course materials are available in a JupyterLab setting via `cloud computing environments`_ (Binder or CSC Notebooks).
 
-**Jupyter Notebooks** are documents which contain both computer code, text and other elements (such as figures, links etc.).
-Jupyter Notebooks are perfect for documenting your data science workflow in an interactive format.
+**Jupyter Notebooks** (filename extension ``.ipynb``) are documents inside the JupyterLab environment which contain computer code, and rich text elements (figures, links etc.).
+Jupyter Notebooks are perfect for documenting a data science workflow in an interactive format.
 
-**JupyterLab** is an interface for using Jupyter Notebooks. Jupyter lab consists of different components such as a file browser, terminal, image viewer, console, text editor, etc.
-You can either use JupyterLab on your own computer, or via the available cloud computing resources (Binder or CSC Notebooks).
+We use JupyterLab/Jupyter Notebooks as the default programming environment during this course.
 
 .. figure:: img/JupyterLab.png
    :alt: A Jupyter Notebook open in Jupyter Lab
-   :width: 550px
+   :width: 700px
 
    A Jupyter Notebook open in Jupyter Lab
-
-
-Using your own computer
---------------------------------
-We recommend everyone to use the `cloud computing environments`_, but if you want to work on your own computer, you will need to `install python <https://geo-python.github.io/site/course-info/installing-anacondas.html>`_ on your own machine.
-Please note that the computers in the University of Helsinki computer classes likely don't have the required software installed.
-Alternatively, you can use the available
-
 
 Cloud computing environments
 --------------------------------
 
 We will use cloud-based computing environments (Binder or CSC Notebooks) to access interactive online version of the lessons
-and to work on the weekly exercises. You can use the cloud computing environments with any computer (as long as it has a reasonably fast internet connection and a web browser).
+and to work on the weekly exercises. You can use the cloud computing environments with any computer as long as it has a reasonably fast internet connection and a web browser (just don't use Internet Explorer).
 
-Please note that the cloud computing environments are **temporary**, always remember to push your changes to GitHub (and / or download a local copy).
+Please note that the cloud computing environments are **temporary**. Always remember to push your changes to GitHub (and / or download a local copy).
 
 .. figure:: img/LaunchButtons2.png
    :alt: Launch buttons on the Lesson 1: a Taste of Python page
-   :width: 550px
+   :width: 700px
 
    Launch buttons on the Lesson 1: a Taste of Python -page
 
@@ -54,10 +47,11 @@ Each lesson typically contains three different launch buttons:
 
 - *full binder* contains lesson notebooks including all the necessary code
 - *student binder* contains lesson notebooks without pre-filled code
-- *CSC notebook* contains lesson notebooks including all the necessary code and storage space
+- *CSC notebook* contains lesson notebooks in an environment which has persistent storage
 
 Binder and CSC Notebook are similar environments, but we have two options available in case one of the services is not working properly.
 Furthermore, CSC Notebooks contain persistent cloud storage, but are only available to students in Finnish universities.
+We recommend that students from Finnish universities use the CSC Notebooks environment when working with the exercises.
 
 Binder
 ~~~~~~~~~~~~~~~~~~~
@@ -90,37 +84,43 @@ CSC Notebooks is available only for students who are affiliated with Finnish uni
 
 .. note:: **When using the CSC Notebooks for the first time, you need to join the group created for this course:**
 
-    1. Log in
+    1. Log in at https://notebooks.csc.fi/
     2. Go to Account-tab
     3. Join Group **Geo-Python** using the joining code: ``geo-python-tadl4``
 
-    After joining the group, you should be able to view an environment called `JupyterLab` on the Dashboard.
+    After joining the group, you should be able to view an environment called `Geo-Python 2019` on the Dashboard.
 
 .. figure:: img/CSC_join_group.png
    :alt: Join Group in CSC Notebooks
 
 .. note:: **Repeat these steps every time when starting to work on a programming task using the CSC Notebooks:**
 
-    1. Click on the launch CSC Notebook -button on the course webpage (or enter via notebooks.csc.fi) and log in.
-    2. Click `Launch new` under the JupyterLab - Environment on the Dashboard
-    3. Click "open in browser" once the instance is ready
+    1. Log in at https://notebooks.csc.fi/
+    2. Click ``Launch new`` on the Dashboard
+    3. Wait. It might take a few moments for the instance to launch
+    4. Click ``Open in browser`` once the instance is ready
 
 .. figure:: img/CSC_launch_new.png
    :alt: Launch new Jupyter Lab instance
 
 **Remember to save your work! The instance is temporary.**
 
+Using your own computer
+--------------------------------
+We recommend everyone to use the available `cloud computing environments`_ during this course.
+In case you want to work on your own computer, start by `installing Python (via Anaconda) <https://geo-python.github.io/site/course-info/installing-anacondas.html>`_.
+
 
 Git and GitHub
 ---------------
 
-One of the core components of this course (besides learning programming)
+One of the core goals of this course (besides learning programming)
 is to learn how to use `version control <https://en.wikipedia.org/wiki/Version_control>`__ with
 `Git <https://en.wikipedia.org/wiki/Git_(software)>`__ and storing your
-the codes (privately) in `GitHub <https://github.com/>`__.
+codes (privately) on `GitHub <https://github.com/>`__.
 
 `Git <https://en.wikipedia.org/wiki/Git_(software)>`__ is a version
-control software (developped by a rather famous Finn named Linus
+control software (developed by a rather famous Finn named Linus
 Torvalds - he also created Linux!) that is used to track and store
 changes in your files (often source code for programs) without losing
 the history of past changes. Files in Git are stored in a repository,
