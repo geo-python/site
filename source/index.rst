@@ -27,7 +27,7 @@ on the laboratory exercises, however the laboratory summary write-ups that you s
 Schedule
 --------
 
-Lessons and practical exercise sessions are held at the University of Helsinki during the autumn semester. Please find teaching dates and rooms :doc:`under course-info <course-info/course-info>`).
+Lessons and practical exercise sessions are held at the University of Helsinki during the autumn semester. Please find teaching dates and rooms under :doc:`general info <course-info/course-info>`).
 The course runs for seven weeks, and **we publish updated course materials at these pages every Wednesday morning before the lesson.**
 Themes for each week are listed below. Read more about the weekly :doc:`learning goals in here <course-info/learning-goals>`.
 
@@ -92,17 +92,17 @@ Themes for each week are listed below. Read more about the weekly :doc:`learning
     course-info/python-vocabulary
     course-info/resources
     course-info/licensing
-
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 1
-
-    lessons/L1/motivation
-    lessons/L1/overview
-    lessons/L1/course-environment-components
-    lessons/L1/slack-usage
-    notebooks/L1/a-taste-of-python.ipynb
-    lessons/L1/exercise-1
+.. 
+    .. toctree::
+        :maxdepth: 2
+        :caption: Lesson 1
+       
+        lessons/L1/motivation
+        lessons/L1/overview
+        lessons/L1/course-environment-components
+        lessons/L1/slack-usage
+        notebooks/L1/a-taste-of-python.ipynb
+        lessons/L1/exercise-1
 
 .. 
     .. toctree::
