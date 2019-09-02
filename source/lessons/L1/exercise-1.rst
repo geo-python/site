@@ -36,9 +36,9 @@ Part 2 - Cooking up some Python
 
 Time to start coding!
 
-1. Get the recipe by accepting our first `GitHub Classroom for the Exercise 1 <https://classroom.github.com/a/EkzHACcX>`__ (click the link).
+1. Get the recipe by accepting our first `GitHub Classroom for the Exercise 1 <https://classroom.github.com/a/n-QT5uIP>`__ (click the link).
 
-    *After accepting the assignment, you are directed to your personal Exercise 1 repository (for example: ``Exercise-1-VuokkoH``), which is a private version of the exercise only visible to you and the course instructors. This repository contains the instructions for doing the coding parts of Exercise 1.*
+    *After accepting the assignment, you are directed to your personal Exercise 1 repository (for example: Exercise-1-VuokkoH), which is a private version of the exercise only visible to you and the course instructors. This repository contains the instructions for doing the coding parts of Exercise 1.*
 
 2. Launch a new JupyterLab instance from the launch button above - we do the cooking in there
 
@@ -48,6 +48,13 @@ Time to start coding!
 
     *This week, we upload the exercise manually to GitHub. Next week, you will learn how to pull and push the exercises directly from GitHub to Jupyter Lab using Git!*
 
+.. note::
+
+    Each week, you will create a personal copy of the exercise repository on GitHub.com by clicking on the GitHub classroom link.
+    Here is again the link for the programming part of Exercise 1: https://classroom.github.com/a/n-QT5uIP
+
+    You can also take a look at the template repository on GitHub: https://github.com/geo-python-2019/Exercise-1
+    Note that you are only able to make changes in your personal repository generated via GitHub Classroom.
 
 Summary (what to submit)
 -------------------------
@@ -62,7 +69,6 @@ We ask that you complete this exercise by **09:00 next Wednesday, 11 September 2
 
     In case you're curious, we need your GitHub user name in order to access your exercise repositories in GitHub for grading and feedback.
     The private exercise repositories are visible only to you, and the course instructors.
-
 
 
 .. warning::
