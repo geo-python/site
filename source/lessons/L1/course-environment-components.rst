@@ -15,12 +15,12 @@ JupyterLab
 ------------
 `JupyerLab <https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html>`__ is an open-source web-based user interface for doing data science.
 The Jupyter lab interface consists of different components such as a file browser, terminal, image viewer, console, text editor, etc.
-All of the course materials are available in a JupyterLab setting via `cloud computing environments`_ (Binder or CSC Notebooks).
 
 **Jupyter Notebooks** (filename extension ``.ipynb``) are documents inside the JupyterLab environment which contain computer code, and rich text elements (figures, links etc.).
 Jupyter Notebooks are perfect for documenting a data science workflow in an interactive format.
 
-We use JupyterLab/Jupyter Notebooks as the default programming environment during this course.
+We use JupyterLab/Jupyter Notebooks as the default programming environment during this course. All of the course materials are available in a JupyterLab setting via `cloud computing environments`_ (Binder or CSC Notebooks).
+
 
 .. figure:: img/JupyterLab.png
    :alt: A Jupyter Notebook open in Jupyter Lab
