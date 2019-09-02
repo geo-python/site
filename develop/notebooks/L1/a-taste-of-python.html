@@ -204,7 +204,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#Sources">Sources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#About-this-document">About this document</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Getting-started">Getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Variables,-arithmetic-and-modules">Variables, arithmetic and modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Variables,-math-and-functions">Variables, math and functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Simple-Python-math">Simple Python math</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Functions">Functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Math-operations">Math operations</a><ul>
@@ -225,7 +225,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#Character-input">Character input</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Good-coding-practices---Selecting-&quot;good&quot;-variable-names">Good coding practices - Selecting “good” variable names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Good-coding-practices---Selecting-&quot;good&quot;-variable-names">Good coding practices - Selecting “good” variable names</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Some-&quot;not-so-good&quot;-variable-names">Some “not-so-good” variable names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Selecting-&quot;good&quot;-variable-names">Selecting “good” variable names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Formatting-&quot;good&quot;-variable-names">Formatting “good” variable names</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/exercise-1.html">Exercise 1</a><ul>
@@ -555,8 +560,8 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <p>This should open a new Jupyter Lab session from which you can open this document by navigating its location in the <strong>Files</strong> tab and double clicking on it. After that you should be ready to go.</p>
 </div>
-<div class="section" id="Variables,-arithmetic-and-modules">
-<h2>Variables, arithmetic and modules<a class="headerlink" href="#Variables,-arithmetic-and-modules" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Variables,-math-and-functions">
+<h2>Variables, math and functions<a class="headerlink" href="#Variables,-math-and-functions" title="Permalink to this headline">¶</a></h2>
 <p>We will start our Python lesson by learning a bit of the basic operations you can perform using Python.</p>
 <div class="section" id="Simple-Python-math">
 <h3>Simple Python math<a class="headerlink" href="#Simple-Python-math" title="Permalink to this headline">¶</a></h3>
@@ -1158,22 +1163,37 @@ temperature in Celsius is now: 20.0 and temperature in Fahrenheit is still: 59.0
 </pre></div></div>
 </div>
 <p>What is the data type of variable <code class="docutils literal notranslate"><span class="pre">place</span></code>? What about the other variable you defined? Check their data types using the cell below.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">place</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">temp_celsius</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-26-ac42a1786083&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>type<span class="ansi-blue-fg">(</span>place<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>type<span class="ansi-blue-fg">(</span>temp_celsius<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;place&#39; is not defined
+</pre></div></div>
 </div>
 <p>What happens when you try to convert your Celsius temperature value to Fahrenheit using the equation from earlier in the lesson?</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<span></span><span class="n">tempFahrenheit</span> <span class="o">=</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">temp_celsius</span> <span class="o">+</span> <span class="mi">32</span>
 </pre></div>
 </div>
 </div>
@@ -1181,27 +1201,62 @@ temperature in Celsius is now: 20.0 and temperature in Fahrenheit is still: 59.0
 </div>
 <div class="section" id="Good-coding-practices---Selecting-&quot;good&quot;-variable-names">
 <h2>Good coding practices - Selecting “good” variable names<a class="headerlink" href="#Good-coding-practices---Selecting-"good"-variable-names" title="Permalink to this headline">¶</a></h2>
-<p>Above, we also see one common format for good variable naming, separation of words by underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">temp_celsius</span></code>). This is called <em>pothole_case_naming</em>. We’ll see another below.</p>
-<p>camelCase or CamelCase example</p>
-<p>Bad examples…</p>
+<p>This course aims to introduce you to programming in Python, but also to <em>good programming practices</em>. These comprise practical tips based on practices used by professional programmers that help them write better programs that are easier to understand and share with others. To say it differently, there are many ways to learn to program, and we want to help you learn how to program the right way!</p>
+<p>This week our good programming practice is about selecting “good” variable names.</p>
+<div class="section" id="Some-&quot;not-so-good&quot;-variable-names">
+<h3>Some “not-so-good” variable names<a class="headerlink" href="#Some-"not-so-good"-variable-names" title="Permalink to this headline">¶</a></h3>
+<p>To illustrate the point, consider a few not-so-good examples below.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Example of not so good practice</span>
-
+<span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;101533&quot;</span>
 </pre></div>
 </div>
 </div>
+<p>or</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<span></span><span class="n">sid</span> <span class="o">=</span> <span class="s2">&quot;101533&quot;</span>
 </pre></div>
 </div>
+</div>
+<p>Any idea what these variables are for? Of course not, the variables <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">sid</span></code> are too short and cannot communicate what they should be used for in the code. You might think you know what they are for now, but imagine not looking at the code for a few months. Would you know then? What about if you share the code with a friend? Would they know? Probably not.</p>
+<p>Let’s look at another example.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">finnishmeteorologicalinstituteobservationstationidentificationnumber</span> <span class="o">=</span> <span class="s2">&quot;101533&quot;</span>
+</pre></div>
+</div>
+</div>
+<p>OK, so now we have another issue. The variable name <code class="docutils literal notranslate"><span class="pre">finnishmeteorologicalinstituteobservationstationidentificationnumber</span></code> potentially provides more information about what the variable represents (the identification number of an FMI observation station), but it does so in a format that is not easy to read, nor something you’re likely to want to type more than once. The previous example was too short, and now we have a variable name that is too long (and hard to read as a result).</p>
+</div>
+<div class="section" id="Selecting-&quot;good&quot;-variable-names">
+<h3>Selecting “good” variable names<a class="headerlink" href="#Selecting-"good"-variable-names" title="Permalink to this headline">¶</a></h3>
+<p>A good variable name should match several criteria:</p>
+<ol class="arabic simple">
+<li>It should be clear and concise.</li>
+<li>It should be written in English. A general coding practice is to write code with variable names in English, as that is the most likely common language between programmers. Thus, variable names such as <code class="docutils literal notranslate"><span class="pre">muuttuja</span></code> (which is also not a good name on other levels) should be avoided.</li>
+<li>It should not contain special characters. Python supports use of special characters by way of various encoding options that can be given in a program. That said, it is better to avoid variables such as <code class="docutils literal notranslate"><span class="pre">lämpötila</span></code> because encoding issues can arise in some cases. Better to stick to the <a class="reference external" href="https://en.wikipedia.org/wiki/ASCII#Printable_characters">standard printable ASCII character set</a> to be safe.</li>
+<li>It should not conflict with any <a class="reference external" href="https://www.pythonforbeginners.com/basics/keywords-in-python">Python keywords</a>, such as <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">if</span></code>, or <code class="docutils literal notranslate"><span class="pre">else</span></code>. These are reserved for speical operations in Python and cannot be used as variable names.</li>
+</ol>
+<p>With this in mind, let’s now look at a few better options for variable names.</p>
+</div>
+<div class="section" id="Formatting-&quot;good&quot;-variable-names">
+<h3>Formatting “good” variable names<a class="headerlink" href="#Formatting-"good"-variable-names" title="Permalink to this headline">¶</a></h3>
+<p>There are several possibilities for “good” variable name formats, of which we’ll consider two:</p>
+<ol class="arabic simple">
+<li><em>pothole_case_naming</em> uses lowercase words separated by underscores <code class="docutils literal notranslate"><span class="pre">_</span></code>. This is our suggested format as the underscores make it easy to read the variable, and don’t add too much to the length of the variable name. As an example, consider the variable <code class="docutils literal notranslate"><span class="pre">temp_celsius</span></code>. In the context of the examples above, we might rename our variable <code class="docutils literal notranslate"><span class="pre">fmi_station_id</span></code>, which conveys all of the essential information we need, while remaining easy to read.</li>
+<li><em>camelCase</em> or <em>CamelCase</em> uses capitalization of the first letter of words in a variable name to make it easier to read. In some cases the first letter of the variable may be capitalized. The variable <code class="docutils literal notranslate"><span class="pre">tempFahrenheit</span></code> was one example of camelCase. Again, if we consider the examples from the previous section, we might consider the variable name <code class="docutils literal notranslate"><span class="pre">fmiStationID</span></code> or simply <code class="docutils literal notranslate"><span class="pre">stationID</span></code> if we elect to use camelCase.</li>
+</ol>
+<p>As mentioned in point 1, pothole_case_naming is preferred, mostly because we feel it is the easiest to read and seems to be most common amongst Python programmers. We are happy with you using either option, as long as you are consistent in the use. It might take an extra second of thought, but could make a big difference in the ease of use of your programs!</p>
 </div>
 </div>
 </div>
