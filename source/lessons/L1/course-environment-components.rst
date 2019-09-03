@@ -21,6 +21,11 @@ Jupyter Notebooks are perfect for documenting a data science workflow in an inte
 
 We use JupyterLab/Jupyter Notebooks as the default programming environment during this course. All of the course materials are available in a JupyterLab setting via `cloud computing environments`_ (Binder or CSC Notebooks).
 
+.. figure:: img/Binder_launcher.png
+   :alt: Binder Jupyter Notebook
+   :width: 700px
+
+   Basic view of JupyterLab
 
 .. figure:: img/JupyterLab.png
    :alt: A Jupyter Notebook open in Jupyter Lab
@@ -61,16 +66,9 @@ Binder does not require the user to log in, you can just click on the link in th
 
 .. figure:: img/Binder_loading.png
    :alt: Binder loading
-   :width: 550px
+   :width: 700px
 
    Binder takes a few moments to load
-
-
-.. figure:: img/Binder_launcher.png
-   :alt: Binder Jupyter Notebook
-   :width: 550px
-
-   JupyterLab ready to be used in Binder
 
 Once the instance is ready, you can navigate to the lesson folders and start working with existing notebooks or create a new one.
 
@@ -99,11 +97,13 @@ CSC Notebooks is available only for students who are affiliated with Finnish uni
     2. Click ``Launch new`` on the Dashboard
     3. Wait. It might take a few moments for the instance to launch
     4. Click ``Open in browser`` once the instance is ready
+    5. If you are asked to ``Click to copy password & proceed``, then click on the button, and paste the password on the following page
 
 .. figure:: img/CSC_launch_new.png
    :alt: Launch new Jupyter Lab instance
 
-**Remember to save your work! The instance is temporary.**
+**Remember to always push your changes to GitHub, when working with the Exercises!**
+
 
 Using your own computer
 --------------------------------
