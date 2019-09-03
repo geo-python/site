@@ -9,12 +9,13 @@ Books
 
 There are **no required textbooks** for this course. This course uses a wide range of sources for course information and the main textbooks are given below.
 
-- Recommended textbooks (in order of relevance):
+- Recommended textbooks and online resources:
 
-  - Zelle, J. (2010) `Python Programming: An Introduction to Computer Science <http://mcsp.wartburg.edu/zelle/python/ppics2/index.html>`_, Second edition. Franklin, Beedle & Associates.
-  - McKinney, W. (2012) `Python for Data Analysis: Data wrangling with Pandas, NumPy and iPython <http://www.amazon.com/Python-Data-Analysis-Wrangling-IPython/dp/1449319793>`_, First edition. O´Reilly Media.
-  -  `Learn Python the Hard Way <http://learnpythonthehardway.org/book/>`__
-  -  `Dive into Python 3 <http://www.diveinto.org/python3/>`__
+  - Zelle, J. (2017) `Python Programming: An Introduction to Computer Science <https://mcsp.wartburg.edu/zelle/python/ppics3/index.html>`_, Third edition. Franklin, Beedle & Associates.
+        - Copies are available in the Kumpula Campus library
+  - McKinney, W. (2017) `Python for Data Analysis: Data wrangling with Pandas, NumPy and iPython <https://www.amazon.com/Python-Data-Analysis-Wrangling-IPython/dp/1491957662/>`_, Second edition. O´Reilly Media, Incorporated.
+        - available as Ebook via the Helsinki University Library `in here <https://ebookcentral.proquest.com/lib/helsinki-ebooks/detail.action?docID=5061179>`_
+  -  `Learn Python the Hard Way <https://learncodethehardway.org/python/>`__
 
 
 Python tutorials
