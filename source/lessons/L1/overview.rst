@@ -33,7 +33,7 @@ After this weeks lesson your should be able to:
 Lecture video
 -------------
 
-.. admonition:: Lesson 1.1 Computing basics and a taste of Python
+.. admonition:: Lesson 1 - Computing basics and a taste of Python
 
     .. raw:: html
 
