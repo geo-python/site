@@ -72,7 +72,7 @@ Binder does not require the user to log in, you can just click on the link in th
 
 Once the instance is ready, you can navigate to the lesson folders and start working with existing notebooks or create a new one.
 
-**Remember to save your work! The instance is temporary.**
+**Remember to save your work! The Binder instance is temporary, and all your files will be lost after the session.**
 
 CSC Notebooks
 ~~~~~~~~~~~~~~~~~~~
@@ -102,7 +102,9 @@ CSC Notebooks is available only for students who are affiliated with Finnish uni
 .. figure:: img/CSC_launch_new.png
    :alt: Launch new Jupyter Lab instance
 
-**Remember to always push your changes to GitHub, when working with the Exercises!**
+   Launching the instance takes a few moments.
+
+**Remember to save your work!**
 
 
 Using your own computer
