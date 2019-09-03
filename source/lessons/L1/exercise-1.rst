@@ -31,8 +31,11 @@ We have sent an invite link to Slack to all registered participants before the f
 Part 2 - Cooking up some Python
 -------------------------------
 
-.. image:: https://mybinder.org/badge.svg
-   :target: https://mybinder.org/v2/gh/Geo-Python-2018/Binder/master?urlpath=lab
+.. image:: https://img.shields.io/badge/launch-binder-red.svg
+   :target: https://mybinder.org/v2/gh/Geo-Python-2019/Binder/master?urlpath=lab
+   
+.. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
+   :target: https://notebooks.csc.fi/#/blueprint/d71cd2d26d924f48820dc22b67a87d8e
 
 Time to start coding!
 
