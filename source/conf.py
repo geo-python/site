@@ -26,7 +26,7 @@ author = 'David Whipp, Henrikki Tenkanen and Vuokko Heikinheimo'
 # The short X.Y version
 version = '2019'
 # The full version, including alpha/beta/rc tags
-release = '2019'
+release = 'site'
 
 
 # -- General configuration ---------------------------------------------------
@@ -127,7 +127,7 @@ html_context = {
     # Set the following variables to generate the resulting github URL for each page.
     # Format Template: https://{{ github_host|default("github.com") }}/{{ github_user }}/{{ github_repo }}/blob/{{ github_version }}{{ conf_py_path }}{{ pagename }}{{ suffix }}
     'github_user': 'geo-python',
-    'github_repo': '2018',
+    'github_repo': 'site',
     'github_version': 'master/',
     'conf_py_path': '/source/'
 }
@@ -205,7 +205,7 @@ nbsphinx_prolog = r"""
         This page was generated from `{{ docname }}`__.
         :raw-html:`<br/><a href="https://mybinder.org/v2/gh/geo-python/{{ env.config.release }}/master?urlpath=lab/tree/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a>`
         :raw-html:`<a href="https://mybinder.org/v2/gh/geo-python/notebooks/master?urlpath=lab/tree/{{ docname2 }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-student%20binder-red.svg" style="vertical-align:text-bottom"></a>`
-        :raw-html:`<a href="https://notebooks.csc.fi/#/blueprint/d71cd2d26d924f48820dc22b67a87d8e"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a>`
+        :raw-html:`<a href="https://notebooks.csc.fi/#/blueprint/df93f30d14e44b51907d135726eb6ef4"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a>`
 
     __ https://github.com/Geo-Python/{{ env.config.release }}/blob/master/{{ docname }}
 
