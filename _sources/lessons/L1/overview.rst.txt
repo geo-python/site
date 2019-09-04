@@ -33,27 +33,12 @@ After this weeks lesson your should be able to:
 Lecture video
 -------------
 
-.. admonition:: Lesson 1.1 Course overview, computing basics
+.. admonition:: Lesson 1 - Computing basics and a taste of Python
 
     .. raw:: html
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/KgDahHlosUU?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        <p>Dave Whipp & Henrikki Tenkanen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
-
-    **Contents:**
-
-        - `00:00 - Start of video, shortcuts coming soon... <https://youtu.be/KgDahHlosUU?t=0s>`__
-
-.. admonition:: Lesson 1.2 Course overview, computing basics
-
-    .. raw:: html
-
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/2lMDPPz7zc4?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        <p>Dave Whipp & Henrikki Tenkanen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
-
-    **Contents:**
-
-        - Shortcuts coming soon...
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/xsV6xcxjo-c?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
 Lecture slides
 --------------

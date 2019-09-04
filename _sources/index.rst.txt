@@ -92,17 +92,17 @@ Themes for each week are listed below. Read more about the weekly :doc:`learning
     course-info/python-vocabulary
     course-info/resources
     course-info/licensing
-.. 
-    .. toctree::
-        :maxdepth: 2
-        :caption: Lesson 1
-       
-        lessons/L1/motivation
-        lessons/L1/overview
-        lessons/L1/course-environment-components
-        lessons/L1/slack-usage
-        notebooks/L1/a-taste-of-python.ipynb
-        lessons/L1/exercise-1
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 1
+
+    lessons/L1/motivation
+    lessons/L1/overview
+    lessons/L1/course-environment-components
+    lessons/L1/slack-usage
+    notebooks/L1/a-taste-of-python.ipynb
+    lessons/L1/exercise-1
 
 .. 
     .. toctree::

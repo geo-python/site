@@ -18,7 +18,7 @@ Effective data visualization
 One of the things we will learn in this course is how to use Python to plot data.
 As you well know, raw data itself is often not particularly useful in helping you understand what the data shows.
 Let's look at an example that might be familiar to you, global temperature anomalies.
-And we can start with the data.
+And we can start with some data.
 
 .. code-block:: none
 
@@ -85,8 +85,8 @@ Not only do we see the changed in temperature, but now we see how temperatures v
 The drawback here is that we only see a single time snapshot, rather than a time series.
 To see both will require a truly remarkable visualization.
 
-So, let's look now at an excellent example of data visualization with Python.
-We have essentially the same data plotted above, but now we can see how temperatures vary in space and time, 
+So, let's look now at some excellent examples of data visualization with Python.
+We have essentially the same data plotted above, but now we can see how temperatures vary in space and time.
 
 .. raw:: html
 
@@ -98,6 +98,17 @@ We have essentially the same data plotted above, but now we can see how temperat
 This animated "pill packet" plot of temperature anomalies conveys a huge amount of information in a simple form.
 People can immediately understand what is plotted, and the combination of the plot format, colors and animation are very effective.
 What even better is the fact that this animation was made using Python!
+
+Another example shows similar data in a different format, including a peek into the future.
+
+.. raw:: html
+
+    <video width="800" controls>
+      <source src="../../_static/Temp-anomalies-2019.mp4" type="video/mp4">
+    </video>
+    <p style="text-align:center"><i>Global temperature anomalies past and future, 1900-2100. Visualization by Antti Lipponen (<a href="https://twitter.com/anttilip">@anttilip</a>). Source: <a href="https://t.co/NP22dZ0sCu">https://t.co/NP22dZ0sCu</a></i></p>
+
+This plot nicely conveys the warming of different regions on Earth, again in an intuitive format.
 
 For the rest of the first part of this course, plots like that above can be our inspiration.
 In fact, we will be working with similar data throughout this part of the course and may even end up producing similar plots in by the end of this teaching period.

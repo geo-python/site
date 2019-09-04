@@ -11,43 +11,24 @@
     "\n",
     "We will start our Python lesson by learning a bit of the basic operations you can perform using Python.\n",
     "\n",
+    "## General information\n",
+    "\n",
     "### Sources\n",
+    "\n",
     "This lesson is inspired by the [Programming in Python lessons](http://swcarpentry.github.io/python-novice-inflammation/) from the [Software Carpentry organization](http://software-carpentry.org).\n",
     "\n",
     "### About this document\n",
-    "This is a Jupyter Notebook designed to assess your understanding of the basic concepts of programming in Python. The contents of this document are divided into cells, which can contain Markdown-formatted text, Python code, or raw text. You can execute a snippet of code in a cell by pressing **Shift-Enter**. Try this out in the examples below."
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {
-    "deletable": true,
-    "editable": true
-   },
-   "source": [
-    "## Getting started\n",
     "\n",
-    "Presumably if you have made it this far, you have already opened this Jupyter Notebook using Binder, the CSC notebooks server, or on your own computer.\n",
-    "If not, you can launch [Jupyter Lab](http://jupyterlab.readthedocs.io/en/stable/) by clicking on either of the launch buttons at the top of this document or by typing the following in a terminal window."
-   ]
-  },
-  {
-   "cell_type": "raw",
-   "metadata": {
-    "deletable": true,
-    "editable": true
-   },
-   "source": [
-    "$ jupyter lab\n"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {
-    "deletable": true,
-    "editable": true
-   },
-   "source": [
+    "This is a [Jupyter Notebook](https://jupyter.org/). This particular notebook is designed to introduce you to a few of the basic concepts of programming in Python. The contents of this document are divided into cells, which can contain Markdown-formatted text, Python code, or raw text. You can execute a snippet of code in a cell by pressing **Shift-Enter**. Try this out with the examples below.\n",
+    "\n",
+    "### Getting started\n",
+    "\n",
+    "Presumably if you have made it this far, you have already opened this Jupyter Notebook using Binder, the CSC notebooks server, or on your own computer. If not, you can launch [Jupyter Lab](http://jupyterlab.readthedocs.io/en/stable/) by clicking on either of the launch buttons at the top of this document or by typing the following in a terminal window.\n",
+    "\n",
+    "```bash\n",
+    "$ jupyter lab\n",
+    "```\n",
+    "\n",
     "This should open a new Jupyter Lab session from which you can open this document by navigating its location in the **Files** tab and double clicking on it. After that you should be ready to go."
    ]
   },
@@ -58,59 +39,43 @@
     "editable": true
    },
    "source": [
-    "## Variables, arithmetic and modules\n",
+    "## Variables, math and functions\n",
     "\n",
     "We will start our Python lesson by learning a bit of the basic operations you can perform using Python.\n",
     "\n",
     "### Simple Python math\n",
     "\n",
-    "Python can be used as a simple calculator. Remember, you can press **Shift-Enter** to execute the code in the cells below. Try it out and see what you get."
+    "Python can be used as a simple calculator. Remember, you can press **Shift-Enter** to execute the code in the cells below. Try it out by typing ``1 + 1`` or ``5 * 7`` and see what you get."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": null,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "2"
-      ]
-     },
-     "execution_count": 1,
-     "metadata": {},
-     "output_type": "execute_result"
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
     }
-   ],
+   },
+   "outputs": [],
    "source": [
     "1 + 1"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": null,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "35"
-      ]
-     },
-     "execution_count": 2,
-     "metadata": {},
-     "output_type": "execute_result"
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
     }
-   ],
+   },
+   "outputs": [],
    "source": [
     "5 * 7"
    ]
@@ -134,55 +99,39 @@
    "source": [
     "### Functions\n",
     "\n",
-    "You can use Python for more advanced math by using functions. Functions are pieces of code that perform a single action such as printing information to the screen (e.g., the print() function). Functions exist for a huge number of operations in Python."
+    "You can use Python for more advanced math by using functions. Functions are pieces of code that perform a single action such as printing information to the screen (e.g., the ``print()`` function). Functions exist for a huge number of operations in Python.\n",
+    "\n",
+    "Let's try out a few simple examples using functions to find the sine or square root of a value. You can type ``sin(3)`` or ``sqrt(4)`` into the cells below to test this out."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": null,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
-   },
-   "outputs": [
-    {
-     "ename": "NameError",
-     "evalue": "name 'sin' is not defined",
-     "output_type": "error",
-     "traceback": [
-      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
-      "\u001b[1;31mNameError\u001b[0m                                 Traceback (most recent call last)",
-      "\u001b[1;32m<ipython-input-3-eb391534dd1e>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m()\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0msin\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;36m3\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
-      "\u001b[1;31mNameError\u001b[0m: name 'sin' is not defined"
-     ]
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
     }
-   ],
+   },
+   "outputs": [],
    "source": [
     "sin(3)"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": null,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
-   },
-   "outputs": [
-    {
-     "ename": "NameError",
-     "evalue": "name 'sqrt' is not defined",
-     "output_type": "error",
-     "traceback": [
-      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
-      "\u001b[1;31mNameError\u001b[0m                                 Traceback (most recent call last)",
-      "\u001b[1;32m<ipython-input-4-718d7f173e1d>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m()\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0msqrt\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;36m4\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
-      "\u001b[1;31mNameError\u001b[0m: name 'sqrt' is not defined"
-     ]
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
     }
-   ],
+   },
+   "outputs": [],
    "source": [
     "sqrt(4)"
    ]
@@ -216,14 +165,13 @@
     "| Division       | `/`    | `4 / 2`        | `2`            |\n",
     "| Exponentiation | `**`   | `2**3`         | `8`            |\n",
     "\n",
-    "For anything more advanced, we need to load a *module*."
+    "For anything more advanced, we need to load a *module*. For math operations, this module is called *math* and it can be loaded by typing ``import math``. Try that below."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": null,
    "metadata": {
-    "collapsed": true,
     "deletable": true,
     "editable": true
    },
@@ -233,49 +181,40 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Now that we have access to functions in the math module, we can use it by typing the module name, a period (dot), and the the name of the function we want to use. For example, ``math.sin(3)``. Try this with the sine and square root examples from above."
+   ]
+  },
+  {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": null,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "0.1411200080598672"
-      ]
-     },
-     "execution_count": 6,
-     "metadata": {},
-     "output_type": "execute_result"
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
     }
-   ],
+   },
+   "outputs": [],
    "source": [
     "math.sin(3)"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": null,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "2.0"
-      ]
-     },
-     "execution_count": 7,
-     "metadata": {},
-     "output_type": "execute_result"
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
     }
-   ],
+   },
+   "outputs": [],
    "source": [
     "math.sqrt(4)"
    ]
@@ -287,64 +226,57 @@
     "editable": true
    },
    "source": [
-    "We can see a few interesting things above:\n",
+    "Let's summarize what we've just seen with modules:\n",
     "\n",
-    "1. A *module*, also known as a *library*, is a group of code items such as functions that are related to one another.\n",
-    "Modules are loaded using ``import``.\n",
-    "Functions that are part of the module ``modulename`` could then be used by typing ``modulename.functionname()``.\n",
-    "For example, ``sin()`` is a function that is part of the ``math`` module, and used by typing ``math.sin()`` with some number between the parentheses.\n",
+    "1. A *module* is a group of code items such as functions that are related to one another. Individual modules are often in a group referred to as a *library*.\n",
     "\n",
-    "2. Within a given Jupyter Notebook the variables you define earlier in the notebook will be available for use in the cells that follow as long as you have already executed the cells.\n",
+    "2. Modules can be loaded using ``import``. Functions that are part of the module ``modulename`` can then be used by typing ``modulename.functionname()``. For example, ``sin()`` is a function that is part of the ``math`` module, and used by typing ``math.sin()`` with some number between the parentheses.\n",
     "\n",
-    "3. Modules may also contain constants such as ``math.pi``."
+    "3. Within a given Jupyter Notebook the variables you define earlier in the notebook will be available for use in the cells that follow as long as you have already executed the cells.\n",
+    "\n",
+    "4. Modules may also contain constants such as ``math.pi``. Type this in the cell below to see the value of the contant ``math.pi``."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": null,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "3.141592653589793"
-      ]
-     },
-     "execution_count": 8,
-     "metadata": {},
-     "output_type": "execute_result"
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
     }
-   ],
+   },
+   "outputs": [],
    "source": [
     "math.pi"
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Check your understanding\n",
+    "\n",
+    "Use the empty Python cell below to calculate the sine of pi. What value do you expect for this calculation? Did you get the expected result?"
+   ]
+  },
+  {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": null,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "1.2246467991473532e-16"
-      ]
-     },
-     "execution_count": 9,
-     "metadata": {},
-     "output_type": "execute_result"
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
     }
-   ],
+   },
+   "outputs": [],
    "source": [
-    "math.sin(math.pi) "
+    "# Place your code on the line(s) below. Note that lines starting with \"#\" are ignored in Python.\n",
+    "\n"
    ]
   },
   {
@@ -356,49 +288,46 @@
    "source": [
     "### Combining functions\n",
     "\n",
-    "Functions can also be combined"
+    "Functions can also be combined. The ``print()`` function returns values within the parentheses as text on the screen. Below, try printing the value of the square root of four."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": null,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
-   },
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "2.0\n"
-     ]
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
     }
-   ],
+   },
+   "outputs": [],
    "source": [
     "print(math.sqrt(4))"
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "You can also combine text with other calculated values using the ``print()`` function. For example, ``print('Two plus two is', 2+2)`` would generate text reading 'Two plus two is 4'. Combine the ``print()`` function with the ``math.sqrt()`` function in the cell below to produce text that reads 'The square root of 4 is 2.0'."
+   ]
+  },
+  {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": null,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
-   },
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "The square root of 4 is 2.0\n"
-     ]
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
     }
-   ],
+   },
+   "outputs": [],
    "source": [
-    "print('The square root of 4 is',math.sqrt(4))"
+    "print('The square root of 4 is', math.sqrt(4))"
    ]
   },
   {
@@ -410,60 +339,47 @@
    "source": [
     "### Variables\n",
     "\n",
-    "*Variables* can be used to store values calculated in expressions and used for other calculations."
+    "*Variables* can be used to store values calculated in expressions and used for other calculations. Assigning value to variables is straightforward. To assign a value, you simply type ``variable_name = value``, where ``variable_name`` is the name of the variable you wish to define. In the cell below, define a variable called ``temp_celsius``, assign it a value of '10.0', and then print that variable value using the ``print()`` function. Note that you need to do this on two separate lines."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": null,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
-   },
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "10.0\n"
-     ]
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
     }
-   ],
+   },
+   "outputs": [],
    "source": [
     "temp_celsius = 10.0\n",
     "print(temp_celsius)"
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": 13,
-   "metadata": {
-    "collapsed": false,
-    "deletable": true,
-    "editable": true
-   },
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Temperature in Fahrenheit: 50.0\n"
-     ]
-    }
-   ],
+   "cell_type": "markdown",
+   "metadata": {},
    "source": [
-    "print('Temperature in Fahrenheit:', 9/5 * temp_celsius + 32)"
+    "As we did above, you can combine text and even use some math when printing out variable values. The idea is similar to the examples of adding 2+2 or calculating the square root of four from the previous section. In the cell below, print out the value of ``temp_celsius`` in degrees Fahrenheit by multiplying ``temp_celsius`` by 9/5 and adding 32. This should be done within the ``print()`` function to produce output that reads 'Temperature in Fahrenheit: 50.0'."
    ]
   },
   {
-   "cell_type": "markdown",
+   "cell_type": "code",
+   "execution_count": null,
    "metadata": {
+    "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
+   "outputs": [],
    "source": [
-    "Above, we also see one common format for good variable naming, separation of words by underscores `_` (e.g., `temp_celsius`). This is called *pothole_case_naming*. We’ll see another below."
+    "print('Temperature in Fahrenheit:', 9/5 * temp_celsius + 32)"
    ]
   },
   {
@@ -482,9 +398,8 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": null,
    "metadata": {
-    "collapsed": true,
     "deletable": true,
     "editable": true
    },
@@ -503,14 +418,13 @@
    "source": [
     "### Updating variables\n",
     "\n",
-    "Values stored in variables can also be updated."
+    "Values stored in variables can also be updated. Let's redefine the value of ``temp_celsius`` to be equal to 15.0 and print its value in the cells below."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": null,
    "metadata": {
-    "collapsed": true,
     "deletable": true,
     "editable": true
    },
@@ -521,21 +435,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": null,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
-   },
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "temperature in Celsius is now: 15.0\n"
-     ]
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
     }
-   ],
+   },
+   "outputs": [],
    "source": [
     "print('temperature in Celsius is now:', temp_celsius)"
    ]
@@ -551,32 +460,23 @@
     "\n",
     "**Warning**\n",
     "\n",
-    "If you try to run some code that accesses a variable that has not yet been defined you will get a `NameError` message.\n",
+    "If you try to run some code that accesses a variable that has not yet been defined you will get a `NameError` message. Try printing out the value of the variable ``tempFahrenheit`` using the ``print()`` function in the cell below.\n",
     "\n",
     "</div>"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 19,
+   "execution_count": null,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
-   },
-   "outputs": [
-    {
-     "ename": "NameError",
-     "evalue": "name 'tempFahrenheit' is not defined",
-     "output_type": "error",
-     "traceback": [
-      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
-      "\u001b[1;31mNameError\u001b[0m                                 Traceback (most recent call last)",
-      "\u001b[1;32m<ipython-input-19-de2e15f8d8d4>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m()\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0mprint\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m'Temperature in Celsius:'\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;36m5\u001b[0m\u001b[1;33m/\u001b[0m\u001b[1;36m9\u001b[0m \u001b[1;33m*\u001b[0m \u001b[1;33m(\u001b[0m\u001b[0mtempFahrenheit\u001b[0m \u001b[1;33m-\u001b[0m \u001b[1;36m32\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
-      "\u001b[1;31mNameError\u001b[0m: name 'tempFahrenheit' is not defined"
-     ]
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
     }
-   ],
+   },
+   "outputs": [],
    "source": [
     "print('Temperature in Celsius:', 5/9 * (tempFahrenheit - 32))"
    ]
@@ -592,17 +492,16 @@
     "\n",
     "**Note**\n",
     "\n",
-    "One of the cool things here is that if we define the undefined variable in a later cell and execute that cell, we can return to the earlier one and the code should now work. That was a bit of a complicated sentence, so let's test this all out. First, execute the Python code in the cell below. Then, return to the cell above this text and run it again. See how the error message has gone away? `tempFahrenheit` has now been defined and thus the cell above no longer generates a `NameError` when the code is executed.\n",
+    "One of the interesting things here is that if we define the undefined variable in a cell lower down in the notebook and execute that cell, we can return to the earlier cell and the code should now work. That was a bit of a complicated sentence, so let's test this all out. First, let's define a variable called ``tempFahrenheit`` in the cell below and assign it to be equal to ``9/5 * temp_celsius + 32``, the conversion factor from temperatures in Celsius to Fahrenheit. Then, return to the cell above this text and run that cell again. See how the error message has gone away? ``tempFahrenheit`` has now been defined and thus the cell above no longer generates a ``NameError`` when the code is executed.\n",
     "\n",
-    "Also, the number beside the cell, for example `In [2]`, tells you the order in which the Python cells have been executed. This way you can see a history of the commands you've executed\n",
+    "Also, the number beside the cell, for example ``In [2]``, tells you the order in which the Python cells have been executed. This way you can see a history of the order in which you have run the cells.\n",
     "</div>"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 20,
+   "execution_count": null,
    "metadata": {
-    "collapsed": true,
     "deletable": true,
     "editable": true
    },
@@ -612,22 +511,24 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Just to check their current values, print out the values of ``temp_celsius`` and ``tempFahrenheit`` in the cell below."
+   ]
+  },
+  {
    "cell_type": "code",
-   "execution_count": 21,
+   "execution_count": null,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
-   },
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "temperature in Celsius: 15.0 and in Fahrenheit: 59.0\n"
-     ]
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
     }
-   ],
+   },
+   "outputs": [],
    "source": [
     "print('temperature in Celsius:', temp_celsius, 'and in Fahrenheit:', tempFahrenheit)"
    ]
@@ -641,26 +542,21 @@
    "source": [
     "### Variable values\n",
     "\n",
-    "Changing the value of a variable does not affect other variable values."
+    "Changing the value of a variable does not affect other variable values. Let's redefine ``temp_celsius`` to be equal to 20.0, and print out the values of ``temp_celsius`` and ``tempFahrenheit``."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 22,
+   "execution_count": null,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
-   },
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "temperature in Celsius is now: 20.0 and temperature in Fahrenheit is still: 59.0\n"
-     ]
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
     }
-   ],
+   },
+   "outputs": [],
    "source": [
     "temp_celsius = 20.0\n",
     "print('temperature in Celsius is now:', temp_celsius, 'and temperature in Fahrenheit is still:', tempFahrenheit)"
@@ -685,55 +581,47 @@
     "| `bool`         | True/false values    | `True`     |\n",
     "\n",
     "The data type can be found using the `type()` function.\n",
-    "As you will see, the data types are important because some are not compatible with one another."
+    "As you will see, the data types are important because some are not compatible with one another.\n",
+    "\n",
+    "Let's define a variable ``weatherForecast`` and assign it the value ``'Hot'``. After this, we can check its data type using the ``type()`` function."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
+   "execution_count": null,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "str"
-      ]
-     },
-     "execution_count": 23,
-     "metadata": {},
-     "output_type": "execute_result"
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
     }
-   ],
+   },
+   "outputs": [],
    "source": [
     "weatherForecast = 'Hot'\n",
     "type(weatherForecast)"
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Let's also check the type of ``tempFahrenheit``. What happens if you try to combine ``tempFahrenheit`` and ``weatherForecast`` in a single math equation such as ``tempFahrenheit = tempFahrenheit + 5.0 * weatherForecast``?"
+   ]
+  },
+  {
    "cell_type": "code",
-   "execution_count": 24,
+   "execution_count": null,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
-   },
-   "outputs": [
-    {
-     "ename": "TypeError",
-     "evalue": "can't multiply sequence by non-int of type 'float'",
-     "output_type": "error",
-     "traceback": [
-      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
-      "\u001b[1;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
-      "\u001b[1;32m<ipython-input-24-16ad5aa6a3be>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m()\u001b[0m\n\u001b[0;32m      1\u001b[0m \u001b[0mtype\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mtempFahrenheit\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m----> 2\u001b[1;33m \u001b[0mtempFahrenheit\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mtempFahrenheit\u001b[0m \u001b[1;33m+\u001b[0m \u001b[1;36m5.0\u001b[0m \u001b[1;33m*\u001b[0m \u001b[0mweatherForecast\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
-      "\u001b[1;31mTypeError\u001b[0m: can't multiply sequence by non-int of type 'float'"
-     ]
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
     }
-   ],
+   },
+   "outputs": [],
    "source": [
     "type(tempFahrenheit)\n",
     "tempFahrenheit = tempFahrenheit + 5.0 * weatherForecast"
@@ -746,7 +634,7 @@
     "editable": true
    },
    "source": [
-    "In this case we get at `TypeError` because we are trying to execute a math operation with data types that are not compatible. There is no way in Python to multpily numbers with a character string."
+    "In this case we get at ``TypeError`` because we are trying to execute a math operation with data types that are not compatible. There is no way in Python to multpily numbers with a character string."
    ]
   },
   {
@@ -758,18 +646,13 @@
    "source": [
     "#### Check your understanding\n",
     "\n",
-    "Use the empty Python cell below to store a value in a variable that is the result of dividing an `int` value by a `float` or vice versa.\n",
-    "For example, `4 / 2.0`.\n",
-    "After you store the value in the variable, check its type using the `type()` function.\n",
-    "Did you get what you expected?\n",
-    "What happens when you divide two `int` values?"
+    "As it turns out, you can do some math with character strings in Python. Define two variables and assign them character string values in the Python cell below. What happens if you try to add two character strings together? Can you subtract them? Which other math operations work for character strings?"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 25,
+   "execution_count": null,
    "metadata": {
-    "collapsed": true,
     "deletable": true,
     "editable": true
    },
@@ -788,7 +671,9 @@
    "source": [
     "### Character input\n",
     "\n",
-    "Let's start interacting with our code! The built-in [input()](https://docs.python.org/3.6/library/functions.html?highlight=input#input) -function reads a line from input and returns it as a string."
+    "Python and Jupyter notebooks also let us interact in another way with our code! The built-in [input()](https://docs.python.org/3.6/library/functions.html?highlight=input#input) function reads a line from input and returns it as a string.\n",
+    "\n",
+    "Let's try it out. To start, we can define a varaible ``place`` and assign its value using the ``input()`` function to prompt the user for the location where they are from (e.g., ``input('Where are you from? ')``). When the cell is run, the user (you) can type in their response. Once ``place`` is defined, we can say something good about where the user is from (e.g., ``print(place, 'is a nice place!')``)."
    ]
   },
   {
@@ -799,106 +684,197 @@
     "\n",
     "**Warning**\n",
     "\n",
-    "Jupyter Notebook might sometimes get stuck when using the input()-function. If this happens, restart the kernel and run the cell again.\n",
+    "Jupyter Notebooks might sometimes get stuck when using the ``input()`` function. If this happens, restart the kernel and run the cell again (**Kernel** -> **Restart Kernel...**).\n",
+    "\n",
+    "Also, we realize these cells **will not render properly on the course website**, but should work just fine in Binder or using the CSC notebooks. Sorry.\n",
     "\n",
     "</div>"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 29,
+   "execution_count": null,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
-   },
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Where are you from? Vantaa\n",
-      "Vantaa is a nice place!\n"
-     ]
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
     }
-   ],
-   "source": [
-    "place = input(\"Where are you from? \")\n",
-    "print(place, \"is a nice place!\")"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 30,
-   "metadata": {
-    "collapsed": false,
-    "deletable": true,
-    "editable": true
-   },
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "How cold can it be in Vantaa (in Celsius degrees)? -20\n",
-      "-20 Celsius degrees is quite cold!\n"
-     ]
-    }
-   ],
-   "source": [
-    "temp_celsius = input(\"How cold can it be in Vantaa (in Celsius degrees)? \")\n",
-    "print(temp_celsius, \"Celsius degrees is quite cold!\")"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {
-    "collapsed": true,
-    "deletable": true,
-    "editable": true
-   },
-   "source": [
-    "What is the data type of variable `place`?\n",
-    "\n",
-    "What is the data type of variable `temp_celsius`?"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 31,
-   "metadata": {
-    "collapsed": true,
-    "deletable": true,
-    "editable": true
    },
    "outputs": [],
    "source": [
-    "# test the data types in this code block"
+    "place = input('Where are you from? ')\n",
+    "print(place, 'is a nice place!')"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Are you able to convert `temp_celsius` to Fahrenheit?"
+    "Let's try another example in the cell below using the similar approach. Ask the user for a temperature in Celsius using the ``input()`` function and print the input value to the screen."
    ]
   },
   {
    "cell_type": "code",
    "execution_count": null,
    "metadata": {
-    "collapsed": true
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [],
    "source": [
-    "# Try to convert the temperature from Celsius to Fahrenheit "
+    "temp_celsius = input('How cold can it be in Vantaa (in degrees Celsius)? ')\n",
+    "print(temp_celsius, 'degrees Celsius is quite cold!')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "What is the data type of variable `place`? What about the other variable you defined? Check their data types using the cell below."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [],
+   "source": [
+    "print(type(place))\n",
+    "print(type(temp_celsius))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "What happens when you try to convert your Celsius temperature value to Fahrenheit using the equation from earlier in the lesson?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "tempFahrenheit = 9/5 * temp_celsius + 32"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Good coding practices - Selecting \"good\" variable names\n",
+    "\n",
+    "This course aims to introduce you to programming in Python, but also to *good programming practices*. These comprise practical tips based on practices used by professional programmers that help them write better programs that are easier to understand and share with others. To say it differently, there are many ways to learn to program, and we want to help you learn how to program the right way!\n",
+    "\n",
+    "This week our good programming practice is about selecting \"good\" variable names. \n",
+    "\n",
+    "### Some \"not-so-good\" variable names\n",
+    "\n",
+    "To illustrate the point, consider a few not-so-good examples below."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "s = \"101533\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "or"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sid = \"101533\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Any idea what these variables are for? Of course not, the variables ``s`` and ``sid`` are too short and cannot communicate what they should be used for in the code. You might think you know what they are for now, but imagine not looking at the code for a few months. Would you know then? What about if you share the code with a friend? Would they know? Probably not.\n",
+    "\n",
+    "Let's look at another example."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "finnishmeteorologicalinstituteobservationstationidentificationnumber = \"101533\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "OK, so now we have another issue. The variable name ``finnishmeteorologicalinstituteobservationstationidentificationnumber`` potentially provides more information about what the variable represents (the identification number of an FMI observation station), but it does so in a format that is not easy to read, nor something you're likely to want to type more than once. The previous example was too short, and now we have a variable name that is too long (and hard to read as a result)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Selecting \"good\" variable names\n",
+    "\n",
+    "A good variable name should:\n",
+    "\n",
+    "1. Be clear and concise. \n",
+    "\n",
+    "2. Be written in English. A general coding practice is to write code with variable names in English, as that is the most likely common language between programmers. Thus, variable names such as ``muuttuja`` (which is also not a good name on other levels) should be avoided.\n",
+    "\n",
+    "3. Not contain special characters. Python supports use of special characters by way of various encoding options that can be given in a program. That said, it is better to avoid variables such as ``lämpötila`` because encoding issues can arise in some cases. Better to stick to the [standard printable ASCII character set](https://en.wikipedia.org/wiki/ASCII#Printable_characters) to be safe.\n",
+    "\n",
+    "4. Not conflict with any [Python keywords](https://www.pythonforbeginners.com/basics/keywords-in-python), such as ``for``, ``True``, ``False``, ``and``, ``if``, or ``else``. These are reserved for speical operations in Python and cannot be used as variable names.\n",
+    "\n",
+    "With this in mind, let's now look at a few better options for variable names."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Formatting \"good\" variable names\n",
+    "\n",
+    "There are several possibilities for \"good\" variable name formats, of which we'll consider two:\n",
+    "\n",
+    "1. *pothole_case_naming* uses lowercase words separated by underscores ``_``. This is our suggested format as the underscores make it easy to read the variable, and don't add too much to the length of the variable name. As an example, consider the variable ``temp_celsius``. In the context of the examples above, we might rename our variable ``fmi_station_id``, which conveys all of the essential information we need, while remaining easy to read.\n",
+    "\n",
+    "2. *camelCase* or *CamelCase* uses capitalization of the first letter of words in a variable name to make it easier to read. In some cases the first letter of the variable may be capitalized. The variable ``tempFahrenheit`` was one example of camelCase. Again, if we consider the examples from the previous section, we might consider the variable name ``fmiStationID`` or simply ``stationID`` if we elect to use camelCase.\n",
+    "\n",
+    "As mentioned in point 1, pothole_case_naming is preferred, mostly because we feel it is the easiest to read and seems to be most common amongst Python programmers. We are happy with you using either option, as long as you are consistent in the use. It might take an extra second of thought, but could make a big difference in the ease of use of your programs!"
    ]
   }
  ],
  "metadata": {
   "anaconda-cloud": {},
   "kernelspec": {
-   "display_name": "Python [default]",
+   "display_name": "Python 3",
    "language": "python",
    "name": "python3"
   },
@@ -912,9 +888,9 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.5.6"
+   "version": "3.7.3"
   }
  },
  "nbformat": 4,
- "nbformat_minor": 2
+ "nbformat_minor": 4
 }
