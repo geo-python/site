@@ -1,10 +1,10 @@
-Introduction to Version Control and GitHub
-==========================================
+Introduction to Version Control
+================================
 
 **Sources**
 
 These materials are inspired and partially based on Software Carpentry's
-lesson on `Version Control with Git <http://swcarpentry.github.io/git-novice/>`__.
+lesson on `Version Control with Git <http://swcarpentry.github.io/git-novice/>`__ and `GitHub Campus Advisor materials <https://education.github.com/teachers/advisors>`__.
 
 Familiar?
 ---------
@@ -49,74 +49,49 @@ metadata make up a repository (such as our course material
 repositories). Repositories can be kept in sync across different
 computers facilitating also collaboration among different people.
 
-There are multiple different Version Control Systems (VCS) (i.e. a
-software for doing version control) but one of the most popular one is
-`Git <https://en.wikipedia.org/wiki/Git_(software)>`__ that was
-created by Linus Torvalds in 2005. Git is the version control system
-that is running behind the scenes and used with GitHub. And that's
-actually where its name ``Git + Hub`` originates from.
-
-Why to use it?
---------------
-
-One of the most obvious reasons why to use version control is to avoid
+**One of the most obvious reasons why to use version control is to** avoid
 the situation illustrated in the `comics above <#familiar>`__, i.e. to
-keep track of the full history of your changes in a systematic way
+**keep track of the full history of your changes in a systematic way**
 without the need to have multiple versions of the same file. One really
 useful feature of version control is the ability to "go back in time",
-i.e. if something goes wrong, you can start from some earlier version of
-the file when everything was still working. You can also compare the
+i.e. **if something goes wrong, you can start from some earlier version of
+the file when everything was still working**. You can also compare the
 differences between versions and see what has changed. In addition
 aforementioned aspects, version control makes possible for multiple
 people to work on the same file or project at the same time while still
 keeping track of their own changes to the files.
 
-Basic vocabulary of Version Control
------------------------------------
+There are multiple different Version Control Systems (VCS) (i.e. a
+software for doing version control) but one of the most popular one is
+`Git <https://en.wikipedia.org/wiki/Git_(software)>`__
 
-Few basic terms that are used often when discussing about version
-control (not exhaustive).
 
--  **Repository** = a location where all the files for a particular
-   project are stored, usually abbreviated to “repo.” Each project will
-   have its own repo, which is usually located on a server and can be
-   accessed by a unique URL (a link to GitHub page for example).
+What is Git?
+------------
 
--  **Commit** = To commit is to write or merge the changes made in the
-   working copy back to the repository. When you commit, you are
-   basically taking a “snapshot” of your repository at that point in
-   time, giving you a checkpoint to which you can reevaluate or restore
-   your project to any previous state. The terms 'commit' or 'checkin'
-   can also be used as nouns to describe the new revision that is
-   created as a result of committing.
+`Git <https://en.wikipedia.org/wiki/Git_(software)>`__ is a version
+control software (developed in 2005 by a rather famous Finn named Linus
+Torvalds - he also created Linux!) that is used to track and store
+changes in your files (often source code for programs) without losing
+the history of past changes. Files in Git are stored in a repository,
+which you can simply think of as a directory containing files (or other
+directories) related to a single 'project'. Git is widely used by
+professionals to keep track of what they’ve done and to collaborate with
+other people.
 
--  **Revision / version** = A revision or a version is any change in
-   made in any form to a document(s).
-
--  **Clone** = Cloning means creating a repository containing the
-   revisions from another repository. This is equivalent to pushing or
-   pulling into an empty (newly initialized) repository. As a noun, two
-   repositories can be said to be clones if they are kept synchronized,
-   and contain the same revisions.
-
--  **Pull / push** = Copy revisions from one repository into another.
-   Pull is initiated by the receiving repository, while push is
-   initiated by the source. Fetch is sometimes used as a synonym for
-   pull, or to mean a pull followed by an update.
-
--  **Merge** = A merge or integration is an operation in which two sets
-   of changes are applied to a file or set of files.
+Git is the version control system that is running behind the scenes and used with GitHub. And that's
+actually where the name ``Git + Hub`` originates from.
 
 What is GitHub?
 ---------------
 
-Now that you know the basics of version control we can dive into
-explaining what GitHub is.
+.. figure:: img/GitHub_Logo.png
+   :alt: GitHub Logo
 
 Relies on Git
 ~~~~~~~~~~~~~
 
-GitHub in principle is a web based Git repository hosting service. Thus
+GitHub in principle is a **web based Git repository hosting service**. Thus
 it wouldn't exist without the version control system Git. Git is also
 running all the time in the background when using GitHub.
 
@@ -124,7 +99,7 @@ Social (collaborative) network
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 However, GitHub is much more than just a hosting service for Git
-repositories as it is also a social network where people can collaborate
+repositories as **it is also a social network** where people can collaborate
 with each other. It is also easy to invite other GitHub users to work
 with the same project. GitHub is a highly popular place for sharing
 codes openly to the entire world or alternatively only to the
@@ -135,18 +110,18 @@ Open source / science
 
 All publicly available repositories can also be downloaded to your own
 local computer where you can start modifying the codes for your own
-purpose which is called "forking". However, you should always check and
+purpose which is called **"forking"**. However, you should always check and
 follow the license terms mentioned in the project that basically tells
 you what you can do (and what not) with the codes that are shared.
 Usually there might be some limitations for commercial use of the codes
-for example. Sharing your work publicly to others is also the basic
-principle of open science.
+for example. **Sharing your work publicly to others is also the basic
+principle of open science.**
 
 Documentation
 ~~~~~~~~~~~~~
 
-GitHub repositories are often also used as web pages for different
-projects. In GitHub such web pages typically include technical
+**GitHub repositories are often also used as web pages for different
+projects.** In GitHub such web pages typically include technical
 documentation, instructions and examples how to use the codes or
 software shared on that page. **It is extremely important that you
 document well your codes and programs that you have done!** GitHub
@@ -186,6 +161,43 @@ that was found in the code or software. Issues can also be used to track
 ideas, enhancements, tasks for projects on GitHub. You can use Issues
 also to organize tasks you'd like to accomplish, such as adding new
 features or auditing old ones.
+
+
+Basic vocabulary
+-----------------
+
+Few basic terms that are used often when using git and GitHub (not exhaustive).
+
+-  **Repository** = a location where all the files for a particular
+   project are stored, usually abbreviated to “repo.” Each project will
+   have its own repo, which is usually located on a server and can be
+   accessed by a unique URL (a link to GitHub page for example).
+
+-  **Commit** = To commit is to write or merge the changes made in the
+   working copy back to the repository. When you commit, you are
+   basically taking a “snapshot” of your repository at that point in
+   time, giving you a checkpoint to which you can reevaluate or restore
+   your project to any previous state. The terms 'commit' or 'checkin'
+   can also be used as nouns to describe the new revision that is
+   created as a result of committing.
+
+-  **Revision / version** = A revision or a version is any change in
+   made in any form to a document(s).
+
+-  **Clone** = Cloning means creating a repository containing the
+   revisions from another repository. This is equivalent to pushing or
+   pulling into an empty (newly initialized) repository. As a noun, two
+   repositories can be said to be clones if they are kept synchronized,
+   and contain the same revisions.
+
+-  **Pull / push** = Copy revisions from one repository into another.
+   Pull is initiated by the receiving repository, while push is
+   initiated by the source. Fetch is sometimes used as a synonym for
+   pull, or to mean a pull followed by an update.
+
+-  **Merge** = A merge or integration is an operation in which two sets
+   of changes are applied to a file or set of files.
+
 
 Resources
 ---------
