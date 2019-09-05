@@ -21,14 +21,21 @@ We will cover the very basics of version control using Git and GitHub:
 5. `Publish your local commits to GitHub`_
 
 There are many different ways to use Git. We will first go trough the basics of using Git from the command line, and then we will learn to repeat these steps using a plugin in JupyterLab.
-These materials have been adapted for the geo-python course from `GitHubClassroom Campus Advisors -resources <https://github.com/Campus-Advisors>`_, and inspired by other online resources such as https://git-scm.com/about/.
+These materials have been adapted for the geo-python course from `GitHubClassroom Campus Advisors -resources <https://github.com/Campus-Advisors>`_, and `Git documentation <https://git-scm.com/about/>`__.
 
 Key concepts and tools
 -----------------------
 
+In a nutshell, we use git to record changes to our files over time. Version control history consists of snapshots of all the files in our project.
+In order to create a snapshot, we first add content to the staging area (using ``git add``). The idea is, that you can have a (sometimes messy) working directory, and by using `git add` you tell
+Git which files to include in the next committed snapshot. Finally, ``git commit`` records a permanent snapshot of the staged changes. Read more about basic snapshotting `in here <https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Basic-Snapshotting>`__
+
 .. figure:: img/Git_illustration.png
 
-    Different stages of version control using Git and Github (adapted from `Git webpages <https://git-scm.com/about/staging-area>`__)
+    Different stages of version control using Git and Github (adapted from `Git documentation <https://git-scm.com/about/staging-area>`__).
+
+All of the above (``git add`` and `` git commit``) happens locally inside the repository. When  you are ready to share your work on GitHub,
+ you need to communicate between the local repository and the remote repository over the network. Read more about sharing and updating Git projects `in here <https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Sharing-and-Updating-Projects>`__
 
 .. figure:: img/pull-push-illustration.png
 
@@ -51,7 +58,7 @@ Using Git from the command line
 You will need to know a couple of basic command line commands in order to use Git. Code Academy's `list of command line commands <https://www.codecademy.com/articles/command-line-commands>`__ provides
 a good overview of commonly used commands for navigating trough files in the Terminal. The instructions below are compatible with the Linux terminal (which is available in :doc:`the course environment <course-environment-components>`).
 
-Start a new Terminal session in JupyterLab (using the icon on the Launcher, or from File > New > Terminal)
+Start a new Terminal session in JupyterLab (using the icon on the Launcher, or from *File* > *New* > *Terminal*)
 
 .. figure:: img/terminal-icon.png
 
@@ -85,7 +92,7 @@ You can check existing user information with these commands:
 
     $ git config user.email
 
-We can also tell Git to remember our GitHub username and password using a credential helper (see instructions for other operating systems than linux `here <https://help.github.com/en/articles/caching-your-github-password-in-git<`__:
+We can also tell Git to remember our GitHub username and password using a credential helper (see instructions for other operating systems than linux `here <https://help.github.com/en/articles/caching-your-github-password-in-git>`__:
 
 .. code-block:: bash
 
@@ -118,7 +125,9 @@ Let's *change directory* to the exercise directory using the ``cd`` command:
 
     $ cd exercises
 
-Now we are ready to start cloning. For this, we need a url for the remote repository. Go to https://github.com/geo-python-2019/ and navigate to your personal Exercise-2 folder (for example, Vuokko would go to https://github.com/geo-python-2019/exercise-2-VuokkoH ).
+Now we are ready to start cloning. For this, we need a url for the remote repository. Go to https://github.com/geo-python-2019/ and navigate to your personal Exercise-2 folder.
+For example, Vuokko would go to https://github.com/geo-python-2019/exercise-2-VuokkoH.
+
 On GitHub, find the button **Clone and download** and copy the url under *Clone with HTTPS* (for example; https://github.com/geo-python-2019/exercise-1-VuokkoH.git ).
 
 .. figure:: img/GitHub_clone_link.png
@@ -133,7 +142,7 @@ for instance:
 
 .. code-block:: bash
 
-    $ git clone https://github.com/geo-python-2019/exercise-1-VuokkoH.git
+    $ git clone https://github.com/geo-python-2019/exercise-2-VuokkoH.git
 
 .. note::
 
@@ -177,23 +186,24 @@ Tada! You now have a local version of your exercise-2 repository! You should see
 
     $ git status
 
+    On branch master
+    Your branch is up to date with 'origin/master'.
+
 As we didn't make any changes yet, git should tell that the project is up to date.
-At this stage, your terminal window should look something like this:
 
-.. figure:: img/Terminal_git_status1.png
-
-Git status also tells that you are on branch master. **During this course you don't have to worry much about branches**, but it is good to know that master branch is always the default branch.
-A branch is a parallel version of a repository which can be developed separately before merging the changes to the primary version. You can read more about branches `here <https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is>`__.
+.. note::
+    Git status also tells that you are on branch master. **During this course you don't have to worry much about branches**, but it is good to know that master branch is always the default branch.
+    A branch is a parallel version of a repository which can be developed separately before merging the changes to the primary version. You can read more about branches `here <https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is>`__.
 
 .. note::
     In case you would be starting a new project from the scratch, you could create a new repository using ``git init`` command (https://git-scm.com/docs/git-init).
-    During this course, however, we always start working by cloning an existing repository. In case you want to create new files on the command line using git, you can use ``git touch``.
+    During this course, however, we always start working by cloning an existing repository.
 
 
 Add changes to the staging area
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Let's start making changes in the repository! For example, open the Readme.md -file of the exercise repository and type in something.
+Let's start making changes in the repository! For example, open the ``Readme.md`` -file of the exercise repository and type in something.
 
 After saving your changes, check the status of the repository:
 
@@ -216,7 +226,7 @@ Git should tell you that it detected changes that have not been "staged for comm
             modified:   README.md
 
 As you can see, you could use ``git checkout README.md`` to discard the changes you made.
-In case you are happy with your changes, go ahead and ``git add README.md to add the changes to the staging area:
+In case you are happy with your changes, go ahead and run ``git add README.md`` to add the changes to the staging area:
 
 .. code-block:: bash
 
@@ -240,9 +250,10 @@ Git now tells you that there are changes that are ready to be committed:
 
             modified:   README.md
 
-Here, git tells you how you can unstage the changes using ``git reset HEAD <file>...``. Doing this would not revert the changes, just unstage them back to the working directory.
-You might want to "reset HEAD", for example, in case you had added many files to the staging area, but decide to commit them separately. For now, we are happy with the changes made,
-and are ready to commit them.
+.. note::
+    Here, git tells you how you can unstage the changes using ``git reset HEAD <file>...``. Doing this would not revert the changes, just unstage them back to the working directory.
+    You might want to "reset HEAD", for example, in case you had added many files to the staging area, but decide to commit them separately. For now, we are happy with the changes made,
+    and are ready to commit them.
 
 Commit changes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -286,7 +297,9 @@ Next, we want to synchronize our local changes with the remote repository on Git
 
     $ git pull
 
-Git should tell you that the repository is **"Already up-to-date"**. Now we are ready to push the local changes to GitHub using :code:`git push`:
+Git should tell you that the repository is **"Already up-to-date"** (unless you have changed something on GitHub in the meanwhile!).
+
+Now we are ready to push the local changes to GitHub using :code:`git push`:
 
 .. code-block:: bash
 
@@ -298,7 +311,7 @@ or just simply
 
     $ git push
 
-Git will prompt you for username and password before pushing the changes online:
+Unless you cached your credentials, Git will once more prompt you for username and password before pushing the changes online:
 
 .. code-block:: bash
 
@@ -319,17 +332,19 @@ Using the JupyterLab Git plugin
 -------------------------------
 
 For your convenience, we have also installed a plugin in JupyterLab which has buttons for completing most of the version control tasks we need during this course.
+
+
+Preparations in the Terminal
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Even if using the plugin, you need to clone the repository and cache your username and password on the command line:
 
-Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
 
     $ git config --global credential.helper 'cache --timeout=3600'
 
-Clone a repository from GitHub
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: bash
 
     $ git clone [paste your URL here]
@@ -337,22 +352,36 @@ Clone a repository from GitHub
 After caching the credentials and cloning the repo, you can do the rest using the plugin.
 
 
-Add changes to the staging area
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Stage changes in the plugin
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - modify README.md and save the file. The git plugin should detect the changes
+
+.. figure:: img/git-plugin-tracked-changes.png
+
 - stage all changes using the plugin
 
-Commit changes
+.. figure:: img/git-plugin-staged-changes.png
+
+Commit changes in the plugin
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-- add a descriptive commit message in the text box
-- click on the commit-button
+- add a descriptive commit message in the text box and click on the commit-button:
+
+.. figure:: img/git-plugin-commit-message.png
+
 - check commit history under the history-tab
 
-Publish your local commits to GitHub
+.. figure:: img/git-plugin-version-history.png
+
+Push and pull using the plugin
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - First, press "Pull" to check that the local repo is up to date
 - Then, press "Push"
+
+.. figure:: img/git-plugin-push.png
+
+.. figure:: img/git-plugin-push-ok.png
+    Once the Push succeeded, you can click "Dismiss".
 
 .. warning::
     In case you get an error message, you have not successfully cashed your credentials.
