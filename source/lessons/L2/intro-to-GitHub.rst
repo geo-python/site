@@ -75,8 +75,9 @@ Torvalds - he also created Linux!) that is used to track and store
 changes in your files (often source code for programs) without losing
 the history of past changes. Files in Git are stored in a repository,
 which you can simply think of as a directory containing files (or other
-directories) related to a single 'project'. Git is widely used by
-professionals to keep track of what they’ve done and to collaborate with
+directories) related to a single 'project'. **In practice git takes "snapshots" of your files each
+time you commit changes.** Git follows the idea of `distributed version control <https://git-scm.com/book/en/v1/Getting-Started-About-Version-Control#Distributed-Version-Control-Systems>`__.
+Git is widely used by professionals to keep track of what they’ve done and to collaborate with
 other people.
 
 Git is the version control system that is running behind the scenes and used with GitHub. And that's
