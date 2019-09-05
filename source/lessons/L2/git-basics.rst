@@ -2,8 +2,8 @@ Meet Git
 =========
 
 Overview and preparations
--------------------------------
-Let's go trough the basics of using git. Before working on this tutorial, please go and accept exercise 2 on GitHub Classroom from the Exercise-2 landing page.
+-----------------------------
+Let's go trough the basics of using git. Before working on this tutorial, please go and accept exercise 2 on GitHub Classroom from the  :doc:`Exercise-2 landing page <exercise-2>`.
 Also, open a JupyterLab session in order follow this tutorial hands-on.
 
 .. image:: https://img.shields.io/badge/launch-binder-red.svg
@@ -16,11 +16,15 @@ We will cover the very basics of version control using Git and GitHub:
 
 1. `Configuration`_
 2. `Clone a repository from GitHub`_
-3. `Add changes`_
+3. `Add changes to the staging area`_
 4. `Commit changes`_
-5. `Synchronize changes`_
+5. `Publish your local commits to GitHub`_
 
+There are many different ways to use Git. We will first go trough the basics of using Git from the command line, and then we will learn to repeat these steps using a plugin in JupyterLab.
 These materials have been adapted for the geo-python course from `GitHubClassroom Campus Advisors -resources <https://github.com/Campus-Advisors>`_, and inspired by other online resources such as https://git-scm.com/about/.
+
+Key concepts and tools
+-----------------------
 
 .. figure:: img/Git_illustration.png
 
@@ -42,8 +46,6 @@ These materials have been adapted for the geo-python course from `GitHubClassroo
 
     Check out other commonly used git commands from `the GIT CHEAT SHEET <https://education.github.com/git-cheat-sheet-education.pdf>`__
 
-There are many different ways to use Git. We will first go trough the basics of using Git from the command line. The csc Notebooks environment also contains a graphical user interface for git (you can push buttons in stead of typing commands in the terminal).
-
 Using Git from the command line
 -------------------------------
 You will need to know a couple of basic command line commands in order to use Git. Code Academy's `list of command line commands <https://www.codecademy.com/articles/command-line-commands>`__ provides
@@ -63,7 +65,7 @@ Anything above version 2 is just fine.
 
 
 Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Configuring Git by storing your Git username and email can be useful especially if working from own computer as you do not
 need to fill these information every time when you are e.g. pulling or pushing from remote repository.
@@ -89,11 +91,15 @@ We can also tell Git to remember our GitHub username and password using a creden
 
     $ git config --global credential.helper 'cache --timeout=3600'
 
+.. note::
+
+    You will need to cache your credentials in order to use the Git plugin in JupyterLab.
+
 Clone a repository from GitHub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We will **clone an existing repository from GitHub and start modifying it**. A repository, or "Git project", or a "repo", is a location for storing files. A repo contains all the files and folders associated with a project and the revision history of each entity.
-In general, it is recommended that each project, library or discrete piece of software should have it's own repository.
+We will **clone an existing repository from GitHub and start modifying it**. A repository, or "Git project", or a "repo", is a location for storing files.
+A repo contains all the files and folders associated with a project and the revision history of each entity. In general, it is recommended that each project, library or discrete piece of software should have it's own repository.
 In this course each exercise has it's own repository.
 
 First we need to navigate to the correct folder in the Terminal. Type in ``ls`` to check the contents of the current directory:
@@ -102,8 +108,10 @@ First we need to navigate to the correct folder in the Terminal. Type in ``ls`` 
 
     $ ls
 
-In case you are working in the CSC notebooks environment, you should see two directories (folders) in the work-directory: exercises and notebooks.
-The notebooks folder contains all the lesson materials. The exercises folder is an empty folder where you can organize all the exercise materials.
+In case you are working in the CSC notebooks environment, you should see two directories (folders) in the work-directory: ``exercises`` and ``notebooks``.
+The notebooks folder contains all the lesson materials (each time you launch an instance, Git automatically pulls changes from https://github.com/geo-python/notebooks! ).
+
+The exercises folder is an empty folder where you can start working with the exercise materials.
 Let's *change directory* to the exercise directory using the ``cd`` command:
 
 .. code-block:: bash
@@ -162,7 +170,7 @@ List all files in the directory, this time including all hidden files using the 
 
     $ ls -a
 
-Tada! You now have a local version of your exercise-2 repository!
+Tada! You now have a local version of your exercise-2 repository! You should see ``.git`` listed on the screen - this is a hidden folder that contains all the information that Git needs for version control.
 **Check the status of your local git repository** usin the :code:`git status` command, which provides change information about the repository (this is the most common git command - use it often!):
 
 .. code-block:: bash
@@ -174,7 +182,8 @@ At this stage, your terminal window should look something like this:
 
 .. figure:: img/Terminal_git_status1.png
 
-Git status also tells that you are on branch master. **During this course you don't have to worry much about branches**, but it is good to know that master branch is always the default branch. A branch is a parallel version of a repository which can be developed separately before merging the changes to the primary version. You can read more about branches `here <https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is>`__.
+Git status also tells that you are on branch master. **During this course you don't have to worry much about branches**, but it is good to know that master branch is always the default branch.
+A branch is a parallel version of a repository which can be developed separately before merging the changes to the primary version. You can read more about branches `here <https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is>`__.
 
 .. note::
     In case you would be starting a new project from the scratch, you could create a new repository using ``git init`` command (https://git-scm.com/docs/git-init).
@@ -231,10 +240,9 @@ Git now tells you that there are changes that are ready to be committed:
 
             modified:   README.md
 
-Again, git tells you how you can unstage the changes using ``git reset HEAD <file>...``. You might want to do this, for example,
-in case you had added many files to the staging area, but decide to commit them separately. For now, we are happy with the changes made,
+Here, git tells you how you can unstage the changes using ``git reset HEAD <file>...``. Doing this would not revert the changes, just unstage them back to the working directory.
+You might want to "reset HEAD", for example, in case you had added many files to the staging area, but decide to commit them separately. For now, we are happy with the changes made,
 and are ready to commit them.
-
 
 Commit changes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -305,7 +313,6 @@ Git will prompt you for username and password before pushing the changes online:
     To https://github.com/Geo-Python-2018/exercise-1-VuokkoH.git
        b33a43a..c4be7c3  master -> master
 
-
 Now, you should see the updates in GitHub (go and have a look at your personal repository in https://github.com/Geo-Python-2019/ )!
 
 Using the JupyterLab Git plugin
@@ -314,35 +321,51 @@ Using the JupyterLab Git plugin
 For your convenience, we have also installed a plugin in JupyterLab which has buttons for completing most of the version control tasks we need during this course.
 Even if using the plugin, you need to clone the repository and cache your username and password on the command line:
 
-1 . Cache credentials
+Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: bash
 
     $ git config --global credential.helper 'cache --timeout=3600'
 
-2. Clone
+Clone a repository from GitHub
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: bash
 
     $ git clone [paste your URL here]
 
-After these steps, you can do the rest using the plugin:
+After caching the credentials and cloning the repo, you can do the rest using the plugin.
 
-3. Add changes to the staging area
 
-- modify README.md and save the file
-- stage all changes
+Add changes to the staging area
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-4. Commit changes
-- add a commit message
-- click on the blue button
-- check commit history
+- modify README.md and save the file. The git plugin should detect the changes
+- stage all changes using the plugin
 
-5. Pull / push changes
+Commit changes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- add a descriptive commit message in the text box
+- click on the commit-button
+- check commit history under the history-tab
+
+Publish your local commits to GitHub
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - First, press "Pull" to check that the local repo is up to date
 - Then, press "Push"
 
-In case you get an error message, you have not successfully cashed your credentials.
-In this case, you can run git pull and git push from the command line.
+.. warning::
+    In case you get an error message, you have not successfully cashed your credentials.
+    In this case, you can run git pull and git push from the command line.
 
+
+If everything else fails...
+------------------------------------
+
+Remember, that you can always download your files on your own computer, and upload them manually to GitHub like we did in exercise 1!
+
+.. image:: https://imgs.xkcd.com/comics/git.png
+    :alt: https://xkcd.com/1597/
 
 Remotes
 ------------------------------------
