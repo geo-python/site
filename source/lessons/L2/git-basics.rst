@@ -3,7 +3,7 @@ Meet Git
 
 Overview and preparations
 -----------------------------
-Let's go trough the basics of using git. Before working on this tutorial, please go and accept exercise 2 on GitHub Classroom from the  :doc:`Exercise-2 landing page <exercise-2>`.
+Let's go through the basics of using Git. Before working on this tutorial, please go and accept exercise 2 on GitHub Classroom from the  :doc:`Exercise-2 landing page <exercise-2>`.
 Also, open a JupyterLab session in order follow this tutorial hands-on.
 
 .. image:: https://img.shields.io/badge/launch-binder-red.svg
@@ -12,7 +12,8 @@ Also, open a JupyterLab session in order follow this tutorial hands-on.
 .. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
    :target: https://notebooks.csc.fi/#/blueprint/d71cd2d26d924f48820dc22b67a87d8e
 
-We will cover the very basics of version control using Git and GitHub:
+This tutorial covers the very basics of version control using Git and GitHub.
+The idea is that you would use this workflow each week when working with the exercises:
 
 1. `Configuration`_
 2. `Clone a repository from GitHub`_
@@ -26,20 +27,22 @@ These materials have been adapted for the geo-python course from `GitHubClassroo
 Key concepts and tools
 -----------------------
 
-In a nutshell, we use git to record changes to our files over time. Version control history consists of snapshots of all the files in our project.
-In order to create a snapshot, we first add content to the staging area (using ``git add``). The idea is, that you can have a (sometimes messy) working directory, and by using `git add` you tell
-Git which files to include in the next committed snapshot. Finally, ``git commit`` records a permanent snapshot of the staged changes. Read more about basic snapshotting `in here <https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Basic-Snapshotting>`__
+We use Git to record changes to our files over time. Version control history consists of snapshots of all the files in our project.
+In order to create a snapshot, we first add content to the staging area (using ``git add``). The idea is, that you can have a (sometimes messy) working directory, and by using ``git add`` you tell
+Git which files to include in the next committed snapshot. Finally, ``git commit`` records a permanent snapshot of the staged changes. Read more about basic snapshotting `in here <https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Basic-Snapshotting>`__.
 
 .. figure:: img/Git_illustration.png
 
-    Different stages of version control using Git and Github (adapted from `Git documentation <https://git-scm.com/about/staging-area>`__).
+    Version control steps using Git (adapted from `Git documentation <https://git-scm.com/about/staging-area>`__).
 
-All of the above (``git add`` and `` git commit``) happens locally inside the repository. When  you are ready to share your work on GitHub,
- you need to communicate between the local repository and the remote repository over the network. Read more about sharing and updating Git projects `in here <https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Sharing-and-Updating-Projects>`__
+
+All of the above (``git add`` and ``git commit``) happens locally inside the repository.
+When you are ready to share your work on GitHub, you need to communicate between the local repository and the remote repository over the network.
+Read more about sharing and updating Git projects `in here <https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Sharing-and-Updating-Projects>`__.
 
 .. figure:: img/pull-push-illustration.png
 
-    Always pull before you push (especially when working in a shared repository)!
+    Update your Git project using the pull and push commands. Always pull before you push (especially when working in a shared repository)!
 
 .. note::
     After going trough this tutorial, you will be familiar with the following git-commands:
@@ -72,7 +75,7 @@ Anything above version 2 is just fine.
 
 
 Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 Configuring Git by storing your Git username and email can be useful especially if working from own computer as you do not
 need to fill these information every time when you are e.g. pulling or pushing from remote repository.
@@ -103,7 +106,7 @@ We can also tell Git to remember our GitHub username and password using a creden
     You will need to cache your credentials in order to use the Git plugin in JupyterLab.
 
 Clone a repository from GitHub
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We will **clone an existing repository from GitHub and start modifying it**. A repository, or "Git project", or a "repo", is a location for storing files.
 A repo contains all the files and folders associated with a project and the revision history of each entity. In general, it is recommended that each project, library or discrete piece of software should have it's own repository.
@@ -256,7 +259,7 @@ Git now tells you that there are changes that are ready to be committed:
     and are ready to commit them.
 
 Commit changes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 Before recording your changes, check again the status of your repository:
 
@@ -266,7 +269,7 @@ Before recording your changes, check again the status of your repository:
 
 All files listed under "Changes to be committed" will be included in the next commit - a record changes to the repository.
 
-Commit the changes using ``git commit -m [message]``. **Pay attention that you write an informative commit message!**
+Commit the changes using ``git commit -m [message]``. **Remember to write a descriptive commit message!**
 
 .. code-block:: bash
 
@@ -289,7 +292,7 @@ Git status tells that your branch is ahead of the remote repository's master bra
 
 
 Publish your local commits to GitHub
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Next, we want to synchronize our local changes with the remote repository on GitHub. First, it's good to use :code:`git pull` to double check for remote changes before contributing your own changes.
 
@@ -326,7 +329,24 @@ Unless you cached your credentials, Git will once more prompt you for username a
     To https://github.com/Geo-Python-2018/exercise-1-VuokkoH.git
        b33a43a..c4be7c3  master -> master
 
+Check once more the status of your repository:
+
+    .. code-block:: bash
+
+        $ git status
+
 Now, you should see the updates in GitHub (go and have a look at your personal repository in https://github.com/Geo-Python-2019/ )!
+
+.. note::
+
+    If you want to double check that you have a remote location, you can use the :code:`git remote` command (v stands for 'verbose' which prints out more details):
+
+    .. code-block:: bash
+
+        $ git remote -v
+
+    You can read more about managing remotes `in here <https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes>`__.
+
 
 Using the JupyterLab Git plugin
 -------------------------------
@@ -335,7 +355,7 @@ For your convenience, we have also installed a plugin in JupyterLab which has bu
 
 
 Preparations in the Terminal
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Even if using the plugin, you need to clone the repository and cache your username and password on the command line:
 
@@ -373,8 +393,8 @@ Commit changes in the plugin
 
 .. figure:: img/git-plugin-version-history.png
 
-Push and pull using the plugin
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pull and push using the plugin
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - First, press "Pull" to check that the local repo is up to date
 - Then, press "Push"
 
@@ -396,20 +416,8 @@ Remember, that you can always download your files on your own computer, and uplo
 .. image:: https://imgs.xkcd.com/comics/git.png
     :alt: https://xkcd.com/1597/
 
-Remotes
-------------------------------------
+    Source: https://xkcd.com/1597/
 
-If you want to double check that you have a remote location, you can use the :code:`git remote` command (v stands for 'verbose' which prints out more details):
-
-.. code-block:: bash
-
-    $ git remote -v
-
-Check once more the status of your repository:
-
-.. code-block:: bash
-
-    $ git status
 
 
 That's all you need to know about Git for know :)
