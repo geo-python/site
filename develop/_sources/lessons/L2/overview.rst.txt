@@ -5,20 +5,23 @@ During the second week we will dive into Python and learn some basic
 elements of Python programming language. We will also continue learning
 how to use the Course Environment and version control with Git + GitHub.
 
-1. :doc:`Intro to version control and GitHub <intro-to-GitHub>`
-2. :doc:`Basics of using Git <git-basics>`
-3. :doc:`Classroom for GitHub <GitHub-classroom>`
-4. `Some basic elements of Python <../../notebooks/L2/Python-basic-elements.ipynb>`_
-5. :doc:`Exercise 2: Writing scripts and using GitHub <exercise-2>`
+1. `Some basic elements of Python <../../notebooks/L2/Python-basic-elements.ipynb>`_
+2. :doc:`Intro to version control and GitHub <intro-to-GitHub>`
+3. :doc:`Basics of using Git <git-basics>`
+4. :doc:`Classroom for GitHub <GitHub-classroom>`
+5. :doc:`Exercise 2: lists and indices <exercise-2>`
 
 Learning goals
 --------------
 
-After this weeks lesson your should be able to:
+After this week you will be able to:
+    - conduct basic data type conversions
+    - store and access values in a list
+    - explain the concept of an index value
+    - understand the basics of version control
+    - use Git and GitHub to record changes to your files
+    - use Jupyter notebooks for writing and documenting your code
 
-  - Understand the basic concepts of version control and why it is useful
-  - Access your user space in Github.com and know how to use Git from terminal to clone repositories, commit changes, and push changes
-  - Explain the concept of an index value
 
 Lecture video
 -------------

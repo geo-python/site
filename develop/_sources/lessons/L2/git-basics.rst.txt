@@ -4,7 +4,7 @@ Meet Git
 Overview and preparations
 -----------------------------
 Let's go through the basics of using Git. Before working on this tutorial, please go and accept exercise 2 on GitHub Classroom from the  :doc:`Exercise-2 landing page <exercise-2>`.
-Also, open a JupyterLab session in order follow this tutorial hands-on.
+Also, open a JupyterLab session in order follow this tutorial hands-on. You can find instructions for using Binder and CSC Notebooks in :doc:`Lesson 1 materials <../../L1/course-environment-components>`.
 
 .. image:: https://img.shields.io/badge/launch-binder-red.svg
    :target: https://mybinder.org/v2/gh/Geo-Python-2019/Binder/master?urlpath=lab
@@ -24,6 +24,19 @@ The idea is that you would use this workflow each week when working with the exe
 There are many different ways to use Git. We will first go trough the basics of using Git from the command line, and then we will learn to repeat these steps using a plugin in JupyterLab.
 These materials have been adapted for the geo-python course from `GitHubClassroom Campus Advisors -resources <https://github.com/Campus-Advisors>`_, and `Git documentation <https://git-scm.com/about/>`__.
 
+.. note::
+    After going trough this tutorial, you will be familiar with the following git-commands:
+
+    1. **git clone [url]** - retrieve a repository from a remote location (often from GitHub)
+    2. **git status** - review the status of your repository (use this command often!)
+    3. **git add [file]** - add files to the next commit (add files to the staging area)
+    4. **git commit -m "[descriptive message]"** - commit staged files as a new snapshot
+    5. **git pull** - bring the local branch up to date (fetch and merge changes from the remote)
+    6. **git push** - transmit local branch commits to the remote repository
+
+    Check out other commonly used git commands from `the GIT CHEAT SHEET <https://education.github.com/git-cheat-sheet-education.pdf>`__
+
+
 Key concepts and tools
 -----------------------
 
@@ -36,32 +49,21 @@ Git which files to include in the next committed snapshot. Finally, ``git commit
     Version control steps using Git (adapted from `Git documentation <https://git-scm.com/about/staging-area>`__).
 
 
-All of the above (``git add`` and ``git commit``) happens locally inside the repository.
+Staging and committing files happen locally inside the repository.
 When you are ready to share your work on GitHub, you need to communicate between the local repository and the remote repository over the network.
 Read more about sharing and updating Git projects `in here <https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Sharing-and-Updating-Projects>`__.
 
 .. figure:: img/pull-push-illustration.png
 
-    Update your Git project using the pull and push commands. Always pull before you push (especially when working in a shared repository)!
+    Update your Git project using the pull and push commands. Always pull before you push (especially when working in a shared project)!
 
-.. note::
-    After going trough this tutorial, you will be familiar with the following git-commands:
-
-    1. **git clone [url]** - retrieve a repository from a remote location (often from GitHub)
-    2. **git status** - review the status of your repository (use this command often!)
-    3. **git add [file]** or **git add .** - add files to the next commit (add files to the staging area)
-    4. **git commit -m "[descriptive message]"** - commit staged files as a new snapshot
-    5. **git pull** - bring the local branch up to date (fetch and merge changes from the remote)
-    6. **git push** - transmit local branch commits to the remote repository
-
-    Check out other commonly used git commands from `the GIT CHEAT SHEET <https://education.github.com/git-cheat-sheet-education.pdf>`__
 
 Using Git from the command line
 -------------------------------
 You will need to know a couple of basic command line commands in order to use Git. Code Academy's `list of command line commands <https://www.codecademy.com/articles/command-line-commands>`__ provides
 a good overview of commonly used commands for navigating trough files in the Terminal. The instructions below are compatible with the Linux terminal (which is available in :doc:`the course environment <course-environment-components>`).
 
-Start a new Terminal session in JupyterLab (using the icon on the Launcher, or from *File* > *New* > *Terminal*)
+**Start a new Terminal session in JupyterLab** using the icon on the Launcher, or from *File* > *New* > *Terminal*.
 
 .. figure:: img/terminal-icon.png
 
@@ -77,13 +79,12 @@ Anything above version 2 is just fine.
 Configuration
 ~~~~~~~~~~~~~~~~~
 
-Configuring Git by storing your Git username and email can be useful especially if working from own computer as you do not
-need to fill these information every time when you are e.g. pulling or pushing from remote repository.
-The username you set, will be attached to your commits:
+It is possible to customize Git to work exactly the way you need it to by specifying configuration settings using the ``git config`` command.
+For our purposes, it is enough to customize Git to remember our identity. **Let's set up our name and email address in the configuration settings:**
 
 .. code-block:: bash
 
-    $ git config --global user.name "[Your Name]"
+    $ git config --global user.name "[firstname lastname]"
 
     $ git config --global user.email "[email@example.com]"
 
@@ -95,15 +96,20 @@ You can check existing user information with these commands:
 
     $ git config user.email
 
-We can also tell Git to remember our GitHub username and password using a credential helper (see instructions for other operating systems than linux `here <https://help.github.com/en/articles/caching-your-github-password-in-git>`__:
+Git will sometimes ask you for username and password in order to perform operations such as pushing and pulling.
+We can **tell Git to remember our GitHub username and password** to avoid typing them in all the time (see instructions for other operating systems than linux `here <https://help.github.com/en/articles/caching-your-github-password-in-git>`__):
 
 .. code-block:: bash
 
     $ git config --global credential.helper 'cache --timeout=3600'
 
+The ``--timeout`` parameter specifies the time Git remembers our credentials in seconds.
+
 .. note::
 
-    You will need to cache your credentials in order to use the Git plugin in JupyterLab.
+    You will need to cache your credentials when `using the JupyterLab Git plugin`_.
+
+-------------------------------
 
 Clone a repository from GitHub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -128,7 +134,7 @@ Let's *change directory* to the exercise directory using the ``cd`` command:
 
     $ cd exercises
 
-Now we are ready to start cloning. For this, we need a url for the remote repository. Go to https://github.com/geo-python-2019/ and navigate to your personal Exercise-2 folder.
+Now we are ready to start cloning. For this, we need a url for the remote repository. **Go to** https://github.com/geo-python-2019/ **and navigate to your personal Exercise-2 folder.**
 For example, Vuokko would go to https://github.com/geo-python-2019/exercise-2-VuokkoH.
 
 On GitHub, find the button **Clone and download** and copy the url under *Clone with HTTPS* (for example; https://github.com/geo-python-2019/exercise-1-VuokkoH.git ).
@@ -155,7 +161,7 @@ After running ``git clone`` Git will prompt you for GitHub username and password
 
 .. code-block:: bash
 
-    Cloning into 'exercise-1-VuokkoH'...
+    Cloning into 'exercise-2-VuokkoH'...
     Username for 'https://github.com': VuokkoH
     Password for 'https://VuokkoH@github.com':
     remote: Counting objects: 9, done.
@@ -174,7 +180,7 @@ You should now see the exercise repository listed in the terminal (as well as in
 
 .. code-block:: bash
 
-    $ cd exercise-1-username
+    $ cd exercise-2-username
 
 List all files in the directory, this time including all hidden files using the :code:`ls -a` (on Windows, use :code:`dir /a`):
 
@@ -183,7 +189,7 @@ List all files in the directory, this time including all hidden files using the 
     $ ls -a
 
 Tada! You now have a local version of your exercise-2 repository! You should see ``.git`` listed on the screen - this is a hidden folder that contains all the information that Git needs for version control.
-**Check the status of your local git repository** usin the :code:`git status` command, which provides change information about the repository (this is the most common git command - use it often!):
+**Check the status of your local git repository** usin the :code:`git status` command, which provides change information about the repository.
 
 .. code-block:: bash
 
@@ -192,6 +198,7 @@ Tada! You now have a local version of your exercise-2 repository! You should see
     On branch master
     Your branch is up to date with 'origin/master'.
 
+``git status`` is the most common git command - use it often!
 As we didn't make any changes yet, git should tell that the project is up to date.
 
 .. note::
@@ -199,7 +206,7 @@ As we didn't make any changes yet, git should tell that the project is up to dat
     A branch is a parallel version of a repository which can be developed separately before merging the changes to the primary version. You can read more about branches `here <https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is>`__.
 
 .. note::
-    In case you would be starting a new project from the scratch, you could create a new repository using ``git init`` command (https://git-scm.com/docs/git-init).
+    In case you would start a new project from the scratch, you could create a new repository using ``git init`` command (https://git-scm.com/docs/git-init).
     During this course, however, we always start working by cloning an existing repository.
 
 
@@ -258,6 +265,8 @@ Git now tells you that there are changes that are ready to be committed:
     You might want to "reset HEAD", for example, in case you had added many files to the staging area, but decide to commit them separately. For now, we are happy with the changes made,
     and are ready to commit them.
 
+For now, we are happy with the changes made, and are ready to commit them.
+
 Commit changes
 ~~~~~~~~~~~~~~~~~
 
@@ -269,11 +278,11 @@ Before recording your changes, check again the status of your repository:
 
 All files listed under "Changes to be committed" will be included in the next commit - a record changes to the repository.
 
-Commit the changes using ``git commit -m [message]``. **Remember to write a descriptive commit message!**
+**Commit the changes** using ``git commit -m [message]``. **Remember to write a descriptive commit message!**
 
 .. code-block:: bash
 
-    $ git commit -m "modified README.md"
+    $ git commit -m "added feedback"
 
 Check the status:
 
@@ -318,16 +327,17 @@ Unless you cached your credentials, Git will once more prompt you for username a
 
 .. code-block:: bash
 
-    jovyan@jupyter-geo-2dpython-2d2018-2dbinder-2d63pkzqdt:~/exercise-1-VuokkoH$ git push
+    jovyan@pb-bianca-the-green-1-9bv5n:~/work/exercises/exercise-2-VuokkoH$ git push
     Username for 'https://github.com': VuokkoH
     Password for 'https://VuokkoH@github.com':
     Counting objects: 3, done.
-    Delta compression using up to 8 threads.
-    Compressing objects: 100% (2/2), done.
-    Writing objects: 100% (3/3), 316 bytes | 316.00 KiB/s, done.
-    Total 3 (delta 0), reused 0 (delta 0)
-    To https://github.com/Geo-Python-2018/exercise-1-VuokkoH.git
-       b33a43a..c4be7c3  master -> master
+    Delta compression using up to 80 threads.
+    Compressing objects: 100% (3/3), done.
+    Writing objects: 100% (3/3), 328 bytes | 164.00 KiB/s, done.
+    Total 3 (delta 1), reused 0 (delta 0)
+    remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+    To https://github.com/geo-python-2019/exercise-2-VuokkoH.git
+       3853103..526ea9a  master -> master
 
 Check once more the status of your repository:
 
@@ -335,11 +345,13 @@ Check once more the status of your repository:
 
         $ git status
 
-Now, you should see the updates in GitHub (go and have a look at your personal repository in https://github.com/Geo-Python-2019/ )!
+Now you should see the updates in GitHub! Go and have a look at your personal repository in https://github.com/Geo-Python-2019/ .
 
 .. note::
 
-    If you want to double check that you have a remote location, you can use the :code:`git remote` command (v stands for 'verbose' which prints out more details):
+    Remote repositories are versions of your project that are hosted on a network location (such as GitHub).
+    When we cloned the repository using ``git clone``, Git automatically started tracking the remote repository from where we cloned the project.
+    You can use the ``git remote -v`` command to double check which remote your repository is tracking:
 
     .. code-block:: bash
 
@@ -353,11 +365,13 @@ Using the JupyterLab Git plugin
 
 For your convenience, we have also installed a plugin in JupyterLab which has buttons for completing most of the version control tasks we need during this course.
 
+.. figure:: img/git-plugin.png
+
 
 Preparations in the Terminal
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Even if using the plugin, you need to clone the repository and cache your username and password on the command line:
+Even when using the plugin, you need to clone the repository and cache your username and password on the command line:
 
 
 .. code-block:: bash
@@ -375,21 +389,21 @@ After caching the credentials and cloning the repo, you can do the rest using th
 Stage changes in the plugin
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- modify README.md and save the file. The git plugin should detect the changes
+- Make changes in the README.md files. The Git plugin should detect the changes once you have saved the file:
 
 .. figure:: img/git-plugin-tracked-changes.png
 
-- stage all changes using the plugin
+- Stage the changes using arrow-button:
 
 .. figure:: img/git-plugin-staged-changes.png
 
 Commit changes in the plugin
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-- add a descriptive commit message in the text box and click on the commit-button:
+- Add a descriptive commit message in the text box and click on the commit-button:
 
 .. figure:: img/git-plugin-commit-message.png
 
-- check commit history under the history-tab
+- Check commit history under the history-tab:
 
 .. figure:: img/git-plugin-version-history.png
 
@@ -401,19 +415,20 @@ Pull and push using the plugin
 .. figure:: img/git-plugin-push.png
 
 .. figure:: img/git-plugin-push-ok.png
+
     Once the Push succeeded, you can click "Dismiss".
 
 .. warning::
-    In case you get an error message, you have not successfully cashed your credentials.
-    In this case, you can run git pull and git push from the command line.
+    In case you get this error message: ``fatal: could not read Username for 'https://github.com': terminal prompts disabled``, you have not successfully cashed your credentials.
+    Try caching your credentials again, or run git pull and git push from the command line.
 
 
 If everything else fails...
 ------------------------------------
 
-Remember, that you can always download your files on your own computer, and upload them manually to GitHub like we did in exercise 1!
+Remember that you can always download your files on your own computer, and upload them manually to GitHub like we did in exercise 1!
 
-.. image:: https://imgs.xkcd.com/comics/git.png
+.. figure:: https://imgs.xkcd.com/comics/git.png
     :alt: https://xkcd.com/1597/
 
     Source: https://xkcd.com/1597/

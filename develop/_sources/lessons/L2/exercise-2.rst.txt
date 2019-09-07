@@ -1,15 +1,15 @@
 Exercise 2
 ==========
 
-.. warning::
+.. note::
 
-    Please note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
+    Please complete this exercise by **09:00 Wednesday, 18 September 2019**.
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 2 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/L4gRzQ92>`__.
+    **You can start working on your copy of Exercise 2 by** `accepting the GitHub Classroom assignment <>`__.
 
-You can also take a look at the open course copy of `Exercise 2 in the course GitHub repository <https://github.com/Geo-Python-2018/Exercise-2>`__ (does not require logging in).
+You can also take a look at at the template repository for `Exercise 2 on GitHub <https://github.com/Geo-Python-2019/Exercise-2>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
 Exercise 2 hints
@@ -57,3 +57,9 @@ Now, running the code results in the expected output.
 .. code:: python
 
     My name is Dave and I own 0 dogs.
+
+
+
+.. warning::
+
+    Please note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
