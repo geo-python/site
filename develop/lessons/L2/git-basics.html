@@ -381,9 +381,8 @@ Git which files to include in the next committed snapshot. Finally, <code class=
 <img alt="../../_images/Git_illustration.png" src="../../_images/Git_illustration.png" />
 <p class="caption"><span class="caption-text">Version control steps using Git (adapted from <a class="reference external" href="https://git-scm.com/about/staging-area">Git documentation</a>).</span></p>
 </div>
-<p>Staging and committing files happen locally inside the repository.
-When you are ready to share your work on GitHub, you need to communicate between the local repository and the remote repository over the network.
-Read more about sharing and updating Git projects <a class="reference external" href="https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Sharing-and-Updating-Projects">in here</a>.</p>
+<p>When you are ready to share your work on GitHub, you need to communicate between the local repository and the remote repository over the network. Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> to fetch and merge changes from a remote repository,
+and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> to update local changes to the remote. Read more about sharing and updating Git projects <a class="reference external" href="https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Sharing-and-Updating-Projects">in here</a>.</p>
 <div class="figure" id="id2">
 <img alt="../../_images/pull-push-illustration.png" src="../../_images/pull-push-illustration.png" />
 <p class="caption"><span class="caption-text">Update your Git project using the pull and push commands. Always pull before you push (especially when working in a shared project)!</span></p>
@@ -631,8 +630,12 @@ You can use the <code class="docutils literal notranslate"><span class="pre">git
 </div>
 <div class="section" id="preparations-in-the-terminal">
 <h3>Preparations in the Terminal<a class="headerlink" href="#preparations-in-the-terminal" title="Permalink to this headline">¶</a></h3>
-<p>Even when using the plugin, you need to clone the repository and cache your username and password on the command line:</p>
+<p>When using the plugin, you first need to <strong>cache your username and password, and clone the repository on the command line</strong>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git config --global credential.helper <span class="s1">&#39;cache --timeout=3600&#39;</span>
+</pre></div>
+</div>
+<p>Navigate to the exercise directory (if you are not already there):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> exercises
 </pre></div>
 </div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone <span class="o">[</span>paste your URL here<span class="o">]</span>
@@ -643,13 +646,13 @@ You can use the <code class="docutils literal notranslate"><span class="pre">git
 <div class="section" id="stage-changes-in-the-plugin">
 <h3>Stage changes in the plugin<a class="headerlink" href="#stage-changes-in-the-plugin" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Make changes in the README.md files. The Git plugin should detect the changes once you have saved the file:</li>
+<li>Make changes in the README.md file (or any other file in the repository). The Git plugin should detect the changes once you have saved the file:</li>
 </ul>
 <div class="figure">
 <img alt="../../_images/git-plugin-tracked-changes.png" src="../../_images/git-plugin-tracked-changes.png" />
 </div>
 <ul class="simple">
-<li>Stage the changes using arrow-button:</li>
+<li>Stage the changes using the arrow-button:</li>
 </ul>
 <div class="figure">
 <img alt="../../_images/git-plugin-staged-changes.png" src="../../_images/git-plugin-staged-changes.png" />
@@ -673,27 +676,36 @@ You can use the <code class="docutils literal notranslate"><span class="pre">git
 <div class="section" id="pull-and-push-using-the-plugin">
 <h3>Pull and push using the plugin<a class="headerlink" href="#pull-and-push-using-the-plugin" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>First, press “Pull” to check that the local repo is up to date</li>
+<li>First, press “Pull” to check that the local repo is up to date:</li>
+</ul>
+<div class="figure">
+<img alt="../../_images/git-plugin-pull.png" src="../../_images/git-plugin-pull.png" />
+</div>
+<div class="figure" id="id3">
+<img alt="../../_images/git-plugin-pull-ok.png" src="../../_images/git-plugin-pull-ok.png" />
+<p class="caption"><span class="caption-text">Once the Pull succeeded, you can click “Dismiss”.</span></p>
+</div>
+<ul class="simple">
 <li>Then, press “Push”</li>
 </ul>
 <div class="figure">
 <img alt="../../_images/git-plugin-push.png" src="../../_images/git-plugin-push.png" />
 </div>
-<div class="figure" id="id3">
+<div class="figure" id="id4">
 <img alt="../../_images/git-plugin-push-ok.png" src="../../_images/git-plugin-push-ok.png" />
 <p class="caption"><span class="caption-text">Once the Push succeeded, you can click “Dismiss”.</span></p>
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">In case you get this error message: <code class="docutils literal notranslate"><span class="pre">fatal:</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">read</span> <span class="pre">Username</span> <span class="pre">for</span> <span class="pre">'https://github.com':</span> <span class="pre">terminal</span> <span class="pre">prompts</span> <span class="pre">disabled</span></code>, you have not successfully cashed your credentials.
-Try caching your credentials again, or run git pull and git push from the command line.</p>
+<p class="last">In case you get this error message when pushing or pulling: <code class="docutils literal notranslate"><span class="pre">fatal:</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">read</span> <span class="pre">Username</span> <span class="pre">for</span> <span class="pre">'https://github.com':</span> <span class="pre">terminal</span> <span class="pre">prompts</span> <span class="pre">disabled</span></code>, you have not successfully cashed your credentials.
+Try caching your credentials again, and run git pull and git push from the command line.</p>
 </div>
 </div>
 </div>
 <div class="section" id="if-everything-else-fails">
 <h2>If everything else fails…<a class="headerlink" href="#if-everything-else-fails" title="Permalink to this headline">¶</a></h2>
 <p>Remember that you can always download your files on your own computer, and upload them manually to GitHub like we did in exercise 1!</p>
-<div class="figure" id="id4">
+<div class="figure" id="id5">
 <img alt="https://xkcd.com/1597/" src="https://imgs.xkcd.com/comics/git.png" />
 <p class="caption"><span class="caption-text">Source: <a class="reference external" href="https://xkcd.com/1597/">https://xkcd.com/1597/</a></span></p>
 </div>
