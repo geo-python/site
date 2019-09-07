@@ -49,9 +49,8 @@ Git which files to include in the next committed snapshot. Finally, ``git commit
     Version control steps using Git (adapted from `Git documentation <https://git-scm.com/about/staging-area>`__).
 
 
-Staging and committing files happen locally inside the repository.
-When you are ready to share your work on GitHub, you need to communicate between the local repository and the remote repository over the network.
-Read more about sharing and updating Git projects `in here <https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Sharing-and-Updating-Projects>`__.
+When you are ready to share your work on GitHub, you need to communicate between the local repository and the remote repository over the network. Use ``git pull`` to fetch and merge changes from a remote repository,
+and ``git push`` to update local changes to the remote. Read more about sharing and updating Git projects `in here <https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Sharing-and-Updating-Projects>`__.
 
 .. figure:: img/pull-push-illustration.png
 
@@ -371,13 +370,17 @@ For your convenience, we have also installed a plugin in JupyterLab which has bu
 Preparations in the Terminal
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Even when using the plugin, you need to clone the repository and cache your username and password on the command line:
-
+When using the plugin, you first need to **cache your username and password, and clone the repository on the command line**.
 
 .. code-block:: bash
 
     $ git config --global credential.helper 'cache --timeout=3600'
 
+Navigate to the exercise directory (if you are not already there):
+
+.. code-block:: bash
+
+    $ cd exercises
 
 .. code-block:: bash
 
@@ -389,11 +392,11 @@ After caching the credentials and cloning the repo, you can do the rest using th
 Stage changes in the plugin
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- Make changes in the README.md files. The Git plugin should detect the changes once you have saved the file:
+- Make changes in the README.md file (or any other file in the repository). The Git plugin should detect the changes once you have saved the file:
 
 .. figure:: img/git-plugin-tracked-changes.png
 
-- Stage the changes using arrow-button:
+- Stage the changes using the arrow-button:
 
 .. figure:: img/git-plugin-staged-changes.png
 
@@ -409,7 +412,15 @@ Commit changes in the plugin
 
 Pull and push using the plugin
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-- First, press "Pull" to check that the local repo is up to date
+- First, press "Pull" to check that the local repo is up to date:
+
+.. figure:: img/git-plugin-pull.png
+
+.. figure:: img/git-plugin-pull-ok.png
+
+    Once the Pull succeeded, you can click "Dismiss".
+
+
 - Then, press "Push"
 
 .. figure:: img/git-plugin-push.png
@@ -419,8 +430,8 @@ Pull and push using the plugin
     Once the Push succeeded, you can click "Dismiss".
 
 .. warning::
-    In case you get this error message: ``fatal: could not read Username for 'https://github.com': terminal prompts disabled``, you have not successfully cashed your credentials.
-    Try caching your credentials again, or run git pull and git push from the command line.
+    In case you get this error message when pushing or pulling: ``fatal: could not read Username for 'https://github.com': terminal prompts disabled``, you have not successfully cashed your credentials.
+    Try caching your credentials again, and run git pull and git push from the command line.
 
 
 If everything else fails...
