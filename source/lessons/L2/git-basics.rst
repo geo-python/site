@@ -136,7 +136,7 @@ Let's *change directory* to the exercise directory using the ``cd`` command:
 Now we are ready to start cloning. For this, we need a url for the remote repository. **Go to** https://github.com/geo-python-2019/ **and navigate to your personal Exercise-2 folder.**
 For example, Vuokko would go to https://github.com/geo-python-2019/exercise-2-VuokkoH.
 
-On GitHub, find the button **Clone and download** and copy the url under *Clone with HTTPS* (for example; https://github.com/geo-python-2019/exercise-1-VuokkoH.git ).
+On GitHub, find the button **Clone and download** and copy the url under *Clone with HTTPS*.
 
 .. figure:: img/GitHub_clone_link.png
 
@@ -163,10 +163,11 @@ After running ``git clone`` Git will prompt you for GitHub username and password
     Cloning into 'exercise-2-VuokkoH'...
     Username for 'https://github.com': VuokkoH
     Password for 'https://VuokkoH@github.com':
-    remote: Counting objects: 9, done.
-    remote: Compressing objects: 100% (5/5), done.
-    remote: Total 9 (delta 1), reused 9 (delta 1), pack-reused 0
-    Unpacking objects: 100% (9/9), done.
+    remote: Enumerating objects: 4, done.
+    remote: Counting objects: 100% (4/4), done.
+    remote: Compressing objects: 100% (4/4), done.
+    remote: Total 4 (delta 1), reused 0 (delta 0), pack-reused 0
+    Unpacking objects: 100% (4/4), done.
 
 Once cloning is completed, check what happened in the current directory by listing directory contents in the terminal using the :code:`ls` command:
 
@@ -213,6 +214,10 @@ Add changes to the staging area
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Let's start making changes in the repository! For example, open the ``Readme.md`` -file of the exercise repository and type in something.
+
+.. figure:: img/Edit-README.png
+
+    Exercise 2 Jupyter Notebook and the terminal window in JupyetLab. Drag and drop the windows to reorder them.
 
 After saving your changes, check the status of the repository:
 
@@ -281,7 +286,7 @@ All files listed under "Changes to be committed" will be included in the next co
 
 .. code-block:: bash
 
-    $ git commit -m "added feedback"
+    $ git commit -m "added notes"
 
 Check the status:
 
@@ -430,7 +435,7 @@ Pull and push using the plugin
     Once the Push succeeded, you can click "Dismiss".
 
 .. warning::
-    In case you get this error message when pushing or pulling: ``fatal: could not read Username for 'https://github.com': terminal prompts disabled``, you have not successfully cashed your credentials.
+    In case you get this error message when pushing or pulling: ``fatal: could not read Username for 'https://github.com': terminal prompts disabled``, you have not successfully cached your credentials.
     Try caching your credentials again, and run git pull and git push from the command line.
 
 
