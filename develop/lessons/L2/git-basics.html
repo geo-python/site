@@ -325,6 +325,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="exercise-2.html">Exercise 2</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercise-2.html#exercise-2-hints">Exercise 2 hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-2.html#git">Git</a></li>
 <li class="toctree-l3"><a class="reference internal" href="exercise-2.html#list-methods">List methods</a></li>
 <li class="toctree-l3"><a class="reference internal" href="exercise-2.html#indentation-woes">Indentation woes</a></li>
 </ul>
@@ -537,7 +538,7 @@ Let’s <em>change directory</em> to the exercise directory using the <code clas
 </div>
 <p>Now we are ready to start cloning. For this, we need a url for the remote repository. <strong>Go to</strong> <a class="reference external" href="https://github.com/geo-python-2019/">https://github.com/geo-python-2019/</a> <strong>and navigate to your personal Exercise-2 folder.</strong>
 For example, Vuokko would go to <a class="reference external" href="https://github.com/geo-python-2019/exercise-2-VuokkoH">https://github.com/geo-python-2019/exercise-2-VuokkoH</a>.</p>
-<p>On GitHub, find the button <strong>Clone and download</strong> and copy the url under <em>Clone with HTTPS</em> (for example; <a class="reference external" href="https://github.com/geo-python-2019/exercise-1-VuokkoH.git">https://github.com/geo-python-2019/exercise-1-VuokkoH.git</a> ).</p>
+<p>On GitHub, find the button <strong>Clone and download</strong> and copy the url under <em>Clone with HTTPS</em>.</p>
 <div class="figure">
 <img alt="../../_images/GitHub_clone_link.png" src="../../_images/GitHub_clone_link.png" />
 </div>
@@ -557,10 +558,11 @@ For example, Vuokko would go to <a class="reference external" href="https://gith
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Cloning into <span class="s1">&#39;exercise-2-VuokkoH&#39;</span>...
 Username <span class="k">for</span> <span class="s1">&#39;https://github.com&#39;</span>: VuokkoH
 Password <span class="k">for</span> <span class="s1">&#39;https://VuokkoH@github.com&#39;</span>:
-remote: Counting objects: <span class="m">9</span>, <span class="k">done</span>.
-remote: Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">5</span>/5<span class="o">)</span>, <span class="k">done</span>.
-remote: Total <span class="m">9</span> <span class="o">(</span>delta <span class="m">1</span><span class="o">)</span>, reused <span class="m">9</span> <span class="o">(</span>delta <span class="m">1</span><span class="o">)</span>, pack-reused <span class="m">0</span>
-Unpacking objects: <span class="m">100</span>% <span class="o">(</span><span class="m">9</span>/9<span class="o">)</span>, <span class="k">done</span>.
+remote: Enumerating objects: <span class="m">4</span>, <span class="k">done</span>.
+remote: Counting objects: <span class="m">100</span>% <span class="o">(</span><span class="m">4</span>/4<span class="o">)</span>, <span class="k">done</span>.
+remote: Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">4</span>/4<span class="o">)</span>, <span class="k">done</span>.
+remote: Total <span class="m">4</span> <span class="o">(</span>delta <span class="m">1</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, pack-reused <span class="m">0</span>
+Unpacking objects: <span class="m">100</span>% <span class="o">(</span><span class="m">4</span>/4<span class="o">)</span>, <span class="k">done</span>.
 </pre></div>
 </div>
 <p>Once cloning is completed, check what happened in the current directory by listing directory contents in the terminal using the <code class="code docutils literal notranslate"><span class="pre">ls</span></code> command:</p>
@@ -600,6 +602,10 @@ During this course, however, we always start working by cloning an existing repo
 <div class="section" id="add-changes-to-the-staging-area">
 <h3>Add changes to the staging area<a class="headerlink" href="#add-changes-to-the-staging-area" title="Permalink to this headline">¶</a></h3>
 <p>Let’s start making changes in the repository! For example, open the <code class="docutils literal notranslate"><span class="pre">Readme.md</span></code> -file of the exercise repository and type in something.</p>
+<div class="figure" id="id3">
+<img alt="../../_images/Edit-README.png" src="../../_images/Edit-README.png" />
+<p class="caption"><span class="caption-text">Exercise 2 Jupyter Notebook and the terminal window in JupyetLab. Drag and drop the windows to reorder them.</span></p>
+</div>
 <p>After saving your changes, check the status of the repository:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git status
 </pre></div>
@@ -650,7 +656,7 @@ and are ready to commit them.</p>
 </div>
 <p>All files listed under “Changes to be committed” will be included in the next commit - a record changes to the repository.</p>
 <p><strong>Commit the changes</strong> using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">[message]</span></code>. <strong>Remember to write a descriptive commit message!</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git commit -m <span class="s2">&quot;added feedback&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git commit -m <span class="s2">&quot;added notes&quot;</span>
 </pre></div>
 </div>
 <p>Check the status:</p>
@@ -772,7 +778,7 @@ You can use the <code class="docutils literal notranslate"><span class="pre">git
 <div class="figure">
 <img alt="../../_images/git-plugin-pull.png" src="../../_images/git-plugin-pull.png" />
 </div>
-<div class="figure" id="id3">
+<div class="figure" id="id4">
 <img alt="../../_images/git-plugin-pull-ok.png" src="../../_images/git-plugin-pull-ok.png" />
 <p class="caption"><span class="caption-text">Once the Pull succeeded, you can click “Dismiss”.</span></p>
 </div>
@@ -782,13 +788,13 @@ You can use the <code class="docutils literal notranslate"><span class="pre">git
 <div class="figure">
 <img alt="../../_images/git-plugin-push.png" src="../../_images/git-plugin-push.png" />
 </div>
-<div class="figure" id="id4">
+<div class="figure" id="id5">
 <img alt="../../_images/git-plugin-push-ok.png" src="../../_images/git-plugin-push-ok.png" />
 <p class="caption"><span class="caption-text">Once the Push succeeded, you can click “Dismiss”.</span></p>
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">In case you get this error message when pushing or pulling: <code class="docutils literal notranslate"><span class="pre">fatal:</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">read</span> <span class="pre">Username</span> <span class="pre">for</span> <span class="pre">'https://github.com':</span> <span class="pre">terminal</span> <span class="pre">prompts</span> <span class="pre">disabled</span></code>, you have not successfully cashed your credentials.
+<p class="last">In case you get this error message when pushing or pulling: <code class="docutils literal notranslate"><span class="pre">fatal:</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">read</span> <span class="pre">Username</span> <span class="pre">for</span> <span class="pre">'https://github.com':</span> <span class="pre">terminal</span> <span class="pre">prompts</span> <span class="pre">disabled</span></code>, you have not successfully cached your credentials.
 Try caching your credentials again, and run git pull and git push from the command line.</p>
 </div>
 </div>
@@ -796,7 +802,7 @@ Try caching your credentials again, and run git pull and git push from the comma
 <div class="section" id="if-everything-else-fails">
 <h2>If everything else fails…<a class="headerlink" href="#if-everything-else-fails" title="Permalink to this headline">¶</a></h2>
 <p>Remember that you can always download your files on your own computer, and upload them manually to GitHub like we did in exercise 1!</p>
-<div class="figure" id="id5">
+<div class="figure" id="id6">
 <img alt="https://xkcd.com/1597/" src="https://imgs.xkcd.com/comics/git.png" />
 <p class="caption"><span class="caption-text">Source: <a class="reference external" href="https://xkcd.com/1597/">https://xkcd.com/1597/</a></span></p>
 </div>
@@ -826,7 +832,7 @@ Try caching your credentials again, and run git pull and git push from the comma
     <p>
         &copy; Copyright 2019, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki
       <span class="lastupdated">
-        Last updated on Sep 07, 2019.
+        Last updated on Sep 10, 2019.
       </span>
 
     </p>
