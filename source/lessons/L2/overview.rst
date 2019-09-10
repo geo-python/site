@@ -7,10 +7,10 @@ how to use the Course Environment and version control with Git + GitHub.
 
 1. `Some basic elements of Python <../../notebooks/L2/Python-basic-elements.ipynb>`_
 2. `Good coding practices - Describing your code <../../notebooks/L2/gcp-2-describing-code.ipynb>`_
-2. :doc:`Intro to version control and GitHub <intro-to-GitHub>`
-3. :doc:`Basics of using Git <git-basics>`
-4. :doc:`Classroom for GitHub <GitHub-classroom>`
-5. :doc:`Exercise 2: lists and indices <exercise-2>`
+3. :doc:`Intro to version control and GitHub <intro-to-GitHub>`
+4. :doc:`Basics of using Git <git-basics>`
+5. :doc:`Classroom for GitHub <GitHub-classroom>`
+6. :doc:`Exercise 2: lists and indices <exercise-2>`
 
 Learning goals
 --------------
