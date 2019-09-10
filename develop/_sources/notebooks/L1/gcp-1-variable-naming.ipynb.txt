@@ -1,0 +1,124 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Good coding practices - Selecting \"good\" variable names\n",
+    "\n",
+    "This course aims to introduce you to programming in Python, but also to *good programming practices*. These comprise practical tips based on practices used by professional programmers that help them write better programs that are easier to understand and share with others. To say it differently, there are many ways to learn to program, and we want to help you learn how to program the right way!\n",
+    "\n",
+    "This week our good programming practice is about selecting \"good\" variable names. \n",
+    "\n",
+    "## Some \"not-so-good\" variable names\n",
+    "\n",
+    "To illustrate the point, consider a few not-so-good examples below."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "s = \"101533\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "or"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sid = \"101533\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Any idea what these variables are for? Of course not, the variables ``s`` and ``sid`` are too short and cannot communicate what they should be used for in the code. You might think you know what they are for now, but imagine not looking at the code for a few months. Would you know then? What about if you share the code with a friend? Would they know? Probably not.\n",
+    "\n",
+    "Let's look at another example."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "finnishmeteorologicalinstituteobservationstationidentificationnumber = \"101533\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "OK, so now we have another issue. The variable name ``finnishmeteorologicalinstituteobservationstationidentificationnumber`` potentially provides more information about what the variable represents (the identification number of an FMI observation station), but it does so in a format that is not easy to read, nor something you're likely to want to type more than once. The previous example was too short, and now we have a variable name that is too long (and hard to read as a result)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Selecting \"good\" variable names\n",
+    "\n",
+    "A good variable name should:\n",
+    "\n",
+    "1. Be clear and concise. \n",
+    "\n",
+    "2. Be written in English. A general coding practice is to write code with variable names in English, as that is the most likely common language between programmers. Thus, variable names such as ``muuttuja`` (which is also not a good name on other levels) should be avoided.\n",
+    "\n",
+    "3. Not contain special characters. Python supports use of special characters by way of various encoding options that can be given in a program. That said, it is better to avoid variables such as ``lämpötila`` because encoding issues can arise in some cases. Better to stick to the [standard printable ASCII character set](https://en.wikipedia.org/wiki/ASCII#Printable_characters) to be safe.\n",
+    "\n",
+    "4. Not conflict with any [Python keywords](https://www.pythonforbeginners.com/basics/keywords-in-python), such as ``for``, ``True``, ``False``, ``and``, ``if``, or ``else``. These are reserved for speical operations in Python and cannot be used as variable names.\n",
+    "\n",
+    "With this in mind, let's now look at a few better options for variable names."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Formatting \"good\" variable names\n",
+    "\n",
+    "There are several possibilities for \"good\" variable name formats, of which we'll consider two:\n",
+    "\n",
+    "1. *pothole_case_naming* uses lowercase words separated by underscores ``_``. This is our suggested format as the underscores make it easy to read the variable, and don't add too much to the length of the variable name. As an example, consider the variable ``temp_celsius``. In the context of the examples above, we might rename our variable ``fmi_station_id``, which conveys all of the essential information we need, while remaining easy to read.\n",
+    "\n",
+    "2. *camelCase* or *CamelCase* uses capitalization of the first letter of words in a variable name to make it easier to read. In some cases the first letter of the variable may be capitalized. The variable ``tempFahrenheit`` was one example of camelCase. Again, if we consider the examples from the previous section, we might consider the variable name ``fmiStationID`` or simply ``stationID`` if we elect to use camelCase.\n",
+    "\n",
+    "As mentioned in point 1, pothole_case_naming is preferred, mostly because we feel it is the easiest to read and seems to be most common amongst Python programmers. We are happy with you using either option, as long as you are consistent in the use. It might take an extra second of thought, but could make a big difference in the ease of use of your programs!"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

@@ -13,6 +13,7 @@ in Python. The main components of this first lesson are below.
 1. :doc:`Overview of the course environment <course-environment-components>`
 2. :doc:`Communicating and chatting with Slack <slack-usage>`
 3. `Our first taste of Python <../../notebooks/L1/a-taste-of-python.ipynb>`_
+4. `Good coding practices - Selecting “good” variable names <../../notebooks/L1/gcp-1-variable-naming.ipynb>`_
 4. :doc:`Exercise 1: Creating a Github.com account and using the cloud <exercise-1>`
 
 .. note::
