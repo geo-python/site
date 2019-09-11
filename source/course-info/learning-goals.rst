@@ -19,11 +19,12 @@ This course will also teach you several skills related to open science. Each wee
 |                                 |                                                                                     |
 +---------------------------------+-------------------------------------------------------------------------------------+
 | 2.                              |  After week 2 you will be able to:                                                  |
-|                                 |      - understand the basics of version control                                     |
+|                                 |     - understand the basics of version control                                      |
 |                                 |     - conduct basic data type conversions                                           |
 |                                 |     - store and access values in a list                                             |
 |                                 |     - explain the concept of an index value                                         |
-|                                 |     - use Jupyter notebook for writing and documenting your code                    |
+|                                 |     - use Git and GitHub to record changes to your files                            |
+|                                 |     - use Jupyter notebooks for writing and documenting your code                   |
 |                                 |                                                                                     |
 +---------------------------------+-------------------------------------------------------------------------------------+
 | 3.                              |   After week 3 you will be able to:                                                 |
