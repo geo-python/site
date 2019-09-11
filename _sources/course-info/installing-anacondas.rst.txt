@@ -10,7 +10,7 @@ it makes life much easier when installing new tools to your Python.
 Install Python on Windows
 -------------------------
 
-For people working with computers from University of Helsinki: Anaconda should be available from `Helsinki Software portal <https://helpdesk.it.helsinki.fi/en/instructions/computer-and-printing/software/software-portal-installing-additional-software>`__.
+For people working with computers from University of Helsinki: Anaconda should be available from `Helsinki Software Center <https://helpdesk.it.helsinki.fi/ohjeet/tietokone-ja-tulostaminen/ohjelmistot/software-center>`__.
 
 Following steps have been tested to work on Windows 7 and 10 with Anaconda3 version 5.2.0 (June 2018) that installs Python 3.6 and various useful packages.
 
