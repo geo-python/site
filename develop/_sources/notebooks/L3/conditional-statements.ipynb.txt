@@ -12,7 +12,7 @@
     "\n",
     "## Basics of conditional statements\n",
     "\n",
-    "Conditional statements can change the code behaviour based on certain conditions. IF a condition is met, THEN a set of actions is performed. \n",
+    "Conditional statements can change the code behaviour based on certain conditions. The idea is simple: **IF** a condition is met, THEN a set of actions is performed. \n",
     "\n",
     "### A simple conditional statement\n",
     "\n",
@@ -47,7 +47,7 @@
    "source": [
     "What did we do here?\n",
     "First, we used the `if` and `else` statements to determine what parts of the code to execute.\n",
-    "Note that both lines containing `if` or `else` end with a `:` and the text beneath is indented.\n",
+    "\n",
     "What do these tests do?\n",
     "The `if` statement checks to see whether the variable value for `temperature` is greater than 25.\n",
     "If this condition is met, `'it is hot'` would be written to the screen. \n",
@@ -59,7 +59,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**Let's look at another example fro our daily lives ☔**\n",
+    "**Let's look at another example from our daily lives ☔**\n",
     "\n",
     "As it turns out, we all use logic similar to `if` and `else` conditional statements daily.\n",
     "Imagine you’re getting ready to leave your home for the day and want to decide what to wear.\n",
@@ -99,6 +99,42 @@
    "source": [
     "Note here that we use the `==` operator to test if a value is exactly equal to another."
    ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Note the syntax**\n",
+    "\n",
+    "Similarly as with for-loops, Python uses colons (`:`) and whitespace (indentations; often four spaces) to structure conditional statements. If the condition is True, the code block after the colon (`:`) is executed. The code block may contain several lines of code, but they all must be indented identically:\n",
+    "\n",
+    "```\n",
+    "    \n",
+    "weather = 'Rain'\n",
+    "\n",
+    "if weather == 'Rain':\n",
+    "    print('Wear a raincoat')\n",
+    "    print('Wear rain boots')\n",
+    "    print('Bring an umbrella')\n",
+    "else:\n",
+    "    print('No rainwear needed')\n",
+    "    \n",
+    "```    \n",
+    "    \n",
+    "You will get an `IndentationError` if you haven't indented the code correctly.\n",
+    "    \n",
+    "</div>\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   },
   {
    "cell_type": "markdown",
@@ -180,9 +216,29 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### if... (but no else?)\n",
+    "<div class=\"alert alert-info\">\n",
     "\n",
-    "The combination of if and else is very common, but the `else`statement is not strictly required. Python simply does nothing if the `if`-statement is False and there is no `else`-statement. Let's try this with our temperature example by removing the `else`-statement:"
+    "**if without else?**\n",
+    "\n",
+    "The combination of `if` and `else` is very common, but the `else`-statement is not strictly required.\n",
+    "   \n",
+    "```\n",
+    "temperature = 17\n",
+    "    \n",
+    "if temperature > 25:\n",
+    "    print('13 is greater than 25')\n",
+    "```  \n",
+    "\n",
+    " Python simply does nothing if the `if`-statement is False and there is no `else`-statement. \n",
+    "    \n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Try it out yourself:"
    ]
   },
   {
@@ -217,14 +273,14 @@
    "source": [
     "### if, elif and else\n",
     "\n",
-    "We can link several conditions together using the \"else if\" -statement `elif`. Python checks the `elif` and `else` statements only if previous conditions were False. You can have multiple `elif` statements to check for additional conditionsif needed.\n",
+    "We can link several conditions together using the \"else if\" -statement `elif`. Python checks the `elif` and `else` statements only if previous conditions were False. You can have multiple `elif` statements to check for additional conditions.\n",
     "\n",
-    "Let's create a chain of `if` `elif` and `else`statements that are able to tell us if the temperature is above freezing, exactly at freezing point or below freexing: "
+    "Let's create a chain of `if` `elif` and `else` -statements that are able to tell us if the temperature is above freezing, exactly at freezing point or below freexing: "
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 11,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -233,7 +289,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 12,
    "metadata": {},
    "outputs": [
     {
@@ -257,11 +313,10 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "<hr>\n",
+    "<div class=\"alert alert-warning\">\n",
     "\n",
-    "#### Poll question pause\n",
+    "**Attention, poll pause!**\n",
     "\n",
-    "Time to check your understanding.\n",
     "Let's assume that yesterday it was 14°C, it is 10°C outside today, and tomorrow it will be 13°C.\n",
     "The following code compares these temperatures and prints something to the screen based on the comparison.\n",
     "\n",
@@ -283,7 +338,8 @@
     "Which of the letters `A`, `B`, `C`, and `D` would be printed to the screen?\n",
     "Select your answer from the poll options at https://geo-python.github.io/poll/.\n",
     "\n",
-    "<hr>"
+    "\n",
+    "</div>"
    ]
   },
   {
@@ -347,29 +403,47 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Note: later on we will also need the bitwise operators `&` for and, and `|` for or."
+    "Note: later on we will also need the bitwise operators `&` for `and`, and `|` for `or`."
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**Let's return to our example about making decisions on a rainy day ☔.** Imagine that we consider not only the rain, but also whether or not it is windy. If it is windy and raining, we’ll just stay home. Otherwise, we need appropriate clothing to go out. We can again handle this kind of decision with Python.\n",
-    "\n",
-    "```python\n",
+    "**Let's return to our example about making decisions on a rainy day ☔.** Imagine that we consider not only the rain, but also whether or not it is windy. If it is windy and raining, we’ll just stay at home. Otherwise, we need appropriate clothing to go out. This is how we could solve the problem in Python:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Just stay at home\n"
+     ]
+    }
+   ],
+   "source": [
     "weather = 'Rain'\n",
     "wind = 'Windy'\n",
     "\n",
     "if (weather == 'Rain') and (wind == 'Windy'):\n",
-    "     print('Just stay home')\n",
+    "    print('Just stay at home')\n",
     "elif weather == 'Rain':\n",
-    "     print('Wear a raincoat')\n",
+    "    print('Wear a raincoat')\n",
+    "    print('Wear rain boots')\n",
+    "    print('Bring an umbrella')\n",
     "else:\n",
-    "     print('No raincoat needed')\n",
-    "\n",
-    "Just stay home\n",
-    "```\n",
-    "\n",
+    "    print('No rainwear needed')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "As you can see, we better just stay home if it is windy and raining."
    ]
   }

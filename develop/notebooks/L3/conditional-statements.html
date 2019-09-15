@@ -650,7 +650,7 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="section" id="Basics-of-conditional-statements">
 <h2>Basics of conditional statements<a class="headerlink" href="#Basics-of-conditional-statements" title="Permalink to this headline">¶</a></h2>
-<p>Conditional statements can change the code behaviour based on certain conditions. IF a condition is met, THEN a set of actions is performed.</p>
+<p>Conditional statements can change the code behaviour based on certain conditions. The idea is simple: <strong>IF</strong> a condition is met, THEN a set of actions is performed.</p>
 <div class="section" id="A-simple-conditional-statement">
 <h3>A simple conditional statement<a class="headerlink" href="#A-simple-conditional-statement" title="Permalink to this headline">¶</a></h3>
 <p><strong>Let’s look at a simple example with temperatures</strong>, and check if temperature 17 (celsius degrees) is hot or not:</p>
@@ -676,9 +676,9 @@ This page was generated from <a class="reference external" href="https://github.
 it is not hot
 </pre></div></div>
 </div>
-<p>What did we do here? First, we used the <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements to determine what parts of the code to execute. Note that both lines containing <code class="docutils literal notranslate"><span class="pre">if</span></code> or <code class="docutils literal notranslate"><span class="pre">else</span></code> end with a <code class="docutils literal notranslate"><span class="pre">:</span></code> and the text beneath is indented. What do these tests do? The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement checks to see whether the variable value for <code class="docutils literal notranslate"><span class="pre">temperature</span></code> is greater than 25. If this condition is met, <code class="docutils literal notranslate"><span class="pre">'it</span> <span class="pre">is</span> <span class="pre">hot'</span></code> would be written to the screen. Since 17 is smaller than 25, the code beneath the else is executed. The
-<code class="docutils literal notranslate"><span class="pre">else</span></code> statement code will run whenever the <code class="docutils literal notranslate"><span class="pre">if</span></code> test is false.</p>
-<p><strong>Let’s look at another example fro our daily lives ☔</strong></p>
+<p>What did we do here? First, we used the <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements to determine what parts of the code to execute.</p>
+<p>What do these tests do? The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement checks to see whether the variable value for <code class="docutils literal notranslate"><span class="pre">temperature</span></code> is greater than 25. If this condition is met, <code class="docutils literal notranslate"><span class="pre">'it</span> <span class="pre">is</span> <span class="pre">hot'</span></code> would be written to the screen. Since 17 is smaller than 25, the code beneath the else is executed. The <code class="docutils literal notranslate"><span class="pre">else</span></code> statement code will run whenever the <code class="docutils literal notranslate"><span class="pre">if</span></code> test is false.</p>
+<p><strong>Let’s look at another example from our daily lives ☔</strong></p>
 <p>As it turns out, we all use logic similar to <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> conditional statements daily. Imagine you’re getting ready to leave your home for the day and want to decide what to wear. You might look outside to check the weather conditions. If it is raining, you will wear a rain jacket. Otherwise, you will not. In Python we could say:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -703,6 +703,30 @@ Wear a raincoat
 </pre></div></div>
 </div>
 <p>Note here that we use the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator to test if a value is exactly equal to another.</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note the syntax</strong></p>
+<p>Similarly as with for-loops, Python uses colons (<code class="docutils literal notranslate"><span class="pre">:</span></code>) and whitespace (indentations; often four spaces) to structure conditional statements. If the condition is True, the code block after the colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>) is executed. The code block may contain several lines of code, but they all must be indented identically:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span> <span class="o">=</span> <span class="s1">&#39;Rain&#39;</span>
+
+<span class="k">if</span> <span class="n">weather</span> <span class="o">==</span> <span class="s1">&#39;Rain&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Wear a raincoat&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Wear rain boots&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bring an umbrella&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No rainwear needed&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You will get an <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code> if you haven’t indented the code correctly.</p>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="Comparison-operators-and-boolean-values">
 <h3>Comparison operators and boolean values<a class="headerlink" href="#Comparison-operators-and-boolean-values" title="Permalink to this headline">¶</a></h3>
@@ -777,10 +801,18 @@ Wear a raincoat
 </div>
 </div>
 <p>Makes sense, right? Conditional statements always check if the conditional expression is <strong>True</strong> or <strong>False</strong>. If True, the codeblock under the conditional statement gets executed.</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>if without else?</strong></p>
+<p>The combination of <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> is very common, but the <code class="docutils literal notranslate"><span class="pre">else</span></code>-statement is not strictly required.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">17</span>
+
+<span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;13 is greater than 25&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="if...-(but-no-else?)">
-<h3>if… (but no else?)<a class="headerlink" href="#if...-(but-no-else?)" title="Permalink to this headline">¶</a></h3>
-<p>The combination of if and else is very common, but the <code class="docutils literal notranslate"><span class="pre">else</span></code>statement is not strictly required. Python simply does nothing if the <code class="docutils literal notranslate"><span class="pre">if</span></code>-statement is False and there is no <code class="docutils literal notranslate"><span class="pre">else</span></code>-statement. Let’s try this with our temperature example by removing the <code class="docutils literal notranslate"><span class="pre">else</span></code>-statement:</p>
+<p>Python simply does nothing if the <code class="docutils literal notranslate"><span class="pre">if</span></code>-statement is False and there is no <code class="docutils literal notranslate"><span class="pre">else</span></code>-statement.</p>
+</div>
+<p>Try it out yourself:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -804,10 +836,10 @@ Wear a raincoat
 </div>
 <div class="section" id="if,-elif-and-else">
 <h3>if, elif and else<a class="headerlink" href="#if,-elif-and-else" title="Permalink to this headline">¶</a></h3>
-<p>We can link several conditions together using the “else if” -statement <code class="docutils literal notranslate"><span class="pre">elif</span></code>. Python checks the <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements only if previous conditions were False. You can have multiple <code class="docutils literal notranslate"><span class="pre">elif</span></code> statements to check for additional conditionsif needed.</p>
-<p>Let’s create a chain of <code class="docutils literal notranslate"><span class="pre">if</span></code> <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code>statements that are able to tell us if the temperature is above freezing, exactly at freezing point or below freexing:</p>
+<p>We can link several conditions together using the “else if” -statement <code class="docutils literal notranslate"><span class="pre">elif</span></code>. Python checks the <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements only if previous conditions were False. You can have multiple <code class="docutils literal notranslate"><span class="pre">elif</span></code> statements to check for additional conditions.</p>
+<p>Let’s create a chain of <code class="docutils literal notranslate"><span class="pre">if</span></code> <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> -statements that are able to tell us if the temperature is above freezing, exactly at freezing point or below freexing:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -816,7 +848,7 @@ Wear a raincoat
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -837,9 +869,9 @@ Wear a raincoat
 -3 is below freezing
 </pre></div></div>
 </div>
-<hr><div class="section" id="Poll-question-pause">
-<h4>Poll question pause<a class="headerlink" href="#Poll-question-pause" title="Permalink to this headline">¶</a></h4>
-<p>Time to check your understanding. Let’s assume that yesterday it was 14°C, it is 10°C outside today, and tomorrow it will be 13°C. The following code compares these temperatures and prints something to the screen based on the comparison.</p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Attention, poll pause!</strong></p>
+<p>Let’s assume that yesterday it was 14°C, it is 10°C outside today, and tomorrow it will be 13°C. The following code compares these temperatures and prints something to the screen based on the comparison.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">yesterday</span> <span class="o">=</span> <span class="mi">14</span>
 <span class="n">today</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">tomorrow</span> <span class="o">=</span> <span class="mi">13</span>
@@ -855,7 +887,7 @@ Wear a raincoat
 </pre></div>
 </div>
 <p>Which of the letters <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">B</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code>, and <code class="docutils literal notranslate"><span class="pre">D</span></code> would be printed to the screen? Select your answer from the poll options at <a class="reference external" href="https://geo-python.github.io/poll/">https://geo-python.github.io/poll/</a>.</p>
-<hr></div>
+</div>
 </div>
 <div class="section" id="Combining-conditions">
 <h3>Combining conditions<a class="headerlink" href="#Combining-conditions" title="Permalink to this headline">¶</a></h3>
@@ -921,20 +953,34 @@ One part is not true
 At least one test is true
 </pre></div></div>
 </div>
-<p>Note: later on we will also need the bitwise operators <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> for and, and <code class="docutils literal notranslate"><span class="pre">|</span></code> for or.</p>
-<p><strong>Let’s return to our example about making decisions on a rainy day ☔.</strong> Imagine that we consider not only the rain, but also whether or not it is windy. If it is windy and raining, we’ll just stay home. Otherwise, we need appropriate clothing to go out. We can again handle this kind of decision with Python.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span> <span class="o">=</span> <span class="s1">&#39;Rain&#39;</span>
+<p>Note: later on we will also need the bitwise operators <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> for <code class="docutils literal notranslate"><span class="pre">and</span></code>, and <code class="docutils literal notranslate"><span class="pre">|</span></code> for <code class="docutils literal notranslate"><span class="pre">or</span></code>.</p>
+<p><strong>Let’s return to our example about making decisions on a rainy day ☔.</strong> Imagine that we consider not only the rain, but also whether or not it is windy. If it is windy and raining, we’ll just stay at home. Otherwise, we need appropriate clothing to go out. This is how we could solve the problem in Python:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">weather</span> <span class="o">=</span> <span class="s1">&#39;Rain&#39;</span>
 <span class="n">wind</span> <span class="o">=</span> <span class="s1">&#39;Windy&#39;</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="n">weather</span> <span class="o">==</span> <span class="s1">&#39;Rain&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">wind</span> <span class="o">==</span> <span class="s1">&#39;Windy&#39;</span><span class="p">):</span>
-     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Just stay home&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Just stay at home&#39;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">weather</span> <span class="o">==</span> <span class="s1">&#39;Rain&#39;</span><span class="p">:</span>
-     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Wear a raincoat&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Wear a raincoat&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Wear rain boots&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Bring an umbrella&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;No raincoat needed&#39;</span><span class="p">)</span>
-
-<span class="n">Just</span> <span class="n">stay</span> <span class="n">home</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;No rainwear needed&#39;</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Just stay at home
+</pre></div></div>
 </div>
 <p>As you can see, we better just stay home if it is windy and raining.</p>
 </div>
