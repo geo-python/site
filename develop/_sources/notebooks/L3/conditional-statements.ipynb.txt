@@ -12,16 +12,16 @@
     "\n",
     "## Basics of conditional statements\n",
     "\n",
-    "Conditional statements can change the code behaviour based on meeting certain conditions.\n",
+    "Conditional statements can change the code behaviour based on certain conditions. IF a condition is met, THEN a set of actions is performed. \n",
     "\n",
     "### A simple conditional statement\n",
     "\n",
-    "Let’s take a simple example."
+    "**Let’s look at a simple example with temperatures**, and check if temperature 17 (celsius degrees) is hot or not: "
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 1,
    "metadata": {},
    "outputs": [
     {
@@ -49,8 +49,8 @@
     "First, we used the `if` and `else` statements to determine what parts of the code to execute.\n",
     "Note that both lines containing `if` or `else` end with a `:` and the text beneath is indented.\n",
     "What do these tests do?\n",
-    "The if test checks to see whether the variable value for `temperature` is greater than 25.\n",
-    "If so, `'it is hot'` would be written to the screen.\n",
+    "The `if` statement checks to see whether the variable value for `temperature` is greater than 25.\n",
+    "If this condition is met, `'it is hot'` would be written to the screen. \n",
     "Since 17 is smaller than 25, the code beneath the else is executed.\n",
     "The `else` statement code will run whenever the `if` test is false."
    ]
@@ -59,7 +59,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "#### A familiar conditional scenario\n",
+    "**Let's look at another example fro our daily lives ☔**\n",
     "\n",
     "As it turns out, we all use logic similar to `if` and `else` conditional statements daily.\n",
     "Imagine you’re getting ready to leave your home for the day and want to decide what to wear.\n",
@@ -68,40 +68,135 @@
     "Otherwise, you will not.\n",
     "In Python we could say:\n",
     "\n",
-    "```python\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Wear a raincoat\n"
+     ]
+    }
+   ],
+   "source": [
     "weather = 'Rain'\n",
     "\n",
     "if weather == 'Rain':\n",
     "    print('Wear a raincoat')\n",
     "else:\n",
-    "    print('No raincoat needed')\n",
-    "\n",
-    "Wear a raincoat\n",
-    "```\n",
-    "Note here that we use the `==` to test if a value is exactly equal to another."
+    "    print('No raincoat needed')"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### else is not required\n",
+    "Note here that we use the `==` operator to test if a value is exactly equal to another."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Comparison operators and boolean values\n",
     "\n",
-    "The combination of if and else is very common, but both are not strictly required."
+    "Comparison operators such as `>` and `==` compare the values on each side of the operator. Here is the full list of operators used for value comparisons in Python: \n",
+    "\n",
+    "| Operator | Description              |\n",
+    "| -------- | ------------------------ |\n",
+    "| <        | Less than                |\n",
+    "| <=       | Less than or equal to    |\n",
+    "| ==       | Equal to                 |\n",
+    "| >=       | Greater than or equal to |\n",
+    "| >        | Greater than             |\n",
+    "| !=       | Not equal to             |\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Comparison operations yield boolean values (`True` or `False`). In Python, the words `True` and `False` are reserved for these Boolean values, and can't be used for anything else. \n",
+    "\n",
+    "Let's check the current value of the conditions we used in the previous examples:"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "False"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "temperature > 25"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "weather == 'Rain'"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Makes sense, right? Conditional statements always check if the conditional expression is **True** or **False**. If True, the codeblock under the conditional statement gets executed."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### if... (but no else?)\n",
+    "\n",
+    "The combination of if and else is very common, but the `else`statement is not strictly required. Python simply does nothing if the `if`-statement is False and there is no `else`-statement. Let's try this with our temperature example by removing the `else`-statement:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
    "metadata": {},
    "outputs": [],
    "source": [
-    "temperature = 13"
+    "temperature = 17"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 6,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -113,21 +208,23 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Note that here we use only the `if` statement, and because 13 is not greater than 25, nothing is printed to the screen."
+    "Nothing is printed to the screen if temperature is smaller than 25."
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Introducing second test\n",
+    "### if, elif and else\n",
     "\n",
-    "We can also have a second test for an if statment by using the elif (else-if) statement."
+    "We can link several conditions together using the \"else if\" -statement `elif`. Python checks the `elif` and `else` statements only if previous conditions were False. You can have multiple `elif` statements to check for additional conditionsif needed.\n",
+    "\n",
+    "Let's create a chain of `if` `elif` and `else`statements that are able to tell us if the temperature is above freezing, exactly at freezing point or below freexing: "
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 7,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -136,7 +233,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 8,
    "metadata": {},
    "outputs": [
     {
@@ -154,22 +251,6 @@
     "     print(temperature, 'is freezing')\n",
     "else:\n",
     "     print(temperature, 'is below freezing')"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "Makes sense, right? Note here that we again use the == to test if a value is exactly equal to another. The complete list of these comparison operators is given in the table below.\n",
-    "\n",
-    "| Operator | Meaning                  |\n",
-    "| -------- | ------------------------ |\n",
-    "| <        | Less than                |\n",
-    "| <=       | Less than or equal to    |\n",
-    "| ==       | Equal to                 |\n",
-    "| >=       | Greater than or equal to |\n",
-    "| >        | Greater than             |\n",
-    "| !=       | Not equal to             |"
    ]
   },
   {
@@ -211,12 +292,22 @@
    "source": [
     "### Combining conditions\n",
     "\n",
-    "We can also use `and` and `or` to have multiple conditions."
+    "We can also use `and` and `or` to have multiple conditions on boolean values."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "| Operation |example   | Description                          |\n",
+    "| --------- |--------- |------------------------------------- |\n",
+    "|  and      | a and b  | True if both a and b are True        |\n",
+    "|  or       | a and b  | True if either a or b is True        |"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 9,
    "metadata": {},
    "outputs": [
     {
@@ -236,7 +327,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 10,
    "metadata": {},
    "outputs": [
     {
@@ -256,20 +347,14 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "These are just simple examples, but concepts that can be quite handy."
+    "Note: later on we will also need the bitwise operators `&` for and, and `|` for or."
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "#### Another familiar conditional scenario\n",
-    "\n",
-    "Again, making decisions based on multiple conditions is something we regularly do.\n",
-    "Imagine that we consider not only the rain, but also whether or not it is windy.\n",
-    "If it is windy and raining, we’ll just stay home.\n",
-    "Otherwise, we need appropriate clothing to go out.\n",
-    "We can again handle this kind of decision with Python.\n",
+    "**Let's return to our example about making decisions on a rainy day ☔.** Imagine that we consider not only the rain, but also whether or not it is windy. If it is windy and raining, we’ll just stay home. Otherwise, we need appropriate clothing to go out. We can again handle this kind of decision with Python.\n",
     "\n",
     "```python\n",
     "weather = 'Rain'\n",
@@ -291,7 +376,7 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "Python 3",
+   "display_name": "Python [default]",
    "language": "python",
    "name": "python3"
   },
@@ -305,9 +390,9 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.6.4"
+   "version": "3.5.6"
   }
  },
  "nbformat": 4,
- "nbformat_minor": 2
+ "nbformat_minor": 4
 }
