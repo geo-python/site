@@ -1,0 +1,306 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Good coding practices - writing readable code"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "This week's session on good programming practices will focus on writing code that is easy to read. During the previous lessons we have already discussed good practices regarding [variable naming](../L1/gcp-1-variable-naming.html) and [describing your code using comments](../L2/gcp-2-describing-code.html), which are also part of writing readable code. Here we focus on how to format the actual Python code to make it more readable."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Working code vs readable code\n",
+    "\n",
+    "As you noticed, Python forces us to indent our code when writing for loops and conditional statements. Without the indentation, the code won't work at all, or then it will not work as you would want it to work."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "However, there are many cases in which you are able to write code that runs without errors, but you (or others!) might have a hard time understanding what the code does just by looking at it. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Ideally, our Python code would be understandable both for the computer and for humans reading it."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![xkcd: Code Quality](https://imgs.xkcd.com/comics/code_quality.png)\n",
+    "https://xkcd.com/1513/"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "collapsed": true
+   },
+   "source": [
+    "## PEP 8 Style Guide"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    ">> \"Readability counts\"\n",
+    ">>\n",
+    ">>/ [Zen of Python](https://www.python.org/dev/peps/pep-0020/)\n",
+    "\n",
+    "[The PEP 8 Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/) gives coding conventions that help us write code that is readable (by humans!) and consistent with code written by others.\n",
+    "\n",
+    "PEP 8 goes far beyond the scope of what we have learned so far during this course, and we recommend that you re-visit the guidelines every now and then when learning new things. **Here, we summarize some highlights that you can start applying to your code right away!**\n",
+    "\n",
+    "\n",
+    "### Indentation\n",
+    "\n",
+    "- four spaces per indentation level\n",
+    "https://www.python.org/dev/peps/pep-0008/#indentation\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# insert example"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "### Whitespace and binary operators\n",
+    "\n",
+    "\n",
+    "Surround binary operators with single space on either side. https://www.python.org/dev/peps/pep-0008/#other-recommendations\n",
+    "\n",
+    "Do this always with:\n",
+    "\n",
+    "- assignment (`=`)\n",
+    "- augmented assignment (`+=`, `-=` etc.)\n",
+    "- comparisons (`==`, `<`, `>`, `!=`, `<>`, `<=`, `>=`, `in`, `not in`, `is`, `is not`)\n",
+    "- Booleans (`and`, `or`, `not`)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "# yes:\n",
+    "i = 1\n",
+    "i = i + 1\n",
+    "i += 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# no: \n",
+    "i=1\n",
+    "i=i+1\n",
+    "i +=1"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "If using operators with different priorities, you can also do this:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "# yes: \n",
+    "a = 1\n",
+    "b = 2\n",
+    "c = (a+b) * (a-b)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Avoid extraneous whitespace\n",
+    "Avoid having a space between the function name and parenthesis when calling a function. https://www.python.org/dev/peps/pep-0008/#whitespace-in-expressions-and-statements"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hello\n"
+     ]
+    }
+   ],
+   "source": [
+    "# yes:\n",
+    "print(\"Hello\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hello\n"
+     ]
+    }
+   ],
+   "source": [
+    "# no:\n",
+    "print (\"Hello\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### One thing per line    \n",
+    "\n",
+    "Avoid compound statements (writing multiple statements on the same line).\n",
+    "https://www.python.org/dev/peps/pep-0008/#other-recommendations"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hello\n",
+      "world\n"
+     ]
+    }
+   ],
+   "source": [
+    "# yes:\n",
+    "print(\"Hello\")\n",
+    "print(\"world\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hello\n",
+      "world\n"
+     ]
+    }
+   ],
+   "source": [
+    "# no:\n",
+    "print(\"Hello\"); print(\"world\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# yes:\n",
+    "temperature = 17\n",
+    "if temperature > 25: \n",
+    "    print(temperature,'is greater than 25')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "# no:\n",
+    "temperature = 17\n",
+    "if temperature > 25: print(temperature,'is greater than 25')"
+   ]
+  }
+ ],
+ "metadata": {
+  "anaconda-cloud": {},
+  "kernelspec": {
+   "display_name": "Python [conda env:Anaconda3]",
+   "language": "python",
+   "name": "conda-env-Anaconda3-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.5.2"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
