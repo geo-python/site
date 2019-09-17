@@ -644,36 +644,123 @@ This page was generated from <a class="reference external" href="https://github.
 <span class="raw-html"><a href="https://notebooks.csc.fi/#/blueprint/df93f30d14e44b51907d135726eb6ef4"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a></span></div>
 <div class="section" id="Good-coding-practices---writing-readable-code">
 <h1>Good coding practices - writing readable code<a class="headerlink" href="#Good-coding-practices---writing-readable-code" title="Permalink to this headline">¶</a></h1>
-<p>This week’s session on good programming practices will focus on writing code that is easy to read. During the previous lessons we have already discussed good practices regarding <a class="reference external" href="../L1/gcp-1-variable-naming.html">variable naming</a> and <a class="reference external" href="../L2/gcp-2-describing-code.html">describing your code using comments</a>, which are also part of writing readable code. Here we focus on how to format the actual Python code to make it more readable.</p>
+<p>This week’s session on good programming practices focuses on writing code that is easy to read. During the previous lessons we have already discussed good practices regarding <a class="reference external" href="../L1/gcp-1-variable-naming.html">variable naming</a> and <a class="reference external" href="../L2/gcp-2-describing-code.html">describing your code using comments</a>, which are also part of writing readable code. Here we focus on how to format the actual Python code to make it more readable.</p>
 <div class="section" id="Working-code-vs-readable-code">
 <h2>Working code vs readable code<a class="headerlink" href="#Working-code-vs-readable-code" title="Permalink to this headline">¶</a></h2>
 <p>As you noticed, Python forces us to indent our code when writing for loops and conditional statements. Without the indentation, the code won’t work at all, or then it will not work as you would want it to work.</p>
-<p>However, there are many cases in which you are able to write code that runs without errors, but you (or others!) might have a hard time understanding what the code does just by looking at it.</p>
-<p>Ideally, our Python code would be understandable both for the computer and for humans reading it.</p>
+<p>However, there are many cases in which you are able to write code that runs without errors, but you (or others!) might have a hard time reading it and understanding what the code actually does.</p>
+<p>Ideally, our Python code would be understandable both for the computer and for humans reading it. <strong>`Coding conventions &lt;https://en.wikipedia.org/wiki/Coding_conventions&gt;`__</strong> are a set of generally agreed ways of writing programming code in a spesific programming language. Coding conventions help programmers to write code that is consistent and easy to read. Consistency and readability are important for sharing your code with others, and also for helping your own brain to follow along!</p>
 <p><img alt="xkcd: Code Quality" src="https://imgs.xkcd.com/comics/code_quality.png" /> <a class="reference external" href="https://xkcd.com/1513/">https://xkcd.com/1513/</a></p>
 </div>
 <div class="section" id="PEP-8-Style-Guide">
 <h2>PEP 8 Style Guide<a class="headerlink" href="#PEP-8-Style-Guide" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>“Readability counts”</p>
-<p>/ <a class="reference external" href="https://www.python.org/dev/peps/pep-0020/">Zen of Python</a></p>
+<p>/ <a class="reference external" href="https://www.python.org/dev/peps/pep-0020/">The Zen of Python</a></p>
 </div></blockquote>
 <p><a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">The PEP 8 Style Guide for Python Code</a> gives coding conventions that help us write code that is readable (by humans!) and consistent with code written by others.</p>
 <p>PEP 8 goes far beyond the scope of what we have learned so far during this course, and we recommend that you re-visit the guidelines every now and then when learning new things. <strong>Here, we summarize some highlights that you can start applying to your code right away!</strong></p>
-<div class="section" id="Indentation">
-<h3>Indentation<a class="headerlink" href="#Indentation" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li>four spaces per indentation level <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#indentation">https://www.python.org/dev/peps/pep-0008/#indentation</a></li>
-</ul>
+<div class="section" id="Maximum-line-length">
+<h3>Maximum line length<a class="headerlink" href="#Maximum-line-length" title="Permalink to this headline">¶</a></h3>
+<p>PEP 8 guides us to <strong>limit all lines to max 79 characters</strong>: <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#maximum-line-length">https://www.python.org/dev/peps/pep-0008/#maximum-line-length</a>. Comments (multi-line or single line) should be limited to 72 characters.</p>
+<p>One of the guiding principles of Python is that <a class="reference external" href="https://www.python.org/dev/peps/pep-0020/#id3">Simple is better than complex</a>, but sometimes you might end up having a line of code that exceeds 79 characters, for example, when defining lists.</p>
+<p><strong>Python is able to interpret the code correctly from multiple lines within parentheses, brackets and braces:</strong></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># insert example</span>
+<span></span><span class="c1"># Implicit line continuation inside brackets</span>
+<span class="n">us_cities</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Detroit&#39;</span><span class="p">,</span> <span class="s1">&#39;Chicago&#39;</span><span class="p">,</span> <span class="s1">&#39;Denver&#39;</span><span class="p">,</span> <span class="s1">&#39;Boston&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Portland&#39;</span><span class="p">,</span> <span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="s1">&#39;Houston&#39;</span><span class="p">,</span> <span class="s1">&#39;Orlando&#39;</span><span class="p">,]</span>
 </pre></div>
 </div>
 </div>
+<p>Note: backslash (<code class="docutils literal notranslate"><span class="pre">\</span></code>) might be required to break a line when using more complicated statements such as the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement (not covered during this course). See more examples in <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#maximum-line-length">here</a>.</p>
+</div>
+<div class="section" id="Indentation">
+<h3>Indentation<a class="headerlink" href="#Indentation" title="Permalink to this headline">¶</a></h3>
+<p>Indentation is an essential part of the Python code lay-out. As we already learned, for-loops and conditional statements won’t work correctly without indentation. PEP 8 advices us to use <strong>`4 spaces per indentation level &lt;https://www.python.org/dev/peps/pep-0008/#indentation&gt;`__</strong>.</p>
+<p>Let’s have a look at our example with if-statements. The indented line tells Python what to do <em>if</em> the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>. Notice the 4 spaces in the indentation:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">weather</span> <span class="o">=</span> <span class="s1">&#39;Rain&#39;</span>
+<span class="n">wind</span> <span class="o">=</span> <span class="s1">&#39;Windy&#39;</span>
+
+<span class="k">if</span> <span class="p">((</span><span class="n">weather</span> <span class="o">==</span> <span class="s1">&#39;Rain&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">wind</span> <span class="o">==</span> <span class="s1">&#39;Windy&#39;</span><span class="p">)):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Just stay at home&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Just stay at home
+</pre></div></div>
+</div>
+<p>Following PEP 8, it is also possible to break the conditional expression into multiple lines if needed. Notice the extra parenheses:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">if</span> <span class="p">((</span><span class="n">weather</span> <span class="o">==</span> <span class="s1">&#39;Rain&#39;</span><span class="p">)</span>
+    <span class="ow">and</span> <span class="p">(</span><span class="n">wind</span> <span class="o">==</span> <span class="s1">&#39;Windy&#39;</span><span class="p">)):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Just stay at home&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Just stay at home
+</pre></div></div>
+</div>
+<p>To increase readability of this if-statement, we could add extra indetation to the continuation line of the conditional statement:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">if</span> <span class="p">((</span><span class="n">weather</span> <span class="o">==</span> <span class="s1">&#39;Rain&#39;</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="p">(</span><span class="n">wind</span> <span class="o">==</span> <span class="s1">&#39;Windy&#39;</span><span class="p">)):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Just stay at home&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Just stay at home
+</pre></div></div>
+</div>
+<p>In addition, indentation is needed when breaking one command into multiple lines. When using <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#fn-hi">hanging indentations</a>, it is ok to use more than 4 spaces for the indentation, such as in our example with the list <code class="docutils literal notranslate"><span class="pre">us_cities</span></code> above.</p>
+<p>Note: following PEP 8 indentation guidelines, you can define <code class="docutils literal notranslate"><span class="pre">us_cities</span></code> also using a hanging indent. Note, that there is no value on the first line of the list, and the closing bracket is lined up with the last line of the list:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Hanging indentation:</span>
+<span class="n">us_cities</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;Detroit&#39;</span><span class="p">,</span> <span class="s1">&#39;Chicago&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Denver&#39;</span><span class="p">,</span> <span class="s1">&#39;Boston&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Portland&#39;</span><span class="p">,</span> <span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Houston&#39;</span><span class="p">,</span> <span class="s1">&#39;Orlando&#39;</span><span class="p">,</span>
+            <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>We will discuss more about indentations during week 4 when defining functions :)</p>
 </div>
 <div class="section" id="Whitespace-and-binary-operators">
 <h3>Whitespace and binary operators<a class="headerlink" href="#Whitespace-and-binary-operators" title="Permalink to this headline">¶</a></h3>
@@ -686,7 +773,7 @@ This page was generated from <a class="reference external" href="https://github.
 <li>Booleans (<code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>)</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -698,7 +785,7 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -711,7 +798,7 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <p>If using operators with different priorities, you can also do this:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -727,7 +814,7 @@ This page was generated from <a class="reference external" href="https://github.
 <h3>Avoid extraneous whitespace<a class="headerlink" href="#Avoid-extraneous-whitespace" title="Permalink to this headline">¶</a></h3>
 <p>Avoid having a space between the function name and parenthesis when calling a function. <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#whitespace-in-expressions-and-statements">https://www.python.org/dev/peps/pep-0008/#whitespace-in-expressions-and-statements</a></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -745,7 +832,7 @@ Hello
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -767,7 +854,7 @@ Hello
 <h3>One thing per line<a class="headerlink" href="#One-thing-per-line" title="Permalink to this headline">¶</a></h3>
 <p>Avoid compound statements (writing multiple statements on the same line). <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#other-recommendations">https://www.python.org/dev/peps/pep-0008/#other-recommendations</a></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -787,7 +874,7 @@ world
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -806,7 +893,7 @@ world
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -818,13 +905,37 @@ world
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># no:</span>
 <span class="n">temperature</span> <span class="o">=</span> <span class="mi">17</span>
 <span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span><span class="s1">&#39;is greater than 25&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Advanced Note</strong></p>
+<p>You often have to balance between code readability and code length. While the rule of thumb is to write one statement per line, Python also has a set of compound statements which are able to squeeze multiple operations into one line. <strong>List comprehensions</strong> are a useful approach for creating lists in a consise way. We are not covering list comprehensions during the lessons, but here is a short example from the <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html">Python documentation</a>:</p>
+<p>This for loop iterates over a range, squares all values and appends them to a list:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">squares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can achieve the same output using a list comprehension:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>In some cases, list comprehensions might make your code more readable and consise. In other cases, you might end up writing an excessively long statement using list comprehensions or other compound statements, in which case it would be wiser to prioritize code readability and use multiple lines for writing your code.</p>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
 </pre></div>
 </div>
 </div>
@@ -845,7 +956,7 @@ world
     <p>
         &copy; Copyright 2019, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki
       <span class="lastupdated">
-        Last updated on Sep 16, 2019.
+        Last updated on Sep 17, 2019.
       </span>
 
     </p>
