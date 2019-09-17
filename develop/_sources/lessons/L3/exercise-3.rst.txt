@@ -24,7 +24,7 @@ Here are a few things that may be helpful in completing Exercise 3.
 General tips
 ~~~~~~~~~~~~
 
-1. Start by cloning your personal Exercise 3 repository on your (cloud) computer. See :doc:`instructions for using git from Lesson 2. <../L2/git-basics.rst>`__
+1. Start by cloning your personal Exercise 3 repository on your (cloud) computer. See :doc:`instructions for using git from Lesson 2. <../L2/git-basics.rst>`
 2. Some code cells contain a line that says: `raise NotImplementedError()`. Always remove this piece of code from your submission and replace it with your own code. The error tells us if you have not started the exercise.
 3. Remember to commit your changes often!
 4. Follow carefully the instructions about variable names and other details (this week's exercises will bee graded automatically!)
