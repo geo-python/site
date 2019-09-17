@@ -392,7 +392,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#Indentation">Indentation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Whitespace-and-binary-operators">Whitespace and binary operators</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Avoid-extraneous-whitespace">Avoid extraneous whitespace</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#One-thing-per-line">One thing per line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Write-one-statement-per-line">Write one statement per line</a></li>
 </ul>
 </li>
 </ul>
@@ -727,6 +727,13 @@ This page was generated from <a class="reference external" href="https://github.
 </div></blockquote>
 <p><a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">The PEP 8 Style Guide for Python Code</a> gives coding conventions that help us write code that is readable (by humans!) and consistent with code written by others.</p>
 <p>PEP 8 goes far beyond the scope of what we have learned so far during this course, and we recommend that you re-visit the guidelines every now and then when learning new things. <strong>Here, we summarize some highlights that you can start applying to your code right away!</strong></p>
+<ul class="simple">
+<li><a class="reference external" href="#Maximum-line-length">Maximum line length</a></li>
+<li><a class="reference external" href="#Indentation">Indentation</a></li>
+<li><a class="reference external" href="#Whitespace-and-binary-operators">Whitespace and binary operators</a></li>
+<li><a class="reference external" href="#Avoid-extraneous-whitespace">Avoid extraneous whitespace</a></li>
+<li><a class="reference external" href="#Write-one-statement-per-line">Write one statement per line</a></li>
+</ul>
 <div class="section" id="Maximum-line-length">
 <h3>Maximum line length<a class="headerlink" href="#Maximum-line-length" title="Permalink to this headline">¶</a></h3>
 <p>PEP 8 guides us to <strong>limit all lines to max 79 characters</strong>: <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#maximum-line-length">https://www.python.org/dev/peps/pep-0008/#maximum-line-length</a>. Comments (multi-line or single line) should be limited to 72 characters.</p>
@@ -810,8 +817,8 @@ Just stay at home
 Just stay at home
 </pre></div></div>
 </div>
-<p>In addition, indentation is needed when breaking one command into multiple lines, such as in our example with the list <code class="docutils literal notranslate"><span class="pre">us_cities</span></code> above.</p>
-<p>Following PEP 8 indentation guidelines, we can define <code class="docutils literal notranslate"><span class="pre">us_cities</span></code> also using a <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#fn-hi">hanging indent</a>. Note that there is no value on the first line of the list, and the closing bracket is lined up with the last line of the list:</p>
+<p>In our case, the first option with the conditional expression on one line is ok, as it is not that long afterall.</p>
+<p>In addition, indentation is needed when breaking one command into multiple lines, such as in our example with the list <code class="docutils literal notranslate"><span class="pre">us_cities</span></code> above, where we used the implied line continuation inside the brackets. Following PEP 8 indentation guidelines, we can define <code class="docutils literal notranslate"><span class="pre">us_cities</span></code> also using a <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#fn-hi">hanging indent</a>. Note that there is no value on the first line of the list, and the closing bracket is lined up with the last line of the list:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -917,9 +924,9 @@ Hello
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="One-thing-per-line">
-<h3>One thing per line<a class="headerlink" href="#One-thing-per-line" title="Permalink to this headline">¶</a></h3>
-<p>Avoid compound statements (writing multiple statements on the same line). <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#other-recommendations">https://www.python.org/dev/peps/pep-0008/#other-recommendations</a></p>
+<div class="section" id="Write-one-statement-per-line">
+<h3>Write one statement per line<a class="headerlink" href="#Write-one-statement-per-line" title="Permalink to this headline">¶</a></h3>
+<p>Avoid writing multiple statements on the same line: <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#other-recommendations">https://www.python.org/dev/peps/pep-0008/#other-recommendations</a></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
@@ -984,18 +991,31 @@ world
 </div>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Advanced Note</strong></p>
-<p>You often have to <strong>balance between code readability and code length</strong>. While the rule of thumb is to write one statement per line, Python also has a set of compound statements which are able to squeeze multiple operations into one line. <strong>List comprehensions</strong> are a useful approach for creating lists in a consise way. We are not covering list comprehensions during the lessons, but here is a short example from the <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html">Python documentation</a>:</p>
-<p>This for loop iterates over a range, squares all values and appends them to a list:</p>
+<p>You often have to <strong>balance between code readability and code length</strong>. PEP 8 guides us to generally avoid <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#compound-statements">compound statements</a> (writing multiple statements on the same line). However, according to PEP 8, it might be sometimes ok to squeeze a short piece of code into one line, for example, with the<code class="docutils literal notranslate"><span class="pre">for</span></code> -statement. Sometimes you just have to judge yourself which option makes the code more readable and go for
+that.</p>
+<p>One puzzling example regarding this guideline is the use of list comprehensions when defining lists. <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">List comprehensions</a> are a useful approach for creating lists in a consise way. We are not covering list comprehensions during the lessons, but here is a short example from the <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html">Python documentation</a>. Let’s have a look at two options that produce the same
+output:</p>
+<p><em>Option A) This for loop iterates over a range, squares all values and appends them to a list:</em></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="n">squares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>We can achieve the same output using a list comprehension:</p>
+<p><em>Option B) Square all values in the range using a list comprehension:</em></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
 </pre></div>
 </div>
-<p>In some cases, list comprehensions might make your code more readable and consise. In other cases, you might end up writing an excessively long statement which is difficult to read. In cases when PEP 8 (or your team) doesn’t have a clear say on how to write the code, you can choose the option that you think makes the code more readable.</p>
+<p><strong>Both approaches are fine, and you can choose the option that you think makes the code more readable.</strong></p>
+<p>In some cases, list comprehensions might make your code more readable and consise. In other cases, you might end up writing an excessively long statement which is difficult to read.</p>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
