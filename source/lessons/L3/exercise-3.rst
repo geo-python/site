@@ -1,16 +1,20 @@
 Exercise 3
 ==========
 
-.. warning::
+.. note::
 
-    Please note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
+    Please complete this exercise by **09:00 Wednesday, 25 September 2019**.
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 3 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/ztpdy_GR>`__.
+    **You can start working on your copy of Exercise 3 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/TvtVSjAr>`__.
 
-You can also take a look at the open course copy of `Exercise 3 in the course GitHub repository <https://github.com/Geo-Python-2018/Exercise-3>`__ (does not require logging in).
+You can also take a look at the template repository for `Exercise 3 on GitHub  <https://github.com/Geo-Python-2019/Exercise-3>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
+
+.. warning::
+
+    Please note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
 
 Exercise 3 hints
 ----------------
@@ -21,10 +25,15 @@ General tips
 ~~~~~~~~~~~~
 
 1. Start by cloning your personal Exercise 3 repository on your (cloud) computer. See :doc:`instructions for using git from Lesson 2. <../L2/git-basics.rst>`__
-2. Remember to commit your changes often!
-3. Follow carefully the instructions about variable names and other details (this week's exercises will bee graded automatically!)
-4. Ask for help in Slack and/or come to the practical sessions if you get stuck :)
+2. Some code cells contain a line that says: `raise NotImplementedError()`. Always remove this piece of code from your submission and replace it with your own code. The error tells us if you have not started the exercise.
+3. Remember to commit your changes often!
+4. Follow carefully the instructions about variable names and other details (this week's exercises will bee graded automatically!)
+5. Ask for help in Slack and/or come to the practical sessions if you get stuck :)
 
+Tests
+~~~~~~
+
+The exercise notebook contains some tests help you see if your code is working correctly.
 
 Combining strings
 ~~~~~~~~~~~~~~~~~
