@@ -28,3 +28,4 @@ Lecture
 
         <iframe width="560" height="315" src="https://www.youtube.com/embed/znjQSlbQgO4?rel=0" frameborder="0" allowfullscreen></iframe>
         <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+
