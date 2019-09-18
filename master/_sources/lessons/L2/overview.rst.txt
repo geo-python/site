@@ -31,4 +31,4 @@ Lecture video
     .. raw:: html
 
         <iframe width="560" height="315" src="https://www.youtube.com/embed/-HO8NxlbMKY?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        <p>Dave Whipp & Henrikki Tenkanen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+        <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
