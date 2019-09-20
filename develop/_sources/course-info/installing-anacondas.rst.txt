@@ -54,7 +54,7 @@ The following have been tested on Ubuntu 16.04. Might work also on Mac (not test
 
 **Install Anaconda 3 and add it to system path**
 
-.. code::
+.. code-block::
 
     # Download and install Anaconda
     sudo wget https://repo.continuum.io/archive/Anaconda3-4.1.1-Linux-x86_64.sh
@@ -66,22 +66,57 @@ The following have been tested on Ubuntu 16.04. Might work also on Mac (not test
     # Add following line at the end of the file and save (EDIT ACCORDING YOUR INSTALLATION PATH)
     export PATH=$PATH:/PATH_TO_ANACONDA/anaconda3/bin:/PATH_TO_ANACONDA/anaconda3/lib/python3.5/site-packages
 
-How to find out which conda -command to use when installing a package?
-----------------------------------------------------------------------
+
+
+Installing packages using Conda
+---------------------------------
+
+Conda has an excellent `online user guide <https://docs.conda.io/projects/conda/en/latest/index.html>`__ which covers most of the basic things, such as installing new packages.
 
 The easiest way
 ~~~~~~~~~~~~~~~
 
-The first thing to try when installing a new module ``X`` is to run in a command prompt (as admin) following command (here we try to install a hypothetical
-module called X)
+You can install new packages using the ``conda install`` command in a terminal of an Anaconda Prompt (as admin).
 
-.. code::
+.. code-block::
 
-    conda install X
+    conda install [packagename]
 
-In most cases this approach works but sometimes you get errors like (example when installing a module called shapely):
+You can first check which packages you have installed using the ``conda list`` command.
+It's a good idea to search for installation instructions for each package online.
 
-.. code::
+
+
+Installing Jupyter Lab using conda
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you want to use Jupyter Lab on your own computer, you can install it using conda (or pip).
+First, have a quick look at the Jupyter Lab installation instructions: https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html
+
+According to the instructions, you can run:
+
+.. code-block::
+
+    conda install -c conda-forge jupyterlab
+
+
+After installation is completed, you can start a Jupyter Lab instance by running this command:
+
+.. code-block::
+
+    jupyter lab
+
+Jupyter Lab should open up in a browser window.
+
+
+
+Alternative way to install packages if typical doesn't work
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In most cases using ``conda install`` is the best approach, but sometimes you get errors when trying to install a package.
+Here is an example when trying to install a module called shapely:
+
+.. code-block::
 
     C:\WINDOWS\system32>conda install shapely
     Using Anaconda API: https://api.anaconda.org
@@ -94,11 +129,10 @@ In most cases this approach works but sometimes you get errors like (example whe
 
         anaconda search -t conda shapely
 
-In this case conda was not able to find the shapely module from the typical channel it uses for downloading the module.
+In this case conda was not able to find the shapely module from the default channel it uses for downloading the module.
+Conda downloads packages from different remote `channels <https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html>`__, and it is often good
+idea to download all packages from the same channel in order to avoid conflicts with versions.
 
-
-Alternative way to install packages if typical doesn't work
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If ``conda install`` command was not able to install the package you were interested in there is an alternative way to do it by taking advantage of different conda distribution channels that
 are maintained by programmers themselves. An easy way to find the right command to install a package from these alternative conda distribution channels is to Google it.

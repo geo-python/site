@@ -134,8 +134,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#install-python-on-windows">Install Python on Windows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-python-on-macos">Install Python on macOS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-python-on-linux">Install Python on Linux</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-find-out-which-conda-command-to-use-when-installing-a-package">How to find out which conda -command to use when installing a package?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installing-packages-using-conda">Installing packages using Conda</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#the-easiest-way">The easiest way</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-jupyter-lab-using-conda">Installing Jupyter Lab using conda</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alternative-way-to-install-packages-if-typical-doesn-t-work">Alternative way to install packages if typical doesn’t work</a></li>
 </ul>
 </li>
@@ -398,6 +399,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../lessons/L3/exercise-3.html">Exercise 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lessons/L3/exercise-3.html#cloud-computing-environments">Cloud computing environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lessons/L3/exercise-3.html#exercise-3-hints">Exercise 3 hints</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../lessons/L3/exercise-3.html#general-tips">General tips</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../lessons/L3/exercise-3.html#tests">Tests</a></li>
@@ -548,17 +550,30 @@ You can download that version using <a class="reference external" href="https://
 <p>The following have been tested on Ubuntu 16.04. Might work also on Mac (not tested yet).</p>
 <p><strong>Install Anaconda 3 and add it to system path</strong></p>
 </div>
-<div class="section" id="how-to-find-out-which-conda-command-to-use-when-installing-a-package">
-<h2>How to find out which conda -command to use when installing a package?<a class="headerlink" href="#how-to-find-out-which-conda-command-to-use-when-installing-a-package" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installing-packages-using-conda">
+<h2>Installing packages using Conda<a class="headerlink" href="#installing-packages-using-conda" title="Permalink to this headline">¶</a></h2>
+<p>Conda has an excellent <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/index.html">online user guide</a> which covers most of the basic things, such as installing new packages.</p>
 <div class="section" id="the-easiest-way">
 <h3>The easiest way<a class="headerlink" href="#the-easiest-way" title="Permalink to this headline">¶</a></h3>
-<p>The first thing to try when installing a new module <code class="docutils literal notranslate"><span class="pre">X</span></code> is to run in a command prompt (as admin) following command (here we try to install a hypothetical
-module called X)</p>
-<p>In most cases this approach works but sometimes you get errors like (example when installing a module called shapely):</p>
-<p>In this case conda was not able to find the shapely module from the typical channel it uses for downloading the module.</p>
+<p>You can install new packages using the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> command in a terminal of an Anaconda Prompt (as admin).</p>
+<p>You can first check which packages you have installed using the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code> command.
+It’s a good idea to search for installation instructions for each package online.</p>
+</div>
+<div class="section" id="installing-jupyter-lab-using-conda">
+<h3>Installing Jupyter Lab using conda<a class="headerlink" href="#installing-jupyter-lab-using-conda" title="Permalink to this headline">¶</a></h3>
+<p>If you want to use Jupyter Lab on your own computer, you can install it using conda (or pip).
+First, have a quick look at the Jupyter Lab installation instructions: <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html">https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html</a></p>
+<p>According to the instructions, you can run:</p>
+<p>After installation is completed, you can start a Jupyter Lab instance by running this command:</p>
+<p>Jupyter Lab should open up in a browser window.</p>
 </div>
 <div class="section" id="alternative-way-to-install-packages-if-typical-doesn-t-work">
 <h3>Alternative way to install packages if typical doesn’t work<a class="headerlink" href="#alternative-way-to-install-packages-if-typical-doesn-t-work" title="Permalink to this headline">¶</a></h3>
+<p>In most cases using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> is the best approach, but sometimes you get errors when trying to install a package.
+Here is an example when trying to install a module called shapely:</p>
+<p>In this case conda was not able to find the shapely module from the default channel it uses for downloading the module.
+Conda downloads packages from different remote <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html">channels</a>, and it is often good
+idea to download all packages from the same channel in order to avoid conflicts with versions.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> command was not able to install the package you were interested in there is an alternative way to do it by taking advantage of different conda distribution channels that
 are maintained by programmers themselves. An easy way to find the right command to install a package from these alternative conda distribution channels is to Google it.</p>
 <p>Let’s find our way to install the Shapely module by typing following query to Google:</p>
@@ -597,7 +612,7 @@ that is the one to use! Thus, in our case the first page that Google gives does 
     <p>
         &copy; Copyright 2019, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki
       <span class="lastupdated">
-        Last updated on Sep 10, 2019.
+        Last updated on Sep 20, 2019.
       </span>
 
     </p>
