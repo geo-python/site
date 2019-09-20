@@ -113,7 +113,8 @@ Jupyter Lab should open up in a browser window.
 Alternative way to install packages if typical doesn't work
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In most cases this approach works but sometimes you get errors like (example when installing a module called shapely):
+In most cases using ``conda install`` is the best approach, but sometimes you get errors when trying to install a package.
+Here is an example when trying to install a module called shapely:
 
 .. code-block::
 
@@ -131,8 +132,6 @@ In most cases this approach works but sometimes you get errors like (example whe
 In this case conda was not able to find the shapely module from the default channel it uses for downloading the module.
 Conda downloads packages from different remote `channels <https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html>`__, and it is often good
 idea to download all packages from the same channel in order to avoid conflicts with versions.
-
-
 
 
 If ``conda install`` command was not able to install the package you were interested in there is an alternative way to do it by taking advantage of different conda distribution channels that
