@@ -54,7 +54,7 @@ The following have been tested on Ubuntu 16.04. Might work also on Mac (not test
 
 **Install Anaconda 3 and add it to system path**
 
-.. codeblock::
+.. example-code::
 
     # Download and install Anaconda
     sudo wget https://repo.continuum.io/archive/Anaconda3-4.1.1-Linux-x86_64.sh
@@ -78,7 +78,7 @@ The easiest way
 
 You can install new packages using the ``conda install`` command in a terminal of an Anaconda Prompt (as admin).
 
-.. codeblock::
+.. example-code::
 
     conda install [packagename]
 
@@ -101,7 +101,7 @@ conda install -c conda-forge jupyterlab
 
 After installation is completed, you can start a Jupyter Lab instance by running this command:
 
-.. codeblock::
+.. example-code::
 
     jupyter lab
 
@@ -115,7 +115,7 @@ Alternative way to install packages if typical doesn't work
 In most cases using ``conda install`` is the best approach, but sometimes you get errors when trying to install a package.
 Here is an example when trying to install a module called shapely:
 
-.. codeblock::
+.. example-code::
 
     C:\WINDOWS\system32>conda install shapely
     Using Anaconda API: https://api.anaconda.org
