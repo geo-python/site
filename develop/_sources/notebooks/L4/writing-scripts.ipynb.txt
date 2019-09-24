@@ -9,8 +9,13 @@
     "The script example for functions we have seen so far works, but one of the big advantages of using scripts is including features that make the code easier to read and understand.\n",
     "These include comments in the code, which explain what the code does, but are not executed when the code is run.\n",
     "As your scripts get longer and more complicated, features such as comments will become essential.\n",
-    "Below are some suggestions to make sure your code is formatted nicely and easy to understand.\n",
-    "\n",
+    "Below are some suggestions to make sure your code is formatted nicely and easy to understand."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "## Inline comments\n",
     "\n",
     "Inline comments are comments within the code that explain what certain lines of the code do.\n",
@@ -66,19 +71,24 @@
    "source": [
     "## Use a docstring\n",
     "\n",
-    "A *docstring* is a form of block comment at the start of your script that clearly states its purpose and how to run the program.\n",
-    "A *block comment* is similar to the inline comments above, but starts with `'''` and comments out all code between the start and another closing set of `'''`.\n",
-    "You can also include your name, and possibly add licensing information in the docstring.\n",
+    "\n",
+    "A documentation string, or a *docstring* a block of text that describes what a spesific method or module does and how to use it. Surprise surprise, PEP 8 contains more guidance about [documentation strings](https://www.python.org/dev/peps/pep-0008/#documentation-strings), and docstrings even have their own guide page: [PEP 257](https://www.python.org/dev/peps/pep-0257/).\n",
+    "\n",
+    "A docstring is always the first statement in a module or a function. Docstrings are written using `\"\"\"triple double quotation marks\"\"\"`. We already discussed docstrings when defining functions earlier in lesson 4, and here is an example of using a **multi-line docstring** at the start of a script file.\n",
+    "\n",
+    "When adding docstrings at the start of a script file, you can also include your name, and also licensing information.\n",
+    "\n",
+    "\n",
     "\n",
     "```python\n",
-    "'''Prints information about an FMI observation station to the screen.\n",
+    "\"\"\"Prints information about an FMI observation station to the screen.\n",
     "\n",
     "Usage:\n",
     "    ./stationinfo.py\n",
     "\n",
     "Author:\n",
     "    David Whipp - 26.9.2018\n",
-    "'''\n",
+    "\"\"\"\n",
     "\n",
     "# Finnish Meterological Institute observation station name and location data\n",
     "\n",
@@ -93,7 +103,9 @@
     "print(\"The\", stationName, \"station is located at\", stationLat, \"N,\", stationLong, \"E\")\n",
     "```\n",
     "\n",
-    "In this example the script is simple, but many Python programs have optional values that can be used by the code when it is run, making the usage statement crucial."
+    "In this example the script is simple, but many Python programs have optional values that can be used by the code when it is run, making the **usage** statement crucial.\n",
+    "\n",
+    "Note that the closing quotes are on a line by themselves. It is also possible to write [one-line docstrings](https://www.python.org/dev/peps/pep-0257/#one-line-docstrings), for example with very simple functions, in which case the starting and closing quotation marks are on the same line."
    ]
   },
   {
@@ -109,7 +121,7 @@
     "In most cases my preference is the [MIT License](https://opensource.org/licenses/MIT), which is simple and allows software use by anyone. An example is below.\n",
     "\n",
     "```python\n",
-    "'''Prints information about an FMI observation station to the screen.\n",
+    "\"\"\"Prints information about an FMI observation station to the screen.\n",
     "\n",
     "Usage:\n",
     "    ./stationinfo.py\n",
@@ -136,7 +148,7 @@
     "    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n",
     "    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n",
     "    SOFTWARE.\n",
-    "'''\n",
+    "\"\"\"\n",
     "\n",
     "# Finnish Meterological Institute observation station name and location data\n",
     "\n",
@@ -211,7 +223,7 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "Python 3",
+   "display_name": "Python [default]",
    "language": "python",
    "name": "python3"
   },
@@ -225,9 +237,9 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.6.4"
+   "version": "3.5.6"
   }
  },
  "nbformat": 4,
- "nbformat_minor": 2
+ "nbformat_minor": 4
 }
