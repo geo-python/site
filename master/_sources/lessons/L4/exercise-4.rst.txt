@@ -1,16 +1,31 @@
 Exercise 4
 ==========
 
+
+.. note::
+
+    Please complete this exercise by **09:00 Wednesday, 2 October 2019**.
+
+.. admonition:: Start your assignment
+
+    **You can start working on your copy of Exercise 4 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/dZpYEzUo>`__.
+
+
+You can also take a look at the open course copy of `Exercise 4 in the course GitHub repository <https://github.com/Geo-Python-2019/Exercise-4>`__ (does not require logging in).
+Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
+
 .. warning::
 
     Please note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
 
-.. admonition:: Start your assignment
+Cloud computing environments
+-----------------------------
 
-    **You can start working on your copy of Exercise 4 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/jEYcSV6q>`__.
+.. image:: https://img.shields.io/badge/launch-binder-red.svg
+   :target: https://mybinder.org/v2/gh/Geo-Python-2019/Binder/master?urlpath=lab
 
-You can also take a look at the open course copy of `Exercise 4 in the course GitHub repository <https://github.com/Geo-Python-2018/Exercise-4>`__ (does not require logging in).
-Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
+.. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
+   :target: https://notebooks.csc.fi/#/blueprint/d71cd2d26d924f48820dc22b67a87d8e
 
 Exercise 4 hints
 ----------------
