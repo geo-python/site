@@ -16,6 +16,16 @@ Note that you should not try to make changes to this copy of the exercise, but r
 
     Please note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
 
+Cloud computing environments
+-----------------------------
+
+.. image:: https://img.shields.io/badge/launch-binder-red.svg
+   :target: https://mybinder.org/v2/gh/Geo-Python-2019/Binder/master?urlpath=lab
+
+.. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
+   :target: https://notebooks.csc.fi/#/blueprint/d71cd2d26d924f48820dc22b67a87d8e
+
+
 Exercise 3 hints
 ----------------
 
