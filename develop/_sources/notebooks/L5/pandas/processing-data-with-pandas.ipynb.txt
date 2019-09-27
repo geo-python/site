@@ -9,25 +9,147 @@
    "source": [
     "# Processing data with Pandas\n",
     "\n",
-    "Now you should know the basics of the data structures in Pandas and how to explore your data using some tools that is provided by Pandas. Next we continue to explore some of the basic data operations that are regularly needed when doing data analysis.\n",
+    "During the first part of this lesson you learned the basics of pandas data structures (*Series* and *DataFrame*) and got familiar with basic methods loading and exploring data.\n",
+    "Here, we will continue with basic data manipulation and analysis methods such calculations and selections.\n",
     "\n",
-    "Let's first read the same data as before into Pandas to have a clean start, and focus on a few new aspects of importing data: "
+    "We are now working in a new notebook-file and we need to import pandas again. "
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 58,
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Let's work with the same input data `'Kumpula-June-2016-w-metadata.txt'` and load it using the `pd.read_csv()` method. Remember, that the first 8 lines contain metadata so we can skip those:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [],
    "source": [
-    "import pandas as pd\n",
-    "\n",
-    "fp = r'Kumpula-June-2016-w-metadata.txt'\n",
-    "dataFrame = pd.read_csv(fp, sep=',', skiprows=8)"
+    "fp = 'Kumpula-June-2016-w-metadata.txt'\n",
+    "data = pd.read_csv(fp, sep=',', skiprows=8)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Here, we also added the `sep` parameter to indicate that we are dealing with a comma-delimited text file. Comma is also the default value for the sep-parameter. Depending on your operating system and the input data, you might need to specify other separators such as `;`. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Remember to always check the data after reading it in:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>YEARMODA</th>\n",
+       "      <th>TEMP</th>\n",
+       "      <th>MAX</th>\n",
+       "      <th>MIN</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <td>0</td>\n",
+       "      <td>20160601</td>\n",
+       "      <td>65.5</td>\n",
+       "      <td>73.6</td>\n",
+       "      <td>54.7</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>1</td>\n",
+       "      <td>20160602</td>\n",
+       "      <td>65.8</td>\n",
+       "      <td>80.8</td>\n",
+       "      <td>55.0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>2</td>\n",
+       "      <td>20160603</td>\n",
+       "      <td>68.4</td>\n",
+       "      <td>77.9</td>\n",
+       "      <td>55.6</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>3</td>\n",
+       "      <td>20160604</td>\n",
+       "      <td>57.5</td>\n",
+       "      <td>70.9</td>\n",
+       "      <td>47.3</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>4</td>\n",
+       "      <td>20160605</td>\n",
+       "      <td>51.4</td>\n",
+       "      <td>58.3</td>\n",
+       "      <td>43.2</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   YEARMODA  TEMP   MAX   MIN\n",
+       "0  20160601  65.5  73.6  54.7\n",
+       "1  20160602  65.8  80.8  55.0\n",
+       "2  20160603  68.4  77.9  55.6\n",
+       "3  20160604  57.5  70.9  47.3\n",
+       "4  20160605  51.4  58.3  43.2"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data.head()"
    ]
   },
   {
@@ -37,24 +159,7 @@
     "editable": true
    },
    "source": [
-    "Please note two things in the code above:\n",
-    "\n",
-    "- **'r' prefix** in front of the filepath string. \n",
-    "- **Delimiter to use:** parameter `sep=','` in the `read_csv()` function. \n",
-    "\n",
-    "In our case, both of these details are not needed (the code works correctly without them), but they might come in handy in the future. The letter 'r' makes sure that the filepath is interpreted correctly. Without the r, backslashes are treated as escape characters. With the r, backslashes are treated as literal. This happens often if you define full filepaths as input. What would for example happen here: `fp = 'C:\\notebooks\\L5\\Kumpula-June-2016-w-metadata.txt'` ? (try it out!)\n",
-    "\n",
-    "The default delimiter in the read_csv()-function is logically a comma (`,`). If needed, you can also define other characers and expressions as delimiter. The correct delimiter in our case however is the comma."
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {
-    "deletable": true,
-    "editable": true
-   },
-   "source": [
-    "## Calculating with DataFrames\n",
+    "## Basic calculations\n",
     "\n",
     "One of the most common things to do in Pandas is to create new columns based on calculations between different variables (columns).\n",
     "\n",
@@ -63,11 +168,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 59,
+   "execution_count": 8,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -110,10 +218,10 @@
    ],
    "source": [
     "# Define a new column \"DIFF\"\n",
-    "dataFrame['DIFF'] = 0.0\n",
+    "data['DIFF'] = 0.0\n",
     "\n",
     "# Print the dataframe\n",
-    "print(dataFrame)"
+    "print(data)"
    ]
   },
   {
@@ -128,11 +236,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 60,
+   "execution_count": 9,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -141,14 +252,14 @@
        "dtype('float64')"
       ]
      },
-     "execution_count": 60,
+     "execution_count": 9,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
     "# Check datatypes\n",
-    "dataFrame['DIFF'].dtypes"
+    "data['DIFF'].dtypes"
    ]
   },
   {
@@ -160,65 +271,41 @@
    "source": [
     "Okey, so we see that Pandas created a new column and recognized automatically that the data type is float as we passed a 0.0 value to it.\n",
     "\n",
-    "\n",
-    "We can also easily do calculations inside our DataFrame. Let's update the column ``DIFF`` by calculating the difference between ``MAX`` and ``MIN`` columns to get an idea how much the temperatures have\n",
-    "been varying during different days. Calculations can be done with following syntax where we first specify the column that we want to update (i.e. ``DIFF``) and then do the actual calculation\n",
-    "using the columns that we have in our dataFrameFrame."
+    "Let's update the column `DIFF` by calculating the difference between `MAX` and `MIN` columns to get an idea how much the temperatures have\n",
+    "been varying during different days:"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 61,
+   "execution_count": 10,
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "    YEARMODA  TEMP   MAX   MIN  DIFF\n",
-      "0   20160601  65.5  73.6  54.7  18.9\n",
-      "1   20160602  65.8  80.8  55.0  25.8\n",
-      "2   20160603  68.4  77.9  55.6  22.3\n",
-      "3   20160604  57.5  70.9  47.3  23.6\n",
-      "4   20160605  51.4  58.3  43.2  15.1\n",
-      "5   20160606  52.2  59.7  42.8  16.9\n",
-      "6   20160607  56.9  65.1  45.9  19.2\n",
-      "7   20160608  54.2  60.4  47.5  12.9\n",
-      "8   20160609  49.4  54.1  45.7   8.4\n",
-      "9   20160610  49.5  55.9  43.0  12.9\n",
-      "10  20160611  54.0  62.1  41.7  20.4\n",
-      "11  20160612  55.4  64.2  46.0  18.2\n",
-      "12  20160613  58.3  68.2  47.3  20.9\n",
-      "13  20160614  59.7  67.8  47.8  20.0\n",
-      "14  20160615  63.4  70.3  49.3  21.0\n",
-      "15  20160616  57.8  67.5  55.6  11.9\n",
-      "16  20160617  60.4  70.7  55.9  14.8\n",
-      "17  20160618  57.3  62.8  54.0   8.8\n",
-      "18  20160619  56.3  59.2  54.1   5.1\n",
-      "19  20160620  59.3  69.1  52.2  16.9\n",
-      "20  20160621  62.6  71.4  50.4  21.0\n",
-      "21  20160622  61.7  70.2  55.4  14.8\n",
-      "22  20160623  60.9  67.1  54.9  12.2\n",
-      "23  20160624  61.1  68.9  56.7  12.2\n",
-      "24  20160625  65.7  75.4  57.9  17.5\n",
-      "25  20160626  69.6  77.7  60.3  17.4\n",
-      "26  20160627  60.7  70.0  57.6  12.4\n",
-      "27  20160628  65.4  73.0  55.8  17.2\n",
-      "28  20160629  65.8  73.2  59.7  13.5\n",
-      "29  20160630  65.7  72.7  59.2  13.5\n"
+      "   YEARMODA  TEMP   MAX   MIN  DIFF\n",
+      "0  20160601  65.5  73.6  54.7  18.9\n",
+      "1  20160602  65.8  80.8  55.0  25.8\n",
+      "2  20160603  68.4  77.9  55.6  22.3\n",
+      "3  20160604  57.5  70.9  47.3  23.6\n",
+      "4  20160605  51.4  58.3  43.2  15.1\n"
      ]
     }
    ],
    "source": [
     "#Calculate max min difference\n",
-    "dataFrame['DIFF'] = dataFrame['MAX'] - dataFrame['MIN']\n",
+    "data['DIFF'] = data['MAX'] - data['MIN']\n",
     "\n",
-    "# Print the dataframe\n",
-    "print(dataFrame)"
+    "# Check the result\n",
+    "print(data.head())"
    ]
   },
   {
@@ -230,7 +317,7 @@
    "source": [
     "The calculations were stored into the ``DIFF`` column as planned. \n",
     "\n",
-    "Notice that you can create new columns on-the-fly at the same time when doing the calculation. Let's test this by calculating the difference between minimum temperature (``MIN``) and the mean temperature of the day (``TEMP``).\n"
+    "You can also create new columns on-the-fly at the same time when doing the calculation. Let's test this by calculating the difference between minimum temperature (`MIN`) and the mean temperature of the day (`TEMP`).\n"
    ]
   },
   {
@@ -239,7 +326,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -282,7 +372,7 @@
    ],
    "source": [
     "# Calculate difference between temp and min column values\n",
-    "dataFrame['DIFF_Min'] = dataFrame['TEMP'] - dataFrame['MIN']\n",
+    "data['DIFF_Min'] = data['TEMP'] - data['MIN']\n",
     "\n",
     "# Print the dataframe\n",
     "print(dataFrame)"
@@ -299,7 +389,7 @@
     "algebra (e.g. subtracttion, addition, multiplication, division, exponentiation, etc.).\n",
     "\n",
     "\n",
-    "We can for example convert the Fahrenheit temperatures in ``TEMP`` column into Celsius using the formula that we have seen already many times:\n"
+    "We can for example convert the Fahrenheit temperatures in `TEMP` column into Celsius using the formula that we have seen already many times:\n"
    ]
   },
   {
@@ -308,7 +398,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -326,11 +419,34 @@
    ],
    "source": [
     "# Create a new column and convert temp fahrenheit to celsius:\n",
-    "dataFrame['TEMP_Celsius'] = (dataFrame['TEMP'] - 32) / (9/5)\n",
+    "data['TEMP_Celsius'] = (data['TEMP'] - 32) / (9/5)\n",
     "\n",
     "#Check output\n",
-    "print(dataFrame.head())"
+    "print(data.head())"
    ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**TASK**\n",
+    "\n",
+    "Calculate Kelvin values based on the Celsius values.**and store the result a new column** `TEMP_kelvin` in our dataframe.\n",
+    "    \n",
+    "One Kelvin is is -273.15 Celsius as we learned during [Lesson 4](https://geo-python.github.io/site/notebooks/L4/functions.html#Let's-make-another-function).\n",
+    "    \n",
+    "</div>\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   },
   {
    "cell_type": "markdown",
@@ -355,7 +471,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -397,7 +516,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -438,7 +560,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -470,7 +595,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -510,7 +638,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -550,7 +681,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -618,7 +752,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -669,7 +806,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -719,7 +859,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -769,7 +912,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -832,7 +978,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -876,7 +1025,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -941,7 +1093,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -1005,7 +1160,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -1071,7 +1229,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -1135,7 +1296,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -1181,7 +1345,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -1213,7 +1380,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [
     {
@@ -1252,7 +1422,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [],
    "source": [
@@ -1286,7 +1459,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [],
    "source": [
@@ -1320,7 +1496,10 @@
    "metadata": {
     "collapsed": false,
     "deletable": true,
-    "editable": true
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
    },
    "outputs": [],
    "source": [
@@ -1357,7 +1536,7 @@
  "metadata": {
   "anaconda-cloud": {},
   "kernelspec": {
-   "display_name": "Python [default]",
+   "display_name": "Python 3",
    "language": "python",
    "name": "python3"
   },
@@ -1371,9 +1550,9 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.5.2"
+   "version": "3.7.3"
   }
  },
  "nbformat": 4,
- "nbformat_minor": 2
+ "nbformat_minor": 4
 }
