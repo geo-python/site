@@ -920,8 +920,8 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="section" id="Basic-calculations">
 <h2>Basic calculations<a class="headerlink" href="#Basic-calculations" title="Permalink to this headline">¶</a></h2>
-<p>One of the most common things to do in Pandas is to create new columns based on calculations between different variables (columns).</p>
-<p>Creating a new column into our DataFrame is easy by specifying the name of the column and giving it some default value (in this case decimal number 0.0).</p>
+<p>One of the most common things to do in pandas is to create new columns based on calculations between different variables (columns).</p>
+<p>We can create a new column into our DataFrame by specifying the name of the column and giving it some default value (in this case decimal number 0.0).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -1117,20 +1117,20 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 </div>
 </div>
-<div class="section" id="Selecting-data-using-indices">
-<h2>Selecting data using indices<a class="headerlink" href="#Selecting-data-using-indices" title="Permalink to this headline">¶</a></h2>
-<p>One quite common procedure in programming that you want to select only specific rows from your data and possibly apply some operations into those rows only. In Pandas there are different ways of doing this.</p>
-<p>One common way of selecting only specific rows from your DataFrame is done via <strong>index slicing</strong> to extract part of the DataFrame.</p>
-<p>Let’s select the first five rows and assign them to a variable called <code class="docutils literal notranslate"><span class="pre">rows5</span></code>.</p>
+<div class="section" id="Selecting-rows-and-columns">
+<h2>Selecting rows and columns<a class="headerlink" href="#Selecting-rows-and-columns" title="Permalink to this headline">¶</a></h2>
+<p>One quite common procedure in programming that you want to select only specific rows from your data and possibly apply some operations into those rows only.</p>
+<p><strong>Selecting several rows:</strong></p>
+<p>One common way of selecting only specific rows from your DataFrame is done via <strong>index slicing</strong> to extract part of the DataFrame. Let’s select the first five rows and assign them to a variable called <code class="docutils literal notranslate"><span class="pre">selection</span></code>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Select first five rows of dataframe</span>
-<span class="n">rows5</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">selection</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">rows5</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1147,64 +1147,18 @@ This page was generated from <a class="reference external" href="https://github.
 4  20160605  51.4  58.3  43.2  15.1       8.2     10.777778
 </pre></div></div>
 </div>
-<p>As you can see, slicing is done in a similar manner as with normal Python lists, i.e. you specify index range you want to select inside the square brackets <code class="docutils literal notranslate"><span class="pre">selection</span> <span class="pre">=</span> <span class="pre">dataFrame[start_index:stop_index]</span></code>.</p>
-<p>You can also select an individual row from specific position using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> indexing. Here we select all the data values from row 8.</p>
+<p>As you can see, slicing can be done in a similar manner as with normal Python lists, i.e. you specify index range you want to select inside the square brackets <code class="docutils literal notranslate"><span class="pre">selection</span> <span class="pre">=</span> <span class="pre">dataframe[start_index:stop_index]</span></code>.</p>
+<p><strong>Selecting several rows and columns:</strong></p>
+<p>It is also possible to control which columns are chosen, while selecting a subset of rows. Here, we select only temperature values (<code class="docutils literal notranslate"><span class="pre">TEMP</span></code>) between on rows index 0-5:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Select one row using index</span>
-<span class="n">row8</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">row8</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-YEARMODA        2.016061e+07
-TEMP            4.940000e+01
-MAX             5.410000e+01
-MIN             4.570000e+01
-DIFF            8.400000e+00
-DIFF_MIN        3.700000e+00
-TEMP_CELSIUS    9.666667e+00
-Name: 8, dtype: float64
-</pre></div></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> indexing returns the values from that position as a <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> where the indices are actually the column names of those variables. Hence, you can access the value of an individual column by referring to its index using following format (both should work):</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#Print one attribute from the selected row</span>
-<span class="k">print</span><span class="p">(</span><span class="n">row8</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-49.4
-</pre></div></div>
-</div>
-<p>It is also possible to select multiple rows simultaniously. Here, we select only temperature values (<code class="docutils literal notranslate"><span class="pre">TEMP</span></code>) between indices of 5-10:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Select temp column values between indices 5 and 10</span>
-<span class="n">temps_5to10</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;TEMP&#39;</span><span class="p">]</span>
+<span class="n">selection</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;TEMP&#39;</span><span class="p">]</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">temps_5to10</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1213,25 +1167,25 @@ Name: 8, dtype: float64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-5     52.2
-6     56.9
-7     54.2
-8     49.4
-9     49.5
-10    54.0
+0    65.5
+1    65.8
+2    68.4
+3    57.5
+4    51.4
+5    52.2
 Name: TEMP, dtype: float64
 </pre></div></div>
 </div>
-<p>It is also possible to select multiple columns using those same indices. Here, we select <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> and the <code class="docutils literal notranslate"><span class="pre">TEMP_Celsius</span></code> columns by passing them inside a list (<code class="docutils literal notranslate"><span class="pre">.loc[start_index:stop_index,</span> <span class="pre">list_of_columns]</span></code>):</p>
+<p>It is also possible to select multiple columns using those same indices. Here, we select <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> and the <code class="docutils literal notranslate"><span class="pre">TEMP_CELSIUS</span></code> columns by passing them inside a list (<code class="docutils literal notranslate"><span class="pre">.loc[start_index:stop_index,</span> <span class="pre">list_of_columns]</span></code>):</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Select temp and temp_celsius column values between indices 5 and 10</span>
-<span class="n">temps_5to10</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP_CELSIUS&#39;</span><span class="p">]]</span>
+<span class="n">selection</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP_CELSIUS&#39;</span><span class="p">]]</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">temps_5to10</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1240,19 +1194,80 @@ Name: TEMP, dtype: float64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-    TEMP  TEMP_CELSIUS
-5   52.2     11.222222
-6   56.9     13.833333
-7   54.2     12.333333
-8   49.4      9.666667
-9   49.5      9.722222
-10  54.0     12.222222
+   TEMP  TEMP_CELSIUS
+0  65.5     18.611111
+1  65.8     18.777778
+2  68.4     20.222222
+3  57.5     14.166667
+4  51.4     10.777778
+5  52.2     11.222222
 </pre></div></div>
+</div>
+<p><strong>Selecting a single row:</strong></p>
+<p>You can also select an individual row from specific position using the <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> indexing. Here we select all the data values using index 4 (the 5th row):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Select one row using index</span>
+<span class="n">selection</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+YEARMODA        2.016060e+07
+TEMP            5.140000e+01
+MAX             5.830000e+01
+MIN             4.320000e+01
+DIFF            1.510000e+01
+DIFF_MIN        8.200000e+00
+TEMP_CELSIUS    1.077778e+01
+Name: 4, dtype: float64
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> indexing returns the values from that position as a <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> where the indices are actually the column names of those variables. Hence, you can access the value of an individual column by referring to its index using following format (both should work):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#Print one attribute from the selected row</span>
+<span class="k">print</span><span class="p">(</span><span class="n">selection</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+51.4
+</pre></div></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>TASK</strong></p>
+<p>Calculate the mean temperature (celsius) for the last seven days of June. For now, you can do the selection using row indexes (index 23-29).</p>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="Filtering-and-updating-data">
 <h2>Filtering and updating data<a class="headerlink" href="#Filtering-and-updating-data" title="Permalink to this headline">¶</a></h2>
-<p>One really useful feature in Pandas is the ability to easily filter and select rows based on a conditional statement. The following example shows how to select rows when the Celsius temperature has been higher than 15 degrees into variable <code class="docutils literal notranslate"><span class="pre">warm_temps</span></code> (warm temperatures).</p>
+<p>One really useful feature in pandas is the ability to easily filter and select rows based on a conditional statement. The following example shows how to select rows when the Celsius temperature has been higher than 15 degrees into variable <code class="docutils literal notranslate"><span class="pre">warm_temps</span></code> (warm temperatures). Pandas check if the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> for each row, and returns those rows where the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
@@ -1357,10 +1372,23 @@ Name: TEMP, dtype: float64
 </pre></div></div>
 </div>
 <p>As can be seen, now the index values goes from 0 to 12.</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>TASK</strong></p>
+<p>Calculate the mean temperature (celsius) for the last seven days of June. Now, select the rows based on a condition for the <code class="docutils literal notranslate"><span class="pre">YEARMODA</span></code> column!</p>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="Dealing-with-missing-data">
 <h2>Dealing with missing data<a class="headerlink" href="#Dealing-with-missing-data" title="Permalink to this headline">¶</a></h2>
-<p>Next we manipulate the first five values of <code class="docutils literal notranslate"><span class="pre">TEMP_CELSIUS</span></code> in our <code class="docutils literal notranslate"><span class="pre">w_temps2</span></code> DataFrame to be <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (not-a-number). This can be done using the <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> indexing.</p>
+<p>Next we manipulate the first five values of <code class="docutils literal notranslate"><span class="pre">TEMP_CELSIUS</span></code> in our <code class="docutils literal notranslate"><span class="pre">warm_temps</span></code> DataFrame to be <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (not-a-number). This can be done using the <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> indexing.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -2421,7 +2449,7 @@ Name: TEMP, dtype: float64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#Original values:</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Rounded values:&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -2444,7 +2472,7 @@ Name: TEMP, dtype: float64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Integer, truncated:</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Rounded values:&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -2468,7 +2496,6 @@ Name: TEMP, dtype: int32
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Rounded values:&quot;</span><span class="p">)</span>
-<span class="c1">#Integer, rounded:</span>
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -2604,7 +2631,7 @@ There were 28 days with unique mean temperatures in June 2016.
     <p>
         &copy; Copyright 2019, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki
       <span class="lastupdated">
-        Last updated on Sep 27, 2019.
+        Last updated on Sep 28, 2019.
       </span>
 
     </p>

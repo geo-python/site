@@ -161,9 +161,9 @@
    "source": [
     "## Basic calculations\n",
     "\n",
-    "One of the most common things to do in Pandas is to create new columns based on calculations between different variables (columns).\n",
+    "One of the most common things to do in pandas is to create new columns based on calculations between different variables (columns).\n",
     "\n",
-    "Creating a new column into our DataFrame is easy by specifying the name of the column and giving it some default value (in this case decimal number 0.0).\n"
+    "We can create a new column into our DataFrame by specifying the name of the column and giving it some default value (in this case decimal number 0.0).\n"
    ]
   },
   {
@@ -457,19 +457,20 @@
     "editable": true
    },
    "source": [
-    "## Selecting data using indices\n",
+    "## Selecting rows and columns\n",
     "\n",
     "One quite common procedure in programming that you want to select only specific rows from your data and possibly apply some operations into those rows only.\n",
-    "In Pandas there are different ways of doing this.\n",
+    "\n",
+    "\n",
+    "**Selecting several rows:**\n",
     "\n",
     "One common way of selecting only specific rows from your DataFrame is done via **index slicing** to extract part of the DataFrame.\n",
-    "\n",
-    "Let's select the first five rows and assign them to a variable called ``rows5``."
+    "Let's select the first five rows and assign them to a variable called `selection`:"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": 33,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -494,9 +495,9 @@
    ],
    "source": [
     "# Select first five rows of dataframe\n",
-    "rows5 = data[0:5]\n",
+    "selection = data[0:5]\n",
     "\n",
-    "print(rows5)"
+    "print(selection)"
    ]
   },
   {
@@ -506,15 +507,26 @@
     "editable": true
    },
    "source": [
-    "As you can see, slicing is done in a similar manner as with normal Python lists, i.e. you specify index range you want to select inside the square brackets\n",
-    "``selection = dataFrame[start_index:stop_index]``.\n",
+    "As you can see, slicing can be done in a similar manner as with normal Python lists, i.e. you specify index range you want to select inside the square brackets\n",
+    "``selection = dataframe[start_index:stop_index]``.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "**Selecting several rows and columns:**\n",
     "\n",
-    "You can also select an individual row from specific position using ``.loc[]`` indexing. Here we select all the data values from row 8.\n"
+    "\n",
+    "It is also possible to control which columns are chosen, while selecting a subset of rows. Here, we select only temperature values (`TEMP`) between on rows index 0-5:\n"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 38,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -528,22 +540,107 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "YEARMODA        2.016061e+07\n",
-      "TEMP            4.940000e+01\n",
-      "MAX             5.410000e+01\n",
-      "MIN             4.570000e+01\n",
-      "DIFF            8.400000e+00\n",
-      "DIFF_MIN        3.700000e+00\n",
-      "TEMP_CELSIUS    9.666667e+00\n",
-      "Name: 8, dtype: float64\n"
+      "0    65.5\n",
+      "1    65.8\n",
+      "2    68.4\n",
+      "3    57.5\n",
+      "4    51.4\n",
+      "5    52.2\n",
+      "Name: TEMP, dtype: float64\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Select temp column values between indices 5 and 10\n",
+    "selection = data.loc[0:5, 'TEMP']\n",
+    "\n",
+    "print(selection)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "It is also possible to select multiple columns using those same indices. Here, we select `TEMP` and the `TEMP_CELSIUS` columns by passing them inside a list (`.loc[start_index:stop_index, list_of_columns]`):"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "   TEMP  TEMP_CELSIUS\n",
+      "0  65.5     18.611111\n",
+      "1  65.8     18.777778\n",
+      "2  68.4     20.222222\n",
+      "3  57.5     14.166667\n",
+      "4  51.4     10.777778\n",
+      "5  52.2     11.222222\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Select temp and temp_celsius column values between indices 5 and 10\n",
+    "selection = data.loc[0:5, ['TEMP', 'TEMP_CELSIUS']]\n",
+    "\n",
+    "print(selection)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Selecting a single row:**\n",
+    "\n",
+    "You can also select an individual row from specific position using the `.loc[]` indexing. Here we select all the data values using index 4 (the 5th row):"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "YEARMODA        2.016060e+07\n",
+      "TEMP            5.140000e+01\n",
+      "MAX             5.830000e+01\n",
+      "MIN             4.320000e+01\n",
+      "DIFF            1.510000e+01\n",
+      "DIFF_MIN        8.200000e+00\n",
+      "TEMP_CELSIUS    1.077778e+01\n",
+      "Name: 4, dtype: float64\n"
      ]
     }
    ],
    "source": [
     "# Select one row using index\n",
-    "row8 = data.loc[8]\n",
+    "selection = data.loc[4]\n",
     "\n",
-    "print(row8)"
+    "print(selection)"
    ]
   },
   {
@@ -558,7 +655,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 42,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -572,100 +669,34 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "49.4\n"
+      "51.4\n"
      ]
     }
    ],
    "source": [
     "#Print one attribute from the selected row\n",
-    "print(row8['TEMP'])"
+    "print(selection['TEMP'])"
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {
-    "deletable": true,
-    "editable": true
-   },
+   "metadata": {},
    "source": [
-    "It is also possible to select multiple rows simultaniously. Here, we select only temperature values (``TEMP``) between indices of 5-10:\n"
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**TASK**\n",
+    "\n",
+    "Calculate the mean temperature (celsius) for the last seven days of June. For now, you can do the selection using row indexes (index 23-29).\n",
+    "    \n",
+    "</div>\n"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
-   "metadata": {
-    "collapsed": false,
-    "deletable": true,
-    "editable": true,
-    "jupyter": {
-     "outputs_hidden": false
-    }
-   },
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "5     52.2\n",
-      "6     56.9\n",
-      "7     54.2\n",
-      "8     49.4\n",
-      "9     49.5\n",
-      "10    54.0\n",
-      "Name: TEMP, dtype: float64\n"
-     ]
-    }
-   ],
-   "source": [
-    "# Select temp column values between indices 5 and 10\n",
-    "temps_5to10 = data.loc[5:10, 'TEMP']\n",
-    "\n",
-    "print(temps_5to10)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {
-    "deletable": true,
-    "editable": true
-   },
-   "source": [
-    "It is also possible to select multiple columns using those same indices. Here, we select ``TEMP`` and the ``TEMP_Celsius`` columns by passing them inside a list (``.loc[start_index:stop_index, list_of_columns]``):"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 14,
-   "metadata": {
-    "collapsed": false,
-    "deletable": true,
-    "editable": true,
-    "jupyter": {
-     "outputs_hidden": false
-    }
-   },
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "    TEMP  TEMP_CELSIUS\n",
-      "5   52.2     11.222222\n",
-      "6   56.9     13.833333\n",
-      "7   54.2     12.333333\n",
-      "8   49.4      9.666667\n",
-      "9   49.5      9.722222\n",
-      "10  54.0     12.222222\n"
-     ]
-    }
-   ],
-   "source": [
-    "# Select temp and temp_celsius column values between indices 5 and 10\n",
-    "temps_5to10 = data.loc[5:10, ['TEMP', 'TEMP_CELSIUS']]\n",
-    "\n",
-    "print(temps_5to10)"
-   ]
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   },
   {
    "cell_type": "markdown",
@@ -677,8 +708,8 @@
     "## Filtering and updating data\n",
     "\n",
     "\n",
-    "One really useful feature in Pandas is the ability to easily filter and select rows based on a conditional statement.\n",
-    "The following example shows how to select rows when the Celsius temperature has been higher than 15 degrees into variable `warm_temps` (warm temperatures).\n"
+    "One really useful feature in pandas is the ability to easily filter and select rows based on a conditional statement.\n",
+    "The following example shows how to select rows when the Celsius temperature has been higher than 15 degrees into variable `warm_temps` (warm temperatures). Pandas check if the condition is `True` or `False` for each row, and returns those rows where the condition is `True`:\n"
    ]
   },
   {
@@ -829,16 +860,41 @@
   },
   {
    "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "As can be seen, now the index values goes from 0 to 12."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**TASK**\n",
+    "\n",
+    "Calculate the mean temperature (celsius) for the last seven days of June. Now, select the rows based on a condition for the `YEARMODA` column!\n",
+    "    \n",
+    "</div>\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
    "metadata": {
     "deletable": true,
     "editable": true
    },
    "source": [
-    "As can be seen, now the index values goes from 0 to 12.\n",
-    "\n",
     "## Dealing with missing data\n",
     "\n",
-    "Next we manipulate the first five values of `TEMP_CELSIUS` in our `w_temps2` DataFrame to be `NaN` (not-a-number). This can be done using the `loc[]` indexing."
+    "Next we manipulate the first five values of `TEMP_CELSIUS` in our `warm_temps` DataFrame to be `NaN` (not-a-number). This can be done using the `loc[]` indexing."
    ]
   },
   {
@@ -2158,7 +2214,7 @@
     }
    ],
    "source": [
-    "#Original values:\n",
+    "print(\"Rounded values:\")\n",
     "print(data['TEMP'].head())"
    ]
   },
@@ -2181,7 +2237,7 @@
     }
    ],
    "source": [
-    "# Integer, truncated:\n",
+    "print(\"Rounded values:\")\n",
     "print(data['TEMP'].astype(int).head())"
    ]
   },
@@ -2212,7 +2268,6 @@
    ],
    "source": [
     "print(\"Rounded values:\")\n",
-    "#Integer, rounded:\n",
     "print(data['TEMP'].round(0).astype(int).head())"
    ]
   },
