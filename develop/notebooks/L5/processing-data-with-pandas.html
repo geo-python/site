@@ -907,35 +907,35 @@ This page was generated from <a class="reference external" href="https://github.
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>20160601</td>
       <td>65.5</td>
       <td>73.6</td>
       <td>54.7</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>20160602</td>
       <td>65.8</td>
       <td>80.8</td>
       <td>55.0</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>20160603</td>
       <td>68.4</td>
       <td>77.9</td>
       <td>55.6</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>20160604</td>
       <td>57.5</td>
       <td>70.9</td>
       <td>47.3</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>20160605</td>
       <td>51.4</td>
       <td>58.3</td>
@@ -1150,7 +1150,7 @@ This page was generated from <a class="reference external" href="https://github.
 <p><strong>Selecting several rows:</strong></p>
 <p>One common way of selecting only specific rows from your DataFrame is done via <strong>index slicing</strong> to extract part of the DataFrame. Let’s select the first five rows and assign them to a variable called <code class="docutils literal notranslate"><span class="pre">selection</span></code>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1178,7 +1178,7 @@ This page was generated from <a class="reference external" href="https://github.
 <p><strong>Selecting several rows and columns:</strong></p>
 <p>It is also possible to control which columns are chosen, while selecting a subset of rows. Here, we select only temperature values (<code class="docutils literal notranslate"><span class="pre">TEMP</span></code>) between on rows index 0-5:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1203,9 +1203,9 @@ This page was generated from <a class="reference external" href="https://github.
 Name: TEMP, dtype: float64
 </pre></div></div>
 </div>
-<p>It is also possible to select multiple columns using those same indices. Here, we select <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> and the <code class="docutils literal notranslate"><span class="pre">TEMP_CELSIUS</span></code> columns by passing them inside a list (<code class="docutils literal notranslate"><span class="pre">.loc[start_index:stop_index,</span> <span class="pre">list_of_columns]</span></code>):</p>
+<p>It is also possible to select multiple columns using those same indices. Here, we select <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> and the <code class="docutils literal notranslate"><span class="pre">TEMP_CELSIUS</span></code> columns from a set of rows by passing them inside a list (<code class="docutils literal notranslate"><span class="pre">.loc[start_index:stop_index,</span> <span class="pre">list_of_columns]</span></code>):</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1233,7 +1233,7 @@ Name: TEMP, dtype: float64
 <p><strong>Selecting a single row:</strong></p>
 <p>You can also select an individual row from specific position using the <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> indexing. Here we select all the data values using index 4 (the 5th row):</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1261,7 +1261,7 @@ Name: 4, dtype: float64
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> indexing returns the values from that position as a <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> where the indices are actually the column names of those variables. Hence, you can access the value of an individual column by referring to its index using following format (both should work):</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1291,12 +1291,125 @@ Name: 4, dtype: float64
 </pre></div>
 </div>
 </div>
+<p><strong>Selecting a single value based on row and column</strong></p>
+<p>Sometimes it is enought to access a single value in a DataFrame. In this case, we can use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/version/0.25/reference/api/pandas.DataFrame.at.html#pandas-dataframe-at">DataFrame.at</a> in stead of <code class="docutils literal notranslate"><span class="pre">Data.Frame.loc</span></code>.</p>
+<p>Let’s select the temprerature (column <code class="docutils literal notranslate"><span class="pre">TEMP</span></code>) on the first fow (index <code class="docutils literal notranslate"><span class="pre">0</span></code>) of our DataFrame:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">data</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;TEMP&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>65.5
+</pre></div>
+</div>
+</div>
+<p><strong>EXTRA: Selections by integer position</strong></p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>.iloc</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">.loc</span></code> and <code class="docutils literal notranslate"><span class="pre">.at</span></code> are based on the <em>axis labels</em> - the names of columns and rows. <code class="docutils literal notranslate"><span class="pre">.iloc</span></code> is another indexing operator which is based on <em>integer values</em>.</p>
+<p>See pandas documentation for more information about <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-and-selecting-data">indexing and selecting data</a></p>
+</div>
+<p>For example, we could select select <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> and the <code class="docutils literal notranslate"><span class="pre">TEMP_CELSIUS</span></code> columns from a set of rows based on their index:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEARMODA</th>
+      <th>TEMP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>20160601</td>
+      <td>65.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>20160602</td>
+      <td>65.8</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>20160603</td>
+      <td>68.4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>20160604</td>
+      <td>57.5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20160605</td>
+      <td>51.4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>To access the value on the first row and second column (<code class="docutils literal notranslate"><span class="pre">TEMP</span></code>), the syntax for <code class="docutils literal notranslate"><span class="pre">iloc</span></code> would be:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>65.5
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="Filtering-and-updating-data">
 <h2>Filtering and updating data<a class="headerlink" href="#Filtering-and-updating-data" title="Permalink to this headline">¶</a></h2>
-<p>One really useful feature in pandas is the ability to easily filter and select rows based on a conditional statement. The following example shows how to select rows when the Celsius temperature has been higher than 15 degrees into variable <code class="docutils literal notranslate"><span class="pre">warm_temps</span></code> (warm temperatures). Pandas check if the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> for each row, and returns those rows where the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>:</p>
+<p>One really useful feature in pandas is the ability to easily filter and select rows based on a conditional statement. The following example shows how to select rows when the Celsius temperature has been higher than 15 degrees into variable <code class="docutils literal notranslate"><span class="pre">warm_temps</span></code> (warm temperatures). Pandas checks if the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> for each row, and returns those rows where the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1333,7 +1446,7 @@ Name: 4, dtype: float64
 </div>
 <p>It is also possible to combine multiple criteria at the same time. Here, we select temperatures above 15 degrees that were recorded on the second half of June in 2016 (i.e. <code class="docutils literal notranslate"><span class="pre">YEARMODA</span> <span class="pre">&gt;=</span> <span class="pre">20160615</span></code>). Combining multiple criteria can be done with <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> operator (AND) or <code class="docutils literal notranslate"><span class="pre">|</span></code> operator (OR). Notice, that it is often useful to separate the different clauses inside the parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1364,10 +1477,10 @@ Name: 4, dtype: float64
 29  20160630  65.7  72.7  59.2  13.5       6.5     18.722222
 </pre></div></div>
 </div>
-<p>Now we have a subset of our DataFrame with only rows where the <code class="docutils literal notranslate"><span class="pre">TEMP_Celsius</span></code> is above 15 and the dates in <code class="docutils literal notranslate"><span class="pre">YEARMODA</span></code> column start from 15th of June.</p>
+<p>Now we have a subset of our DataFrame with only rows where the <code class="docutils literal notranslate"><span class="pre">TEMP_CELSIUS</span></code> is above 15 and the dates in <code class="docutils literal notranslate"><span class="pre">YEARMODA</span></code> column start from 15th of June.</p>
 <p>Notice, that the index values (numbers on the left) are still showing the positions from the original DataFrame. It is possible to <strong>reset</strong> the index using <code class="docutils literal notranslate"><span class="pre">reset_index()</span></code> function that might be useful in some cases to be able to slice the data in a similar manner as above. By default the <code class="docutils literal notranslate"><span class="pre">reset_index()</span></code> would make a new column called <code class="docutils literal notranslate"><span class="pre">index</span></code> to keep track on the previous index which might be useful in some cases but here not, so we can omit that by passing parameter <code class="docutils literal notranslate"><span class="pre">drop=True</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1417,7 +1530,7 @@ Name: 4, dtype: float64
 <h2>Dealing with missing data<a class="headerlink" href="#Dealing-with-missing-data" title="Permalink to this headline">¶</a></h2>
 <p>Next we manipulate the first five values of <code class="docutils literal notranslate"><span class="pre">TEMP_CELSIUS</span></code> in our <code class="docutils literal notranslate"><span class="pre">warm_temps</span></code> DataFrame to be <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (not-a-number). This can be done using the <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> indexing.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1453,7 +1566,7 @@ Name: 4, dtype: float64
 <p>Having missing data in your datafile is really common situation and typically you want to deal with it somehow. Common procedures to deal with NaN is to either <strong>remove</strong> them from the DataFrame or <strong>fill</strong> them with some value. In Pandas both of these options are really easy to do.</p>
 <p>Let’s first see how we can remove the NoData values (i.e. clean the data) using <code class="docutils literal notranslate"><span class="pre">dropna()</span></code> function. Inside the function you can pass with <code class="docutils literal notranslate"><span class="pre">subset</span></code> parameter a list of column(s) from which the NaN values should be searched from.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1463,7 +1576,7 @@ Name: 4, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1496,7 +1609,7 @@ Name: 4, dtype: float64
   </thead>
   <tbody>
     <tr>
-      <td>5</td>
+      <th>5</th>
       <td>20160623</td>
       <td>60.9</td>
       <td>67.1</td>
@@ -1506,7 +1619,7 @@ Name: 4, dtype: float64
       <td>16.055556</td>
     </tr>
     <tr>
-      <td>6</td>
+      <th>6</th>
       <td>20160624</td>
       <td>61.1</td>
       <td>68.9</td>
@@ -1516,7 +1629,7 @@ Name: 4, dtype: float64
       <td>16.166667</td>
     </tr>
     <tr>
-      <td>7</td>
+      <th>7</th>
       <td>20160625</td>
       <td>65.7</td>
       <td>75.4</td>
@@ -1526,7 +1639,7 @@ Name: 4, dtype: float64
       <td>18.722222</td>
     </tr>
     <tr>
-      <td>8</td>
+      <th>8</th>
       <td>20160626</td>
       <td>69.6</td>
       <td>77.7</td>
@@ -1536,7 +1649,7 @@ Name: 4, dtype: float64
       <td>20.888889</td>
     </tr>
     <tr>
-      <td>9</td>
+      <th>9</th>
       <td>20160627</td>
       <td>60.7</td>
       <td>70.0</td>
@@ -1546,7 +1659,7 @@ Name: 4, dtype: float64
       <td>15.944444</td>
     </tr>
     <tr>
-      <td>10</td>
+      <th>10</th>
       <td>20160628</td>
       <td>65.4</td>
       <td>73.0</td>
@@ -1556,7 +1669,7 @@ Name: 4, dtype: float64
       <td>18.555556</td>
     </tr>
     <tr>
-      <td>11</td>
+      <th>11</th>
       <td>20160629</td>
       <td>65.8</td>
       <td>73.2</td>
@@ -1566,7 +1679,7 @@ Name: 4, dtype: float64
       <td>18.777778</td>
     </tr>
     <tr>
-      <td>12</td>
+      <th>12</th>
       <td>20160630</td>
       <td>65.7</td>
       <td>72.7</td>
@@ -1582,7 +1695,7 @@ Name: 4, dtype: float64
 <p>As you can see, as a result we now have a DataFrame without the NoData values.</p>
 <p>Other option is to fill the NoData with some value using <code class="docutils literal notranslate"><span class="pre">fillna()</span></code> -function. Here we fill it with value 0.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1592,7 +1705,7 @@ Name: 4, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1625,7 +1738,7 @@ Name: 4, dtype: float64
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>20160615</td>
       <td>63.4</td>
       <td>70.3</td>
@@ -1635,7 +1748,7 @@ Name: 4, dtype: float64
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>20160617</td>
       <td>60.4</td>
       <td>70.7</td>
@@ -1645,7 +1758,7 @@ Name: 4, dtype: float64
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>20160620</td>
       <td>59.3</td>
       <td>69.1</td>
@@ -1655,7 +1768,7 @@ Name: 4, dtype: float64
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>20160621</td>
       <td>62.6</td>
       <td>71.4</td>
@@ -1665,7 +1778,7 @@ Name: 4, dtype: float64
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>20160622</td>
       <td>61.7</td>
       <td>70.2</td>
@@ -1675,7 +1788,7 @@ Name: 4, dtype: float64
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>5</td>
+      <th>5</th>
       <td>20160623</td>
       <td>60.9</td>
       <td>67.1</td>
@@ -1685,7 +1798,7 @@ Name: 4, dtype: float64
       <td>16.055556</td>
     </tr>
     <tr>
-      <td>6</td>
+      <th>6</th>
       <td>20160624</td>
       <td>61.1</td>
       <td>68.9</td>
@@ -1695,7 +1808,7 @@ Name: 4, dtype: float64
       <td>16.166667</td>
     </tr>
     <tr>
-      <td>7</td>
+      <th>7</th>
       <td>20160625</td>
       <td>65.7</td>
       <td>75.4</td>
@@ -1705,7 +1818,7 @@ Name: 4, dtype: float64
       <td>18.722222</td>
     </tr>
     <tr>
-      <td>8</td>
+      <th>8</th>
       <td>20160626</td>
       <td>69.6</td>
       <td>77.7</td>
@@ -1715,7 +1828,7 @@ Name: 4, dtype: float64
       <td>20.888889</td>
     </tr>
     <tr>
-      <td>9</td>
+      <th>9</th>
       <td>20160627</td>
       <td>60.7</td>
       <td>70.0</td>
@@ -1725,7 +1838,7 @@ Name: 4, dtype: float64
       <td>15.944444</td>
     </tr>
     <tr>
-      <td>10</td>
+      <th>10</th>
       <td>20160628</td>
       <td>65.4</td>
       <td>73.0</td>
@@ -1735,7 +1848,7 @@ Name: 4, dtype: float64
       <td>18.555556</td>
     </tr>
     <tr>
-      <td>11</td>
+      <th>11</th>
       <td>20160629</td>
       <td>65.8</td>
       <td>73.2</td>
@@ -1745,7 +1858,7 @@ Name: 4, dtype: float64
       <td>18.777778</td>
     </tr>
     <tr>
-      <td>12</td>
+      <th>12</th>
       <td>20160630</td>
       <td>65.7</td>
       <td>72.7</td>
@@ -1761,706 +1874,6 @@ Name: 4, dtype: float64
 <p>As a result we now have a DataFrame where NoData values are filled with value 0.00000.</p>
 <p><strong>Warning:</strong> In many cases filling the data with a specific value might be dangerous because you end up modifying the actual data that might affect the results of your analysis. For example in the example above we would have dramatically changed the mean Celsius temperature because the 0 values are dramatically decreasing the average temperature of the month. Hence, use filling carefully.</p>
 </div>
-<div class="section" id="Sorting-data">
-<h2>Sorting data<a class="headerlink" href="#Sorting-data" title="Permalink to this headline">¶</a></h2>
-<p>Quite often it is useful to be able to sort your data (descending/ascending) based on values in some column This can be easily done with Pandas using <code class="docutils literal notranslate"><span class="pre">sort_values(by='YourColumnName')</span></code> -function.</p>
-<p>Let’s first sort the values on ascending order based on the <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> column:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Sort dataframe, ascending</span>
-<span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;TEMP&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>YEARMODA</th>
-      <th>TEMP</th>
-      <th>MAX</th>
-      <th>MIN</th>
-      <th>DIFF</th>
-      <th>DIFF_MIN</th>
-      <th>TEMP_CELSIUS</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>8</td>
-      <td>20160609</td>
-      <td>49.4</td>
-      <td>54.1</td>
-      <td>45.7</td>
-      <td>8.4</td>
-      <td>3.7</td>
-      <td>9.666667</td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td>20160610</td>
-      <td>49.5</td>
-      <td>55.9</td>
-      <td>43.0</td>
-      <td>12.9</td>
-      <td>6.5</td>
-      <td>9.722222</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>20160605</td>
-      <td>51.4</td>
-      <td>58.3</td>
-      <td>43.2</td>
-      <td>15.1</td>
-      <td>8.2</td>
-      <td>10.777778</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>20160606</td>
-      <td>52.2</td>
-      <td>59.7</td>
-      <td>42.8</td>
-      <td>16.9</td>
-      <td>9.4</td>
-      <td>11.222222</td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td>20160611</td>
-      <td>54.0</td>
-      <td>62.1</td>
-      <td>41.7</td>
-      <td>20.4</td>
-      <td>12.3</td>
-      <td>12.222222</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>20160608</td>
-      <td>54.2</td>
-      <td>60.4</td>
-      <td>47.5</td>
-      <td>12.9</td>
-      <td>6.7</td>
-      <td>12.333333</td>
-    </tr>
-    <tr>
-      <td>11</td>
-      <td>20160612</td>
-      <td>55.4</td>
-      <td>64.2</td>
-      <td>46.0</td>
-      <td>18.2</td>
-      <td>9.4</td>
-      <td>13.000000</td>
-    </tr>
-    <tr>
-      <td>18</td>
-      <td>20160619</td>
-      <td>56.3</td>
-      <td>59.2</td>
-      <td>54.1</td>
-      <td>5.1</td>
-      <td>2.2</td>
-      <td>13.500000</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>20160607</td>
-      <td>56.9</td>
-      <td>65.1</td>
-      <td>45.9</td>
-      <td>19.2</td>
-      <td>11.0</td>
-      <td>13.833333</td>
-    </tr>
-    <tr>
-      <td>17</td>
-      <td>20160618</td>
-      <td>57.3</td>
-      <td>62.8</td>
-      <td>54.0</td>
-      <td>8.8</td>
-      <td>3.3</td>
-      <td>14.055556</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>20160604</td>
-      <td>57.5</td>
-      <td>70.9</td>
-      <td>47.3</td>
-      <td>23.6</td>
-      <td>10.2</td>
-      <td>14.166667</td>
-    </tr>
-    <tr>
-      <td>15</td>
-      <td>20160616</td>
-      <td>57.8</td>
-      <td>67.5</td>
-      <td>55.6</td>
-      <td>11.9</td>
-      <td>2.2</td>
-      <td>14.333333</td>
-    </tr>
-    <tr>
-      <td>12</td>
-      <td>20160613</td>
-      <td>58.3</td>
-      <td>68.2</td>
-      <td>47.3</td>
-      <td>20.9</td>
-      <td>11.0</td>
-      <td>14.611111</td>
-    </tr>
-    <tr>
-      <td>19</td>
-      <td>20160620</td>
-      <td>59.3</td>
-      <td>69.1</td>
-      <td>52.2</td>
-      <td>16.9</td>
-      <td>7.1</td>
-      <td>15.166667</td>
-    </tr>
-    <tr>
-      <td>13</td>
-      <td>20160614</td>
-      <td>59.7</td>
-      <td>67.8</td>
-      <td>47.8</td>
-      <td>20.0</td>
-      <td>11.9</td>
-      <td>15.388889</td>
-    </tr>
-    <tr>
-      <td>16</td>
-      <td>20160617</td>
-      <td>60.4</td>
-      <td>70.7</td>
-      <td>55.9</td>
-      <td>14.8</td>
-      <td>4.5</td>
-      <td>15.777778</td>
-    </tr>
-    <tr>
-      <td>26</td>
-      <td>20160627</td>
-      <td>60.7</td>
-      <td>70.0</td>
-      <td>57.6</td>
-      <td>12.4</td>
-      <td>3.1</td>
-      <td>15.944444</td>
-    </tr>
-    <tr>
-      <td>22</td>
-      <td>20160623</td>
-      <td>60.9</td>
-      <td>67.1</td>
-      <td>54.9</td>
-      <td>12.2</td>
-      <td>6.0</td>
-      <td>16.055556</td>
-    </tr>
-    <tr>
-      <td>23</td>
-      <td>20160624</td>
-      <td>61.1</td>
-      <td>68.9</td>
-      <td>56.7</td>
-      <td>12.2</td>
-      <td>4.4</td>
-      <td>16.166667</td>
-    </tr>
-    <tr>
-      <td>21</td>
-      <td>20160622</td>
-      <td>61.7</td>
-      <td>70.2</td>
-      <td>55.4</td>
-      <td>14.8</td>
-      <td>6.3</td>
-      <td>16.500000</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>20160621</td>
-      <td>62.6</td>
-      <td>71.4</td>
-      <td>50.4</td>
-      <td>21.0</td>
-      <td>12.2</td>
-      <td>17.000000</td>
-    </tr>
-    <tr>
-      <td>14</td>
-      <td>20160615</td>
-      <td>63.4</td>
-      <td>70.3</td>
-      <td>49.3</td>
-      <td>21.0</td>
-      <td>14.1</td>
-      <td>17.444444</td>
-    </tr>
-    <tr>
-      <td>27</td>
-      <td>20160628</td>
-      <td>65.4</td>
-      <td>73.0</td>
-      <td>55.8</td>
-      <td>17.2</td>
-      <td>9.6</td>
-      <td>18.555556</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>20160601</td>
-      <td>65.5</td>
-      <td>73.6</td>
-      <td>54.7</td>
-      <td>18.9</td>
-      <td>10.8</td>
-      <td>18.611111</td>
-    </tr>
-    <tr>
-      <td>24</td>
-      <td>20160625</td>
-      <td>65.7</td>
-      <td>75.4</td>
-      <td>57.9</td>
-      <td>17.5</td>
-      <td>7.8</td>
-      <td>18.722222</td>
-    </tr>
-    <tr>
-      <td>29</td>
-      <td>20160630</td>
-      <td>65.7</td>
-      <td>72.7</td>
-      <td>59.2</td>
-      <td>13.5</td>
-      <td>6.5</td>
-      <td>18.722222</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>20160602</td>
-      <td>65.8</td>
-      <td>80.8</td>
-      <td>55.0</td>
-      <td>25.8</td>
-      <td>10.8</td>
-      <td>18.777778</td>
-    </tr>
-    <tr>
-      <td>28</td>
-      <td>20160629</td>
-      <td>65.8</td>
-      <td>73.2</td>
-      <td>59.7</td>
-      <td>13.5</td>
-      <td>6.1</td>
-      <td>18.777778</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>20160603</td>
-      <td>68.4</td>
-      <td>77.9</td>
-      <td>55.6</td>
-      <td>22.3</td>
-      <td>12.8</td>
-      <td>20.222222</td>
-    </tr>
-    <tr>
-      <td>25</td>
-      <td>20160626</td>
-      <td>69.6</td>
-      <td>77.7</td>
-      <td>60.3</td>
-      <td>17.4</td>
-      <td>9.3</td>
-      <td>20.888889</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
-</div>
-<p>Of course, it is also possible to sort them in descending order with <code class="docutils literal notranslate"><span class="pre">ascending=False</span></code> parameter:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Sort dataframe, descending</span>
-<span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>YEARMODA</th>
-      <th>TEMP</th>
-      <th>MAX</th>
-      <th>MIN</th>
-      <th>DIFF</th>
-      <th>DIFF_MIN</th>
-      <th>TEMP_CELSIUS</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>25</td>
-      <td>20160626</td>
-      <td>69.6</td>
-      <td>77.7</td>
-      <td>60.3</td>
-      <td>17.4</td>
-      <td>9.3</td>
-      <td>20.888889</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>20160603</td>
-      <td>68.4</td>
-      <td>77.9</td>
-      <td>55.6</td>
-      <td>22.3</td>
-      <td>12.8</td>
-      <td>20.222222</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>20160602</td>
-      <td>65.8</td>
-      <td>80.8</td>
-      <td>55.0</td>
-      <td>25.8</td>
-      <td>10.8</td>
-      <td>18.777778</td>
-    </tr>
-    <tr>
-      <td>28</td>
-      <td>20160629</td>
-      <td>65.8</td>
-      <td>73.2</td>
-      <td>59.7</td>
-      <td>13.5</td>
-      <td>6.1</td>
-      <td>18.777778</td>
-    </tr>
-    <tr>
-      <td>29</td>
-      <td>20160630</td>
-      <td>65.7</td>
-      <td>72.7</td>
-      <td>59.2</td>
-      <td>13.5</td>
-      <td>6.5</td>
-      <td>18.722222</td>
-    </tr>
-    <tr>
-      <td>24</td>
-      <td>20160625</td>
-      <td>65.7</td>
-      <td>75.4</td>
-      <td>57.9</td>
-      <td>17.5</td>
-      <td>7.8</td>
-      <td>18.722222</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>20160601</td>
-      <td>65.5</td>
-      <td>73.6</td>
-      <td>54.7</td>
-      <td>18.9</td>
-      <td>10.8</td>
-      <td>18.611111</td>
-    </tr>
-    <tr>
-      <td>27</td>
-      <td>20160628</td>
-      <td>65.4</td>
-      <td>73.0</td>
-      <td>55.8</td>
-      <td>17.2</td>
-      <td>9.6</td>
-      <td>18.555556</td>
-    </tr>
-    <tr>
-      <td>14</td>
-      <td>20160615</td>
-      <td>63.4</td>
-      <td>70.3</td>
-      <td>49.3</td>
-      <td>21.0</td>
-      <td>14.1</td>
-      <td>17.444444</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>20160621</td>
-      <td>62.6</td>
-      <td>71.4</td>
-      <td>50.4</td>
-      <td>21.0</td>
-      <td>12.2</td>
-      <td>17.000000</td>
-    </tr>
-    <tr>
-      <td>21</td>
-      <td>20160622</td>
-      <td>61.7</td>
-      <td>70.2</td>
-      <td>55.4</td>
-      <td>14.8</td>
-      <td>6.3</td>
-      <td>16.500000</td>
-    </tr>
-    <tr>
-      <td>23</td>
-      <td>20160624</td>
-      <td>61.1</td>
-      <td>68.9</td>
-      <td>56.7</td>
-      <td>12.2</td>
-      <td>4.4</td>
-      <td>16.166667</td>
-    </tr>
-    <tr>
-      <td>22</td>
-      <td>20160623</td>
-      <td>60.9</td>
-      <td>67.1</td>
-      <td>54.9</td>
-      <td>12.2</td>
-      <td>6.0</td>
-      <td>16.055556</td>
-    </tr>
-    <tr>
-      <td>26</td>
-      <td>20160627</td>
-      <td>60.7</td>
-      <td>70.0</td>
-      <td>57.6</td>
-      <td>12.4</td>
-      <td>3.1</td>
-      <td>15.944444</td>
-    </tr>
-    <tr>
-      <td>16</td>
-      <td>20160617</td>
-      <td>60.4</td>
-      <td>70.7</td>
-      <td>55.9</td>
-      <td>14.8</td>
-      <td>4.5</td>
-      <td>15.777778</td>
-    </tr>
-    <tr>
-      <td>13</td>
-      <td>20160614</td>
-      <td>59.7</td>
-      <td>67.8</td>
-      <td>47.8</td>
-      <td>20.0</td>
-      <td>11.9</td>
-      <td>15.388889</td>
-    </tr>
-    <tr>
-      <td>19</td>
-      <td>20160620</td>
-      <td>59.3</td>
-      <td>69.1</td>
-      <td>52.2</td>
-      <td>16.9</td>
-      <td>7.1</td>
-      <td>15.166667</td>
-    </tr>
-    <tr>
-      <td>12</td>
-      <td>20160613</td>
-      <td>58.3</td>
-      <td>68.2</td>
-      <td>47.3</td>
-      <td>20.9</td>
-      <td>11.0</td>
-      <td>14.611111</td>
-    </tr>
-    <tr>
-      <td>15</td>
-      <td>20160616</td>
-      <td>57.8</td>
-      <td>67.5</td>
-      <td>55.6</td>
-      <td>11.9</td>
-      <td>2.2</td>
-      <td>14.333333</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>20160604</td>
-      <td>57.5</td>
-      <td>70.9</td>
-      <td>47.3</td>
-      <td>23.6</td>
-      <td>10.2</td>
-      <td>14.166667</td>
-    </tr>
-    <tr>
-      <td>17</td>
-      <td>20160618</td>
-      <td>57.3</td>
-      <td>62.8</td>
-      <td>54.0</td>
-      <td>8.8</td>
-      <td>3.3</td>
-      <td>14.055556</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>20160607</td>
-      <td>56.9</td>
-      <td>65.1</td>
-      <td>45.9</td>
-      <td>19.2</td>
-      <td>11.0</td>
-      <td>13.833333</td>
-    </tr>
-    <tr>
-      <td>18</td>
-      <td>20160619</td>
-      <td>56.3</td>
-      <td>59.2</td>
-      <td>54.1</td>
-      <td>5.1</td>
-      <td>2.2</td>
-      <td>13.500000</td>
-    </tr>
-    <tr>
-      <td>11</td>
-      <td>20160612</td>
-      <td>55.4</td>
-      <td>64.2</td>
-      <td>46.0</td>
-      <td>18.2</td>
-      <td>9.4</td>
-      <td>13.000000</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>20160608</td>
-      <td>54.2</td>
-      <td>60.4</td>
-      <td>47.5</td>
-      <td>12.9</td>
-      <td>6.7</td>
-      <td>12.333333</td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td>20160611</td>
-      <td>54.0</td>
-      <td>62.1</td>
-      <td>41.7</td>
-      <td>20.4</td>
-      <td>12.3</td>
-      <td>12.222222</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>20160606</td>
-      <td>52.2</td>
-      <td>59.7</td>
-      <td>42.8</td>
-      <td>16.9</td>
-      <td>9.4</td>
-      <td>11.222222</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>20160605</td>
-      <td>51.4</td>
-      <td>58.3</td>
-      <td>43.2</td>
-      <td>15.1</td>
-      <td>8.2</td>
-      <td>10.777778</td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td>20160610</td>
-      <td>49.5</td>
-      <td>55.9</td>
-      <td>43.0</td>
-      <td>12.9</td>
-      <td>6.5</td>
-      <td>9.722222</td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td>20160609</td>
-      <td>49.4</td>
-      <td>54.1</td>
-      <td>45.7</td>
-      <td>8.4</td>
-      <td>3.7</td>
-      <td>9.666667</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
-</div>
-</div>
 <div class="section" id="Data-type-conversions">
 <h2>Data type conversions<a class="headerlink" href="#Data-type-conversions" title="Permalink to this headline">¶</a></h2>
 <p>There are occasions where you’ll need to convert data stored within a Series to another data type, for example, from floating point to integer.</p>
@@ -2472,7 +1885,7 @@ Name: 4, dtype: float64
 <p>Chaining the round and type conversion functions solves this issue as the <code class="docutils literal notranslate"><span class="pre">.round(0).astype(int)</span></code> command first rounds the values with zero decimals and then converts those values into integers.</p>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2486,6 +1899,7 @@ Name: 4, dtype: float64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+Rounded values:
 0    65.5
 1    65.8
 2    68.4
@@ -2495,7 +1909,7 @@ Name: TEMP, dtype: float64
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2509,6 +1923,7 @@ Name: TEMP, dtype: float64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+Rounded values:
 0    65
 1    65
 2    68
@@ -2518,7 +1933,7 @@ Name: TEMP, dtype: int32
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2547,7 +1962,7 @@ Name: TEMP, dtype: int32
 <h2>Unique values<a class="headerlink" href="#Unique-values" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes it is useful to extract the unique values that you have in your column. We can do that by using <code class="docutils literal notranslate"><span class="pre">unique()</span></code> method:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2558,20 +1973,20 @@ Name: TEMP, dtype: int32
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([65.5, 65.8, 68.4, 57.5, 51.4, 52.2, 56.9, 54.2, 49.4, 49.5, 54. ,
-       55.4, 58.3, 59.7, 63.4, 57.8, 60.4, 57.3, 56.3, 59.3, 62.6, 61.7,
-       60.9, 61.1, 65.7, 69.6, 60.7, 65.4])
+<span></span>array([ 65.5,  65.8,  68.4,  57.5,  51.4,  52.2,  56.9,  54.2,  49.4,
+        49.5,  54. ,  55.4,  58.3,  59.7,  63.4,  57.8,  60.4,  57.3,
+        56.3,  59.3,  62.6,  61.7,  60.9,  61.1,  65.7,  69.6,  60.7,  65.4])
 </pre></div>
 </div>
 </div>
 <p>As a result we get an array of unique values in that column.</p>
 <p><strong>Note:</strong> Sometimes if you have a long list of unique values, you don’t necessary see all the unique values directly as IPython hides them. It is, however, possible to see all those values by printing them as a list:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2585,12 +2000,12 @@ Name: TEMP, dtype: int32
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[65.5, 65.8, 68.4, 57.5, 51.4, 52.2, 56.9, 54.2, 49.4, 49.5, 54.0, 55.4, 58.3, 59.7, 63.4, 57.8, 60.4, 57.3, 56.3, 59.3, 62.6, 61.7, 60.9, 61.1, 65.7, 69.6, 60.7, 65.4]
+[65.5, 65.799999999999997, 68.400000000000006, 57.5, 51.399999999999999, 52.200000000000003, 56.899999999999999, 54.200000000000003, 49.399999999999999, 49.5, 54.0, 55.399999999999999, 58.299999999999997, 59.700000000000003, 63.399999999999999, 57.799999999999997, 60.399999999999999, 57.299999999999997, 56.299999999999997, 59.299999999999997, 62.600000000000001, 61.700000000000003, 60.899999999999999, 61.100000000000001, 65.700000000000003, 69.599999999999994, 60.700000000000003, 65.400000000000006]
 </pre></div></div>
 </div>
 <p>How many days with unique mean temperature did we have in June 2016? We can check that!</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2609,12 +2024,712 @@ There were 28 days with unique mean temperatures in June 2016.
 </pre></div></div>
 </div>
 </div>
+<div class="section" id="Sorting-data">
+<h2>Sorting data<a class="headerlink" href="#Sorting-data" title="Permalink to this headline">¶</a></h2>
+<p>Quite often it is useful to be able to sort your data (descending/ascending) based on values in some column This can be easily done with Pandas using <code class="docutils literal notranslate"><span class="pre">sort_values(by='YourColumnName')</span></code> -function.</p>
+<p>Let’s first sort the values on ascending order based on the <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> column:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Sort dataframe, ascending</span>
+<span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;TEMP&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEARMODA</th>
+      <th>TEMP</th>
+      <th>MAX</th>
+      <th>MIN</th>
+      <th>DIFF</th>
+      <th>DIFF_MIN</th>
+      <th>TEMP_CELSIUS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8</th>
+      <td>20160609</td>
+      <td>49.4</td>
+      <td>54.1</td>
+      <td>45.7</td>
+      <td>8.4</td>
+      <td>3.7</td>
+      <td>9.666667</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>20160610</td>
+      <td>49.5</td>
+      <td>55.9</td>
+      <td>43.0</td>
+      <td>12.9</td>
+      <td>6.5</td>
+      <td>9.722222</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20160605</td>
+      <td>51.4</td>
+      <td>58.3</td>
+      <td>43.2</td>
+      <td>15.1</td>
+      <td>8.2</td>
+      <td>10.777778</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>20160606</td>
+      <td>52.2</td>
+      <td>59.7</td>
+      <td>42.8</td>
+      <td>16.9</td>
+      <td>9.4</td>
+      <td>11.222222</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>20160611</td>
+      <td>54.0</td>
+      <td>62.1</td>
+      <td>41.7</td>
+      <td>20.4</td>
+      <td>12.3</td>
+      <td>12.222222</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>20160608</td>
+      <td>54.2</td>
+      <td>60.4</td>
+      <td>47.5</td>
+      <td>12.9</td>
+      <td>6.7</td>
+      <td>12.333333</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>20160612</td>
+      <td>55.4</td>
+      <td>64.2</td>
+      <td>46.0</td>
+      <td>18.2</td>
+      <td>9.4</td>
+      <td>13.000000</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>20160619</td>
+      <td>56.3</td>
+      <td>59.2</td>
+      <td>54.1</td>
+      <td>5.1</td>
+      <td>2.2</td>
+      <td>13.500000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>20160607</td>
+      <td>56.9</td>
+      <td>65.1</td>
+      <td>45.9</td>
+      <td>19.2</td>
+      <td>11.0</td>
+      <td>13.833333</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>20160618</td>
+      <td>57.3</td>
+      <td>62.8</td>
+      <td>54.0</td>
+      <td>8.8</td>
+      <td>3.3</td>
+      <td>14.055556</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>20160604</td>
+      <td>57.5</td>
+      <td>70.9</td>
+      <td>47.3</td>
+      <td>23.6</td>
+      <td>10.2</td>
+      <td>14.166667</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>20160616</td>
+      <td>57.8</td>
+      <td>67.5</td>
+      <td>55.6</td>
+      <td>11.9</td>
+      <td>2.2</td>
+      <td>14.333333</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>20160613</td>
+      <td>58.3</td>
+      <td>68.2</td>
+      <td>47.3</td>
+      <td>20.9</td>
+      <td>11.0</td>
+      <td>14.611111</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20160620</td>
+      <td>59.3</td>
+      <td>69.1</td>
+      <td>52.2</td>
+      <td>16.9</td>
+      <td>7.1</td>
+      <td>15.166667</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>20160614</td>
+      <td>59.7</td>
+      <td>67.8</td>
+      <td>47.8</td>
+      <td>20.0</td>
+      <td>11.9</td>
+      <td>15.388889</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>20160617</td>
+      <td>60.4</td>
+      <td>70.7</td>
+      <td>55.9</td>
+      <td>14.8</td>
+      <td>4.5</td>
+      <td>15.777778</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>20160627</td>
+      <td>60.7</td>
+      <td>70.0</td>
+      <td>57.6</td>
+      <td>12.4</td>
+      <td>3.1</td>
+      <td>15.944444</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>20160623</td>
+      <td>60.9</td>
+      <td>67.1</td>
+      <td>54.9</td>
+      <td>12.2</td>
+      <td>6.0</td>
+      <td>16.055556</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>20160624</td>
+      <td>61.1</td>
+      <td>68.9</td>
+      <td>56.7</td>
+      <td>12.2</td>
+      <td>4.4</td>
+      <td>16.166667</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>20160622</td>
+      <td>61.7</td>
+      <td>70.2</td>
+      <td>55.4</td>
+      <td>14.8</td>
+      <td>6.3</td>
+      <td>16.500000</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>20160621</td>
+      <td>62.6</td>
+      <td>71.4</td>
+      <td>50.4</td>
+      <td>21.0</td>
+      <td>12.2</td>
+      <td>17.000000</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>20160615</td>
+      <td>63.4</td>
+      <td>70.3</td>
+      <td>49.3</td>
+      <td>21.0</td>
+      <td>14.1</td>
+      <td>17.444444</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>20160628</td>
+      <td>65.4</td>
+      <td>73.0</td>
+      <td>55.8</td>
+      <td>17.2</td>
+      <td>9.6</td>
+      <td>18.555556</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>20160601</td>
+      <td>65.5</td>
+      <td>73.6</td>
+      <td>54.7</td>
+      <td>18.9</td>
+      <td>10.8</td>
+      <td>18.611111</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>20160625</td>
+      <td>65.7</td>
+      <td>75.4</td>
+      <td>57.9</td>
+      <td>17.5</td>
+      <td>7.8</td>
+      <td>18.722222</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>20160630</td>
+      <td>65.7</td>
+      <td>72.7</td>
+      <td>59.2</td>
+      <td>13.5</td>
+      <td>6.5</td>
+      <td>18.722222</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>20160602</td>
+      <td>65.8</td>
+      <td>80.8</td>
+      <td>55.0</td>
+      <td>25.8</td>
+      <td>10.8</td>
+      <td>18.777778</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>20160629</td>
+      <td>65.8</td>
+      <td>73.2</td>
+      <td>59.7</td>
+      <td>13.5</td>
+      <td>6.1</td>
+      <td>18.777778</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>20160603</td>
+      <td>68.4</td>
+      <td>77.9</td>
+      <td>55.6</td>
+      <td>22.3</td>
+      <td>12.8</td>
+      <td>20.222222</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>20160626</td>
+      <td>69.6</td>
+      <td>77.7</td>
+      <td>60.3</td>
+      <td>17.4</td>
+      <td>9.3</td>
+      <td>20.888889</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Of course, it is also possible to sort them in descending order with <code class="docutils literal notranslate"><span class="pre">ascending=False</span></code> parameter:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Sort dataframe, descending</span>
+<span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEARMODA</th>
+      <th>TEMP</th>
+      <th>MAX</th>
+      <th>MIN</th>
+      <th>DIFF</th>
+      <th>DIFF_MIN</th>
+      <th>TEMP_CELSIUS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>25</th>
+      <td>20160626</td>
+      <td>69.6</td>
+      <td>77.7</td>
+      <td>60.3</td>
+      <td>17.4</td>
+      <td>9.3</td>
+      <td>20.888889</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>20160603</td>
+      <td>68.4</td>
+      <td>77.9</td>
+      <td>55.6</td>
+      <td>22.3</td>
+      <td>12.8</td>
+      <td>20.222222</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>20160602</td>
+      <td>65.8</td>
+      <td>80.8</td>
+      <td>55.0</td>
+      <td>25.8</td>
+      <td>10.8</td>
+      <td>18.777778</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>20160629</td>
+      <td>65.8</td>
+      <td>73.2</td>
+      <td>59.7</td>
+      <td>13.5</td>
+      <td>6.1</td>
+      <td>18.777778</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>20160630</td>
+      <td>65.7</td>
+      <td>72.7</td>
+      <td>59.2</td>
+      <td>13.5</td>
+      <td>6.5</td>
+      <td>18.722222</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>20160625</td>
+      <td>65.7</td>
+      <td>75.4</td>
+      <td>57.9</td>
+      <td>17.5</td>
+      <td>7.8</td>
+      <td>18.722222</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>20160601</td>
+      <td>65.5</td>
+      <td>73.6</td>
+      <td>54.7</td>
+      <td>18.9</td>
+      <td>10.8</td>
+      <td>18.611111</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>20160628</td>
+      <td>65.4</td>
+      <td>73.0</td>
+      <td>55.8</td>
+      <td>17.2</td>
+      <td>9.6</td>
+      <td>18.555556</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>20160615</td>
+      <td>63.4</td>
+      <td>70.3</td>
+      <td>49.3</td>
+      <td>21.0</td>
+      <td>14.1</td>
+      <td>17.444444</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>20160621</td>
+      <td>62.6</td>
+      <td>71.4</td>
+      <td>50.4</td>
+      <td>21.0</td>
+      <td>12.2</td>
+      <td>17.000000</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>20160622</td>
+      <td>61.7</td>
+      <td>70.2</td>
+      <td>55.4</td>
+      <td>14.8</td>
+      <td>6.3</td>
+      <td>16.500000</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>20160624</td>
+      <td>61.1</td>
+      <td>68.9</td>
+      <td>56.7</td>
+      <td>12.2</td>
+      <td>4.4</td>
+      <td>16.166667</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>20160623</td>
+      <td>60.9</td>
+      <td>67.1</td>
+      <td>54.9</td>
+      <td>12.2</td>
+      <td>6.0</td>
+      <td>16.055556</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>20160627</td>
+      <td>60.7</td>
+      <td>70.0</td>
+      <td>57.6</td>
+      <td>12.4</td>
+      <td>3.1</td>
+      <td>15.944444</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>20160617</td>
+      <td>60.4</td>
+      <td>70.7</td>
+      <td>55.9</td>
+      <td>14.8</td>
+      <td>4.5</td>
+      <td>15.777778</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>20160614</td>
+      <td>59.7</td>
+      <td>67.8</td>
+      <td>47.8</td>
+      <td>20.0</td>
+      <td>11.9</td>
+      <td>15.388889</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20160620</td>
+      <td>59.3</td>
+      <td>69.1</td>
+      <td>52.2</td>
+      <td>16.9</td>
+      <td>7.1</td>
+      <td>15.166667</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>20160613</td>
+      <td>58.3</td>
+      <td>68.2</td>
+      <td>47.3</td>
+      <td>20.9</td>
+      <td>11.0</td>
+      <td>14.611111</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>20160616</td>
+      <td>57.8</td>
+      <td>67.5</td>
+      <td>55.6</td>
+      <td>11.9</td>
+      <td>2.2</td>
+      <td>14.333333</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>20160604</td>
+      <td>57.5</td>
+      <td>70.9</td>
+      <td>47.3</td>
+      <td>23.6</td>
+      <td>10.2</td>
+      <td>14.166667</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>20160618</td>
+      <td>57.3</td>
+      <td>62.8</td>
+      <td>54.0</td>
+      <td>8.8</td>
+      <td>3.3</td>
+      <td>14.055556</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>20160607</td>
+      <td>56.9</td>
+      <td>65.1</td>
+      <td>45.9</td>
+      <td>19.2</td>
+      <td>11.0</td>
+      <td>13.833333</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>20160619</td>
+      <td>56.3</td>
+      <td>59.2</td>
+      <td>54.1</td>
+      <td>5.1</td>
+      <td>2.2</td>
+      <td>13.500000</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>20160612</td>
+      <td>55.4</td>
+      <td>64.2</td>
+      <td>46.0</td>
+      <td>18.2</td>
+      <td>9.4</td>
+      <td>13.000000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>20160608</td>
+      <td>54.2</td>
+      <td>60.4</td>
+      <td>47.5</td>
+      <td>12.9</td>
+      <td>6.7</td>
+      <td>12.333333</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>20160611</td>
+      <td>54.0</td>
+      <td>62.1</td>
+      <td>41.7</td>
+      <td>20.4</td>
+      <td>12.3</td>
+      <td>12.222222</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>20160606</td>
+      <td>52.2</td>
+      <td>59.7</td>
+      <td>42.8</td>
+      <td>16.9</td>
+      <td>9.4</td>
+      <td>11.222222</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20160605</td>
+      <td>51.4</td>
+      <td>58.3</td>
+      <td>43.2</td>
+      <td>15.1</td>
+      <td>8.2</td>
+      <td>10.777778</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>20160610</td>
+      <td>49.5</td>
+      <td>55.9</td>
+      <td>43.0</td>
+      <td>12.9</td>
+      <td>6.5</td>
+      <td>9.722222</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>20160609</td>
+      <td>49.4</td>
+      <td>54.1</td>
+      <td>45.7</td>
+      <td>8.4</td>
+      <td>3.7</td>
+      <td>9.666667</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</div>
 <div class="section" id="Writing-data">
 <h2>Writing data<a class="headerlink" href="#Writing-data" title="Permalink to this headline">¶</a></h2>
-<p>Lastly, it is of course important to be able to write the data that you have analyzed into your computer. This is really handy in Pandas as it supports many different data formats by default (<code class="docutils literal notranslate"><span class="pre">see</span> <span class="pre">more</span> <span class="pre">info</span> <span class="pre">here</span> <span class="pre">&lt;pandas-overview.html#supports-data-read-write-from-multiple-formats&gt;</span></code>__). The most typical output format by far is CSV file. Function <code class="docutils literal notranslate"><span class="pre">to_csv()</span></code> can be used to easily save your data in CSV format.</p>
-<p>Let’s first save the data from our <code class="docutils literal notranslate"><span class="pre">data</span></code> DataFrame into a file called <code class="docutils literal notranslate"><span class="pre">Kumpula_temp_results_June_2016.csv</span></code> .</p>
+<p>Lastly, it is of course important to be able to write the data that you have analyzed into your computer. This is really handy in Pandas as it <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">supports many different data formats by default</a>.</p>
+<p><strong>The most typical output format by far is CSV file.</strong> Function <code class="docutils literal notranslate"><span class="pre">to_csv()</span></code> can be used to easily save your data in CSV format. Let’s first save the data from our <code class="docutils literal notranslate"><span class="pre">data</span></code> DataFrame into a file called <code class="docutils literal notranslate"><span class="pre">Kumpula_temp_results_June_2016.csv</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2626,10 +2741,10 @@ There were 28 days with unique mean temperatures in June 2016.
 </pre></div>
 </div>
 </div>
-<p>Nice, now we have the data from our DataFrame saved to a file: <img alt="Text file output1" src="notebooks/L5/../img/pandas_save_file_result_1.PNG" /></p>
+<p>Now we have the data from our DataFrame saved to a file: <img alt="Text file output1" src="../../_images/pandas_save_file_result_1.PNG" /></p>
 <p>As you can see, the first value in the datafile contains now the index value of the rows. There are also quite many decimals present in the new columns that we created. Let’s deal with these and save the temperature values from <code class="docutils literal notranslate"><span class="pre">warm_temps</span></code> DataFrame without the index and with only 1 decimal in the floating point numbers.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2639,9 +2754,18 @@ There were 28 days with unique mean temperatures in June 2016.
 </div>
 </div>
 <p>Omitting the index can be with <code class="docutils literal notranslate"><span class="pre">index=False</span></code> parameter. Specifying how many decimals should be written can be done with <code class="docutils literal notranslate"><span class="pre">float_format</span></code> -parameter where text <code class="docutils literal notranslate"><span class="pre">%.1f</span></code> defines Pandas to use 1 decimals in all columns when writing the data to a file (changing the value 1 to 2 would write 2 decimals etc.)</p>
-<p><img alt="Output after float fomatting" src="notebooks/L5/../img/pandas_save_file_result_2.PNG" /></p>
+<p><img alt="Output after float fomatting" src="../../_images/pandas_save_file_result_2.PNG" /></p>
 <p>As a results you have a “cleaner” output file without the index column, and with only 1 decimal for floating point numbers.</p>
 <p>That’s it for this week. We will dive deeper into data analysis with Pandas in the following Lesson. Next, you can continue with Exercise 5 (for Pandas).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 

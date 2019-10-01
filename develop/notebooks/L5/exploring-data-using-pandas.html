@@ -991,7 +991,7 @@ This page was generated from <a class="reference external" href="https://github.
 </pre></div></div>
 </div>
 <p>This looks OK, but there are some strange values present such as <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, and the first lines of the dataframe look a bit weird..</p>
-<p><code class="docutils literal notranslate"><span class="pre">NaN</span></code> stands for “not a number”, and might indicate some problem with reading in the contents of the file. Plus, we expected about 30 lines of data, but the index values go up to 36 when we print the contents of the <code class="docutils literal notranslate"><span class="pre">dataFrame</span></code> variable. Looks like we need to investigate this further.</p>
+<p><code class="docutils literal notranslate"><span class="pre">NaN</span></code> stands for “not a number”, and might indicate some problem with reading in the contents of the file. Plus, we expected about 30 lines of data, but the index values go up to 36 when we print the contents of the <code class="docutils literal notranslate"><span class="pre">data</span></code> variable. Looks like we need to investigate this further.</p>
 <p>As we can observe, there are some metadata at the top of the file giving basic information about its contents and source. This isn’t data we want to process, so we need to skip over that part of the file when we load it.</p>
 <p>Here are the 8 first rows of data in the text file (note that the 8th row is blank):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data file contents: Daily temperatures (mean, min, max) for Kumpula, Helsinki</span>
@@ -1104,35 +1104,35 @@ This page was generated from <a class="reference external" href="https://github.
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>20160601</td>
       <td>65.5</td>
       <td>73.6</td>
       <td>54.7</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>20160602</td>
       <td>65.8</td>
       <td>80.8</td>
       <td>55.0</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>20160603</td>
       <td>68.4</td>
       <td>77.9</td>
       <td>55.6</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>20160604</td>
       <td>57.5</td>
       <td>70.9</td>
       <td>47.3</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>20160605</td>
       <td>51.4</td>
       <td>58.3</td>
@@ -1183,35 +1183,35 @@ This page was generated from <a class="reference external" href="https://github.
   </thead>
   <tbody>
     <tr>
-      <td>25</td>
+      <th>25</th>
       <td>20160626</td>
       <td>69.6</td>
       <td>77.7</td>
       <td>60.3</td>
     </tr>
     <tr>
-      <td>26</td>
+      <th>26</th>
       <td>20160627</td>
       <td>60.7</td>
       <td>70.0</td>
       <td>57.6</td>
     </tr>
     <tr>
-      <td>27</td>
+      <th>27</th>
       <td>20160628</td>
       <td>65.4</td>
       <td>73.0</td>
       <td>55.8</td>
     </tr>
     <tr>
-      <td>28</td>
+      <th>28</th>
       <td>20160629</td>
       <td>65.8</td>
       <td>73.2</td>
       <td>59.7</td>
     </tr>
     <tr>
-      <td>29</td>
+      <th>29</th>
       <td>20160630</td>
       <td>65.7</td>
       <td>72.7</td>
@@ -1221,7 +1221,7 @@ This page was generated from <a class="reference external" href="https://github.
 </table>
 </div></div>
 </div>
-<p>Note that Pandas that DataFrames have <strong>labelled axes (rows and columns)</strong>. In our sample data, the rows labeled with an index value (<code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">29</span></code>), and columns labelled <code class="docutils literal notranslate"><span class="pre">YEARMODA</span></code>, <code class="docutils literal notranslate"><span class="pre">TEMP</span></code>, <code class="docutils literal notranslate"><span class="pre">MAX</span></code>, and <code class="docutils literal notranslate"><span class="pre">MIN</span></code>. This is nice because we can easily use these labels to divide up our data and make interacting with it easier as you’ll see later in the lesson.</p>
+<p>Note that Pandas that DataFrames have <strong>labelled axes (rows and columns)</strong>. In our sample data, the rows labeled with an index value (<code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">29</span></code>), and columns labelled <code class="docutils literal notranslate"><span class="pre">YEARMODA</span></code>, <code class="docutils literal notranslate"><span class="pre">TEMP</span></code>, <code class="docutils literal notranslate"><span class="pre">MAX</span></code>, and <code class="docutils literal notranslate"><span class="pre">MIN</span></code>. Later on, we will learn how to use these labels for selecting and updating subsets of the data.</p>
 <p><strong>Let’s also confirm the data type of our data variable:</strong></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -1416,7 +1416,7 @@ dtype: object
 <h2>Selecting columns<a class="headerlink" href="#Selecting-columns" title="Permalink to this headline">¶</a></h2>
 <p>In pandas, we select columns based on the column values (columns names). The basic syntax is <code class="docutils literal notranslate"><span class="pre">dataframe[value]</span></code>, where value can be a single column name, or a list of column names. Let’s start by selecting two columns, <code class="docutils literal notranslate"><span class="pre">'YEARMODA'</span></code> and <code class="docutils literal notranslate"><span class="pre">'TEMP'</span></code>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1425,7 +1425,7 @@ dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1453,152 +1453,152 @@ dtype: object
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>20160601</td>
       <td>65.5</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>20160602</td>
       <td>65.8</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>20160603</td>
       <td>68.4</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>20160604</td>
       <td>57.5</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>20160605</td>
       <td>51.4</td>
     </tr>
     <tr>
-      <td>5</td>
+      <th>5</th>
       <td>20160606</td>
       <td>52.2</td>
     </tr>
     <tr>
-      <td>6</td>
+      <th>6</th>
       <td>20160607</td>
       <td>56.9</td>
     </tr>
     <tr>
-      <td>7</td>
+      <th>7</th>
       <td>20160608</td>
       <td>54.2</td>
     </tr>
     <tr>
-      <td>8</td>
+      <th>8</th>
       <td>20160609</td>
       <td>49.4</td>
     </tr>
     <tr>
-      <td>9</td>
+      <th>9</th>
       <td>20160610</td>
       <td>49.5</td>
     </tr>
     <tr>
-      <td>10</td>
+      <th>10</th>
       <td>20160611</td>
       <td>54.0</td>
     </tr>
     <tr>
-      <td>11</td>
+      <th>11</th>
       <td>20160612</td>
       <td>55.4</td>
     </tr>
     <tr>
-      <td>12</td>
+      <th>12</th>
       <td>20160613</td>
       <td>58.3</td>
     </tr>
     <tr>
-      <td>13</td>
+      <th>13</th>
       <td>20160614</td>
       <td>59.7</td>
     </tr>
     <tr>
-      <td>14</td>
+      <th>14</th>
       <td>20160615</td>
       <td>63.4</td>
     </tr>
     <tr>
-      <td>15</td>
+      <th>15</th>
       <td>20160616</td>
       <td>57.8</td>
     </tr>
     <tr>
-      <td>16</td>
+      <th>16</th>
       <td>20160617</td>
       <td>60.4</td>
     </tr>
     <tr>
-      <td>17</td>
+      <th>17</th>
       <td>20160618</td>
       <td>57.3</td>
     </tr>
     <tr>
-      <td>18</td>
+      <th>18</th>
       <td>20160619</td>
       <td>56.3</td>
     </tr>
     <tr>
-      <td>19</td>
+      <th>19</th>
       <td>20160620</td>
       <td>59.3</td>
     </tr>
     <tr>
-      <td>20</td>
+      <th>20</th>
       <td>20160621</td>
       <td>62.6</td>
     </tr>
     <tr>
-      <td>21</td>
+      <th>21</th>
       <td>20160622</td>
       <td>61.7</td>
     </tr>
     <tr>
-      <td>22</td>
+      <th>22</th>
       <td>20160623</td>
       <td>60.9</td>
     </tr>
     <tr>
-      <td>23</td>
+      <th>23</th>
       <td>20160624</td>
       <td>61.1</td>
     </tr>
     <tr>
-      <td>24</td>
+      <th>24</th>
       <td>20160625</td>
       <td>65.7</td>
     </tr>
     <tr>
-      <td>25</td>
+      <th>25</th>
       <td>20160626</td>
       <td>69.6</td>
     </tr>
     <tr>
-      <td>26</td>
+      <th>26</th>
       <td>20160627</td>
       <td>60.7</td>
     </tr>
     <tr>
-      <td>27</td>
+      <th>27</th>
       <td>20160628</td>
       <td>65.4</td>
     </tr>
     <tr>
-      <td>28</td>
+      <th>28</th>
       <td>20160629</td>
       <td>65.8</td>
     </tr>
     <tr>
-      <td>29</td>
+      <th>29</th>
       <td>20160630</td>
       <td>65.7</td>
     </tr>
@@ -1645,7 +1645,7 @@ dtype: object
 </div>
 <p>We can also access a single column of the data based on the column name:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1654,7 +1654,7 @@ dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1694,7 +1694,7 @@ Name: TEMP, dtype: float64
 </div>
 <p>What about the type of the column itself?</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1704,7 +1704,7 @@ Name: TEMP, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1722,7 +1722,7 @@ Name: TEMP, dtype: float64
 <p>This syntax works only if the column name is a valid name for a Python variable (e.g. the column name should not contain whitespace). The syntax <code class="docutils literal notranslate"><span class="pre">data[&quot;column&quot;]</span></code> works for all kinds of column names, so we recommend using this approach :)</p>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1731,7 +1731,7 @@ Name: TEMP, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1759,7 +1759,7 @@ Name: TEMP, dtype: float64
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>59.730000000000004
+<span></span>59.73
 </pre></div>
 </div>
 </div>
@@ -1828,56 +1828,56 @@ dtype: float64
   </thead>
   <tbody>
     <tr>
-      <td>count</td>
+      <th>count</th>
       <td>3.000000e+01</td>
       <td>30.000000</td>
       <td>30.000000</td>
       <td>30.000000</td>
     </tr>
     <tr>
-      <td>mean</td>
+      <th>mean</th>
       <td>2.016062e+07</td>
       <td>59.730000</td>
       <td>67.940000</td>
       <td>51.750000</td>
     </tr>
     <tr>
-      <td>std</td>
+      <th>std</th>
       <td>8.803408e+00</td>
       <td>5.475472</td>
       <td>6.651761</td>
       <td>5.634484</td>
     </tr>
     <tr>
-      <td>min</td>
+      <th>min</th>
       <td>2.016060e+07</td>
       <td>49.400000</td>
       <td>54.100000</td>
       <td>41.700000</td>
     </tr>
     <tr>
-      <td>25%</td>
+      <th>25%</th>
       <td>2.016061e+07</td>
       <td>56.450000</td>
       <td>63.150000</td>
       <td>47.300000</td>
     </tr>
     <tr>
-      <td>50%</td>
+      <th>50%</th>
       <td>2.016062e+07</td>
       <td>60.050000</td>
       <td>69.000000</td>
       <td>54.050000</td>
     </tr>
     <tr>
-      <td>75%</td>
+      <th>75%</th>
       <td>2.016062e+07</td>
       <td>64.900000</td>
       <td>72.375000</td>
       <td>55.750000</td>
     </tr>
     <tr>
-      <td>max</td>
+      <th>max</th>
       <td>2.016063e+07</td>
       <td>69.600000</td>
       <td>80.800000</td>
@@ -1891,9 +1891,9 @@ dtype: float64
 <div class="section" id="Extra:-Very-basic-plots">
 <h2>Extra: Very basic plots<a class="headerlink" href="#Extra:-Very-basic-plots" title="Permalink to this headline">¶</a></h2>
 <p>Pandas comes with a handful of plotting methods, which all rely on the plotting library <a class="reference external" href="https://matplotlib.org/">matplotlib</a>.</p>
-<p>For very basic plots, we don’t need to import matplotlib separately, but we need to run a magic command <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code> in order to make the plots visible in our notebook:</p>
+<p>For very basic plots, we don’t need to import matplotlib separately, but we need to run a magic command %matplotlib inline in order to make the plots visible in our notebook:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1903,7 +1903,7 @@ dtype: float64
 </div>
 <p>We can already achieve very simple plots using the <code class="docutils literal notranslate"><span class="pre">DataFrame.plot</span></code> -method. Let’s plot all the columns that contain values related to temperatures:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1912,11 +1912,11 @@ dtype: float64
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x6b67fd0&gt;
+<span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2033ec55b00&gt;
 </pre></div>
 </div>
 </div>
@@ -1928,38 +1928,13 @@ dtype: float64
 </div>
 </div>
 <p>We can could also at the distribution of temperature values using a boxplot visualization:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">data</span><span class="p">[[</span><span class="s2">&quot;TEMP&quot;</span><span class="p">,</span> <span class="s2">&quot;MAX&quot;</span><span class="p">,</span> <span class="s2">&quot;MIN&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">boxplot</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0xa6ad4a8&gt;
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/notebooks_L5_exploring-data-using-pandas_68_1.png" src="../../_images/notebooks_L5_exploring-data-using-pandas_68_1.png" />
-</div>
-</div>
 <p>Now, you might want to start modifying the plots by adding axis labels, color settings and other formatting. For anythin more advanced, we should import matplotlib (<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code>). We will learn more about matplotlib and plotting data during week 7 :)</p>
 </div>
 <div class="section" id="Extra:-From-lists-to-pandas-objects">
 <h2>Extra: From lists to pandas objects<a class="headerlink" href="#Extra:-From-lists-to-pandas-objects" title="Permalink to this headline">¶</a></h2>
 <p>Most often we create pandas objects by reading in data from an external source, such as a text file. Here, we will briefly see how you can create pandas objects from Python lists. If you have long lists of numbers, for instance, creating a Pandas Series will allow you to interact with these values more efficiently in terms of computing time.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1984,7 +1959,7 @@ dtype: float64
 <p>Note that Pandas is smart about the conversion, detecting a single floating point value (<code class="docutils literal notranslate"><span class="pre">7.0</span></code>) and assigning all values in the Series the data type float64.</p>
 <p>If needed, you can also set a custom index when creating the object:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2006,7 +1981,7 @@ dtype: float64
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2015,7 +1990,7 @@ dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2025,7 +2000,7 @@ dtype: float64
 </div>
 <p>How about combining several lists as a DataFrame? Let’s take a subset of the lists we used in Exercise 3, problem 3 and see how we could combine those as a pandas DataFrame:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2042,7 +2017,7 @@ dtype: float64
 </div>
 <p>Often we indeed create pandas DataFrames by reading in data (e.g. using <code class="docutils literal notranslate"><span class="pre">pd.read_csv(filename.csv)</span></code>), but sometimes your might also combine lists into a DataFrame inside the script using the <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> constructor. Here, we are using a <em>Python dictionary</em> <code class="docutils literal notranslate"><span class="pre">{&quot;column_1&quot;:</span> <span class="pre">list_1,</span> <span class="pre">&quot;column_2&quot;:</span> <span class="pre">list_2,</span> <span class="pre">...}</span></code> to indicate the structure of our data.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2052,7 +2027,7 @@ dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2074,42 +2049,42 @@ dtype: float64
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>station_name</th>
       <th>lat</th>
       <th>lon</th>
+      <th>station_name</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
-      <td>Hanko Russarö</td>
+      <th>0</th>
       <td>59.77</td>
       <td>22.95</td>
+      <td>Hanko Russarö</td>
     </tr>
     <tr>
-      <td>1</td>
-      <td>Heinola Asemantaus</td>
+      <th>1</th>
       <td>61.20</td>
       <td>26.05</td>
+      <td>Heinola Asemantaus</td>
     </tr>
     <tr>
-      <td>2</td>
-      <td>Helsinki Kaisaniemi</td>
+      <th>2</th>
       <td>60.18</td>
       <td>24.94</td>
+      <td>Helsinki Kaisaniemi</td>
     </tr>
     <tr>
-      <td>3</td>
-      <td>Helsinki Malmi airfield</td>
+      <th>3</th>
       <td>60.25</td>
       <td>25.05</td>
+      <td>Helsinki Malmi airfield</td>
     </tr>
   </tbody>
 </table>
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2118,7 +2093,7 @@ dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2126,6 +2101,36 @@ dtype: float64
 </pre></div>
 </div>
 </div>
+<p>Often, you might start working with an empty data frame in stead of existing lists:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Empty DataFrame
+Columns: []
+Index: []
+</pre></div></div>
+</div>
+<p>Check more details about available paramenters and methods from <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas-dataframe">the pandas.DataFrame documentation</a>.</p>
 <p>That’s it! Next, we will have a look at <a class="reference internal" href="processing-data-with-pandas.html"><span class="doc">basic operations for data analysis in Pandas</span></a>.</p>
 </div>
 </div>
