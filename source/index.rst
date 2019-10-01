@@ -143,7 +143,7 @@ Themes for each week are listed below. Read more about the weekly :doc:`learning
 
     lessons/L5/overview
     notebooks/L5/exploring-data-using-pandas.ipynb
-    site/source/notebooks/L5/processing-data-with-pandas.ipynb
+    notebooks/L5/processing-data-with-pandas.ipynb
     lessons/L5/exercise-5
 
     .. toctree::
