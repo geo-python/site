@@ -538,7 +538,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#Data-type-conversions">Data type conversions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Unique-values">Unique values</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Sorting-data">Sorting data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Writing-data">Writing data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Writing-data-to-a-file">Writing data to a file</a></li>
 </ul>
 </li>
 </ul>
@@ -565,7 +565,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#Data-type-conversions">Data type conversions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Unique-values">Unique values</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Sorting-data">Sorting data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Writing-data">Writing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Writing-data-to-a-file">Writing data to a file</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../lessons/L5/exercise-5.html">Exercise 5</a><ul>
@@ -1088,7 +1088,7 @@ This page was generated from <a class="reference external" href="https://github.
 </pre></div></div>
 </div>
 <p>The calculations were stored into the <code class="docutils literal notranslate"><span class="pre">DIFF</span></code> column as planned.</p>
-<p>You can also create new columns on-the-fly at the same time when doing the calculation. Let’s test this by calculating the difference between minimum temperature (<code class="docutils literal notranslate"><span class="pre">MIN</span></code>) and the mean temperature of the day (<code class="docutils literal notranslate"><span class="pre">TEMP</span></code>).</p>
+<p>You can also create new columns on-the-fly at the same time when doing the calculation. Let’s test this by calculating the difference between minimum temperature (<code class="docutils literal notranslate"><span class="pre">MIN</span></code>) and the mean temperature of the day (<code class="docutils literal notranslate"><span class="pre">TEMP</span></code>) into a new column <code class="docutils literal notranslate"><span class="pre">DIFF_MIN</span></code>:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -1322,15 +1322,16 @@ Name: 4, dtype: float64
 <p>Calculate the mean temperature (celsius) for the last seven days of June. For now, you can do the selection using row indexes (index 23-29).</p>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<span></span><span class="c1"># Mean temperature for the last seven days of June (use loc indexing to select the correct rows):</span>
+
 </pre></div>
 </div>
 </div>
-<p><strong>Selecting a single value based on row and column</strong></p>
+<p><strong>Selecting a single value based on row and column:</strong></p>
 <p>Sometimes it is enought to access a single value in a DataFrame. In this case, we can use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/version/0.25/reference/api/pandas.DataFrame.at.html#pandas-dataframe-at">DataFrame.at</a> in stead of <code class="docutils literal notranslate"><span class="pre">Data.Frame.loc</span></code>.</p>
 <p>Let’s select the temprerature (column <code class="docutils literal notranslate"><span class="pre">TEMP</span></code>) on the first fow (index <code class="docutils literal notranslate"><span class="pre">0</span></code>) of our DataFrame:</p>
 <div class="nbinput docutils container">
@@ -1556,11 +1557,12 @@ Name: 4, dtype: float64
 <p>Calculate the mean temperature (celsius) for the last seven days of June. Now, select the rows based on a condition for the <code class="docutils literal notranslate"><span class="pre">YEARMODA</span></code> column!</p>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<span></span><span class="c1"># Mean temperature for the last seven days of June (use a conditional statement to select the correct rows):</span>
+
 </pre></div>
 </div>
 </div>
@@ -1928,7 +1930,7 @@ Name: 4, dtype: float64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Rounded values:&quot;</span><span class="p">)</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Original values:&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -1952,7 +1954,7 @@ Name: TEMP, dtype: float64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Rounded values:&quot;</span><span class="p">)</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Truncated integer values:&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -1972,27 +1974,35 @@ Name: TEMP, dtype: int32
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Rounded values:&quot;</span><span class="p">)</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Rounded integer values:&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Rounded integer values:
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Rounded values:
-0    66
-1    66
-2    68
-3    58
-4    51
-Name: TEMP, dtype: int32
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-3-4925f8e62b8f&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">      1</span> print<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-blue-intense-fg ansi-bold">&#34;Rounded integer values:&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 2</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>print<span class="ansi-yellow-intense-fg ansi-bold">(</span>data<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-blue-intense-fg ansi-bold">&#39;TEMP&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">]</span><span class="ansi-yellow-intense-fg ansi-bold">.</span>round<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-cyan-intense-fg ansi-bold">0</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">.</span>astype<span class="ansi-yellow-intense-fg ansi-bold">(</span>int<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">.</span>head<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-red-intense-fg ansi-bold">NameError</span>: name &#39;data&#39; is not defined
 </pre></div></div>
 </div>
 <p>Looks correct now.</p>
@@ -2763,8 +2773,8 @@ There were 28 days with unique mean temperatures in June 2016.
 </div></div>
 </div>
 </div>
-<div class="section" id="Writing-data">
-<h2>Writing data<a class="headerlink" href="#Writing-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Writing-data-to-a-file">
+<h2>Writing data to a file<a class="headerlink" href="#Writing-data-to-a-file" title="Permalink to this headline">¶</a></h2>
 <p>Lastly, it is of course important to be able to write the data that you have analyzed into your computer. This is really handy in Pandas as it <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">supports many different data formats by default</a>.</p>
 <p><strong>The most typical output format by far is CSV file.</strong> Function <code class="docutils literal notranslate"><span class="pre">to_csv()</span></code> can be used to easily save your data in CSV format. Let’s first save the data from our <code class="docutils literal notranslate"><span class="pre">data</span></code> DataFrame into a file called <code class="docutils literal notranslate"><span class="pre">Kumpula_temp_results_June_2016.csv</span></code>.</p>
 <div class="nbinput nblast docutils container">
@@ -2796,15 +2806,6 @@ There were 28 days with unique mean temperatures in June 2016.
 <p><img alt="Output after float fomatting" src="../../_images/pandas_save_file_result_2.PNG" /></p>
 <p>As a results you have a “cleaner” output file without the index column, and with only 1 decimal for floating point numbers.</p>
 <p>That’s it for this week. We will dive deeper into data analysis with Pandas in the following Lesson. Next, you can continue with Exercise 5 (for Pandas).</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 

@@ -538,7 +538,7 @@
 <li class="toctree-l4"><a class="reference internal" href="processing-data-with-pandas.html#Data-type-conversions">Data type conversions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="processing-data-with-pandas.html#Unique-values">Unique values</a></li>
 <li class="toctree-l4"><a class="reference internal" href="processing-data-with-pandas.html#Sorting-data">Sorting data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="processing-data-with-pandas.html#Writing-data">Writing data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="processing-data-with-pandas.html#Writing-data-to-a-file">Writing data to a file</a></li>
 </ul>
 </li>
 </ul>
@@ -565,7 +565,7 @@
 <li class="toctree-l2"><a class="reference internal" href="processing-data-with-pandas.html#Data-type-conversions">Data type conversions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="processing-data-with-pandas.html#Unique-values">Unique values</a></li>
 <li class="toctree-l2"><a class="reference internal" href="processing-data-with-pandas.html#Sorting-data">Sorting data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="processing-data-with-pandas.html#Writing-data">Writing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="processing-data-with-pandas.html#Writing-data-to-a-file">Writing data to a file</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../lessons/L5/exercise-5.html">Exercise 5</a><ul>
@@ -891,7 +891,7 @@ This page was generated from <a class="reference external" href="https://github.
 </ul>
 <p>These Pandas structures incorporate a number of things we’ve already encountered, such as indices, data stored in a collection, and data types. Let’s have another look at the Pandas data structures below with some additional annotation.</p>
 <p><img alt="Pandas data structures" src="../../_images/pandas-structures-annotated.png" /></p>
-<p>As you can see, both DataFrames and Series in Pandas have an index that can be used to select values, but they also have column labels to identify columns in DataFrames. In the lesson this week we’ll use many of these features to explore real-world data and learn some useful data analysis procedures.</p>
+<p>As you can see, both DataFrames and Series in pandas have an index that can be used to select values, but they also have column labels to identify columns in DataFrames. In the lesson this week we’ll use many of these features to explore real-world data and learn some useful data analysis procedures.</p>
 <p>For a comprehensive overview of pandas data structures you can have a look at Chapter 5 in Wes MacKinney’s book <a class="reference external" href="https://geo-python.github.io/site/course-info/resources.html#books">Python for Data Analysis (2nd Edition, 2017)</a> and <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/dsintro.html">Pandas online documentation about data structures</a>.</p>
 <div class="admonition note">
 <strong>Note</strong> Pandas is a “high-level” package, which means that it makes use of several other packages, such as <a class="reference external" href="https://numpy.org/">NumPy</a>, in the background. There are several ways in which data can be read from a file in Python, and this year we have decided to focus primarily on pandas because it is easy-to-use, efficient and intuitive. If you are curoius about other approaches for interacting with data files, you can find lesson materials from previous years about reading data using
@@ -1055,7 +1055,7 @@ This page was generated from <a class="reference external" href="https://github.
 </pre></div>
 </div>
 </div>
-<p>Let’s now print the rows and see what changed.</p>
+<p>Let’s now print the dataframe and see what changed:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -1269,8 +1269,7 @@ This page was generated from <a class="reference external" href="https://github.
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># check data type of the dataFrame variable</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1338,7 +1337,6 @@ pd         module       &lt;module &#39;pandas&#39; from &#39;C:&lt;...&gt;es\\p
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Print number of rows using len()-function</span>
-<span class="c1"># print(len(dataFrame.index))</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1377,7 +1375,7 @@ pd         module       &lt;module &#39;pandas&#39; from &#39;C:&lt;...&gt;es\\p
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#Print columns</span>
+<span></span><span class="c1">#Print column values</span>
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1415,7 +1413,8 @@ RangeIndex(start=0, stop=30, step=1)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span></span><span class="c1">#Check length of the index</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1457,202 +1456,60 @@ dtype: object
 <h2>Selecting columns<a class="headerlink" href="#Selecting-columns" title="Permalink to this headline">¶</a></h2>
 <p>In pandas, we select columns based on the column values (columns names). The basic syntax is <code class="docutils literal notranslate"><span class="pre">dataframe[value]</span></code>, where value can be a single column name, or a list of column names. Let’s start by selecting two columns, <code class="docutils literal notranslate"><span class="pre">'YEARMODA'</span></code> and <code class="docutils literal notranslate"><span class="pre">'TEMP'</span></code>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;YEARMODA&#39;</span><span class="p">,</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]]</span>
+<span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;YEARMODA&#39;</span><span class="p">,</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>YEARMODA</th>
-      <th>TEMP</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>20160601</td>
-      <td>65.5</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>20160602</td>
-      <td>65.8</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>20160603</td>
-      <td>68.4</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>20160604</td>
-      <td>57.5</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>20160605</td>
-      <td>51.4</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>20160606</td>
-      <td>52.2</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>20160607</td>
-      <td>56.9</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>20160608</td>
-      <td>54.2</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>20160609</td>
-      <td>49.4</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>20160610</td>
-      <td>49.5</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>20160611</td>
-      <td>54.0</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>20160612</td>
-      <td>55.4</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>20160613</td>
-      <td>58.3</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>20160614</td>
-      <td>59.7</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>20160615</td>
-      <td>63.4</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>20160616</td>
-      <td>57.8</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>20160617</td>
-      <td>60.4</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>20160618</td>
-      <td>57.3</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>20160619</td>
-      <td>56.3</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>20160620</td>
-      <td>59.3</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>20160621</td>
-      <td>62.6</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>20160622</td>
-      <td>61.7</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>20160623</td>
-      <td>60.9</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>20160624</td>
-      <td>61.1</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>20160625</td>
-      <td>65.7</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>20160626</td>
-      <td>69.6</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>20160627</td>
-      <td>60.7</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>20160628</td>
-      <td>65.4</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>20160629</td>
-      <td>65.8</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>20160630</td>
-      <td>65.7</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+    YEARMODA  TEMP
+0   20160601  65.5
+1   20160602  65.8
+2   20160603  68.4
+3   20160604  57.5
+4   20160605  51.4
+5   20160606  52.2
+6   20160607  56.9
+7   20160608  54.2
+8   20160609  49.4
+9   20160610  49.5
+10  20160611  54.0
+11  20160612  55.4
+12  20160613  58.3
+13  20160614  59.7
+14  20160615  63.4
+15  20160616  57.8
+16  20160617  60.4
+17  20160618  57.3
+18  20160619  56.3
+19  20160620  59.3
+20  20160621  62.6
+21  20160622  61.7
+22  20160623  60.9
+23  20160624  61.1
+24  20160625  65.7
+25  20160626  69.6
+26  20160627  60.7
+27  20160628  65.4
+28  20160629  65.8
+29  20160630  65.7
+</pre></div></div>
 </div>
+<p>Let’s also check the data type of this selection:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;YEARMODA&#39;</span><span class="p">,</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]])</span>
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1667,16 +1524,16 @@ dtype: object
 </div>
 <p>The subset is still a pandas DataFrame, and we are able to use all the methods related to a pandas DataFrame also with this subset. For example, we can check the shape:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;YEARMODA&#39;</span><span class="p">,</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
+<span></span><span class="n">selection</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1810,7 +1667,8 @@ Name: TEMP, dtype: float64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span></span><span class="c1"># Check mean value for all columns</span>
+<span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1957,7 +1815,7 @@ dtype: float64
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2033ec55b00&gt;
+<span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x243bb2e76a0&gt;
 </pre></div>
 </div>
 </div>
@@ -1965,7 +1823,7 @@ dtype: float64
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L5_exploring-data-using-pandas_66_1.png" src="../../_images/notebooks_L5_exploring-data-using-pandas_66_1.png" />
+<img alt="../../_images/notebooks_L5_exploring-data-using-pandas_67_1.png" src="../../_images/notebooks_L5_exploring-data-using-pandas_67_1.png" />
 </div>
 </div>
 <p>We can could also at the distribution of temperature values using a boxplot visualization:</p>
