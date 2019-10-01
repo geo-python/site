@@ -1,0 +1,1941 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "# Exploring data using Pandas\n",
+    "\n",
+    "Our first task in this week's lesson is to learn how to **read and explore data files in Python**. We will focus on using [pandas](https://pandas.pydata.org/pandas-docs/stable/) which is an open-source package for data analysis in Python. Pandas is an excellent toolkit for working with **real world data** that often have a tabular structure (rows and columns).\n",
+    "\n",
+    "We will first get familiar with **pandas data structures**: *Series* and *DataFrame*:\n",
+    "\n",
+    "- **Pandas DataFrame** (a 2-dimensional data structure) is used for storing and mainpulating table-like data (data with rows and columns) in Python. You can think of pandas DataFrame as a programmable spreadsheet. \n",
+    "- **Pandas Series** (a 1-dimensional data structure) is used for storing and manipulating an sequence of values. Pandas Series is kind of like a list, but more clever. One row or one column in a Pandas DataFrame is actually a Pandas Series. \n",
+    "    \n",
+    "For a comprehensive overview of pandas data structures you can have a look at Chapter 5 in Wes MacKinney's book [Python for Data Analysis (2nd Edition, 2017)](https://geo-python.github.io/site/course-info/resources.html#books) and [Pandas online documentation about data structures](https://pandas.pydata.org/pandas-docs/stable/dsintro.html).\n",
+    "\n",
+    "\n",
+    "\n",
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Note**\n",
+    "Pandas is a \"high-level\" package, which means that it makes use of several other packages, such as [NumPy](https://numpy.org/), in the background. There are several ways in which data can be read from a file in Python, and this year we have decided to focus primarily on pandas because it is easy-to-use, efficient and intuitive. If you are curoius about other approaches for interacting with data files, you can find lesson materials from previous years about reading data using [NumPy](https://geo-python.github.io/site/2018/notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Reading-a-data-file-with-NumPy) or [built-in Python functions](https://geo-python.github.io/site/2017/lessons/L5/reading-data-from-file.html). \n",
+    " \n",
+    "</div>\n",
+    "\n",
+    "\n",
+    "## Input data: weather statistics\n",
+    "\n",
+    "Our input data is a text file containing weather observations from Kumpula, Helsinki, Finland retrieved from [NOAA](https://www.ncdc.noaa.gov/)*:\n",
+    "\n",
+    "- File name: [Kumpula-June-2016-w-metadata.txt](Kumpula-June-2016-w-metadata.txt)\n",
+    "- The file is available in the binder and CSC notebook instances, under L5 folder \n",
+    "- The data file contains observed daily mean, minimum, and maximum temperatures from June 2016 recorded from the Kumpula weather observation station in Helsinki.\n",
+    "- There are 30 rows of data in this sample data set.\n",
+    "- The data has been derived from a data file of daily temperature measurments downloaded from [NOAA](https://www.ncdc.noaa.gov/cdo-web/).\n",
+    "\n",
+    "\n",
+    "\\*US National Oceanographic and Atmospheric Administration's National Centers for Environmental Information climate database\n",
+    "\n",
+    "## Reading a data file with Pandas\n",
+    "\n",
+    "\n",
+    "Now we're ready to read in our temperature data file. **First, we need to import the Pandas module.** It is customary to import pandas as `pd`:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [],
+   "source": [
+    "import pandas as pd"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "**Next, we'll read the input data file**, and store the contents of that file into a variable called `data` Using the `pandas.read_csv()` -function:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Read the file using pandas\n",
+    "data = pd.read_csv('Kumpula-June-2016-w-metadata.txt')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Reading data from different formats**\n",
+    "    \n",
+    "`pandas.read_csv()` is a general function for reading data files separated by commas, spaces, or other common separators. \n",
+    "Here we only provided one argument (the filepath) to the `pd.read_csv()` method. For a full list of available parameters, please refer to [pandas documentation for pandas.read_csv](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html), or run `help(pd.read_csv)`.\n",
+    "    \n",
+    "Pandas has several different functions for parsing input data from different formats. There is, for example, a separate function for reading Excel files `read_excel`. Another useful function is `read_pickle` for reading data stored in the [Python pickle format](https://docs.python.org/3/library/pickle.html). Check out [pandas documentation about input and output functions](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#io-tools-text-csv-hdf5) and Chapter 6 in [MacKinney (2017): Python for Data Analysis](https://geo-python.github.io/site/course-info/resources.html#books) for more details about reading data.\n",
+    " \n",
+    "</div>\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "If all goes as planned, you should now have a new variable `data` in memory that contains the input data. You can check the the contents of this variable by calling `data` or `print(data)`:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "       # Data file contents: Daily temperatures (mean            min  \\\n",
+      "0                 #                     for June 1-30           2016   \n",
+      "1   # Data source: https://www.ncdc.noaa.gov/cdo-w...            NaN   \n",
+      "2   # Data processing: Extracted temperatures from...   converted to   \n",
+      "3           #                  comma-separated format            NaN   \n",
+      "4                                                   #            NaN   \n",
+      "5                          # David Whipp - 02.10.2017            NaN   \n",
+      "6                                            YEARMODA           TEMP   \n",
+      "7                                            20160601           65.5   \n",
+      "8                                            20160602           65.8   \n",
+      "9                                            20160603           68.4   \n",
+      "10                                           20160604           57.5   \n",
+      "11                                           20160605           51.4   \n",
+      "12                                           20160606           52.2   \n",
+      "13                                           20160607           56.9   \n",
+      "14                                           20160608           54.2   \n",
+      "15                                           20160609           49.4   \n",
+      "16                                           20160610           49.5   \n",
+      "17                                           20160611           54.0   \n",
+      "18                                           20160612           55.4   \n",
+      "19                                           20160613           58.3   \n",
+      "20                                           20160614           59.7   \n",
+      "21                                           20160615           63.4   \n",
+      "22                                           20160616           57.8   \n",
+      "23                                           20160617           60.4   \n",
+      "24                                           20160618           57.3   \n",
+      "25                                           20160619           56.3   \n",
+      "26                                           20160620           59.3   \n",
+      "27                                           20160621           62.6   \n",
+      "28                                           20160622           61.7   \n",
+      "29                                           20160623           60.9   \n",
+      "30                                           20160624           61.1   \n",
+      "31                                           20160625           65.7   \n",
+      "32                                           20160626           69.6   \n",
+      "33                                           20160627           60.7   \n",
+      "34                                           20160628           65.4   \n",
+      "35                                           20160629           65.8   \n",
+      "36                                           20160630           65.7   \n",
+      "\n",
+      "    max) for Kumpula  Helsinki  \n",
+      "0                NaN       NaN  \n",
+      "1                NaN       NaN  \n",
+      "2                NaN       NaN  \n",
+      "3                NaN       NaN  \n",
+      "4                NaN       NaN  \n",
+      "5                NaN       NaN  \n",
+      "6                MAX       MIN  \n",
+      "7               73.6      54.7  \n",
+      "8               80.8      55.0  \n",
+      "9               77.9      55.6  \n",
+      "10              70.9      47.3  \n",
+      "11              58.3      43.2  \n",
+      "12              59.7      42.8  \n",
+      "13              65.1      45.9  \n",
+      "14              60.4      47.5  \n",
+      "15              54.1      45.7  \n",
+      "16              55.9      43.0  \n",
+      "17              62.1      41.7  \n",
+      "18              64.2      46.0  \n",
+      "19              68.2      47.3  \n",
+      "20              67.8      47.8  \n",
+      "21              70.3      49.3  \n",
+      "22              67.5      55.6  \n",
+      "23              70.7      55.9  \n",
+      "24              62.8      54.0  \n",
+      "25              59.2      54.1  \n",
+      "26              69.1      52.2  \n",
+      "27              71.4      50.4  \n",
+      "28              70.2      55.4  \n",
+      "29              67.1      54.9  \n",
+      "30              68.9      56.7  \n",
+      "31              75.4      57.9  \n",
+      "32              77.7      60.3  \n",
+      "33              70.0      57.6  \n",
+      "34              73.0      55.8  \n",
+      "35              73.2      59.7  \n",
+      "36              72.7      59.2  \n"
+     ]
+    }
+   ],
+   "source": [
+    "print(data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "This looks OK, but there are some strange values present such as `NaN`, and the first lines of the dataframe look a bit weird.. \n",
+    "\n",
+    "`NaN` stands for \"not a number\", and might indicate some problem with reading in the contents of the file. Plus, we expected about 30 lines of data, but the index values go up to 36 when we print the contents of the `dataFrame` variable. Looks like we need to investigate this further."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "As we can observe, there are some metadata at the top of the file giving basic information about its contents and source. This isn't data we want to process, so we need to skip over that part of the file when we load it.\n",
+    "\n",
+    "Here are the 8 first rows of data in the text file (note that the 8th row is blank):"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "```\n",
+    "# Data file contents: Daily temperatures (mean, min, max) for Kumpula, Helsinki\n",
+    "#                     for June 1-30, 2016\n",
+    "# Data source: https://www.ncdc.noaa.gov/cdo-web/search?datasetid=GHCND\n",
+    "# Data processing: Extracted temperatures from raw data file, converted to\n",
+    "#                  comma-separated format\n",
+    "#\n",
+    "# David Whipp - 02.10.2017\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Fortunately, that's easy to do in pandas, we just need to add the `skiprows` parameter when we read the file, listing the number of rows to skip (8 in this case).\n",
+    "\n",
+    "Let's try reading the datafile again, and this time defining the `skiprows` parameter."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "data = pd.read_csv('Kumpula-June-2016-w-metadata.txt', skiprows=8)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Let's now print the rows and see what changed."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    YEARMODA  TEMP   MAX   MIN\n",
+      "0   20160601  65.5  73.6  54.7\n",
+      "1   20160602  65.8  80.8  55.0\n",
+      "2   20160603  68.4  77.9  55.6\n",
+      "3   20160604  57.5  70.9  47.3\n",
+      "4   20160605  51.4  58.3  43.2\n",
+      "5   20160606  52.2  59.7  42.8\n",
+      "6   20160607  56.9  65.1  45.9\n",
+      "7   20160608  54.2  60.4  47.5\n",
+      "8   20160609  49.4  54.1  45.7\n",
+      "9   20160610  49.5  55.9  43.0\n",
+      "10  20160611  54.0  62.1  41.7\n",
+      "11  20160612  55.4  64.2  46.0\n",
+      "12  20160613  58.3  68.2  47.3\n",
+      "13  20160614  59.7  67.8  47.8\n",
+      "14  20160615  63.4  70.3  49.3\n",
+      "15  20160616  57.8  67.5  55.6\n",
+      "16  20160617  60.4  70.7  55.9\n",
+      "17  20160618  57.3  62.8  54.0\n",
+      "18  20160619  56.3  59.2  54.1\n",
+      "19  20160620  59.3  69.1  52.2\n",
+      "20  20160621  62.6  71.4  50.4\n",
+      "21  20160622  61.7  70.2  55.4\n",
+      "22  20160623  60.9  67.1  54.9\n",
+      "23  20160624  61.1  68.9  56.7\n",
+      "24  20160625  65.7  75.4  57.9\n",
+      "25  20160626  69.6  77.7  60.3\n",
+      "26  20160627  60.7  70.0  57.6\n",
+      "27  20160628  65.4  73.0  55.8\n",
+      "28  20160629  65.8  73.2  59.7\n",
+      "29  20160630  65.7  72.7  59.2\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "After reading in the data, it is always good to check that everything went well (like we just did with the print-statement above). The challenge can also be that large datafiles might not nicely print on screen using the `print()`-function so it might be better to look at only the top 5-10 lines of the file rather than loading the entire thing. \n",
+    "\n",
+    "We can  use `pandas.DataFrame.head` to quickly check the contents of the dataframe. This method returns the first n rows for the dataframe. By default, it returns 5 first rows of the DataFrame:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>YEARMODA</th>\n",
+       "      <th>TEMP</th>\n",
+       "      <th>MAX</th>\n",
+       "      <th>MIN</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <td>0</td>\n",
+       "      <td>20160601</td>\n",
+       "      <td>65.5</td>\n",
+       "      <td>73.6</td>\n",
+       "      <td>54.7</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>1</td>\n",
+       "      <td>20160602</td>\n",
+       "      <td>65.8</td>\n",
+       "      <td>80.8</td>\n",
+       "      <td>55.0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>2</td>\n",
+       "      <td>20160603</td>\n",
+       "      <td>68.4</td>\n",
+       "      <td>77.9</td>\n",
+       "      <td>55.6</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>3</td>\n",
+       "      <td>20160604</td>\n",
+       "      <td>57.5</td>\n",
+       "      <td>70.9</td>\n",
+       "      <td>47.3</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>4</td>\n",
+       "      <td>20160605</td>\n",
+       "      <td>51.4</td>\n",
+       "      <td>58.3</td>\n",
+       "      <td>43.2</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   YEARMODA  TEMP   MAX   MIN\n",
+       "0  20160601  65.5  73.6  54.7\n",
+       "1  20160602  65.8  80.8  55.0\n",
+       "2  20160603  68.4  77.9  55.6\n",
+       "3  20160604  57.5  70.9  47.3\n",
+       "4  20160605  51.4  58.3  43.2"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data.head()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We can also check the last rows of the data using `data.tail()`:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>YEARMODA</th>\n",
+       "      <th>TEMP</th>\n",
+       "      <th>MAX</th>\n",
+       "      <th>MIN</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <td>25</td>\n",
+       "      <td>20160626</td>\n",
+       "      <td>69.6</td>\n",
+       "      <td>77.7</td>\n",
+       "      <td>60.3</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>26</td>\n",
+       "      <td>20160627</td>\n",
+       "      <td>60.7</td>\n",
+       "      <td>70.0</td>\n",
+       "      <td>57.6</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>27</td>\n",
+       "      <td>20160628</td>\n",
+       "      <td>65.4</td>\n",
+       "      <td>73.0</td>\n",
+       "      <td>55.8</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>28</td>\n",
+       "      <td>20160629</td>\n",
+       "      <td>65.8</td>\n",
+       "      <td>73.2</td>\n",
+       "      <td>59.7</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>29</td>\n",
+       "      <td>20160630</td>\n",
+       "      <td>65.7</td>\n",
+       "      <td>72.7</td>\n",
+       "      <td>59.2</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "    YEARMODA  TEMP   MAX   MIN\n",
+       "25  20160626  69.6  77.7  60.3\n",
+       "26  20160627  60.7  70.0  57.6\n",
+       "27  20160628  65.4  73.0  55.8\n",
+       "28  20160629  65.8  73.2  59.7\n",
+       "29  20160630  65.7  72.7  59.2"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data.tail()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Note that Pandas that DataFrames have **labelled axes (rows and columns)**.  In our sample data, the rows labeled with an index value (`0` to `29`), and columns labelled `YEARMODA`, `TEMP`, `MAX`, and `MIN`. This is nice because we can easily use these labels to divide up our data and make interacting with it easier as you'll see later in the lesson."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "**Let's also confirm the data type of our data variable:**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "pandas.core.frame.DataFrame"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# check data type of the dataFrame variable\n",
+    "type(data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "No surprises here, our data variable is a Pandas DataFrame ;)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Note**\n",
+    "\n",
+    " We can use [IPython magic commands](https://ipython.readthedocs.io/en/stable/interactive/magics.html#line-magics) to figure out what variables we have in memory. IPython magic command `%who` will display names of those variables that you have defined during this session. Magic command `%whose` prints out more information about these variables.\n",
+    "    \n",
+    "    \n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "data\t pd\t \n"
+     ]
+    }
+   ],
+   "source": [
+    "# Display variable names:\n",
+    "%who"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Variable   Type         Data/Info\n",
+      "---------------------------------\n",
+      "data       DataFrame        YEARMODA  TEMP   MAX <...>0160630  65.7  72.7  59.2\n",
+      "pd         module       <module 'pandas' from 'C:<...>es\\\\pandas\\\\__init__.py'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Display variable name, type and info\n",
+    "%whos"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "## DataFrame properties\n",
+    "\n",
+    "We now have some basic Python skills and the ability to read in data from a file for processing. A normal first step when you load new data is to explore the dataset a bit to understand how the data is structured, and what kind of values are stored in there."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Let's start by checking the size of our data frame. We can use the `len()` function similarly as with lists to check how many rows we have:**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "30\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Print number of rows using len()-function\n",
+    "# print(len(dataFrame.index))\n",
+    "print(len(data))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "We can also get a quick sense of the size of the dataset using the `shape` attribute.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(30, 4)\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Print dataframe shape\n",
+    "print(data.shape)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Here we see that our dataset has 30 rows, 4 columns, just as we saw above when printing out the whole DataFrame."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**We can also check the column names we have in our DataFrame.** We already saw the column names when we checked the 5 first rows using `data.head()`, but often it is useful to access only the column names. You can call `data.columns` (returns the an index object) or `data.columns.values` (returns a list of column values) to check the column names:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['YEARMODA' 'TEMP' 'MAX' 'MIN']\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Print columns\n",
+    "print(data.columns.values)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "We can also find information about the row identifiers using the `index` attribute:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "RangeIndex(start=0, stop=30, step=1)\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Print index\n",
+    "print(data.index)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Here we see how the data is indexed, starting at 0, ending at 30, and with an increment of 1 between each value. This is basically the same way in which Python lists are indexed, however, pandas allows also other ways of identifying the rows. DataFrame indices could, for example, be character strings, or date objects (you will learn more about re-setting the index later). Eventually, the \"length\" of the DataFrame (the number of rows) is actually the length of the index:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "30"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "len(data.index)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "What about the data types of each column in our dataFrame? We can check the data type of all the columns at once using `pandas.DataFrame.dtypes`:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "YEARMODA      int64\n",
+      "TEMP        float64\n",
+      "MAX         float64\n",
+      "MIN         float64\n",
+      "dtype: object\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Print data types\n",
+    "print(data.dtypes)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Here we see that `YEARMODA` is an integer value (with 64-bit precision; int64), while the other values are all decimal values with 64-bit precision (float64)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Selecting columns"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "In pandas, we select columns based on the column values (columns names). The basic syntax is `dataframe[value]`, where value can be a single column name, or a list of column names. Let's start by selecting two columns, `'YEARMODA'` and `'TEMP'`:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>YEARMODA</th>\n",
+       "      <th>TEMP</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <td>0</td>\n",
+       "      <td>20160601</td>\n",
+       "      <td>65.5</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>1</td>\n",
+       "      <td>20160602</td>\n",
+       "      <td>65.8</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>2</td>\n",
+       "      <td>20160603</td>\n",
+       "      <td>68.4</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>3</td>\n",
+       "      <td>20160604</td>\n",
+       "      <td>57.5</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>4</td>\n",
+       "      <td>20160605</td>\n",
+       "      <td>51.4</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>5</td>\n",
+       "      <td>20160606</td>\n",
+       "      <td>52.2</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>6</td>\n",
+       "      <td>20160607</td>\n",
+       "      <td>56.9</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>7</td>\n",
+       "      <td>20160608</td>\n",
+       "      <td>54.2</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>8</td>\n",
+       "      <td>20160609</td>\n",
+       "      <td>49.4</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>9</td>\n",
+       "      <td>20160610</td>\n",
+       "      <td>49.5</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>10</td>\n",
+       "      <td>20160611</td>\n",
+       "      <td>54.0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>11</td>\n",
+       "      <td>20160612</td>\n",
+       "      <td>55.4</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>12</td>\n",
+       "      <td>20160613</td>\n",
+       "      <td>58.3</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>13</td>\n",
+       "      <td>20160614</td>\n",
+       "      <td>59.7</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>14</td>\n",
+       "      <td>20160615</td>\n",
+       "      <td>63.4</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>15</td>\n",
+       "      <td>20160616</td>\n",
+       "      <td>57.8</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>16</td>\n",
+       "      <td>20160617</td>\n",
+       "      <td>60.4</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>17</td>\n",
+       "      <td>20160618</td>\n",
+       "      <td>57.3</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>18</td>\n",
+       "      <td>20160619</td>\n",
+       "      <td>56.3</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>19</td>\n",
+       "      <td>20160620</td>\n",
+       "      <td>59.3</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>20</td>\n",
+       "      <td>20160621</td>\n",
+       "      <td>62.6</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>21</td>\n",
+       "      <td>20160622</td>\n",
+       "      <td>61.7</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>22</td>\n",
+       "      <td>20160623</td>\n",
+       "      <td>60.9</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>23</td>\n",
+       "      <td>20160624</td>\n",
+       "      <td>61.1</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>24</td>\n",
+       "      <td>20160625</td>\n",
+       "      <td>65.7</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>25</td>\n",
+       "      <td>20160626</td>\n",
+       "      <td>69.6</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>26</td>\n",
+       "      <td>20160627</td>\n",
+       "      <td>60.7</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>27</td>\n",
+       "      <td>20160628</td>\n",
+       "      <td>65.4</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>28</td>\n",
+       "      <td>20160629</td>\n",
+       "      <td>65.8</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>29</td>\n",
+       "      <td>20160630</td>\n",
+       "      <td>65.7</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "    YEARMODA  TEMP\n",
+       "0   20160601  65.5\n",
+       "1   20160602  65.8\n",
+       "2   20160603  68.4\n",
+       "3   20160604  57.5\n",
+       "4   20160605  51.4\n",
+       "5   20160606  52.2\n",
+       "6   20160607  56.9\n",
+       "7   20160608  54.2\n",
+       "8   20160609  49.4\n",
+       "9   20160610  49.5\n",
+       "10  20160611  54.0\n",
+       "11  20160612  55.4\n",
+       "12  20160613  58.3\n",
+       "13  20160614  59.7\n",
+       "14  20160615  63.4\n",
+       "15  20160616  57.8\n",
+       "16  20160617  60.4\n",
+       "17  20160618  57.3\n",
+       "18  20160619  56.3\n",
+       "19  20160620  59.3\n",
+       "20  20160621  62.6\n",
+       "21  20160622  61.7\n",
+       "22  20160623  60.9\n",
+       "23  20160624  61.1\n",
+       "24  20160625  65.7\n",
+       "25  20160626  69.6\n",
+       "26  20160627  60.7\n",
+       "27  20160628  65.4\n",
+       "28  20160629  65.8\n",
+       "29  20160630  65.7"
+      ]
+     },
+     "execution_count": 40,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data[['YEARMODA','TEMP']]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "pandas.core.frame.DataFrame"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(data[['YEARMODA','TEMP']])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The subset is still a pandas DataFrame, and we are able to use all the methods related to a pandas DataFrame also with this subset. For example, we can check the shape:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(30, 2)"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data[['YEARMODA','TEMP']].shape"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "We can also access a single column of the data based on the column name:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0     65.5\n",
+       "1     65.8\n",
+       "2     68.4\n",
+       "3     57.5\n",
+       "4     51.4\n",
+       "5     52.2\n",
+       "6     56.9\n",
+       "7     54.2\n",
+       "8     49.4\n",
+       "9     49.5\n",
+       "10    54.0\n",
+       "11    55.4\n",
+       "12    58.3\n",
+       "13    59.7\n",
+       "14    63.4\n",
+       "15    57.8\n",
+       "16    60.4\n",
+       "17    57.3\n",
+       "18    56.3\n",
+       "19    59.3\n",
+       "20    62.6\n",
+       "21    61.7\n",
+       "22    60.9\n",
+       "23    61.1\n",
+       "24    65.7\n",
+       "25    69.6\n",
+       "26    60.7\n",
+       "27    65.4\n",
+       "28    65.8\n",
+       "29    65.7\n",
+       "Name: TEMP, dtype: float64"
+      ]
+     },
+     "execution_count": 39,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data['TEMP']"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "What about the type of the column itself?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "pandas.core.series.Series"
+      ]
+     },
+     "execution_count": 37,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Check datatype of the column\n",
+    "type(data['TEMP'])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "**Each column (and each row) in a pandas data frame is actually a pandas Series** - a 1 dimensional data structure!"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Note**\n",
+    "\n",
+    "You can also retreive a column using a different syntax:\n",
+    "    \n",
+    "``` \n",
+    "data.TEMP\n",
+    "```\n",
+    "This syntax works only if the column name is a valid name for a Python variable (e.g. the column name should not contain whitespace).\n",
+    "The syntax `data[\"column\"]` works for all kinds of column names, so we recommend using this approach :)\n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "pandas.core.series.Series"
+      ]
+     },
+     "execution_count": 41,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(data.TEMP)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Descriptive statistics"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Pandas DataFrames and Series contain useful methods for getting summary statistics. Available methods include `mean()`, `median()`, `min()`, `max()`, and `std()` (the standard deviation)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We could, for example, check the mean temperature in our inpu data. We check the mean for a single column (*Series*): "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "59.730000000000004"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Check mean value of a column\n",
+    "data['TEMP'].mean()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "and for all columns (in the *DataFrame*):"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "YEARMODA    20160615.50\n",
+       "TEMP              59.73\n",
+       "MAX               67.94\n",
+       "MIN               51.75\n",
+       "dtype: float64"
+      ]
+     },
+     "execution_count": 24,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data.mean()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "For an overview of the basic statistics for all attributes in the data, we can use the `describe()` method:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>YEARMODA</th>\n",
+       "      <th>TEMP</th>\n",
+       "      <th>MAX</th>\n",
+       "      <th>MIN</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <td>count</td>\n",
+       "      <td>3.000000e+01</td>\n",
+       "      <td>30.000000</td>\n",
+       "      <td>30.000000</td>\n",
+       "      <td>30.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>mean</td>\n",
+       "      <td>2.016062e+07</td>\n",
+       "      <td>59.730000</td>\n",
+       "      <td>67.940000</td>\n",
+       "      <td>51.750000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>std</td>\n",
+       "      <td>8.803408e+00</td>\n",
+       "      <td>5.475472</td>\n",
+       "      <td>6.651761</td>\n",
+       "      <td>5.634484</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>min</td>\n",
+       "      <td>2.016060e+07</td>\n",
+       "      <td>49.400000</td>\n",
+       "      <td>54.100000</td>\n",
+       "      <td>41.700000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>25%</td>\n",
+       "      <td>2.016061e+07</td>\n",
+       "      <td>56.450000</td>\n",
+       "      <td>63.150000</td>\n",
+       "      <td>47.300000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>50%</td>\n",
+       "      <td>2.016062e+07</td>\n",
+       "      <td>60.050000</td>\n",
+       "      <td>69.000000</td>\n",
+       "      <td>54.050000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>75%</td>\n",
+       "      <td>2.016062e+07</td>\n",
+       "      <td>64.900000</td>\n",
+       "      <td>72.375000</td>\n",
+       "      <td>55.750000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>max</td>\n",
+       "      <td>2.016063e+07</td>\n",
+       "      <td>69.600000</td>\n",
+       "      <td>80.800000</td>\n",
+       "      <td>60.300000</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "           YEARMODA       TEMP        MAX        MIN\n",
+       "count  3.000000e+01  30.000000  30.000000  30.000000\n",
+       "mean   2.016062e+07  59.730000  67.940000  51.750000\n",
+       "std    8.803408e+00   5.475472   6.651761   5.634484\n",
+       "min    2.016060e+07  49.400000  54.100000  41.700000\n",
+       "25%    2.016061e+07  56.450000  63.150000  47.300000\n",
+       "50%    2.016062e+07  60.050000  69.000000  54.050000\n",
+       "75%    2.016062e+07  64.900000  72.375000  55.750000\n",
+       "max    2.016063e+07  69.600000  80.800000  60.300000"
+      ]
+     },
+     "execution_count": 25,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Get descriptive statistics\n",
+    "data.describe()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Extra: Very basic plots"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Pandas comes with a handful of plotting methods, which all rely on the plotting library [matplotlib](https://matplotlib.org/). "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "For very basic plots, we don't need to import matplotlib separately, but we need to run a magic command `%matplotlib inline` in order to make the plots visible in our notebook:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 62,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%matplotlib inline"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We can already achieve very simple plots using the `DataFrame.plot` -method. Let's plot all the columns that contain values related to temperatures:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 63,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<matplotlib.axes._subplots.AxesSubplot at 0x6b67fd0>"
+      ]
+     },
+     "execution_count": 63,
+     "metadata": {},
+     "output_type": "execute_result"
+    },
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<Figure size 432x288 with 1 Axes>"
+      ]
+     },
+     "metadata": {
+      "needs_background": "light"
+     },
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "data[[\"TEMP\", \"MAX\", \"MIN\"]].plot()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We can could also at the distribution of temperature values using a boxplot visualization:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 64,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<matplotlib.axes._subplots.AxesSubplot at 0xa6ad4a8>"
+      ]
+     },
+     "execution_count": 64,
+     "metadata": {},
+     "output_type": "execute_result"
+    },
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<Figure size 432x288 with 1 Axes>"
+      ]
+     },
+     "metadata": {
+      "needs_background": "light"
+     },
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "data[[\"TEMP\", \"MAX\", \"MIN\"]].boxplot()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Now, you might want to start modifying the plots by adding axis labels, color settings and other formatting. For anythin more advanced, we should import matplotlib (`import matplotlib.pyplot as plt`). We will learn more about matplotlib and plotting data during week 7 :)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "## Extra: From lists to pandas objects\n",
+    "\n",
+    "Most often we create pandas objects by reading in data from an external source, such as a text file. Here, we will briefly see how you can create pandas objects from Python lists. If you have long lists of numbers, for instance, creating a Pandas Series will allow you to interact with these values more efficiently in terms of computing time."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0    4.0\n",
+      "1    5.0\n",
+      "2    6.0\n",
+      "3    7.0\n",
+      "dtype: float64\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Create Pandas Series from a list\n",
+    "number_series = pd.Series([ 4, 5, 6, 7.0])\n",
+    "print(number_series)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Note that Pandas is smart about the conversion, detecting a single floating point value (`7.0`) and assigning all values in the Series the data type float64."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "If needed, you can also set a custom index when creating the object:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "a    4.0\n",
+      "b    5.0\n",
+      "c    6.0\n",
+      "d    7.0\n",
+      "dtype: float64\n"
+     ]
+    }
+   ],
+   "source": [
+    "number_series = pd.Series([ 4, 5, 6, 7.0], index=['a','b','c','d'])\n",
+    "print(number_series)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "pandas.core.series.Series"
+      ]
+     },
+     "execution_count": 31,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(number_series)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "How about combining several lists as a DataFrame? Let's take a subset of the lists we used in Exercise 3, problem 3 and see how we could combine those as a pandas DataFrame:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Station names\n",
+    "stations = ['Hanko Russarö', 'Heinola Asemantaus', 'Helsinki Kaisaniemi', 'Helsinki Malmi airfield']\n",
+    "\n",
+    "# Latitude coordinates of Weather stations  \n",
+    "lats = [59.77, 61.2, 60.18, 60.25]\n",
+    "\n",
+    "# Longitude coordinates of Weather stations \n",
+    "lons = [22.95, 26.05, 24.94, 25.05]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Often we indeed create pandas DataFrames by reading in data (e.g. using `pd.read_csv(filename.csv)`), but sometimes your might also combine lists into a DataFrame inside the script using the `pandas.DataFrame` constructor. Here, we are using a *Python dictionary* `{\"column_1\": list_1, \"column_2\": list_2, ...}` to indicate the structure of our data. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>station_name</th>\n",
+       "      <th>lat</th>\n",
+       "      <th>lon</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <td>0</td>\n",
+       "      <td>Hanko Russarö</td>\n",
+       "      <td>59.77</td>\n",
+       "      <td>22.95</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>1</td>\n",
+       "      <td>Heinola Asemantaus</td>\n",
+       "      <td>61.20</td>\n",
+       "      <td>26.05</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>2</td>\n",
+       "      <td>Helsinki Kaisaniemi</td>\n",
+       "      <td>60.18</td>\n",
+       "      <td>24.94</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>3</td>\n",
+       "      <td>Helsinki Malmi airfield</td>\n",
+       "      <td>60.25</td>\n",
+       "      <td>25.05</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "              station_name    lat    lon\n",
+       "0            Hanko Russarö  59.77  22.95\n",
+       "1       Heinola Asemantaus  61.20  26.05\n",
+       "2      Helsinki Kaisaniemi  60.18  24.94\n",
+       "3  Helsinki Malmi airfield  60.25  25.05"
+      ]
+     },
+     "execution_count": 33,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "new_data = pd.DataFrame(data = {\"station_name\" : stations, \"lat\" : lats, \"lon\" : lons})\n",
+    "new_data"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "pandas.core.frame.DataFrame"
+      ]
+     },
+     "execution_count": 34,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(new_data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "That's it! Next, we will have a look at [basic operations for data analysis in Pandas](processing-data-with-pandas.ipynb)."
+   ]
+  }
+ ],
+ "metadata": {
+  "anaconda-cloud": {},
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
