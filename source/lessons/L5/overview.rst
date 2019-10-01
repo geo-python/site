@@ -13,12 +13,11 @@ We will also go trough the basics of using `NumPy <https://www.numpy.org/>`__ wh
 3. `Processing data using pandas <../../notebooks/L5/processing-data-with-pandas.ipynb>`_
 4. :doc:`Exercise 5: Data analysis I <exercise-5>`
 
-Contents of the lesson
+Contents of the Pandas lesson
 -----------------------------
 .. toctree::
     :maxdepth: 2
 
-    overview
     ../../notebooks/L5/exploring-data-using-pandas.ipynb
     ../../notebooks/L5/processing-data-with-pandas.ipynb
 
