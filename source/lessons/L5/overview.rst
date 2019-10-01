@@ -18,6 +18,7 @@ Contents of the Pandas lesson
 .. toctree::
     :maxdepth: 2
 
+    pandas-overview
     ../../notebooks/L5/exploring-data-using-pandas.ipynb
     ../../notebooks/L5/processing-data-with-pandas.ipynb
 
