@@ -9,8 +9,8 @@ We will also go trough the basics of using `NumPy <https://www.numpy.org/>`__ wh
 
 
 1. :doc:`Overview of the pandas module <pandas-overview>`
-2. `Exploring data using pandas <../../notebooks/L5/pandas/Exploring-data-using-pandas.ipynb>`_
-3. `Processing data using pandas <../../notebooks/L5/pandas/processing-data-with-pandas.ipynb>`_
+2. `Exploring data using pandas <../../notebooks/L5/exploring-data-using-pandas.ipynb>`_
+3. `Processing data using pandas <../../notebooks/L5/processing-data-with-pandas.ipynb>`_
 4. :doc:`Exercise 5: Data analysis I <exercise-5>`
 
 Learning goals
