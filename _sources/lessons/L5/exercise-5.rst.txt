@@ -1,18 +1,24 @@
 Exercise 5
 ==========
 
-.. warning::
 
-    Please note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
+.. note::
+
+    Please complete this exercise by **09:00 Wednesday, 8 October 2019**.
+
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 5 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/xlPEDOv7>`__.
+    **You can start working on your copy of Exercise 5 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/ZS8qlS1C>`__.
 
     **Exercise 5 is due by the start of lecture in week 6**.
 
-You can also take a look at the open course copy of `Exercise 5 in the course GitHub repository <https://github.com/Geo-Python-2018/Exercise-5>`__ (does not require logging in).
+You can also take a look at the open course copy of `Exercise 5 in the course GitHub repository <https://github.com/Geo-Python-2019/Exercise-5>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
+
+.. warning::
+
+    Please note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
 
 
 Exercise 5 hints for Pandas
