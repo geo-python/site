@@ -865,7 +865,7 @@ This page was generated from <a class="reference external" href="https://github.
 </pre></div>
 </div>
 <p>Because the data is separated with varying amount of spaces, we need to tell Pandas how to read it. We can control the delimiter with <code class="docutils literal notranslate"><span class="pre">sep</span></code> parameter following the documentation of the function <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code>:</p>
-<p><img alt="image0" src="notebooks/L6/../img/Kiira-storm.PNG" /></p>
+<p><img alt="image0" src="../../_images/Kiira-storm.PNG" /></p>
 <p>Hence, we can separate the columns by varying number spaces of spaces with <code class="docutils literal notranslate"><span class="pre">sep='\s+'</span></code> -parameter. Our data also included No Data values with varying number of <code class="docutils literal notranslate"><span class="pre">*</span></code> -characters. Hence, we need to take also those into account when reading the data. We can tell Pandas to consider those characters as NaNs by specifying <code class="docutils literal notranslate"><span class="pre">na_values=['*',</span> <span class="pre">'**',</span> <span class="pre">'***',</span> <span class="pre">'****',</span> <span class="pre">'*****',</span> <span class="pre">'******']</span></code>.</p>
 <ul class="simple">
 <li>Let’s start by reading the data with pandas:</li>
@@ -903,12 +903,12 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-    USAF   WBAN  YR--MODAHRMN  DIR  SPD  GUS   CLG  SKC   L   M ...      SLP  \
-0  29740  99999  201708040000  114    6  NaN   NaN  BKN NaN NaN ...   1005.6
-1  29740  99999  201708040020  100    6  NaN  75.0  NaN NaN NaN ...      NaN
-2  29740  99999  201708040050  100    5  NaN  60.0  NaN NaN NaN ...      NaN
-3  29740  99999  201708040100  123    8  NaN  63.0  OVC NaN NaN ...   1004.7
-4  29740  99999  201708040120  110    7  NaN  70.0  NaN NaN NaN ...      NaN
+    USAF   WBAN  YR--MODAHRMN  DIR  SPD  GUS   CLG  SKC   L   M  ...     SLP  \
+0  29740  99999  201708040000  114    6  NaN   NaN  BKN NaN NaN  ...  1005.6
+1  29740  99999  201708040020  100    6  NaN  75.0  NaN NaN NaN  ...     NaN
+2  29740  99999  201708040050  100    5  NaN  60.0  NaN NaN NaN  ...     NaN
+3  29740  99999  201708040100  123    8  NaN  63.0  OVC NaN NaN  ...  1004.7
+4  29740  99999  201708040120  110    7  NaN  70.0  NaN NaN NaN  ...     NaN
 
      ALT    STP  MAX  MIN  PCP01  PCP06  PCP24  PCPXX   SD
 0    NaN  999.2  NaN  NaN    NaN    NaN    NaN    NaN  0.0
@@ -1316,7 +1316,7 @@ Row type:
 <div class="section" id="String-manipulation-in-Pandas">
 <h2>String manipulation in Pandas<a class="headerlink" href="#String-manipulation-in-Pandas" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1361,7 +1361,7 @@ Row type:
 <li>Let’s convert the time into string. And check that the data type changes:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1393,7 +1393,7 @@ Data type of the first value in column:
 <li>Now we can slice them into hourly level by including only 10 first characters from the text (i.e. excluding the minute-level information).</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1431,7 +1431,7 @@ Data type of the first value in column:
 <li>Let’s also slice only the hour of the day (excluding information about the date) and convert it back to integer (we will be using this information later):</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1481,7 +1481,7 @@ Data type of the first value in column:
 <li>Let’s first create a new <strong>empty</strong> DataFrame where we will store our aggregated data</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1494,7 +1494,7 @@ Data type of the first value in column:
 <li>Let’s then <strong>group</strong> our data based on <code class="docutils literal notranslate"><span class="pre">TIME_h</span></code> attribute that contains the information about the date + hour.</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1507,7 +1507,7 @@ Data type of the first value in column:
 <li>Let’s see what we have now.</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1525,7 +1525,7 @@ Data type of the first value in column:
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Type:
- &lt;class &#39;pandas.core.groupby.groupby.DataFrameGroupBy&#39;&gt;
+ &lt;class &#39;pandas.core.groupby.generic.DataFrameGroupBy&#39;&gt;
 Length:
  24
 </pre></div></div>
@@ -1536,7 +1536,7 @@ Length:
 <li>Let’s now see what we have on hour <code class="docutils literal notranslate"><span class="pre">grouped</span></code> variable e.g. on the first hour <code class="docutils literal notranslate"><span class="pre">2017080400</span></code>. We can get the values of that hour from <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code> -object with <strong>``get_group()``</strong> -function.</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1578,7 +1578,7 @@ Length:
 <li><code class="docutils literal notranslate"><span class="pre">Celsius</span></code>.</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1610,7 +1610,7 @@ dtype: float64
 <p>Nice, now we have averaged our data and e.g. the mean Celsius temperature seems to be about right when comparing to the original values above. As you saw from this example, it is possible to do calculations for multiple columns at the same time efficiently with Pandas.</p>
 <p>Notice that we still have information about the hour but not about the date which is at the moment stored in <strong>``time1``</strong> -variable. We can insert that datetime-information into our <strong>``mean_values``</strong> Series so that we have the date information also associated with our data.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1640,7 +1640,7 @@ dtype: object
 <p>Perfect! Now we have also time information there.</p>
 <p>The last thing to do is to add these mean values into our DataFrame that we created. That can be done with <strong>``append()``</strong> -function in a quite similar manner as with Python lists. In Pandas the data insertion is not done <strong>inplace</strong> (as when appending to Python lists) so we need to specify that we are updating the aggr_data (using the <strong>``=``</strong> sign). We also need to specify that we ignore the index values of our original DataFrame (i.e. the indices of <code class="docutils literal notranslate"><span class="pre">mean_values</span></code>).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1667,7 +1667,7 @@ dtype: object
 <li>Let’s see how we can iterate over the groups and print the key and the data from a single group (again using <strong>``break``</strong> to only see what is happening).</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1707,7 +1707,7 @@ Group:
 <li>Let’s see how we can create a DataFrame where we calculate the mean values for all those weather attributes that we were interested in. I will repeate slightly the earlier steps so that you can see and better understand what is happening.</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1734,7 +1734,7 @@ Group:
 <li>Let’s see what we have now:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1784,7 +1784,7 @@ Group:
 <li>Let’s first find out what is the standard deviation and the mean of the Wind speed.</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1810,7 +1810,7 @@ Mean: 5.153377777777777
 <li>Hence, the threshold for a wind speed to be an outlier with our criteria is:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1832,7 +1832,7 @@ Upper threshold for outlier: 8.434516639449974
 <li>Let’s finally create a column called <strong>``Outlier``</strong> which we update with <strong>``True``</strong> value, if the windspeed is an outlier, and <strong>``False``</strong>, if it is not. We do this again by iterating over the rows.</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1915,7 +1915,7 @@ Upper threshold for outlier: 8.434516639449974
 <li>Let’s select the rows with potential storm:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1947,7 +1947,7 @@ Upper threshold for outlier: 8.434516639449974
 <li>Here we will repeat all the steps that we did earlier in one code block so that you can see the full picture:</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2027,7 +2027,7 @@ Upper threshold for outlier: 8.434516639449974
 <li>Let’s start by checking if the average and standard deviation of the windspeed differ from the previous ones</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2042,8 +2042,8 @@ Upper threshold for outlier: 8.434516639449974
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Std: 2.1405899770297245
-Mean: 4.1990832704402505
+Std: 2.140589977029723
+Mean: 4.199083270440251
 </pre></div></div>
 </div>
 <p>Okey so they are indeed different now! With larger dataset the average wind speed is 4.2 m/s (compared to 5.2 m/s previously).</p>
@@ -2051,7 +2051,7 @@ Mean: 4.1990832704402505
 <li>Let’s see what we have now in our <strong>``storm``</strong> -variable.</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2119,7 +2119,7 @@ Mean: 4.1990832704402505
 <li>Let’s see the counts for different hours of the day</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2152,7 +2152,7 @@ Name: TIME_h, dtype: int64
 <li>Let’s see what were the strongest gust winds in our dataset by sorting the values using <strong>``sort_values()``</strong> -function.</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2219,7 +2219,7 @@ Name: TIME_h, dtype: int64
 </pre></div></div>
 </div>
 <p>Interesting! There was one hour with quite extraordinary gust wind in our data happening at 12th of August in 2017. Indeed, that was a big storm in Helsinki called <a class="reference external" href="https://yle.fi/uutiset/osasto/news/saturday_night_storm_downs_trees_cuts_electricity_in_the_south/9773250">**Kiira**</a> that caused major damage in different parts of the city. (<em>Source: `YLE &lt;https://yle.fi/uutiset/osasto/news/saturday_night_storm_downs_trees_cuts_electricity_in_the_south/9773250&gt;`__; Photo: Markku Sipi</em>)</p>
-<p><img alt="image0" src="notebooks/L6/../img/Kiira-storm.PNG" /></p>
+<p><img alt="image0" src="../../_images/Kiira-storm.PNG" /></p>
 <p><strong>TAKE HOME MESSAGE</strong>: As we have seen here, we can already conduct fairly interesting data analysis with Pandas that provides various useful functionalities that are fairly straightforward and easy to use. Similar approaches can be used for many different kind of datasets.</p>
 </div>
 </div>
