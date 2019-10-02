@@ -1,0 +1,1738 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Advanced data processing with Pandas\n",
+    "\n",
+    "In this week, we will continue developing our skills using Pandas to analyze climate data. The aim of this lesson\n",
+    "is to learn different functions to manipulate with the data and do simple analyses. In the end, our goal is\n",
+    "to detect weather anomalies (stormy winds) in Helsinki, during August 2017.\n",
+    "\n",
+    "## Reading the data\n",
+    "\n",
+    "Notice that this time, we will read the **actual** data obtained from NOAA\n",
+    "without any modifications to the actual data by us. The data is separated with varying amount of spaces (fixed width). The first lines and columns of the data looks like following:\n",
+    "\n",
+    "```\n",
+    "      USAF  WBAN YR--MODAHRMN DIR SPD GUS CLG SKC L M H  VSB MW MW MW MW AW AW AW AW W TEMP DEWP    SLP  ...\n",
+    "    029740 99999 201708040000 114   6 *** *** BKN * * * 25.0 03 ** ** ** ** ** ** ** 2   58   56 1005.6  ...\n",
+    "```\n",
+    "\n",
+    "Because the data is separated with varying amount of spaces, we need to tell Pandas how to read it. We can control the delimiter with ``sep`` parameter following the documentation of the function `read_csv()`:\n",
+    "\n",
+    "![](../img/read-csv-varying-spaces.PNG)\n",
+    "\n",
+    "Hence, we can separate the columns by varying number spaces of spaces with ``sep='\\s+'`` -parameter.\n",
+    "Our data also included No Data values with varying number of ``*`` -characters. Hence, we need to take also those\n",
+    "into account when reading the data. We can tell Pandas to consider those characters as NaNs by specifying ``na_values=['*', '**', '***', '****', '*****', '******']``.\n",
+    "\n",
+    "- Let's start by reading the data with pandas:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "fp = \"data/6591337447542dat_sample.txt\"\n",
+    "\n",
+    "# Read data using varying amount of spaces as separator and specifying * characters as NoData values\n",
+    "data = pd.read_csv(fp, sep='\\s+', na_values=['*', '**', '***', '****', '*****', '******'])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Exploring data and renaming columns\n",
+    "\n",
+    "- Let's see how the data looks by printing the first five rows with ``head()`` function"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    USAF   WBAN  YR--MODAHRMN  DIR  SPD  GUS   CLG  SKC   L   M ...      SLP  \\\n",
+      "0  29740  99999  201708040000  114    6  NaN   NaN  BKN NaN NaN ...   1005.6   \n",
+      "1  29740  99999  201708040020  100    6  NaN  75.0  NaN NaN NaN ...      NaN   \n",
+      "2  29740  99999  201708040050  100    5  NaN  60.0  NaN NaN NaN ...      NaN   \n",
+      "3  29740  99999  201708040100  123    8  NaN  63.0  OVC NaN NaN ...   1004.7   \n",
+      "4  29740  99999  201708040120  110    7  NaN  70.0  NaN NaN NaN ...      NaN   \n",
+      "\n",
+      "     ALT    STP  MAX  MIN  PCP01  PCP06  PCP24  PCPXX   SD  \n",
+      "0    NaN  999.2  NaN  NaN    NaN    NaN    NaN    NaN  0.0  \n",
+      "1  29.68    NaN  NaN  NaN    NaN    NaN    NaN    NaN  NaN  \n",
+      "2  29.65    NaN  NaN  NaN    NaN    NaN    NaN    NaN  NaN  \n",
+      "3    NaN  998.4  NaN  NaN    NaN    NaN    NaN    NaN  0.0  \n",
+      "4  29.65    NaN  NaN  NaN    NaN    NaN    NaN    NaN  NaN  \n",
+      "\n",
+      "[5 rows x 33 columns]\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(data.head())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okay so we can see that the data was successfully read to the DataFrame and we also seemed to be able to convert the asterix (\\*) characters into `NaN` -values. \n",
+    "\n",
+    "- Let's continue and check what columns do we have."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Index(['USAF', 'WBAN', 'YR--MODAHRMN', 'DIR', 'SPD', 'GUS', 'CLG', 'SKC', 'L',\n",
+       "       'M', 'H', 'VSB', 'MW', 'MW.1', 'MW.2', 'MW.3', 'AW', 'AW.1', 'AW.2',\n",
+       "       'AW.3', 'W', 'TEMP', 'DEWP', 'SLP', 'ALT', 'STP', 'MAX', 'MIN', 'PCP01',\n",
+       "       'PCP06', 'PCP24', 'PCPXX', 'SD'],\n",
+       "      dtype='object')"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data.columns"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "As we can see, there are quite many columns, however, we are not interested to use all of them.\n",
+    "\n",
+    "- Let's select only columns that might be used to detect unexceptional weather conditions, i.e. YR--MODAHRMN, DIR, SPD, GUS, TEMP, MAX, and MIN.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Specify a list of columns that will be selected from the DataFrame\n",
+    "select_cols = ['YR--MODAHRMN', 'DIR', 'SPD', 'GUS','TEMP', 'MAX', 'MIN']\n",
+    "\n",
+    "# Do the selection\n",
+    "data = data[select_cols]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Let's see what our data looks like now by printing **last** 5 rows and the datatypes."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    YR--MODAHRMN  DIR  SPD   GUS  TEMP  MAX  MIN\n",
+      "67  201708042220  180   11   NaN    61  NaN  NaN\n",
+      "68  201708042250  190    8   NaN    59  NaN  NaN\n",
+      "69  201708042300  200    9  11.0    60  NaN  NaN\n",
+      "70  201708042320  190    8   NaN    59  NaN  NaN\n",
+      "71  201708042350  190    8   NaN    59  NaN  NaN\n",
+      "\n",
+      "Data-types:\n",
+      "\n",
+      "YR--MODAHRMN      int64\n",
+      "DIR               int64\n",
+      "SPD               int64\n",
+      "GUS             float64\n",
+      "TEMP              int64\n",
+      "MAX             float64\n",
+      "MIN             float64\n",
+      "dtype: object\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Show last five rows\n",
+    "print(data.tail())\n",
+    "\n",
+    "# Check the data types\n",
+    "print(\"\\nData-types:\\n\")\n",
+    "print(data.dtypes)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The column names that we have are somewhat ackward. Let's change them into more intuitive ones. \n",
+    "This can be done easily with ``rename()`` -function.\n",
+    "\n",
+    "We can define the new column names by using a specific data type in Python called [dictionary](https://www.tutorialspoint.com/python/python_dictionary.htm) where we determine \"`key: value`\" -pairs, in which the original column name (the one which will be replaced) is the key, and the new column name is the value.\n",
+    "\n",
+    "- Let's change:\n",
+    "   \n",
+    "   - ``YR--MODAHRMN`` column into ``TIME``, \n",
+    "   - ``SPD`` into ``SPEED``, and\n",
+    "   - ``GUS`` into ``GUST``\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'YR--MODAHRMN': 'TIME', 'SPD': 'SPEED', 'GUS': 'GUST'}\n",
+      "<class 'dict'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Create the dictionary with old and new names\n",
+    "name_conversion_dict = {'YR--MODAHRMN': 'TIME', 'SPD': 'SPEED', 'GUS': 'GUST'}\n",
+    "\n",
+    "# Let's see what they look like and what is the type\n",
+    "print(name_conversion_dict)\n",
+    "print(type(name_conversion_dict))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "From above we can see that we have successfully created a dictionary that is of type `dict`. \n",
+    "\n",
+    "- Now we can change the column names by passing that dictionary into parameter ``columns`` in ``rename()`` -function."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Index(['TIME', 'DIR', 'SPEED', 'GUST', 'TEMP', 'MAX', 'MIN'], dtype='object')\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Rename the columns\n",
+    "data = data.rename(columns=name_conversion_dict)\n",
+    "\n",
+    "# Print the new columns\n",
+    "print(data.columns)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Perfect, now our column names are more easy to understand and use. \n",
+    "\n",
+    "- Let's check some basic statistics to understand our data better."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "               TIME         DIR      SPEED       GUST       TEMP        MAX  \\\n",
+      "count  7.200000e+01   72.000000  72.000000  20.000000  72.000000   2.000000   \n",
+      "mean   2.017080e+11  229.555556  11.527778  17.700000  61.513889  66.500000   \n",
+      "std    6.973834e+02  215.759248   3.756580   5.068998   3.175580   3.535534   \n",
+      "min    2.017080e+11   80.000000   5.000000  11.000000  58.000000  64.000000   \n",
+      "25%    2.017080e+11  117.750000   9.000000  13.000000  59.000000  65.250000   \n",
+      "50%    2.017080e+11  200.000000  11.000000  16.000000  61.000000  66.500000   \n",
+      "75%    2.017080e+11  220.000000  15.000000  22.250000  64.000000  67.750000   \n",
+      "max    2.017080e+11  990.000000  20.000000  29.000000  69.000000  69.000000   \n",
+      "\n",
+      "             MIN  \n",
+      "count   2.000000  \n",
+      "mean   57.000000  \n",
+      "std     1.414214  \n",
+      "min    56.000000  \n",
+      "25%    56.500000  \n",
+      "50%    57.000000  \n",
+      "75%    57.500000  \n",
+      "max    58.000000  \n"
+     ]
+    }
+   ],
+   "source": [
+    "print(data.describe())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey so from here we can see that there are varying number of observations per column (see the `count` -information). \n",
+    "\n",
+    "For example **`SPD`** and **`TEMP`** column has 72 observations whereas **`GUS`** has only 20 observations and **`MAX`** and **`MIN`** has only 2 observations. From here we can already guess that `MAX` and `MIN` attributes are most probably not going to be useful for us.\n",
+    "However, `GUS` might be.\n",
+    "\n",
+    "- Let's explore further our data by checking the first 30 rows of it.\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "            TIME  DIR  SPEED  GUST  TEMP   MAX   MIN\n",
+      "0   201708040000  114      6   NaN    58   NaN   NaN\n",
+      "1   201708040020  100      6   NaN    59   NaN   NaN\n",
+      "2   201708040050  100      5   NaN    59   NaN   NaN\n",
+      "3   201708040100  123      8   NaN    59   NaN   NaN\n",
+      "4   201708040120  110      7   NaN    59   NaN   NaN\n",
+      "5   201708040150  100      6   NaN    61   NaN   NaN\n",
+      "6   201708040200  138     10  13.0    59   NaN   NaN\n",
+      "7   201708040220  120     10   NaN    59   NaN   NaN\n",
+      "8   201708040250  100      9   NaN    59   NaN   NaN\n",
+      "9   201708040300  108      9  12.0    59   NaN   NaN\n",
+      "10  201708040320   90      8   NaN    59   NaN   NaN\n",
+      "11  201708040350   80      9   NaN    59   NaN   NaN\n",
+      "12  201708040400  102     11  15.0    58   NaN   NaN\n",
+      "13  201708040420   80     10   NaN    59   NaN   NaN\n",
+      "14  201708040450   80     10   NaN    59   NaN   NaN\n",
+      "15  201708040500  119     12  17.0    58   NaN   NaN\n",
+      "16  201708040520  990     11   NaN    59   NaN   NaN\n",
+      "17  201708040550  100     13   NaN    59   NaN   NaN\n",
+      "18  201708040600  121     16  23.0    58  64.0  56.0\n",
+      "19  201708040620  110     15   NaN    59   NaN   NaN\n",
+      "20  201708040650  100     15   NaN    59   NaN   NaN\n",
+      "21  201708040700  119     14  22.0    58   NaN   NaN\n",
+      "22  201708040720  990     14   NaN    59   NaN   NaN\n",
+      "23  201708040750  100     13   NaN    59   NaN   NaN\n",
+      "24  201708040800  125     10  15.0    58   NaN   NaN\n",
+      "25  201708040820  990      9   NaN    59   NaN   NaN\n",
+      "26  201708040850  100      7   NaN    59   NaN   NaN\n",
+      "27  201708040900  107      8   NaN    59   NaN   NaN\n",
+      "28  201708040920  990      7   NaN    59   NaN   NaN\n",
+      "29  201708040950  990      6   NaN    61   NaN   NaN\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(data.head(30))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey, so from here we can actually see that the **`GUST`** column contains information only on an hourly level. That might be useful! Let's keep this in mind.\n",
+    "\n",
+    "**TAKE HOME MESSAGE**: Whenever starting a data analysis with new dataset, it is highly useful to explore the data by calculating basic statistics from the data (+ visualizing the data, which we will learn later). "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Iterating rows and using self-made functions in Pandas\n",
+    "\n",
+    "Let's do the \"SAME THING\" as so many times before and convert our Fahrenheit temperatures into Celsius (sorry if we seem to lack imagination =) ).\n",
+    "\n",
+    "In this time, however, we will use our self-made function to do the conversion.\n",
+    "\n",
+    "- Let's first define the function:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "def fahrToCelsius(temp_fahrenheit):\n",
+    "    \"\"\"\n",
+    "    Function to convert Fahrenheit temperature into Celsius.\n",
+    "\n",
+    "    Parameters\n",
+    "    ----------\n",
+    "\n",
+    "    temp_fahrenheit: int | float\n",
+    "        Input temperature in Fahrenheit (should be a number)\n",
+    "        \n",
+    "    Returns\n",
+    "    -------\n",
+    "    \n",
+    "    Temperature in Celsius (float)\n",
+    "    \"\"\"\n",
+    "\n",
+    "    # Convert the Fahrenheit into Celsius and return it\n",
+    "    converted_temp = (temp_fahrenheit - 32) / 1.8\n",
+    "    return converted_temp"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Let's do the conversion by iterating our data line by line and updating a column called **`CELSIUS`** that we will create.\n",
+    "\n",
+    "We can iterate over the rows of Pandas DataFrame by using **`iterrows()`** -function.\n",
+    "When iterating over the rows in our `DataFrame`, it is noteworthy to understand that the Pandas actually keeps track on the **`index`** value as well. Hence, the contents of a single row actually contains not only the values, but also the `index` of that row.\n",
+    "\n",
+    "- Let's see how it works. Here, we will use a specific Python command called [**`break`**](https://www.tutorialspoint.com/python/python_break_statement.htm) can be used to stop the iteration right after the first loop. This can be quite useful as we don't want to fill our console by printing all the values and indices in our DataFrame, but to just see if the function works as we want:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Index: 0\n",
+      "TIME     2.017080e+11\n",
+      "DIR      1.140000e+02\n",
+      "SPEED    6.000000e+00\n",
+      "GUST              NaN\n",
+      "TEMP     5.800000e+01\n",
+      "MAX               NaN\n",
+      "MIN               NaN\n",
+      "Name: 0, dtype: float64\n",
+      "\n",
+      "Row type:\n",
+      " <class 'pandas.core.series.Series'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Iterate over the rows\n",
+    "for idx, row in data.iterrows():\n",
+    "    # Print the index value\n",
+    "    print('Index:', idx)\n",
+    "    \n",
+    "    # Print the row\n",
+    "    print(row)\n",
+    "    \n",
+    "    # Stop iteration with break command\n",
+    "    break\n",
+    "    \n",
+    "# Let's see what is the type of our row\n",
+    "print(\"\\nRow type:\\n\", type(row))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey, so here we can see that the **`idx`** variable indeed contains the index value at position 0 (the first row) and the **`row`** variable contains all the data from that given row stored as **`pd.Series`**.\n",
+    "\n",
+    "- Let's now create an empty column for the Celsius temperatures and update the values into that column by using our function. Here is the whole procedure:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Create an empty column for the DataFrame where the values will be stored\n",
+    "col_name = 'Celsius'\n",
+    "data[col_name] = None\n",
+    "\n",
+    "# Iterate over the rows \n",
+    "for idx, row in data.iterrows():\n",
+    "    # Convert the Fahrenheit to Celsius\n",
+    "    celsius = fahrToCelsius(row['TEMP'])\n",
+    "    \n",
+    "    # Update the value of 'Celsius' column with the converted value using .loc that we learned last week\n",
+    "    data.loc[idx, col_name] = celsius"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Let's see what we have now."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "           TIME  DIR  SPEED  GUST  TEMP  MAX  MIN  Celsius\n",
+      "0  201708040000  114      6   NaN    58  NaN  NaN  14.4444\n",
+      "1  201708040020  100      6   NaN    59  NaN  NaN       15\n",
+      "2  201708040050  100      5   NaN    59  NaN  NaN       15\n",
+      "3  201708040100  123      8   NaN    59  NaN  NaN       15\n",
+      "4  201708040120  110      7   NaN    59  NaN  NaN       15\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(data.head())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Great! Now we have converted our temperatures into Celsius by using the function that we created ourselves.\n",
+    "Knowing how to use your own function in Pandas can be really useful when doing your own analyses. There is also another more powerful way of using functions in Pandas by taking advantage of [**`apply()`**](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.apply.html) -function, but we will learn that later.\n",
+    "\n",
+    "- Finally, let's convert the wind speeds into meters per second values (m/s) as they are more familiar to us in Finland. This can be done with a formula **`m/s = mph x 0.44704`**:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "           TIME  DIR    SPEED  GUST  TEMP  MAX  MIN  Celsius\n",
+      "0  201708040000  114  2.68224   NaN    58  NaN  NaN  14.4444\n",
+      "1  201708040020  100  2.68224   NaN    59  NaN  NaN       15\n",
+      "2  201708040050  100  2.23520   NaN    59  NaN  NaN       15\n",
+      "3  201708040100  123  3.57632   NaN    59  NaN  NaN       15\n",
+      "4  201708040120  110  3.12928   NaN    59  NaN  NaN       15\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Convert speeds from miles to meters\n",
+    "data['SPEED'] = data['SPEED']*0.44704\n",
+    "data['GUST'] = data['GUST']*0.44704\n",
+    "\n",
+    "# Print the first 5 values\n",
+    "print(data.head())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## String manipulation in Pandas"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "            TIME  DIR    SPEED      GUST  TEMP   MAX   MIN  Celsius\n",
+      "0   201708040000  114  2.68224       NaN    58   NaN   NaN  14.4444\n",
+      "1   201708040020  100  2.68224       NaN    59   NaN   NaN       15\n",
+      "2   201708040050  100  2.23520       NaN    59   NaN   NaN       15\n",
+      "3   201708040100  123  3.57632       NaN    59   NaN   NaN       15\n",
+      "4   201708040120  110  3.12928       NaN    59   NaN   NaN       15\n",
+      "5   201708040150  100  2.68224       NaN    61   NaN   NaN  16.1111\n",
+      "6   201708040200  138  4.47040   5.81152    59   NaN   NaN       15\n",
+      "7   201708040220  120  4.47040       NaN    59   NaN   NaN       15\n",
+      "8   201708040250  100  4.02336       NaN    59   NaN   NaN       15\n",
+      "9   201708040300  108  4.02336   5.36448    59   NaN   NaN       15\n",
+      "10  201708040320   90  3.57632       NaN    59   NaN   NaN       15\n",
+      "11  201708040350   80  4.02336       NaN    59   NaN   NaN       15\n",
+      "12  201708040400  102  4.91744   6.70560    58   NaN   NaN  14.4444\n",
+      "13  201708040420   80  4.47040       NaN    59   NaN   NaN       15\n",
+      "14  201708040450   80  4.47040       NaN    59   NaN   NaN       15\n",
+      "15  201708040500  119  5.36448   7.59968    58   NaN   NaN  14.4444\n",
+      "16  201708040520  990  4.91744       NaN    59   NaN   NaN       15\n",
+      "17  201708040550  100  5.81152       NaN    59   NaN   NaN       15\n",
+      "18  201708040600  121  7.15264  10.28192    58  64.0  56.0  14.4444\n",
+      "19  201708040620  110  6.70560       NaN    59   NaN   NaN       15\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(data.head(20))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "When looking the data more carefully, we can see something interesting:\n",
+    " - **`GUST`** seems to be measured only once an hour, whereas **`SPD`** (wind speed), and our temperatures seem to be measured approximately every 20 minutes (at minutes XX:00, XX:20 and XX:50).\n",
+    "\n",
+    "That might be a problem as we might not be able to compare e.g. the average wind speeds and the speeds during the gust together as they are measured with different intervals. This kind of mismatch between sampling rates of measurements is actually quite typical when working with real data.\n",
+    "\n",
+    "How we can solve this problem, is to aggregate the wind speeds into hourly level data so that the attributes become comparable.\n",
+    "First we need to be able to group the values by hour. This can be done e.g. by slicing the date+hour time from the **`TIME`** -column (i.e. removing the minutes from the end of the value).\n",
+    "\n",
+    "Doing this requires two steps:\n",
+    "  1. Convert the `TIME` column from `int` into `str` datatype.\n",
+    "  2. Include only numbers up to hourly accuracy (exclude minutes) by slicing texts\n",
+    "\n",
+    "**Note:** There are also more advanced functions in Pandas to do time series manipulations by utilizing [**`datetime`**](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.to_datetime.html) datatype and [**`resample()`**](https://pandas.pydata.org/pandas-docs/stable/timeseries.html#resampling>) -function, but we won't cover those here. You can read the Pandas docs if you are interested.\n",
+    "\n",
+    "- Let's convert the time into string. And check that the data type changes:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Data type of the column:\n",
+      "object\n",
+      "\n",
+      "Data type of the first value in column:\n",
+      "<class 'str'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Convert to string\n",
+    "data['TIME_str'] = data['TIME'].astype(str)\n",
+    "# Check data types\n",
+    "print(\"Data type of the column:\")\n",
+    "print(data['TIME_str'].dtypes)\n",
+    "\n",
+    "print(\"\\nData type of the first value in column:\")\n",
+    "print(type(data.loc[0, 'TIME_str']))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey it seems that now we indeed have the `TIME` as `str` datatype as well.\n",
+    "\n",
+    "- Now we can slice them into hourly level by including only 10 first characters from the text (i.e. excluding the minute-level information).\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "           TIME  DIR    SPEED  GUST  TEMP  MAX  MIN  Celsius      TIME_str  \\\n",
+      "0  201708040000  114  2.68224   NaN    58  NaN  NaN  14.4444  201708040000   \n",
+      "1  201708040020  100  2.68224   NaN    59  NaN  NaN       15  201708040020   \n",
+      "2  201708040050  100  2.23520   NaN    59  NaN  NaN       15  201708040050   \n",
+      "3  201708040100  123  3.57632   NaN    59  NaN  NaN       15  201708040100   \n",
+      "4  201708040120  110  3.12928   NaN    59  NaN  NaN       15  201708040120   \n",
+      "\n",
+      "      TIME_dh  \n",
+      "0  2017080400  \n",
+      "1  2017080400  \n",
+      "2  2017080400  \n",
+      "3  2017080401  \n",
+      "4  2017080401  \n"
+     ]
+    }
+   ],
+   "source": [
+    "# SLice the string\n",
+    "data['TIME_dh'] = data['TIME_str'].str.slice(start=0, stop=10)\n",
+    "\n",
+    "# Let's see what we have\n",
+    "print(data.head())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Nice! Now we have information about time on an hourly basis including the date as well.\n",
+    "\n",
+    "**Note:** All the typical ``str`` functionalities can be applied to Series of text data with syntax `data['mySeries'].str.<functionToUse>()`.\n",
+    "\n",
+    "- Let's also slice only the hour of the day (excluding information about the date) and convert it back to integer (we will be using this information later):"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "           TIME  DIR    SPEED  GUST  TEMP  MAX  MIN  Celsius      TIME_str  \\\n",
+      "0  201708040000  114  2.68224   NaN    58  NaN  NaN  14.4444  201708040000   \n",
+      "1  201708040020  100  2.68224   NaN    59  NaN  NaN       15  201708040020   \n",
+      "2  201708040050  100  2.23520   NaN    59  NaN  NaN       15  201708040050   \n",
+      "3  201708040100  123  3.57632   NaN    59  NaN  NaN       15  201708040100   \n",
+      "4  201708040120  110  3.12928   NaN    59  NaN  NaN       15  201708040120   \n",
+      "\n",
+      "      TIME_dh  TIME_h  \n",
+      "0  2017080400       0  \n",
+      "1  2017080400       0  \n",
+      "2  2017080400       0  \n",
+      "3  2017080401       1  \n",
+      "4  2017080401       1  \n"
+     ]
+    }
+   ],
+   "source": [
+    "# Slice the string to parse the hour from 'TIME_str' column\n",
+    "data['TIME_h'] = data['TIME_str'].str.slice(start=8, stop=10)\n",
+    "# Convert the hour text into integer format\n",
+    "data['TIME_h'] = data['TIME_h'].astype(int)\n",
+    "\n",
+    "print(data.head())\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Wunderbar**, now we have also a separate column for only the hour of the day!"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Aggregating data in Pandas by grouping"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Next we want to calculate the average temperatures, wind speeds, etc. on an hourly basis to enable us\n",
+    "to compare all of them to each other.\n",
+    "\n",
+    "This can be done by aggregating the data, i.e.:\n",
+    "\n",
+    "  1. **grouping the data** based on hourly values\n",
+    "  2. Iterating over those groups and calculating the average values of our attributes\n",
+    "  3. Inserting those values into a new DataFrame where we store the aggregated data\n",
+    "\n",
+    "- Let's first create a new **empty** DataFrame where we will store our aggregated data\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Create a new empty DataFrame\n",
+    "aggr_data = pd.DataFrame()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Let's then **group** our data based on `TIME_h` attribute that contains the information about the date + hour."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Group the data \n",
+    "grouped = data.groupby('TIME_dh')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Let's see what we have now."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Type:\n",
+      " <class 'pandas.core.groupby.groupby.DataFrameGroupBy'>\n",
+      "Length:\n",
+      " 24\n"
+     ]
+    }
+   ],
+   "source": [
+    "# What is the type?\n",
+    "print(\"Type:\\n\", type(grouped))\n",
+    "\n",
+    "# How many?\n",
+    "print(\"Length:\\n\", len(grouped))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey, interesting. Now we have a new object with type **`DataFrameGroupBy`**. And it seems that we have 24 individual groups in our data, i.e. **one group for each hour of the day**.\n",
+    "\n",
+    "As you might have noticed earlier, the first hour in hour data is `2017080400` (midnight at 4th of August in 2017).\n",
+    "\n",
+    "- Let's now see what we have on hour `grouped` variable e.g. on the first hour `2017080400`.\n",
+    "We can get the values of that hour from `DataFrameGroupBy` -object with **`get_group()`** -function.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "           TIME  DIR    SPEED  GUST  TEMP  MAX  MIN  Celsius      TIME_str  \\\n",
+      "0  201708040000  114  2.68224   NaN    58  NaN  NaN  14.4444  201708040000   \n",
+      "1  201708040020  100  2.68224   NaN    59  NaN  NaN       15  201708040020   \n",
+      "2  201708040050  100  2.23520   NaN    59  NaN  NaN       15  201708040050   \n",
+      "\n",
+      "      TIME_dh  TIME_h  \n",
+      "0  2017080400       0  \n",
+      "1  2017080400       0  \n",
+      "2  2017080400       0  \n"
+     ]
+    }
+   ],
+   "source": [
+    "# Specify the time of the first hour (as text)\n",
+    "time1 = '2017080400'\n",
+    "\n",
+    "# Select the group\n",
+    "group1 = grouped.get_group(time1)\n",
+    "\n",
+    "# Let's see what we have\n",
+    "print(group1)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Ahaa! As we can see, a single group contains a **DataFrame** with values only for that specific hour.\n",
+    "This is really useful, because now we can calculate e.g. the average values for all weather measurements (+ hour) that we have (you can use any of the statistical functions that we have seen already, e.g. mean, std, min, max, median, etc.).\n",
+    "\n",
+    "We can do that by using the **`mean()`** -function that we already used during the Lesson 5. \n",
+    "\n",
+    "- Let's calculate the mean for following attributes (let's see how to do them all at once!): \n",
+    "   - ``DIR``, \n",
+    "   - ``SPEED``, \n",
+    "   - ``GUST``, \n",
+    "   - ``TEMP``, \n",
+    "   - ``Celsius``."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "DIR        104.666667\n",
+      "SPEED        2.533227\n",
+      "GUST              NaN\n",
+      "TEMP        58.666667\n",
+      "Celsius     14.814815\n",
+      "TIME_h       0.000000\n",
+      "dtype: float64\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Specify the columns that will be part of the calculation\n",
+    "mean_cols = ['DIR', 'SPEED', 'GUST', 'TEMP', 'Celsius', 'TIME_h']\n",
+    "\n",
+    "# Calculate the mean values all at one go\n",
+    "mean_values = group1[mean_cols].mean()\n",
+    "\n",
+    "# Let's see what we have\n",
+    "print(mean_values)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Nice, now we have averaged our data and e.g. the mean Celsius temperature seems to be about right when comparing to the original values above. As you saw from this example, it is possible to do calculations for multiple columns at the same time efficiently with Pandas.\n",
+    "\n",
+    "Notice that we still have information about the hour but not about the date which is at the moment stored in **`time1`** -variable.\n",
+    "We can insert that datetime-information into our **`mean_values`** Series so that we have the date information also associated with our data.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "DIR           104.667\n",
+      "SPEED         2.53323\n",
+      "GUST              NaN\n",
+      "TEMP          58.6667\n",
+      "Celsius       14.8148\n",
+      "TIME_h              0\n",
+      "TIME_dh    2017080400\n",
+      "dtype: object\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Add the time information into the pandas.Series\n",
+    "mean_values['TIME_dh'] = time1\n",
+    "\n",
+    "# Let's see what we have\n",
+    "print(mean_values)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Perfect! Now we have also time information there. \n",
+    "\n",
+    "The last thing to do is to add these mean values into our DataFrame that we created.\n",
+    "That can be done with **`append()`** -function in a quite similar manner as with Python lists. In Pandas the data insertion is not done **inplace** (as when appending to Python lists) so we need to specify that we are updating the aggr_data (using the **`=`** sign). We also need to specify that we ignore the index values of our original DataFrame (i.e. the indices of `mean_values`).\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "     Celsius         DIR  GUST     SPEED       TEMP     TIME_dh  TIME_h\n",
+      "0  14.814815  104.666667   NaN  2.533227  58.666667  2017080400     0.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Add the values into our aggr_data DataFrame that we created in the beginning\n",
+    "aggr_data = aggr_data.append(mean_values, ignore_index=True)\n",
+    "\n",
+    "# Let's see what we have\n",
+    "print(aggr_data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "As we can see, now we have a single row in our new DataFrame where we have aggregated the data based on hourly mean values.\n",
+    "Next we could continue doing and insert the average values from other hours in a similar manner but, of course, that is not\n",
+    "something that we want to do manually (would require repeating these same steps too many times).\n",
+    "Luckily, we can actually iterate over all the groups that we have in our data and do these steps using a **`for`** -loop.\n",
+    "\n",
+    "When iterating over the groups in our **`DataFrameGroupBy`** -object\n",
+    "it is important to understand that a single group in our `DataFrameGroupBy` actually contains not only the actual values, but also information about the **`key`** that was used to do the grouping. Hence, when iterating over the data we need to assign the `key` and the values into separate variables.\n",
+    "\n",
+    "- Let's see how we can iterate over the groups and print the key and the data from a single group (again using **`break`** to only see what is happening).\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Key:\n",
+      " 2017080400\n",
+      "\n",
+      "Group:\n",
+      "            TIME  DIR    SPEED  GUST  TEMP  MAX  MIN  Celsius      TIME_str  \\\n",
+      "0  201708040000  114  2.68224   NaN    58  NaN  NaN  14.4444  201708040000   \n",
+      "1  201708040020  100  2.68224   NaN    59  NaN  NaN       15  201708040020   \n",
+      "2  201708040050  100  2.23520   NaN    59  NaN  NaN       15  201708040050   \n",
+      "\n",
+      "      TIME_dh  TIME_h  \n",
+      "0  2017080400       0  \n",
+      "1  2017080400       0  \n",
+      "2  2017080400       0  \n"
+     ]
+    }
+   ],
+   "source": [
+    "# Iterate over groups\n",
+    "for key, group in grouped:\n",
+    "    # Print key and group\n",
+    "    print(\"Key:\\n\", key)\n",
+    "    print(\"\\nGroup:\\n\", group)\n",
+    "    \n",
+    "    # Stop iteration with break command\n",
+    "    break"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey so from here we can see that the **`key`** contains the value **`2017080400`** that is the same\n",
+    "as the values in **`TIME_dh`** column. Meaning that we, indeed, grouped the values based on that column.\n",
+    "\n",
+    "- Let's see how we can create a DataFrame where we calculate the mean values for all those weather attributes that we were interested in. I will repeate slightly the earlier steps so that you can see and better understand what is happening.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Create an empty DataFrame for the aggregated values\n",
+    "aggr_data = pd.DataFrame()\n",
+    "\n",
+    "# The columns that we want to aggregate\n",
+    "mean_cols = ['DIR', 'SPEED', 'GUST', 'TEMP', 'Celsius', 'TIME_h']\n",
+    "\n",
+    "# Iterate over the groups\n",
+    "for key, group in grouped:\n",
+    "   # Aggregate the data\n",
+    "   mean_values = group[mean_cols].mean()\n",
+    "\n",
+    "   # Add the ´key´ (i.e. the date+time information) into the aggregated values\n",
+    "   mean_values['TIME_dh'] = key\n",
+    "\n",
+    "   # Append the aggregated values into the DataFrame\n",
+    "   aggr_data = aggr_data.append(mean_values, ignore_index=True)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Let's see what we have now:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "      Celsius         DIR      GUST     SPEED       TEMP     TIME_dh  TIME_h\n",
+      "0   14.814815  104.666667       NaN  2.533227  58.666667  2017080400     0.0\n",
+      "1   15.370370  111.000000       NaN  3.129280  59.666667  2017080401     1.0\n",
+      "2   15.000000  119.333333   5.81152  4.321387  59.000000  2017080402     2.0\n",
+      "3   15.000000   92.666667   5.36448  3.874347  59.000000  2017080403     3.0\n",
+      "4   14.814815   87.333333   6.70560  4.619413  58.666667  2017080404     4.0\n",
+      "5   14.814815  403.000000   7.59968  5.364480  58.666667  2017080405     5.0\n",
+      "6   14.814815  110.333333  10.28192  6.854613  58.666667  2017080406     6.0\n",
+      "7   14.814815  403.000000   9.83488  6.109547  58.666667  2017080407     7.0\n",
+      "8   14.814815  405.000000   6.70560  3.874347  58.666667  2017080408     8.0\n",
+      "9   15.370370  695.666667       NaN  3.129280  59.666667  2017080409     9.0\n",
+      "10  16.481481  225.000000   5.81152  4.768427  61.666667  2017080410    10.0\n",
+      "11  17.777778  241.666667   8.49376  5.513493  64.000000  2017080411    11.0\n",
+      "12  18.888889  228.333333   6.70560  5.960533  66.000000  2017080412    12.0\n",
+      "13  19.629630  229.666667   8.94080  7.152640  67.333333  2017080413    13.0\n",
+      "14  20.185185  228.666667  12.96416  8.940800  68.333333  2017080414    14.0\n",
+      "15  19.074074  218.333333  10.72896  7.450667  66.333333  2017080415    15.0\n",
+      "16  18.703704  214.666667  10.28192  7.152640  65.666667  2017080416    16.0\n",
+      "17  17.592593  209.666667   8.94080  7.003627  63.666667  2017080417    17.0\n",
+      "18  16.851852  211.333333  10.28192  5.662507  62.333333  2017080418    18.0\n",
+      "19  16.111111  203.000000   5.81152  4.023360  61.000000  2017080419    19.0\n",
+      "20  15.925926  198.000000   5.36448  4.023360  60.666667  2017080420    20.0\n",
+      "21  15.925926  186.666667       NaN  3.874347  60.666667  2017080421    21.0\n",
+      "22  15.555556  189.000000   6.70560  4.619413  60.000000  2017080422    22.0\n",
+      "23  15.185185  193.333333   4.91744  3.725333  59.333333  2017080423    23.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(aggr_data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Awesome! Now we have aggregated our data based on daily averages and we have a new DataFrame called **`aggr_data`** where all those aggregated values are stored."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Finding outliers from the data\n",
+    "\n",
+    "Finally, we are ready to do some real data analytics and check whether we are able to find out if there are any outliers in our data suggesting to have a storm (meaning strong winds in this case).\n",
+    "\n",
+    "Here, we define an outlier if the **wind speed is 2 times the standard deviation higher than the average wind speed** (column `SPEED`).\n",
+    "\n",
+    "- Let's first find out what is the standard deviation and the mean of the Wind speed.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Std: 1.6405694308360985\n",
+      "Mean: 5.153377777777777\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Calculate standard deviation and average wind speed\n",
+    "std_wind = aggr_data['SPEED'].std()\n",
+    "avg_wind = aggr_data['SPEED'].mean()\n",
+    "print('Std:', std_wind)\n",
+    "print('Mean:', avg_wind)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey, so the variance in the windspeed tend to be approximately 1.6 meters per second, and the wind speed is approximately 5.2 m/s. \n",
+    "\n",
+    "- Hence, the threshold for a wind speed to be an outlier with our criteria is:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Upper threshold for outlier: 8.434516639449974\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Calculate the upper threshold for an outlier\n",
+    "upper_threshold = avg_wind + (std_wind*2)\n",
+    "print('Upper threshold for outlier:', upper_threshold)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Let's finally create a column called **`Outlier`** which we update with **`True`** value, if the windspeed is an outlier, and **`False`**, if it is not. We do this again by iterating over the rows.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "      Celsius         DIR      GUST     SPEED       TEMP     TIME_dh  TIME_h  \\\n",
+      "0   14.814815  104.666667       NaN  2.533227  58.666667  2017080400     0.0   \n",
+      "1   15.370370  111.000000       NaN  3.129280  59.666667  2017080401     1.0   \n",
+      "2   15.000000  119.333333   5.81152  4.321387  59.000000  2017080402     2.0   \n",
+      "3   15.000000   92.666667   5.36448  3.874347  59.000000  2017080403     3.0   \n",
+      "4   14.814815   87.333333   6.70560  4.619413  58.666667  2017080404     4.0   \n",
+      "5   14.814815  403.000000   7.59968  5.364480  58.666667  2017080405     5.0   \n",
+      "6   14.814815  110.333333  10.28192  6.854613  58.666667  2017080406     6.0   \n",
+      "7   14.814815  403.000000   9.83488  6.109547  58.666667  2017080407     7.0   \n",
+      "8   14.814815  405.000000   6.70560  3.874347  58.666667  2017080408     8.0   \n",
+      "9   15.370370  695.666667       NaN  3.129280  59.666667  2017080409     9.0   \n",
+      "10  16.481481  225.000000   5.81152  4.768427  61.666667  2017080410    10.0   \n",
+      "11  17.777778  241.666667   8.49376  5.513493  64.000000  2017080411    11.0   \n",
+      "12  18.888889  228.333333   6.70560  5.960533  66.000000  2017080412    12.0   \n",
+      "13  19.629630  229.666667   8.94080  7.152640  67.333333  2017080413    13.0   \n",
+      "14  20.185185  228.666667  12.96416  8.940800  68.333333  2017080414    14.0   \n",
+      "15  19.074074  218.333333  10.72896  7.450667  66.333333  2017080415    15.0   \n",
+      "16  18.703704  214.666667  10.28192  7.152640  65.666667  2017080416    16.0   \n",
+      "17  17.592593  209.666667   8.94080  7.003627  63.666667  2017080417    17.0   \n",
+      "18  16.851852  211.333333  10.28192  5.662507  62.333333  2017080418    18.0   \n",
+      "19  16.111111  203.000000   5.81152  4.023360  61.000000  2017080419    19.0   \n",
+      "20  15.925926  198.000000   5.36448  4.023360  60.666667  2017080420    20.0   \n",
+      "21  15.925926  186.666667       NaN  3.874347  60.666667  2017080421    21.0   \n",
+      "22  15.555556  189.000000   6.70560  4.619413  60.000000  2017080422    22.0   \n",
+      "23  15.185185  193.333333   4.91744  3.725333  59.333333  2017080423    23.0   \n",
+      "\n",
+      "    Outlier  \n",
+      "0     False  \n",
+      "1     False  \n",
+      "2     False  \n",
+      "3     False  \n",
+      "4     False  \n",
+      "5     False  \n",
+      "6     False  \n",
+      "7     False  \n",
+      "8     False  \n",
+      "9     False  \n",
+      "10    False  \n",
+      "11    False  \n",
+      "12    False  \n",
+      "13    False  \n",
+      "14     True  \n",
+      "15    False  \n",
+      "16    False  \n",
+      "17    False  \n",
+      "18    False  \n",
+      "19    False  \n",
+      "20    False  \n",
+      "21    False  \n",
+      "22    False  \n",
+      "23    False  \n"
+     ]
+    }
+   ],
+   "source": [
+    "# Create an empty column for outlier info\n",
+    "aggr_data['Outlier'] = None\n",
+    "\n",
+    "# Iterate over rows\n",
+    "for idx, row in aggr_data.iterrows():\n",
+    "    # Update the 'Outlier' column with True if the wind speed is higher than our threshold value\n",
+    "    if row['SPEED'] > upper_threshold :\n",
+    "        aggr_data.loc[idx, 'Outlier'] = True\n",
+    "    else:\n",
+    "        aggr_data.loc[idx, 'Outlier'] = False\n",
+    "\n",
+    "# Let's see what we have\n",
+    "print(aggr_data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey now we have at least many False values in our **`Outlier`** -column but there seems to be also one True!.\n",
+    "\n",
+    "- Let's select the rows with potential storm:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 44,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "      Celsius         DIR      GUST   SPEED       TEMP     TIME_dh  TIME_h  \\\n",
+      "14  20.185185  228.666667  12.96416  8.9408  68.333333  2017080414    14.0   \n",
+      "\n",
+      "    Outlier  \n",
+      "14     True  \n"
+     ]
+    }
+   ],
+   "source": [
+    "# Select rows that were determined as outliers\n",
+    "storm = aggr_data.loc[aggr_data['Outlier'] == True]\n",
+    "print(storm)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey, so indeed, there was one outlier in our data but the wind during that time wasn't that strong as the average speed was only approximately 9 m/s. This is not too strange as we were only looking at data from a single day."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Repeating the data analysis with larger dataset\n",
+    "\n",
+    "Let's continue by executing the steps that we have written this far and use it to explore outlier winds based on whole month of August 2017.\n",
+    "\n",
+    "For this purpose, we change the input file to be **`6591337447542dat_August.txt`** that [looks like this](data/6591337447542dat_August.txt).\n",
+    "\n",
+    "- Here we will repeat all the steps that we did earlier in one code block so that you can see the full picture:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "# Filepath\n",
+    "fp = \"data/6591337447542dat_August.txt\"\n",
+    "\n",
+    "# Read data using varying amount of spaces as separator and specifying * characters as NoData values\n",
+    "data = pd.read_csv(fp, sep='\\s+', na_values=['*', '**', '***', '****', '*****', '******'])\n",
+    "\n",
+    "# Select only specific columns\n",
+    "select_cols = ['YR--MODAHRMN', 'DIR', 'SPD', 'GUS','TEMP', 'MAX', 'MIN']\n",
+    "data = data[select_cols]\n",
+    "\n",
+    "# Rename the columns\n",
+    "name_conversion_dict = {'YR--MODAHRMN': 'TIME', 'SPD': 'SPEED', 'GUS': 'GUST'}\n",
+    "data = data.rename(columns=name_conversion_dict)\n",
+    "\n",
+    "# Create column\n",
+    "col_name = 'Celsius'\n",
+    "data[col_name] = None\n",
+    "\n",
+    "# Iterete over rows and convert tempetarues from Fahrenheits to Celsius\n",
+    "for idx, row in data.iterrows():\n",
+    "    celsius = fahrToCelsius(row['TEMP'])\n",
+    "    data.loc[idx, col_name] = celsius\n",
+    "\n",
+    "# Convert wind speeds from miles to meters per second\n",
+    "data['SPEED'] = data['SPEED']*0.44704\n",
+    "data['GUST'] = data['GUST']*0.44704\n",
+    "\n",
+    "# Convert TIME to string and parse date and hour info from the time\n",
+    "data['TIME_str'] = data['TIME'].astype(str)\n",
+    "data['TIME_dh'] = data['TIME_str'].str.slice(start=0, stop=10)\n",
+    "data['TIME_h'] = data['TIME_str'].str.slice(start=8, stop=10)\n",
+    "data['TIME_h'] = data['TIME_h'].astype(int)\n",
+    "\n",
+    "# Create empty column for aggregated data\n",
+    "aggr_data = pd.DataFrame()\n",
+    "\n",
+    "# Specify the columns which will be used in calculation\n",
+    "mean_cols = ['DIR', 'SPEED', 'GUST', 'TEMP', 'Celsius', 'TIME_h']\n",
+    "\n",
+    "# Group the values by hour\n",
+    "grouped = data.groupby('TIME_dh')\n",
+    "\n",
+    "# Iterate over groups and update the aggregated DataFrame\n",
+    "for key, group in grouped:\n",
+    "    # Calculate the mean values\n",
+    "    mean_values = group[mean_cols].mean()\n",
+    "    \n",
+    "    # Add the time to the Series\n",
+    "    mean_values['TIME_dh'] = key\n",
+    "    \n",
+    "    # Add the aggregated values into the DataFrame\n",
+    "    aggr_data = aggr_data.append(mean_values, ignore_index=True)\n",
+    "\n",
+    "# Calculate the outlier threshold for the new dataset\n",
+    "std_wind = aggr_data['SPEED'].std()\n",
+    "avg_wind = aggr_data['SPEED'].mean()\n",
+    "upper_threshold = avg_wind + (std_wind*2)\n",
+    "\n",
+    "# Detect the outliers\n",
+    "aggr_data['Outlier'] = None\n",
+    "for idx, row in aggr_data.iterrows():\n",
+    "    if row['SPEED'] > upper_threshold:\n",
+    "        aggr_data.loc[idx, 'Outlier'] = True\n",
+    "    else:\n",
+    "        aggr_data.loc[idx, 'Outlier'] = False\n",
+    "        \n",
+    "# Select days with strong winds\n",
+    "storm = aggr_data.loc[aggr_data['Outlier'] == True]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "After running the analysis with our new dataset, let's explore and see we have.\n",
+    "\n",
+    "- Let's start by checking if the average and standard deviation of the windspeed differ from the previous ones"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 50,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Std: 2.1405899770297245\n",
+      "Mean: 4.1990832704402505\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Windspeed statistics\n",
+    "print('Std:', std_wind)\n",
+    "print('Mean:', avg_wind)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey so they are indeed different now! With larger dataset the average wind speed is 4.2 m/s (compared to 5.2 m/s previously). \n",
+    "\n",
+    "- Let's see what we have now in our **`storm`** -variable."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "       Celsius         DIR      GUST      SPEED       TEMP     TIME_dh  \\\n",
+      "10   22.777778  210.666667  12.51712   9.089813  73.000000  2017080110   \n",
+      "11   22.777778  212.000000  11.62304   8.940800  73.000000  2017080111   \n",
+      "12   22.407407  205.666667  12.51712   9.089813  72.333333  2017080112   \n",
+      "86   20.185185  228.666667  12.96416   8.940800  68.333333  2017080414   \n",
+      "104  19.814815  204.333333  11.17600   8.791787  67.666667  2017080508   \n",
+      "132  16.296296  237.666667  13.85824   9.387840  61.333333  2017080612   \n",
+      "230  21.666667  217.000000  12.51712   8.642773  71.000000  2017081014   \n",
+      "280  19.074074  700.666667  26.82240   8.791787  66.333333  2017081216   \n",
+      "301  20.555556  210.000000       NaN   9.611360  69.000000  2017081313   \n",
+      "302  19.444444  200.000000       NaN   8.493760  67.000000  2017081314   \n",
+      "444  22.037037  195.666667  10.72896   8.493760  71.666667  2017081914   \n",
+      "445  20.925926  204.666667  12.51712   8.940800  69.666667  2017081915   \n",
+      "559  14.814815  328.666667  13.41120   8.493760  58.666667  2017082409   \n",
+      "560  15.925926  329.333333  13.85824   8.493760  60.666667  2017082410   \n",
+      "563  16.296296  329.666667  13.41120   9.238827  61.333333  2017082413   \n",
+      "564  15.185185  550.000000       NaN   8.493760  59.333333  2017082414   \n",
+      "686  17.222222  214.000000  13.41120   9.089813  63.000000  2017082916   \n",
+      "687  17.037037  210.666667  11.62304   8.791787  62.666667  2017082917   \n",
+      "704  18.518519  203.666667   8.04672   8.493760  65.333333  2017083010   \n",
+      "705  18.888889  218.333333  13.41120   8.940800  66.000000  2017083011   \n",
+      "706  17.962963  215.666667  14.52880  10.579947  64.333333  2017083012   \n",
+      "707  17.962963  217.666667  12.07008   9.089813  64.333333  2017083013   \n",
+      "\n",
+      "     TIME_h  Outlier  \n",
+      "10     10.0     True  \n",
+      "11     11.0     True  \n",
+      "12     12.0     True  \n",
+      "86     14.0     True  \n",
+      "104     8.0     True  \n",
+      "132    12.0     True  \n",
+      "230    14.0     True  \n",
+      "280    16.0     True  \n",
+      "301    13.0     True  \n",
+      "302    14.0     True  \n",
+      "444    14.0     True  \n",
+      "445    15.0     True  \n",
+      "559     9.0     True  \n",
+      "560    10.0     True  \n",
+      "563    13.0     True  \n",
+      "564    14.0     True  \n",
+      "686    16.0     True  \n",
+      "687    17.0     True  \n",
+      "704    10.0     True  \n",
+      "705    11.0     True  \n",
+      "706    12.0     True  \n",
+      "707    13.0     True  \n"
+     ]
+    }
+   ],
+   "source": [
+    "print(storm)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey, interesting! Now we can see the the days and hours when it has been stormy in August 2017.\n",
+    "It seems that the storms have usually been during the day time. Let's check if this is the case.\n",
+    "\n",
+    "We can easily count how many stormy observations for different hour of the day there has been by\n",
+    "using a [**`value_counts()`**](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.value_counts.html) -function that calculates how many observations per certain value there are in a certain column (works best for categorigal data).\n",
+    "\n",
+    "- Let's see the counts for different hours of the day\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 52,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "14.0    5\n",
+      "13.0    3\n",
+      "12.0    3\n",
+      "10.0    3\n",
+      "16.0    2\n",
+      "11.0    2\n",
+      "17.0    1\n",
+      "9.0     1\n",
+      "15.0    1\n",
+      "8.0     1\n",
+      "Name: TIME_h, dtype: int64\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Print the occurences of storm by hour\n",
+    "print(storm['TIME_h'].value_counts())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey, this is interesting. It seems that most often it has been stormy at 14:00 GMT (i.e. 16:00 at Finnish time).\n",
+    "Notice, that there haven't been any strong winds during the night, which is also interesting. However, as the **The weather guys** explains us, [it is not that surprising actually](http://wxguys.ssec.wisc.edu/2013/11/18/why-does-the-wind-diminish-after-sunset) =). \n",
+    "\n",
+    "The average wind speed may not be the perfect measure to find extreme weather conditions. Gust might usually be a better measure for that purpose.\n",
+    "\n",
+    "- Let's see what were the strongest gust winds in our dataset by sorting the values using **`sort_values()`** -function.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 53,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "       Celsius         DIR      GUST      SPEED       TEMP     TIME_dh  \\\n",
+      "280  19.074074  700.666667  26.82240   8.791787  66.333333  2017081216   \n",
+      "706  17.962963  215.666667  14.52880  10.579947  64.333333  2017083012   \n",
+      "132  16.296296  237.666667  13.85824   9.387840  61.333333  2017080612   \n",
+      "560  15.925926  329.333333  13.85824   8.493760  60.666667  2017082410   \n",
+      "559  14.814815  328.666667  13.41120   8.493760  58.666667  2017082409   \n",
+      "705  18.888889  218.333333  13.41120   8.940800  66.000000  2017083011   \n",
+      "686  17.222222  214.000000  13.41120   9.089813  63.000000  2017082916   \n",
+      "563  16.296296  329.666667  13.41120   9.238827  61.333333  2017082413   \n",
+      "86   20.185185  228.666667  12.96416   8.940800  68.333333  2017080414   \n",
+      "10   22.777778  210.666667  12.51712   9.089813  73.000000  2017080110   \n",
+      "445  20.925926  204.666667  12.51712   8.940800  69.666667  2017081915   \n",
+      "230  21.666667  217.000000  12.51712   8.642773  71.000000  2017081014   \n",
+      "12   22.407407  205.666667  12.51712   9.089813  72.333333  2017080112   \n",
+      "707  17.962963  217.666667  12.07008   9.089813  64.333333  2017083013   \n",
+      "11   22.777778  212.000000  11.62304   8.940800  73.000000  2017080111   \n",
+      "687  17.037037  210.666667  11.62304   8.791787  62.666667  2017082917   \n",
+      "104  19.814815  204.333333  11.17600   8.791787  67.666667  2017080508   \n",
+      "444  22.037037  195.666667  10.72896   8.493760  71.666667  2017081914   \n",
+      "704  18.518519  203.666667   8.04672   8.493760  65.333333  2017083010   \n",
+      "301  20.555556  210.000000       NaN   9.611360  69.000000  2017081313   \n",
+      "302  19.444444  200.000000       NaN   8.493760  67.000000  2017081314   \n",
+      "564  15.185185  550.000000       NaN   8.493760  59.333333  2017082414   \n",
+      "\n",
+      "     TIME_h  Outlier  \n",
+      "280    16.0     True  \n",
+      "706    12.0     True  \n",
+      "132    12.0     True  \n",
+      "560    10.0     True  \n",
+      "559     9.0     True  \n",
+      "705    11.0     True  \n",
+      "686    16.0     True  \n",
+      "563    13.0     True  \n",
+      "86     14.0     True  \n",
+      "10     10.0     True  \n",
+      "445    15.0     True  \n",
+      "230    14.0     True  \n",
+      "12     12.0     True  \n",
+      "707    13.0     True  \n",
+      "11     11.0     True  \n",
+      "687    17.0     True  \n",
+      "104     8.0     True  \n",
+      "444    14.0     True  \n",
+      "704    10.0     True  \n",
+      "301    13.0     True  \n",
+      "302    14.0     True  \n",
+      "564    14.0     True  \n"
+     ]
+    }
+   ],
+   "source": [
+    "# Sort values in descending order\n",
+    "gust_sort = storm.sort_values(by='GUST', ascending=False)\n",
+    "\n",
+    "# Let's see what we have\n",
+    "print(gust_sort)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Interesting! There was one hour with quite extraordinary gust wind in our data happening at 12th of August in 2017.\n",
+    "Indeed, that was a big storm in Helsinki called [**Kiira**](https://yle.fi/uutiset/osasto/news/saturday_night_storm_downs_trees_cuts_electricity_in_the_south/9773250) that caused major damage in different parts of the city. (*Source: [YLE](https://yle.fi/uutiset/osasto/news/saturday_night_storm_downs_trees_cuts_electricity_in_the_south/9773250); \n",
+    "Photo: Markku Sipi*)\n",
+    "\n",
+    "\n",
+    "![](../img/Kiira-storm.PNG)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**TAKE HOME MESSAGE**: As we have seen here, we can already conduct fairly interesting data analysis with Pandas that provides various useful functionalities that are fairly straightforward and easy to use. Similar approaches can be used for many different kind of datasets. "
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
