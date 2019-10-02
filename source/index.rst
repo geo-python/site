@@ -137,14 +137,15 @@ Themes for each week are listed below. Read more about the weekly :doc:`learning
     notebooks/L4/writing-scripts.ipynb
     lessons/L4/exercise-4
 
-    .. toctree::
-        :maxdepth: 2
-        :caption: Lesson 5
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 5
 
-        lessons/L5/overview
-        lessons/L5/pandas
-        lessons/L5/numpy
-        lessons/L5/exercise-5
+    lessons/L5/overview
+    lessons/L5/pandas-overview.rst
+    notebooks/L5/exploring-data-using-pandas.ipynb
+    notebooks/L5/processing-data-with-pandas.ipynb
+    lessons/L5/exercise-5
 
     .. toctree::
         :maxdepth: 2
