@@ -9,15 +9,6 @@ We will start using `Pandas <http://pandas.pydata.org/>`__ which is a modern and
 3. `Processing data using pandas <../../notebooks/L5/processing-data-with-pandas.ipynb>`_
 4. :doc:`Exercise 5: Data analysis with Pandas I <exercise-5>`
 
-Contents of the Pandas lesson
------------------------------
-.. toctree::
-    :maxdepth: 2
-
-    pandas-overview
-    ../../notebooks/L5/exploring-data-using-pandas.ipynb
-    ../../notebooks/L5/processing-data-with-pandas.ipynb
-
 Learning goals
 --------------
 

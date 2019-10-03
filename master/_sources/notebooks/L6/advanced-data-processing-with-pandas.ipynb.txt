@@ -1,0 +1,1208 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Advanced data processing with Pandas\n",
+    "\n",
+    "In this week, we will continue developing our skills using Pandas to analyze climate data. The aim of this lesson\n",
+    "is to learn different functions to manipulate with the data and do simple analyses. In the end, our goal is\n",
+    "to detect weather anomalies (stormy winds) in Helsinki, during August 2017.\n",
+    "\n",
+    "## Reading the data\n",
+    "\n",
+    "Notice that this time, we will read the **actual** data obtained from NOAA\n",
+    "without any modifications to the actual data by us. The data is separated with varying amount of spaces (fixed width). The first lines and columns of the data looks like following:\n",
+    "\n",
+    "```\n",
+    "      USAF  WBAN YR--MODAHRMN DIR SPD GUS CLG SKC L M H  VSB MW MW MW MW AW AW AW AW W TEMP DEWP    SLP  ...\n",
+    "    029740 99999 201708040000 114   6 *** *** BKN * * * 25.0 03 ** ** ** ** ** ** ** 2   58   56 1005.6  ...\n",
+    "```\n",
+    "\n",
+    "Because the data is separated with varying amount of spaces, we need to tell Pandas how to read it. We can control the delimiter with ``sep`` parameter following the documentation of the function `read_csv()`:\n",
+    "\n",
+    "![](img/read-csv-varying-spaces.PNG)\n",
+    "\n",
+    "Hence, we can separate the columns by varying number spaces of spaces with ``sep='\\s+'`` -parameter.\n",
+    "Our data also included No Data values with varying number of ``*`` -characters. Hence, we need to take also those\n",
+    "into account when reading the data. We can tell Pandas to consider those characters as NaNs by specifying ``na_values=['*', '**', '***', '****', '*****', '******']``.\n",
+    "\n",
+    "- Let's start by reading the data with pandas:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "fp = \"data/6591337447542dat_sample.txt\"\n",
+    "\n",
+    "# Read data using varying amount of spaces as separator and specifying * characters as NoData values\n",
+    "data = pd.read_csv(fp, sep='\\s+', na_values=['*', '**', '***', '****', '*****', '******'])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Exploring data and renaming columns\n",
+    "\n",
+    "- Let's see how the data looks by printing the first five rows with ``head()`` function"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print(data.head())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okay so we can see that the data was successfully read to the DataFrame and we also seemed to be able to convert the asterix (\\*) characters into `NaN` -values. \n",
+    "\n",
+    "- Let's continue and check what columns do we have."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "data.columns"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "As we can see, there are quite many columns, however, we are not interested to use all of them.\n",
+    "\n",
+    "- Let's select only columns that might be used to detect unexceptional weather conditions, i.e. YR--MODAHRMN, DIR, SPD, GUS, TEMP, MAX, and MIN.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Specify a list of columns that will be selected from the DataFrame\n",
+    "select_cols = ['YR--MODAHRMN', 'DIR', 'SPD', 'GUS','TEMP', 'MAX', 'MIN']\n",
+    "\n",
+    "# Do the selection\n",
+    "data = data[select_cols]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Let's see what our data looks like now by printing **last** 5 rows and the datatypes."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Show last five rows\n",
+    "print(data.tail())\n",
+    "\n",
+    "# Check the data types\n",
+    "print(\"\\nData-types:\\n\")\n",
+    "print(data.dtypes)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The column names that we have are somewhat ackward. Let's change them into more intuitive ones. \n",
+    "This can be done easily with ``rename()`` -function.\n",
+    "\n",
+    "We can define the new column names by using a specific data type in Python called [dictionary](https://www.tutorialspoint.com/python/python_dictionary.htm) where we determine \"`key: value`\" -pairs, in which the original column name (the one which will be replaced) is the key, and the new column name is the value.\n",
+    "\n",
+    "- Let's change:\n",
+    "   \n",
+    "   - ``YR--MODAHRMN`` column into ``TIME``, \n",
+    "   - ``SPD`` into ``SPEED``, and\n",
+    "   - ``GUS`` into ``GUST``\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Create the dictionary with old and new names\n",
+    "name_conversion_dict = {'YR--MODAHRMN': 'TIME', 'SPD': 'SPEED', 'GUS': 'GUST'}\n",
+    "\n",
+    "# Let's see what they look like and what is the type\n",
+    "print(name_conversion_dict)\n",
+    "print(type(name_conversion_dict))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "From above we can see that we have successfully created a dictionary that is of type `dict`. \n",
+    "\n",
+    "- Now we can change the column names by passing that dictionary into parameter ``columns`` in ``rename()`` -function."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Rename the columns\n",
+    "data = data.rename(columns=name_conversion_dict)\n",
+    "\n",
+    "# Print the new columns\n",
+    "print(data.columns)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Perfect, now our column names are more easy to understand and use. \n",
+    "\n",
+    "- Let's check some basic statistics to understand our data better."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print(data.describe())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey so from here we can see that there are varying number of observations per column (see the `count` -information). \n",
+    "\n",
+    "For example **`SPD`** and **`TEMP`** column has 72 observations whereas **`GUS`** has only 20 observations and **`MAX`** and **`MIN`** has only 2 observations. From here we can already guess that `MAX` and `MIN` attributes are most probably not going to be useful for us.\n",
+    "However, `GUS` might be.\n",
+    "\n",
+    "- Let's explore further our data by checking the first 30 rows of it.\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print(data.head(30))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey, so from here we can actually see that the **`GUST`** column contains information only on an hourly level. That might be useful! Let's keep this in mind.\n",
+    "\n",
+    "**TAKE HOME MESSAGE**: Whenever starting a data analysis with new dataset, it is highly useful to explore the data by calculating basic statistics from the data (+ visualizing the data, which we will learn later). "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Iterating rows and using self-made functions in Pandas\n",
+    "\n",
+    "Let's do the \"SAME THING\" as so many times before and convert our Fahrenheit temperatures into Celsius (sorry if we seem to lack imagination =) ).\n",
+    "\n",
+    "In this time, however, we will use our self-made function to do the conversion.\n",
+    "\n",
+    "- Let's first define the function:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def fahrToCelsius(temp_fahrenheit):\n",
+    "    \"\"\"\n",
+    "    Function to convert Fahrenheit temperature into Celsius.\n",
+    "\n",
+    "    Parameters\n",
+    "    ----------\n",
+    "\n",
+    "    temp_fahrenheit: int | float\n",
+    "        Input temperature in Fahrenheit (should be a number)\n",
+    "        \n",
+    "    Returns\n",
+    "    -------\n",
+    "    \n",
+    "    Temperature in Celsius (float)\n",
+    "    \"\"\"\n",
+    "\n",
+    "    # Convert the Fahrenheit into Celsius and return it\n",
+    "    converted_temp = (temp_fahrenheit - 32) / 1.8\n",
+    "    return converted_temp"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Let's do the conversion by iterating our data line by line and updating a column called **`CELSIUS`** that we will create.\n",
+    "\n",
+    "We can iterate over the rows of Pandas DataFrame by using **`iterrows()`** -function.\n",
+    "When iterating over the rows in our `DataFrame`, it is noteworthy to understand that the Pandas actually keeps track on the **`index`** value as well. Hence, the contents of a single row actually contains not only the values, but also the `index` of that row.\n",
+    "\n",
+    "- Let's see how it works. Here, we will use a specific Python command called [**`break`**](https://www.tutorialspoint.com/python/python_break_statement.htm) can be used to stop the iteration right after the first loop. This can be quite useful as we don't want to fill our console by printing all the values and indices in our DataFrame, but to just see if the function works as we want:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Iterate over the rows\n",
+    "for idx, row in data.iterrows():\n",
+    "    # Print the index value\n",
+    "    print('Index:', idx)\n",
+    "    \n",
+    "    # Print the row\n",
+    "    print(row)\n",
+    "    \n",
+    "    # Stop iteration with break command\n",
+    "    break\n",
+    "    \n",
+    "# Let's see what is the type of our row\n",
+    "print(\"\\nRow type:\\n\", type(row))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey, so here we can see that the **`idx`** variable indeed contains the index value at position 0 (the first row) and the **`row`** variable contains all the data from that given row stored as **`pd.Series`**.\n",
+    "\n",
+    "- Let's now create an empty column for the Celsius temperatures and update the values into that column by using our function. Here is the whole procedure:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Create an empty column for the DataFrame where the values will be stored\n",
+    "col_name = 'Celsius'\n",
+    "data[col_name] = None\n",
+    "\n",
+    "# Iterate over the rows \n",
+    "for idx, row in data.iterrows():\n",
+    "    # Convert the Fahrenheit to Celsius\n",
+    "    celsius = fahrToCelsius(row['TEMP'])\n",
+    "    \n",
+    "    # Update the value of 'Celsius' column with the converted value using .loc that we learned last week\n",
+    "    data.loc[idx, col_name] = celsius"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Let's see what we have now."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print(data.head())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Great! Now we have converted our temperatures into Celsius by using the function that we created ourselves.\n",
+    "Knowing how to use your own function in Pandas can be really useful when doing your own analyses. There is also another more powerful way of using functions in Pandas by taking advantage of [**`apply()`**](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.apply.html) -function, but we will learn that later.\n",
+    "\n",
+    "- Finally, let's convert the wind speeds into meters per second values (m/s) as they are more familiar to us in Finland. This can be done with a formula **`m/s = mph x 0.44704`**:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Convert speeds from miles to meters\n",
+    "data['SPEED'] = data['SPEED']*0.44704\n",
+    "data['GUST'] = data['GUST']*0.44704\n",
+    "\n",
+    "# Print the first 5 values\n",
+    "print(data.head())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## String manipulation in Pandas"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print(data.head(20))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "When looking the data more carefully, we can see something interesting:\n",
+    " - **`GUST`** seems to be measured only once an hour, whereas **`SPD`** (wind speed), and our temperatures seem to be measured approximately every 20 minutes (at minutes XX:00, XX:20 and XX:50).\n",
+    "\n",
+    "That might be a problem as we might not be able to compare e.g. the average wind speeds and the speeds during the gust together as they are measured with different intervals. This kind of mismatch between sampling rates of measurements is actually quite typical when working with real data.\n",
+    "\n",
+    "How we can solve this problem, is to aggregate the wind speeds into hourly level data so that the attributes become comparable.\n",
+    "First we need to be able to group the values by hour. This can be done e.g. by slicing the date+hour time from the **`TIME`** -column (i.e. removing the minutes from the end of the value).\n",
+    "\n",
+    "Doing this requires two steps:\n",
+    "  1. Convert the `TIME` column from `int` into `str` datatype.\n",
+    "  2. Include only numbers up to hourly accuracy (exclude minutes) by slicing texts\n",
+    "\n",
+    "**Note:** There are also more advanced functions in Pandas to do time series manipulations by utilizing [**`datetime`**](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.to_datetime.html) datatype and [**`resample()`**](https://pandas.pydata.org/pandas-docs/stable/timeseries.html#resampling>) -function, but we won't cover those here. You can read the Pandas docs if you are interested.\n",
+    "\n",
+    "- Let's convert the time into string. And check that the data type changes:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Convert to string\n",
+    "data['TIME_str'] = data['TIME'].astype(str)\n",
+    "# Check data types\n",
+    "print(\"Data type of the column:\")\n",
+    "print(data['TIME_str'].dtypes)\n",
+    "\n",
+    "print(\"\\nData type of the first value in column:\")\n",
+    "print(type(data.loc[0, 'TIME_str']))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey it seems that now we indeed have the `TIME` as `str` datatype as well.\n",
+    "\n",
+    "- Now we can slice them into hourly level by including only 10 first characters from the text (i.e. excluding the minute-level information).\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# SLice the string\n",
+    "data['TIME_dh'] = data['TIME_str'].str.slice(start=0, stop=10)\n",
+    "\n",
+    "# Let's see what we have\n",
+    "print(data.head())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Nice! Now we have information about time on an hourly basis including the date as well.\n",
+    "\n",
+    "**Note:** All the typical ``str`` functionalities can be applied to Series of text data with syntax `data['mySeries'].str.<functionToUse>()`.\n",
+    "\n",
+    "- Let's also slice only the hour of the day (excluding information about the date) and convert it back to integer (we will be using this information later):"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Slice the string to parse the hour from 'TIME_str' column\n",
+    "data['TIME_h'] = data['TIME_str'].str.slice(start=8, stop=10)\n",
+    "# Convert the hour text into integer format\n",
+    "data['TIME_h'] = data['TIME_h'].astype(int)\n",
+    "\n",
+    "print(data.head())\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Wunderbar**, now we have also a separate column for only the hour of the day!"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Aggregating data in Pandas by grouping"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Next we want to calculate the average temperatures, wind speeds, etc. on an hourly basis to enable us\n",
+    "to compare all of them to each other.\n",
+    "\n",
+    "This can be done by aggregating the data, i.e.:\n",
+    "\n",
+    "  1. **grouping the data** based on hourly values\n",
+    "  2. Iterating over those groups and calculating the average values of our attributes\n",
+    "  3. Inserting those values into a new DataFrame where we store the aggregated data\n",
+    "\n",
+    "- Let's first create a new **empty** DataFrame where we will store our aggregated data\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Create a new empty DataFrame\n",
+    "aggr_data = pd.DataFrame()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Let's then **group** our data based on `TIME_h` attribute that contains the information about the date + hour."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Group the data \n",
+    "grouped = data.groupby('TIME_dh')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Let's see what we have now."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# What is the type?\n",
+    "print(\"Type:\\n\", type(grouped))\n",
+    "\n",
+    "# How many?\n",
+    "print(\"Length:\\n\", len(grouped))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey, interesting. Now we have a new object with type **`DataFrameGroupBy`**. And it seems that we have 24 individual groups in our data, i.e. **one group for each hour of the day**.\n",
+    "\n",
+    "As you might have noticed earlier, the first hour in hour data is `2017080400` (midnight at 4th of August in 2017).\n",
+    "\n",
+    "- Let's now see what we have on hour `grouped` variable e.g. on the first hour `2017080400`.\n",
+    "We can get the values of that hour from `DataFrameGroupBy` -object with **`get_group()`** -function.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Specify the time of the first hour (as text)\n",
+    "time1 = '2017080400'\n",
+    "\n",
+    "# Select the group\n",
+    "group1 = grouped.get_group(time1)\n",
+    "\n",
+    "# Let's see what we have\n",
+    "print(group1)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Ahaa! As we can see, a single group contains a **DataFrame** with values only for that specific hour.\n",
+    "This is really useful, because now we can calculate e.g. the average values for all weather measurements (+ hour) that we have (you can use any of the statistical functions that we have seen already, e.g. mean, std, min, max, median, etc.).\n",
+    "\n",
+    "We can do that by using the **`mean()`** -function that we already used during the Lesson 5. \n",
+    "\n",
+    "- Let's calculate the mean for following attributes (let's see how to do them all at once!): \n",
+    "   - ``DIR``, \n",
+    "   - ``SPEED``, \n",
+    "   - ``GUST``, \n",
+    "   - ``TEMP``, \n",
+    "   - ``Celsius``."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Specify the columns that will be part of the calculation\n",
+    "mean_cols = ['DIR', 'SPEED', 'GUST', 'TEMP', 'Celsius', 'TIME_h']\n",
+    "\n",
+    "# Calculate the mean values all at one go\n",
+    "mean_values = group1[mean_cols].mean()\n",
+    "\n",
+    "# Let's see what we have\n",
+    "print(mean_values)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Nice, now we have averaged our data and e.g. the mean Celsius temperature seems to be about right when comparing to the original values above. As you saw from this example, it is possible to do calculations for multiple columns at the same time efficiently with Pandas.\n",
+    "\n",
+    "Notice that we still have information about the hour but not about the date which is at the moment stored in **`time1`** -variable.\n",
+    "We can insert that datetime-information into our **`mean_values`** Series so that we have the date information also associated with our data.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Add the time information into the pandas.Series\n",
+    "mean_values['TIME_dh'] = time1\n",
+    "\n",
+    "# Let's see what we have\n",
+    "print(mean_values)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Perfect! Now we have also time information there. \n",
+    "\n",
+    "The last thing to do is to add these mean values into our DataFrame that we created.\n",
+    "That can be done with **`append()`** -function in a quite similar manner as with Python lists. In Pandas the data insertion is not done **inplace** (as when appending to Python lists) so we need to specify that we are updating the aggr_data (using the **`=`** sign). We also need to specify that we ignore the index values of our original DataFrame (i.e. the indices of `mean_values`).\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Add the values into our aggr_data DataFrame that we created in the beginning\n",
+    "aggr_data = aggr_data.append(mean_values, ignore_index=True)\n",
+    "\n",
+    "# Let's see what we have\n",
+    "print(aggr_data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "As we can see, now we have a single row in our new DataFrame where we have aggregated the data based on hourly mean values.\n",
+    "Next we could continue doing and insert the average values from other hours in a similar manner but, of course, that is not\n",
+    "something that we want to do manually (would require repeating these same steps too many times).\n",
+    "Luckily, we can actually iterate over all the groups that we have in our data and do these steps using a **`for`** -loop.\n",
+    "\n",
+    "When iterating over the groups in our **`DataFrameGroupBy`** -object\n",
+    "it is important to understand that a single group in our `DataFrameGroupBy` actually contains not only the actual values, but also information about the **`key`** that was used to do the grouping. Hence, when iterating over the data we need to assign the `key` and the values into separate variables.\n",
+    "\n",
+    "- Let's see how we can iterate over the groups and print the key and the data from a single group (again using **`break`** to only see what is happening).\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Iterate over groups\n",
+    "for key, group in grouped:\n",
+    "    # Print key and group\n",
+    "    print(\"Key:\\n\", key)\n",
+    "    print(\"\\nGroup:\\n\", group)\n",
+    "    \n",
+    "    # Stop iteration with break command\n",
+    "    break"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey so from here we can see that the **`key`** contains the value **`2017080400`** that is the same\n",
+    "as the values in **`TIME_dh`** column. Meaning that we, indeed, grouped the values based on that column.\n",
+    "\n",
+    "- Let's see how we can create a DataFrame where we calculate the mean values for all those weather attributes that we were interested in. I will repeate slightly the earlier steps so that you can see and better understand what is happening.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Create an empty DataFrame for the aggregated values\n",
+    "aggr_data = pd.DataFrame()\n",
+    "\n",
+    "# The columns that we want to aggregate\n",
+    "mean_cols = ['DIR', 'SPEED', 'GUST', 'TEMP', 'Celsius', 'TIME_h']\n",
+    "\n",
+    "# Iterate over the groups\n",
+    "for key, group in grouped:\n",
+    "   # Aggregate the data\n",
+    "   mean_values = group[mean_cols].mean()\n",
+    "\n",
+    "   # Add the ´key´ (i.e. the date+time information) into the aggregated values\n",
+    "   mean_values['TIME_dh'] = key\n",
+    "\n",
+    "   # Append the aggregated values into the DataFrame\n",
+    "   aggr_data = aggr_data.append(mean_values, ignore_index=True)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Let's see what we have now:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print(aggr_data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Awesome! Now we have aggregated our data based on daily averages and we have a new DataFrame called **`aggr_data`** where all those aggregated values are stored."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Finding outliers from the data\n",
+    "\n",
+    "Finally, we are ready to do some real data analytics and check whether we are able to find out if there are any outliers in our data suggesting to have a storm (meaning strong winds in this case).\n",
+    "\n",
+    "Here, we define an outlier if the **wind speed is 2 times the standard deviation higher than the average wind speed** (column `SPEED`).\n",
+    "\n",
+    "- Let's first find out what is the standard deviation and the mean of the Wind speed.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Calculate standard deviation and average wind speed\n",
+    "std_wind = aggr_data['SPEED'].std()\n",
+    "avg_wind = aggr_data['SPEED'].mean()\n",
+    "print('Std:', std_wind)\n",
+    "print('Mean:', avg_wind)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey, so the variance in the windspeed tend to be approximately 1.6 meters per second, and the wind speed is approximately 5.2 m/s. \n",
+    "\n",
+    "- Hence, the threshold for a wind speed to be an outlier with our criteria is:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Calculate the upper threshold for an outlier\n",
+    "upper_threshold = avg_wind + (std_wind*2)\n",
+    "print('Upper threshold for outlier:', upper_threshold)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Let's finally create a column called **`Outlier`** which we update with **`True`** value, if the windspeed is an outlier, and **`False`**, if it is not. We do this again by iterating over the rows.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Create an empty column for outlier info\n",
+    "aggr_data['Outlier'] = None\n",
+    "\n",
+    "# Iterate over rows\n",
+    "for idx, row in aggr_data.iterrows():\n",
+    "    # Update the 'Outlier' column with True if the wind speed is higher than our threshold value\n",
+    "    if row['SPEED'] > upper_threshold :\n",
+    "        aggr_data.loc[idx, 'Outlier'] = True\n",
+    "    else:\n",
+    "        aggr_data.loc[idx, 'Outlier'] = False\n",
+    "\n",
+    "# Let's see what we have\n",
+    "print(aggr_data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey now we have at least many False values in our **`Outlier`** -column but there seems to be also one True!.\n",
+    "\n",
+    "- Let's select the rows with potential storm:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Select rows that were determined as outliers\n",
+    "storm = aggr_data.loc[aggr_data['Outlier'] == True]\n",
+    "print(storm)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey, so indeed, there was one outlier in our data but the wind during that time wasn't that strong as the average speed was only approximately 9 m/s. This is not too strange as we were only looking at data from a single day."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Repeating the data analysis with larger dataset\n",
+    "\n",
+    "Let's continue by executing the steps that we have written this far and use it to explore outlier winds based on whole month of August 2017.\n",
+    "\n",
+    "For this purpose, we change the input file to be **`6591337447542dat_August.txt`** that [looks like this](data/6591337447542dat_August.txt).\n",
+    "\n",
+    "- Here we will repeat all the steps that we did earlier in one code block so that you can see the full picture:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Filepath\n",
+    "fp = \"data/6591337447542dat_August.txt\"\n",
+    "\n",
+    "# Read data using varying amount of spaces as separator and specifying * characters as NoData values\n",
+    "data = pd.read_csv(fp, sep='\\s+', na_values=['*', '**', '***', '****', '*****', '******'])\n",
+    "\n",
+    "# Select only specific columns\n",
+    "select_cols = ['YR--MODAHRMN', 'DIR', 'SPD', 'GUS','TEMP', 'MAX', 'MIN']\n",
+    "data = data[select_cols]\n",
+    "\n",
+    "# Rename the columns\n",
+    "name_conversion_dict = {'YR--MODAHRMN': 'TIME', 'SPD': 'SPEED', 'GUS': 'GUST'}\n",
+    "data = data.rename(columns=name_conversion_dict)\n",
+    "\n",
+    "# Create column\n",
+    "col_name = 'Celsius'\n",
+    "data[col_name] = None\n",
+    "\n",
+    "# Iterete over rows and convert tempetarues from Fahrenheits to Celsius\n",
+    "for idx, row in data.iterrows():\n",
+    "    celsius = fahrToCelsius(row['TEMP'])\n",
+    "    data.loc[idx, col_name] = celsius\n",
+    "\n",
+    "# Convert wind speeds from miles to meters per second\n",
+    "data['SPEED'] = data['SPEED']*0.44704\n",
+    "data['GUST'] = data['GUST']*0.44704\n",
+    "\n",
+    "# Convert TIME to string and parse date and hour info from the time\n",
+    "data['TIME_str'] = data['TIME'].astype(str)\n",
+    "data['TIME_dh'] = data['TIME_str'].str.slice(start=0, stop=10)\n",
+    "data['TIME_h'] = data['TIME_str'].str.slice(start=8, stop=10)\n",
+    "data['TIME_h'] = data['TIME_h'].astype(int)\n",
+    "\n",
+    "# Create empty column for aggregated data\n",
+    "aggr_data = pd.DataFrame()\n",
+    "\n",
+    "# Specify the columns which will be used in calculation\n",
+    "mean_cols = ['DIR', 'SPEED', 'GUST', 'TEMP', 'Celsius', 'TIME_h']\n",
+    "\n",
+    "# Group the values by hour\n",
+    "grouped = data.groupby('TIME_dh')\n",
+    "\n",
+    "# Iterate over groups and update the aggregated DataFrame\n",
+    "for key, group in grouped:\n",
+    "    # Calculate the mean values\n",
+    "    mean_values = group[mean_cols].mean()\n",
+    "    \n",
+    "    # Add the time to the Series\n",
+    "    mean_values['TIME_dh'] = key\n",
+    "    \n",
+    "    # Add the aggregated values into the DataFrame\n",
+    "    aggr_data = aggr_data.append(mean_values, ignore_index=True)\n",
+    "\n",
+    "# Calculate the outlier threshold for the new dataset\n",
+    "std_wind = aggr_data['SPEED'].std()\n",
+    "avg_wind = aggr_data['SPEED'].mean()\n",
+    "upper_threshold = avg_wind + (std_wind*2)\n",
+    "\n",
+    "# Detect the outliers\n",
+    "aggr_data['Outlier'] = None\n",
+    "for idx, row in aggr_data.iterrows():\n",
+    "    if row['SPEED'] > upper_threshold:\n",
+    "        aggr_data.loc[idx, 'Outlier'] = True\n",
+    "    else:\n",
+    "        aggr_data.loc[idx, 'Outlier'] = False\n",
+    "        \n",
+    "# Select days with strong winds\n",
+    "storm = aggr_data.loc[aggr_data['Outlier'] == True]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "After running the analysis with our new dataset, let's explore and see we have.\n",
+    "\n",
+    "- Let's start by checking if the average and standard deviation of the windspeed differ from the previous ones"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Windspeed statistics\n",
+    "print('Std:', std_wind)\n",
+    "print('Mean:', avg_wind)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey so they are indeed different now! With larger dataset the average wind speed is 4.2 m/s (compared to 5.2 m/s previously). \n",
+    "\n",
+    "- Let's see what we have now in our **`storm`** -variable."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print(storm)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey, interesting! Now we can see the the days and hours when it has been stormy in August 2017.\n",
+    "It seems that the storms have usually been during the day time. Let's check if this is the case.\n",
+    "\n",
+    "We can easily count how many stormy observations for different hour of the day there has been by\n",
+    "using a [**`value_counts()`**](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.value_counts.html) -function that calculates how many observations per certain value there are in a certain column (works best for categorigal data).\n",
+    "\n",
+    "- Let's see the counts for different hours of the day\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Print the occurences of storm by hour\n",
+    "print(storm['TIME_h'].value_counts())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Okey, this is interesting. It seems that most often it has been stormy at 14:00 GMT (i.e. 16:00 at Finnish time).\n",
+    "Notice, that there haven't been any strong winds during the night, which is also interesting. However, as the **The weather guys** explains us, [it is not that surprising actually](http://wxguys.ssec.wisc.edu/2013/11/18/why-does-the-wind-diminish-after-sunset) =). \n",
+    "\n",
+    "The average wind speed may not be the perfect measure to find extreme weather conditions. Gust might usually be a better measure for that purpose.\n",
+    "\n",
+    "- Let's see what were the strongest gust winds in our dataset by sorting the values using **`sort_values()`** -function.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Sort values in descending order\n",
+    "gust_sort = storm.sort_values(by='GUST', ascending=False)\n",
+    "\n",
+    "# Let's see what we have\n",
+    "print(gust_sort)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Interesting! There was one hour with quite extraordinary gust wind in our data happening at 12th of August in 2017.\n",
+    "Indeed, that was a big storm in Helsinki called [**Kiira**](https://yle.fi/uutiset/osasto/news/saturday_night_storm_downs_trees_cuts_electricity_in_the_south/9773250) that caused major damage in different parts of the city. (*Source: [YLE](https://yle.fi/uutiset/osasto/news/saturday_night_storm_downs_trees_cuts_electricity_in_the_south/9773250); \n",
+    "Photo: Markku Sipi*)\n",
+    "\n",
+    "\n",
+    "![](img/Kiira-storm.PNG)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**TAKE HOME MESSAGE**: As we have seen here, we can already conduct fairly interesting data analysis with Pandas that provides various useful functionalities that are fairly straightforward and easy to use. Similar approaches can be used for many different kind of datasets. "
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
