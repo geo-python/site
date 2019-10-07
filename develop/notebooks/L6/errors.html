@@ -1,0 +1,1160 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-105019106-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Dealing with errors &mdash; Geo-Python site documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'site',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
+     
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Geo-Python
+          
+
+          
+            
+            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2019
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/course-info.html#course-meetings-in-period-i">Course meetings in Period I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/course-info.html#instructors">Instructors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/course-info.html#lecturers">Lecturers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/course-info.html#course-assistants">Course assistants</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/course-info.html#course-websites">Course websites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/grading.html#general-grading-breakdown">General grading breakdown</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/installing-anacondas.html">Installing Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/installing-anacondas.html#install-python-on-windows">Install Python on Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/installing-anacondas.html#install-python-on-macos">Install Python on macOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/installing-anacondas.html#install-python-on-linux">Install Python on Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/installing-anacondas.html#installing-packages-using-conda">Installing packages using Conda</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/installing-anacondas.html#the-easiest-way">The easiest way</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/installing-anacondas.html#installing-jupyter-lab-using-conda">Installing Jupyter Lab using conda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/installing-anacondas.html#alternative-way-to-install-packages-if-typical-doesn-t-work">Alternative way to install packages if typical doesn’t work</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/python-vocabulary.html">Vocabulary - Basic terms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/python-vocabulary.html#python-vocabulary">Python vocabulary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/python-vocabulary.html#basic-vocabulary-of-version-control">Basic vocabulary of Version Control</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#books">Books</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#python-tutorials">Python tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#git-github-tutorials">Git + Github tutorials</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/licensing.html#instructional-materials">Instructional materials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/licensing.html#you-are-free-to">you are free to</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/licensing.html#under-the-following-terms">Under the following terms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/licensing.html#notices">Notices</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/licensing.html#code-snippets-software">Code snippets / software</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/motivation.html">Motivation for the course</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/motivation.html#effective-data-visualization">Effective data visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/overview.html#lecture-video">Lecture video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/overview.html#lecture-slides">Lecture slides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/course-environment-components.html">Course environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#jupyterlab">JupyterLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#cloud-computing-environments">Cloud computing environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#binder">Binder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#csc-notebooks">CSC Notebooks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#using-your-own-computer">Using your own computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#git-and-github">Git and GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#slack">Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#voting-and-polling">Voting and polling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#page-summary">Page summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/slack-usage.html">Communicating with Slack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/slack-usage.html#accessing-the-workspace-in-slack">Accessing the workspace in Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/slack-usage.html#overview-of-slack">Overview of Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/slack-usage.html#basic-usage-of-slack">Basic usage of Slack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L1/slack-usage.html#notifying-a-user">Notifying a user</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L1/slack-usage.html#using-threads">Using threads</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/slack-usage.html#general-guidelines-for-communication">General guidelines for communication</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/a-taste-of-python.html">A taste of Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/a-taste-of-python.html#General-information">General information</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Sources">Sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#About-this-document">About this document</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Getting-started">Getting started</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/a-taste-of-python.html#Variables,-math-and-functions">Variables, math and functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Simple-Python-math">Simple Python math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Math-operations">Math operations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L1/a-taste-of-python.html#Check-your-understanding">Check your understanding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Combining-functions">Combining functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Variables">Variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L1/a-taste-of-python.html#Check-your-understanding">Check your understanding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Updating-variables">Updating variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Variable-values">Variable values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Data-types">Data types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L1/a-taste-of-python.html#Check-your-understanding">Check your understanding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Character-input">Character input</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/gcp-1-variable-naming.html">Good coding practices - Selecting “good” variable names</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/gcp-1-variable-naming.html#Some-&quot;not-so-good&quot;-variable-names">Some “not-so-good” variable names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/gcp-1-variable-naming.html#Selecting-&quot;good&quot;-variable-names">Selecting “good” variable names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/gcp-1-variable-naming.html#Formatting-&quot;good&quot;-variable-names">Formatting “good” variable names</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/exercise-1.html">Exercise 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/exercise-1.html#part-1-creating-a-github-com-account-and-using-slack">Part 1 - Creating a GitHub.com account and using Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/exercise-1.html#part-2-cooking-up-some-python">Part 2 - Cooking up some Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/exercise-1.html#summary-what-to-submit">Summary (what to submit)</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/overview.html#lecture-video">Lecture video</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/Python-basic-elements.html">Basic elements of Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Python-basic-elements.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Python-basic-elements.html#Data-types-revisited">Data types revisited</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Let's-start-with-some-data">Let’s start with some data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Reminder:-Data-types-and-their-compatibility">Reminder: Data types and their compatibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Converting-data-from-one-type-to-another">Converting data from one type to another</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Combining-text-and-numbers">Combining text and numbers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Python-basic-elements.html#Lists-and-indices">Lists and indices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Creating-a-list">Creating a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Index-values">Index values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#A-useful-analog---Bill-the-vending-machine">A useful analog - Bill the vending machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Number-of-items-in-a-list">Number of items in a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Index-value-tips">Index value tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Modifying-list-values">Modifying list values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Data-types-in-lists">Data types in lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Adding-and-removing-values-from-lists">Adding and removing values from lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Appending-to-an-integer?-Not-so-fast...">Appending to an integer? Not so fast…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Some-other-useful-list-methods">Some other useful list methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Reversing-a-list">Reversing a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Sorting-a-list">Sorting a list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/gcp-2-describing-code.html">Good coding practices - Describing your code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/gcp-2-describing-code.html#Do-I-need-to-describe-my-code?">Do I need to describe my code?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/gcp-2-describing-code.html#But-seriously,-the-Internet-says-I-shouldn't-comment-my-code">But seriously, the Internet says I shouldn’t comment my code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/gcp-2-describing-code.html#Code-comments">Code comments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/gcp-2-describing-code.html#Line-comments">Line comments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/gcp-2-describing-code.html#Block-comments">Block comments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/gcp-2-describing-code.html#Markdown-text">Markdown text</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/gcp-2-describing-code.html#Data-source">Data source</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html">Introduction to Version Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#familiar">Familiar?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#what-is-version-control">What is version control?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#what-is-git">What is Git?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#what-is-github">What is GitHub?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#relies-on-git">Relies on Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#social-collaborative-network">Social (collaborative) network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#open-source-science">Open source / science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#documentation">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#online-tools">Online tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#issue-tracking">Issue tracking</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#basic-vocabulary">Basic vocabulary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#resources">Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/git-basics.html">Meet Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/git-basics.html#overview-and-preparations">Overview and preparations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/git-basics.html#key-concepts-and-tools">Key concepts and tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/git-basics.html#using-git-from-the-command-line">Using Git from the command line</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#clone-a-repository-from-github">Clone a repository from GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#add-changes-to-the-staging-area">Add changes to the staging area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#commit-changes">Commit changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#publish-your-local-commits-to-github">Publish your local commits to GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/git-basics.html#using-the-jupyterlab-git-plugin">Using the JupyterLab Git plugin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#preparations-in-the-terminal">Preparations in the Terminal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#stage-changes-in-the-plugin">Stage changes in the plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#commit-changes-in-the-plugin">Commit changes in the plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#pull-and-push-using-the-plugin">Pull and push using the plugin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/git-basics.html#if-everything-else-fails">If everything else fails…</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/GitHub-classroom.html">Using Classroom for Github</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/GitHub-classroom.html#classroom-for-github">Classroom for GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/exercise-2.html">Exercise 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/exercise-2.html#cloud-computing-environments">Cloud computing environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/exercise-2.html#exercise-2-hints">Exercise 2 hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/exercise-2.html#git">Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/exercise-2.html#list-methods">List methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/exercise-2.html#indentation-woes">Indentation woes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L3/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L3/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L3/overview.html#lecture">Lecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/for-loops.html">for loops</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/for-loops.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/for-loops.html#Basics-of-for-loops">Basics of for loops</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#A-(bad)-example">A (bad) example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#Introducing-the-for-loop">Introducing the for loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#for-loop-format">for loop format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L3/for-loops.html#Your-daily-for-loop">Your daily for loop</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#for-loop-variables">for loop variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#for-loops-and-the-range()-function">for loops and the range() function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L3/for-loops.html#Poll-question-pause">Poll question pause</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#Looping-over-the-length-of-lists-using-index-values">Looping over the length of lists using index values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#Why-bother-looping-over-a-list-by-the-index-value?">Why bother looping over a list by the index value?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L3/for-loops.html#Poll-question-pause">Poll question pause</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/conditional-statements.html">Conditional statements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/conditional-statements.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/conditional-statements.html#Basics-of-conditional-statements">Basics of conditional statements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/conditional-statements.html#A-simple-conditional-statement">A simple conditional statement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/conditional-statements.html#Comparison-operators-and-boolean-values">Comparison operators and boolean values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/conditional-statements.html#if,-elif-and-else">if, elif and else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/conditional-statements.html#Combining-conditions">Combining conditions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/conditional-statements.html#Combining-for-loops-and-conditional-statements">Combining for-loops and conditional statements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/gcp-3-pep8.html">Good coding practices - writing readable code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/gcp-3-pep8.html#Working-code-vs-readable-code">Working code vs readable code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/gcp-3-pep8.html#PEP-8-Style-Guide">PEP 8 Style Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/gcp-3-pep8.html#Maximum-line-length">Maximum line length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/gcp-3-pep8.html#Indentation">Indentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/gcp-3-pep8.html#Whitespace-and-binary-operators">Whitespace and binary operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/gcp-3-pep8.html#Avoid-extraneous-whitespace">Avoid extraneous whitespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/gcp-3-pep8.html#Write-one-statement-per-line">Write one statement per line</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L3/exercise-3.html">Exercise 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L3/exercise-3.html#cloud-computing-environments">Cloud computing environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L3/exercise-3.html#exercise-3-hints">Exercise 3 hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L3/exercise-3.html#general-tips">General tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L3/exercise-3.html#tests">Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L3/exercise-3.html#combining-strings">Combining strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L3/exercise-3.html#nested-if-statements">Nested if statements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 4</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L4/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L4/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L4/overview.html#lecture">Lecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L4/overview.html#id1">Lecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#What-is-a-function?">What is a function?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#Anatomy-of-a-function">Anatomy of a function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Our-first-function-(aww...)">Our first function (aww…)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#Calling-functions">Calling functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Using-our-new-function">Using our new function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Let's-make-another-function">Let’s make another function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Using-our-second-function">Using our second function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L4/functions.html#Check-your-understanding">Check your understanding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Functions-within-a-function-(Yo-dawg...)">Functions within a function (Yo dawg…)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Using-our-combined-functions">Using our combined functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#An-introduction-to-script-files">An introduction to script files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#The-general-concept-of-a-.py-script-file">The general concept of a .py script file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Getting-started">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Saving-a-text-file-as-a-Python-file">Saving a text file as a Python file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#Saving-and-loading-functions">Saving and loading functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Saving-functions-in-a-script-file">Saving functions in a script file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#Calling-functions-from-a-script-file">Calling functions from a script file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Making-sure-we're-in-the-right-working-directory">Making sure we’re in the right working directory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L4/functions.html#Binder-users">Binder users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L4/functions.html#CSC-notebooks-users">CSC notebooks users</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Changing-the-working-directory">Changing the working directory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L4/functions.html#Binder-users">Binder users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L4/functions.html#CSC-notebooks-users">CSC notebooks users</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Importing-our-script-functions">Importing our script functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Using-our-script-functions">Using our script functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L4/functions.html#Importing-multiple-functions">Importing multiple functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Importing-all-functions-from-a-script">Importing all functions from a script</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#Temperature-calculator-(optional,-advanced-topic)">Temperature calculator (<em>optional, advanced topic</em>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Defining-the-function">Defining the function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Adding-some-conditional-statements">Adding some conditional statements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Returning-the-result">Returning the result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Adding-a-docstring">Adding a docstring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Testing-the-new-function">Testing the new function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Using-the-tempCalculator">Using the tempCalculator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/modules.html">Loading and using modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L4/modules.html#Modules,-packages-and-libraries?">Modules, packages and libraries?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/modules.html#Loading-modules">Loading modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/modules.html#Renaming-imported-modules">Renaming imported modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/modules.html#Importing-a-single-function">Importing a single function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/modules.html#Importing-a-submodule">Importing a submodule</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/modules.html#Using-module-functions">Using module functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/modules.html#What-should-I-not-do?">What should I not do?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/modules.html#from-X-import-*">from X import *</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/modules.html#Poor-names-when-renaming-on-import">Poor names when renaming on import</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/modules.html#Extra:-installing-packages">Extra: installing packages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/writing-scripts.html">Good coding practices - Writing our scripts the “right” way</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L4/writing-scripts.html#Inline-comments">Inline comments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/writing-scripts.html#Use-line-breaks-wisely">Use line breaks wisely</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/writing-scripts.html#Use-a-docstring">Use a docstring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/writing-scripts.html#Advanced-topics">Advanced topics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/writing-scripts.html#Adding-a-license">Adding a license</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/writing-scripts.html#Starting-with-a-shebang">Starting with a shebang</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/writing-scripts.html#Page-summary">Page summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L4/exercise-4.html">Exercise 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L4/exercise-4.html#cloud-computing-environments">Cloud computing environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L4/exercise-4.html#exercise-4-hints">Exercise 4 hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L4/exercise-4.html#importing-variables-from-a-script">Importing variables from a script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L4/exercise-4.html#counting-values-from-a-list">Counting values from a list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 5</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L5/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L5/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L5/overview.html#lecture-videos">Lecture videos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L5/pandas-overview.html">What is Pandas?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L5/pandas-overview.html#easy-to-use-data-structures">Easy-to-use data structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L5/pandas-overview.html#combines-functionalities-from-many-python-modules">Combines functionalities from many Python modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L5/pandas-overview.html#supports-data-read-write-from-multiple-formats">Supports data read/write from multiple formats</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/exploring-data-using-pandas.html">Exploring data using Pandas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L5/exploring-data-using-pandas.html#Input-data:-weather-statistics">Input data: weather statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/exploring-data-using-pandas.html#Reading-a-data-file-with-Pandas">Reading a data file with Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/exploring-data-using-pandas.html#DataFrame-properties">DataFrame properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/exploring-data-using-pandas.html#Selecting-columns">Selecting columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/exploring-data-using-pandas.html#Descriptive-statistics">Descriptive statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/exploring-data-using-pandas.html#Extra:-Very-basic-plots">Extra: Very basic plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/exploring-data-using-pandas.html#Extra:-From-lists-to-pandas-objects">Extra: From lists to pandas objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/processing-data-with-pandas.html">Processing data with Pandas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L5/processing-data-with-pandas.html#Basic-calculations">Basic calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/processing-data-with-pandas.html#Selecting-rows-and-columns">Selecting rows and columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/processing-data-with-pandas.html#Filtering-and-updating-data">Filtering and updating data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/processing-data-with-pandas.html#Dealing-with-missing-data">Dealing with missing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/processing-data-with-pandas.html#Data-type-conversions">Data type conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/processing-data-with-pandas.html#Unique-values">Unique values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/processing-data-with-pandas.html#Sorting-data">Sorting data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/processing-data-with-pandas.html#Writing-data-to-a-file">Writing data to a file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L5/exercise-5.html">Exercise 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L5/exercise-5.html#exercise-5-hints-for-pandas">Exercise 5 hints for Pandas</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Geo-Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Dealing with errors</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/geo-python/site/blob/develop/source/notebooks/L6/errors.ipynb" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+
+
+    
+    
+
+
+
+    <p class="scv-banner scv-sphinx_rtd_theme"><b>Warning:</b> This document is for the development version of Geo-Python.</p>
+
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="admonition note">
+This page was generated from <a class="reference external" href="https://github.com/Geo-Python/site/blob/master/source/notebooks/L6/errors.ipynb">source/notebooks/L6/errors.ipynb</a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/geo-python/site/master?urlpath=lab/tree/source/notebooks/L6/errors.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span>
+<span class="raw-html"><a href="https://mybinder.org/v2/gh/geo-python/notebooks/master?urlpath=lab/tree/notebooks/L6/errors.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-student%20binder-red.svg" style="vertical-align:text-bottom"></a></span>
+<span class="raw-html"><a href="https://notebooks.csc.fi/#/blueprint/df93f30d14e44b51907d135726eb6ef4"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a></span></div>
+<div class="section" id="Dealing-with-errors">
+<h1>Dealing with errors<a class="headerlink" href="#Dealing-with-errors" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Interpreting-error-messages">
+<h2>Interpreting error messages<a class="headerlink" href="#Interpreting-error-messages" title="Permalink to this headline">¶</a></h2>
+<p>So far in the course we have encountered a number of different types of error messages in Python, but have not really discussed how to understand what the computer is trying to tell you when you get an error message. We’ll do that below. For most Python errors you will see and exception raised when the error is encountered, providing some insight into what went wrong and where to look to fix it.</p>
+<div class="section" id="Reading-error-messages">
+<h3>Reading error messages<a class="headerlink" href="#Reading-error-messages" title="Permalink to this headline">¶</a></h3>
+<p>Let’s imagine you’ve written the code below called to convert wind speeds from km/hr to m/s and you’re dying to figure out how windy it is in <a class="reference external" href="https://www.theweathernetwork.com/ca/weather/nova-scotia/halifax">Halifax, Nova Scotia, Canada</a> where they report wind speeds in km/hr.</p>
+<p>Unfortunately, when you run your script you observe the following:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">wind_speed_km</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">wind_speed_ms</span> <span class="o">=</span> <span class="n">wind_speed_km</span> <span class="o">*</span> <span class="mi">1000</span> <span class="o">/</span> <span class="mi">3600</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;A wind speed of&#39;</span><span class="p">,</span> <span class="n">wind_speed_km</span><span class="p">,</span> <span class="s1">&#39;km/hr is&#39;</span><span class="p">,</span> <span class="n">wind_speed_ms</span><span class="p">,</span> <span class="s1">&#39;m/s.)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-1-75d8ffbf5ea6&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">4</span>
+<span class="ansi-red-fg">    print(&#39;A wind speed of&#39;, wind_speed_km, &#39;km/hr is&#39;, wind_speed_ms, &#39;m/s.)</span>
+                                                                             ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> EOL while scanning string literal
+
+</pre></div></div>
+</div>
+<p>Let’s break this example down and see what the error message says.</p>
+<p><img alt="Syntax error" src="../../_images/error-message-annotated.png" /> <em>A SyntaxError, annotated</em></p>
+<p>As you can see, there is quite a bit of useful information here. We have the name of the script, its location, and which line was a problem. It’s always good to double check that you actually are editing the correct script when looking for errors! We also have the type of error, a <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> in this case, as well as where it occurred on the line, and a bit more information about its meaning. The location on the line won’t always be correct, but Python makes its best guess for where you
+should look to solve the problem. Clearly, this is handy information.</p>
+<p>Let’s consider another example, where you have fixed the <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> above and now have made a function for calculating a wind speeds in m/s.</p>
+<p>When you run this script you encounter a new and bigger error message:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">convert_wind_speed</span><span class="p">(</span><span class="n">speed</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">speed</span> <span class="o">*</span> <span class="mi">1000</span> <span class="o">/</span> <span class="mi">3600</span>
+
+<span class="n">wind_speed_km</span> <span class="o">=</span> <span class="s1">&#39;30&#39;</span>
+<span class="n">wind_speed_ms</span> <span class="o">=</span> <span class="n">convert_wind_speed</span><span class="p">(</span><span class="n">wind_speed_km</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;A wind speed of&#39;</span><span class="p">,</span> <span class="n">wind_speed_km</span><span class="p">,</span> <span class="s1">&#39;km/hr is&#39;</span><span class="p">,</span> <span class="n">wind_speed_ms</span><span class="p">,</span> <span class="s1">&#39;m/s.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-2-9a6cbd472aee&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> wind_speed_km <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;30&#39;</span>
+<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg"> </span>wind_speed_ms <span class="ansi-blue-fg">=</span> convert_wind_speed<span class="ansi-blue-fg">(</span>wind_speed_km<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>
+<span class="ansi-green-intense-fg ansi-bold">      7</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;A wind speed of&#39;</span><span class="ansi-blue-fg">,</span> wind_speed_km<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;km/hr is&#39;</span><span class="ansi-blue-fg">,</span> wind_speed_ms<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;m/s.&#39;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">&lt;ipython-input-2-9a6cbd472aee&gt;</span> in <span class="ansi-cyan-fg">convert_wind_speed</span><span class="ansi-blue-fg">(speed)</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">def</span> convert_wind_speed<span class="ansi-blue-fg">(</span>speed<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> speed <span class="ansi-blue-fg">*</span> <span class="ansi-cyan-fg">1000</span> <span class="ansi-blue-fg">/</span> <span class="ansi-cyan-fg">3600</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> wind_speed_km <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;30&#39;</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> wind_speed_ms <span class="ansi-blue-fg">=</span> convert_wind_speed<span class="ansi-blue-fg">(</span>wind_speed_km<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">TypeError</span>: unsupported operand type(s) for /: &#39;str&#39; and &#39;int&#39;
+</pre></div></div>
+</div>
+<p>In this case we see a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> that is part of a <em>traceback</em>, where the problem in the code arises from something other than on the line where the code was run. In this case, we have a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> where we try to divide a character string by a number, something Python cannot do. Hence, the <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> indicating the data types are not compatible. That error, however, does not occur when the code is run until the point where the function is used. Thus, we see the traceback showing that
+not only does the error occur when the function is used, but also that the problem is in the function definition.</p>
+<p>The traceback above may look a bit scarier, but if you take your time and read through what is written there, you will again find that the information is helpful in finding the problem in your code. After all, the purpose of the error message is to help the user find a problem :).</p>
+</div>
+<div class="section" id="Common-errors-and-exceptions">
+<h3>Common errors and exceptions<a class="headerlink" href="#Common-errors-and-exceptions" title="Permalink to this headline">¶</a></h3>
+<p>Now that we have some idea of how to read an error message, let’s have a look at a few different types of common Python exceptions that are displayed for different program errors.</p>
+<div class="section" id="IndexErrors">
+<h4>IndexErrors<a class="headerlink" href="#IndexErrors" title="Permalink to this headline">¶</a></h4>
+<p>An <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> occurs when you attempt to reference a value with an index outside the range of values. We can easily produce an <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> by trying to access the value at index 5 in the following list of cities: <code class="docutils literal notranslate"><span class="pre">cities</span> <span class="pre">=</span> <span class="pre">['Paris',</span> <span class="pre">'Berlin',</span> <span class="pre">'London']</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cities</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Paris&#39;</span><span class="p">,</span> <span class="s1">&#39;Berlin&#39;</span><span class="p">,</span> <span class="s1">&#39;London&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cities</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">IndexError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-4-34a99c8a1728&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>cities<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">]</span>
+
+<span class="ansi-red-fg">IndexError</span>: list index out of range
+</pre></div></div>
+</div>
+<p>Here we get the rather clear error message that the index used for the list <code class="docutils literal notranslate"><span class="pre">cities</span></code> is out of the range of index values for that list.</p>
+</div>
+<div class="section" id="NameErrors">
+<h4>NameErrors<a class="headerlink" href="#NameErrors" title="Permalink to this headline">¶</a></h4>
+<p>A <code class="docutils literal notranslate"><span class="pre">NameError</span></code> occurs when you reference a variable that has not been defined. We can produce a <code class="docutils literal notranslate"><span class="pre">NameError</span></code> by trying <code class="docutils literal notranslate"><span class="pre">station_id</span> <span class="pre">=</span> <span class="pre">stations[1]</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">station_id</span> <span class="o">=</span> <span class="n">stations</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-5-cca3113c57df&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>station_id <span class="ansi-blue-fg">=</span> stations<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;stations&#39; is not defined
+</pre></div></div>
+</div>
+<p>In this instance we receive a <code class="docutils literal notranslate"><span class="pre">NameError</span></code> because the list <code class="docutils literal notranslate"><span class="pre">stations</span></code> has not been defined, and we’re thus not able to access a value in that list.</p>
+</div>
+<div class="section" id="IndentationErrors">
+<h4>IndentationErrors<a class="headerlink" href="#IndentationErrors" title="Permalink to this headline">¶</a></h4>
+<p>An <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code> is raised whenever a code block is expected to be indented and is either not, or is indented inconsistently. Let’s consider two examples below.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">cities</span><span class="p">:</span>
+    <span class="n">city</span> <span class="o">=</span> <span class="n">city</span> <span class="o">+</span> <span class="s1">&#39; is a city in Europe&#39;</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-6-d01719aec99a&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">3</span>
+<span class="ansi-red-fg">    print(city)</span>
+               ^
+<span class="ansi-red-fg">IndentationError</span><span class="ansi-red-fg">:</span> unindent does not match any outer indentation level
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">cities</span><span class="p">:</span>
+<span class="n">city</span> <span class="o">=</span> <span class="n">city</span> <span class="o">+</span> <span class="s1">&#39; is a city in Europe&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-7-b86b26f34739&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">2</span>
+<span class="ansi-red-fg">    city = city + &#39; is a city in Europe&#39;</span>
+       ^
+<span class="ansi-red-fg">IndentationError</span><span class="ansi-red-fg">:</span> expected an indented block
+
+</pre></div></div>
+</div>
+<p>In both of the examples above, an <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code> is raised. In the first case, the indentation level is inconsistent. In case two, indentation is expected for the code below a <code class="docutils literal notranslate"><span class="pre">for</span></code> statement.</p>
+</div>
+<div class="section" id="TypeErrors">
+<h4>TypeErrors<a class="headerlink" href="#TypeErrors" title="Permalink to this headline">¶</a></h4>
+<p>A <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> is raised whenever two incompatible data types are used together. For example, if we try to divide a character string by a number or add a number to a boolean variable, a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> will be raised.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cities</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-8-9aba02c90a51&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>cities<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">/</span> <span class="ansi-cyan-fg">5</span>
+
+<span class="ansi-red-fg">TypeError</span>: unsupported operand type(s) for /: &#39;str&#39; and &#39;int&#39;
+</pre></div></div>
+</div>
+<p>In this case, the <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> is because it is not possible to divide a character string by a number.</p>
+</div>
+<div class="section" id="Other-kinds-of-errors">
+<h4>Other kinds of errors<a class="headerlink" href="#Other-kinds-of-errors" title="Permalink to this headline">¶</a></h4>
+<p>There are certainly <a class="reference external" href="https://docs.python.org/3/tutorial/errors.html">other kinds of errors and exceptions in Python</a>, but this list comprises those you’re most likely to encounter. As you can see, knowing the name of each error can be helpful in trying to figure out what has gone wrong, and knowing what these common error types mean will save you time trying to fix your programs.</p>
+</div>
+</div>
+<div class="section" id="More-information">
+<h3>More information<a class="headerlink" href="#More-information" title="Permalink to this headline">¶</a></h3>
+<p>You can find a bit more information about reading error messages on the <a class="reference external" href="http://swcarpentry.github.io/python-novice-inflammation/07-errors/">Software Carpentry</a> and <a class="reference external" href="https://docs.python.org/3/tutorial/errors.html">Python Software Foundation</a> webpages.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki
+      <span class="lastupdated">
+        Last updated on Oct 07, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p> <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> </a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: develop
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Tags</dt>
+            <dd><a href="../../../2017/index.html">2017</a></dd>
+            <dd><a href="../../../2018/index.html">2018</a></dd>
+        </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="errors.html">develop</a></dd>
+            <dd><a href="../../../master/index.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
