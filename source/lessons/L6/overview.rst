@@ -8,9 +8,10 @@ Many new programmers struggle with removing problems in their code (debugging) b
 By learning a few basic ideas about debugging and interpreting error messages, we hope to save you time and frustration as your scripts become more complex.
 
 1. `Advanced data processing with Pandas <../../notebooks/L6/advanced-data-processing-with-pandas.ipynb>`_
-2. :doc:`Interpreting error messages <interpreting-errors>`
-3. :doc:`Debugging your scripts <debugging-scripts>`
-4. :doc:`Exercise 6: Data analysis II <exercise-6>`
+2. `Interpreting error messages <../../notebooks/L6/errors.ipynb>`_
+3. `Good coding practices - Using assertions <../../notebooks/L6/gcp-assertions.ipynb>`_
+4. `Debugging your code <../../notebooks/L6/debugging.ipynb>`_
+5. :doc:`Exercise 6: Data analysis II <exercise-6>`
 
 Learning goals
 --------------
