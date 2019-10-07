@@ -950,14 +950,18 @@ This page was generated from <a class="reference external" href="https://github.
 <p>In the lesson this week we are using weather observation data from Helsinki, Finland from August 2017 when a severe thunderstorm “Kiira” hit souther Finland <a class="reference external" href="https://yle.fi/uutiset/osasto/news/saturday_night_storm_downs_trees_cuts_electricity_in_the_south/9773250">that caused major damage in different pars of Helsinki</a> (<em>Source:</em> <a class="reference external" href="https://yle.fi/uutiset/osasto/news/saturday_night_storm_downs_trees_cuts_electricity_in_the_south/9773250">YLE</a>).</p>
 <p><img alt="Markku Sipi/ Yle" src="../../_images/Kiira-storm.PNG" /></p>
 <p><em>Photo: Markku Sipi/YLE</em></p>
-</div>
-<div class="section" id="Reading-the-data">
-<h2>Reading the data<a class="headerlink" href="#Reading-the-data" title="Permalink to this headline">¶</a></h2>
 <p>Notice that this time, we will read the <strong>actual</strong> data obtained from NOAA without any modifications to the data file (week 5 input data had been modified after downloading it from NOAA). The data input data for this week is separated with varying amount of spaces (fixed width). The first lines and columns of the data looks like following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">USAF</span>  <span class="n">WBAN</span> <span class="n">YR</span><span class="o">--</span><span class="n">MODAHRMN</span> <span class="n">DIR</span> <span class="n">SPD</span> <span class="n">GUS</span> <span class="n">CLG</span> <span class="n">SKC</span> <span class="n">L</span> <span class="n">M</span> <span class="n">H</span>  <span class="n">VSB</span> <span class="n">MW</span> <span class="n">MW</span> <span class="n">MW</span> <span class="n">MW</span> <span class="n">AW</span> <span class="n">AW</span> <span class="n">AW</span> <span class="n">AW</span> <span class="n">W</span> <span class="n">TEMP</span> <span class="n">DEWP</span>    <span class="n">SLP</span>  <span class="o">...</span>
 <span class="mi">029740</span> <span class="mi">99999</span> <span class="mi">201708040000</span> <span class="mi">114</span>   <span class="mi">6</span> <span class="o">***</span> <span class="o">***</span> <span class="n">BKN</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="mf">25.0</span> <span class="mi">03</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="mi">2</span>   <span class="mi">58</span>   <span class="mi">56</span> <span class="mf">1005.6</span>  <span class="o">...</span>
+<span class="mi">029740</span> <span class="mi">99999</span> <span class="mi">201708040020</span> <span class="mi">100</span>   <span class="mi">6</span> <span class="o">***</span>  <span class="mi">75</span> <span class="o">***</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>  <span class="mf">6.2</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">*</span>   <span class="mi">59</span>   <span class="mi">57</span> <span class="o">******</span>  <span class="o">...</span>
+<span class="mi">029740</span> <span class="mi">99999</span> <span class="mi">201708040050</span> <span class="mi">100</span>   <span class="mi">5</span> <span class="o">***</span>  <span class="mi">60</span> <span class="o">***</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>  <span class="mf">6.2</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">*</span>   <span class="mi">59</span>   <span class="mi">57</span> <span class="o">******</span>  <span class="o">...</span>
+<span class="mi">029740</span> <span class="mi">99999</span> <span class="mi">201708040100</span> <span class="mi">123</span>   <span class="mi">8</span> <span class="o">***</span>  <span class="mi">63</span> <span class="n">OVC</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="mf">10.0</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="mi">23</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">*</span>   <span class="mi">59</span>   <span class="mi">58</span> <span class="mf">1004.7</span>  <span class="o">...</span>
 </pre></div>
 </div>
+<p><strong>We will first work with a subset of the data (data for one single day), before repeating the process on a bigger data set (data for the whole month of August).</strong></p>
+</div>
+<div class="section" id="Reading-the-data">
+<h2>Reading the data<a class="headerlink" href="#Reading-the-data" title="Permalink to this headline">¶</a></h2>
 <p>Because the data is separated with varying amount of spaces, we need to tell Pandas how to read it. We can control the delimiter with <code class="docutils literal notranslate"><span class="pre">sep</span></code> parameter following the documentation of the function <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code>:</p>
 <p><a href="#id2"><span class="problematic" id="id3">|read\_csv sep|</span></a></p>
 <p>Hence, we can separate the columns by varying number spaces of spaces with <code class="docutils literal notranslate"><span class="pre">sep='\s+'</span></code> -parameter. Our data also included No Data values with varying number of <code class="docutils literal notranslate"><span class="pre">*</span></code> -characters. Hence, we need to take also those into account when reading the data. We can tell pandas to consider those characters as NaNs by specifying <code class="docutils literal notranslate"><span class="pre">na_values=['*',</span> <span class="pre">'**',</span> <span class="pre">'***',</span> <span class="pre">'****',</span> <span class="pre">'*****',</span> <span class="pre">'******']</span></code>.</p>
@@ -1125,7 +1129,7 @@ dtype: object
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;SPD&#39;: &#39;SPEED&#39;, &#39;YR--MODAHRMN&#39;: &#39;TIME&#39;, &#39;GUS&#39;: &#39;GUST&#39;}
+{&#39;YR--MODAHRMN&#39;: &#39;TIME&#39;, &#39;SPD&#39;: &#39;SPEED&#39;, &#39;GUS&#39;: &#39;GUST&#39;}
 &lt;class &#39;dict&#39;&gt;
 </pre></div></div>
 </div>
@@ -2263,23 +2267,28 @@ Data type of the first value in column:
 </pre></div></div>
 </div>
 <p>Nice! Now we have information about time on an hourly basis including the date as well.</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>String functions</strong></p>
 <p><strong>Note:</strong> All the typical <code class="docutils literal notranslate"><span class="pre">str</span></code> functionalities can be applied to Series of text data with syntax <code class="docutils literal notranslate"><span class="pre">data['mySeries'].str.&lt;functionToUse&gt;()</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>TASK:</strong></p>
 <ul class="simple">
-<li>Let’s also slice only the hour of the day (excluding information about the date) and convert it back to integer (we will be using this information later):</li>
+<li>Create a new column <code class="docutils literal notranslate"><span class="pre">TIME_H</span></code> which contains the hour of each row as an integer value. For example, the hour for the first row is <code class="docutils literal notranslate"><span class="pre">0</span></code>.</li>
 </ul>
+</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Slice the string to parse the hour from &#39;TIME_str&#39; column</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;TIME_H&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;TIME_STR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
 <span class="c1"># Convert the hour text into integer format</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;TIME_H&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;TIME_H&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-
-
 </pre></div>
 </div>
 </div>
@@ -2315,26 +2324,51 @@ Data type of the first value in column:
 <ol class="arabic simple">
 <li><strong>grouping the data</strong> based on hourly values</li>
 <li>Iterating over those groups and calculating the average values of our attributes</li>
-<li>Inserting those values into a new DataFrame where we store the aggregated data</li>
+<li>Inserting those values into <strong>a new DataFrame</strong> where we store the aggregated data</li>
 </ol>
+<p><strong>–&gt; our input data has 3 rows per hour, the aggregated data frame should only have 1 row per hour!</strong></p>
 <ul class="simple">
 <li>Let’s first create a new <strong>empty</strong> DataFrame where we will store our aggregated data</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Create a new empty DataFrame</span>
-<span class="n">aggr_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">hourly_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<p>Let’s then <strong>group</strong> our data based on <code class="docutils literal notranslate"><span class="pre">TIME_DH</span></code> attribute that contains the information about the date + hour.</p>
 <ul class="simple">
-<li>Let’s then <strong>group</strong> our data based on <code class="docutils literal notranslate"><span class="pre">TIME_h</span></code> attribute that contains the information about the date + hour.</li>
+<li>First, check how many unique values the <code class="docutils literal notranslate"><span class="pre">TIME_DH</span></code> column has using the <code class="docutils literal notranslate"><span class="pre">.nunique()</span></code> method:</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Number of rows&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Number of unique day + hour combinations:&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;TIME_DH&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of rows 72
+Number of unique day + hour combinations: 24
+</pre></div></div>
+</div>
+<p>Indeed, we are currently dealing with data from one day, 3 observations per hour!</p>
+<ul class="simple">
+<li>Now, group the data based on <code class="docutils literal notranslate"><span class="pre">TIME_DH</span></code> column:</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2347,7 +2381,7 @@ Data type of the first value in column:
 <li>Let’s see what we have now.</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2371,9 +2405,31 @@ Length:
 </pre></div></div>
 </div>
 <p>Okey, interesting. Now we have a new object with type <strong>``DataFrameGroupBy``</strong>. And it seems that we have 24 individual groups in our data, i.e. <strong>one group for each hour of the day</strong>.</p>
+<p>There are several methods we can use for extracting information from the grouped data. See <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/groupby.html">documentation for Pandas GroupBy objects</a> for a comprehensive overview.</p>
+<p><strong>Checking group names:</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Check the &quot;names&quot; of each group</span>
+<span class="n">grouped</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>dict_keys([&#39;2017080422&#39;, &#39;2017080417&#39;, &#39;2017080418&#39;, &#39;2017080402&#39;, &#39;2017080414&#39;, &#39;2017080419&#39;, &#39;2017080410&#39;, &#39;2017080411&#39;, &#39;2017080420&#39;, &#39;2017080401&#39;, &#39;2017080423&#39;, &#39;2017080416&#39;, &#39;2017080405&#39;, &#39;2017080421&#39;, &#39;2017080409&#39;, &#39;2017080407&#39;, &#39;2017080400&#39;, &#39;2017080404&#39;, &#39;2017080408&#39;, &#39;2017080413&#39;, &#39;2017080415&#39;, &#39;2017080412&#39;, &#39;2017080406&#39;, &#39;2017080403&#39;])
+</pre></div>
+</div>
+</div>
+<p><strong>Accessing data for one group:</strong></p>
 <p>As you might have noticed earlier, the first hour in hour data is <code class="docutils literal notranslate"><span class="pre">2017080400</span></code> (midnight at 4th of August in 2017).</p>
 <ul class="simple">
-<li>Let’s now see what we have on hour <code class="docutils literal notranslate"><span class="pre">grouped</span></code> variable e.g. on the first hour <code class="docutils literal notranslate"><span class="pre">2017080400</span></code>. We can get the values of that hour from <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code> -object with <strong>``get_group()``</strong> -function.</li>
+<li>Let’s check the contents of the group named <code class="docutils literal notranslate"><span class="pre">2017080400</span></code>. We can get the values of that hour from the grouped object using the <code class="docutils literal notranslate"><span class="pre">get_group()</span></code> -method:</li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
@@ -2407,15 +2463,34 @@ Length:
 2  2017080400       0
 </pre></div></div>
 </div>
-<p>Ahaa! As we can see, a single group contains a <strong>DataFrame</strong> with values only for that specific hour. This is really useful, because now we can calculate e.g. the average values for all weather measurements (+ hour) that we have (you can use any of the statistical functions that we have seen already, e.g. mean, std, min, max, median, etc.).</p>
-<p>We can do that by using the <strong>``mean()``</strong> -function that we already used during the Lesson 5.</p>
+<p>Ahaa! As we can see, a single group contains a <strong>DataFrame</strong> with values only for that specific hour. Let’s check the DataType of this group:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">group1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
+<p>So, one group is a pandas DataFrame! This is really useful, because we can now use all the familiar DataFrame methods for calculating statistics etc for this spesific group. We can, for example, calculate the average values for all variables using the statistical functions that we have seen already (e.g. mean, std, min, max, median, etc.).</p>
+<p>We can do that by using the <code class="docutils literal notranslate"><span class="pre">mean()</span></code> -function that we already used during the Lesson 5.</p>
 <ul class="simple">
-<li>Let’s calculate the mean for following attributes (let’s see how to do them all at once!):</li>
+<li>Let’s calculate the mean for following attributes all at once:</li>
 <li><code class="docutils literal notranslate"><span class="pre">DIR</span></code>,</li>
 <li><code class="docutils literal notranslate"><span class="pre">SPEED</span></code>,</li>
 <li><code class="docutils literal notranslate"><span class="pre">GUST</span></code>,</li>
 <li><code class="docutils literal notranslate"><span class="pre">TEMP</span></code>,</li>
-<li><code class="docutils literal notranslate"><span class="pre">Celsius</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">TEMP_C</span></code></li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
@@ -2423,7 +2498,7 @@ Length:
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Specify the columns that will be part of the calculation</span>
-<span class="n">mean_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DIR&#39;</span><span class="p">,</span> <span class="s1">&#39;SPEED&#39;</span><span class="p">,</span> <span class="s1">&#39;GUST&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP_C&#39;</span><span class="p">,</span> <span class="s1">&#39;TIME_H&#39;</span><span class="p">]</span>
+<span class="n">mean_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DIR&#39;</span><span class="p">,</span> <span class="s1">&#39;SPEED&#39;</span><span class="p">,</span> <span class="s1">&#39;GUST&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span>
 
 <span class="c1"># Calculate the mean values all at one go</span>
 <span class="n">mean_values</span> <span class="o">=</span> <span class="n">group1</span><span class="p">[</span><span class="n">mean_cols</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -2443,22 +2518,21 @@ SPEED       2.533227
 GUST             NaN
 TEMP       58.666667
 TEMP_C     14.814815
-TIME_H      0.000000
 dtype: float64
 </pre></div></div>
 </div>
-<p>Nice, now we have averaged our data and e.g. the mean Celsius temperature seems to be about right when comparing to the original values above. As you saw from this example, it is possible to do calculations for multiple columns at the same time efficiently with Pandas.</p>
-<p>Notice that we still have information about the hour but not about the date which is at the moment stored in <strong>``time1``</strong> -variable. We can insert that datetime-information into our <strong>``mean_values``</strong> Series so that we have the date information also associated with our data.</p>
+<p>Nice, now we have averaged our data and e.g. the mean Celsius temperature seems to be about right when comparing to the original values above.</p>
+<p>The last thing to do is to add these mean values into our DataFrame that we created. That can be done with <code class="docutils literal notranslate"><span class="pre">append()</span></code> -function in a quite similar manner as with Python lists. In Pandas the data insertion is not done <strong>inplace</strong> (as when appending to Python lists) so we need to specify that we are updating the aggr_data (using the <strong>``=``</strong> sign). We also need to specify that we ignore the index values of our original DataFrame (i.e. the indices of <code class="docutils literal notranslate"><span class="pre">mean_values</span></code>).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Add the time information into the pandas.Series</span>
-<span class="n">mean_values</span><span class="p">[</span><span class="s1">&#39;TIME_DH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time1</span>
+<span></span><span class="c1"># Add the values into our aggr_data DataFrame that we created in the beginning</span>
+<span class="n">hourly_data</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_values</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="c1"># Let&#39;s see what we have</span>
-<span class="k">print</span><span class="p">(</span><span class="n">mean_values</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">hourly_data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2467,39 +2541,32 @@ dtype: float64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DIR           104.667
-SPEED         2.53323
-GUST              NaN
-TEMP          58.6667
-TEMP_C        14.8148
-TIME_H              0
-TIME_DH    2017080400
-dtype: object
+          DIR  GUST     SPEED       TEMP     TEMP_C
+0  104.666667   NaN  2.533227  58.666667  14.814815
 </pre></div></div>
 </div>
-<p>Perfect! Now we have also time information there.</p>
-<p>The last thing to do is to add these mean values into our DataFrame that we created. That can be done with <strong>``append()``</strong> -function in a quite similar manner as with Python lists. In Pandas the data insertion is not done <strong>inplace</strong> (as when appending to Python lists) so we need to specify that we are updating the aggr_data (using the <strong>``=``</strong> sign). We also need to specify that we ignore the index values of our original DataFrame (i.e. the indices of <code class="docutils literal notranslate"><span class="pre">mean_values</span></code>).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Add the values into our aggr_data DataFrame that we created in the beginning</span>
-<span class="n">aggr_data</span> <span class="o">=</span> <span class="n">aggr_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_values</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-
-<span class="c1"># Let&#39;s see what we have</span>
-<span class="k">print</span><span class="p">(</span><span class="n">aggr_data</span><span class="p">)</span>
+<span></span><span class="n">mean_values</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-          DIR  GUST     SPEED       TEMP     TEMP_C     TIME_DH  TIME_H
-0  104.666667   NaN  2.533227  58.666667  14.814815  2017080400     0.0
-</pre></div></div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>DIR       104.666667
+SPEED       2.533227
+GUST             NaN
+TEMP       58.666667
+TEMP_C     14.814815
+dtype: float64
+</pre></div>
+</div>
 </div>
 <p>As we can see, now we have a single row in our new DataFrame where we have aggregated the data based on hourly mean values. Next we could continue doing and insert the average values from other hours in a similar manner but, of course, that is not something that we want to do manually (would require repeating these same steps too many times). Luckily, we can actually iterate over all the groups that we have in our data and do these steps using a <strong>``for``</strong> -loop.</p>
 <p>When iterating over the groups in our <strong>``DataFrameGroupBy``</strong> -object it is important to understand that a single group in our <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code> actually contains not only the actual values, but also information about the <strong>``key``</strong> that was used to do the grouping. Hence, when iterating over the data we need to assign the <code class="docutils literal notranslate"><span class="pre">key</span></code> and the values into separate variables.</p>
@@ -2547,15 +2614,15 @@ Group:
 <li>Let’s see how we can create a DataFrame where we calculate the mean values for all those weather attributes that we were interested in. I will repeate slightly the earlier steps so that you can see and better understand what is happening.</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Create an empty DataFrame for the aggregated values</span>
-<span class="n">aggr_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">hourly_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
 <span class="c1"># The columns that we want to aggregate</span>
-<span class="n">mean_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DIR&#39;</span><span class="p">,</span> <span class="s1">&#39;SPEED&#39;</span><span class="p">,</span> <span class="s1">&#39;GUST&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP_C&#39;</span><span class="p">,</span> <span class="s1">&#39;TIME_H&#39;</span><span class="p">]</span>
+<span class="n">mean_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DIR&#39;</span><span class="p">,</span> <span class="s1">&#39;SPEED&#39;</span><span class="p">,</span> <span class="s1">&#39;GUST&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span>
 
 <span class="c1"># Iterate over the groups</span>
 <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">grouped</span><span class="p">:</span>
@@ -2566,7 +2633,7 @@ Group:
    <span class="n">mean_values</span><span class="p">[</span><span class="s1">&#39;TIME_DH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
 
    <span class="c1"># Append the aggregated values into the DataFrame</span>
-   <span class="n">aggr_data</span> <span class="o">=</span> <span class="n">aggr_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_values</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+   <span class="n">hourly_data</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_values</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2574,11 +2641,11 @@ Group:
 <li>Let’s see what we have now:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">aggr_data</span><span class="p">)</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">hourly_data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2587,31 +2654,31 @@ Group:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-           DIR      GUST     SPEED       TEMP     TEMP_C     TIME_DH  TIME_H
-0   104.666667       NaN  2.533227  58.666667  14.814815  2017080400     0.0
-1   111.000000       NaN  3.129280  59.666667  15.370370  2017080401     1.0
-2   119.333333   5.81152  4.321387  59.000000  15.000000  2017080402     2.0
-3    92.666667   5.36448  3.874347  59.000000  15.000000  2017080403     3.0
-4    87.333333   6.70560  4.619413  58.666667  14.814815  2017080404     4.0
-5   403.000000   7.59968  5.364480  58.666667  14.814815  2017080405     5.0
-6   110.333333  10.28192  6.854613  58.666667  14.814815  2017080406     6.0
-7   403.000000   9.83488  6.109547  58.666667  14.814815  2017080407     7.0
-8   405.000000   6.70560  3.874347  58.666667  14.814815  2017080408     8.0
-9   695.666667       NaN  3.129280  59.666667  15.370370  2017080409     9.0
-10  225.000000   5.81152  4.768427  61.666667  16.481481  2017080410    10.0
-11  241.666667   8.49376  5.513493  64.000000  17.777778  2017080411    11.0
-12  228.333333   6.70560  5.960533  66.000000  18.888889  2017080412    12.0
-13  229.666667   8.94080  7.152640  67.333333  19.629630  2017080413    13.0
-14  228.666667  12.96416  8.940800  68.333333  20.185185  2017080414    14.0
-15  218.333333  10.72896  7.450667  66.333333  19.074074  2017080415    15.0
-16  214.666667  10.28192  7.152640  65.666667  18.703704  2017080416    16.0
-17  209.666667   8.94080  7.003627  63.666667  17.592593  2017080417    17.0
-18  211.333333  10.28192  5.662507  62.333333  16.851852  2017080418    18.0
-19  203.000000   5.81152  4.023360  61.000000  16.111111  2017080419    19.0
-20  198.000000   5.36448  4.023360  60.666667  15.925926  2017080420    20.0
-21  186.666667       NaN  3.874347  60.666667  15.925926  2017080421    21.0
-22  189.000000   6.70560  4.619413  60.000000  15.555556  2017080422    22.0
-23  193.333333   4.91744  3.725333  59.333333  15.185185  2017080423    23.0
+           DIR      GUST     SPEED       TEMP     TEMP_C     TIME_DH
+0   104.666667       NaN  2.533227  58.666667  14.814815  2017080400
+1   111.000000       NaN  3.129280  59.666667  15.370370  2017080401
+2   119.333333   5.81152  4.321387  59.000000  15.000000  2017080402
+3    92.666667   5.36448  3.874347  59.000000  15.000000  2017080403
+4    87.333333   6.70560  4.619413  58.666667  14.814815  2017080404
+5   403.000000   7.59968  5.364480  58.666667  14.814815  2017080405
+6   110.333333  10.28192  6.854613  58.666667  14.814815  2017080406
+7   403.000000   9.83488  6.109547  58.666667  14.814815  2017080407
+8   405.000000   6.70560  3.874347  58.666667  14.814815  2017080408
+9   695.666667       NaN  3.129280  59.666667  15.370370  2017080409
+10  225.000000   5.81152  4.768427  61.666667  16.481481  2017080410
+11  241.666667   8.49376  5.513493  64.000000  17.777778  2017080411
+12  228.333333   6.70560  5.960533  66.000000  18.888889  2017080412
+13  229.666667   8.94080  7.152640  67.333333  19.629630  2017080413
+14  228.666667  12.96416  8.940800  68.333333  20.185185  2017080414
+15  218.333333  10.72896  7.450667  66.333333  19.074074  2017080415
+16  214.666667  10.28192  7.152640  65.666667  18.703704  2017080416
+17  209.666667   8.94080  7.003627  63.666667  17.592593  2017080417
+18  211.333333  10.28192  5.662507  62.333333  16.851852  2017080418
+19  203.000000   5.81152  4.023360  61.000000  16.111111  2017080419
+20  198.000000   5.36448  4.023360  60.666667  15.925926  2017080420
+21  186.666667       NaN  3.874347  60.666667  15.925926  2017080421
+22  189.000000   6.70560  4.619413  60.000000  15.555556  2017080422
+23  193.333333   4.91744  3.725333  59.333333  15.185185  2017080423
 </pre></div></div>
 </div>
 <p>Awesome! Now we have aggregated our data based on daily averages and we have a new DataFrame called <strong>``aggr_data``</strong> where all those aggregated values are stored.</p>
@@ -2623,25 +2690,34 @@ Group:
 <ul class="simple">
 <li>Let’s first find out what is the standard deviation and the mean of the Wind speed.</li>
 </ul>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Calculate standard deviation and average wind speed</span>
-<span class="n">std_wind</span> <span class="o">=</span> <span class="n">aggr_data</span><span class="p">[</span><span class="s1">&#39;SPEED&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-<span class="n">avg_wind</span> <span class="o">=</span> <span class="n">aggr_data</span><span class="p">[</span><span class="s1">&#39;SPEED&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">std_wind</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="p">[</span><span class="s1">&#39;SPEED&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">avg_wind</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="p">[</span><span class="s1">&#39;SPEED&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Std:&#39;</span><span class="p">,</span> <span class="n">std_wind</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Mean:&#39;</span><span class="p">,</span> <span class="n">avg_wind</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Std: 1.6405694308360985
+Mean: 5.153377777777777
+</pre></div></div>
+</div>
 <p>Okey, so the variance in the windspeed tend to be approximately 1.6 meters per second, and the wind speed is approximately 5.2 m/s.</p>
 <ul class="simple">
 <li>Hence, the threshold for a wind speed to be an outlier with our criteria is:</li>
 </ul>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2651,56 +2727,105 @@ Group:
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Upper threshold for outlier: 8.434516639449974
+</pre></div></div>
+</div>
 <ul class="simple">
 <li>Let’s finally create a column called <strong>``Outlier``</strong> which we update with <strong>``True``</strong> value, if the windspeed is an outlier, and <strong>``False``</strong>, if it is not. We do this again by iterating over the rows.</li>
 </ul>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Create an empty column for outlier info</span>
-<span class="n">aggr_data</span><span class="p">[</span><span class="s1">&#39;Outlier&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">hourly_data</span><span class="p">[</span><span class="s1">&#39;OUTLIER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
 
 <span class="c1"># Iterate over rows</span>
-<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">aggr_data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">hourly_data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
     <span class="c1"># Update the &#39;Outlier&#39; column with True if the wind speed is higher than our threshold value</span>
     <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;SPEED&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">upper_threshold</span> <span class="p">:</span>
-        <span class="n">aggr_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;Outlier&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="n">hourly_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;OUTLIER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">aggr_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;Outlier&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">hourly_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;OUTLIER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
 
 <span class="c1"># Let&#39;s see what we have</span>
-<span class="k">print</span><span class="p">(</span><span class="n">aggr_data</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">hourly_data</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+           DIR      GUST     SPEED       TEMP     TEMP_C     TIME_DH  OUTLIER
+0   104.666667       NaN  2.533227  58.666667  14.814815  2017080400    False
+1   111.000000       NaN  3.129280  59.666667  15.370370  2017080401    False
+2   119.333333   5.81152  4.321387  59.000000  15.000000  2017080402    False
+3    92.666667   5.36448  3.874347  59.000000  15.000000  2017080403    False
+4    87.333333   6.70560  4.619413  58.666667  14.814815  2017080404    False
+5   403.000000   7.59968  5.364480  58.666667  14.814815  2017080405    False
+6   110.333333  10.28192  6.854613  58.666667  14.814815  2017080406    False
+7   403.000000   9.83488  6.109547  58.666667  14.814815  2017080407    False
+8   405.000000   6.70560  3.874347  58.666667  14.814815  2017080408    False
+9   695.666667       NaN  3.129280  59.666667  15.370370  2017080409    False
+10  225.000000   5.81152  4.768427  61.666667  16.481481  2017080410    False
+11  241.666667   8.49376  5.513493  64.000000  17.777778  2017080411    False
+12  228.333333   6.70560  5.960533  66.000000  18.888889  2017080412    False
+13  229.666667   8.94080  7.152640  67.333333  19.629630  2017080413    False
+14  228.666667  12.96416  8.940800  68.333333  20.185185  2017080414     True
+15  218.333333  10.72896  7.450667  66.333333  19.074074  2017080415    False
+16  214.666667  10.28192  7.152640  65.666667  18.703704  2017080416    False
+17  209.666667   8.94080  7.003627  63.666667  17.592593  2017080417    False
+18  211.333333  10.28192  5.662507  62.333333  16.851852  2017080418    False
+19  203.000000   5.81152  4.023360  61.000000  16.111111  2017080419    False
+20  198.000000   5.36448  4.023360  60.666667  15.925926  2017080420    False
+21  186.666667       NaN  3.874347  60.666667  15.925926  2017080421    False
+22  189.000000   6.70560  4.619413  60.000000  15.555556  2017080422    False
+23  193.333333   4.91744  3.725333  59.333333  15.185185  2017080423    False
+</pre></div></div>
 </div>
 <p>Okey now we have at least many False values in our <strong>``Outlier``</strong> -column but there seems to be also one True!.</p>
 <ul class="simple">
 <li>Let’s select the rows with potential storm:</li>
 </ul>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Select rows that were determined as outliers</span>
-<span class="n">storm</span> <span class="o">=</span> <span class="n">aggr_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">aggr_data</span><span class="p">[</span><span class="s1">&#39;Outlier&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">True</span><span class="p">]</span>
+<span class="n">storm</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">hourly_data</span><span class="p">[</span><span class="s1">&#39;OUTLIER&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">True</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">storm</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+           DIR      GUST   SPEED       TEMP     TEMP_C     TIME_DH  OUTLIER
+14  228.666667  12.96416  8.9408  68.333333  20.185185  2017080414     True
+</pre></div></div>
 </div>
 <p>Okey, so indeed, there was one outlier in our data but the wind during that time wasn’t that strong as the average speed was only approximately 9 m/s. This is not too strange as we were only looking at data from a single day.</p>
 </div>
 <div class="section" id="Repeating-the-data-analysis-with-larger-dataset">
 <h2>Repeating the data analysis with larger dataset<a class="headerlink" href="#Repeating-the-data-analysis-with-larger-dataset" title="Permalink to this headline">¶</a></h2>
-<p>Let’s continue by executing the steps that we have written this far and use it to explore outlier winds based on whole month of August 2017.</p>
-<p>For this purpose, we change the input file to be <strong>``6591337447542dat_August.txt``</strong> that <a class="reference external" href="data/6591337447542dat_August.txt">looks like this</a>.</p>
+<p>Let’s continue by executing the steps that we have written this far and use it to explore outlier winds based on whole month of August 2017. So far, we have only processed data for one single day (4th of August).</p>
+<p>For this purpose, we change the input file to be <strong>``6591337447542dat_August.txt``</strong> (full record for August 2017). You can find the file in here: <a class="reference external" href="data/6591337447542dat_August.txt">data/6591337447542dat_August.txt</a>.</p>
 <ul class="simple">
 <li>Here we will repeat all the steps that we did earlier in one code block so that you can see the full picture:</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2719,12 +2844,12 @@ Group:
 <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">name_conversion_dict</span><span class="p">)</span>
 
 <span class="c1"># Create column</span>
-<span class="n">col_name</span> <span class="o">=</span> <span class="s1">&#39;Celsius&#39;</span>
+<span class="n">col_name</span> <span class="o">=</span> <span class="s1">&#39;TEMP_C&#39;</span>
 <span class="n">data</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
 
 <span class="c1"># Iterete over rows and convert tempetarues from Fahrenheits to Celsius</span>
 <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="n">celsius</span> <span class="o">=</span> <span class="n">fahrToCelsius</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">])</span>
+    <span class="n">celsius</span> <span class="o">=</span> <span class="n">fahr_to_celsius</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">])</span>
     <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">celsius</span>
 
 <span class="c1"># Convert wind speeds from miles to meters per second</span>
@@ -2732,19 +2857,17 @@ Group:
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;GUST&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;GUST&#39;</span><span class="p">]</span><span class="o">*</span><span class="mf">0.44704</span>
 
 <span class="c1"># Convert TIME to string and parse date and hour info from the time</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;TIME_str&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;TIME&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;TIME_dh&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;TIME_str&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;TIME_h&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;TIME_str&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;TIME_h&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;TIME_h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;TIME_STR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;TIME&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;TIME_DH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;TIME_STR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="c1"># Create empty column for aggregated data</span>
-<span class="n">aggr_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">hourly_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
 <span class="c1"># Specify the columns which will be used in calculation</span>
-<span class="n">mean_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DIR&#39;</span><span class="p">,</span> <span class="s1">&#39;SPEED&#39;</span><span class="p">,</span> <span class="s1">&#39;GUST&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;Celsius&#39;</span><span class="p">,</span> <span class="s1">&#39;TIME_h&#39;</span><span class="p">]</span>
+<span class="n">mean_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DIR&#39;</span><span class="p">,</span> <span class="s1">&#39;SPEED&#39;</span><span class="p">,</span> <span class="s1">&#39;GUST&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span>
 
 <span class="c1"># Group the values by hour</span>
-<span class="n">grouped</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;TIME_dh&#39;</span><span class="p">)</span>
+<span class="n">grouped</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;TIME_DH&#39;</span><span class="p">)</span>
 
 <span class="c1"># Iterate over groups and update the aggregated DataFrame</span>
 <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">grouped</span><span class="p">:</span>
@@ -2752,26 +2875,27 @@ Group:
     <span class="n">mean_values</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="n">mean_cols</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
     <span class="c1"># Add the time to the Series</span>
-    <span class="n">mean_values</span><span class="p">[</span><span class="s1">&#39;TIME_dh&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
+    <span class="n">mean_values</span><span class="p">[</span><span class="s1">&#39;TIME_DH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
 
     <span class="c1"># Add the aggregated values into the DataFrame</span>
-    <span class="n">aggr_data</span> <span class="o">=</span> <span class="n">aggr_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_values</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">hourly_data</span>  <span class="o">=</span> <span class="n">hourly_data</span> <span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_values</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="c1"># Calculate the outlier threshold for the new dataset</span>
-<span class="n">std_wind</span> <span class="o">=</span> <span class="n">aggr_data</span><span class="p">[</span><span class="s1">&#39;SPEED&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-<span class="n">avg_wind</span> <span class="o">=</span> <span class="n">aggr_data</span><span class="p">[</span><span class="s1">&#39;SPEED&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">std_wind</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="p">[</span><span class="s1">&#39;SPEED&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">avg_wind</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="p">[</span><span class="s1">&#39;SPEED&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">upper_threshold</span> <span class="o">=</span> <span class="n">avg_wind</span> <span class="o">+</span> <span class="p">(</span><span class="n">std_wind</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># Detect the outliers</span>
-<span class="n">aggr_data</span><span class="p">[</span><span class="s1">&#39;Outlier&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
-<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">aggr_data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+<span class="n">hourly_data</span><span class="p">[</span><span class="s1">&#39;OUTLIER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">hourly_data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;SPEED&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">upper_threshold</span><span class="p">:</span>
-        <span class="n">aggr_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;Outlier&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="n">hourly_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;OUTLIER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">aggr_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;Outlier&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">hourly_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;OUTLIER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
 
 <span class="c1"># Select days with strong winds</span>
-<span class="n">storm</span> <span class="o">=</span> <span class="n">aggr_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">aggr_data</span><span class="p">[</span><span class="s1">&#39;Outlier&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">True</span><span class="p">]</span>
+<span class="n">storm</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">hourly_data</span><span class="p">[</span><span class="s1">&#39;OUTLIER&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">True</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -2779,8 +2903,8 @@ Group:
 <ul class="simple">
 <li>Let’s start by checking if the average and standard deviation of the windspeed differ from the previous ones</li>
 </ul>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2790,12 +2914,21 @@ Group:
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Std: 2.1405899770297245
+Mean: 4.1990832704402505
+</pre></div></div>
+</div>
 <p>Okey so they are indeed different now! With larger dataset the average wind speed is 4.2 m/s (compared to 5.2 m/s previously).</p>
 <ul class="simple">
 <li>Let’s see what we have now in our <strong>``storm``</strong> -variable.</li>
 </ul>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2803,28 +2936,71 @@ Group:
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+            DIR      GUST      SPEED       TEMP     TEMP_C     TIME_DH  \
+10   210.666667  12.51712   9.089813  73.000000  22.777778  2017080110
+11   212.000000  11.62304   8.940800  73.000000  22.777778  2017080111
+12   205.666667  12.51712   9.089813  72.333333  22.407407  2017080112
+86   228.666667  12.96416   8.940800  68.333333  20.185185  2017080414
+104  204.333333  11.17600   8.791787  67.666667  19.814815  2017080508
+132  237.666667  13.85824   9.387840  61.333333  16.296296  2017080612
+230  217.000000  12.51712   8.642773  71.000000  21.666667  2017081014
+280  700.666667  26.82240   8.791787  66.333333  19.074074  2017081216
+301  210.000000       NaN   9.611360  69.000000  20.555556  2017081313
+302  200.000000       NaN   8.493760  67.000000  19.444444  2017081314
+444  195.666667  10.72896   8.493760  71.666667  22.037037  2017081914
+445  204.666667  12.51712   8.940800  69.666667  20.925926  2017081915
+559  328.666667  13.41120   8.493760  58.666667  14.814815  2017082409
+560  329.333333  13.85824   8.493760  60.666667  15.925926  2017082410
+563  329.666667  13.41120   9.238827  61.333333  16.296296  2017082413
+564  550.000000       NaN   8.493760  59.333333  15.185185  2017082414
+686  214.000000  13.41120   9.089813  63.000000  17.222222  2017082916
+687  210.666667  11.62304   8.791787  62.666667  17.037037  2017082917
+704  203.666667   8.04672   8.493760  65.333333  18.518519  2017083010
+705  218.333333  13.41120   8.940800  66.000000  18.888889  2017083011
+706  215.666667  14.52880  10.579947  64.333333  17.962963  2017083012
+707  217.666667  12.07008   9.089813  64.333333  17.962963  2017083013
+
+     OUTLIER
+10      True
+11      True
+12      True
+86      True
+104     True
+132     True
+230     True
+280     True
+301     True
+302     True
+444     True
+445     True
+559     True
+560     True
+563     True
+564     True
+686     True
+687     True
+704     True
+705     True
+706     True
+707     True
+</pre></div></div>
+</div>
 <p>Okey, interesting! Now we can see the the days and hours when it has been stormy in August 2017. It seems that the storms have usually been during the day time. Let’s check if this is the case.</p>
 <p>We can easily count how many stormy observations for different hour of the day there has been by using a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.value_counts.html">**``value_counts()``**</a> -function that calculates how many observations per certain value there are in a certain column (works best for categorigal data).</p>
 <ul class="simple">
 <li>Let’s see the counts for different hours of the day</li>
 </ul>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Print the occurences of storm by hour</span>
-<span class="k">print</span><span class="p">(</span><span class="n">storm</span><span class="p">[</span><span class="s1">&#39;TIME_h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<p>Okey, this is interesting. It seems that most often it has been stormy at 14:00 GMT (i.e. 16:00 at Finnish time). Notice, that there haven’t been any strong winds during the night, which is also interesting. However, as the <strong>The weather guys</strong> explains us, <a class="reference external" href="http://wxguys.ssec.wisc.edu/2013/11/18/why-does-the-wind-diminish-after-sunset">it is not that surprising actually</a> =).</p>
 <p>The average wind speed may not be the perfect measure to find extreme weather conditions. Gust might usually be a better measure for that purpose.</p>
 <ul class="simple">
 <li>Let’s see what were the strongest gust winds in our dataset by sorting the values using <strong>``sort_values()``</strong> -function.</li>
 </ul>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2836,9 +3012,61 @@ Group:
 </pre></div>
 </div>
 </div>
-<p>Interesting! There was one hour with quite extraordinary gust wind in our data happening at 12th of August in 2017. Indeed, that was a big storm in Helsinki called <a class="reference external" href="https://yle.fi/uutiset/osasto/news/saturday_night_storm_downs_trees_cuts_electricity_in_the_south/9773250">**Kiira**</a> that caused major damage in different parts of the city. (<em>Source: `YLE &lt;https://yle.fi/uutiset/osasto/news/saturday_night_storm_downs_trees_cuts_electricity_in_the_south/9773250&gt;`__; Photo: Markku Sipi</em>)</p>
-<p><img alt="image0" src="../../_images/Kiira-storm.PNG" /></p>
-<p><strong>TAKE HOME MESSAGE</strong>: As we have seen here, we can already conduct fairly interesting data analysis with Pandas that provides various useful functionalities that are fairly straightforward and easy to use. Similar approaches can be used for many different kind of datasets.</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+            DIR      GUST      SPEED       TEMP     TEMP_C     TIME_DH  \
+280  700.666667  26.82240   8.791787  66.333333  19.074074  2017081216
+706  215.666667  14.52880  10.579947  64.333333  17.962963  2017083012
+132  237.666667  13.85824   9.387840  61.333333  16.296296  2017080612
+560  329.333333  13.85824   8.493760  60.666667  15.925926  2017082410
+559  328.666667  13.41120   8.493760  58.666667  14.814815  2017082409
+705  218.333333  13.41120   8.940800  66.000000  18.888889  2017083011
+686  214.000000  13.41120   9.089813  63.000000  17.222222  2017082916
+563  329.666667  13.41120   9.238827  61.333333  16.296296  2017082413
+86   228.666667  12.96416   8.940800  68.333333  20.185185  2017080414
+10   210.666667  12.51712   9.089813  73.000000  22.777778  2017080110
+445  204.666667  12.51712   8.940800  69.666667  20.925926  2017081915
+230  217.000000  12.51712   8.642773  71.000000  21.666667  2017081014
+12   205.666667  12.51712   9.089813  72.333333  22.407407  2017080112
+707  217.666667  12.07008   9.089813  64.333333  17.962963  2017083013
+11   212.000000  11.62304   8.940800  73.000000  22.777778  2017080111
+687  210.666667  11.62304   8.791787  62.666667  17.037037  2017082917
+104  204.333333  11.17600   8.791787  67.666667  19.814815  2017080508
+444  195.666667  10.72896   8.493760  71.666667  22.037037  2017081914
+704  203.666667   8.04672   8.493760  65.333333  18.518519  2017083010
+301  210.000000       NaN   9.611360  69.000000  20.555556  2017081313
+302  200.000000       NaN   8.493760  67.000000  19.444444  2017081314
+564  550.000000       NaN   8.493760  59.333333  15.185185  2017082414
+
+     OUTLIER
+280     True
+706     True
+132     True
+560     True
+559     True
+705     True
+686     True
+563     True
+86      True
+10      True
+445     True
+230     True
+12      True
+707     True
+11      True
+687     True
+104     True
+444     True
+704     True
+301     True
+302     True
+564     True
+</pre></div></div>
+</div>
+<p>There! There was one hour with quite extraordinary gust wind in our data happening at 12th of August in 2017 - the day when <a class="reference external" href="https://yle.fi/uutiset/osasto/news/saturday_night_storm_downs_trees_cuts_electricity_in_the_south/9773250">Kiira hit Helsinki</a>.</p>
 </div>
 </div>
 
