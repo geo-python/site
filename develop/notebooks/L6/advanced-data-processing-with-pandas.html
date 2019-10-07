@@ -19,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Advanced data processing with Pandas &mdash; Geo-Python site documentation</title>
+  <title>Data processing with Pandas, part 2 &mdash; Geo-Python site documentation</title>
   
 
   
@@ -562,7 +562,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../lessons/L6/overview.html#lesson-videos">Lesson videos</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Advanced data processing with Pandas</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data processing with Pandas, part 2</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Input-data">Input data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Reading-the-data">Reading the data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Renaming-columns">Renaming columns</a></li>
@@ -574,6 +574,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#String-manipulation-in-Pandas">String manipulation in Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Aggregating-data-in-Pandas-by-grouping">Aggregating data in Pandas by grouping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Extra:-datetime">Extra: datetime</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Finding-outliers-from-the-data">Finding outliers from the data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Repeating-the-data-analysis-with-larger-dataset">Repeating the data analysis with larger dataset</a></li>
 </ul>
@@ -617,19 +618,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../lessons/L6/exercise-6.html">Exercise 6</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../lessons/L6/exercise-6.html#exercise-6-hints-for-pandas">Exercise 6 hints for Pandas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L6/exercise-6.html#cloud-computing-environments">Cloud computing environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L6/exercise-6.html#exercise-6-hints">Exercise 6 hints</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../lessons/L6/exercise-6.html#data-format-for-problems-1-3">Data format for problems 1-3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../lessons/L6/exercise-6.html#reading-in-fixed-width-text-files">Reading in fixed-width text files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../lessons/L6/exercise-6.html#skipping-the-second-row-of-a-file">Skipping the second row of a file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../lessons/L6/exercise-6.html#joining-data-from-one-dataframe-to-another">Joining data from one DataFrame to another</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../lessons/L6/exercise-6.html#exercise-6-hints-for-numpy">Exercise 6 hints for NumPy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../lessons/L6/exercise-6.html#calculating-average-temperatures-for-each-month-e-g-february-1954">Calculating average temperatures for each month (e.g., February 1954)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../lessons/L6/exercise-6.html#calculating-average-temperatures-for-all-months-e-g-february-1952-1980">Calculating average temperatures for all months (e.g., February 1952-1980)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../lessons/L6/exercise-6.html#calculating-temperatures-anomalies">Calculating temperatures anomalies</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../lessons/L6/exercise-6.html#checking-your-work-for-problem-2">Checking your work for problem 2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../lessons/L6/exercise-6.html#checking-your-work-for-problem-3">Checking your work for problem 3</a></li>
 </ul>
 </li>
 </ul>
@@ -679,7 +673,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>Advanced data processing with Pandas</li>
+      <li>Data processing with Pandas, part 2</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -936,9 +930,10 @@ This page was generated from <a class="reference external" href="https://github.
 <span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/geo-python/site/master?urlpath=lab/tree/source/notebooks/L6/advanced-data-processing-with-pandas.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span>
 <span class="raw-html"><a href="https://mybinder.org/v2/gh/geo-python/notebooks/master?urlpath=lab/tree/notebooks/L6/advanced-data-processing-with-pandas.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-student%20binder-red.svg" style="vertical-align:text-bottom"></a></span>
 <span class="raw-html"><a href="https://notebooks.csc.fi/#/blueprint/df93f30d14e44b51907d135726eb6ef4"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a></span></div>
-<div class="section" id="Advanced-data-processing-with-Pandas">
-<h1>Advanced data processing with Pandas<a class="headerlink" href="#Advanced-data-processing-with-Pandas" title="Permalink to this headline">¶</a></h1>
-<p>This week we will continue developing our skills using <a class="reference external" href="https://pandas.pydata.org/">pandas</a> to process real data. The goal of tis lesson is to use our data manipulation and analysis skills to detect weather anomalies (stormy winds) in Helsinki, during August 2017.</p>
+<div class="section" id="Data-processing-with-Pandas,-part-2">
+<h1>Data processing with Pandas, part 2<a class="headerlink" href="#Data-processing-with-Pandas,-part-2" title="Permalink to this headline">¶</a></h1>
+<p>This week we will continue developing our skills using <a class="reference external" href="https://pandas.pydata.org/">pandas</a> to process real data. The goal of this lesson is to use our data manipulation and analysis skills to detect weather anomalies (stormy winds) in Helsinki, during August 2017.</p>
+<p>We will cover a number of useful techniques in pandas including:</p>
 <ul class="simple">
 <li>renaming columns</li>
 <li>iterating data frame rows and applying functions</li>
@@ -947,10 +942,10 @@ This page was generated from <a class="reference external" href="https://github.
 </ul>
 <div class="section" id="Input-data">
 <h2>Input data<a class="headerlink" href="#Input-data" title="Permalink to this headline">¶</a></h2>
-<p>In the lesson this week we are using weather observation data from Helsinki, Finland from August 2017 when a severe thunderstorm “Kiira” hit souther Finland <a class="reference external" href="https://yle.fi/uutiset/osasto/news/saturday_night_storm_downs_trees_cuts_electricity_in_the_south/9773250">that caused major damage in different pars of Helsinki</a> (<em>Source:</em> <a class="reference external" href="https://yle.fi/uutiset/osasto/news/saturday_night_storm_downs_trees_cuts_electricity_in_the_south/9773250">YLE</a>).</p>
+<p>In the lesson this week we are using weather observation data from Helsinki, Finland from August 2017 when a severe thunderstorm “Kiira” hit souther Finland. <a class="reference external" href="https://yle.fi/uutiset/osasto/news/saturday_night_storm_downs_trees_cuts_electricity_in_the_south/9773250">Kiira caused major damage in different pars of Helsinki</a> (<em>Source:</em> <a class="reference external" href="https://yle.fi/uutiset/osasto/news/saturday_night_storm_downs_trees_cuts_electricity_in_the_south/9773250">YLE</a>).</p>
 <p><img alt="Markku Sipi/ Yle" src="../../_images/Kiira-storm.PNG" /></p>
 <p><em>Photo: Markku Sipi/YLE</em></p>
-<p>Notice that this time, we will read the <strong>actual</strong> data obtained from NOAA without any modifications to the data file (week 5 input data had been modified after downloading it from NOAA). The data input data for this week is separated with varying amount of spaces (fixed width). The first lines and columns of the data looks like following:</p>
+<p>Notice that this time, we will read the <strong>original data file</strong> obtained from NOAA without any modifications to the data file (week 5 input data had been modified after downloading it from NOAA). The input data for this week is separated with varying amount of spaces (fixed width). The first lines and columns of the data looks like following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">USAF</span>  <span class="n">WBAN</span> <span class="n">YR</span><span class="o">--</span><span class="n">MODAHRMN</span> <span class="n">DIR</span> <span class="n">SPD</span> <span class="n">GUS</span> <span class="n">CLG</span> <span class="n">SKC</span> <span class="n">L</span> <span class="n">M</span> <span class="n">H</span>  <span class="n">VSB</span> <span class="n">MW</span> <span class="n">MW</span> <span class="n">MW</span> <span class="n">MW</span> <span class="n">AW</span> <span class="n">AW</span> <span class="n">AW</span> <span class="n">AW</span> <span class="n">W</span> <span class="n">TEMP</span> <span class="n">DEWP</span>    <span class="n">SLP</span>  <span class="o">...</span>
 <span class="mi">029740</span> <span class="mi">99999</span> <span class="mi">201708040000</span> <span class="mi">114</span>   <span class="mi">6</span> <span class="o">***</span> <span class="o">***</span> <span class="n">BKN</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="mf">25.0</span> <span class="mi">03</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="mi">2</span>   <span class="mi">58</span>   <span class="mi">56</span> <span class="mf">1005.6</span>  <span class="o">...</span>
 <span class="mi">029740</span> <span class="mi">99999</span> <span class="mi">201708040020</span> <span class="mi">100</span>   <span class="mi">6</span> <span class="o">***</span>  <span class="mi">75</span> <span class="o">***</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>  <span class="mf">6.2</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">*</span>   <span class="mi">59</span>   <span class="mi">57</span> <span class="o">******</span>  <span class="o">...</span>
@@ -958,15 +953,16 @@ This page was generated from <a class="reference external" href="https://github.
 <span class="mi">029740</span> <span class="mi">99999</span> <span class="mi">201708040100</span> <span class="mi">123</span>   <span class="mi">8</span> <span class="o">***</span>  <span class="mi">63</span> <span class="n">OVC</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="mf">10.0</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="mi">23</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">*</span>   <span class="mi">59</span>   <span class="mi">58</span> <span class="mf">1004.7</span>  <span class="o">...</span>
 </pre></div>
 </div>
-<p><strong>We will first work with a subset of the data (data for one single day), before repeating the process on a bigger data set (data for the whole month of August).</strong></p>
+<p><strong>We will first work with a subset of the data (data for one single day):</strong> <a class="reference external" href="data/6591337447542dat_sample.txt">data/6591337447542dat_sample.txt</a><strong>, before repeating the process on a bigger data set (data for the whole month of August):</strong> <a class="reference external" href="data/6591337447542dat_August.txt">data/6591337447542dat_August.txt</a>.</p>
 </div>
 <div class="section" id="Reading-the-data">
 <h2>Reading the data<a class="headerlink" href="#Reading-the-data" title="Permalink to this headline">¶</a></h2>
-<p>Because the data is separated with varying amount of spaces, we need to tell Pandas how to read it. We can control the delimiter with <code class="docutils literal notranslate"><span class="pre">sep</span></code> parameter following the documentation of the function <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code>:</p>
+<p>Because the data is <strong>separated with varying amount of spaces</strong>, we need to tell Pandas how to read it. We can control the delimiter with <code class="docutils literal notranslate"><span class="pre">sep</span></code> parameter following the documentation of the function <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">read_csv()</a>:</p>
 <p><a href="#id2"><span class="problematic" id="id3">|read\_csv sep|</span></a></p>
-<p>Hence, we can separate the columns by varying number spaces of spaces with <code class="docutils literal notranslate"><span class="pre">sep='\s+'</span></code> -parameter. Our data also included No Data values with varying number of <code class="docutils literal notranslate"><span class="pre">*</span></code> -characters. Hence, we need to take also those into account when reading the data. We can tell pandas to consider those characters as NaNs by specifying <code class="docutils literal notranslate"><span class="pre">na_values=['*',</span> <span class="pre">'**',</span> <span class="pre">'***',</span> <span class="pre">'****',</span> <span class="pre">'*****',</span> <span class="pre">'******']</span></code>.</p>
+<p>Based on this information, we should be able to separate the columns by varying number spaces of spaces with <code class="docutils literal notranslate"><span class="pre">sep='\s+'</span></code> -parameter.</p>
+<p>Our data also included <strong>No Data values</strong> with varying number of <code class="docutils literal notranslate"><span class="pre">*</span></code> -characters which we also need to take into account when reading the data. We can tell pandas to consider those characters as NaNs by specifying <code class="docutils literal notranslate"><span class="pre">na_values=['*',</span> <span class="pre">'**',</span> <span class="pre">'***',</span> <span class="pre">'****',</span> <span class="pre">'*****',</span> <span class="pre">'******']</span></code>.</p>
 <ul class="simple">
-<li>Let’s start by reading the data with pandas:</li>
+<li>Let’s start by importing pandas and reading the data:</li>
 </ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -983,12 +979,6 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <ul class="simple">
 <li>Let’s see how the data looks by printing the first five rows with <code class="docutils literal notranslate"><span class="pre">head()</span></code> function</li>
-</ul>
-</div>
-<div class="section" id="Renaming-columns">
-<h2>Renaming columns<a class="headerlink" href="#Renaming-columns" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Let’s continue and check what columns do we have.</li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -1021,6 +1011,12 @@ This page was generated from <a class="reference external" href="https://github.
 [5 rows x 33 columns]
 </pre></div></div>
 </div>
+</div>
+<div class="section" id="Renaming-columns">
+<h2>Renaming columns<a class="headerlink" href="#Renaming-columns" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Let’s continue and check what columns do we have.</li>
+</ul>
 <p>Okay so we can see that the data was successfully read to the DataFrame and we also seemed to be able to convert the asterix (*) characters into <code class="docutils literal notranslate"><span class="pre">NaN</span></code> -values.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -1044,7 +1040,7 @@ This page was generated from <a class="reference external" href="https://github.
 </pre></div>
 </div>
 </div>
-<p>As we can see, there are quite many columns, however, we are not interested to use all of them.</p>
+<p>As we can see, there are quite many columns, however, we won’t be needing all of them in our thunderstorm analysis.</p>
 <ul class="simple">
 <li>Let’s select only columns that we might need for detecting unexceptional weather conditions: <code class="docutils literal notranslate"><span class="pre">'YR--MODAHRMN',</span> <span class="pre">'DIR',</span> <span class="pre">'SPD',</span> <span class="pre">'GUS','TEMP',</span> <span class="pre">'MAX',</span> <span class="pre">'MIN'</span></code></li>
 </ul>
@@ -1102,8 +1098,12 @@ MIN             float64
 dtype: object
 </pre></div></div>
 </div>
-<p>The column names that we have are somewhat ackward. Let’s change them into more intuitive ones. This can be done easily with <code class="docutils literal notranslate"><span class="pre">rename()</span></code> -function.</p>
-<p>We can define the new column names by using a specific data type in Python called <a class="reference external" href="https://www.tutorialspoint.com/python/python_dictionary.htm">dictionary</a> where we determine “<code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code>” -pairs, in which the original column name (the one which will be replaced) is the key, and the new column name is the value.</p>
+<p>The column names that we have are somewhat ackward. Let’s change them into more intuitive ones. This can be done easily using the <code class="docutils literal notranslate"><span class="pre">rename()</span></code> -method and a dictionary that lists old and new column names.</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>dictionaries</strong></p>
+<p><a class="reference external" href="https://docs.python.org/2/tutorial/datastructures.html#dictionaries">Dictionary</a> is a spesific data structure in Python for storing key-value pairs. During this course, we will use dictionaries mainly when renaming columns in a pandas series, but dictionaries are useful for many different purposes! For more information about Python dictionaries, check out <a class="reference external" href="https://realpython.com/python-dicts/">this tutorial</a>.</p>
+</div>
+<p>We can define the new column names using a <a class="reference external" href="https://www.tutorialspoint.com/python/python_dictionary.htm">dictionary</a> where we determine “<code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code>” -pairs, in which the original column name (the one which will be replaced) is the key, and the new column name is the value.</p>
 <ul class="simple">
 <li>Let’s change:</li>
 <li><code class="docutils literal notranslate"><span class="pre">YR--MODAHRMN</span></code> column into <code class="docutils literal notranslate"><span class="pre">TIME</span></code>,</li>
@@ -1129,7 +1129,7 @@ dtype: object
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;YR--MODAHRMN&#39;: &#39;TIME&#39;, &#39;SPD&#39;: &#39;SPEED&#39;, &#39;GUS&#39;: &#39;GUST&#39;}
+{&#39;GUS&#39;: &#39;GUST&#39;, &#39;YR--MODAHRMN&#39;: &#39;TIME&#39;, &#39;SPD&#39;: &#39;SPEED&#39;}
 &lt;class &#39;dict&#39;&gt;
 </pre></div></div>
 </div>
@@ -1159,104 +1159,12 @@ Index([&#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST&#39;, &#39;TEMP
 </pre></div></div>
 </div>
 <p>Perfect, now our column names are more easy to understand and use.</p>
-<ul class="simple">
-<li>Let’s check some basic statistics to understand our data better.</li>
-</ul>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-               TIME         DIR      SPEED       GUST       TEMP        MAX  \
-count  7.200000e+01   72.000000  72.000000  20.000000  72.000000   2.000000
-mean   2.017080e+11  229.555556  11.527778  17.700000  61.513889  66.500000
-std    6.973834e+02  215.759248   3.756580   5.068998   3.175580   3.535534
-min    2.017080e+11   80.000000   5.000000  11.000000  58.000000  64.000000
-25%    2.017080e+11  117.750000   9.000000  13.000000  59.000000  65.250000
-50%    2.017080e+11  200.000000  11.000000  16.000000  61.000000  66.500000
-75%    2.017080e+11  220.000000  15.000000  22.250000  64.000000  67.750000
-max    2.017080e+11  990.000000  20.000000  29.000000  69.000000  69.000000
-
-             MIN
-count   2.000000
-mean   57.000000
-std     1.414214
-min    56.000000
-25%    56.500000
-50%    57.000000
-75%    57.500000
-max    58.000000
-</pre></div></div>
-</div>
-<p>Okey so from here we can see that there are varying number of observations per column (see the <code class="docutils literal notranslate"><span class="pre">count</span></code> -information).</p>
-<p>For example <code class="docutils literal notranslate"><span class="pre">SPD</span></code> and <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> columns have 72 observations whereas <code class="docutils literal notranslate"><span class="pre">GUST</span></code> has only 20 observations and <code class="docutils literal notranslate"><span class="pre">MAX</span></code> and <code class="docutils literal notranslate"><span class="pre">MIN</span></code> have only 2 observations. From here we can already guess that <code class="docutils literal notranslate"><span class="pre">MAX</span></code> and <code class="docutils literal notranslate"><span class="pre">MIN</span></code> attributes are most probably not going to be useful for us. However, <code class="docutils literal notranslate"><span class="pre">GUST</span></code> might be.</p>
-<ul class="simple">
-<li>Let’s explore further our data by checking the first 30 rows of it.</li>
-</ul>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-            TIME  DIR  SPEED  GUST  TEMP   MAX   MIN
-0   201708040000  114      6   NaN    58   NaN   NaN
-1   201708040020  100      6   NaN    59   NaN   NaN
-2   201708040050  100      5   NaN    59   NaN   NaN
-3   201708040100  123      8   NaN    59   NaN   NaN
-4   201708040120  110      7   NaN    59   NaN   NaN
-5   201708040150  100      6   NaN    61   NaN   NaN
-6   201708040200  138     10  13.0    59   NaN   NaN
-7   201708040220  120     10   NaN    59   NaN   NaN
-8   201708040250  100      9   NaN    59   NaN   NaN
-9   201708040300  108      9  12.0    59   NaN   NaN
-10  201708040320   90      8   NaN    59   NaN   NaN
-11  201708040350   80      9   NaN    59   NaN   NaN
-12  201708040400  102     11  15.0    58   NaN   NaN
-13  201708040420   80     10   NaN    59   NaN   NaN
-14  201708040450   80     10   NaN    59   NaN   NaN
-15  201708040500  119     12  17.0    58   NaN   NaN
-16  201708040520  990     11   NaN    59   NaN   NaN
-17  201708040550  100     13   NaN    59   NaN   NaN
-18  201708040600  121     16  23.0    58  64.0  56.0
-19  201708040620  110     15   NaN    59   NaN   NaN
-20  201708040650  100     15   NaN    59   NaN   NaN
-21  201708040700  119     14  22.0    58   NaN   NaN
-22  201708040720  990     14   NaN    59   NaN   NaN
-23  201708040750  100     13   NaN    59   NaN   NaN
-24  201708040800  125     10  15.0    58   NaN   NaN
-25  201708040820  990      9   NaN    59   NaN   NaN
-26  201708040850  100      7   NaN    59   NaN   NaN
-27  201708040900  107      8   NaN    59   NaN   NaN
-28  201708040920  990      7   NaN    59   NaN   NaN
-29  201708040950  990      6   NaN    61   NaN   NaN
-</pre></div></div>
-</div>
-<p>Okey, so from here we can actually see that the <strong>``GUST``</strong> column contains information only on an hourly level. That might be useful! Let’s keep this in mind.</p>
-<p><strong>REMEMBER</strong>: Whenever starting a data analysis with new dataset, it is highly useful to explore the data by calculating basic statistics from the data.</p>
 </div>
 <div class="section" id="Reminder:-basic-calculations">
 <h2>Reminder: basic calculations<a class="headerlink" href="#Reminder:-basic-calculations" title="Permalink to this headline">¶</a></h2>
 <p>Let’s convert the wind speeds into meters per second values (m/s) as they are more familiar to us in Finland. This can be done with a formula <strong>``m/s = mph x 0.44704``</strong>:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1267,7 +1175,7 @@ max    58.000000
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1276,7 +1184,7 @@ max    58.000000
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1412,6 +1320,98 @@ max    58.000000
 </table>
 </div></div>
 </div>
+<ul class="simple">
+<li>Let’s check some basic statistics to understand our data better.</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+               TIME         DIR      SPEED       GUST       TEMP        MAX  \
+count  7.200000e+01   72.000000  72.000000  20.000000  72.000000   2.000000
+mean   2.017080e+11  229.555556   5.153378   7.912608  61.513889  66.500000
+std    6.973834e+02  215.759248   1.679342   2.266045   3.175580   3.535534
+min    2.017080e+11   80.000000   2.235200   4.917440  58.000000  64.000000
+25%    2.017080e+11  117.750000   4.023360   5.811520  59.000000  65.250000
+50%    2.017080e+11  200.000000   4.917440   7.152640  61.000000  66.500000
+75%    2.017080e+11  220.000000   6.705600   9.946640  64.000000  67.750000
+max    2.017080e+11  990.000000   8.940800  12.964160  69.000000  69.000000
+
+             MIN
+count   2.000000
+mean   57.000000
+std     1.414214
+min    56.000000
+25%    56.500000
+50%    57.000000
+75%    57.500000
+max    58.000000
+</pre></div></div>
+</div>
+<p>Okey so from here we can see that there are varying number of observations per column (see the <code class="docutils literal notranslate"><span class="pre">count</span></code> -information).</p>
+<p>For example <code class="docutils literal notranslate"><span class="pre">SPD</span></code> and <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> columns have 72 observations whereas <code class="docutils literal notranslate"><span class="pre">GUST</span></code> has only 20 observations and <code class="docutils literal notranslate"><span class="pre">MAX</span></code> and <code class="docutils literal notranslate"><span class="pre">MIN</span></code> have only 2 observations. From here we can already guess that <code class="docutils literal notranslate"><span class="pre">MAX</span></code> and <code class="docutils literal notranslate"><span class="pre">MIN</span></code> attributes are most probably not going to be useful for us. However, <code class="docutils literal notranslate"><span class="pre">GUST</span></code> might be.</p>
+<ul class="simple">
+<li>Let’s explore further our data by checking the first 30 rows of it.</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+            TIME  DIR    SPEED      GUST  TEMP   MAX   MIN
+0   201708040000  114  2.68224       NaN    58   NaN   NaN
+1   201708040020  100  2.68224       NaN    59   NaN   NaN
+2   201708040050  100  2.23520       NaN    59   NaN   NaN
+3   201708040100  123  3.57632       NaN    59   NaN   NaN
+4   201708040120  110  3.12928       NaN    59   NaN   NaN
+5   201708040150  100  2.68224       NaN    61   NaN   NaN
+6   201708040200  138  4.47040   5.81152    59   NaN   NaN
+7   201708040220  120  4.47040       NaN    59   NaN   NaN
+8   201708040250  100  4.02336       NaN    59   NaN   NaN
+9   201708040300  108  4.02336   5.36448    59   NaN   NaN
+10  201708040320   90  3.57632       NaN    59   NaN   NaN
+11  201708040350   80  4.02336       NaN    59   NaN   NaN
+12  201708040400  102  4.91744   6.70560    58   NaN   NaN
+13  201708040420   80  4.47040       NaN    59   NaN   NaN
+14  201708040450   80  4.47040       NaN    59   NaN   NaN
+15  201708040500  119  5.36448   7.59968    58   NaN   NaN
+16  201708040520  990  4.91744       NaN    59   NaN   NaN
+17  201708040550  100  5.81152       NaN    59   NaN   NaN
+18  201708040600  121  7.15264  10.28192    58  64.0  56.0
+19  201708040620  110  6.70560       NaN    59   NaN   NaN
+20  201708040650  100  6.70560       NaN    59   NaN   NaN
+21  201708040700  119  6.25856   9.83488    58   NaN   NaN
+22  201708040720  990  6.25856       NaN    59   NaN   NaN
+23  201708040750  100  5.81152       NaN    59   NaN   NaN
+24  201708040800  125  4.47040   6.70560    58   NaN   NaN
+25  201708040820  990  4.02336       NaN    59   NaN   NaN
+26  201708040850  100  3.12928       NaN    59   NaN   NaN
+27  201708040900  107  3.57632       NaN    59   NaN   NaN
+28  201708040920  990  3.12928       NaN    59   NaN   NaN
+29  201708040950  990  2.68224       NaN    61   NaN   NaN
+</pre></div></div>
+</div>
+<p>Okey, so from here we can actually see that the <strong>``GUST``</strong> column contains information only on an hourly level. That might be useful! Let’s keep this in mind.</p>
+<p><strong>REMEMBER</strong>: Whenever starting a data analysis with new dataset, it is highly useful to explore the data by calculating basic statistics from the data.</p>
 </div>
 <div class="section" id="Using-your-own-functions-in-pandas">
 <h2>Using your own functions in pandas<a class="headerlink" href="#Using-your-own-functions-in-pandas" title="Permalink to this headline">¶</a></h2>
@@ -2230,6 +2230,10 @@ Data type of the first value in column:
 </pre></div></div>
 </div>
 <p>Okey it seems that now we indeed have the <code class="docutils literal notranslate"><span class="pre">TIME</span></code> as <code class="docutils literal notranslate"><span class="pre">str</span></code> datatype as well.</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>String functions</strong></p>
+<p><strong>Note:</strong> All the typical <code class="docutils literal notranslate"><span class="pre">str</span></code> functionalities can be applied to Series of text data with syntax <code class="docutils literal notranslate"><span class="pre">data['mySeries'].str.&lt;functionToUse&gt;()</span></code>.</p>
+</div>
 <ul class="simple">
 <li>Now we can extract information about day and hour by including only 10 first characters from the text (i.e. excluding the minute-level information).</li>
 </ul>
@@ -2266,11 +2270,7 @@ Data type of the first value in column:
 4  2017080401
 </pre></div></div>
 </div>
-<p>Nice! Now we have information about time on an hourly basis including the date as well.</p>
-<div class="admonition note">
-<p class="admonition-title fa fa-exclamation-circle"><strong>String functions</strong></p>
-<p><strong>Note:</strong> All the typical <code class="docutils literal notranslate"><span class="pre">str</span></code> functionalities can be applied to Series of text data with syntax <code class="docutils literal notranslate"><span class="pre">data['mySeries'].str.&lt;functionToUse&gt;()</span></code>.</p>
-</div>
+<p>Nice! Now we have “labeled” the rows based on information about day of the year and hour of the day.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>TASK:</strong></p>
 <ul class="simple">
@@ -2311,10 +2311,6 @@ Data type of the first value in column:
 3  2017080401       1
 4  2017080401       1
 </pre></div></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title fa fa-exclamation-circle"><strong>Pandas datetime</strong></p>
-<p><strong>Note:</strong> There are also more advanced functions in Pandas to do time series manipulations by utilizing <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.to_datetime.html">**``datetime``**</a> datatype and <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/timeseries.html#resampling%3E">**``resample()``**</a> -function.</p>
 </div>
 </div>
 <div class="section" id="Aggregating-data-in-Pandas-by-grouping">
@@ -2422,7 +2418,7 @@ Length:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>dict_keys([&#39;2017080422&#39;, &#39;2017080417&#39;, &#39;2017080418&#39;, &#39;2017080402&#39;, &#39;2017080414&#39;, &#39;2017080419&#39;, &#39;2017080410&#39;, &#39;2017080411&#39;, &#39;2017080420&#39;, &#39;2017080401&#39;, &#39;2017080423&#39;, &#39;2017080416&#39;, &#39;2017080405&#39;, &#39;2017080421&#39;, &#39;2017080409&#39;, &#39;2017080407&#39;, &#39;2017080400&#39;, &#39;2017080404&#39;, &#39;2017080408&#39;, &#39;2017080413&#39;, &#39;2017080415&#39;, &#39;2017080412&#39;, &#39;2017080406&#39;, &#39;2017080403&#39;])
+<span></span>dict_keys([&#39;2017080417&#39;, &#39;2017080422&#39;, &#39;2017080421&#39;, &#39;2017080400&#39;, &#39;2017080408&#39;, &#39;2017080423&#39;, &#39;2017080412&#39;, &#39;2017080419&#39;, &#39;2017080418&#39;, &#39;2017080409&#39;, &#39;2017080407&#39;, &#39;2017080405&#39;, &#39;2017080411&#39;, &#39;2017080415&#39;, &#39;2017080401&#39;, &#39;2017080420&#39;, &#39;2017080404&#39;, &#39;2017080410&#39;, &#39;2017080402&#39;, &#39;2017080413&#39;, &#39;2017080416&#39;, &#39;2017080414&#39;, &#39;2017080406&#39;, &#39;2017080403&#39;])
 </pre></div>
 </div>
 </div>
@@ -2681,7 +2677,747 @@ Group:
 23  193.333333   4.91744  3.725333  59.333333  15.185185  2017080423
 </pre></div></div>
 </div>
-<p>Awesome! Now we have aggregated our data based on daily averages and we have a new DataFrame called <strong>``aggr_data``</strong> where all those aggregated values are stored.</p>
+<p>Awesome! Now we have aggregated our data based on daily averages and we have a new DataFrame called <code class="docutils literal notranslate"><span class="pre">hourly_data</span></code> where all those aggregated values are stored.</p>
+<p><strong>Shortcut: Mean for all groups</strong></p>
+<p>We can also achieve the same result by computing the mean of all columns for all groups in the grouped object:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">grouped</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>TIME</th>
+      <th>DIR</th>
+      <th>SPEED</th>
+      <th>GUST</th>
+      <th>TEMP</th>
+      <th>MAX</th>
+      <th>MIN</th>
+      <th>TEMP_C</th>
+      <th>TIME_H</th>
+    </tr>
+    <tr>
+      <th>TIME_DH</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017080400</th>
+      <td>2.017080e+11</td>
+      <td>104.666667</td>
+      <td>2.533227</td>
+      <td>NaN</td>
+      <td>58.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.814815</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2017080401</th>
+      <td>2.017080e+11</td>
+      <td>111.000000</td>
+      <td>3.129280</td>
+      <td>NaN</td>
+      <td>59.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15.370370</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2017080402</th>
+      <td>2.017080e+11</td>
+      <td>119.333333</td>
+      <td>4.321387</td>
+      <td>5.81152</td>
+      <td>59.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15.000000</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2017080403</th>
+      <td>2.017080e+11</td>
+      <td>92.666667</td>
+      <td>3.874347</td>
+      <td>5.36448</td>
+      <td>59.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15.000000</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2017080404</th>
+      <td>2.017080e+11</td>
+      <td>87.333333</td>
+      <td>4.619413</td>
+      <td>6.70560</td>
+      <td>58.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.814815</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2017080405</th>
+      <td>2.017080e+11</td>
+      <td>403.000000</td>
+      <td>5.364480</td>
+      <td>7.59968</td>
+      <td>58.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.814815</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2017080406</th>
+      <td>2.017080e+11</td>
+      <td>110.333333</td>
+      <td>6.854613</td>
+      <td>10.28192</td>
+      <td>58.666667</td>
+      <td>64.0</td>
+      <td>56.0</td>
+      <td>14.814815</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>2017080407</th>
+      <td>2.017080e+11</td>
+      <td>403.000000</td>
+      <td>6.109547</td>
+      <td>9.83488</td>
+      <td>58.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.814815</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>2017080408</th>
+      <td>2.017080e+11</td>
+      <td>405.000000</td>
+      <td>3.874347</td>
+      <td>6.70560</td>
+      <td>58.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.814815</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>2017080409</th>
+      <td>2.017080e+11</td>
+      <td>695.666667</td>
+      <td>3.129280</td>
+      <td>NaN</td>
+      <td>59.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15.370370</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>2017080410</th>
+      <td>2.017080e+11</td>
+      <td>225.000000</td>
+      <td>4.768427</td>
+      <td>5.81152</td>
+      <td>61.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.481481</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2017080411</th>
+      <td>2.017080e+11</td>
+      <td>241.666667</td>
+      <td>5.513493</td>
+      <td>8.49376</td>
+      <td>64.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>17.777778</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>2017080412</th>
+      <td>2.017080e+11</td>
+      <td>228.333333</td>
+      <td>5.960533</td>
+      <td>6.70560</td>
+      <td>66.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>18.888889</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>2017080413</th>
+      <td>2.017080e+11</td>
+      <td>229.666667</td>
+      <td>7.152640</td>
+      <td>8.94080</td>
+      <td>67.333333</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>19.629630</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>2017080414</th>
+      <td>2.017080e+11</td>
+      <td>228.666667</td>
+      <td>8.940800</td>
+      <td>12.96416</td>
+      <td>68.333333</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>20.185185</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>2017080415</th>
+      <td>2.017080e+11</td>
+      <td>218.333333</td>
+      <td>7.450667</td>
+      <td>10.72896</td>
+      <td>66.333333</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>19.074074</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>2017080416</th>
+      <td>2.017080e+11</td>
+      <td>214.666667</td>
+      <td>7.152640</td>
+      <td>10.28192</td>
+      <td>65.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>18.703704</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>2017080417</th>
+      <td>2.017080e+11</td>
+      <td>209.666667</td>
+      <td>7.003627</td>
+      <td>8.94080</td>
+      <td>63.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>17.592593</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>2017080418</th>
+      <td>2.017080e+11</td>
+      <td>211.333333</td>
+      <td>5.662507</td>
+      <td>10.28192</td>
+      <td>62.333333</td>
+      <td>69.0</td>
+      <td>58.0</td>
+      <td>16.851852</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>2017080419</th>
+      <td>2.017080e+11</td>
+      <td>203.000000</td>
+      <td>4.023360</td>
+      <td>5.81152</td>
+      <td>61.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.111111</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>2017080420</th>
+      <td>2.017080e+11</td>
+      <td>198.000000</td>
+      <td>4.023360</td>
+      <td>5.36448</td>
+      <td>60.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15.925926</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>2017080421</th>
+      <td>2.017080e+11</td>
+      <td>186.666667</td>
+      <td>3.874347</td>
+      <td>NaN</td>
+      <td>60.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15.925926</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>2017080422</th>
+      <td>2.017080e+11</td>
+      <td>189.000000</td>
+      <td>4.619413</td>
+      <td>6.70560</td>
+      <td>60.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15.555556</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>2017080423</th>
+      <td>2.017080e+11</td>
+      <td>193.333333</td>
+      <td>3.725333</td>
+      <td>4.91744</td>
+      <td>59.333333</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15.185185</td>
+      <td>23</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="Extra:-datetime">
+<h2>Extra: datetime<a class="headerlink" href="#Extra:-datetime" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Pandas datetime</strong></p>
+<p>So far, we have been operating with time using integers and character strings. Python (and pandas) come with more advanced approaches for handling dates and times. In pandas, we can convert dates and times into a new data type <a class="reference external" href="https://docs.python.org/3.7/library/datetime.html">datetime</a> using <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_datetime.html">pandas.to_datetime</a> function. First, it is important to understand the structure of the input data in order to
+avoid erroneous conversions, and that’s why we first focus on string slicing before introducing the datetime functionalities.</p>
+<p>Here is one example of how to convert the <code class="docutils literal notranslate"><span class="pre">TIME_STR</span></code>-column in our data set to datetime:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert to datetime</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;DATE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;TIME_STR&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">%H&#39;</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this example, <code class="docutils literal notranslate"><span class="pre">format</span></code> defines the output datetime format according to strftime(format) method: <a class="reference external" href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior">https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior</a>. <code class="docutils literal notranslate"><span class="pre">exact=False</span></code> drops out minutes and secods, because they are not included in the specified formatting.</p>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Convert to datetime</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;DATE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;TIME_STR&quot;</span><span class="p">],</span> <span class="n">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">%H&#39;</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;DATE&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0   2017-08-04 00:00:00
+1   2017-08-04 00:00:00
+2   2017-08-04 00:00:00
+3   2017-08-04 01:00:00
+4   2017-08-04 01:00:00
+Name: DATE, dtype: datetime64[ns]
+</pre></div>
+</div>
+</div>
+<p>Note: in this case, the data type of the values is <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p>
+<p>Furthermore, we could group the data based on the new datetime column and retrieve the mean values for each column:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;DATE&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>TIME</th>
+      <th>DIR</th>
+      <th>SPEED</th>
+      <th>GUST</th>
+      <th>TEMP</th>
+      <th>MAX</th>
+      <th>MIN</th>
+      <th>TEMP_C</th>
+      <th>TIME_H</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-08-04 00:00:00</th>
+      <td>2.017080e+11</td>
+      <td>104.666667</td>
+      <td>2.533227</td>
+      <td>NaN</td>
+      <td>58.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.814815</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 01:00:00</th>
+      <td>2.017080e+11</td>
+      <td>111.000000</td>
+      <td>3.129280</td>
+      <td>NaN</td>
+      <td>59.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15.370370</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 02:00:00</th>
+      <td>2.017080e+11</td>
+      <td>119.333333</td>
+      <td>4.321387</td>
+      <td>5.81152</td>
+      <td>59.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15.000000</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 03:00:00</th>
+      <td>2.017080e+11</td>
+      <td>92.666667</td>
+      <td>3.874347</td>
+      <td>5.36448</td>
+      <td>59.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15.000000</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 04:00:00</th>
+      <td>2.017080e+11</td>
+      <td>87.333333</td>
+      <td>4.619413</td>
+      <td>6.70560</td>
+      <td>58.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.814815</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 05:00:00</th>
+      <td>2.017080e+11</td>
+      <td>403.000000</td>
+      <td>5.364480</td>
+      <td>7.59968</td>
+      <td>58.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.814815</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 06:00:00</th>
+      <td>2.017080e+11</td>
+      <td>110.333333</td>
+      <td>6.854613</td>
+      <td>10.28192</td>
+      <td>58.666667</td>
+      <td>64.0</td>
+      <td>56.0</td>
+      <td>14.814815</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 07:00:00</th>
+      <td>2.017080e+11</td>
+      <td>403.000000</td>
+      <td>6.109547</td>
+      <td>9.83488</td>
+      <td>58.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.814815</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 08:00:00</th>
+      <td>2.017080e+11</td>
+      <td>405.000000</td>
+      <td>3.874347</td>
+      <td>6.70560</td>
+      <td>58.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.814815</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 09:00:00</th>
+      <td>2.017080e+11</td>
+      <td>695.666667</td>
+      <td>3.129280</td>
+      <td>NaN</td>
+      <td>59.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15.370370</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 10:00:00</th>
+      <td>2.017080e+11</td>
+      <td>225.000000</td>
+      <td>4.768427</td>
+      <td>5.81152</td>
+      <td>61.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.481481</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 11:00:00</th>
+      <td>2.017080e+11</td>
+      <td>241.666667</td>
+      <td>5.513493</td>
+      <td>8.49376</td>
+      <td>64.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>17.777778</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 12:00:00</th>
+      <td>2.017080e+11</td>
+      <td>228.333333</td>
+      <td>5.960533</td>
+      <td>6.70560</td>
+      <td>66.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>18.888889</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 13:00:00</th>
+      <td>2.017080e+11</td>
+      <td>229.666667</td>
+      <td>7.152640</td>
+      <td>8.94080</td>
+      <td>67.333333</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>19.629630</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 14:00:00</th>
+      <td>2.017080e+11</td>
+      <td>228.666667</td>
+      <td>8.940800</td>
+      <td>12.96416</td>
+      <td>68.333333</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>20.185185</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 15:00:00</th>
+      <td>2.017080e+11</td>
+      <td>218.333333</td>
+      <td>7.450667</td>
+      <td>10.72896</td>
+      <td>66.333333</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>19.074074</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 16:00:00</th>
+      <td>2.017080e+11</td>
+      <td>214.666667</td>
+      <td>7.152640</td>
+      <td>10.28192</td>
+      <td>65.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>18.703704</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 17:00:00</th>
+      <td>2.017080e+11</td>
+      <td>209.666667</td>
+      <td>7.003627</td>
+      <td>8.94080</td>
+      <td>63.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>17.592593</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 18:00:00</th>
+      <td>2.017080e+11</td>
+      <td>211.333333</td>
+      <td>5.662507</td>
+      <td>10.28192</td>
+      <td>62.333333</td>
+      <td>69.0</td>
+      <td>58.0</td>
+      <td>16.851852</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 19:00:00</th>
+      <td>2.017080e+11</td>
+      <td>203.000000</td>
+      <td>4.023360</td>
+      <td>5.81152</td>
+      <td>61.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.111111</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 20:00:00</th>
+      <td>2.017080e+11</td>
+      <td>198.000000</td>
+      <td>4.023360</td>
+      <td>5.36448</td>
+      <td>60.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15.925926</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 21:00:00</th>
+      <td>2.017080e+11</td>
+      <td>186.666667</td>
+      <td>3.874347</td>
+      <td>NaN</td>
+      <td>60.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15.925926</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 22:00:00</th>
+      <td>2.017080e+11</td>
+      <td>189.000000</td>
+      <td>4.619413</td>
+      <td>6.70560</td>
+      <td>60.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15.555556</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>2017-08-04 23:00:00</th>
+      <td>2.017080e+11</td>
+      <td>193.333333</td>
+      <td>3.725333</td>
+      <td>4.91744</td>
+      <td>59.333333</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15.185185</td>
+      <td>23</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>This should be the same result we achieved earlier based on string slicing!</p>
 </div>
 <div class="section" id="Finding-outliers-from-the-data">
 <h2>Finding outliers from the data<a class="headerlink" href="#Finding-outliers-from-the-data" title="Permalink to this headline">¶</a></h2>
@@ -2691,7 +3427,7 @@ Group:
 <li>Let’s first find out what is the standard deviation and the mean of the Wind speed.</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2717,7 +3453,7 @@ Mean: 5.153377777777777
 <li>Hence, the threshold for a wind speed to be an outlier with our criteria is:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2736,10 +3472,10 @@ Upper threshold for outlier: 8.434516639449974
 </pre></div></div>
 </div>
 <ul class="simple">
-<li>Let’s finally create a column called <strong>``Outlier``</strong> which we update with <strong>``True``</strong> value, if the windspeed is an outlier, and <strong>``False``</strong>, if it is not. We do this again by iterating over the rows.</li>
+<li>Let’s finally create a column called <code class="docutils literal notranslate"><span class="pre">OUTLIER</span></code> which we update with <code class="docutils literal notranslate"><span class="pre">True</span></code> value, if the windspeed is an outlier, and <code class="docutils literal notranslate"><span class="pre">False</span></code>, if it is not. We do this again by iterating over the rows.</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2791,12 +3527,12 @@ Upper threshold for outlier: 8.434516639449974
 23  193.333333   4.91744  3.725333  59.333333  15.185185  2017080423    False
 </pre></div></div>
 </div>
-<p>Okey now we have at least many False values in our <strong>``Outlier``</strong> -column but there seems to be also one True!.</p>
+<p>Okey now we have at least many False values in our <code class="docutils literal notranslate"><span class="pre">OUTLIER</span></code> -column but there seems to be also one True!</p>
 <ul class="simple">
 <li>Let’s select the rows with potential storm:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2825,7 +3561,7 @@ Upper threshold for outlier: 8.434516639449974
 <li>Here we will repeat all the steps that we did earlier in one code block so that you can see the full picture:</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2904,7 +3640,7 @@ Upper threshold for outlier: 8.434516639449974
 <li>Let’s start by checking if the average and standard deviation of the windspeed differ from the previous ones</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2928,7 +3664,7 @@ Mean: 4.1990832704402505
 <li>Let’s see what we have now in our <strong>``storm``</strong> -variable.</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3000,7 +3736,7 @@ Mean: 4.1990832704402505
 <li>Let’s see what were the strongest gust winds in our dataset by sorting the values using <strong>``sort_values()``</strong> -function.</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>

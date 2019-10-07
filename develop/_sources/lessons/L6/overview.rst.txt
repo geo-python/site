@@ -7,7 +7,7 @@ In the second half of the lesson we will focus on debugging.
 Many new programmers struggle with removing problems in their code (debugging) because they start randomly making changes without a clear picture of what is wrong or even what the code should do!
 By learning a few basic ideas about debugging and interpreting error messages, we hope to save you time and frustration as your scripts become more complex.
 
-1. `Advanced data processing with Pandas <../../notebooks/L6/advanced-data-processing-with-pandas.ipynb>`_
+1. `Data processing with Pandas, Part 2 <../../notebooks/L6/advanced-data-processing-with-pandas.ipynb>`_
 2. `Interpreting error messages <../../notebooks/L6/errors.ipynb>`_
 3. `Good coding practices - Using assertions <../../notebooks/L6/gcp-assertions.ipynb>`_
 4. `Debugging your code <../../notebooks/L6/debugging.ipynb>`_
@@ -18,7 +18,7 @@ Learning goals
 
 After this weeks lesson your should be able to:
 
-- Analyze data in Python using different functions of Pandas
+- Analyze data in Python using pandas
 - Understand common Python errors
 - Follow a simple set of guidelines to debug programs efficiently
 
