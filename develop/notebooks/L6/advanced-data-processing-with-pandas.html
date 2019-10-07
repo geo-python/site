@@ -2564,10 +2564,11 @@ dtype: float64
 </pre></div>
 </div>
 </div>
-<p>As we can see, now we have a single row in our new DataFrame where we have aggregated the data based on hourly mean values. Next we could continue doing and insert the average values from other hours in a similar manner but, of course, that is not something that we want to do manually (would require repeating these same steps too many times). Luckily, we can actually iterate over all the groups that we have in our data and do these steps using a <strong>``for``</strong> -loop.</p>
-<p>When iterating over the groups in our <strong>``DataFrameGroupBy``</strong> -object it is important to understand that a single group in our <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code> actually contains not only the actual values, but also information about the <strong>``key``</strong> that was used to do the grouping. Hence, when iterating over the data we need to assign the <code class="docutils literal notranslate"><span class="pre">key</span></code> and the values into separate variables.</p>
+<p>As we can see, now we have a single row in our new DataFrame where we have aggregated the data based on hourly mean values. Next we could continue doing and insert the average values from other hours in a similar manner but, of course, that is not something that we want to do manually (would require repeating these same steps too many times). Luckily, we can actually iterate over all the groups that we have in our data and do these steps using a <code class="docutils literal notranslate"><span class="pre">for</span></code> -loop.</p>
+<p><strong>For-loops and grouped objects:</strong></p>
+<p>When iterating over the groups in our <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code> -object it is important to understand that a single group in our <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code> actually contains not only the actual values, but also information about the <code class="docutils literal notranslate"><span class="pre">key</span></code> that was used to do the grouping. Hence, when iterating over the data we need to assign the <code class="docutils literal notranslate"><span class="pre">key</span></code> and the values into separate variables.</p>
 <ul class="simple">
-<li>Let’s see how we can iterate over the groups and print the key and the data from a single group (again using <strong>``break``</strong> to only see what is happening).</li>
+<li>Let’s see how we can iterate over the groups and print the key and the data from a single group (again using <code class="docutils literal notranslate"><span class="pre">break</span></code> to only see what is happening).</li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
@@ -2605,7 +2606,7 @@ Group:
 2  2017080400       0
 </pre></div></div>
 </div>
-<p>Okey so from here we can see that the <strong>``key``</strong> contains the value <strong>``2017080400``</strong> that is the same as the values in <strong>``TIME_dh``</strong> column. Meaning that we, indeed, grouped the values based on that column.</p>
+<p>Okey so from here we can see that the <code class="docutils literal notranslate"><span class="pre">key</span></code> contains the value <code class="docutils literal notranslate"><span class="pre">2017080400</span></code> that is the same as the values in <code class="docutils literal notranslate"><span class="pre">TIME_DH</span></code> column. Meaning that we, indeed, grouped the values based on that column.</p>
 <ul class="simple">
 <li>Let’s see how we can create a DataFrame where we calculate the mean values for all those weather attributes that we were interested in. I will repeate slightly the earlier steps so that you can see and better understand what is happening.</li>
 </ul>
@@ -3556,7 +3557,7 @@ Upper threshold for outlier: 8.434516639449974
 <div class="section" id="Repeating-the-data-analysis-with-larger-dataset">
 <h2>Repeating the data analysis with larger dataset<a class="headerlink" href="#Repeating-the-data-analysis-with-larger-dataset" title="Permalink to this headline">¶</a></h2>
 <p>Let’s continue by executing the steps that we have written this far and use it to explore outlier winds based on whole month of August 2017. So far, we have only processed data for one single day (4th of August).</p>
-<p>For this purpose, we change the input file to be <strong>``6591337447542dat_August.txt``</strong> (full record for August 2017). You can find the file in here: <a class="reference external" href="data/6591337447542dat_August.txt">data/6591337447542dat_August.txt</a>.</p>
+<p>For this purpose, we change the input file to be <code class="docutils literal notranslate"><span class="pre">6591337447542dat_August.txt</span></code> (full record for August 2017). You can find the file in here: <a class="reference external" href="data/6591337447542dat_August.txt">data/6591337447542dat_August.txt</a>.</p>
 <ul class="simple">
 <li>Here we will repeat all the steps that we did earlier in one code block so that you can see the full picture:</li>
 </ul>
