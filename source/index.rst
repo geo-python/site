@@ -147,17 +147,18 @@ Themes for each week are listed below. Read more about the weekly :doc:`learning
     notebooks/L5/processing-data-with-pandas.ipynb
     lessons/L5/exercise-5
 
-    .. toctree::
-        :maxdepth: 2
-        :caption: Lesson 6
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 6
 
-        lessons/L6/overview
-        lessons/L6/pandas
-        lessons/L6/numpy
-        lessons/L6/interpreting-errors
-        lessons/L6/debugging-scripts
-        lessons/L6/exercise-6
+    lessons/L6/overview
+    notebooks/L6/advanced-data-processing-with-pandas.ipynb
+    notebooks/L6/errors.ipynb
+    notebooks/L6/gcp-assertions.ipynb
+    notebooks/L6/debugging.ipynb
+    lessons/L6/exercise-6
 
+..
     .. toctree::
         :maxdepth: 2
         :caption: Lesson 7
