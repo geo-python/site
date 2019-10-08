@@ -19,6 +19,7 @@ Learning goals
 After this weeks lesson your should be able to:
 
 - Analyze data in Python using pandas
+- Repeat an analysis workflow for several input files
 - Understand common Python errors
 - Follow a simple set of guidelines to debug programs efficiently
 
