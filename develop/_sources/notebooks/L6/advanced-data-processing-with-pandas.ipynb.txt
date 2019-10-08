@@ -69,9 +69,17 @@
    "source": [
     "At this point, you should have already had a look at the input file and how it is structured. We can notice at least two things we need to consider when reading in the data:\n",
     "\n",
+    "\n",
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**NOTE: Input data structure**\n",
+    "\n",
     "- **Delimiter:** The data are **separated with varying amount of spaces**. If you check out the documentation for the [read_csv() method](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html), you can see that there are two different ways of doing this. We can either use the `sep` or `delim_whitespace` parameter;  `sep='\\s+'` or `delim_whitespace=True` but not both. In this case, we prefer to use `delim_whitespace`.\n",
     "\n",
-    "- **No Data values:** No data values in the NOAA data are coded with varyingg number of `*`. We can tell pandas to consider those characters as NaNs by specifying `na_values=['*', '**', '***', '****', '*****', '******']`.\n"
+    "- **No Data values:** No data values in the NOAA data are coded with varyingg number of `*`. We can tell pandas to consider those characters as NaNs by specifying `na_values=['*', '**', '***', '****', '*****', '******']`.\n",
+    "</div>\n",
+    "\n",
+    "\n"
    ]
   },
   {
@@ -348,7 +356,7 @@
    "source": [
     "<div class=\"alert alert-info\">\n",
     "\n",
-    "**dictionaries**\n",
+    "**Dictionaries**\n",
     "\n",
     "[Dictionary](https://docs.python.org/2/tutorial/datastructures.html#dictionaries) is a spesific data structure in Python for storing key-value pairs. During this course, we will use dictionaries mainly when renaming columns in a pandas series, but dictionaries are useful for many different purposes! For more information about Python dictionaries, check out [this tutorial](https://realpython.com/python-dicts/).\n",
     "    \n",
@@ -447,7 +455,7 @@
     "\n",
     "**TASK: Renaming columns**\n",
     "\n",
-    "The temperature values are again in Fahrenheit. As you might guess, we will soon convert these temperatures in to Celsius. In order to avoid confusion with the columns, rename column `TEMP` into `TEMP_F`. Also, we could rename 'USAF' as'STATION_NUMBER'.\n",
+    "The temperature values are again in Fahrenheit. As you might guess, we will soon convert these temperatures in to Celsius. In order to avoid confusion with the columns, rename column `TEMP` into `TEMP_F`. Also, we could rename `USAF` as`STATION_NUMBER`.\n",
     "</div>\n"
    ]
   },
@@ -1822,12 +1830,9 @@
     "data[\"DATE\"] = pd.to_datetime(data[\"TIME_STR\"])\n",
     "\n",
     "```\n",
-    "\n",
-    "    \n",
-    "In this example, `format` defines the output datetime format according to strftime(format) method: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior. `exact=False` drops out minutes and secods, because they are not included in the specified formatting.\n",
-    "    \n",
+    "   \n",
     "        \n",
-    "If needed, you can use the `format` parameter to define the output datetime format according to strftime(format) method: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior. together with `exact=False`, for example like this: \n",
+    "If needed, you can use the `format` parameter to define the output datetime format according to [strftime(format) method](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior). together with `exact=False`, for example like this: \n",
     "    \n",
     "```\n",
     "# Convert to datetime\n",
@@ -2403,6 +2408,7 @@
     "<div class=\"alert alert-info\">\n",
     "\n",
     "**NOTE:**\n",
+    "    \n",
     "Here you could also group the data based on the `MONTH_STR` column to achieve the same result:\n",
     "    \n",
     "```\n",
@@ -2452,7 +2458,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Okey, interesting. Now we have a new object with type **`DataFrameGroupBy`**."
+    "Okey, interesting. Now we have a new object with type `DataFrameGroupBy`."
    ]
   },
   {
@@ -2955,7 +2961,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**Shortcut: Mean for all groups**\n",
+    "**Mean for all groups at once**\n",
     "\n",
     "We can also achieve the same result by computing the mean of all columns for all groups in the grouped object:"
    ]

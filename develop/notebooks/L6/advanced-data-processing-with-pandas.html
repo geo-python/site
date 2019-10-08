@@ -976,10 +976,13 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 </div>
 <p>At this point, you should have already had a look at the input file and how it is structured. We can notice at least two things we need to consider when reading in the data:</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>NOTE: Input data structure</strong></p>
 <ul class="simple">
 <li><strong>Delimiter:</strong> The data are <strong>separated with varying amount of spaces</strong>. If you check out the documentation for the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">read_csv() method</a>, you can see that there are two different ways of doing this. We can either use the <code class="docutils literal notranslate"><span class="pre">sep</span></code> or <code class="docutils literal notranslate"><span class="pre">delim_whitespace</span></code> parameter; <code class="docutils literal notranslate"><span class="pre">sep='\s+'</span></code> or <code class="docutils literal notranslate"><span class="pre">delim_whitespace=True</span></code> but not both. In this case, we prefer to use <code class="docutils literal notranslate"><span class="pre">delim_whitespace</span></code>.</li>
 <li><strong>No Data values:</strong> No data values in the NOAA data are coded with varyingg number of <code class="docutils literal notranslate"><span class="pre">*</span></code>. We can tell pandas to consider those characters as NaNs by specifying <code class="docutils literal notranslate"><span class="pre">na_values=['*',</span> <span class="pre">'**',</span> <span class="pre">'***',</span> <span class="pre">'****',</span> <span class="pre">'*****',</span> <span class="pre">'******']</span></code>.</li>
 </ul>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -1188,7 +1191,7 @@ C:\HYapp\Anaconda3\lib\site-packages\IPython\core\interactiveshell.py:3058: Dtyp
 </div>
 <p>The column names that we have are somewhat ackward. Let’s change them into more intuitive ones. This can be done easily using the <code class="docutils literal notranslate"><span class="pre">rename()</span></code> -method and a dictionary that lists old and new column names.</p>
 <div class="admonition note">
-<p class="admonition-title fa fa-exclamation-circle"><strong>dictionaries</strong></p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Dictionaries</strong></p>
 <p><a class="reference external" href="https://docs.python.org/2/tutorial/datastructures.html#dictionaries">Dictionary</a> is a spesific data structure in Python for storing key-value pairs. During this course, we will use dictionaries mainly when renaming columns in a pandas series, but dictionaries are useful for many different purposes! For more information about Python dictionaries, check out <a class="reference external" href="https://realpython.com/python-dicts/">this tutorial</a>.</p>
 </div>
 <p>We can define the new column names using a <a class="reference external" href="https://www.tutorialspoint.com/python/python_dictionary.htm">dictionary</a> where we determine “<code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code>” -pairs, in which the original column name (the one which will be replaced) is the key, and the new column name is the value.</p>
@@ -1249,7 +1252,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 <p>Perfect, now our column names are more easy to understand and use.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>TASK: Renaming columns</strong></p>
-<p>The temperature values are again in Fahrenheit. As you might guess, we will soon convert these temperatures in to Celsius. In order to avoid confusion with the columns, rename column <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> into <code class="docutils literal notranslate"><span class="pre">TEMP_F</span></code>. Also, we could rename ‘USAF’ as’STATION_NUMBER’.</p>
+<p>The temperature values are again in Fahrenheit. As you might guess, we will soon convert these temperatures in to Celsius. In order to avoid confusion with the columns, rename column <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> into <code class="docutils literal notranslate"><span class="pre">TEMP_F</span></code>. Also, we could rename <code class="docutils literal notranslate"><span class="pre">USAF</span></code> as<code class="docutils literal notranslate"><span class="pre">STATION_NUMBER</span></code>.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
@@ -2326,8 +2329,7 @@ Name: TIME, dtype: int64
 <span class="n">data</span><span class="p">[</span><span class="s2">&quot;DATE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;TIME_STR&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>In this example, <code class="docutils literal notranslate"><span class="pre">format</span></code> defines the output datetime format according to strftime(format) method: <a class="reference external" href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior">https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior</a>. <code class="docutils literal notranslate"><span class="pre">exact=False</span></code> drops out minutes and secods, because they are not included in the specified formatting.</p>
-<p>If needed, you can use the <code class="docutils literal notranslate"><span class="pre">format</span></code> parameter to define the output datetime format according to strftime(format) method: <a class="reference external" href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior">https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior</a>. together with <code class="docutils literal notranslate"><span class="pre">exact=False</span></code>, for example like this:</p>
+<p>If needed, you can use the <code class="docutils literal notranslate"><span class="pre">format</span></code> parameter to define the output datetime format according to <a class="reference external" href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior">strftime(format) method</a>. together with <code class="docutils literal notranslate"><span class="pre">exact=False</span></code>, for example like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert to datetime</span>
 <span class="n">data</span><span class="p">[</span><span class="s2">&quot;DATE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;TIME_STR&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">%H&#39;</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -2782,7 +2784,8 @@ number of rows: 559667
 </div>
 </div>
 <div class="admonition note">
-<p class="admonition-title fa fa-exclamation-circle"><strong>NOTE:</strong> Here you could also group the data based on the <code class="docutils literal notranslate"><span class="pre">MONTH_STR</span></code> column to achieve the same result:</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>NOTE:</strong></p>
+<p>Here you could also group the data based on the <code class="docutils literal notranslate"><span class="pre">MONTH_STR</span></code> column to achieve the same result:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Group the data</span>
 <span class="n">grouped</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;MONTH_STR&#39;</span><span class="p">)</span>
 </pre></div>
@@ -2815,7 +2818,7 @@ Length:
  826
 </pre></div></div>
 </div>
-<p>Okey, interesting. Now we have a new object with type <strong>``DataFrameGroupBy``</strong>.</p>
+<p>Okey, interesting. Now we have a new object with type <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>TASK:</strong></p>
 <p>Think: what does the number of groups (length of the grouped object) tell us?</p>
@@ -3226,7 +3229,7 @@ First rows of data in this group:
 </pre></div></div>
 </div>
 <p>Awesome! Now we have aggregated our data based on daily averages and we have a new DataFrame called <code class="docutils literal notranslate"><span class="pre">hourly_data</span></code> where all those aggregated values are stored.</p>
-<p><strong>Shortcut: Mean for all groups</strong></p>
+<p><strong>Mean for all groups at once</strong></p>
 <p>We can also achieve the same result by computing the mean of all columns for all groups in the grouped object:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
