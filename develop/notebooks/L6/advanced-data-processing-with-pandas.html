@@ -935,7 +935,8 @@ This page was generated from <a class="reference external" href="https://github.
 <span class="raw-html"><a href="https://notebooks.csc.fi/#/blueprint/df93f30d14e44b51907d135726eb6ef4"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a></span></div>
 <div class="section" id="Data-processing-with-Pandas,-part-2">
 <h1>Data processing with Pandas, part 2<a class="headerlink" href="#Data-processing-with-Pandas,-part-2" title="Permalink to this headline">¶</a></h1>
-<p>This week we will continue developing our skills using <a class="reference external" href="https://pandas.pydata.org/">pandas</a> to process real data. April 2019 happened to be the second warmest April on record globally. In this lesson, we will use our data manipulation and analysis skills to analyze weather data from Finland, and see if April 2019 was exceptionally warm also here.</p>
+<p>This week we will continue developing our skills using <a class="reference external" href="https://pandas.pydata.org/">pandas</a> to process real data.</p>
+<p>Case: April 2019 happened to be the second warmest April on record globally. In this lesson, we will use our data manipulation and analysis skills to analyze weather data from Finland, and see if April 2019 was exceptionally warm also here.</p>
 <p>We will cover a number of useful techniques in pandas including:</p>
 <ul class="simple">
 <li>renaming columns</li>
@@ -948,9 +949,9 @@ This page was generated from <a class="reference external" href="https://github.
 <p>In the lesson this week we are using weather observation data from Finland downloaded from NOAA. We have data for 15 different weather obsercation stations from Finland.</p>
 <p><strong>METADATA:</strong></p>
 <ul class="simple">
-<li>List of available stations: <code class="docutils literal notranslate"><span class="pre">data/6367598020644stn.txt</span></code></li>
-<li>More details about weather observatios per station: <code class="docutils literal notranslate"><span class="pre">data/6367598020644inv.txt</span></code></li>
-<li>Data description (column names): <code class="docutils literal notranslate"><span class="pre">data/3505doc.txt</span></code></li>
+<li>List of available stations: <a class="reference external" href="metadata/6367598020644stn.txt">metadata/6367598020644stn.txt</a></li>
+<li>More details about weather observatios per station: <a class="reference external" href="metadata/6367598020644inv.txt">metadata/6367598020644inv.txt</a></li>
+<li>Data description (column names): <a class="reference external" href="metadata/3505doc.txt">metadata/3505doc.txt</a></li>
 </ul>
 <p>The input data for this week is separated with varying amount of spaces (fixed width). The first lines and columns of the data looks like following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">USAF</span>  <span class="n">WBAN</span> <span class="n">YR</span><span class="o">--</span><span class="n">MODAHRMN</span> <span class="n">DIR</span> <span class="n">SPD</span> <span class="n">GUS</span> <span class="n">CLG</span> <span class="n">SKC</span> <span class="n">L</span> <span class="n">M</span> <span class="n">H</span>  <span class="n">VSB</span> <span class="n">MW</span> <span class="n">MW</span> <span class="n">MW</span> <span class="n">MW</span> <span class="n">AW</span> <span class="n">AW</span> <span class="n">AW</span> <span class="n">AW</span> <span class="n">W</span> <span class="n">TEMP</span> <span class="n">DEWP</span>    <span class="n">SLP</span>  <span class="o">...</span> <span class="n">SD</span>
@@ -966,7 +967,7 @@ This page was generated from <a class="reference external" href="https://github.
 <h2>Reading the data<a class="headerlink" href="#Reading-the-data" title="Permalink to this headline">¶</a></h2>
 <p>In order to get startet, let’s import pandas:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -980,11 +981,11 @@ This page was generated from <a class="reference external" href="https://github.
 <li><strong>No Data values:</strong> No data values in the NOAA data are coded with varyingg number of <code class="docutils literal notranslate"><span class="pre">*</span></code>. We can tell pandas to consider those characters as NaNs by specifying <code class="docutils literal notranslate"><span class="pre">na_values=['*',</span> <span class="pre">'**',</span> <span class="pre">'***',</span> <span class="pre">'****',</span> <span class="pre">'*****',</span> <span class="pre">'******']</span></code>.</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[141]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">fp</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\LocalData\VUOKKHEI\codes\Geo-Python\data\data\029350.txt&quot;</span>
+<span></span><span class="n">fp</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\LocalData\VUOKKHEI\codes\Geo-Python\data\weather_data\029350.txt&quot;</span>
 
 <span class="c1"># Read data using varying amount of spaces as separator and specifying * characters as NoData values</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">delim_whitespace</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;**&#39;</span><span class="p">,</span> <span class="s1">&#39;***&#39;</span><span class="p">,</span> <span class="s1">&#39;****&#39;</span><span class="p">,</span> <span class="s1">&#39;*****&#39;</span><span class="p">,</span> <span class="s1">&#39;******&#39;</span><span class="p">])</span>
@@ -1057,7 +1058,7 @@ C:\HYapp\Anaconda3\lib\site-packages\IPython\core\interactiveshell.py:3058: Dtyp
 </pre></div>
 </div>
 </div>
-<p>Description for all these columns is available in the metadata file <a class="reference external" href="data/3505doc.txt">data/3505doc.txt</a>.</p>
+<p>Description for all these columns is available in the metadata file <a class="reference external" href="metadata/3505doc.txt">metadata/3505doc.txt</a>.</p>
 <p><strong>Let’s read in the data one more time.</strong> This time, we will read in only some of the columns using the <code class="docutils literal notranslate"><span class="pre">usecols</span></code> parameter. Let’s read in columns that might be somehow useful to our analysis, or at least that contain some values that are meaningful to us, including the station name, timestamp, and data about wind and temperature: <code class="docutils literal notranslate"><span class="pre">'USAF','YR--MODAHRMN',</span> <span class="pre">'DIR',</span> <span class="pre">'SPD',</span> <span class="pre">'GUS','TEMP',</span> <span class="pre">'MAX',</span> <span class="pre">'MIN'</span></code></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -1251,7 +1252,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 <p>The temperature values are again in Fahrenheit. As you might guess, we will soon convert these temperatures in to Celsius. In order to avoid confusion with the columns, rename column <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> into <code class="docutils literal notranslate"><span class="pre">TEMP_F</span></code>. Also, we could rename ‘USAF’ as’STATION_NUMBER’.</p>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[143]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1267,7 +1268,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[143]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1297,11 +1298,6 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
       <th>TEMP_F</th>
       <th>MAX</th>
       <th>MIN</th>
-      <th>TEMP_C</th>
-      <th>TIME_STR</th>
-      <th>YEAR_MONTH</th>
-      <th>MONTH</th>
-      <th>YEAR</th>
     </tr>
   </thead>
   <tbody>
@@ -1315,11 +1311,6 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
       <td>6.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-14.444444</td>
-      <td>191701010600</td>
-      <td>191701</td>
-      <td>1</td>
-      <td>1917</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1331,11 +1322,6 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
       <td>2.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-16.666667</td>
-      <td>191701011300</td>
-      <td>191701</td>
-      <td>1</td>
-      <td>1917</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1347,11 +1333,6 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
       <td>-8.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-22.222222</td>
-      <td>191701012000</td>
-      <td>191701</td>
-      <td>1</td>
-      <td>1917</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1363,11 +1344,6 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
       <td>-4.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-20.000000</td>
-      <td>191701021300</td>
-      <td>191701</td>
-      <td>1</td>
-      <td>1917</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1379,11 +1355,6 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
       <td>-12.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-24.444444</td>
-      <td>191701022000</td>
-      <td>191701</td>
-      <td>1</td>
-      <td>1917</td>
     </tr>
   </tbody>
 </table>
@@ -1449,7 +1420,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>USAF</th>
+      <th>STATION_NUMBER</th>
       <th>TIME</th>
       <th>DIR</th>
       <th>SPEED</th>
@@ -1551,7 +1522,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>USAF</th>
+      <th>STATION_NUMBER</th>
       <th>TIME</th>
       <th>DIR</th>
       <th>SPEED</th>
@@ -1638,14 +1609,14 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>USAF        int64
-TIME        int64
-DIR       float64
-SPEED     float64
-GUST      float64
-TEMP_F    float64
-MAX       float64
-MIN       float64
+<span></span>STATION_NUMBER      int64
+TIME                int64
+DIR               float64
+SPEED             float64
+GUST              float64
+TEMP_F            float64
+MAX               float64
+MIN               float64
 dtype: object
 </pre></div>
 </div>
@@ -1667,25 +1638,25 @@ dtype: object
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-           USAF          TIME            DIR          SPEED         GUST  \
-count  559667.0  5.596670e+05  519843.000000  553514.000000  9916.000000
-mean    29350.0  2.002912e+11     282.237183       6.235060    21.325534
-std         0.0  1.800321e+09     247.127478       4.216836     7.367612
-min     29350.0  1.917010e+11       1.000000       0.000000    11.000000
-25%     29350.0  2.001122e+11     140.000000       3.000000    15.000000
-50%     29350.0  2.008061e+11     220.000000       6.000000    21.000000
-75%     29350.0  2.013110e+11     320.000000       9.000000    26.000000
-max     29350.0  2.019100e+11     990.000000      66.000000    54.000000
+       STATION_NUMBER          TIME            DIR          SPEED  \
+count        559667.0  5.596670e+05  519843.000000  553514.000000
+mean          29350.0  2.002912e+11     282.237183       6.235060
+std               0.0  1.800321e+09     247.127478       4.216836
+min           29350.0  1.917010e+11       1.000000       0.000000
+25%           29350.0  2.001122e+11     140.000000       3.000000
+50%           29350.0  2.008061e+11     220.000000       6.000000
+75%           29350.0  2.013110e+11     320.000000       9.000000
+max           29350.0  2.019100e+11     990.000000      66.000000
 
-              TEMP_F           MAX           MIN
-count  555794.000000  30271.000000  30268.000000
-mean       39.039754     43.731030     32.457975
-std        18.833681     19.378822     18.427926
-min       -37.000000    -28.000000    -48.000000
-25%        28.000000     30.000000     23.000000
-50%        39.000000     43.000000     33.000000
-75%        54.000000     60.000000     46.000000
-max        95.000000     94.000000     81.000000
+              GUST         TEMP_F           MAX           MIN
+count  9916.000000  555794.000000  30271.000000  30268.000000
+mean     21.325534      39.039754     43.731030     32.457975
+std       7.367612      18.833681     19.378822     18.427926
+min      11.000000     -37.000000    -28.000000    -48.000000
+25%      15.000000      28.000000     30.000000     23.000000
+50%      21.000000      39.000000     43.000000     33.000000
+75%      26.000000      54.000000     60.000000     46.000000
+max      54.000000      95.000000     94.000000     81.000000
 </pre></div></div>
 </div>
 <p>Here we can see that there are varying number of observations per column (see the <code class="docutils literal notranslate"><span class="pre">count</span></code> -information), because some of the columns have missing values.</p>
@@ -1756,7 +1727,7 @@ max        95.000000     94.000000     81.000000
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>USAF</th>
+      <th>STATION_NUMBER</th>
       <th>TIME</th>
       <th>DIR</th>
       <th>SPEED</th>
@@ -1934,7 +1905,7 @@ Temp F: 6.0
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>USAF</th>
+      <th>STATION_NUMBER</th>
       <th>TIME</th>
       <th>DIR</th>
       <th>SPEED</th>
@@ -2076,7 +2047,7 @@ Temp F: 6.0
 <h3>Applying a function<a class="headerlink" href="#Applying-a-function" title="Permalink to this headline">¶</a></h3>
 <p>Pandas DataFrames and Series also have a dedicated method <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> for applying functions on columns (or rows!). When using <code class="docutils literal notranslate"><span class="pre">.apply()</span></code>, we pass the function name (without parenthesis!) as an argument:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2086,7 +2057,7 @@ Temp F: 6.0
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2108,7 +2079,7 @@ Temp F: 6.0
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>USAF</th>
+      <th>STATION_NUMBER</th>
       <th>TIME</th>
       <th>DIR</th>
       <th>SPEED</th>
@@ -2198,7 +2169,7 @@ Temp F: 6.0
 <p><code class="docutils literal notranslate"><span class="pre">YR--MODAHRMN</span> <span class="pre">=</span> <span class="pre">YEAR-MONTH-DAY-HOUR-MINUTE</span> <span class="pre">IN</span> <span class="pre">GREENWICH</span> <span class="pre">MEAN</span> <span class="pre">TIME</span> <span class="pre">(GMT)</span></code></p>
 <p>Let’s have a closer look at the date and time information we have by checking the values in that column, and their data type:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2207,7 +2178,7 @@ Temp F: 6.0
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2226,7 +2197,7 @@ Name: TIME, dtype: int64
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2235,7 +2206,7 @@ Name: TIME, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2255,7 +2226,7 @@ Name: TIME, dtype: int64
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">TIME</span></code> column contains several observations per day (and even several observations per hour). The timestamp for the first observation is <code class="docutils literal notranslate"><span class="pre">191701010600</span></code>, i.e. from 1st of January 1917, and the timestamp for the latest observation is <code class="docutils literal notranslate"><span class="pre">201910012350</span></code> (from last week, by the time of writing this!)</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2264,7 +2235,7 @@ Name: TIME, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2278,7 +2249,7 @@ Name: TIME, dtype: int64
 <h3>String slicing<a class="headerlink" href="#String-slicing" title="Permalink to this headline">¶</a></h3>
 <p>One approach would be to convert the date and time information into character strings and “cut” the needed information from the <a class="reference external" href="https://docs.python.org/3/tutorial/introduction.html#strings">string objects</a>. If we look at the latest time stamp in the data (<code class="docutils literal notranslate"><span class="pre">201910012350</span></code>), you can see that there is a systematic pattern <code class="docutils literal notranslate"><span class="pre">YEAR-MONTH-DAY-HOUR-MINUTE</span></code>. Four first characters represent the year, and six first characters are year + month!</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2288,7 +2259,7 @@ Name: TIME, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2301,7 +2272,7 @@ Name: TIME, dtype: int64
 <li>Let’s convert the time into string. And check that the data type changes:</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2311,7 +2282,7 @@ Name: TIME, dtype: int64
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2328,19 +2299,19 @@ Name: TIME, dtype: int64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-    USAF          TIME    DIR  SPEED  GUST  TEMP_F  MAX  MIN     TEMP_C  \
-0  29350  191701010600  320.0    5.0   NaN     6.0  NaN  NaN -14.444444
-1  29350  191701011300  320.0    7.0   NaN     2.0  NaN  NaN -16.666667
-2  29350  191701012000  320.0    5.0   NaN    -8.0  NaN  NaN -22.222222
-3  29350  191701021300    NaN    0.0   NaN    -4.0  NaN  NaN -20.000000
-4  29350  191701022000    NaN    0.0   NaN   -12.0  NaN  NaN -24.444444
+   STATION_NUMBER          TIME    DIR  SPEED  GUST  TEMP_F  MAX  MIN  \
+0           29350  191701010600  320.0    5.0   NaN     6.0  NaN  NaN
+1           29350  191701011300  320.0    7.0   NaN     2.0  NaN  NaN
+2           29350  191701012000  320.0    5.0   NaN    -8.0  NaN  NaN
+3           29350  191701021300    NaN    0.0   NaN    -4.0  NaN  NaN
+4           29350  191701022000    NaN    0.0   NaN   -12.0  NaN  NaN
 
-       TIME_STR MONTH_STR
-0  191701010600    191701
-1  191701011300    191701
-2  191701012000    191701
-3  191701021300    191701
-4  191701022000    191701
+      TEMP_C      TIME_STR MONTH_STR
+0 -14.444444  191701010600    191701
+1 -16.666667  191701011300    191701
+2 -22.222222  191701012000    191701
+3 -20.000000  191701021300    191701
+4 -24.444444  191701022000    191701
 </pre></div></div>
 </div>
 <p>Nice! Now we have “labeled” the rows based on information about day of the year and hour of the day. However, let’s have a look at a more clever way of dealing with dates and times..</p>
@@ -2364,7 +2335,7 @@ Name: TIME, dtype: int64
 <p>In this example, <code class="docutils literal notranslate"><span class="pre">exact=False</span></code> drops out minutes and secods, because they are not included in the specified formatting.</p>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2375,7 +2346,7 @@ Name: TIME, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2395,7 +2366,7 @@ Name: DATE, dtype: datetime64[ns]
 </div>
 <p>Now, we can extract different time units based on the datetime-column using the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.dt.html">pandas.Series.dt accessor</a>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2404,7 +2375,7 @@ Name: DATE, dtype: datetime64[ns]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2475,7 +2446,7 @@ Name: DATE, Length: 559667, dtype: int64
 </div>
 <p>We can also combine the datetime functionalities with other methods from pandas. For example, we can check the number of unique years in our input data:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2484,7 +2455,7 @@ Name: DATE, Length: 559667, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2499,7 +2470,7 @@ Name: DATE, Length: 559667, dtype: int64
 </ul>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2511,7 +2482,7 @@ Name: DATE, Length: 559667, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2533,7 +2504,7 @@ Name: DATE, Length: 559667, dtype: int64
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>USAF</th>
+      <th>STATION_NUMBER</th>
       <th>TIME</th>
       <th>DIR</th>
       <th>SPEED</th>
@@ -2653,7 +2624,7 @@ Name: DATE, Length: 559667, dtype: int64
 </ol>
 <p>Before we start grouping the data, let’s once more check how our input data looks like:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2671,7 +2642,7 @@ number of rows: 559667
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2693,7 +2664,7 @@ number of rows: 559667
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>USAF</th>
+      <th>STATION_NUMBER</th>
       <th>TIME</th>
       <th>DIR</th>
       <th>SPEED</th>
@@ -2802,7 +2773,7 @@ number of rows: 559667
 <p>We have quite a few rows of weather data, and several observations per day (and even per hour). <strong>Our goal is to create an aggreated data frame that would have only one row per month!</strong></p>
 <p>Let’s <strong>group</strong> our data based on unique year and month combinations</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2821,7 +2792,7 @@ number of rows: 559667
 <li>Let’s see what we have now.</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2850,7 +2821,7 @@ Length:
 <p>Think: what does the number of groups (length of the grouped object) tell us?</p>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2862,7 +2833,7 @@ Length:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2873,7 +2844,7 @@ Length:
 <p>There are several methods we can use for extracting information from the grouped data. See <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/groupby.html">documentation for Pandas GroupBy objects</a> for a comprehensive overview.</p>
 <p><strong>Checking group names:</strong></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2887,7 +2858,7 @@ Length:
 <li>Let’s check the contents for a group representing August 2019 (name of that group is <code class="docutils literal notranslate"><span class="pre">(2019,</span> <span class="pre">4)</span></code> if you grouped the data based on datetime columns <code class="docutils literal notranslate"><span class="pre">YEAR</span></code> and <code class="docutils literal notranslate"><span class="pre">MONTH</span></code>). We can get the values of that hour from the grouped object using the <code class="docutils literal notranslate"><span class="pre">get_group()</span></code> -method:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2907,68 +2878,68 @@ Length:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-         USAF          TIME    DIR  SPEED  GUST  TEMP_F   MAX   MIN  \
-546832  29350  201904010000  290.0    9.0   NaN    29.0   NaN   NaN
-546833  29350  201904010050  330.0    6.0   NaN    28.0   NaN   NaN
-546834  29350  201904010100  280.0    9.0   NaN    29.0   NaN   NaN
-546835  29350  201904010120  310.0    7.0   NaN    28.0   NaN   NaN
-546836  29350  201904010150  320.0    3.0   NaN    27.0   NaN   NaN
-546837  29350  201904010200  290.0    2.0   NaN    28.0   NaN   NaN
-546838  29350  201904010220  290.0    5.0   NaN    27.0   NaN   NaN
-546839  29350  201904010250  300.0    6.0   NaN    27.0   NaN   NaN
-546840  29350  201904010300  300.0    9.0   NaN    28.0   NaN   NaN
-546841  29350  201904010320  320.0    8.0   NaN    27.0   NaN   NaN
-546842  29350  201904010350  310.0   10.0   NaN    27.0   NaN   NaN
-546843  29350  201904010400  300.0   13.0   NaN    28.0   NaN   NaN
-546844  29350  201904010420  290.0   13.0   NaN    28.0   NaN   NaN
-546845  29350  201904010450  290.0   13.0   NaN    28.0   NaN   NaN
-546846  29350  201904010500  290.0   13.0   NaN    29.0   NaN   NaN
-546847  29350  201904010520  300.0   14.0   NaN    28.0   NaN   NaN
-546848  29350  201904010550  300.0   15.0   NaN    28.0   NaN   NaN
-546849  29350  201904010600  300.0   16.0   NaN    30.0  33.0  24.0
-546850  29350  201904010620  300.0   15.0   NaN    30.0   NaN   NaN
-546851  29350  201904010650  300.0   17.0   NaN    30.0   NaN   NaN
-546852  29350  201904010700  310.0   16.0   NaN    31.0   NaN   NaN
-546853  29350  201904010720  300.0   14.0   NaN    32.0   NaN   NaN
-546854  29350  201904010750  300.0   11.0   NaN    32.0   NaN   NaN
-546855  29350  201904010800  290.0   11.0   NaN    34.0   NaN   NaN
-546856  29350  201904010820  290.0   14.0   NaN    34.0   NaN   NaN
-546857  29350  201904010850  290.0   14.0   NaN    34.0   NaN   NaN
-546858  29350  201904010900  300.0   16.0   NaN    35.0   NaN   NaN
-546859  29350  201904010920  990.0   13.0   NaN    36.0   NaN   NaN
-546860  29350  201904010950  270.0   17.0   NaN    36.0   NaN   NaN
-546861  29350  201904011000  280.0    9.0   NaN    37.0   NaN   NaN
-...       ...           ...    ...    ...   ...     ...   ...   ...
-548949  29350  201904301400  240.0    4.0   NaN    59.0   NaN   NaN
-548950  29350  201904301420  990.0    8.0   NaN    61.0   NaN   NaN
-548951  29350  201904301450  990.0    8.0   NaN    61.0   NaN   NaN
-548952  29350  201904301500  290.0    7.0   NaN    62.0   NaN   NaN
-548953  29350  201904301520  280.0    9.0   NaN    61.0   NaN   NaN
-548954  29350  201904301550  990.0   10.0   NaN    61.0   NaN   NaN
-548955  29350  201904301600  260.0    7.0   NaN    61.0   NaN   NaN
-548956  29350  201904301620  990.0    8.0   NaN    59.0   NaN   NaN
-548957  29350  201904301650  990.0    7.0   NaN    57.0   NaN   NaN
-548958  29350  201904301700  230.0    4.0   NaN    57.0   NaN   NaN
-548959  29350  201904301720  990.0   10.0   NaN    57.0   NaN   NaN
-548960  29350  201904301750  270.0   10.0   NaN    55.0   NaN   NaN
-548961  29350  201904301800  270.0    9.0   NaN    54.0  62.0  46.0
-548962  29350  201904301820  270.0    9.0   NaN    54.0   NaN   NaN
-548963  29350  201904301850  260.0    8.0   NaN    52.0   NaN   NaN
-548964  29350  201904301900  270.0    7.0   NaN    52.0   NaN   NaN
-548965  29350  201904301920  270.0    7.0   NaN    50.0   NaN   NaN
-548966  29350  201904301950  260.0    9.0   NaN    50.0   NaN   NaN
-548967  29350  201904302000  270.0    7.0   NaN    49.0   NaN   NaN
-548968  29350  201904302020  280.0    8.0   NaN    48.0   NaN   NaN
-548969  29350  201904302050  260.0    6.0   NaN    48.0   NaN   NaN
-548970  29350  201904302100  260.0    4.0   NaN    47.0   NaN   NaN
-548971  29350  201904302120  260.0    6.0   NaN    46.0   NaN   NaN
-548972  29350  201904302150  990.0    3.0   NaN    45.0   NaN   NaN
-548973  29350  201904302200  280.0    4.0   NaN    45.0   NaN   NaN
-548974  29350  201904302220  990.0    2.0   NaN    43.0   NaN   NaN
-548975  29350  201904302250  990.0    1.0   NaN    41.0   NaN   NaN
-548976  29350  201904302300  240.0    2.0   NaN    40.0   NaN   NaN
-548977  29350  201904302320  990.0    2.0   NaN    39.0   NaN   NaN
-548978  29350  201904302350  110.0    2.0   NaN    37.0   NaN   NaN
+        STATION_NUMBER          TIME    DIR  SPEED  GUST  TEMP_F   MAX   MIN  \
+546832           29350  201904010000  290.0    9.0   NaN    29.0   NaN   NaN
+546833           29350  201904010050  330.0    6.0   NaN    28.0   NaN   NaN
+546834           29350  201904010100  280.0    9.0   NaN    29.0   NaN   NaN
+546835           29350  201904010120  310.0    7.0   NaN    28.0   NaN   NaN
+546836           29350  201904010150  320.0    3.0   NaN    27.0   NaN   NaN
+546837           29350  201904010200  290.0    2.0   NaN    28.0   NaN   NaN
+546838           29350  201904010220  290.0    5.0   NaN    27.0   NaN   NaN
+546839           29350  201904010250  300.0    6.0   NaN    27.0   NaN   NaN
+546840           29350  201904010300  300.0    9.0   NaN    28.0   NaN   NaN
+546841           29350  201904010320  320.0    8.0   NaN    27.0   NaN   NaN
+546842           29350  201904010350  310.0   10.0   NaN    27.0   NaN   NaN
+546843           29350  201904010400  300.0   13.0   NaN    28.0   NaN   NaN
+546844           29350  201904010420  290.0   13.0   NaN    28.0   NaN   NaN
+546845           29350  201904010450  290.0   13.0   NaN    28.0   NaN   NaN
+546846           29350  201904010500  290.0   13.0   NaN    29.0   NaN   NaN
+546847           29350  201904010520  300.0   14.0   NaN    28.0   NaN   NaN
+546848           29350  201904010550  300.0   15.0   NaN    28.0   NaN   NaN
+546849           29350  201904010600  300.0   16.0   NaN    30.0  33.0  24.0
+546850           29350  201904010620  300.0   15.0   NaN    30.0   NaN   NaN
+546851           29350  201904010650  300.0   17.0   NaN    30.0   NaN   NaN
+546852           29350  201904010700  310.0   16.0   NaN    31.0   NaN   NaN
+546853           29350  201904010720  300.0   14.0   NaN    32.0   NaN   NaN
+546854           29350  201904010750  300.0   11.0   NaN    32.0   NaN   NaN
+546855           29350  201904010800  290.0   11.0   NaN    34.0   NaN   NaN
+546856           29350  201904010820  290.0   14.0   NaN    34.0   NaN   NaN
+546857           29350  201904010850  290.0   14.0   NaN    34.0   NaN   NaN
+546858           29350  201904010900  300.0   16.0   NaN    35.0   NaN   NaN
+546859           29350  201904010920  990.0   13.0   NaN    36.0   NaN   NaN
+546860           29350  201904010950  270.0   17.0   NaN    36.0   NaN   NaN
+546861           29350  201904011000  280.0    9.0   NaN    37.0   NaN   NaN
+...                ...           ...    ...    ...   ...     ...   ...   ...
+548949           29350  201904301400  240.0    4.0   NaN    59.0   NaN   NaN
+548950           29350  201904301420  990.0    8.0   NaN    61.0   NaN   NaN
+548951           29350  201904301450  990.0    8.0   NaN    61.0   NaN   NaN
+548952           29350  201904301500  290.0    7.0   NaN    62.0   NaN   NaN
+548953           29350  201904301520  280.0    9.0   NaN    61.0   NaN   NaN
+548954           29350  201904301550  990.0   10.0   NaN    61.0   NaN   NaN
+548955           29350  201904301600  260.0    7.0   NaN    61.0   NaN   NaN
+548956           29350  201904301620  990.0    8.0   NaN    59.0   NaN   NaN
+548957           29350  201904301650  990.0    7.0   NaN    57.0   NaN   NaN
+548958           29350  201904301700  230.0    4.0   NaN    57.0   NaN   NaN
+548959           29350  201904301720  990.0   10.0   NaN    57.0   NaN   NaN
+548960           29350  201904301750  270.0   10.0   NaN    55.0   NaN   NaN
+548961           29350  201904301800  270.0    9.0   NaN    54.0  62.0  46.0
+548962           29350  201904301820  270.0    9.0   NaN    54.0   NaN   NaN
+548963           29350  201904301850  260.0    8.0   NaN    52.0   NaN   NaN
+548964           29350  201904301900  270.0    7.0   NaN    52.0   NaN   NaN
+548965           29350  201904301920  270.0    7.0   NaN    50.0   NaN   NaN
+548966           29350  201904301950  260.0    9.0   NaN    50.0   NaN   NaN
+548967           29350  201904302000  270.0    7.0   NaN    49.0   NaN   NaN
+548968           29350  201904302020  280.0    8.0   NaN    48.0   NaN   NaN
+548969           29350  201904302050  260.0    6.0   NaN    48.0   NaN   NaN
+548970           29350  201904302100  260.0    4.0   NaN    47.0   NaN   NaN
+548971           29350  201904302120  260.0    6.0   NaN    46.0   NaN   NaN
+548972           29350  201904302150  990.0    3.0   NaN    45.0   NaN   NaN
+548973           29350  201904302200  280.0    4.0   NaN    45.0   NaN   NaN
+548974           29350  201904302220  990.0    2.0   NaN    43.0   NaN   NaN
+548975           29350  201904302250  990.0    1.0   NaN    41.0   NaN   NaN
+548976           29350  201904302300  240.0    2.0   NaN    40.0   NaN   NaN
+548977           29350  201904302320  990.0    2.0   NaN    39.0   NaN   NaN
+548978           29350  201904302350  110.0    2.0   NaN    37.0   NaN   NaN
 
            TEMP_C      TIME_STR MONTH_STR                DATE  YEAR  MONTH
 546832  -1.666667  201904010000    201904 2019-04-01 00:00:00  2019      4
@@ -3038,7 +3009,7 @@ Length:
 </div>
 <p>Ahaa! As we can see, a single group contains a <strong>DataFrame</strong> with values only for that specific month. Let’s check the DataType of this group:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3047,7 +3018,7 @@ Length:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -3067,7 +3038,7 @@ Length:
 <li><code class="docutils literal notranslate"><span class="pre">MONTH</span></code></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3104,7 +3075,7 @@ dtype: float64
 <li>Let’s see how we can iterate over the groups and print the key and the data from a single group (again using <code class="docutils literal notranslate"><span class="pre">break</span></code> to only see what is happening).</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3128,19 +3099,19 @@ Key:
  (1917, 1)
 
 First rows of data in this group:
-     USAF          TIME    DIR  SPEED  GUST  TEMP_F  MAX  MIN     TEMP_C  \
-0  29350  191701010600  320.0    5.0   NaN     6.0  NaN  NaN -14.444444
-1  29350  191701011300  320.0    7.0   NaN     2.0  NaN  NaN -16.666667
-2  29350  191701012000  320.0    5.0   NaN    -8.0  NaN  NaN -22.222222
-3  29350  191701021300    NaN    0.0   NaN    -4.0  NaN  NaN -20.000000
-4  29350  191701022000    NaN    0.0   NaN   -12.0  NaN  NaN -24.444444
+    STATION_NUMBER          TIME    DIR  SPEED  GUST  TEMP_F  MAX  MIN  \
+0           29350  191701010600  320.0    5.0   NaN     6.0  NaN  NaN
+1           29350  191701011300  320.0    7.0   NaN     2.0  NaN  NaN
+2           29350  191701012000  320.0    5.0   NaN    -8.0  NaN  NaN
+3           29350  191701021300    NaN    0.0   NaN    -4.0  NaN  NaN
+4           29350  191701022000    NaN    0.0   NaN   -12.0  NaN  NaN
 
-       TIME_STR MONTH_STR                DATE  YEAR  MONTH
-0  191701010600    191701 1917-01-01 06:00:00  1917      1
-1  191701011300    191701 1917-01-01 13:00:00  1917      1
-2  191701012000    191701 1917-01-01 20:00:00  1917      1
-3  191701021300    191701 1917-01-02 13:00:00  1917      1
-4  191701022000    191701 1917-01-02 20:00:00  1917      1
+      TEMP_C      TIME_STR MONTH_STR                DATE  YEAR  MONTH
+0 -14.444444  191701010600    191701 1917-01-01 06:00:00  1917      1
+1 -16.666667  191701011300    191701 1917-01-01 13:00:00  1917      1
+2 -22.222222  191701012000    191701 1917-01-01 20:00:00  1917      1
+3 -20.000000  191701021300    191701 1917-01-02 13:00:00  1917      1
+4 -24.444444  191701022000    191701 1917-01-02 20:00:00  1917      1
 </pre></div></div>
 </div>
 <p>Okey so from here we can see that the <code class="docutils literal notranslate"><span class="pre">key</span></code> contains the name of the group (year, month).</p>
@@ -3148,7 +3119,7 @@ First rows of data in this group:
 <li>Let’s see how we can create a DataFrame where we calculate the mean values for all those weather attributes that we were interested in. I will repeate slightly the earlier steps so that you can see and better understand what is happening.</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3175,7 +3146,7 @@ First rows of data in this group:
 <li>Let’s see what we have now:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3258,7 +3229,7 @@ First rows of data in this group:
 <p><strong>Shortcut: Mean for all groups</strong></p>
 <p>We can also achieve the same result by computing the mean of all columns for all groups in the grouped object:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3267,7 +3238,7 @@ First rows of data in this group:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -3290,7 +3261,7 @@ First rows of data in this group:
     <tr style="text-align: right;">
       <th></th>
       <th></th>
-      <th>USAF</th>
+      <th>STATION_NUMBER</th>
       <th>TIME</th>
       <th>DIR</th>
       <th>SPEED</th>
@@ -4062,9 +4033,12 @@ First rows of data in this group:
 </div>
 <div class="section" id="Detecting-warm-months">
 <h2>Detecting warm months<a class="headerlink" href="#Detecting-warm-months" title="Permalink to this headline">¶</a></h2>
-<p>Now, we have aggregated our data on monthly level and all we need to do is to check which years had the warmest April temperatures. A simple approach is to select all aprils from the data</p>
+<p>Now, we have aggregated our data on monthly level and all we need to do is to check which years had the warmest April temperatures. A simple approach is to select all aprils from the data, group the data and check which group(s) have the highest mean value:</p>
+<ul class="simple">
+<li>select all records that are from April (regardless of the year):</li>
+</ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4072,17 +4046,23 @@ First rows of data in this group:
 </pre></div>
 </div>
 </div>
+<ul class="simple">
+<li>take a subset of columns that might contain interesting information:</li>
+</ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[98]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">aprils</span> <span class="o">=</span> <span class="n">aprils</span><span class="p">[[</span><span class="s1">&#39;USAF&#39;</span><span class="p">,</span><span class="s1">&#39;TEMP_F&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP_C&#39;</span><span class="p">,</span><span class="n">YEAR</span><span class="s1">&#39;, &#39;</span><span class="n">MONTH</span><span class="s1">&#39;]]</span>
+<span></span><span class="n">aprils</span> <span class="o">=</span> <span class="n">aprils</span><span class="p">[[</span><span class="s1">&#39;STATION_NUMBER&#39;</span><span class="p">,</span><span class="s1">&#39;TEMP_F&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP_C&#39;</span><span class="p">,</span><span class="s1">&#39;YEAR&#39;</span><span class="p">,</span> <span class="s1">&#39;MONTH&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
+<ul class="simple">
+<li>group by year and month:</li>
+</ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[99]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4090,17 +4070,21 @@ First rows of data in this group:
 </pre></div>
 </div>
 </div>
+<ul class="simple">
+<li>calculate mean for each group:</li>
+</ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[103]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">grouped</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span></span><span class="n">monthly_mean</span> <span class="o">=</span> <span class="n">grouped</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">monthly_mean</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[103]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -4123,15 +4107,13 @@ First rows of data in this group:
     <tr style="text-align: right;">
       <th></th>
       <th></th>
-      <th>USAF</th>
+      <th>STATION_NUMBER</th>
       <th>TEMP_F</th>
       <th>TEMP_C</th>
-      <th>MAX</th>
     </tr>
     <tr>
       <th>YEAR</th>
       <th>MONTH</th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -4144,7 +4126,6 @@ First rows of data in this group:
       <td>29350</td>
       <td>33.344444</td>
       <td>0.746914</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>1918</th>
@@ -4152,7 +4133,6 @@ First rows of data in this group:
       <td>29350</td>
       <td>38.811111</td>
       <td>3.783951</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>1919</th>
@@ -4160,7 +4140,6 @@ First rows of data in this group:
       <td>29350</td>
       <td>33.988372</td>
       <td>1.104651</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>1920</th>
@@ -4168,7 +4147,6 @@ First rows of data in this group:
       <td>29350</td>
       <td>39.277778</td>
       <td>4.043210</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>1921</th>
@@ -4176,472 +4154,25 @@ First rows of data in this group:
       <td>29350</td>
       <td>45.144444</td>
       <td>7.302469</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1922</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>35.722222</td>
-      <td>2.067901</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1923</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>32.100000</td>
-      <td>0.055556</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1924</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>32.111111</td>
-      <td>0.061728</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1925</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>40.777778</td>
-      <td>4.876543</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1926</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>33.155556</td>
-      <td>0.641975</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1952</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>37.521368</td>
-      <td>3.067426</td>
-      <td>48.214286</td>
-    </tr>
-    <tr>
-      <th>1953</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>38.318584</td>
-      <td>3.510324</td>
-      <td>47.344828</td>
-    </tr>
-    <tr>
-      <th>1954</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>33.478261</td>
-      <td>0.821256</td>
-      <td>40.275862</td>
-    </tr>
-    <tr>
-      <th>1955</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>27.352381</td>
-      <td>-2.582011</td>
-      <td>34.500000</td>
-    </tr>
-    <tr>
-      <th>1956</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>29.361111</td>
-      <td>-1.466049</td>
-      <td>37.777778</td>
-    </tr>
-    <tr>
-      <th>1957</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>33.045455</td>
-      <td>0.580808</td>
-      <td>41.655172</td>
-    </tr>
-    <tr>
-      <th>1958</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>30.850000</td>
-      <td>-0.638889</td>
-      <td>38.866667</td>
-    </tr>
-    <tr>
-      <th>1959</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>35.552174</td>
-      <td>1.973430</td>
-      <td>43.689655</td>
-    </tr>
-    <tr>
-      <th>1960</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>34.221719</td>
-      <td>1.234289</td>
-      <td>44.071429</td>
-    </tr>
-    <tr>
-      <th>1961</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>32.851852</td>
-      <td>0.473251</td>
-      <td>42.517241</td>
-    </tr>
-    <tr>
-      <th>1962</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>38.055319</td>
-      <td>3.364066</td>
-      <td>45.586207</td>
-    </tr>
-    <tr>
-      <th>1963</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>35.734783</td>
-      <td>2.074879</td>
-      <td>43.214286</td>
-    </tr>
-    <tr>
-      <th>1973</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>34.927350</td>
-      <td>1.626306</td>
-      <td>41.233333</td>
-    </tr>
-    <tr>
-      <th>1974</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>34.094828</td>
-      <td>1.163793</td>
-      <td>43.428571</td>
-    </tr>
-    <tr>
-      <th>1975</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>34.320513</td>
-      <td>1.289174</td>
-      <td>42.482759</td>
-    </tr>
-    <tr>
-      <th>1976</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>32.952991</td>
-      <td>0.529440</td>
-      <td>41.071429</td>
-    </tr>
-    <tr>
-      <th>1977</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>32.403361</td>
-      <td>0.224090</td>
-      <td>39.068966</td>
-    </tr>
-    <tr>
-      <th>1978</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>32.387234</td>
-      <td>0.215130</td>
-      <td>39.103448</td>
-    </tr>
-    <tr>
-      <th>1979</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>32.398305</td>
-      <td>0.221281</td>
-      <td>38.600000</td>
-    </tr>
-    <tr>
-      <th>1980</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>37.439130</td>
-      <td>3.021739</td>
-      <td>44.629630</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>1990</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>39.075949</td>
-      <td>3.931083</td>
-      <td>48.645161</td>
-    </tr>
-    <tr>
-      <th>1991</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>36.330508</td>
-      <td>2.405838</td>
-      <td>41.827586</td>
-    </tr>
-    <tr>
-      <th>1992</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>31.058333</td>
-      <td>-0.523148</td>
-      <td>34.416667</td>
-    </tr>
-    <tr>
-      <th>1993</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>34.891213</td>
-      <td>1.606230</td>
-      <td>40.816667</td>
-    </tr>
-    <tr>
-      <th>1994</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>38.118644</td>
-      <td>3.399247</td>
-      <td>43.446154</td>
-    </tr>
-    <tr>
-      <th>1995</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>33.978903</td>
-      <td>1.099391</td>
-      <td>39.450000</td>
-    </tr>
-    <tr>
-      <th>1996</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>34.761702</td>
-      <td>1.534279</td>
-      <td>41.719298</td>
-    </tr>
-    <tr>
-      <th>1997</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>31.084746</td>
-      <td>-0.508475</td>
-      <td>36.650000</td>
-    </tr>
-    <tr>
-      <th>1998</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>33.195652</td>
-      <td>0.664251</td>
-      <td>41.122807</td>
-    </tr>
-    <tr>
-      <th>1999</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>38.983356</td>
-      <td>3.879642</td>
-      <td>45.000000</td>
-    </tr>
-    <tr>
-      <th>2000</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>38.476907</td>
-      <td>3.598281</td>
-      <td>43.796610</td>
-    </tr>
-    <tr>
-      <th>2001</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>39.662827</td>
-      <td>4.257126</td>
-      <td>44.833333</td>
-    </tr>
-    <tr>
-      <th>2002</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>38.482577</td>
-      <td>3.601431</td>
-      <td>45.421053</td>
-    </tr>
-    <tr>
-      <th>2003</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>34.017322</td>
-      <td>1.120734</td>
-      <td>38.523077</td>
-    </tr>
-    <tr>
-      <th>2004</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>38.314465</td>
-      <td>3.508036</td>
-      <td>44.677419</td>
-    </tr>
-    <tr>
-      <th>2005</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>37.751040</td>
-      <td>3.195022</td>
-      <td>44.100000</td>
-    </tr>
-    <tr>
-      <th>2006</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>36.677557</td>
-      <td>2.598643</td>
-      <td>41.842105</td>
-    </tr>
-    <tr>
-      <th>2007</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>38.713256</td>
-      <td>3.729587</td>
-      <td>43.500000</td>
-    </tr>
-    <tr>
-      <th>2008</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>38.612918</td>
-      <td>3.673843</td>
-      <td>43.396552</td>
-    </tr>
-    <tr>
-      <th>2009</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>36.642582</td>
-      <td>2.579212</td>
-      <td>41.433333</td>
-    </tr>
-    <tr>
-      <th>2010</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>37.965100</td>
-      <td>3.313944</td>
-      <td>42.508475</td>
-    </tr>
-    <tr>
-      <th>2011</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>40.670108</td>
-      <td>4.816727</td>
-      <td>46.216667</td>
-    </tr>
-    <tr>
-      <th>2012</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>34.703008</td>
-      <td>1.501671</td>
-      <td>39.067797</td>
-    </tr>
-    <tr>
-      <th>2013</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>35.221549</td>
-      <td>1.789749</td>
-      <td>39.446809</td>
-    </tr>
-    <tr>
-      <th>2014</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>38.612110</td>
-      <td>3.673395</td>
-      <td>44.457627</td>
-    </tr>
-    <tr>
-      <th>2015</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>35.626243</td>
-      <td>2.014579</td>
-      <td>38.944444</td>
-    </tr>
-    <tr>
-      <th>2016</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>38.348414</td>
-      <td>3.526897</td>
-      <td>43.416667</td>
-    </tr>
-    <tr>
-      <th>2017</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>32.941368</td>
-      <td>0.522982</td>
-      <td>37.066667</td>
-    </tr>
-    <tr>
-      <th>2018</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>37.371362</td>
-      <td>2.984090</td>
-      <td>42.745763</td>
-    </tr>
-    <tr>
-      <th>2019</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>40.585002</td>
-      <td>4.769446</td>
-      <td>46.916667</td>
     </tr>
   </tbody>
 </table>
-<p>69 rows × 4 columns</p>
 </div></div>
 </div>
+<ul class="simple">
+<li>check the highest temperature values (sort the data frame in a descending order):</li>
+</ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[105]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">grouped</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;TEMP_C&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span></span><span class="n">monthly_mean</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;TEMP_C&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[105]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -4664,15 +4195,13 @@ First rows of data in this group:
     <tr style="text-align: right;">
       <th></th>
       <th></th>
-      <th>USAF</th>
+      <th>STATION_NUMBER</th>
       <th>TEMP_F</th>
       <th>TEMP_C</th>
-      <th>MAX</th>
     </tr>
     <tr>
       <th>YEAR</th>
       <th>MONTH</th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -4685,7 +4214,6 @@ First rows of data in this group:
       <td>29350</td>
       <td>45.144444</td>
       <td>7.302469</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>1925</th>
@@ -4693,7 +4221,6 @@ First rows of data in this group:
       <td>29350</td>
       <td>40.777778</td>
       <td>4.876543</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>2011</th>
@@ -4701,7 +4228,6 @@ First rows of data in this group:
       <td>29350</td>
       <td>40.670108</td>
       <td>4.816727</td>
-      <td>46.216667</td>
     </tr>
     <tr>
       <th>2019</th>
@@ -4709,7 +4235,6 @@ First rows of data in this group:
       <td>29350</td>
       <td>40.585002</td>
       <td>4.769446</td>
-      <td>46.916667</td>
     </tr>
     <tr>
       <th>2001</th>
@@ -4717,7 +4242,6 @@ First rows of data in this group:
       <td>29350</td>
       <td>39.662827</td>
       <td>4.257126</td>
-      <td>44.833333</td>
     </tr>
     <tr>
       <th>1920</th>
@@ -4725,7 +4249,6 @@ First rows of data in this group:
       <td>29350</td>
       <td>39.277778</td>
       <td>4.043210</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>1990</th>
@@ -4733,7 +4256,6 @@ First rows of data in this group:
       <td>29350</td>
       <td>39.075949</td>
       <td>3.931083</td>
-      <td>48.645161</td>
     </tr>
     <tr>
       <th>1999</th>
@@ -4741,7 +4263,6 @@ First rows of data in this group:
       <td>29350</td>
       <td>38.983356</td>
       <td>3.879642</td>
-      <td>45.000000</td>
     </tr>
     <tr>
       <th>1918</th>
@@ -4749,7 +4270,6 @@ First rows of data in this group:
       <td>29350</td>
       <td>38.811111</td>
       <td>3.783951</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>2007</th>
@@ -4757,7 +4277,6 @@ First rows of data in this group:
       <td>29350</td>
       <td>38.713256</td>
       <td>3.729587</td>
-      <td>43.500000</td>
     </tr>
   </tbody>
 </table>
@@ -4769,7 +4288,7 @@ First rows of data in this group:
 <h2>Repeating the data analysis with larger dataset<a class="headerlink" href="#Repeating-the-data-analysis-with-larger-dataset" title="Permalink to this headline">¶</a></h2>
 <p>Finally, let’s repeat the data analysis steps above for all the available data we have (!!). First, confirm the path to the <strong>folder</strong> where all the input data are located. The idea is, that we will repeat the analysis process for each input file using a (rather long) for-loop! Here are all the main alaysis steps with some additional print out info - all in one long code cell:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[145]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4836,7 +4355,7 @@ YEAR MONTH
 </div>
 <p>We will use <code class="docutils literal notranslate"><span class="pre">glob()</span></code> -function from module <code class="docutils literal notranslate"><span class="pre">glob</span></code> to list our input files.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[146]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4845,7 +4364,7 @@ YEAR MONTH
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[147]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4854,7 +4373,7 @@ YEAR MONTH
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[148]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4874,7 +4393,7 @@ Number of files in the list 15
 </div>
 <p>Now, you should have all the relevant file names in a list, and we can loop over the list using a for-loop:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[149]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4906,7 +4425,7 @@ C:\LocalData\VUOKKHEI\codes\Geo-Python\data\weather_data\029820.txt
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[150]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
