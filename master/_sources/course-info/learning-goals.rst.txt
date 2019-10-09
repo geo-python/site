@@ -51,6 +51,7 @@ This course will also teach you several skills related to open science. Each wee
 +---------------------------------+-------------------------------------------------------------------------------------+
 | 6.                              |   After week 6 you will be able to:                                                 |
 |                                 |    - manage and analyze tabular data using Pandas                                   |
+|                                 |    - Repeat an analysis workflow for several input files                            |
 |                                 |    - understand common Python errors                                                |
 |                                 |    - follow a simple set of guidelines to debug programs efficiently                |
 |                                 |                                                                                     |
