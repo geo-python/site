@@ -52,7 +52,8 @@ Reading in fixed-width text files
 
 Rather than having separation by commas, our data file this week has a variable number of spaces between values.
 Previously, we read in comma-separated values using the option ``sep=','`` for the Pandas ``read_csv()`` function.
-For a variable number of spaces, we can simply change the ``sep`` value to be ``sep='\s+'``.
+For a variable number of spaces we can either use the ``sep`` or ``delim_whitespace parameter``; ``sep='\s+`` or ``delim_whitespace=True`` will work, but not both.
+In this case, we suggest using ``delim_whitespace``.
 
 Skipping the second row of a file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
