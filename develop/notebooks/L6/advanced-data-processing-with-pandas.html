@@ -563,7 +563,15 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Data processing with Pandas, part 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Motivation">Motivation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Input-data">Input data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Downloading-the-data">Downloading the data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#CSC-Notebooks-users">CSC Notebooks users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Users-with-Jupyter-on-their-personal-computers">Users with Jupyter on their personal computers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Binder-users">Binder users</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#About-the-data">About the data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Reading-the-data">Reading the data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Renaming-columns">Renaming columns</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Check-dataframe-properties">Check dataframe properties</a></li>
@@ -935,39 +943,125 @@ This page was generated from <a class="reference external" href="https://github.
 <span class="raw-html"><a href="https://notebooks.csc.fi/#/blueprint/df93f30d14e44b51907d135726eb6ef4"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a></span></div>
 <div class="section" id="Data-processing-with-Pandas,-part-2">
 <h1>Data processing with Pandas, part 2<a class="headerlink" href="#Data-processing-with-Pandas,-part-2" title="Permalink to this headline">¶</a></h1>
-<p>This week we will continue developing our skills using <a class="reference external" href="https://pandas.pydata.org/">pandas</a> to process real data.</p>
-<p>Case: April 2019 happened to be the second warmest April on record globally. In this lesson, we will use our data manipulation and analysis skills to analyze weather data from Finland, and see if April 2019 was exceptionally warm also here.</p>
-<p>We will cover a number of useful techniques in pandas including:</p>
+<p>This week we will continue developing our skills using <a class="reference external" href="https://pandas.pydata.org/">Pandas</a> to process real data.</p>
+<div class="section" id="Motivation">
+<h2>Motivation<a class="headerlink" href="#Motivation" title="Permalink to this headline">¶</a></h2>
+<p><img alt="Finland April 2019" src="../../_images/Finland-April-2019.png" /> <em>Source: https://weather.com/news/climate/news/2019-05-20-april-2019-global-temperatures-nasa-noaa</em></p>
+<p>April 2019 was the <a class="reference external" href="https://weather.com/news/climate/news/2019-05-20-april-2019-global-temperatures-nasa-noaa">second warmest April on record globally</a>, and the warmest on record at 13 weather stations in Finland. In this lesson, we will use our data manipulation and analysis skills to analyze weather data from Finland, and investigate the claim that April 2019 was the warmest on record across Finland.</p>
+<p>Along the way we will cover a number of useful techniques in pandas including:</p>
 <ul class="simple">
 <li>renaming columns</li>
 <li>iterating data frame rows and applying functions</li>
 <li>data aggregation</li>
 <li>repeating the analysis task for several input files</li>
 </ul>
+</div>
 <div class="section" id="Input-data">
 <h2>Input data<a class="headerlink" href="#Input-data" title="Permalink to this headline">¶</a></h2>
-<p>In the lesson this week we are using weather observation data from Finland downloaded from NOAA. We have data for 15 different weather obsercation stations from Finland.</p>
-<p><strong>METADATA:</strong></p>
-<ul class="simple">
-<li>List of available stations: <a class="reference external" href="metadata/6367598020644stn.txt">metadata/6367598020644stn.txt</a></li>
-<li>More details about weather observatios per station: <a class="reference external" href="metadata/6367598020644inv.txt">metadata/6367598020644inv.txt</a></li>
-<li>Data description (column names): <a class="reference external" href="metadata/3505doc.txt">metadata/3505doc.txt</a></li>
-</ul>
-<p>The input data for this week is separated with varying amount of spaces (fixed width). The first lines and columns of the data looks like following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">USAF</span>  <span class="n">WBAN</span> <span class="n">YR</span><span class="o">--</span><span class="n">MODAHRMN</span> <span class="n">DIR</span> <span class="n">SPD</span> <span class="n">GUS</span> <span class="n">CLG</span> <span class="n">SKC</span> <span class="n">L</span> <span class="n">M</span> <span class="n">H</span>  <span class="n">VSB</span> <span class="n">MW</span> <span class="n">MW</span> <span class="n">MW</span> <span class="n">MW</span> <span class="n">AW</span> <span class="n">AW</span> <span class="n">AW</span> <span class="n">AW</span> <span class="n">W</span> <span class="n">TEMP</span> <span class="n">DEWP</span>    <span class="n">SLP</span>  <span class="o">...</span> <span class="n">SD</span>
-<span class="mi">028360</span> <span class="mi">99999</span> <span class="mi">191701010600</span> <span class="mi">360</span>   <span class="mi">5</span> <span class="o">***</span> <span class="o">***</span> <span class="n">SCT</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>  <span class="mf">0.0</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">*</span>    <span class="mi">3</span> <span class="o">****</span>  <span class="mf">986.0</span>  <span class="o">...</span> <span class="o">**</span>
-<span class="mi">028360</span> <span class="mi">99999</span> <span class="mi">191701011300</span> <span class="o">***</span>   <span class="mi">0</span> <span class="o">***</span> <span class="o">***</span> <span class="n">OVC</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>  <span class="mf">0.0</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">*</span>  <span class="o">-</span><span class="mi">14</span> <span class="o">****</span>  <span class="mf">986.6</span>  <span class="o">...</span> <span class="o">**</span>
-<span class="mi">028360</span> <span class="mi">99999</span> <span class="mi">191701012000</span> <span class="o">***</span>   <span class="mi">0</span> <span class="o">***</span> <span class="o">***</span> <span class="n">BKN</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>  <span class="mf">0.0</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">*</span>   <span class="o">-</span><span class="mi">7</span> <span class="o">****</span>  <span class="mf">986.6</span>  <span class="o">...</span> <span class="o">**</span>
-<span class="mi">028360</span> <span class="mi">99999</span> <span class="mi">191701020600</span> <span class="mi">360</span>   <span class="mi">2</span> <span class="o">***</span> <span class="o">***</span> <span class="n">OVC</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>  <span class="mf">0.0</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">*</span>  <span class="o">-</span><span class="mi">14</span> <span class="o">****</span>  <span class="mf">984.7</span>  <span class="o">...</span> <span class="o">**</span>
+<p>In the lesson this week we are using weather observation data from Finland <a class="reference external" href="https://www7.ncdc.noaa.gov/CDO/cdopoemain.cmd?datasetabbv=DS3505&amp;countryabbv=&amp;georegionabbv=&amp;resolution=40">downloaded from NOAA</a>. You will be working with data from either 15 or 4 different weather obsercation stations from Finland, depending on your environment.</p>
+</div>
+<div class="section" id="Downloading-the-data">
+<h2>Downloading the data<a class="headerlink" href="#Downloading-the-data" title="Permalink to this headline">¶</a></h2>
+<p>The first step for today’s lesson is to get the data. Which data files you download will depend on the platform you’re using for working through the lesson today.</p>
+<div class="section" id="CSC-Notebooks-users">
+<h3>CSC Notebooks users<a class="headerlink" href="#CSC-Notebooks-users" title="Permalink to this headline">¶</a></h3>
+<p>If you’re working on the CSC Notebooks platform, you can download the data by opening a new terminal window in Jupyter Lab by going to <strong>File</strong> -&gt; <strong>New</strong> -&gt; <strong>Terminal</strong> in the Jupyter Lab menu bar. Once the terminal is open, you will need to navigate to the directory for Lesson 6 by typing</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> notebooks/notebooks/L6/
 </pre></div>
 </div>
-<p><strong>We will develop our analysis workflow using data for one station. Then’ we will repeat the same process for all the stations.</strong></p>
+<p>Once in the correct directory, you can confirm this by typing</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls
+</pre></div>
+</div>
+<p>You should see something like the following output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>advanced-data-processing-with-pandas.ipynb errors.ipynb                               img
+debugging.ipynb                            gcp-assertions.ipynb
+</pre></div>
+</div>
+<p>If so, you’re in the correct directory and you can download the data files by typing</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://davewhipp.github.io/data/Finland-weather-data-CSC.tar.gz
+</pre></div>
+</div>
+<p>After the download completes, you can extract the data files by typing</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar zxvf Finland-weather-data-CSC.tar.gz
+</pre></div>
+</div>
+<p>At this stage you should have a new directory called <code class="docutils literal notranslate"><span class="pre">data</span></code> that contains the data for this week’s lesson. You can confirm this by typing</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls data
+</pre></div>
+</div>
+<p>You should see something like the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">029440</span>.txt           <span class="m">029720</span>.txt           3505doc.txt          6367598020644stn.txt
+<span class="m">029700</span>.txt           <span class="m">029740</span>.txt           6367598020644inv.txt
+</pre></div>
+</div>
+<p>Now you should be all set to proceed with the lesson!</p>
+</div>
+<div class="section" id="Users-with-Jupyter-on-their-personal-computers">
+<h3>Users with Jupyter on their personal computers<a class="headerlink" href="#Users-with-Jupyter-on-their-personal-computers" title="Permalink to this headline">¶</a></h3>
+<p>If you’re working on your own computer, you can download the data by opening a new terminal window in Jupyter Lab by going to <strong>File</strong> -&gt; <strong>New</strong> -&gt; <strong>Terminal</strong> in the Jupyter Lab menu bar. Once the terminal is open, you will need to navigate to the directory for Lesson 6 by typing</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> path/to/L6/
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">path/to/</span></code> should be replaced with the directories needed to locate the Lesson 6 materials in on your computer. Once in the correct directory, you can confirm this by typing</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls
+</pre></div>
+</div>
+<p>You should see something like the following output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>advanced-data-processing-with-pandas.ipynb errors.ipynb                               img
+debugging.ipynb                            gcp-assertions.ipynb
+</pre></div>
+</div>
+<p>If so, you’re in the correct directory and you can download the data files by typing</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://davewhipp.github.io/data/Finland-weather-data-full.tar.gz
+</pre></div>
+</div>
+<p>After the download completes, you can extract the data files by typing</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar zxvf Finland-weather-data-full.tar.gz
+</pre></div>
+</div>
+<p>At this stage you should have a new directory called <code class="docutils literal notranslate"><span class="pre">data</span></code> that contains the data for this week’s lesson. You can confirm this by typing</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls data
+</pre></div>
+</div>
+<p>You should see something like the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">028360</span>.txt           <span class="m">029070</span>.txt           <span class="m">029440</span>.txt           <span class="m">029740</span>.txt  6367598020644inv.txt
+<span class="m">028690</span>.txt           <span class="m">029110</span>.txt           <span class="m">029500</span>.txt           <span class="m">029810</span>.txt  6367598020644stn.txt
+<span class="m">028750</span>.txt           <span class="m">029170</span>.txt           <span class="m">029700</span>.txt           <span class="m">029820</span>.txt
+<span class="m">028970</span>.txt           <span class="m">029350</span>.txt           <span class="m">029720</span>.txt           3505doc.txt
+</pre></div>
+</div>
+<p>Now you should be all set to proceed with the lesson!</p>
+</div>
+<div class="section" id="Binder-users">
+<h3>Binder users<a class="headerlink" href="#Binder-users" title="Permalink to this headline">¶</a></h3>
+<p>It is not recommended to complete this lesson using Binder.</p>
+</div>
+</div>
+<div class="section" id="About-the-data">
+<h2>About the data<a class="headerlink" href="#About-the-data" title="Permalink to this headline">¶</a></h2>
+<p>As part of the download there are a number of files that describe the weather data. These <em>metadata</em> files include:</p>
+<ul class="simple">
+<li>A list of stations*: <a class="reference external" href="metadata/6367598020644stn.txt">data/6367598020644stn.txt</a></li>
+<li>Details about weather observations at each station: <a class="reference external" href="metadata/6367598020644inv.txt">data/6367598020644inv.txt</a></li>
+<li>A data description (i.e., column names): <a class="reference external" href="metadata/3505doc.txt">data/3505doc.txt</a></li>
+</ul>
+<p>*Note that the list of stations is for all 15 stations, even if you’re working with only the 4 stations on the CSC Notebooks platform.</p>
+<p>The input data for this week are separated with varying number of spaces (i.e., fixed width). The first lines and columns of the data look like following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">USAF</span>  <span class="n">WBAN</span> <span class="n">YR</span><span class="o">--</span><span class="n">MODAHRMN</span> <span class="n">DIR</span> <span class="n">SPD</span> <span class="n">GUS</span> <span class="n">CLG</span> <span class="n">SKC</span> <span class="n">L</span> <span class="n">M</span> <span class="n">H</span>  <span class="n">VSB</span> <span class="n">MW</span> <span class="n">MW</span> <span class="n">MW</span> <span class="n">MW</span> <span class="n">AW</span> <span class="n">AW</span> <span class="n">AW</span> <span class="n">AW</span> <span class="n">W</span> <span class="n">TEMP</span> <span class="n">DEWP</span>    <span class="n">SLP</span>   <span class="n">ALT</span>    <span class="n">STP</span> <span class="n">MAX</span> <span class="n">MIN</span> <span class="n">PCP01</span> <span class="n">PCP06</span> <span class="n">PCP24</span> <span class="n">PCPXX</span> <span class="n">SD</span>
+<span class="mi">029440</span> <span class="mi">99999</span> <span class="mi">190601010600</span> <span class="mi">090</span>   <span class="mi">7</span> <span class="o">***</span> <span class="o">***</span> <span class="n">OVC</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>  <span class="mf">0.0</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">*</span>   <span class="mi">27</span> <span class="o">****</span> <span class="mf">1011.0</span> <span class="o">*****</span> <span class="o">******</span> <span class="o">***</span> <span class="o">***</span> <span class="o">*****</span> <span class="o">*****</span> <span class="o">*****</span> <span class="o">*****</span> <span class="o">**</span>
+<span class="mi">029440</span> <span class="mi">99999</span> <span class="mi">190601011300</span> <span class="o">***</span>   <span class="mi">0</span> <span class="o">***</span> <span class="o">***</span> <span class="n">OVC</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>  <span class="mf">0.0</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">*</span>   <span class="mi">27</span> <span class="o">****</span> <span class="mf">1015.5</span> <span class="o">*****</span> <span class="o">******</span> <span class="o">***</span> <span class="o">***</span> <span class="o">*****</span> <span class="o">*****</span> <span class="o">*****</span> <span class="o">*****</span> <span class="o">**</span>
+<span class="mi">029440</span> <span class="mi">99999</span> <span class="mi">190601012000</span> <span class="o">***</span>   <span class="mi">0</span> <span class="o">***</span> <span class="o">***</span> <span class="n">OVC</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>  <span class="mf">0.0</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">*</span>   <span class="mi">25</span> <span class="o">****</span> <span class="mf">1016.2</span> <span class="o">*****</span> <span class="o">******</span> <span class="o">***</span> <span class="o">***</span> <span class="o">*****</span> <span class="o">*****</span> <span class="o">*****</span> <span class="o">*****</span> <span class="o">**</span>
+<span class="mi">029440</span> <span class="mi">99999</span> <span class="mi">190601020600</span> <span class="o">***</span>   <span class="mi">0</span> <span class="o">***</span> <span class="o">***</span> <span class="n">CLR</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>  <span class="mf">0.0</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">**</span> <span class="o">*</span>   <span class="mi">26</span> <span class="o">****</span> <span class="mf">1016.2</span> <span class="o">*****</span> <span class="o">******</span> <span class="o">***</span> <span class="o">***</span> <span class="o">*****</span> <span class="o">*****</span> <span class="o">*****</span> <span class="o">*****</span> <span class="o">**</span>
+</pre></div>
+</div>
+<p>We will develop our analysis workflow using data for a single station. Then, we will repeat the same process for all the stations.</p>
 </div>
 <div class="section" id="Reading-the-data">
 <h2>Reading the data<a class="headerlink" href="#Reading-the-data" title="Permalink to this headline">¶</a></h2>
-<p>In order to get startet, let’s import pandas:</p>
+<p>In order to get started, let’s import pandas:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -975,7 +1069,7 @@ This page was generated from <a class="reference external" href="https://github.
 </pre></div>
 </div>
 </div>
-<p>At this point, you should have already had a look at the input file and how it is structured. We can notice at least two things we need to consider when reading in the data:</p>
+<p>At this point, you can already had a quick look at the input file <code class="docutils literal notranslate"><span class="pre">029440.txt</span></code> for Tampere Pirkkala and how it is structured. We can notice at least two things we need to consider when reading in the data:</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>NOTE: Input data structure</strong></p>
 <ul class="simple">
@@ -984,11 +1078,11 @@ This page was generated from <a class="reference external" href="https://github.
 </ul>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">fp</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\LocalData\VUOKKHEI\codes\Geo-Python\data\weather_data\029350.txt&quot;</span>
+<span></span><span class="n">fp</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;data/029440.txt&quot;</span>
 
 <span class="c1"># Read data using varying amount of spaces as separator and specifying * characters as NoData values</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">delim_whitespace</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;**&#39;</span><span class="p">,</span> <span class="s1">&#39;***&#39;</span><span class="p">,</span> <span class="s1">&#39;****&#39;</span><span class="p">,</span> <span class="s1">&#39;*****&#39;</span><span class="p">,</span> <span class="s1">&#39;******&#39;</span><span class="p">])</span>
@@ -1000,15 +1094,15 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-C:\HYapp\Anaconda3\lib\site-packages\IPython\core\interactiveshell.py:3058: DtypeWarning: Columns (29,30,31) have mixed types. Specify dtype option on import or set low_memory=False.
+/Users/whipp/anaconda3/lib/python3.7/site-packages/IPython/core/interactiveshell.py:3057: DtypeWarning: Columns (29,30,31) have mixed types. Specify dtype option on import or set low_memory=False.
   interactivity=interactivity, compiler=compiler, result=result)
 </pre></div></div>
 </div>
 <ul class="simple">
-<li>Let’s see how the data looks by printing the first five rows with <code class="docutils literal notranslate"><span class="pre">head()</span></code> function</li>
+<li>Let’s see how the data looks by printing the first five rows with the <code class="docutils literal notranslate"><span class="pre">head()</span></code> function</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1021,12 +1115,12 @@ C:\HYapp\Anaconda3\lib\site-packages\IPython\core\interactiveshell.py:3058: Dtyp
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-    USAF   WBAN  YR--MODAHRMN    DIR  SPD  GUS  CLG  SKC   L   M ...    SLP  \
-0  29350  99999  191701010600  320.0  5.0  NaN  NaN  CLR NaN NaN ...  993.2
-1  29350  99999  191701011300  320.0  7.0  NaN  NaN  CLR NaN NaN ...  995.1
-2  29350  99999  191701012000  320.0  5.0  NaN  NaN  SCT NaN NaN ...  996.8
-3  29350  99999  191701021300    NaN  0.0  NaN  NaN  OVC NaN NaN ...  996.7
-4  29350  99999  191701022000    NaN  0.0  NaN  NaN  CLR NaN NaN ...  997.0
+    USAF   WBAN  YR--MODAHRMN    DIR  SPD  GUS  CLG  SKC   L   M  ...     SLP  \
+0  29440  99999  190601010600   90.0  7.0  NaN  NaN  OVC NaN NaN  ...  1011.0
+1  29440  99999  190601011300    NaN  0.0  NaN  NaN  OVC NaN NaN  ...  1015.5
+2  29440  99999  190601012000    NaN  0.0  NaN  NaN  OVC NaN NaN  ...  1016.2
+3  29440  99999  190601020600    NaN  0.0  NaN  NaN  CLR NaN NaN  ...  1016.2
+4  29440  99999  190601021300  270.0  7.0  NaN  NaN  OVC NaN NaN  ...  1015.6
 
    ALT  STP  MAX  MIN  PCP01  PCP06  PCP24  PCPXX  SD
 0  NaN  NaN  NaN  NaN    NaN    NaN    NaN    NaN NaN
@@ -1040,7 +1134,7 @@ C:\HYapp\Anaconda3\lib\site-packages\IPython\core\interactiveshell.py:3058: Dtyp
 </div>
 <p>All seems ok. However, we won’t be needing all of the 33 columns for detecting warm temperatures in April. We can check all column names by running <code class="docutils literal notranslate"><span class="pre">data.columns</span></code>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1049,7 +1143,7 @@ C:\HYapp\Anaconda3\lib\site-packages\IPython\core\interactiveshell.py:3058: Dtyp
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1061,10 +1155,10 @@ C:\HYapp\Anaconda3\lib\site-packages\IPython\core\interactiveshell.py:3058: Dtyp
 </pre></div>
 </div>
 </div>
-<p>Description for all these columns is available in the metadata file <a class="reference external" href="metadata/3505doc.txt">metadata/3505doc.txt</a>.</p>
+<p>A description for all these columns is available in the metadata file <a class="reference external" href="metadata/3505doc.txt">data/3505doc.txt</a>.</p>
 <p><strong>Let’s read in the data one more time.</strong> This time, we will read in only some of the columns using the <code class="docutils literal notranslate"><span class="pre">usecols</span></code> parameter. Let’s read in columns that might be somehow useful to our analysis, or at least that contain some values that are meaningful to us, including the station name, timestamp, and data about wind and temperature: <code class="docutils literal notranslate"><span class="pre">'USAF','YR--MODAHRMN',</span> <span class="pre">'DIR',</span> <span class="pre">'SPD',</span> <span class="pre">'GUS','TEMP',</span> <span class="pre">'MAX',</span> <span class="pre">'MIN'</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1074,7 +1168,7 @@ C:\HYapp\Anaconda3\lib\site-packages\IPython\core\interactiveshell.py:3058: Dtyp
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1109,56 +1203,56 @@ C:\HYapp\Anaconda3\lib\site-packages\IPython\core\interactiveshell.py:3058: Dtyp
   <tbody>
     <tr>
       <th>0</th>
-      <td>29350</td>
-      <td>191701010600</td>
-      <td>320.0</td>
-      <td>5.0</td>
+      <td>29440</td>
+      <td>190601010600</td>
+      <td>90.0</td>
+      <td>7.0</td>
       <td>NaN</td>
-      <td>6.0</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>29350</td>
-      <td>191701011300</td>
-      <td>320.0</td>
-      <td>7.0</td>
+      <td>29440</td>
+      <td>190601011300</td>
       <td>NaN</td>
-      <td>2.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>29350</td>
-      <td>191701012000</td>
-      <td>320.0</td>
-      <td>5.0</td>
+      <td>29440</td>
+      <td>190601012000</td>
       <td>NaN</td>
-      <td>-8.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>25.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>29350</td>
-      <td>191701021300</td>
+      <td>29440</td>
+      <td>190601020600</td>
       <td>NaN</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>-4.0</td>
+      <td>26.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>29350</td>
-      <td>191701022000</td>
+      <td>29440</td>
+      <td>190601021300</td>
+      <td>270.0</td>
+      <td>7.0</td>
       <td>NaN</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>-12.0</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -1166,13 +1260,13 @@ C:\HYapp\Anaconda3\lib\site-packages\IPython\core\interactiveshell.py:3058: Dtyp
 </table>
 </div></div>
 </div>
-<p>Okay so we can see that the data was successfully read to the DataFrame and we also seemed to be able to convert the asterix (*) characters into <code class="docutils literal notranslate"><span class="pre">NaN</span></code> -values.</p>
+<p>Okay so we can see that the data was successfully read to the DataFrame and we also seemed to be able to convert the asterisk (*) characters into <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values.</p>
 </div>
 <div class="section" id="Renaming-columns">
 <h2>Renaming columns<a class="headerlink" href="#Renaming-columns" title="Permalink to this headline">¶</a></h2>
 <p>Check again the column names in our DataFrame:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1181,7 +1275,7 @@ C:\HYapp\Anaconda3\lib\site-packages\IPython\core\interactiveshell.py:3058: Dtyp
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1189,7 +1283,7 @@ C:\HYapp\Anaconda3\lib\site-packages\IPython\core\interactiveshell.py:3058: Dtyp
 </pre></div>
 </div>
 </div>
-<p>The column names that we have are somewhat ackward. Let’s change them into more intuitive ones. This can be done easily using the <code class="docutils literal notranslate"><span class="pre">rename()</span></code> -method and a dictionary that lists old and new column names.</p>
+<p>The column names that we have are somewhat ackward. Let’s change them into more intuitive ones. This can be done easily using the <code class="docutils literal notranslate"><span class="pre">rename()</span></code> method and a dictionary that lists old and new column names.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Dictionaries</strong></p>
 <p><a class="reference external" href="https://docs.python.org/2/tutorial/datastructures.html#dictionaries">Dictionary</a> is a spesific data structure in Python for storing key-value pairs. During this course, we will use dictionaries mainly when renaming columns in a pandas series, but dictionaries are useful for many different purposes! For more information about Python dictionaries, check out <a class="reference external" href="https://realpython.com/python-dicts/">this tutorial</a>.</p>
@@ -1202,7 +1296,7 @@ C:\HYapp\Anaconda3\lib\site-packages\IPython\core\interactiveshell.py:3058: Dtyp
 <li><code class="docutils literal notranslate"><span class="pre">GUS</span></code> into <code class="docutils literal notranslate"><span class="pre">GUST</span></code></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1220,7 +1314,7 @@ C:\HYapp\Anaconda3\lib\site-packages\IPython\core\interactiveshell.py:3058: Dtyp
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;SPD&#39;: &#39;SPEED&#39;, &#39;YR--MODAHRMN&#39;: &#39;TIME&#39;, &#39;GUS&#39;: &#39;GUST&#39;}
+{&#39;YR--MODAHRMN&#39;: &#39;TIME&#39;, &#39;SPD&#39;: &#39;SPEED&#39;, &#39;GUS&#39;: &#39;GUST&#39;}
 &lt;class &#39;dict&#39;&gt;
 </pre></div></div>
 </div>
@@ -1229,7 +1323,7 @@ C:\HYapp\Anaconda3\lib\site-packages\IPython\core\interactiveshell.py:3058: Dtyp
 <li>Now we can change the column names by passing that dictionary into parameter <code class="docutils literal notranslate"><span class="pre">columns</span></code> in <code class="docutils literal notranslate"><span class="pre">rename()</span></code> -function.</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1255,7 +1349,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 <p>The temperature values are again in Fahrenheit. As you might guess, we will soon convert these temperatures in to Celsius. In order to avoid confusion with the columns, rename column <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> into <code class="docutils literal notranslate"><span class="pre">TEMP_F</span></code>. Also, we could rename <code class="docutils literal notranslate"><span class="pre">USAF</span></code> as<code class="docutils literal notranslate"><span class="pre">STATION_NUMBER</span></code>.</p>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1271,7 +1365,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1306,56 +1400,56 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
   <tbody>
     <tr>
       <th>0</th>
-      <td>29350</td>
-      <td>191701010600</td>
-      <td>320.0</td>
-      <td>5.0</td>
+      <td>29440</td>
+      <td>190601010600</td>
+      <td>90.0</td>
+      <td>7.0</td>
       <td>NaN</td>
-      <td>6.0</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>29350</td>
-      <td>191701011300</td>
-      <td>320.0</td>
-      <td>7.0</td>
+      <td>29440</td>
+      <td>190601011300</td>
       <td>NaN</td>
-      <td>2.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>29350</td>
-      <td>191701012000</td>
-      <td>320.0</td>
-      <td>5.0</td>
+      <td>29440</td>
+      <td>190601012000</td>
       <td>NaN</td>
-      <td>-8.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>25.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>29350</td>
-      <td>191701021300</td>
+      <td>29440</td>
+      <td>190601020600</td>
       <td>NaN</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>-4.0</td>
+      <td>26.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>29350</td>
-      <td>191701022000</td>
+      <td>29440</td>
+      <td>190601021300</td>
+      <td>270.0</td>
+      <td>7.0</td>
       <td>NaN</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>-12.0</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -1371,7 +1465,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 <li>How many rows and columns we have:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1380,11 +1474,11 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>(559667, 8)
+<span></span>(757983, 8)
 </pre></div>
 </div>
 </div>
@@ -1392,7 +1486,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 <li>Top and bottom rows:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1401,7 +1495,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1436,56 +1530,56 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
   <tbody>
     <tr>
       <th>0</th>
-      <td>29350</td>
-      <td>191701010600</td>
-      <td>320.0</td>
-      <td>5.0</td>
+      <td>29440</td>
+      <td>190601010600</td>
+      <td>90.0</td>
+      <td>7.0</td>
       <td>NaN</td>
-      <td>6.0</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>29350</td>
-      <td>191701011300</td>
-      <td>320.0</td>
-      <td>7.0</td>
+      <td>29440</td>
+      <td>190601011300</td>
       <td>NaN</td>
-      <td>2.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>29350</td>
-      <td>191701012000</td>
-      <td>320.0</td>
-      <td>5.0</td>
+      <td>29440</td>
+      <td>190601012000</td>
       <td>NaN</td>
-      <td>-8.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>25.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>29350</td>
-      <td>191701021300</td>
+      <td>29440</td>
+      <td>190601020600</td>
       <td>NaN</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>-4.0</td>
+      <td>26.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>29350</td>
-      <td>191701022000</td>
+      <td>29440</td>
+      <td>190601021300</td>
+      <td>270.0</td>
+      <td>7.0</td>
       <td>NaN</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>-12.0</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -1494,7 +1588,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1503,7 +1597,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1537,55 +1631,55 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
   </thead>
   <tbody>
     <tr>
-      <th>559662</th>
-      <td>29350</td>
+      <th>757978</th>
+      <td>29440</td>
       <td>201910012220</td>
-      <td>990.0</td>
-      <td>5.0</td>
+      <td>130.0</td>
+      <td>3.0</td>
       <td>NaN</td>
-      <td>37.0</td>
+      <td>39.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>559663</th>
-      <td>29350</td>
+      <th>757979</th>
+      <td>29440</td>
       <td>201910012250</td>
-      <td>990.0</td>
-      <td>7.0</td>
+      <td>110.0</td>
+      <td>3.0</td>
       <td>NaN</td>
       <td>37.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>559664</th>
-      <td>29350</td>
+      <th>757980</th>
+      <td>29440</td>
       <td>201910012300</td>
-      <td>260.0</td>
-      <td>4.0</td>
+      <td>100.0</td>
+      <td>2.0</td>
       <td>NaN</td>
       <td>38.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>559665</th>
-      <td>29350</td>
+      <th>757981</th>
+      <td>29440</td>
       <td>201910012320</td>
-      <td>990.0</td>
-      <td>7.0</td>
+      <td>100.0</td>
+      <td>3.0</td>
       <td>NaN</td>
       <td>37.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>559666</th>
-      <td>29350</td>
+      <th>757982</th>
+      <td>29440</td>
       <td>201910012350</td>
-      <td>990.0</td>
-      <td>5.0</td>
+      <td>110.0</td>
+      <td>3.0</td>
       <td>NaN</td>
       <td>37.0</td>
       <td>NaN</td>
@@ -1599,7 +1693,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 <li>Data types of the columns:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1608,7 +1702,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1628,7 +1722,7 @@ dtype: object
 <li>Descriptive statistics:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1642,27 +1736,27 @@ dtype: object
 <div class="output_area docutils container">
 <div class="highlight"><pre>
        STATION_NUMBER          TIME            DIR          SPEED  \
-count        559667.0  5.596670e+05  519843.000000  553514.000000
-mean          29350.0  2.002912e+11     282.237183       6.235060
-std               0.0  1.800321e+09     247.127478       4.216836
-min           29350.0  1.917010e+11       1.000000       0.000000
-25%           29350.0  2.001122e+11     140.000000       3.000000
-50%           29350.0  2.008061e+11     220.000000       6.000000
-75%           29350.0  2.013110e+11     320.000000       9.000000
-max           29350.0  2.019100e+11     990.000000      66.000000
+count        757983.0  7.579830e+05  699256.000000  750143.000000
+mean          29440.0  1.999974e+11     233.499846       6.742641
+std               0.0  1.629544e+09     209.707258       4.296191
+min           29440.0  1.906010e+11      10.000000       0.000000
+25%           29440.0  1.989083e+11     130.000000       3.000000
+50%           29440.0  2.004042e+11     200.000000       7.000000
+75%           29440.0  2.012050e+11     270.000000       9.000000
+max           29440.0  2.019100e+11     990.000000      61.000000
 
-              GUST         TEMP_F           MAX           MIN
-count  9916.000000  555794.000000  30271.000000  30268.000000
-mean     21.325534      39.039754     43.731030     32.457975
-std       7.367612      18.833681     19.378822     18.427926
-min      11.000000     -37.000000    -28.000000    -48.000000
-25%      15.000000      28.000000     30.000000     23.000000
-50%      21.000000      39.000000     43.000000     33.000000
-75%      26.000000      54.000000     60.000000     46.000000
-max      54.000000      95.000000     94.000000     81.000000
+               GUST         TEMP_F           MAX           MIN
+count  19906.000000  754862.000000  23869.000000  23268.000000
+mean      20.147996      40.409778     45.373539     35.783737
+std        7.415138      17.898715     18.242679     17.195427
+min       11.000000     -33.000000    -26.000000    -32.000000
+25%       14.000000      29.000000     32.000000     26.000000
+50%       18.000000      39.000000     44.000000     36.000000
+75%       26.000000      54.000000     60.000000     49.000000
+max      108.000000      91.000000     91.000000     81.000000
 </pre></div></div>
 </div>
-<p>Here we can see that there are varying number of observations per column (see the <code class="docutils literal notranslate"><span class="pre">count</span></code> -information), because some of the columns have missing values.</p>
+<p>Here we can see that there are varying number of observations per column (see the <code class="docutils literal notranslate"><span class="pre">count</span></code> information), because some of the columns have missing values.</p>
 </div>
 <div class="section" id="Using-your-own-functions-in-pandas">
 <h2>Using your own functions in pandas<a class="headerlink" href="#Using-your-own-functions-in-pandas" title="Permalink to this headline">¶</a></h2>
@@ -1670,7 +1764,7 @@ max      54.000000      95.000000     94.000000     81.000000
 <p>Knowing how to use your own function in pandas can be really useful when doing your own analyses. Here, we will introduce two different approaches for using function in pandas. First, we will see how we can apply the function row-by-row using a <code class="docutils literal notranslate"><span class="pre">for</span></code>-loop and the <code class="docutils literal notranslate"><span class="pre">DataFrame.iterrows()</span></code>-method, and then we will learn how to apply the method to all rows at once using <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.apply.html">DataFrame.apply</a>.</p>
 <p>For both of these approaches, we first need to define our temperature conversion function from Fahrenheit to Celsius:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1698,7 +1792,7 @@ max      54.000000      95.000000     94.000000     81.000000
 </div>
 <p><strong>Note:</strong> with such a simple example, we could use the function direcly on a column in the DataFrame in order to conver the values:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1708,7 +1802,7 @@ max      54.000000      95.000000     94.000000     81.000000
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1744,63 +1838,63 @@ max      54.000000      95.000000     94.000000     81.000000
   <tbody>
     <tr>
       <th>0</th>
-      <td>29350</td>
-      <td>191701010600</td>
-      <td>320.0</td>
-      <td>5.0</td>
+      <td>29440</td>
+      <td>190601010600</td>
+      <td>90.0</td>
+      <td>7.0</td>
       <td>NaN</td>
-      <td>6.0</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-14.444444</td>
+      <td>-2.777778</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>29350</td>
-      <td>191701011300</td>
-      <td>320.0</td>
-      <td>7.0</td>
+      <td>29440</td>
+      <td>190601011300</td>
       <td>NaN</td>
-      <td>2.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-16.666667</td>
+      <td>-2.777778</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>29350</td>
-      <td>191701012000</td>
-      <td>320.0</td>
-      <td>5.0</td>
+      <td>29440</td>
+      <td>190601012000</td>
       <td>NaN</td>
-      <td>-8.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>25.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-22.222222</td>
+      <td>-3.888889</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>29350</td>
-      <td>191701021300</td>
+      <td>29440</td>
+      <td>190601020600</td>
       <td>NaN</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>-4.0</td>
+      <td>26.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-20.000000</td>
+      <td>-3.333333</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>29350</td>
-      <td>191701022000</td>
+      <td>29440</td>
+      <td>190601021300</td>
+      <td>270.0</td>
+      <td>7.0</td>
       <td>NaN</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>-12.0</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-24.444444</td>
+      <td>-2.777778</td>
     </tr>
   </tbody>
 </table>
@@ -1815,7 +1909,7 @@ max      54.000000      95.000000     94.000000     81.000000
 <li>Let’s see how <code class="docutils literal notranslate"><span class="pre">iterrows()</span></code> works by printing out the <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> value on each row using a <code class="docutils literal notranslate"><span class="pre">for</span></code>-loop:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1837,7 +1931,7 @@ max      54.000000      95.000000     94.000000     81.000000
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Index: 0
-Temp F: 6.0
+Temp F: 27.0
 
 </pre></div></div>
 </div>
@@ -1850,7 +1944,7 @@ Temp F: 6.0
 <li>Let’s now create an empty column <code class="docutils literal notranslate"><span class="pre">TEMP_C</span></code> for the Celsius temperatures and update the values into that column using the <code class="docutils literal notranslate"><span class="pre">fahr_to_celsius</span></code> function we defined earlier:</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1877,7 +1971,7 @@ Temp F: 6.0
 <li>Let’s see what we have now.</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1886,7 +1980,7 @@ Temp F: 6.0
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1922,123 +2016,123 @@ Temp F: 6.0
   <tbody>
     <tr>
       <th>0</th>
-      <td>29350</td>
-      <td>191701010600</td>
-      <td>320.0</td>
-      <td>5.0</td>
+      <td>29440</td>
+      <td>190601010600</td>
+      <td>90.0</td>
+      <td>7.0</td>
       <td>NaN</td>
-      <td>6.0</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-14.4444</td>
+      <td>-2.77778</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>29350</td>
-      <td>191701011300</td>
-      <td>320.0</td>
-      <td>7.0</td>
+      <td>29440</td>
+      <td>190601011300</td>
       <td>NaN</td>
-      <td>2.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-16.6667</td>
+      <td>-2.77778</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>29350</td>
-      <td>191701012000</td>
-      <td>320.0</td>
-      <td>5.0</td>
+      <td>29440</td>
+      <td>190601012000</td>
       <td>NaN</td>
-      <td>-8.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>25.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-22.2222</td>
+      <td>-3.88889</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>29350</td>
-      <td>191701021300</td>
+      <td>29440</td>
+      <td>190601020600</td>
       <td>NaN</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>-4.0</td>
+      <td>26.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-20</td>
+      <td>-3.33333</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>29350</td>
-      <td>191701022000</td>
+      <td>29440</td>
+      <td>190601021300</td>
+      <td>270.0</td>
+      <td>7.0</td>
       <td>NaN</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>-12.0</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-24.4444</td>
+      <td>-2.77778</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>29350</td>
-      <td>191701030600</td>
+      <td>29440</td>
+      <td>190601022000</td>
       <td>NaN</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>-8.0</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-22.2222</td>
+      <td>-2.77778</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>29350</td>
-      <td>191701031300</td>
+      <td>29440</td>
+      <td>190601030600</td>
+      <td>270.0</td>
+      <td>7.0</td>
       <td>NaN</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>0.0</td>
+      <td>26.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-17.7778</td>
+      <td>-3.33333</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>29350</td>
-      <td>191701032000</td>
-      <td>320.0</td>
-      <td>5.0</td>
+      <td>29440</td>
+      <td>190601031300</td>
+      <td>270.0</td>
+      <td>7.0</td>
       <td>NaN</td>
-      <td>2.0</td>
+      <td>25.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-16.6667</td>
+      <td>-3.88889</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>29350</td>
-      <td>191701040600</td>
-      <td>110.0</td>
-      <td>14.0</td>
+      <td>29440</td>
+      <td>190601032000</td>
+      <td>270.0</td>
+      <td>7.0</td>
       <td>NaN</td>
-      <td>5.0</td>
+      <td>24.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-15</td>
+      <td>-4.44444</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>29350</td>
-      <td>191701041300</td>
-      <td>70.0</td>
-      <td>2.0</td>
+      <td>29440</td>
+      <td>190601040600</td>
       <td>NaN</td>
-      <td>6.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>18.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-14.4444</td>
+      <td>-7.77778</td>
     </tr>
   </tbody>
 </table>
@@ -2050,7 +2144,7 @@ Temp F: 6.0
 <h3>Applying a function<a class="headerlink" href="#Applying-a-function" title="Permalink to this headline">¶</a></h3>
 <p>Pandas DataFrames and Series also have a dedicated method <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> for applying functions on columns (or rows!). When using <code class="docutils literal notranslate"><span class="pre">.apply()</span></code>, we pass the function name (without parenthesis!) as an argument:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2060,7 +2154,7 @@ Temp F: 6.0
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2096,63 +2190,63 @@ Temp F: 6.0
   <tbody>
     <tr>
       <th>0</th>
-      <td>29350</td>
-      <td>191701010600</td>
-      <td>320.0</td>
-      <td>5.0</td>
+      <td>29440</td>
+      <td>190601010600</td>
+      <td>90.0</td>
+      <td>7.0</td>
       <td>NaN</td>
-      <td>6.0</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-14.444444</td>
+      <td>-2.777778</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>29350</td>
-      <td>191701011300</td>
-      <td>320.0</td>
-      <td>7.0</td>
+      <td>29440</td>
+      <td>190601011300</td>
       <td>NaN</td>
-      <td>2.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-16.666667</td>
+      <td>-2.777778</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>29350</td>
-      <td>191701012000</td>
-      <td>320.0</td>
-      <td>5.0</td>
+      <td>29440</td>
+      <td>190601012000</td>
       <td>NaN</td>
-      <td>-8.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>25.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-22.222222</td>
+      <td>-3.888889</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>29350</td>
-      <td>191701021300</td>
+      <td>29440</td>
+      <td>190601020600</td>
       <td>NaN</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>-4.0</td>
+      <td>26.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-20.000000</td>
+      <td>-3.333333</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>29350</td>
-      <td>191701022000</td>
+      <td>29440</td>
+      <td>190601021300</td>
+      <td>270.0</td>
+      <td>7.0</td>
       <td>NaN</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>-12.0</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-24.444444</td>
+      <td>-2.777778</td>
     </tr>
   </tbody>
 </table>
@@ -2172,7 +2266,7 @@ Temp F: 6.0
 <p><code class="docutils literal notranslate"><span class="pre">YR--MODAHRMN</span> <span class="pre">=</span> <span class="pre">YEAR-MONTH-DAY-HOUR-MINUTE</span> <span class="pre">IN</span> <span class="pre">GREENWICH</span> <span class="pre">MEAN</span> <span class="pre">TIME</span> <span class="pre">(GMT)</span></code></p>
 <p>Let’s have a closer look at the date and time information we have by checking the values in that column, and their data type:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2181,26 +2275,26 @@ Temp F: 6.0
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>0    191701010600
-1    191701011300
-2    191701012000
-3    191701021300
-4    191701022000
-5    191701030600
-6    191701031300
-7    191701032000
-8    191701040600
-9    191701041300
+<span></span>0    190601010600
+1    190601011300
+2    190601012000
+3    190601020600
+4    190601021300
+5    190601022000
+6    190601030600
+7    190601031300
+8    190601032000
+9    190601040600
 Name: TIME, dtype: int64
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2209,27 +2303,27 @@ Name: TIME, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>559657    201910012050
-559658    201910012100
-559659    201910012120
-559660    201910012150
-559661    201910012200
-559662    201910012220
-559663    201910012250
-559664    201910012300
-559665    201910012320
-559666    201910012350
+<span></span>757973    201910012050
+757974    201910012100
+757975    201910012120
+757976    201910012150
+757977    201910012200
+757978    201910012220
+757979    201910012250
+757980    201910012300
+757981    201910012320
+757982    201910012350
 Name: TIME, dtype: int64
 </pre></div>
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">TIME</span></code> column contains several observations per day (and even several observations per hour). The timestamp for the first observation is <code class="docutils literal notranslate"><span class="pre">191701010600</span></code>, i.e. from 1st of January 1917, and the timestamp for the latest observation is <code class="docutils literal notranslate"><span class="pre">201910012350</span></code> (from last week, by the time of writing this!)</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2238,7 +2332,7 @@ Name: TIME, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2252,7 +2346,7 @@ Name: TIME, dtype: int64
 <h3>String slicing<a class="headerlink" href="#String-slicing" title="Permalink to this headline">¶</a></h3>
 <p>One approach would be to convert the date and time information into character strings and “cut” the needed information from the <a class="reference external" href="https://docs.python.org/3/tutorial/introduction.html#strings">string objects</a>. If we look at the latest time stamp in the data (<code class="docutils literal notranslate"><span class="pre">201910012350</span></code>), you can see that there is a systematic pattern <code class="docutils literal notranslate"><span class="pre">YEAR-MONTH-DAY-HOUR-MINUTE</span></code>. Four first characters represent the year, and six first characters are year + month!</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2262,7 +2356,7 @@ Name: TIME, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2275,7 +2369,7 @@ Name: TIME, dtype: int64
 <li>Let’s convert the time into string. And check that the data type changes:</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2285,7 +2379,7 @@ Name: TIME, dtype: int64
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2303,18 +2397,18 @@ Name: TIME, dtype: int64
 <div class="output_area docutils container">
 <div class="highlight"><pre>
    STATION_NUMBER          TIME    DIR  SPEED  GUST  TEMP_F  MAX  MIN  \
-0           29350  191701010600  320.0    5.0   NaN     6.0  NaN  NaN
-1           29350  191701011300  320.0    7.0   NaN     2.0  NaN  NaN
-2           29350  191701012000  320.0    5.0   NaN    -8.0  NaN  NaN
-3           29350  191701021300    NaN    0.0   NaN    -4.0  NaN  NaN
-4           29350  191701022000    NaN    0.0   NaN   -12.0  NaN  NaN
+0           29440  190601010600   90.0    7.0   NaN    27.0  NaN  NaN
+1           29440  190601011300    NaN    0.0   NaN    27.0  NaN  NaN
+2           29440  190601012000    NaN    0.0   NaN    25.0  NaN  NaN
+3           29440  190601020600    NaN    0.0   NaN    26.0  NaN  NaN
+4           29440  190601021300  270.0    7.0   NaN    27.0  NaN  NaN
 
-      TEMP_C      TIME_STR MONTH_STR
-0 -14.444444  191701010600    191701
-1 -16.666667  191701011300    191701
-2 -22.222222  191701012000    191701
-3 -20.000000  191701021300    191701
-4 -24.444444  191701022000    191701
+     TEMP_C      TIME_STR MONTH_STR
+0 -2.777778  190601010600    190601
+1 -2.777778  190601011300    190601
+2 -3.888889  190601012000    190601
+3 -3.333333  190601020600    190601
+4 -2.777778  190601021300    190601
 </pre></div></div>
 </div>
 <p>Nice! Now we have “labeled” the rows based on information about day of the year and hour of the day. However, let’s have a look at a more clever way of dealing with dates and times..</p>
@@ -2337,7 +2431,7 @@ Name: TIME, dtype: int64
 <p>In this example, <code class="docutils literal notranslate"><span class="pre">exact=False</span></code> drops out minutes and secods, because they are not included in the specified formatting.</p>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2348,15 +2442,15 @@ Name: TIME, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>0   1917-01-01 06:00:00
-1   1917-01-01 13:00:00
-2   1917-01-01 20:00:00
-3   1917-01-02 13:00:00
-4   1917-01-02 20:00:00
+<span></span>0   1906-01-01 06:00:00
+1   1906-01-01 13:00:00
+2   1906-01-01 20:00:00
+3   1906-01-02 06:00:00
+4   1906-01-02 13:00:00
 Name: DATE, dtype: datetime64[ns]
 </pre></div>
 </div>
@@ -2368,7 +2462,7 @@ Name: DATE, dtype: datetime64[ns]
 </div>
 <p>Now, we can extract different time units based on the datetime-column using the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.dt.html">pandas.Series.dt accessor</a>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2377,78 +2471,78 @@ Name: DATE, dtype: datetime64[ns]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>0         1917
-1         1917
-2         1917
-3         1917
-4         1917
-5         1917
-6         1917
-7         1917
-8         1917
-9         1917
-10        1917
-11        1917
-12        1917
-13        1917
-14        1917
-15        1917
-16        1917
-17        1917
-18        1917
-19        1917
-20        1917
-21        1917
-22        1917
-23        1917
-24        1917
-25        1917
-26        1917
-27        1917
-28        1917
-29        1917
+<span></span>0         1906
+1         1906
+2         1906
+3         1906
+4         1906
+5         1906
+6         1906
+7         1906
+8         1906
+9         1906
+10        1906
+11        1906
+12        1906
+13        1906
+14        1906
+15        1906
+16        1906
+17        1906
+18        1906
+19        1906
+20        1906
+21        1906
+22        1906
+23        1906
+24        1906
+25        1906
+26        1906
+27        1906
+28        1906
+29        1906
           ...
-559637    2019
-559638    2019
-559639    2019
-559640    2019
-559641    2019
-559642    2019
-559643    2019
-559644    2019
-559645    2019
-559646    2019
-559647    2019
-559648    2019
-559649    2019
-559650    2019
-559651    2019
-559652    2019
-559653    2019
-559654    2019
-559655    2019
-559656    2019
-559657    2019
-559658    2019
-559659    2019
-559660    2019
-559661    2019
-559662    2019
-559663    2019
-559664    2019
-559665    2019
-559666    2019
-Name: DATE, Length: 559667, dtype: int64
+757953    2019
+757954    2019
+757955    2019
+757956    2019
+757957    2019
+757958    2019
+757959    2019
+757960    2019
+757961    2019
+757962    2019
+757963    2019
+757964    2019
+757965    2019
+757966    2019
+757967    2019
+757968    2019
+757969    2019
+757970    2019
+757971    2019
+757972    2019
+757973    2019
+757974    2019
+757975    2019
+757976    2019
+757977    2019
+757978    2019
+757979    2019
+757980    2019
+757981    2019
+757982    2019
+Name: DATE, Length: 757983, dtype: int64
 </pre></div>
 </div>
 </div>
 <p>We can also combine the datetime functionalities with other methods from pandas. For example, we can check the number of unique years in our input data:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2457,11 +2551,11 @@ Name: DATE, Length: 559667, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>69
+<span></span>51
 </pre></div>
 </div>
 </div>
@@ -2472,7 +2566,7 @@ Name: DATE, Length: 559667, dtype: int64
 </ul>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2484,7 +2578,7 @@ Name: DATE, Length: 559667, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2525,87 +2619,87 @@ Name: DATE, Length: 559667, dtype: int64
   <tbody>
     <tr>
       <th>0</th>
-      <td>29350</td>
-      <td>191701010600</td>
-      <td>320.0</td>
-      <td>5.0</td>
+      <td>29440</td>
+      <td>190601010600</td>
+      <td>90.0</td>
+      <td>7.0</td>
       <td>NaN</td>
-      <td>6.0</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-14.444444</td>
-      <td>191701010600</td>
-      <td>191701</td>
-      <td>1917-01-01 06:00:00</td>
-      <td>1917</td>
+      <td>-2.777778</td>
+      <td>190601010600</td>
+      <td>190601</td>
+      <td>1906-01-01 06:00:00</td>
+      <td>1906</td>
       <td>1</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>29350</td>
-      <td>191701011300</td>
-      <td>320.0</td>
-      <td>7.0</td>
+      <td>29440</td>
+      <td>190601011300</td>
       <td>NaN</td>
-      <td>2.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-16.666667</td>
-      <td>191701011300</td>
-      <td>191701</td>
-      <td>1917-01-01 13:00:00</td>
-      <td>1917</td>
+      <td>-2.777778</td>
+      <td>190601011300</td>
+      <td>190601</td>
+      <td>1906-01-01 13:00:00</td>
+      <td>1906</td>
       <td>1</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>29350</td>
-      <td>191701012000</td>
-      <td>320.0</td>
-      <td>5.0</td>
+      <td>29440</td>
+      <td>190601012000</td>
       <td>NaN</td>
-      <td>-8.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>25.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-22.222222</td>
-      <td>191701012000</td>
-      <td>191701</td>
-      <td>1917-01-01 20:00:00</td>
-      <td>1917</td>
+      <td>-3.888889</td>
+      <td>190601012000</td>
+      <td>190601</td>
+      <td>1906-01-01 20:00:00</td>
+      <td>1906</td>
       <td>1</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>29350</td>
-      <td>191701021300</td>
+      <td>29440</td>
+      <td>190601020600</td>
       <td>NaN</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>-4.0</td>
+      <td>26.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-20.000000</td>
-      <td>191701021300</td>
-      <td>191701</td>
-      <td>1917-01-02 13:00:00</td>
-      <td>1917</td>
+      <td>-3.333333</td>
+      <td>190601020600</td>
+      <td>190601</td>
+      <td>1906-01-02 06:00:00</td>
+      <td>1906</td>
       <td>1</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>29350</td>
-      <td>191701022000</td>
+      <td>29440</td>
+      <td>190601021300</td>
+      <td>270.0</td>
+      <td>7.0</td>
       <td>NaN</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>-12.0</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-24.444444</td>
-      <td>191701022000</td>
-      <td>191701</td>
-      <td>1917-01-02 20:00:00</td>
-      <td>1917</td>
+      <td>-2.777778</td>
+      <td>190601021300</td>
+      <td>190601</td>
+      <td>1906-01-02 13:00:00</td>
+      <td>1906</td>
       <td>1</td>
     </tr>
   </tbody>
@@ -2626,7 +2720,7 @@ Name: DATE, Length: 559667, dtype: int64
 </ol>
 <p>Before we start grouping the data, let’s once more check how our input data looks like:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2640,11 +2734,11 @@ Name: DATE, Length: 559667, dtype: int64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-number of rows: 559667
+number of rows: 757983
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2685,87 +2779,87 @@ number of rows: 559667
   <tbody>
     <tr>
       <th>0</th>
-      <td>29350</td>
-      <td>191701010600</td>
-      <td>320.0</td>
-      <td>5.0</td>
+      <td>29440</td>
+      <td>190601010600</td>
+      <td>90.0</td>
+      <td>7.0</td>
       <td>NaN</td>
-      <td>6.0</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-14.444444</td>
-      <td>191701010600</td>
-      <td>191701</td>
-      <td>1917-01-01 06:00:00</td>
-      <td>1917</td>
+      <td>-2.777778</td>
+      <td>190601010600</td>
+      <td>190601</td>
+      <td>1906-01-01 06:00:00</td>
+      <td>1906</td>
       <td>1</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>29350</td>
-      <td>191701011300</td>
-      <td>320.0</td>
-      <td>7.0</td>
+      <td>29440</td>
+      <td>190601011300</td>
       <td>NaN</td>
-      <td>2.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-16.666667</td>
-      <td>191701011300</td>
-      <td>191701</td>
-      <td>1917-01-01 13:00:00</td>
-      <td>1917</td>
+      <td>-2.777778</td>
+      <td>190601011300</td>
+      <td>190601</td>
+      <td>1906-01-01 13:00:00</td>
+      <td>1906</td>
       <td>1</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>29350</td>
-      <td>191701012000</td>
-      <td>320.0</td>
-      <td>5.0</td>
+      <td>29440</td>
+      <td>190601012000</td>
       <td>NaN</td>
-      <td>-8.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>25.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-22.222222</td>
-      <td>191701012000</td>
-      <td>191701</td>
-      <td>1917-01-01 20:00:00</td>
-      <td>1917</td>
+      <td>-3.888889</td>
+      <td>190601012000</td>
+      <td>190601</td>
+      <td>1906-01-01 20:00:00</td>
+      <td>1906</td>
       <td>1</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>29350</td>
-      <td>191701021300</td>
+      <td>29440</td>
+      <td>190601020600</td>
       <td>NaN</td>
       <td>0.0</td>
       <td>NaN</td>
-      <td>-4.0</td>
+      <td>26.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-20.000000</td>
-      <td>191701021300</td>
-      <td>191701</td>
-      <td>1917-01-02 13:00:00</td>
-      <td>1917</td>
+      <td>-3.333333</td>
+      <td>190601020600</td>
+      <td>190601</td>
+      <td>1906-01-02 06:00:00</td>
+      <td>1906</td>
       <td>1</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>29350</td>
-      <td>191701022000</td>
+      <td>29440</td>
+      <td>190601021300</td>
+      <td>270.0</td>
+      <td>7.0</td>
       <td>NaN</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>-12.0</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-24.444444</td>
-      <td>191701022000</td>
-      <td>191701</td>
-      <td>1917-01-02 20:00:00</td>
-      <td>1917</td>
+      <td>-2.777778</td>
+      <td>190601021300</td>
+      <td>190601</td>
+      <td>1906-01-02 13:00:00</td>
+      <td>1906</td>
       <td>1</td>
     </tr>
   </tbody>
@@ -2775,7 +2869,7 @@ number of rows: 559667
 <p>We have quite a few rows of weather data, and several observations per day (and even per hour). <strong>Our goal is to create an aggreated data frame that would have only one row per month!</strong></p>
 <p>Let’s <strong>group</strong> our data based on unique year and month combinations</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2795,7 +2889,7 @@ number of rows: 559667
 <li>Let’s see what we have now.</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2813,9 +2907,9 @@ number of rows: 559667
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Type:
- &lt;class &#39;pandas.core.groupby.groupby.DataFrameGroupBy&#39;&gt;
+ &lt;class &#39;pandas.core.groupby.generic.DataFrameGroupBy&#39;&gt;
 Length:
- 826
+ 601
 </pre></div></div>
 </div>
 <p>Okey, interesting. Now we have a new object with type <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code>.</p>
@@ -2824,7 +2918,7 @@ Length:
 <p>Think: what does the number of groups (length of the grouped object) tell us?</p>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2836,22 +2930,22 @@ Length:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>826
+<span></span>601
 </pre></div>
 </div>
 </div>
 <p>There are several methods we can use for extracting information from the grouped data. See <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/groupby.html">documentation for Pandas GroupBy objects</a> for a comprehensive overview.</p>
 <p><strong>Checking group names:</strong></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Check the &quot;names&quot; of each group (comment out the next row if you want to print out the result!)</span>
+<span></span><span class="c1"># Check the &quot;names&quot; of each group (uncomment the next row if you want to print out the result!)</span>
 <span class="c1">#grouped.groups.keys()</span>
 </pre></div>
 </div>
@@ -2861,7 +2955,7 @@ Length:
 <li>Let’s check the contents for a group representing August 2019 (name of that group is <code class="docutils literal notranslate"><span class="pre">(2019,</span> <span class="pre">4)</span></code> if you grouped the data based on datetime columns <code class="docutils literal notranslate"><span class="pre">YEAR</span></code> and <code class="docutils literal notranslate"><span class="pre">MONTH</span></code>). We can get the values of that hour from the grouped object using the <code class="docutils literal notranslate"><span class="pre">get_group()</span></code> -method:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2882,137 +2976,137 @@ Length:
 <div class="output_area docutils container">
 <div class="highlight"><pre>
         STATION_NUMBER          TIME    DIR  SPEED  GUST  TEMP_F   MAX   MIN  \
-546832           29350  201904010000  290.0    9.0   NaN    29.0   NaN   NaN
-546833           29350  201904010050  330.0    6.0   NaN    28.0   NaN   NaN
-546834           29350  201904010100  280.0    9.0   NaN    29.0   NaN   NaN
-546835           29350  201904010120  310.0    7.0   NaN    28.0   NaN   NaN
-546836           29350  201904010150  320.0    3.0   NaN    27.0   NaN   NaN
-546837           29350  201904010200  290.0    2.0   NaN    28.0   NaN   NaN
-546838           29350  201904010220  290.0    5.0   NaN    27.0   NaN   NaN
-546839           29350  201904010250  300.0    6.0   NaN    27.0   NaN   NaN
-546840           29350  201904010300  300.0    9.0   NaN    28.0   NaN   NaN
-546841           29350  201904010320  320.0    8.0   NaN    27.0   NaN   NaN
-546842           29350  201904010350  310.0   10.0   NaN    27.0   NaN   NaN
-546843           29350  201904010400  300.0   13.0   NaN    28.0   NaN   NaN
-546844           29350  201904010420  290.0   13.0   NaN    28.0   NaN   NaN
-546845           29350  201904010450  290.0   13.0   NaN    28.0   NaN   NaN
-546846           29350  201904010500  290.0   13.0   NaN    29.0   NaN   NaN
-546847           29350  201904010520  300.0   14.0   NaN    28.0   NaN   NaN
-546848           29350  201904010550  300.0   15.0   NaN    28.0   NaN   NaN
-546849           29350  201904010600  300.0   16.0   NaN    30.0  33.0  24.0
-546850           29350  201904010620  300.0   15.0   NaN    30.0   NaN   NaN
-546851           29350  201904010650  300.0   17.0   NaN    30.0   NaN   NaN
-546852           29350  201904010700  310.0   16.0   NaN    31.0   NaN   NaN
-546853           29350  201904010720  300.0   14.0   NaN    32.0   NaN   NaN
-546854           29350  201904010750  300.0   11.0   NaN    32.0   NaN   NaN
-546855           29350  201904010800  290.0   11.0   NaN    34.0   NaN   NaN
-546856           29350  201904010820  290.0   14.0   NaN    34.0   NaN   NaN
-546857           29350  201904010850  290.0   14.0   NaN    34.0   NaN   NaN
-546858           29350  201904010900  300.0   16.0   NaN    35.0   NaN   NaN
-546859           29350  201904010920  990.0   13.0   NaN    36.0   NaN   NaN
-546860           29350  201904010950  270.0   17.0   NaN    36.0   NaN   NaN
-546861           29350  201904011000  280.0    9.0   NaN    37.0   NaN   NaN
+745098           29440  201904010000  280.0    6.0   NaN    30.0   NaN   NaN
+745099           29440  201904010020  280.0    7.0   NaN    32.0   NaN   NaN
+745100           29440  201904010050  280.0    6.0   NaN    30.0   NaN   NaN
+745101           29440  201904010100  280.0    7.0   NaN    30.0   NaN   NaN
+745102           29440  201904010120  280.0    6.0   NaN    30.0   NaN   NaN
+745103           29440  201904010150  300.0    5.0   NaN    30.0   NaN   NaN
+745104           29440  201904010200  290.0    6.0   NaN    30.0   NaN   NaN
+745105           29440  201904010220  290.0    6.0   NaN    30.0   NaN   NaN
+745106           29440  201904010250  290.0    6.0   NaN    28.0   NaN   NaN
+745107           29440  201904010300  290.0    5.0   NaN    29.0   NaN   NaN
+745108           29440  201904010320  280.0    6.0   NaN    30.0   NaN   NaN
+745109           29440  201904010350  280.0    6.0   NaN    28.0   NaN   NaN
+745110           29440  201904010400  280.0    5.0   NaN    29.0   NaN   NaN
+745111           29440  201904010420  290.0    6.0   NaN    28.0   NaN   NaN
+745112           29440  201904010450  270.0    7.0   NaN    30.0   NaN   NaN
+745113           29440  201904010500  270.0    6.0   NaN    30.0   NaN   NaN
+745114           29440  201904010520  280.0    8.0   NaN    30.0   NaN   NaN
+745115           29440  201904010550  280.0    7.0   NaN    30.0   NaN   NaN
+745116           29440  201904010600  290.0    6.0   NaN    31.0  35.0  29.0
+745117           29440  201904010620  280.0    8.0   NaN    32.0   NaN   NaN
+745118           29440  201904010650  290.0   10.0   NaN    32.0   NaN   NaN
+745119           29440  201904010700  300.0    7.0  11.0    33.0   NaN   NaN
+745120           29440  201904010720  990.0   10.0   NaN    34.0   NaN   NaN
+745121           29440  201904010750  290.0    9.0   NaN    34.0   NaN   NaN
+745122           29440  201904010800  290.0    7.0  11.0    35.0   NaN   NaN
+745123           29440  201904010820  290.0    9.0   NaN    36.0   NaN   NaN
+745124           29440  201904010850  250.0   13.0   NaN    37.0   NaN   NaN
+745125           29440  201904010900  260.0    9.0  15.0    37.0   NaN   NaN
+745126           29440  201904010920  250.0   14.0   NaN    37.0   NaN   NaN
+745127           29440  201904010950  240.0   15.0   NaN    39.0   NaN   NaN
 ...                ...           ...    ...    ...   ...     ...   ...   ...
-548949           29350  201904301400  240.0    4.0   NaN    59.0   NaN   NaN
-548950           29350  201904301420  990.0    8.0   NaN    61.0   NaN   NaN
-548951           29350  201904301450  990.0    8.0   NaN    61.0   NaN   NaN
-548952           29350  201904301500  290.0    7.0   NaN    62.0   NaN   NaN
-548953           29350  201904301520  280.0    9.0   NaN    61.0   NaN   NaN
-548954           29350  201904301550  990.0   10.0   NaN    61.0   NaN   NaN
-548955           29350  201904301600  260.0    7.0   NaN    61.0   NaN   NaN
-548956           29350  201904301620  990.0    8.0   NaN    59.0   NaN   NaN
-548957           29350  201904301650  990.0    7.0   NaN    57.0   NaN   NaN
-548958           29350  201904301700  230.0    4.0   NaN    57.0   NaN   NaN
-548959           29350  201904301720  990.0   10.0   NaN    57.0   NaN   NaN
-548960           29350  201904301750  270.0   10.0   NaN    55.0   NaN   NaN
-548961           29350  201904301800  270.0    9.0   NaN    54.0  62.0  46.0
-548962           29350  201904301820  270.0    9.0   NaN    54.0   NaN   NaN
-548963           29350  201904301850  260.0    8.0   NaN    52.0   NaN   NaN
-548964           29350  201904301900  270.0    7.0   NaN    52.0   NaN   NaN
-548965           29350  201904301920  270.0    7.0   NaN    50.0   NaN   NaN
-548966           29350  201904301950  260.0    9.0   NaN    50.0   NaN   NaN
-548967           29350  201904302000  270.0    7.0   NaN    49.0   NaN   NaN
-548968           29350  201904302020  280.0    8.0   NaN    48.0   NaN   NaN
-548969           29350  201904302050  260.0    6.0   NaN    48.0   NaN   NaN
-548970           29350  201904302100  260.0    4.0   NaN    47.0   NaN   NaN
-548971           29350  201904302120  260.0    6.0   NaN    46.0   NaN   NaN
-548972           29350  201904302150  990.0    3.0   NaN    45.0   NaN   NaN
-548973           29350  201904302200  280.0    4.0   NaN    45.0   NaN   NaN
-548974           29350  201904302220  990.0    2.0   NaN    43.0   NaN   NaN
-548975           29350  201904302250  990.0    1.0   NaN    41.0   NaN   NaN
-548976           29350  201904302300  240.0    2.0   NaN    40.0   NaN   NaN
-548977           29350  201904302320  990.0    2.0   NaN    39.0   NaN   NaN
-548978           29350  201904302350  110.0    2.0   NaN    37.0   NaN   NaN
+747231           29440  201904301400  260.0    6.0   NaN    57.0   NaN   NaN
+747232           29440  201904301420  990.0    6.0   NaN    57.0   NaN   NaN
+747233           29440  201904301450  990.0    7.0   NaN    59.0   NaN   NaN
+747234           29440  201904301500  250.0    8.0  11.0    58.0   NaN   NaN
+747235           29440  201904301520  240.0    9.0   NaN    59.0   NaN   NaN
+747236           29440  201904301550  990.0    5.0   NaN    57.0   NaN   NaN
+747237           29440  201904301600  360.0    0.0   NaN    58.0   NaN   NaN
+747238           29440  201904301620  990.0    3.0   NaN    57.0   NaN   NaN
+747239           29440  201904301650  190.0    3.0   NaN    57.0   NaN   NaN
+747240           29440  201904301700  180.0    2.0   NaN    57.0   NaN   NaN
+747241           29440  201904301720  190.0    2.0   NaN    55.0   NaN   NaN
+747242           29440  201904301750  190.0    2.0   NaN    54.0   NaN   NaN
+747243           29440  201904301800  360.0    0.0   NaN    51.0  58.0  42.0
+747244           29440  201904301820  300.0    6.0   NaN    52.0   NaN   NaN
+747245           29440  201904301850  280.0    3.0   NaN    50.0   NaN   NaN
+747246           29440  201904301900  270.0    5.0   NaN    47.0   NaN   NaN
+747247           29440  201904301920  230.0    2.0   NaN    46.0   NaN   NaN
+747248           29440  201904301950  990.0    1.0   NaN    41.0   NaN   NaN
+747249           29440  201904302000  360.0    0.0   NaN    42.0   NaN   NaN
+747250           29440  201904302020  990.0    1.0   NaN    41.0   NaN   NaN
+747251           29440  201904302050    NaN    0.0   NaN    39.0   NaN   NaN
+747252           29440  201904302100  360.0    0.0   NaN    39.0   NaN   NaN
+747253           29440  201904302120  990.0    1.0   NaN    37.0   NaN   NaN
+747254           29440  201904302150    NaN    0.0   NaN    37.0   NaN   NaN
+747255           29440  201904302200  360.0    0.0   NaN    36.0   NaN   NaN
+747256           29440  201904302220  990.0    1.0   NaN    36.0   NaN   NaN
+747257           29440  201904302250  990.0    1.0   NaN    36.0   NaN   NaN
+747258           29440  201904302300  360.0    0.0   NaN    36.0   NaN   NaN
+747259           29440  201904302320  990.0    1.0   NaN    34.0   NaN   NaN
+747260           29440  201904302350  190.0    3.0   NaN    36.0   NaN   NaN
 
            TEMP_C      TIME_STR MONTH_STR                DATE  YEAR  MONTH
-546832  -1.666667  201904010000    201904 2019-04-01 00:00:00  2019      4
-546833  -2.222222  201904010050    201904 2019-04-01 00:50:00  2019      4
-546834  -1.666667  201904010100    201904 2019-04-01 01:00:00  2019      4
-546835  -2.222222  201904010120    201904 2019-04-01 01:20:00  2019      4
-546836  -2.777778  201904010150    201904 2019-04-01 01:50:00  2019      4
-546837  -2.222222  201904010200    201904 2019-04-01 02:00:00  2019      4
-546838  -2.777778  201904010220    201904 2019-04-01 02:20:00  2019      4
-546839  -2.777778  201904010250    201904 2019-04-01 02:50:00  2019      4
-546840  -2.222222  201904010300    201904 2019-04-01 03:00:00  2019      4
-546841  -2.777778  201904010320    201904 2019-04-01 03:20:00  2019      4
-546842  -2.777778  201904010350    201904 2019-04-01 03:50:00  2019      4
-546843  -2.222222  201904010400    201904 2019-04-01 04:00:00  2019      4
-546844  -2.222222  201904010420    201904 2019-04-01 04:20:00  2019      4
-546845  -2.222222  201904010450    201904 2019-04-01 04:50:00  2019      4
-546846  -1.666667  201904010500    201904 2019-04-01 05:00:00  2019      4
-546847  -2.222222  201904010520    201904 2019-04-01 05:20:00  2019      4
-546848  -2.222222  201904010550    201904 2019-04-01 05:50:00  2019      4
-546849  -1.111111  201904010600    201904 2019-04-01 06:00:00  2019      4
-546850  -1.111111  201904010620    201904 2019-04-01 06:20:00  2019      4
-546851  -1.111111  201904010650    201904 2019-04-01 06:50:00  2019      4
-546852  -0.555556  201904010700    201904 2019-04-01 07:00:00  2019      4
-546853   0.000000  201904010720    201904 2019-04-01 07:20:00  2019      4
-546854   0.000000  201904010750    201904 2019-04-01 07:50:00  2019      4
-546855   1.111111  201904010800    201904 2019-04-01 08:00:00  2019      4
-546856   1.111111  201904010820    201904 2019-04-01 08:20:00  2019      4
-546857   1.111111  201904010850    201904 2019-04-01 08:50:00  2019      4
-546858   1.666667  201904010900    201904 2019-04-01 09:00:00  2019      4
-546859   2.222222  201904010920    201904 2019-04-01 09:20:00  2019      4
-546860   2.222222  201904010950    201904 2019-04-01 09:50:00  2019      4
-546861   2.777778  201904011000    201904 2019-04-01 10:00:00  2019      4
+745098  -1.111111  201904010000    201904 2019-04-01 00:00:00  2019      4
+745099   0.000000  201904010020    201904 2019-04-01 00:20:00  2019      4
+745100  -1.111111  201904010050    201904 2019-04-01 00:50:00  2019      4
+745101  -1.111111  201904010100    201904 2019-04-01 01:00:00  2019      4
+745102  -1.111111  201904010120    201904 2019-04-01 01:20:00  2019      4
+745103  -1.111111  201904010150    201904 2019-04-01 01:50:00  2019      4
+745104  -1.111111  201904010200    201904 2019-04-01 02:00:00  2019      4
+745105  -1.111111  201904010220    201904 2019-04-01 02:20:00  2019      4
+745106  -2.222222  201904010250    201904 2019-04-01 02:50:00  2019      4
+745107  -1.666667  201904010300    201904 2019-04-01 03:00:00  2019      4
+745108  -1.111111  201904010320    201904 2019-04-01 03:20:00  2019      4
+745109  -2.222222  201904010350    201904 2019-04-01 03:50:00  2019      4
+745110  -1.666667  201904010400    201904 2019-04-01 04:00:00  2019      4
+745111  -2.222222  201904010420    201904 2019-04-01 04:20:00  2019      4
+745112  -1.111111  201904010450    201904 2019-04-01 04:50:00  2019      4
+745113  -1.111111  201904010500    201904 2019-04-01 05:00:00  2019      4
+745114  -1.111111  201904010520    201904 2019-04-01 05:20:00  2019      4
+745115  -1.111111  201904010550    201904 2019-04-01 05:50:00  2019      4
+745116  -0.555556  201904010600    201904 2019-04-01 06:00:00  2019      4
+745117   0.000000  201904010620    201904 2019-04-01 06:20:00  2019      4
+745118   0.000000  201904010650    201904 2019-04-01 06:50:00  2019      4
+745119   0.555556  201904010700    201904 2019-04-01 07:00:00  2019      4
+745120   1.111111  201904010720    201904 2019-04-01 07:20:00  2019      4
+745121   1.111111  201904010750    201904 2019-04-01 07:50:00  2019      4
+745122   1.666667  201904010800    201904 2019-04-01 08:00:00  2019      4
+745123   2.222222  201904010820    201904 2019-04-01 08:20:00  2019      4
+745124   2.777778  201904010850    201904 2019-04-01 08:50:00  2019      4
+745125   2.777778  201904010900    201904 2019-04-01 09:00:00  2019      4
+745126   2.777778  201904010920    201904 2019-04-01 09:20:00  2019      4
+745127   3.888889  201904010950    201904 2019-04-01 09:50:00  2019      4
 ...           ...           ...       ...                 ...   ...    ...
-548949  15.000000  201904301400    201904 2019-04-30 14:00:00  2019      4
-548950  16.111111  201904301420    201904 2019-04-30 14:20:00  2019      4
-548951  16.111111  201904301450    201904 2019-04-30 14:50:00  2019      4
-548952  16.666667  201904301500    201904 2019-04-30 15:00:00  2019      4
-548953  16.111111  201904301520    201904 2019-04-30 15:20:00  2019      4
-548954  16.111111  201904301550    201904 2019-04-30 15:50:00  2019      4
-548955  16.111111  201904301600    201904 2019-04-30 16:00:00  2019      4
-548956  15.000000  201904301620    201904 2019-04-30 16:20:00  2019      4
-548957  13.888889  201904301650    201904 2019-04-30 16:50:00  2019      4
-548958  13.888889  201904301700    201904 2019-04-30 17:00:00  2019      4
-548959  13.888889  201904301720    201904 2019-04-30 17:20:00  2019      4
-548960  12.777778  201904301750    201904 2019-04-30 17:50:00  2019      4
-548961  12.222222  201904301800    201904 2019-04-30 18:00:00  2019      4
-548962  12.222222  201904301820    201904 2019-04-30 18:20:00  2019      4
-548963  11.111111  201904301850    201904 2019-04-30 18:50:00  2019      4
-548964  11.111111  201904301900    201904 2019-04-30 19:00:00  2019      4
-548965  10.000000  201904301920    201904 2019-04-30 19:20:00  2019      4
-548966  10.000000  201904301950    201904 2019-04-30 19:50:00  2019      4
-548967   9.444444  201904302000    201904 2019-04-30 20:00:00  2019      4
-548968   8.888889  201904302020    201904 2019-04-30 20:20:00  2019      4
-548969   8.888889  201904302050    201904 2019-04-30 20:50:00  2019      4
-548970   8.333333  201904302100    201904 2019-04-30 21:00:00  2019      4
-548971   7.777778  201904302120    201904 2019-04-30 21:20:00  2019      4
-548972   7.222222  201904302150    201904 2019-04-30 21:50:00  2019      4
-548973   7.222222  201904302200    201904 2019-04-30 22:00:00  2019      4
-548974   6.111111  201904302220    201904 2019-04-30 22:20:00  2019      4
-548975   5.000000  201904302250    201904 2019-04-30 22:50:00  2019      4
-548976   4.444444  201904302300    201904 2019-04-30 23:00:00  2019      4
-548977   3.888889  201904302320    201904 2019-04-30 23:20:00  2019      4
-548978   2.777778  201904302350    201904 2019-04-30 23:50:00  2019      4
+747231  13.888889  201904301400    201904 2019-04-30 14:00:00  2019      4
+747232  13.888889  201904301420    201904 2019-04-30 14:20:00  2019      4
+747233  15.000000  201904301450    201904 2019-04-30 14:50:00  2019      4
+747234  14.444444  201904301500    201904 2019-04-30 15:00:00  2019      4
+747235  15.000000  201904301520    201904 2019-04-30 15:20:00  2019      4
+747236  13.888889  201904301550    201904 2019-04-30 15:50:00  2019      4
+747237  14.444444  201904301600    201904 2019-04-30 16:00:00  2019      4
+747238  13.888889  201904301620    201904 2019-04-30 16:20:00  2019      4
+747239  13.888889  201904301650    201904 2019-04-30 16:50:00  2019      4
+747240  13.888889  201904301700    201904 2019-04-30 17:00:00  2019      4
+747241  12.777778  201904301720    201904 2019-04-30 17:20:00  2019      4
+747242  12.222222  201904301750    201904 2019-04-30 17:50:00  2019      4
+747243  10.555556  201904301800    201904 2019-04-30 18:00:00  2019      4
+747244  11.111111  201904301820    201904 2019-04-30 18:20:00  2019      4
+747245  10.000000  201904301850    201904 2019-04-30 18:50:00  2019      4
+747246   8.333333  201904301900    201904 2019-04-30 19:00:00  2019      4
+747247   7.777778  201904301920    201904 2019-04-30 19:20:00  2019      4
+747248   5.000000  201904301950    201904 2019-04-30 19:50:00  2019      4
+747249   5.555556  201904302000    201904 2019-04-30 20:00:00  2019      4
+747250   5.000000  201904302020    201904 2019-04-30 20:20:00  2019      4
+747251   3.888889  201904302050    201904 2019-04-30 20:50:00  2019      4
+747252   3.888889  201904302100    201904 2019-04-30 21:00:00  2019      4
+747253   2.777778  201904302120    201904 2019-04-30 21:20:00  2019      4
+747254   2.777778  201904302150    201904 2019-04-30 21:50:00  2019      4
+747255   2.222222  201904302200    201904 2019-04-30 22:00:00  2019      4
+747256   2.222222  201904302220    201904 2019-04-30 22:20:00  2019      4
+747257   2.222222  201904302250    201904 2019-04-30 22:50:00  2019      4
+747258   2.222222  201904302300    201904 2019-04-30 23:00:00  2019      4
+747259   1.111111  201904302320    201904 2019-04-30 23:20:00  2019      4
+747260   2.222222  201904302350    201904 2019-04-30 23:50:00  2019      4
 
-[2147 rows x 14 columns]
+[2163 rows x 14 columns]
 </pre></div></div>
 </div>
 <p>Ahaa! As we can see, a single group contains a <strong>DataFrame</strong> with values only for that specific month. Let’s check the DataType of this group:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3021,7 +3115,7 @@ Length:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -3041,7 +3135,7 @@ Length:
 <li><code class="docutils literal notranslate"><span class="pre">MONTH</span></code></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3061,11 +3155,11 @@ Length:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DIR       399.197218
-SPEED       6.020893
-GUST       21.416667
-TEMP_F     40.585002
-TEMP_C      4.769446
+DIR       309.035306
+SPEED       5.932188
+GUST       15.868217
+TEMP_F     42.472030
+TEMP_C      5.817794
 MONTH       4.000000
 dtype: float64
 </pre></div></div>
@@ -3078,7 +3172,7 @@ dtype: float64
 <li>Let’s see how we can iterate over the groups and print the key and the data from a single group (again using <code class="docutils literal notranslate"><span class="pre">break</span></code> to only see what is happening).</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3099,30 +3193,30 @@ dtype: float64
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Key:
- (1917, 1)
+ (1906, 1)
 
 First rows of data in this group:
     STATION_NUMBER          TIME    DIR  SPEED  GUST  TEMP_F  MAX  MIN  \
-0           29350  191701010600  320.0    5.0   NaN     6.0  NaN  NaN
-1           29350  191701011300  320.0    7.0   NaN     2.0  NaN  NaN
-2           29350  191701012000  320.0    5.0   NaN    -8.0  NaN  NaN
-3           29350  191701021300    NaN    0.0   NaN    -4.0  NaN  NaN
-4           29350  191701022000    NaN    0.0   NaN   -12.0  NaN  NaN
+0           29440  190601010600   90.0    7.0   NaN    27.0  NaN  NaN
+1           29440  190601011300    NaN    0.0   NaN    27.0  NaN  NaN
+2           29440  190601012000    NaN    0.0   NaN    25.0  NaN  NaN
+3           29440  190601020600    NaN    0.0   NaN    26.0  NaN  NaN
+4           29440  190601021300  270.0    7.0   NaN    27.0  NaN  NaN
 
-      TEMP_C      TIME_STR MONTH_STR                DATE  YEAR  MONTH
-0 -14.444444  191701010600    191701 1917-01-01 06:00:00  1917      1
-1 -16.666667  191701011300    191701 1917-01-01 13:00:00  1917      1
-2 -22.222222  191701012000    191701 1917-01-01 20:00:00  1917      1
-3 -20.000000  191701021300    191701 1917-01-02 13:00:00  1917      1
-4 -24.444444  191701022000    191701 1917-01-02 20:00:00  1917      1
+     TEMP_C      TIME_STR MONTH_STR                DATE  YEAR  MONTH
+0 -2.777778  190601010600    190601 1906-01-01 06:00:00  1906      1
+1 -2.777778  190601011300    190601 1906-01-01 13:00:00  1906      1
+2 -3.888889  190601012000    190601 1906-01-01 20:00:00  1906      1
+3 -3.333333  190601020600    190601 1906-01-02 06:00:00  1906      1
+4 -2.777778  190601021300    190601 1906-01-02 13:00:00  1906      1
 </pre></div></div>
 </div>
 <p>Okey so from here we can see that the <code class="docutils literal notranslate"><span class="pre">key</span></code> contains the name of the group (year, month).</p>
 <ul class="simple">
-<li>Let’s see how we can create a DataFrame where we calculate the mean values for all those weather attributes that we were interested in. I will repeate slightly the earlier steps so that you can see and better understand what is happening.</li>
+<li>Let’s see how we can create a DataFrame where we calculate the mean values for all those weather attributes that we were interested in. I will repeat slightly the earlier steps so that you can see and better understand what is happening.</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3149,7 +3243,7 @@ First rows of data in this group:
 <li>Let’s see what we have now:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3163,76 +3257,76 @@ First rows of data in this group:
 <div class="output_area docutils container">
 <div class="highlight"><pre>
             DIR       GUST  MONTH      SPEED     TEMP_C     TEMP_F  YEAR_MONTH
-0    226.250000        NaN    1.0   7.184783 -10.996377  12.206522   (1917, 1)
-1    215.945946        NaN    2.0  11.738095 -14.212963   6.416667   (1917, 2)
-2    185.769231        NaN    3.0   9.032258 -10.890084  12.397849   (1917, 3)
-3    173.717949        NaN    4.0   8.611111   0.746914  33.344444   (1917, 4)
-4    261.851852        NaN    5.0  11.591398   6.911589  44.440860   (1917, 5)
-5    211.315789        NaN    6.0   7.777778  17.820988  64.077778   (1917, 6)
-6    225.487805        NaN    7.0   6.677419  16.612903  61.903226   (1917, 7)
-7    161.971831        NaN    8.0   6.150538  18.500597  65.301075   (1917, 8)
-8    237.027027        NaN    9.0   9.966667   9.098765  48.377778   (1917, 9)
-9    162.619048        NaN   10.0  12.784946   6.164875  43.096774  (1917, 10)
-10   199.529412        NaN   11.0  13.322222  -0.364198  31.344444  (1917, 11)
-11   186.956522        NaN   12.0   8.096774  -5.746714  21.655914  (1917, 12)
-12   213.924051        NaN    1.0  11.580645 -12.968937   8.655914   (1918, 1)
-13   201.285714        NaN    2.0   8.011905  -7.810847  17.940476   (1918, 2)
-14   229.714286        NaN    3.0   8.838710  -3.130227  26.365591   (1918, 3)
-15   171.692308        NaN    4.0   6.244444   3.783951  38.811111   (1918, 4)
-16   213.294118        NaN    5.0   9.913978   8.160096  46.688172   (1918, 5)
-17   211.666667        NaN    6.0  10.800000  12.938272  55.288889   (1918, 6)
-18   195.810811        NaN    7.0   7.860215  18.207885  64.774194   (1918, 7)
-19   205.909091        NaN    8.0   6.182796  12.431302  54.376344   (1918, 8)
-20   190.142857        NaN    9.0   9.444444   8.604938  47.488889   (1918, 9)
-21   185.925926        NaN   10.0   9.408602   6.063321  42.913978  (1918, 10)
-22   189.610390        NaN   11.0  10.363636   1.445707  34.602273  (1918, 11)
-23   149.746835        NaN   12.0  10.333333  -5.537634  22.032258  (1918, 12)
-24   129.589041        NaN    1.0   6.526882  -6.057348  21.096774   (1919, 1)
-25   241.551724        NaN    2.0   7.702381 -11.170635  11.892857   (1919, 2)
-26   202.750000        NaN    3.0  12.688172  -7.072879  19.268817   (1919, 3)
-27   198.030303        NaN    4.0   9.149425   1.104651  33.988372   (1919, 4)
-28   211.617647        NaN    5.0   7.827957  10.585424  51.053763   (1919, 5)
-29   189.846154        NaN    6.0   8.275862  15.421456  59.758621   (1919, 6)
+0    218.181818        NaN    1.0  13.204301  -3.596177  25.526882   (1906, 1)
+1    178.095238        NaN    2.0  13.142857  -3.445767  25.797619   (1906, 2)
+2    232.043011        NaN    3.0  15.021505  -5.107527  22.806452   (1906, 3)
+3    232.045455        NaN    4.0  13.811111   3.790123  38.822222   (1906, 4)
+4    192.820513        NaN    5.0  10.333333  13.070490  55.526882   (1906, 5)
+5    234.222222        NaN    6.0  12.922222  16.246914  61.244444   (1906, 6)
+6    226.923077        NaN    7.0  10.827957  18.805257  65.849462   (1906, 7)
+7    251.627907        NaN    8.0  11.623656  13.590203  56.462366   (1906, 8)
+8    236.986301        NaN    9.0   9.988889   8.611111  47.500000   (1906, 9)
+9    199.397590        NaN   10.0  12.365591   4.360812  39.849462  (1906, 10)
+10   199.166667        NaN   11.0  14.211111   0.296296  32.533333  (1906, 11)
+11   198.636364        NaN   12.0  15.516129  -4.086022  24.645161  (1906, 12)
+12   190.930233        NaN    1.0  16.344086  -9.904421  14.172043   (1907, 1)
+13   223.466667        NaN    2.0  15.108434  -5.535475  22.036145   (1907, 2)
+14   238.051948        NaN    3.0  10.763441  -1.344086  29.580645   (1907, 3)
+15   201.038961        NaN    4.0  10.433333   2.283951  36.111111   (1907, 4)
+16   244.823529        NaN    5.0  12.913978   7.048984  44.688172   (1907, 5)
+17   202.674419        NaN    6.0  11.633333  14.308642  57.755556   (1907, 6)
+18   215.238095        NaN    7.0  10.473118  16.923536  62.462366   (1907, 7)
+19   221.139241        NaN    8.0   9.645161  12.640382  54.752688   (1907, 8)
+20   258.953488        NaN    9.0  16.466667   9.185185  48.533333   (1907, 9)
+21   192.682927        NaN   10.0  10.408602   8.482676  47.268817  (1907, 10)
+22   204.222222        NaN   11.0  15.744444   0.641975  33.155556  (1907, 11)
+23   166.052632        NaN   12.0  11.000000 -11.992754  10.413043  (1907, 12)
+24   221.547619        NaN    1.0  11.376344  -6.284349  20.688172   (1908, 1)
+25   190.864198        NaN    2.0  10.546512  -5.245478  22.558140   (1908, 2)
+26   169.315068        NaN    3.0   6.537634  -4.342891  24.182796   (1908, 3)
+27   195.333333        NaN    4.0   6.222222   2.672840  36.811111   (1908, 4)
+28   259.718310        NaN    5.0   6.709677   8.052569  46.494624   (1908, 5)
+29   249.651163        NaN    6.0  20.011111  14.283951  57.711111   (1908, 6)
 ..          ...        ...    ...        ...        ...        ...         ...
-796  405.082453  17.250000    5.0   7.452416   6.882535  44.388564   (2017, 5)
-797  406.696117  18.533613    6.0   7.273412  12.455373  54.419672   (2017, 6)
-798  395.458746  14.882353    7.0   5.807256  14.436690  57.986042   (2017, 7)
-799  425.223558  15.767196    8.0   5.856287  14.093661  57.368590   (2017, 8)
-800  346.161481  15.480000    9.0   5.072941   9.104895  48.388811   (2017, 9)
-801  305.445283  16.729469   10.0   6.762276   3.596545  38.473780  (2017, 10)
-802  363.135977  15.989189   11.0   6.149673   0.780164  33.404295  (2017, 11)
-803  353.396004  16.781116   12.0   7.093086  -1.333083  29.600451  (2017, 12)
-804  343.304731  16.835294    1.0   6.006312  -5.228581  22.588553   (2018, 1)
-805  278.572392  14.370968    2.0   6.137827 -11.126866  11.971642   (2018, 2)
-806  357.101570  25.312500    3.0   6.394347  -7.250687  18.948764   (2018, 3)
-807  375.255561  23.125000    4.0   5.652785   2.984090  37.371362   (2018, 4)
-808  421.332520  24.476190    5.0   6.625115  13.666265  56.599276   (2018, 5)
-809  433.026392  27.115942    6.0   8.346118  13.970058  57.146104   (2018, 6)
-810  363.347531  20.000000    7.0   6.089236  20.188452  68.339213   (2018, 7)
-811  473.589453  24.724138    8.0   5.978913  16.576768  61.838182   (2018, 8)
-812  445.613356  23.695238    9.0   6.511075  11.428909  52.572036   (2018, 9)
-813  405.446437  18.812500   10.0   6.158283   4.383959  39.891125  (2018, 10)
-814  421.499102  22.871795   11.0   6.546313   1.686590  35.035861  (2018, 11)
-815  315.282321  26.000000   12.0   6.215385  -4.089957  24.638078  (2018, 12)
-816  358.878037  27.666667    1.0   6.080845 -10.344629  13.379667   (2019, 1)
-817  380.936620  31.093333    2.0   8.733899  -3.324484  26.015928   (2019, 2)
-818  388.804775  26.846154    3.0   8.178588  -2.338365  27.790942   (2019, 3)
-819  399.197218  21.416667    4.0   6.020893   4.769446  40.585002   (2019, 4)
-820  426.542763  26.754386    5.0   7.283957   7.926650  46.267970   (2019, 5)
-821  541.790176  23.243902    6.0   7.209586  15.643554  60.158397   (2019, 6)
-822  516.388684  18.555556    7.0   6.825789  15.403457  59.726223   (2019, 7)
-823  487.433531  21.923077    8.0   6.374659  14.214327  57.585788   (2019, 8)
-824  435.173012  16.500000    9.0   5.931363   8.643044  47.557480   (2019, 9)
-825  488.700000  13.200000   10.0   6.700000   5.538462  41.969231  (2019, 10)
+571  340.875980  15.628492    5.0   6.872531   8.409816  47.137668   (2017, 5)
+572  379.561190  17.014451    6.0   6.904539  12.733344  54.920019   (2017, 6)
+573  359.269933  15.245136    7.0   6.318477  14.878319  58.780974   (2017, 7)
+574  331.270588  15.627178    8.0   6.489526  14.526758  58.148165   (2017, 8)
+575  304.676641  14.788660    9.0   5.399907  10.070834  50.127501   (2017, 9)
+576  277.448502  16.598854   10.0   6.535569   3.963063  39.133514  (2017, 10)
+577  215.835272  16.026846   11.0   7.165504   1.957475  35.523456  (2017, 11)
+578  237.338195  15.927536   12.0   7.908435  -0.497221  31.105002  (2017, 12)
+579  269.553613  17.351792    1.0   6.898274  -3.848810  25.072142   (2018, 1)
+580  224.710831  14.937500    2.0   5.870871  -9.752473  14.445549   (2018, 2)
+581  292.265435  15.392857    3.0   6.066968  -6.356461  20.558371   (2018, 3)
+582  350.141509  15.216981    4.0   5.704087   3.862159  38.951887   (2018, 4)
+583  422.810552  14.819095    5.0   5.387764  14.625079  58.325143   (2018, 5)
+584  445.827233  18.480337    6.0   7.056325  14.357283  57.843109   (2018, 6)
+585  408.614487  15.902778    7.0   5.607442  20.695197  69.251354   (2018, 7)
+586  396.655422  16.764179    8.0   6.515248  16.888990  62.400182   (2018, 8)
+587  290.531856  20.581481    9.0   7.879109  12.253005  54.055409   (2018, 9)
+588  256.174656  17.902685   10.0   7.452370   5.609417  42.096950  (2018, 10)
+589  303.893491  16.097473   11.0   6.950848   2.547624  36.585723  (2018, 11)
+590  281.960321  14.872807   12.0   6.531746  -2.959591  26.672736  (2018, 12)
+591  279.460600  17.300813    1.0   5.835289  -7.841929  17.884529   (2019, 1)
+592  252.858576  17.908511    2.0   9.232639  -1.682650  28.971230   (2019, 2)
+593  281.606481  17.462687    3.0   7.907805  -1.397007  29.485388   (2019, 3)
+594  309.035306  15.868217    4.0   5.932188   5.817794  42.472030   (2019, 4)
+595  367.198506  17.553719    5.0   7.738381   8.869752  47.965553   (2019, 5)
+596  370.992008  17.251852    6.0   8.138490  16.524111  61.743400   (2019, 6)
+597  294.433641  15.034722    7.0   5.785714  16.427753  61.569955   (2019, 7)
+598  320.335766  15.751678    8.0   6.769447  15.888138  60.598649   (2019, 8)
+599  306.491058  15.173285    9.0   6.363594   9.976743  49.958137   (2019, 9)
+600  239.577465  17.470588   10.0  10.169014   5.985915  42.774648  (2019, 10)
 
-[826 rows x 7 columns]
+[601 rows x 7 columns]
 </pre></div></div>
 </div>
 <p>Awesome! Now we have aggregated our data based on daily averages and we have a new DataFrame called <code class="docutils literal notranslate"><span class="pre">hourly_data</span></code> where all those aggregated values are stored.</p>
 <p><strong>Mean for all groups at once</strong></p>
 <p>We can also achieve the same result by computing the mean of all columns for all groups in the grouped object:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3241,7 +3335,7 @@ First rows of data in this group:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -3290,367 +3384,367 @@ First rows of data in this group:
   </thead>
   <tbody>
     <tr>
-      <th rowspan="12" valign="top">1917</th>
+      <th rowspan="12" valign="top">1906</th>
       <th>1</th>
-      <td>29350.0</td>
-      <td>1.917012e+11</td>
-      <td>226.250000</td>
-      <td>7.184783</td>
+      <td>29440.0</td>
+      <td>1.906012e+11</td>
+      <td>218.181818</td>
+      <td>13.204301</td>
       <td>NaN</td>
-      <td>12.206522</td>
+      <td>25.526882</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-10.996377</td>
+      <td>-3.596177</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>29350.0</td>
-      <td>1.917021e+11</td>
-      <td>215.945946</td>
-      <td>11.738095</td>
+      <td>29440.0</td>
+      <td>1.906021e+11</td>
+      <td>178.095238</td>
+      <td>13.142857</td>
       <td>NaN</td>
-      <td>6.416667</td>
+      <td>25.797619</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-14.212963</td>
+      <td>-3.445767</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>29350.0</td>
-      <td>1.917032e+11</td>
-      <td>185.769231</td>
-      <td>9.032258</td>
+      <td>29440.0</td>
+      <td>1.906032e+11</td>
+      <td>232.043011</td>
+      <td>15.021505</td>
       <td>NaN</td>
-      <td>12.397849</td>
+      <td>22.806452</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-10.890084</td>
+      <td>-5.107527</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>29350.0</td>
-      <td>1.917042e+11</td>
-      <td>173.717949</td>
-      <td>8.611111</td>
+      <td>29440.0</td>
+      <td>1.906042e+11</td>
+      <td>232.045455</td>
+      <td>13.811111</td>
       <td>NaN</td>
-      <td>33.344444</td>
+      <td>38.822222</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>0.746914</td>
+      <td>3.790123</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>29350.0</td>
-      <td>1.917052e+11</td>
-      <td>261.851852</td>
-      <td>11.591398</td>
-      <td>NaN</td>
-      <td>44.440860</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>6.911589</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>29350.0</td>
-      <td>1.917062e+11</td>
-      <td>211.315789</td>
-      <td>7.777778</td>
-      <td>NaN</td>
-      <td>64.077778</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>17.820988</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>29350.0</td>
-      <td>1.917072e+11</td>
-      <td>225.487805</td>
-      <td>6.677419</td>
-      <td>NaN</td>
-      <td>61.903226</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>16.612903</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>29350.0</td>
-      <td>1.917082e+11</td>
-      <td>161.971831</td>
-      <td>6.150538</td>
-      <td>NaN</td>
-      <td>65.301075</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>18.500597</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>29350.0</td>
-      <td>1.917092e+11</td>
-      <td>237.027027</td>
-      <td>9.966667</td>
-      <td>NaN</td>
-      <td>48.377778</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>9.098765</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>29350.0</td>
-      <td>1.917102e+11</td>
-      <td>162.619048</td>
-      <td>12.784946</td>
-      <td>NaN</td>
-      <td>43.096774</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>6.164875</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>29350.0</td>
-      <td>1.917112e+11</td>
-      <td>199.529412</td>
-      <td>13.322222</td>
-      <td>NaN</td>
-      <td>31.344444</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-0.364198</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>29350.0</td>
-      <td>1.917122e+11</td>
-      <td>186.956522</td>
-      <td>8.096774</td>
-      <td>NaN</td>
-      <td>21.655914</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-5.746714</td>
-    </tr>
-    <tr>
-      <th rowspan="12" valign="top">1918</th>
-      <th>1</th>
-      <td>29350.0</td>
-      <td>1.918012e+11</td>
-      <td>213.924051</td>
-      <td>11.580645</td>
-      <td>NaN</td>
-      <td>8.655914</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-12.968937</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>29350.0</td>
-      <td>1.918021e+11</td>
-      <td>201.285714</td>
-      <td>8.011905</td>
-      <td>NaN</td>
-      <td>17.940476</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-7.810847</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>29350.0</td>
-      <td>1.918032e+11</td>
-      <td>229.714286</td>
-      <td>8.838710</td>
-      <td>NaN</td>
-      <td>26.365591</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-3.130227</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>29350.0</td>
-      <td>1.918042e+11</td>
-      <td>171.692308</td>
-      <td>6.244444</td>
-      <td>NaN</td>
-      <td>38.811111</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>3.783951</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>29350.0</td>
-      <td>1.918052e+11</td>
-      <td>213.294118</td>
-      <td>9.913978</td>
-      <td>NaN</td>
-      <td>46.688172</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>8.160096</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>29350.0</td>
-      <td>1.918062e+11</td>
-      <td>211.666667</td>
-      <td>10.800000</td>
-      <td>NaN</td>
-      <td>55.288889</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>12.938272</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>29350.0</td>
-      <td>1.918072e+11</td>
-      <td>195.810811</td>
-      <td>7.860215</td>
-      <td>NaN</td>
-      <td>64.774194</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>18.207885</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>29350.0</td>
-      <td>1.918082e+11</td>
-      <td>205.909091</td>
-      <td>6.182796</td>
-      <td>NaN</td>
-      <td>54.376344</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>12.431302</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>29350.0</td>
-      <td>1.918092e+11</td>
-      <td>190.142857</td>
-      <td>9.444444</td>
-      <td>NaN</td>
-      <td>47.488889</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>8.604938</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>29350.0</td>
-      <td>1.918102e+11</td>
-      <td>185.925926</td>
-      <td>9.408602</td>
-      <td>NaN</td>
-      <td>42.913978</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>6.063321</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>29350.0</td>
-      <td>1.918112e+11</td>
-      <td>189.610390</td>
-      <td>10.363636</td>
-      <td>NaN</td>
-      <td>34.602273</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.445707</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>29350.0</td>
-      <td>1.918122e+11</td>
-      <td>149.746835</td>
+      <td>29440.0</td>
+      <td>1.906052e+11</td>
+      <td>192.820513</td>
       <td>10.333333</td>
       <td>NaN</td>
-      <td>22.032258</td>
+      <td>55.526882</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>-5.537634</td>
-    </tr>
-    <tr>
-      <th rowspan="6" valign="top">1919</th>
-      <th>1</th>
-      <td>29350.0</td>
-      <td>1.919012e+11</td>
-      <td>129.589041</td>
-      <td>6.526882</td>
-      <td>NaN</td>
-      <td>21.096774</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-6.057348</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>29350.0</td>
-      <td>1.919021e+11</td>
-      <td>241.551724</td>
-      <td>7.702381</td>
-      <td>NaN</td>
-      <td>11.892857</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-11.170635</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>29350.0</td>
-      <td>1.919032e+11</td>
-      <td>202.750000</td>
-      <td>12.688172</td>
-      <td>NaN</td>
-      <td>19.268817</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-7.072879</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>29350.0</td>
-      <td>1.919042e+11</td>
-      <td>198.030303</td>
-      <td>9.149425</td>
-      <td>NaN</td>
-      <td>33.988372</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.104651</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>29350.0</td>
-      <td>1.919052e+11</td>
-      <td>211.617647</td>
-      <td>7.827957</td>
-      <td>NaN</td>
-      <td>51.053763</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>10.585424</td>
+      <td>13.070490</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>29350.0</td>
-      <td>1.919062e+11</td>
-      <td>189.846154</td>
-      <td>8.275862</td>
+      <td>29440.0</td>
+      <td>1.906062e+11</td>
+      <td>234.222222</td>
+      <td>12.922222</td>
       <td>NaN</td>
-      <td>59.758621</td>
+      <td>61.244444</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>15.421456</td>
+      <td>16.246914</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>29440.0</td>
+      <td>1.906072e+11</td>
+      <td>226.923077</td>
+      <td>10.827957</td>
+      <td>NaN</td>
+      <td>65.849462</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>18.805257</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>29440.0</td>
+      <td>1.906082e+11</td>
+      <td>251.627907</td>
+      <td>11.623656</td>
+      <td>NaN</td>
+      <td>56.462366</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>13.590203</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>29440.0</td>
+      <td>1.906092e+11</td>
+      <td>236.986301</td>
+      <td>9.988889</td>
+      <td>NaN</td>
+      <td>47.500000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>8.611111</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>29440.0</td>
+      <td>1.906102e+11</td>
+      <td>199.397590</td>
+      <td>12.365591</td>
+      <td>NaN</td>
+      <td>39.849462</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.360812</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>29440.0</td>
+      <td>1.906112e+11</td>
+      <td>199.166667</td>
+      <td>14.211111</td>
+      <td>NaN</td>
+      <td>32.533333</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.296296</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>29440.0</td>
+      <td>1.906122e+11</td>
+      <td>198.636364</td>
+      <td>15.516129</td>
+      <td>NaN</td>
+      <td>24.645161</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-4.086022</td>
+    </tr>
+    <tr>
+      <th rowspan="12" valign="top">1907</th>
+      <th>1</th>
+      <td>29440.0</td>
+      <td>1.907012e+11</td>
+      <td>190.930233</td>
+      <td>16.344086</td>
+      <td>NaN</td>
+      <td>14.172043</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-9.904421</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>29440.0</td>
+      <td>1.907021e+11</td>
+      <td>223.466667</td>
+      <td>15.108434</td>
+      <td>NaN</td>
+      <td>22.036145</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-5.535475</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>29440.0</td>
+      <td>1.907032e+11</td>
+      <td>238.051948</td>
+      <td>10.763441</td>
+      <td>NaN</td>
+      <td>29.580645</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-1.344086</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>29440.0</td>
+      <td>1.907042e+11</td>
+      <td>201.038961</td>
+      <td>10.433333</td>
+      <td>NaN</td>
+      <td>36.111111</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.283951</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>29440.0</td>
+      <td>1.907052e+11</td>
+      <td>244.823529</td>
+      <td>12.913978</td>
+      <td>NaN</td>
+      <td>44.688172</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7.048984</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>29440.0</td>
+      <td>1.907062e+11</td>
+      <td>202.674419</td>
+      <td>11.633333</td>
+      <td>NaN</td>
+      <td>57.755556</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.308642</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>29440.0</td>
+      <td>1.907072e+11</td>
+      <td>215.238095</td>
+      <td>10.473118</td>
+      <td>NaN</td>
+      <td>62.462366</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.923536</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>29440.0</td>
+      <td>1.907082e+11</td>
+      <td>221.139241</td>
+      <td>9.645161</td>
+      <td>NaN</td>
+      <td>54.752688</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>12.640382</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>29440.0</td>
+      <td>1.907092e+11</td>
+      <td>258.953488</td>
+      <td>16.466667</td>
+      <td>NaN</td>
+      <td>48.533333</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>9.185185</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>29440.0</td>
+      <td>1.907102e+11</td>
+      <td>192.682927</td>
+      <td>10.408602</td>
+      <td>NaN</td>
+      <td>47.268817</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>8.482676</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>29440.0</td>
+      <td>1.907112e+11</td>
+      <td>204.222222</td>
+      <td>15.744444</td>
+      <td>NaN</td>
+      <td>33.155556</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.641975</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>29440.0</td>
+      <td>1.907122e+11</td>
+      <td>166.052632</td>
+      <td>11.000000</td>
+      <td>NaN</td>
+      <td>10.413043</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-11.992754</td>
+    </tr>
+    <tr>
+      <th rowspan="6" valign="top">1908</th>
+      <th>1</th>
+      <td>29440.0</td>
+      <td>1.908012e+11</td>
+      <td>221.547619</td>
+      <td>11.376344</td>
+      <td>NaN</td>
+      <td>20.688172</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-6.284349</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>29440.0</td>
+      <td>1.908022e+11</td>
+      <td>190.864198</td>
+      <td>10.546512</td>
+      <td>NaN</td>
+      <td>22.558140</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-5.245478</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>29440.0</td>
+      <td>1.908032e+11</td>
+      <td>169.315068</td>
+      <td>6.537634</td>
+      <td>NaN</td>
+      <td>24.182796</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-4.342891</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>29440.0</td>
+      <td>1.908042e+11</td>
+      <td>195.333333</td>
+      <td>6.222222</td>
+      <td>NaN</td>
+      <td>36.811111</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.672840</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>29440.0</td>
+      <td>1.908052e+11</td>
+      <td>259.718310</td>
+      <td>6.709677</td>
+      <td>NaN</td>
+      <td>46.494624</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>8.052569</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>29440.0</td>
+      <td>1.908062e+11</td>
+      <td>249.651163</td>
+      <td>20.011111</td>
+      <td>NaN</td>
+      <td>57.711111</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.283951</td>
     </tr>
     <tr>
       <th>...</th>
@@ -3668,369 +3762,369 @@ First rows of data in this group:
     <tr>
       <th rowspan="8" valign="top">2017</th>
       <th>5</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.017052e+11</td>
-      <td>405.082453</td>
-      <td>7.452416</td>
-      <td>17.250000</td>
-      <td>44.388564</td>
-      <td>50.850000</td>
-      <td>37.816667</td>
-      <td>6.882535</td>
+      <td>340.875980</td>
+      <td>6.872531</td>
+      <td>15.628492</td>
+      <td>47.137668</td>
+      <td>53.580645</td>
+      <td>40.387097</td>
+      <td>8.409816</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.017062e+11</td>
-      <td>406.696117</td>
-      <td>7.273412</td>
-      <td>18.533613</td>
-      <td>54.419672</td>
-      <td>60.683333</td>
-      <td>48.683333</td>
-      <td>12.455373</td>
+      <td>379.561190</td>
+      <td>6.904539</td>
+      <td>17.014451</td>
+      <td>54.920019</td>
+      <td>60.566667</td>
+      <td>49.516667</td>
+      <td>12.733344</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.017072e+11</td>
-      <td>395.458746</td>
-      <td>5.807256</td>
-      <td>14.882353</td>
-      <td>57.986042</td>
-      <td>63.822581</td>
-      <td>52.774194</td>
-      <td>14.436690</td>
+      <td>359.269933</td>
+      <td>6.318477</td>
+      <td>15.245136</td>
+      <td>58.780974</td>
+      <td>64.345455</td>
+      <td>53.581818</td>
+      <td>14.878319</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.017082e+11</td>
-      <td>425.223558</td>
-      <td>5.856287</td>
-      <td>15.767196</td>
-      <td>57.368590</td>
-      <td>62.032787</td>
-      <td>52.327869</td>
-      <td>14.093661</td>
+      <td>331.270588</td>
+      <td>6.489526</td>
+      <td>15.627178</td>
+      <td>58.148165</td>
+      <td>62.229508</td>
+      <td>53.590164</td>
+      <td>14.526758</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.017092e+11</td>
-      <td>346.161481</td>
-      <td>5.072941</td>
-      <td>15.480000</td>
-      <td>48.388811</td>
-      <td>52.150000</td>
-      <td>44.216667</td>
-      <td>9.104895</td>
+      <td>304.676641</td>
+      <td>5.399907</td>
+      <td>14.788660</td>
+      <td>50.127501</td>
+      <td>53.300000</td>
+      <td>46.600000</td>
+      <td>10.070834</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.017102e+11</td>
-      <td>305.445283</td>
-      <td>6.762276</td>
-      <td>16.729469</td>
-      <td>38.473780</td>
-      <td>40.862069</td>
-      <td>36.068966</td>
-      <td>3.596545</td>
+      <td>277.448502</td>
+      <td>6.535569</td>
+      <td>16.598854</td>
+      <td>39.133514</td>
+      <td>41.918033</td>
+      <td>36.098361</td>
+      <td>3.963063</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.017112e+11</td>
-      <td>363.135977</td>
-      <td>6.149673</td>
-      <td>15.989189</td>
-      <td>33.404295</td>
-      <td>34.983333</td>
-      <td>31.016667</td>
-      <td>0.780164</td>
+      <td>215.835272</td>
+      <td>7.165504</td>
+      <td>16.026846</td>
+      <td>35.523456</td>
+      <td>37.200000</td>
+      <td>33.368421</td>
+      <td>1.957475</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.017122e+11</td>
-      <td>353.396004</td>
-      <td>7.093086</td>
-      <td>16.781116</td>
-      <td>29.600451</td>
-      <td>31.258065</td>
-      <td>27.774194</td>
-      <td>-1.333083</td>
+      <td>237.338195</td>
+      <td>7.908435</td>
+      <td>15.927536</td>
+      <td>31.105002</td>
+      <td>33.016393</td>
+      <td>28.758065</td>
+      <td>-0.497221</td>
     </tr>
     <tr>
       <th rowspan="12" valign="top">2018</th>
       <th>1</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.018012e+11</td>
-      <td>343.304731</td>
-      <td>6.006312</td>
-      <td>16.835294</td>
-      <td>22.588553</td>
-      <td>25.016129</td>
-      <td>18.806452</td>
-      <td>-5.228581</td>
+      <td>269.553613</td>
+      <td>6.898274</td>
+      <td>17.351792</td>
+      <td>25.072142</td>
+      <td>26.816667</td>
+      <td>21.637931</td>
+      <td>-3.848810</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.018021e+11</td>
-      <td>278.572392</td>
-      <td>6.137827</td>
-      <td>14.370968</td>
-      <td>11.971642</td>
-      <td>16.109091</td>
-      <td>5.363636</td>
-      <td>-11.126866</td>
+      <td>224.710831</td>
+      <td>5.870871</td>
+      <td>14.937500</td>
+      <td>14.445549</td>
+      <td>18.196429</td>
+      <td>10.196429</td>
+      <td>-9.752473</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.018032e+11</td>
-      <td>357.101570</td>
-      <td>6.394347</td>
-      <td>25.312500</td>
-      <td>18.948764</td>
-      <td>24.096774</td>
-      <td>10.387097</td>
-      <td>-7.250687</td>
+      <td>292.265435</td>
+      <td>6.066968</td>
+      <td>15.392857</td>
+      <td>20.558371</td>
+      <td>25.491525</td>
+      <td>12.423729</td>
+      <td>-6.356461</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.018042e+11</td>
-      <td>375.255561</td>
-      <td>5.652785</td>
-      <td>23.125000</td>
-      <td>37.371362</td>
-      <td>42.745763</td>
-      <td>31.796610</td>
-      <td>2.984090</td>
+      <td>350.141509</td>
+      <td>5.704087</td>
+      <td>15.216981</td>
+      <td>38.951887</td>
+      <td>44.175439</td>
+      <td>32.844828</td>
+      <td>3.862159</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.018052e+11</td>
-      <td>421.332520</td>
-      <td>6.625115</td>
-      <td>24.476190</td>
-      <td>56.599276</td>
-      <td>64.966667</td>
-      <td>48.166667</td>
-      <td>13.666265</td>
+      <td>422.810552</td>
+      <td>5.387764</td>
+      <td>14.819095</td>
+      <td>58.325143</td>
+      <td>63.512195</td>
+      <td>48.658537</td>
+      <td>14.625079</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.018062e+11</td>
-      <td>433.026392</td>
-      <td>8.346118</td>
-      <td>27.115942</td>
-      <td>57.146104</td>
-      <td>63.644068</td>
-      <td>51.067797</td>
-      <td>13.970058</td>
+      <td>445.827233</td>
+      <td>7.056325</td>
+      <td>18.480337</td>
+      <td>57.843109</td>
+      <td>63.754717</td>
+      <td>51.000000</td>
+      <td>14.357283</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.018072e+11</td>
-      <td>363.347531</td>
-      <td>6.089236</td>
-      <td>20.000000</td>
-      <td>68.339213</td>
-      <td>75.065574</td>
-      <td>62.081967</td>
-      <td>20.188452</td>
+      <td>408.614487</td>
+      <td>5.607442</td>
+      <td>15.902778</td>
+      <td>69.251354</td>
+      <td>75.262295</td>
+      <td>63.688525</td>
+      <td>20.695197</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.018082e+11</td>
-      <td>473.589453</td>
-      <td>5.978913</td>
-      <td>24.724138</td>
-      <td>61.838182</td>
-      <td>68.233333</td>
-      <td>55.900000</td>
-      <td>16.576768</td>
+      <td>396.655422</td>
+      <td>6.515248</td>
+      <td>16.764179</td>
+      <td>62.400182</td>
+      <td>67.833333</td>
+      <td>57.350000</td>
+      <td>16.888990</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.018092e+11</td>
-      <td>445.613356</td>
-      <td>6.511075</td>
-      <td>23.695238</td>
-      <td>52.572036</td>
-      <td>57.092593</td>
-      <td>47.796296</td>
-      <td>11.428909</td>
+      <td>290.531856</td>
+      <td>7.879109</td>
+      <td>20.581481</td>
+      <td>54.055409</td>
+      <td>57.833333</td>
+      <td>49.648148</td>
+      <td>12.253005</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.018102e+11</td>
-      <td>405.446437</td>
-      <td>6.158283</td>
-      <td>18.812500</td>
-      <td>39.891125</td>
-      <td>43.327869</td>
-      <td>34.524590</td>
-      <td>4.383959</td>
+      <td>256.174656</td>
+      <td>7.452370</td>
+      <td>17.902685</td>
+      <td>42.096950</td>
+      <td>45.229508</td>
+      <td>37.672131</td>
+      <td>5.609417</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.018111e+11</td>
-      <td>421.499102</td>
-      <td>6.546313</td>
-      <td>22.871795</td>
-      <td>35.035861</td>
-      <td>37.319149</td>
-      <td>32.382979</td>
-      <td>1.686590</td>
+      <td>303.893491</td>
+      <td>6.950848</td>
+      <td>16.097473</td>
+      <td>36.585723</td>
+      <td>38.510638</td>
+      <td>34.085106</td>
+      <td>2.547624</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.018122e+11</td>
-      <td>315.282321</td>
-      <td>6.215385</td>
-      <td>26.000000</td>
-      <td>24.638078</td>
-      <td>26.854839</td>
-      <td>22.048387</td>
-      <td>-4.089957</td>
+      <td>281.960321</td>
+      <td>6.531746</td>
+      <td>14.872807</td>
+      <td>26.672736</td>
+      <td>27.901961</td>
+      <td>23.173077</td>
+      <td>-2.959591</td>
     </tr>
     <tr>
       <th rowspan="10" valign="top">2019</th>
       <th>1</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.019012e+11</td>
-      <td>358.878037</td>
-      <td>6.080845</td>
-      <td>27.666667</td>
-      <td>13.379667</td>
-      <td>17.516129</td>
-      <td>8.532258</td>
-      <td>-10.344629</td>
+      <td>279.460600</td>
+      <td>5.835289</td>
+      <td>17.300813</td>
+      <td>17.884529</td>
+      <td>21.474576</td>
+      <td>12.700000</td>
+      <td>-7.841929</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.019021e+11</td>
-      <td>380.936620</td>
-      <td>8.733899</td>
-      <td>31.093333</td>
-      <td>26.015928</td>
-      <td>30.000000</td>
-      <td>21.089286</td>
-      <td>-3.324484</td>
+      <td>252.858576</td>
+      <td>9.232639</td>
+      <td>17.908511</td>
+      <td>28.971230</td>
+      <td>32.672727</td>
+      <td>24.545455</td>
+      <td>-1.682650</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.019032e+11</td>
-      <td>388.804775</td>
-      <td>8.178588</td>
-      <td>26.846154</td>
-      <td>27.790942</td>
-      <td>31.516129</td>
-      <td>22.500000</td>
-      <td>-2.338365</td>
+      <td>281.606481</td>
+      <td>7.907805</td>
+      <td>17.462687</td>
+      <td>29.485388</td>
+      <td>32.870968</td>
+      <td>24.870968</td>
+      <td>-1.397007</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.019042e+11</td>
-      <td>399.197218</td>
-      <td>6.020893</td>
-      <td>21.416667</td>
-      <td>40.585002</td>
-      <td>46.916667</td>
-      <td>33.050000</td>
-      <td>4.769446</td>
+      <td>309.035306</td>
+      <td>5.932188</td>
+      <td>15.868217</td>
+      <td>42.472030</td>
+      <td>48.810345</td>
+      <td>35.847458</td>
+      <td>5.817794</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.019052e+11</td>
-      <td>426.542763</td>
-      <td>7.283957</td>
-      <td>26.754386</td>
-      <td>46.267970</td>
-      <td>51.870370</td>
-      <td>41.481481</td>
-      <td>7.926650</td>
+      <td>367.198506</td>
+      <td>7.738381</td>
+      <td>17.553719</td>
+      <td>47.965553</td>
+      <td>52.907407</td>
+      <td>43.462963</td>
+      <td>8.869752</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.019062e+11</td>
-      <td>541.790176</td>
-      <td>7.209586</td>
-      <td>23.243902</td>
-      <td>60.158397</td>
-      <td>66.966102</td>
-      <td>54.576271</td>
-      <td>15.643554</td>
+      <td>370.992008</td>
+      <td>8.138490</td>
+      <td>17.251852</td>
+      <td>61.743400</td>
+      <td>67.316667</td>
+      <td>55.600000</td>
+      <td>16.524111</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.019072e+11</td>
-      <td>516.388684</td>
-      <td>6.825789</td>
-      <td>18.555556</td>
-      <td>59.726223</td>
-      <td>66.967213</td>
-      <td>53.766667</td>
-      <td>15.403457</td>
+      <td>294.433641</td>
+      <td>5.785714</td>
+      <td>15.034722</td>
+      <td>61.569955</td>
+      <td>67.774194</td>
+      <td>55.903226</td>
+      <td>16.427753</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.019082e+11</td>
-      <td>487.433531</td>
-      <td>6.374659</td>
-      <td>21.923077</td>
-      <td>57.585788</td>
-      <td>64.177419</td>
-      <td>52.135593</td>
-      <td>14.214327</td>
+      <td>320.335766</td>
+      <td>6.769447</td>
+      <td>15.751678</td>
+      <td>60.598649</td>
+      <td>65.935484</td>
+      <td>55.016129</td>
+      <td>15.888138</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.019092e+11</td>
-      <td>435.173012</td>
-      <td>5.931363</td>
-      <td>16.500000</td>
-      <td>47.557480</td>
-      <td>52.650000</td>
-      <td>43.033333</td>
-      <td>8.643044</td>
+      <td>306.491058</td>
+      <td>6.363594</td>
+      <td>15.173285</td>
+      <td>49.958137</td>
+      <td>53.766667</td>
+      <td>45.350000</td>
+      <td>9.976743</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>29350.0</td>
+      <td>29440.0</td>
       <td>2.019100e+11</td>
-      <td>488.700000</td>
-      <td>6.700000</td>
-      <td>13.200000</td>
-      <td>41.969231</td>
-      <td>51.000000</td>
-      <td>49.000000</td>
-      <td>5.538462</td>
+      <td>239.577465</td>
+      <td>10.169014</td>
+      <td>17.470588</td>
+      <td>42.774648</td>
+      <td>48.500000</td>
+      <td>41.000000</td>
+      <td>5.985915</td>
     </tr>
   </tbody>
 </table>
-<p>826 rows × 9 columns</p>
+<p>601 rows × 9 columns</p>
 </div></div>
 </div>
 </div>
@@ -4041,7 +4135,7 @@ First rows of data in this group:
 <li>select all records that are from April (regardless of the year):</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4053,7 +4147,7 @@ First rows of data in this group:
 <li>take a subset of columns that might contain interesting information:</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4065,7 +4159,7 @@ First rows of data in this group:
 <li>group by year and month:</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4077,7 +4171,7 @@ First rows of data in this group:
 <li>calculate mean for each group:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4087,7 +4181,7 @@ First rows of data in this group:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -4124,39 +4218,39 @@ First rows of data in this group:
   </thead>
   <tbody>
     <tr>
-      <th>1917</th>
+      <th>1906</th>
       <th>4</th>
-      <td>29350</td>
-      <td>33.344444</td>
-      <td>0.746914</td>
+      <td>29440</td>
+      <td>38.822222</td>
+      <td>3.790123</td>
     </tr>
     <tr>
-      <th>1918</th>
+      <th>1907</th>
       <th>4</th>
-      <td>29350</td>
-      <td>38.811111</td>
-      <td>3.783951</td>
+      <td>29440</td>
+      <td>36.111111</td>
+      <td>2.283951</td>
     </tr>
     <tr>
-      <th>1919</th>
+      <th>1908</th>
       <th>4</th>
-      <td>29350</td>
-      <td>33.988372</td>
-      <td>1.104651</td>
+      <td>29440</td>
+      <td>36.811111</td>
+      <td>2.672840</td>
     </tr>
     <tr>
-      <th>1920</th>
+      <th>1909</th>
       <th>4</th>
-      <td>29350</td>
-      <td>39.277778</td>
-      <td>4.043210</td>
+      <td>29440</td>
+      <td>31.977778</td>
+      <td>-0.012346</td>
     </tr>
     <tr>
-      <th>1921</th>
+      <th>1910</th>
       <th>4</th>
-      <td>29350</td>
-      <td>45.144444</td>
-      <td>7.302469</td>
+      <td>29440</td>
+      <td>39.833333</td>
+      <td>4.351852</td>
     </tr>
   </tbody>
 </table>
@@ -4166,7 +4260,7 @@ First rows of data in this group:
 <li>check the highest temperature values (sort the data frame in a descending order):</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4175,7 +4269,7 @@ First rows of data in this group:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -4212,86 +4306,86 @@ First rows of data in this group:
   </thead>
   <tbody>
     <tr>
-      <th>1921</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>45.144444</td>
-      <td>7.302469</td>
-    </tr>
-    <tr>
-      <th>1925</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>40.777778</td>
-      <td>4.876543</td>
-    </tr>
-    <tr>
-      <th>2011</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>40.670108</td>
-      <td>4.816727</td>
-    </tr>
-    <tr>
       <th>2019</th>
       <th>4</th>
-      <td>29350</td>
-      <td>40.585002</td>
-      <td>4.769446</td>
-    </tr>
-    <tr>
-      <th>2001</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>39.662827</td>
-      <td>4.257126</td>
-    </tr>
-    <tr>
-      <th>1920</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>39.277778</td>
-      <td>4.043210</td>
+      <td>29440</td>
+      <td>42.472030</td>
+      <td>5.817794</td>
     </tr>
     <tr>
       <th>1990</th>
       <th>4</th>
-      <td>29350</td>
-      <td>39.075949</td>
-      <td>3.931083</td>
+      <td>29440</td>
+      <td>41.918084</td>
+      <td>5.510047</td>
+    </tr>
+    <tr>
+      <th>1989</th>
+      <th>4</th>
+      <td>29440</td>
+      <td>41.369647</td>
+      <td>5.205360</td>
+    </tr>
+    <tr>
+      <th>2011</th>
+      <th>4</th>
+      <td>29440</td>
+      <td>41.290730</td>
+      <td>5.161517</td>
+    </tr>
+    <tr>
+      <th>2004</th>
+      <th>4</th>
+      <td>29440</td>
+      <td>41.249676</td>
+      <td>5.138709</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <th>4</th>
+      <td>29440</td>
+      <td>41.132353</td>
+      <td>5.073529</td>
+    </tr>
+    <tr>
+      <th>1983</th>
+      <th>4</th>
+      <td>29440</td>
+      <td>41.016183</td>
+      <td>5.008991</td>
+    </tr>
+    <tr>
+      <th>2008</th>
+      <th>4</th>
+      <td>29440</td>
+      <td>40.962343</td>
+      <td>4.979079</td>
+    </tr>
+    <tr>
+      <th>2000</th>
+      <th>4</th>
+      <td>29440</td>
+      <td>40.777778</td>
+      <td>4.876543</td>
     </tr>
     <tr>
       <th>1999</th>
       <th>4</th>
-      <td>29350</td>
-      <td>38.983356</td>
-      <td>3.879642</td>
-    </tr>
-    <tr>
-      <th>1918</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>38.811111</td>
-      <td>3.783951</td>
-    </tr>
-    <tr>
-      <th>2007</th>
-      <th>4</th>
-      <td>29350</td>
-      <td>38.713256</td>
-      <td>3.729587</td>
+      <td>29440</td>
+      <td>40.695291</td>
+      <td>4.830717</td>
     </tr>
   </tbody>
 </table>
 </div></div>
 </div>
-<p>How did April 2019 rank at this observation station 🌡️?</p>
+<p>How did April 2019 rank at the Tampere Pirkkala observation station 🌡️?</p>
 </div>
 <div class="section" id="Repeating-the-data-analysis-with-larger-dataset">
 <h2>Repeating the data analysis with larger dataset<a class="headerlink" href="#Repeating-the-data-analysis-with-larger-dataset" title="Permalink to this headline">¶</a></h2>
-<p>Finally, let’s repeat the data analysis steps above for all the available data we have (!!). First, confirm the path to the <strong>folder</strong> where all the input data are located. The idea is, that we will repeat the analysis process for each input file using a (rather long) for-loop! Here are all the main alaysis steps with some additional print out info - all in one long code cell:</p>
+<p>Finally, let’s repeat the data analysis steps above for all the available data we have (!!). First, confirm the path to the <strong>folder</strong> where all the input data are located. The idea is, that we will repeat the analysis process for each input file using a (rather long) for loop! Here we have all the main analysis steps with some additional output info - all in one long code cell:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4343,22 +4437,22 @@ First rows of data in this group:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-STATION NUMBER: 29350
-NUMBER OF OBSERVATIONS: 559667
+STATION NUMBER: 29440
+NUMBER OF OBSERVATIONS: 757983
             STATION_NUMBER     TEMP_F    TEMP_C
 YEAR MONTH
-1921 4               29350  45.144444  7.302469
-1925 4               29350  40.777778  4.876543
-2011 4               29350  40.670108  4.816727
-2019 4               29350  40.585002  4.769446
-2001 4               29350  39.662827  4.257126
+2019 4               29440  42.472030  5.817794
+1990 4               29440  41.918084  5.510047
+1989 4               29440  41.369647  5.205360
+2011 4               29440  41.290730  5.161517
+2004 4               29440  41.249676  5.138709
 
 
 </pre></div></div>
 </div>
-<p>We will use <code class="docutils literal notranslate"><span class="pre">glob()</span></code> -function from module <code class="docutils literal notranslate"><span class="pre">glob</span></code> to list our input files.</p>
+<p>We will use the <code class="docutils literal notranslate"><span class="pre">glob()</span></code> function from the module <code class="docutils literal notranslate"><span class="pre">glob</span></code> to list our input files.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4367,16 +4461,20 @@ YEAR MONTH
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">file_list</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\LocalData\VUOKKHEI\codes\Geo-Python\data\weather_data\*txt&#39;</span><span class="p">)</span>
+<span></span><span class="n">file_list</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;data/0*txt&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong></p>
+<p>Note that we’re using the * character as a wildcard, so any file that starts with <code class="docutils literal notranslate"><span class="pre">data/0</span></code> and ends with <code class="docutils literal notranslate"><span class="pre">txt</span></code> will be added to the list of files we will iterate over. We specifically use <code class="docutils literal notranslate"><span class="pre">data/0</span></code> as the starting part of the file names to avoid having our metadata files included in the list!</p>
+</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4390,13 +4488,13 @@ YEAR MONTH
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Number of files in the list 15
-[&#39;C:\\LocalData\\VUOKKHEI\\codes\\Geo-Python\\data\\weather_data\\028360.txt&#39;, &#39;C:\\LocalData\\VUOKKHEI\\codes\\Geo-Python\\data\\weather_data\\028690.txt&#39;, &#39;C:\\LocalData\\VUOKKHEI\\codes\\Geo-Python\\data\\weather_data\\028750.txt&#39;, &#39;C:\\LocalData\\VUOKKHEI\\codes\\Geo-Python\\data\\weather_data\\028970.txt&#39;, &#39;C:\\LocalData\\VUOKKHEI\\codes\\Geo-Python\\data\\weather_data\\029070.txt&#39;, &#39;C:\\LocalData\\VUOKKHEI\\codes\\Geo-Python\\data\\weather_data\\029110.txt&#39;, &#39;C:\\LocalData\\VUOKKHEI\\codes\\Geo-Python\\data\\weather_data\\029170.txt&#39;, &#39;C:\\LocalData\\VUOKKHEI\\codes\\Geo-Python\\data\\weather_data\\029350.txt&#39;, &#39;C:\\LocalData\\VUOKKHEI\\codes\\Geo-Python\\data\\weather_data\\029440.txt&#39;, &#39;C:\\LocalData\\VUOKKHEI\\codes\\Geo-Python\\data\\weather_data\\029500.txt&#39;, &#39;C:\\LocalData\\VUOKKHEI\\codes\\Geo-Python\\data\\weather_data\\029700.txt&#39;, &#39;C:\\LocalData\\VUOKKHEI\\codes\\Geo-Python\\data\\weather_data\\029720.txt&#39;, &#39;C:\\LocalData\\VUOKKHEI\\codes\\Geo-Python\\data\\weather_data\\029740.txt&#39;, &#39;C:\\LocalData\\VUOKKHEI\\codes\\Geo-Python\\data\\weather_data\\029810.txt&#39;, &#39;C:\\LocalData\\VUOKKHEI\\codes\\Geo-Python\\data\\weather_data\\029820.txt&#39;]
+Number of files in the list 4
+[&#39;data/029700.txt&#39;, &#39;data/029720.txt&#39;, &#39;data/029440.txt&#39;, &#39;data/029740.txt&#39;]
 </pre></div></div>
 </div>
 <p>Now, you should have all the relevant file names in a list, and we can loop over the list using a for-loop:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4410,25 +4508,14 @@ Number of files in the list 15
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-C:\LocalData\VUOKKHEI\codes\Geo-Python\data\weather_data\028360.txt
-C:\LocalData\VUOKKHEI\codes\Geo-Python\data\weather_data\028690.txt
-C:\LocalData\VUOKKHEI\codes\Geo-Python\data\weather_data\028750.txt
-C:\LocalData\VUOKKHEI\codes\Geo-Python\data\weather_data\028970.txt
-C:\LocalData\VUOKKHEI\codes\Geo-Python\data\weather_data\029070.txt
-C:\LocalData\VUOKKHEI\codes\Geo-Python\data\weather_data\029110.txt
-C:\LocalData\VUOKKHEI\codes\Geo-Python\data\weather_data\029170.txt
-C:\LocalData\VUOKKHEI\codes\Geo-Python\data\weather_data\029350.txt
-C:\LocalData\VUOKKHEI\codes\Geo-Python\data\weather_data\029440.txt
-C:\LocalData\VUOKKHEI\codes\Geo-Python\data\weather_data\029500.txt
-C:\LocalData\VUOKKHEI\codes\Geo-Python\data\weather_data\029700.txt
-C:\LocalData\VUOKKHEI\codes\Geo-Python\data\weather_data\029720.txt
-C:\LocalData\VUOKKHEI\codes\Geo-Python\data\weather_data\029740.txt
-C:\LocalData\VUOKKHEI\codes\Geo-Python\data\weather_data\029810.txt
-C:\LocalData\VUOKKHEI\codes\Geo-Python\data\weather_data\029820.txt
+data/029700.txt
+data/029720.txt
+data/029440.txt
+data/029740.txt
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4483,116 +4570,6 @@ C:\LocalData\VUOKKHEI\codes\Geo-Python\data\weather_data\029820.txt
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-STATION NUMBER: 28360
-NUMBER OF OBSERVATIONS: 193825
-            STATION_NUMBER     TEMP_F    TEMP_C
-YEAR MONTH
-1937 4               28360  38.738095  3.743386
-2011 4               28360  36.699571  2.610873
-1921 4               28360  36.622222  2.567901
-2002 4               28360  36.500000  2.500000
-2019 4               28360  34.979138  1.655076
-
-
-STATION NUMBER: 28690
-NUMBER OF OBSERVATIONS: 542788
-            STATION_NUMBER     TEMP_F    TEMP_C
-YEAR MONTH
-2011 4               28690  35.430640  1.905911
-2019 4               28690  35.215114  1.786174
-2016 4               28690  35.031103  1.683946
-1989 4               28690  34.612766  1.451537
-2002 4               28690  34.279855  1.266586
-
-
-STATION NUMBER: 28750
-NUMBER OF OBSERVATIONS: 474562
-            STATION_NUMBER     TEMP_F    TEMP_C
-YEAR MONTH
-1989 4               28750  39.008403  3.893557
-1983 4               28750  38.758475  3.754708
-2019 4               28750  38.651599  3.695333
-2002 4               28750  38.270419  3.483566
-1994 4               28750  38.145833  3.414352
-
-
-STATION NUMBER: 28970
-NUMBER OF OBSERVATIONS: 555740
-            STATION_NUMBER     TEMP_F    TEMP_C
-YEAR MONTH
-1921 4               28970  41.688889  5.382716
-1999 4               28970  39.073600  3.929778
-2019 4               28970  38.706456  3.725809
-1989 4               28970  38.362869  3.534927
-2011 4               28970  38.094172  3.385651
-
-
-STATION NUMBER: 29070
-NUMBER OF OBSERVATIONS: 83567
-            STATION_NUMBER     TEMP_F    TEMP_C
-YEAR MONTH
-2014 4               29070  35.437326  1.909626
-2015 4               29070  34.437209  1.354005
-2004 4               29070  34.347032  1.303907
-2016 4               29070  34.303199  1.279555
-2008 4               29070  34.241667  1.245370
-
-
-STATION NUMBER: 29110
-NUMBER OF OBSERVATIONS: 483784
-            STATION_NUMBER     TEMP_F    TEMP_C
-YEAR MONTH
-1921 4               29110  42.166667  5.648148
-2004 4               29110  41.682699  5.379277
-1989 4               29110  41.420168  5.233427
-1937 4               29110  40.671429  4.817460
-2019 4               29110  40.636300  4.797945
-
-
-STATION NUMBER: 29170
-NUMBER OF OBSERVATIONS: 561097
-            STATION_NUMBER     TEMP_F    TEMP_C
-YEAR MONTH
-1937 4               29170  43.289157  6.271754
-2019 4               29170  40.666820  4.814900
-2011 4               29170  40.015962  4.453312
-2001 4               29170  39.713228  4.285126
-1906 4               29170  39.688889  4.271605
-
-
-STATION NUMBER: 29350
-NUMBER OF OBSERVATIONS: 559667
-            STATION_NUMBER     TEMP_F    TEMP_C
-YEAR MONTH
-1921 4               29350  45.144444  7.302469
-1925 4               29350  40.777778  4.876543
-2011 4               29350  40.670108  4.816727
-2019 4               29350  40.585002  4.769446
-2001 4               29350  39.662827  4.257126
-
-
-STATION NUMBER: 29440
-NUMBER OF OBSERVATIONS: 757983
-            STATION_NUMBER     TEMP_F    TEMP_C
-YEAR MONTH
-2019 4               29440  42.472030  5.817794
-1990 4               29440  41.918084  5.510047
-1989 4               29440  41.369647  5.205360
-2011 4               29440  41.290730  5.161517
-2004 4               29440  41.249676  5.138709
-
-
-STATION NUMBER: 29500
-NUMBER OF OBSERVATIONS: 103105
-            STATION_NUMBER     TEMP_F    TEMP_C
-YEAR MONTH
-2019 4               29500  41.639777  5.355432
-2008 4               29500  40.838936  4.910520
-2014 4               29500  40.226415  4.570231
-2016 4               29500  39.176634  3.987019
-2011 4               29500  38.647826  3.693237
-
-
 STATION NUMBER: 29700
 NUMBER OF OBSERVATIONS: 473881
             STATION_NUMBER     TEMP_F    TEMP_C
@@ -4615,6 +4592,17 @@ YEAR MONTH
 2004 4               29720  41.903492  5.501940
 
 
+STATION NUMBER: 29440
+NUMBER OF OBSERVATIONS: 757983
+            STATION_NUMBER     TEMP_F    TEMP_C
+YEAR MONTH
+2019 4               29440  42.472030  5.817794
+1990 4               29440  41.918084  5.510047
+1989 4               29440  41.369647  5.205360
+2011 4               29440  41.290730  5.161517
+2004 4               29440  41.249676  5.138709
+
+
 STATION NUMBER: 29740
 NUMBER OF OBSERVATIONS: 931767
             STATION_NUMBER     TEMP_F    TEMP_C
@@ -4624,28 +4612,6 @@ YEAR MONTH
 1990 4               29740  43.375078  6.319488
 2008 4               29740  43.341429  6.300794
 2011 4               29740  42.750702  5.972612
-
-
-STATION NUMBER: 29810
-NUMBER OF OBSERVATIONS: 199330
-            STATION_NUMBER     TEMP_F    TEMP_C
-YEAR MONTH
-1990 4               29810  41.157895  5.087719
-2019 4               29810  40.783032  4.879462
-2014 4               29810  40.058036  4.476687
-2008 4               29810  40.044881  4.469378
-2016 4               29810  39.270308  4.039060
-
-
-STATION NUMBER: 29820
-NUMBER OF OBSERVATIONS: 198334
-            STATION_NUMBER     TEMP_F    TEMP_C
-YEAR MONTH
-2019 4               29820  41.182197  5.101221
-1990 4               29820  41.144681  5.080378
-2014 4               29820  40.497908  4.721060
-2008 4               29820  39.941423  4.411901
-1913 4               29820  39.622222  4.234568
 
 
 </pre></div></div>
@@ -4676,7 +4642,7 @@ YEAR MONTH
     <p>
         &copy; Copyright 2019, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki
       <span class="lastupdated">
-        Last updated on Oct 08, 2019.
+        Last updated on Oct 09, 2019.
       </span>
 
     </p>
