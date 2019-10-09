@@ -1061,7 +1061,7 @@ debugging.ipynb                            gcp-assertions.ipynb
 <h2>Reading the data<a class="headerlink" href="#Reading-the-data" title="Permalink to this headline">¶</a></h2>
 <p>In order to get started, let’s import pandas:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1078,7 +1078,7 @@ debugging.ipynb                            gcp-assertions.ipynb
 </ul>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1102,7 +1102,7 @@ debugging.ipynb                            gcp-assertions.ipynb
 <li>Let’s see how the data looks by printing the first five rows with the <code class="docutils literal notranslate"><span class="pre">head()</span></code> function</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1134,7 +1134,7 @@ debugging.ipynb                            gcp-assertions.ipynb
 </div>
 <p>All seems ok. However, we won’t be needing all of the 33 columns for detecting warm temperatures in April. We can check all column names by running <code class="docutils literal notranslate"><span class="pre">data.columns</span></code>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1143,7 +1143,7 @@ debugging.ipynb                            gcp-assertions.ipynb
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1158,7 +1158,7 @@ debugging.ipynb                            gcp-assertions.ipynb
 <p>A description for all these columns is available in the metadata file <a class="reference external" href="metadata/3505doc.txt">data/3505doc.txt</a>.</p>
 <p><strong>Let’s read in the data one more time.</strong> This time, we will read in only some of the columns using the <code class="docutils literal notranslate"><span class="pre">usecols</span></code> parameter. Let’s read in columns that might be somehow useful to our analysis, or at least that contain some values that are meaningful to us, including the station name, timestamp, and data about wind and temperature: <code class="docutils literal notranslate"><span class="pre">'USAF','YR--MODAHRMN',</span> <span class="pre">'DIR',</span> <span class="pre">'SPD',</span> <span class="pre">'GUS','TEMP',</span> <span class="pre">'MAX',</span> <span class="pre">'MIN'</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1168,7 +1168,7 @@ debugging.ipynb                            gcp-assertions.ipynb
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1266,7 +1266,7 @@ debugging.ipynb                            gcp-assertions.ipynb
 <h2>Renaming columns<a class="headerlink" href="#Renaming-columns" title="Permalink to this headline">¶</a></h2>
 <p>Check again the column names in our DataFrame:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1275,7 +1275,7 @@ debugging.ipynb                            gcp-assertions.ipynb
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1296,7 +1296,7 @@ debugging.ipynb                            gcp-assertions.ipynb
 <li><code class="docutils literal notranslate"><span class="pre">GUS</span></code> into <code class="docutils literal notranslate"><span class="pre">GUST</span></code></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1323,7 +1323,7 @@ debugging.ipynb                            gcp-assertions.ipynb
 <li>Now we can change the column names by passing that dictionary into parameter <code class="docutils literal notranslate"><span class="pre">columns</span></code> in <code class="docutils literal notranslate"><span class="pre">rename()</span></code> -function.</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1349,7 +1349,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 <p>The temperature values are again in Fahrenheit. As you might guess, we will soon convert these temperatures in to Celsius. In order to avoid confusion with the columns, rename column <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> into <code class="docutils literal notranslate"><span class="pre">TEMP_F</span></code>. Also, we could rename <code class="docutils literal notranslate"><span class="pre">USAF</span></code> as<code class="docutils literal notranslate"><span class="pre">STATION_NUMBER</span></code>.</p>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1365,7 +1365,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1465,7 +1465,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 <li>How many rows and columns we have:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1474,7 +1474,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1486,7 +1486,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 <li>Top and bottom rows:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1495,7 +1495,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1588,7 +1588,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1597,7 +1597,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1693,7 +1693,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 <li>Data types of the columns:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1702,7 +1702,7 @@ Index([&#39;USAF&#39;, &#39;TIME&#39;, &#39;DIR&#39;, &#39;SPEED&#39;, &#39;GUST
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1722,7 +1722,7 @@ dtype: object
 <li>Descriptive statistics:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1764,7 +1764,7 @@ max      108.000000      91.000000     91.000000     81.000000
 <p>Knowing how to use your own function in pandas can be really useful when doing your own analyses. Here, we will introduce two different approaches for using function in pandas. First, we will see how we can apply the function row-by-row using a <code class="docutils literal notranslate"><span class="pre">for</span></code>-loop and the <code class="docutils literal notranslate"><span class="pre">DataFrame.iterrows()</span></code>-method, and then we will learn how to apply the method to all rows at once using <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.apply.html">DataFrame.apply</a>.</p>
 <p>For both of these approaches, we first need to define our temperature conversion function from Fahrenheit to Celsius:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1792,7 +1792,7 @@ max      108.000000      91.000000     91.000000     81.000000
 </div>
 <p><strong>Note:</strong> with such a simple example, we could use the function direcly on a column in the DataFrame in order to conver the values:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1802,7 +1802,7 @@ max      108.000000      91.000000     91.000000     81.000000
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1909,7 +1909,7 @@ max      108.000000      91.000000     91.000000     81.000000
 <li>Let’s see how <code class="docutils literal notranslate"><span class="pre">iterrows()</span></code> works by printing out the <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> value on each row using a <code class="docutils literal notranslate"><span class="pre">for</span></code>-loop:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1944,7 +1944,7 @@ Temp F: 27.0
 <li>Let’s now create an empty column <code class="docutils literal notranslate"><span class="pre">TEMP_C</span></code> for the Celsius temperatures and update the values into that column using the <code class="docutils literal notranslate"><span class="pre">fahr_to_celsius</span></code> function we defined earlier:</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1971,7 +1971,7 @@ Temp F: 27.0
 <li>Let’s see what we have now.</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1980,7 +1980,7 @@ Temp F: 27.0
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2144,7 +2144,7 @@ Temp F: 27.0
 <h3>Applying a function<a class="headerlink" href="#Applying-a-function" title="Permalink to this headline">¶</a></h3>
 <p>Pandas DataFrames and Series also have a dedicated method <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> for applying functions on columns (or rows!). When using <code class="docutils literal notranslate"><span class="pre">.apply()</span></code>, we pass the function name (without parenthesis!) as an argument:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2154,7 +2154,7 @@ Temp F: 27.0
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2266,7 +2266,7 @@ Temp F: 27.0
 <p><code class="docutils literal notranslate"><span class="pre">YR--MODAHRMN</span> <span class="pre">=</span> <span class="pre">YEAR-MONTH-DAY-HOUR-MINUTE</span> <span class="pre">IN</span> <span class="pre">GREENWICH</span> <span class="pre">MEAN</span> <span class="pre">TIME</span> <span class="pre">(GMT)</span></code></p>
 <p>Let’s have a closer look at the date and time information we have by checking the values in that column, and their data type:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2275,7 +2275,7 @@ Temp F: 27.0
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2294,7 +2294,7 @@ Name: TIME, dtype: int64
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2303,7 +2303,7 @@ Name: TIME, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2323,7 +2323,7 @@ Name: TIME, dtype: int64
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">TIME</span></code> column contains several observations per day (and even several observations per hour). The timestamp for the first observation is <code class="docutils literal notranslate"><span class="pre">191701010600</span></code>, i.e. from 1st of January 1917, and the timestamp for the latest observation is <code class="docutils literal notranslate"><span class="pre">201910012350</span></code> (from last week, by the time of writing this!)</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2332,7 +2332,7 @@ Name: TIME, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2346,7 +2346,7 @@ Name: TIME, dtype: int64
 <h3>String slicing<a class="headerlink" href="#String-slicing" title="Permalink to this headline">¶</a></h3>
 <p>One approach would be to convert the date and time information into character strings and “cut” the needed information from the <a class="reference external" href="https://docs.python.org/3/tutorial/introduction.html#strings">string objects</a>. If we look at the latest time stamp in the data (<code class="docutils literal notranslate"><span class="pre">201910012350</span></code>), you can see that there is a systematic pattern <code class="docutils literal notranslate"><span class="pre">YEAR-MONTH-DAY-HOUR-MINUTE</span></code>. Four first characters represent the year, and six first characters are year + month!</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2356,7 +2356,7 @@ Name: TIME, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2369,7 +2369,7 @@ Name: TIME, dtype: int64
 <li>Let’s convert the time into string. And check that the data type changes:</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2379,7 +2379,7 @@ Name: TIME, dtype: int64
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2431,7 +2431,7 @@ Name: TIME, dtype: int64
 <p>In this example, <code class="docutils literal notranslate"><span class="pre">exact=False</span></code> drops out minutes and secods, because they are not included in the specified formatting.</p>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2442,7 +2442,7 @@ Name: TIME, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2462,7 +2462,7 @@ Name: DATE, dtype: datetime64[ns]
 </div>
 <p>Now, we can extract different time units based on the datetime-column using the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.dt.html">pandas.Series.dt accessor</a>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2471,7 +2471,7 @@ Name: DATE, dtype: datetime64[ns]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2542,7 +2542,7 @@ Name: DATE, Length: 757983, dtype: int64
 </div>
 <p>We can also combine the datetime functionalities with other methods from pandas. For example, we can check the number of unique years in our input data:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2551,7 +2551,7 @@ Name: DATE, Length: 757983, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2566,7 +2566,7 @@ Name: DATE, Length: 757983, dtype: int64
 </ul>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2578,7 +2578,7 @@ Name: DATE, Length: 757983, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2720,7 +2720,7 @@ Name: DATE, Length: 757983, dtype: int64
 </ol>
 <p>Before we start grouping the data, let’s once more check how our input data looks like:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2738,7 +2738,7 @@ number of rows: 757983
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2869,7 +2869,7 @@ number of rows: 757983
 <p>We have quite a few rows of weather data, and several observations per day (and even per hour). <strong>Our goal is to create an aggreated data frame that would have only one row per month!</strong></p>
 <p>Let’s <strong>group</strong> our data based on unique year and month combinations</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2889,7 +2889,7 @@ number of rows: 757983
 <li>Let’s see what we have now.</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2918,7 +2918,7 @@ Length:
 <p>Think: what does the number of groups (length of the grouped object) tell us?</p>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2930,7 +2930,7 @@ Length:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2941,7 +2941,7 @@ Length:
 <p>There are several methods we can use for extracting information from the grouped data. See <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/groupby.html">documentation for Pandas GroupBy objects</a> for a comprehensive overview.</p>
 <p><strong>Checking group names:</strong></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2955,7 +2955,7 @@ Length:
 <li>Let’s check the contents for a group representing August 2019 (name of that group is <code class="docutils literal notranslate"><span class="pre">(2019,</span> <span class="pre">4)</span></code> if you grouped the data based on datetime columns <code class="docutils literal notranslate"><span class="pre">YEAR</span></code> and <code class="docutils literal notranslate"><span class="pre">MONTH</span></code>). We can get the values of that hour from the grouped object using the <code class="docutils literal notranslate"><span class="pre">get_group()</span></code> -method:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3106,7 +3106,7 @@ Length:
 </div>
 <p>Ahaa! As we can see, a single group contains a <strong>DataFrame</strong> with values only for that specific month. Let’s check the DataType of this group:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3115,7 +3115,7 @@ Length:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -3135,7 +3135,7 @@ Length:
 <li><code class="docutils literal notranslate"><span class="pre">MONTH</span></code></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3172,7 +3172,7 @@ dtype: float64
 <li>Let’s see how we can iterate over the groups and print the key and the data from a single group (again using <code class="docutils literal notranslate"><span class="pre">break</span></code> to only see what is happening).</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3216,7 +3216,7 @@ First rows of data in this group:
 <li>Let’s see how we can create a DataFrame where we calculate the mean values for all those weather attributes that we were interested in. I will repeat slightly the earlier steps so that you can see and better understand what is happening.</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3243,7 +3243,7 @@ First rows of data in this group:
 <li>Let’s see what we have now:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3326,7 +3326,7 @@ First rows of data in this group:
 <p><strong>Mean for all groups at once</strong></p>
 <p>We can also achieve the same result by computing the mean of all columns for all groups in the grouped object:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3335,7 +3335,7 @@ First rows of data in this group:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -4135,7 +4135,7 @@ First rows of data in this group:
 <li>select all records that are from April (regardless of the year):</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4147,7 +4147,7 @@ First rows of data in this group:
 <li>take a subset of columns that might contain interesting information:</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4159,7 +4159,7 @@ First rows of data in this group:
 <li>group by year and month:</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4171,7 +4171,7 @@ First rows of data in this group:
 <li>calculate mean for each group:</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4181,7 +4181,7 @@ First rows of data in this group:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -4260,7 +4260,7 @@ First rows of data in this group:
 <li>check the highest temperature values (sort the data frame in a descending order):</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4269,7 +4269,7 @@ First rows of data in this group:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -4385,7 +4385,7 @@ First rows of data in this group:
 <h2>Repeating the data analysis with larger dataset<a class="headerlink" href="#Repeating-the-data-analysis-with-larger-dataset" title="Permalink to this headline">¶</a></h2>
 <p>Finally, let’s repeat the data analysis steps above for all the available data we have (!!). First, confirm the path to the <strong>folder</strong> where all the input data are located. The idea is, that we will repeat the analysis process for each input file using a (rather long) for loop! Here we have all the main analysis steps with some additional output info - all in one long code cell:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4452,7 +4452,7 @@ YEAR MONTH
 </div>
 <p>We will use the <code class="docutils literal notranslate"><span class="pre">glob()</span></code> function from the module <code class="docutils literal notranslate"><span class="pre">glob</span></code> to list our input files.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4461,7 +4461,7 @@ YEAR MONTH
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4474,7 +4474,7 @@ YEAR MONTH
 <p>Note that we’re using the * character as a wildcard, so any file that starts with <code class="docutils literal notranslate"><span class="pre">data/0</span></code> and ends with <code class="docutils literal notranslate"><span class="pre">txt</span></code> will be added to the list of files we will iterate over. We specifically use <code class="docutils literal notranslate"><span class="pre">data/0</span></code> as the starting part of the file names to avoid having our metadata files included in the list!</p>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4488,13 +4488,13 @@ YEAR MONTH
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Number of files in the list 4
-[&#39;data/029700.txt&#39;, &#39;data/029720.txt&#39;, &#39;data/029440.txt&#39;, &#39;data/029740.txt&#39;]
+Number of files in the list 15
+[&#39;data/029170.txt&#39;, &#39;data/028690.txt&#39;, &#39;data/029820.txt&#39;, &#39;data/029700.txt&#39;, &#39;data/028970.txt&#39;, &#39;data/029070.txt&#39;, &#39;data/029500.txt&#39;, &#39;data/029110.txt&#39;, &#39;data/028750.txt&#39;, &#39;data/029720.txt&#39;, &#39;data/029440.txt&#39;, &#39;data/028360.txt&#39;, &#39;data/029810.txt&#39;, &#39;data/029740.txt&#39;, &#39;data/029350.txt&#39;]
 </pre></div></div>
 </div>
 <p>Now, you should have all the relevant file names in a list, and we can loop over the list using a for-loop:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4508,14 +4508,25 @@ Number of files in the list 4
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+data/029170.txt
+data/028690.txt
+data/029820.txt
 data/029700.txt
+data/028970.txt
+data/029070.txt
+data/029500.txt
+data/029110.txt
+data/028750.txt
 data/029720.txt
 data/029440.txt
+data/028360.txt
+data/029810.txt
 data/029740.txt
+data/029350.txt
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -4570,6 +4581,39 @@ data/029740.txt
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+STATION NUMBER: 29170
+NUMBER OF OBSERVATIONS: 561097
+            STATION_NUMBER     TEMP_F    TEMP_C
+YEAR MONTH
+1937 4               29170  43.289157  6.271754
+2019 4               29170  40.666820  4.814900
+2011 4               29170  40.015962  4.453312
+2001 4               29170  39.713228  4.285126
+1906 4               29170  39.688889  4.271605
+
+
+STATION NUMBER: 28690
+NUMBER OF OBSERVATIONS: 542788
+            STATION_NUMBER     TEMP_F    TEMP_C
+YEAR MONTH
+2011 4               28690  35.430640  1.905911
+2019 4               28690  35.215114  1.786174
+2016 4               28690  35.031103  1.683946
+1989 4               28690  34.612766  1.451537
+2002 4               28690  34.279855  1.266586
+
+
+STATION NUMBER: 29820
+NUMBER OF OBSERVATIONS: 198334
+            STATION_NUMBER     TEMP_F    TEMP_C
+YEAR MONTH
+2019 4               29820  41.182197  5.101221
+1990 4               29820  41.144681  5.080378
+2014 4               29820  40.497908  4.721060
+2008 4               29820  39.941423  4.411901
+1913 4               29820  39.622222  4.234568
+
+
 STATION NUMBER: 29700
 NUMBER OF OBSERVATIONS: 473881
             STATION_NUMBER     TEMP_F    TEMP_C
@@ -4579,6 +4623,61 @@ YEAR MONTH
 1990 4               29700  42.054167  5.585648
 2019 4               29700  41.548747  5.304859
 2004 4               29700  41.493392  5.274107
+
+
+STATION NUMBER: 28970
+NUMBER OF OBSERVATIONS: 555740
+            STATION_NUMBER     TEMP_F    TEMP_C
+YEAR MONTH
+1921 4               28970  41.688889  5.382716
+1999 4               28970  39.073600  3.929778
+2019 4               28970  38.706456  3.725809
+1989 4               28970  38.362869  3.534927
+2011 4               28970  38.094172  3.385651
+
+
+STATION NUMBER: 29070
+NUMBER OF OBSERVATIONS: 83567
+            STATION_NUMBER     TEMP_F    TEMP_C
+YEAR MONTH
+2014 4               29070  35.437326  1.909626
+2015 4               29070  34.437209  1.354005
+2004 4               29070  34.347032  1.303907
+2016 4               29070  34.303199  1.279555
+2008 4               29070  34.241667  1.245370
+
+
+STATION NUMBER: 29500
+NUMBER OF OBSERVATIONS: 103105
+            STATION_NUMBER     TEMP_F    TEMP_C
+YEAR MONTH
+2019 4               29500  41.639777  5.355432
+2008 4               29500  40.838936  4.910520
+2014 4               29500  40.226415  4.570231
+2016 4               29500  39.176634  3.987019
+2011 4               29500  38.647826  3.693237
+
+
+STATION NUMBER: 29110
+NUMBER OF OBSERVATIONS: 483784
+            STATION_NUMBER     TEMP_F    TEMP_C
+YEAR MONTH
+1921 4               29110  42.166667  5.648148
+2004 4               29110  41.682699  5.379277
+1989 4               29110  41.420168  5.233427
+1937 4               29110  40.671429  4.817460
+2019 4               29110  40.636300  4.797945
+
+
+STATION NUMBER: 28750
+NUMBER OF OBSERVATIONS: 474562
+            STATION_NUMBER     TEMP_F    TEMP_C
+YEAR MONTH
+1989 4               28750  39.008403  3.893557
+1983 4               28750  38.758475  3.754708
+2019 4               28750  38.651599  3.695333
+2002 4               28750  38.270419  3.483566
+1994 4               28750  38.145833  3.414352
 
 
 STATION NUMBER: 29720
@@ -4603,6 +4702,28 @@ YEAR MONTH
 2004 4               29440  41.249676  5.138709
 
 
+STATION NUMBER: 28360
+NUMBER OF OBSERVATIONS: 193825
+            STATION_NUMBER     TEMP_F    TEMP_C
+YEAR MONTH
+1937 4               28360  38.738095  3.743386
+2011 4               28360  36.699571  2.610873
+1921 4               28360  36.622222  2.567901
+2002 4               28360  36.500000  2.500000
+2019 4               28360  34.979138  1.655076
+
+
+STATION NUMBER: 29810
+NUMBER OF OBSERVATIONS: 199330
+            STATION_NUMBER     TEMP_F    TEMP_C
+YEAR MONTH
+1990 4               29810  41.157895  5.087719
+2019 4               29810  40.783032  4.879462
+2014 4               29810  40.058036  4.476687
+2008 4               29810  40.044881  4.469378
+2016 4               29810  39.270308  4.039060
+
+
 STATION NUMBER: 29740
 NUMBER OF OBSERVATIONS: 931767
             STATION_NUMBER     TEMP_F    TEMP_C
@@ -4612,6 +4733,17 @@ YEAR MONTH
 1990 4               29740  43.375078  6.319488
 2008 4               29740  43.341429  6.300794
 2011 4               29740  42.750702  5.972612
+
+
+STATION NUMBER: 29350
+NUMBER OF OBSERVATIONS: 559667
+            STATION_NUMBER     TEMP_F    TEMP_C
+YEAR MONTH
+1921 4               29350  45.144444  7.302469
+1925 4               29350  40.777778  4.876543
+2011 4               29350  40.670108  4.816727
+2019 4               29350  40.585002  4.769446
+2001 4               29350  39.662827  4.257126
 
 
 </pre></div></div>
