@@ -2949,7 +2949,7 @@
    "outputs": [],
    "source": [
     "# Create an empty DataFrame for the aggregated values\n",
-    "hourly_data = pd.DataFrame()\n",
+    "monthly_data = pd.DataFrame()\n",
     "\n",
     "# The columns that we want to aggregate\n",
     "mean_cols = ['DIR', 'SPEED', 'GUST', 'TEMP_F', 'TEMP_C', \"MONTH\"]\n",
@@ -2963,7 +2963,7 @@
     "   mean_values['YEAR_MONTH'] = key\n",
     "\n",
     "   # Append the aggregated values into the DataFrame\n",
-    "   hourly_data = hourly_data.append(mean_values, ignore_index=True)"
+    "   monthly_data = monthly_data.append(mean_values, ignore_index=True)"
    ]
   },
   {
@@ -3055,14 +3055,14 @@
     }
    ],
    "source": [
-    "print(hourly_data)"
+    "print(monthly_data)"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Awesome! Now we have aggregated our data based on daily averages and we have a new DataFrame called `hourly_data` where all those aggregated values are stored."
+    "Awesome! Now we have aggregated our data based on daily averages and we have a new DataFrame called `monthly_data` where all those aggregated values are stored."
    ]
   },
   {

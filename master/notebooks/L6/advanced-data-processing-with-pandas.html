@@ -3218,7 +3218,7 @@ First rows of data in this group:
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Create an empty DataFrame for the aggregated values</span>
-<span class="n">hourly_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">monthly_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
 <span class="c1"># The columns that we want to aggregate</span>
 <span class="n">mean_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DIR&#39;</span><span class="p">,</span> <span class="s1">&#39;SPEED&#39;</span><span class="p">,</span> <span class="s1">&#39;GUST&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP_F&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP_C&#39;</span><span class="p">,</span> <span class="s2">&quot;MONTH&quot;</span><span class="p">]</span>
@@ -3232,7 +3232,7 @@ First rows of data in this group:
    <span class="n">mean_values</span><span class="p">[</span><span class="s1">&#39;YEAR_MONTH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
 
    <span class="c1"># Append the aggregated values into the DataFrame</span>
-   <span class="n">hourly_data</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_values</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+   <span class="n">monthly_data</span> <span class="o">=</span> <span class="n">monthly_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_values</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3244,7 +3244,7 @@ First rows of data in this group:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">hourly_data</span><span class="p">)</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">monthly_data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3319,7 +3319,7 @@ First rows of data in this group:
 [601 rows x 7 columns]
 </pre></div></div>
 </div>
-<p>Awesome! Now we have aggregated our data based on daily averages and we have a new DataFrame called <code class="docutils literal notranslate"><span class="pre">hourly_data</span></code> where all those aggregated values are stored.</p>
+<p>Awesome! Now we have aggregated our data based on daily averages and we have a new DataFrame called <code class="docutils literal notranslate"><span class="pre">monthly_data</span></code> where all those aggregated values are stored.</p>
 <p><strong>Mean for all groups at once</strong></p>
 <p>We can also achieve the same result by computing the mean of all columns for all groups in the grouped object:</p>
 <div class="nbinput docutils container">
