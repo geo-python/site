@@ -972,9 +972,8 @@ This page was generated from <a class="reference external" href="https://github.
 </pre></div>
 </div>
 </div>
-<div class="section" id="Loading-the-data-using-NumPy">
-<h3>Loading the data using NumPy<a class="headerlink" href="#Loading-the-data-using-NumPy" title="Permalink to this headline">¶</a></h3>
-<p>As always, let’s first import NumPy.</p>
+<div class="section" id="NumPy">
+<h3>NumPy<a class="headerlink" href="#NumPy" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -984,44 +983,12 @@ This page was generated from <a class="reference external" href="https://github.
 </pre></div>
 </div>
 </div>
-<p>We can now load our data using a similar approach to that used in the previous lessons. Note that in this case, we only want the <code class="docutils literal notranslate"><span class="pre">YR--MODAHRMN</span></code> and <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> columns.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">fp</span> <span class="o">=</span> <span class="s1">&#39;data/1924927457196dat.txt&#39;</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">skip_header</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<p>With our data loaded, we can again split the data into separate column arrays.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">date</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">temp</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<p>We can also go ahead and convert <code class="docutils literal notranslate"><span class="pre">date</span></code> to integer values.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">date</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="Loading-the-data-using-Pandas">
-<h3>Loading the data using Pandas<a class="headerlink" href="#Loading-the-data-using-Pandas" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Loading-the-data">
+<h3>Loading the data<a class="headerlink" href="#Loading-the-data" title="Permalink to this headline">¶</a></h3>
 <p>As always, let’s first import Pandas.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1031,7 +998,7 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <p>We can now load our data using a similar approach to that used in the previous lessons.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1042,7 +1009,7 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <p>As in the last section of this week’s lesson, let’s separate <code class="docutils literal notranslate"><span class="pre">dataFrame</span></code> into separate value arrays for the <code class="docutils literal notranslate"><span class="pre">YR--MODAHRMN</span></code>, <code class="docutils literal notranslate"><span class="pre">SPD</span></code>, and <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> columns.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1057,7 +1024,7 @@ This page was generated from <a class="reference external" href="https://github.
 <h2>Preparing the data<a class="headerlink" href="#Preparing-the-data" title="Permalink to this headline">¶</a></h2>
 <p>A quick check of the <code class="docutils literal notranslate"><span class="pre">temp</span></code> data will reveal there are a handful of missing data values. We can check for the existence of <code class="docutils literal notranslate"><span class="pre">nan</span></code> values, for example, by running the cell below.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1077,7 +1044,7 @@ Number of temp nans:  26
 </div>
 <p>Ouch, 26 bad values to cut. Since we’re working with value arrays, the easiest way to drop the <code class="docutils literal notranslate"><span class="pre">nan</span></code> values from <code class="docutils literal notranslate"><span class="pre">temp</span></code> is save only the values that are not <code class="docutils literal notranslate"><span class="pre">nan</span></code>. We can do this, for example, using the following.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1090,7 +1057,7 @@ Number of temp nans:  26
 <p>For those using Pandas, you could possibly use <code class="docutils literal notranslate"><span class="pre">dropna()</span></code> as an alternative to this approach, but only for the dataframe, not the value arrays.</p>
 <p>Lastly, since we’ve cut <code class="docutils literal notranslate"><span class="pre">nan</span></code> values from <code class="docutils literal notranslate"><span class="pre">temp</span></code> we should do the same in <code class="docutils literal notranslate"><span class="pre">date</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1102,7 +1069,7 @@ Number of temp nans:  26
 <h3>Converting temperatures to Celsius<a class="headerlink" href="#Converting-temperatures-to-Celsius" title="Permalink to this headline">¶</a></h3>
 <p>Now that we have loaded our data, we can convert the values of temperature in Fahrenheit to Celsius, much like we have in earlier lessons.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1120,7 +1087,7 @@ Number of temp nans:  26
 <h3>Extracting seasonal temperatures<a class="headerlink" href="#Extracting-seasonal-temperatures" title="Permalink to this headline">¶</a></h3>
 <p>Let’s first divide our data into different seasons: Winter (December-February), Spring (March-May), Summer (June-August), and Fall (Septempber-November).</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1144,7 +1111,7 @@ Number of temp nans:  26
 </div>
 <p>Now we can plot our data to see how the different seasons look separately.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1153,11 +1120,11 @@ Number of temp nans:  26
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[&lt;matplotlib.lines.Line2D at 0x109086cf8&gt;]
+<span></span>[&lt;matplotlib.lines.Line2D at 0x2c69c2dc9e8&gt;]
 </pre></div>
 </div>
 </div>
@@ -1165,11 +1132,11 @@ Number of temp nans:  26
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L7_advanced-plotting_31_1.png" src="../../_images/notebooks_L7_advanced-plotting_31_1.png" />
+<img alt="../../_images/notebooks_L7_advanced-plotting_25_1.png" src="../../_images/notebooks_L7_advanced-plotting_25_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1178,11 +1145,11 @@ Number of temp nans:  26
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[&lt;matplotlib.lines.Line2D at 0x1106ed0b8&gt;]
+<span></span>[&lt;matplotlib.lines.Line2D at 0x2c69c3b9fd0&gt;]
 </pre></div>
 </div>
 </div>
@@ -1190,11 +1157,11 @@ Number of temp nans:  26
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L7_advanced-plotting_32_1.png" src="../../_images/notebooks_L7_advanced-plotting_32_1.png" />
+<img alt="../../_images/notebooks_L7_advanced-plotting_26_1.png" src="../../_images/notebooks_L7_advanced-plotting_26_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1203,11 +1170,11 @@ Number of temp nans:  26
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[&lt;matplotlib.lines.Line2D at 0x113f1efd0&gt;]
+<span></span>[&lt;matplotlib.lines.Line2D at 0x2c69c3f9390&gt;]
 </pre></div>
 </div>
 </div>
@@ -1215,11 +1182,11 @@ Number of temp nans:  26
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L7_advanced-plotting_33_1.png" src="../../_images/notebooks_L7_advanced-plotting_33_1.png" />
+<img alt="../../_images/notebooks_L7_advanced-plotting_27_1.png" src="../../_images/notebooks_L7_advanced-plotting_27_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1228,11 +1195,11 @@ Number of temp nans:  26
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[&lt;matplotlib.lines.Line2D at 0x1140c8c50&gt;]
+<span></span>[&lt;matplotlib.lines.Line2D at 0x2c69c42d8d0&gt;]
 </pre></div>
 </div>
 </div>
@@ -1240,7 +1207,7 @@ Number of temp nans:  26
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L7_advanced-plotting_34_1.png" src="../../_images/notebooks_L7_advanced-plotting_34_1.png" />
+<img alt="../../_images/notebooks_L7_advanced-plotting_28_1.png" src="../../_images/notebooks_L7_advanced-plotting_28_1.png" />
 </div>
 </div>
 <p>OK, so from these plots we can already see that the temperatures in different seasons are quite different, which is rather obvious of course. It is important to also notice that the scale of the <em>y</em>-axis changes in these different plots. If we would like to compare different seasons to each other we need to make sure that the temperature scale is similar in the plots of the different seasons.</p>
@@ -1249,7 +1216,7 @@ Number of temp nans:  26
 <h3>Finding data bounds<a class="headerlink" href="#Finding-data-bounds" title="Permalink to this headline">¶</a></h3>
 <p>Let’s set our <em>y</em>-axis limits so that the upper limit is the maximum temperature + 5 degrees in our data (full year), and the lowest is the minimum temperature - 5 degrees.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1273,7 +1240,7 @@ Min: -33.8888888889 Max: 33.8888888889
 <h3>Creating our first set of subplots<a class="headerlink" href="#Creating-our-first-set-of-subplots" title="Permalink to this headline">¶</a></h3>
 <p>Let’s now continue and see how we can plot all these different plots into the same figure. We can create a 2x2 panel for our visualization using matplotlib’s <code class="docutils literal notranslate"><span class="pre">subplots()</span></code> function where we specify how many rows and columns we want to have in our figure. We can also specify the size of our figure with <code class="docutils literal notranslate"><span class="pre">figsize()</span></code> parameter that takes the <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code> values (in inches) as input.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1283,14 +1250,14 @@ Min: -33.8888888889 Max: 33.8888888889
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x11402ae48&gt;,
-        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x11406a940&gt;],
-       [&lt;matplotlib.axes._subplots.AxesSubplot object at 0x1142835c0&gt;,
-        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x11433a390&gt;]], dtype=object)
+<span></span>array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002C69C3CF5F8&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002C69CA6B588&gt;],
+       [&lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002C69CA83BA8&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002C69CAA3240&gt;]], dtype=object)
 </pre></div>
 </div>
 </div>
@@ -1298,12 +1265,12 @@ Min: -33.8888888889 Max: 33.8888888889
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L7_advanced-plotting_38_1.png" src="../../_images/notebooks_L7_advanced-plotting_38_1.png" />
+<img alt="../../_images/notebooks_L7_advanced-plotting_32_1.png" src="../../_images/notebooks_L7_advanced-plotting_32_1.png" />
 </div>
 </div>
 <p>We can see that as a result we have now a list containing two nested lists where the first one contains the axis for column 1 and 2 on <strong>row 1</strong> and the second list contains the axis for columns 1 and 2 for <strong>row 2</strong>. We can parse these axes into own variables so it is easier to work with them.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1317,7 +1284,7 @@ Min: -33.8888888889 Max: 33.8888888889
 <p>Now we have four different axis variables for different panels in our figure. Next we can use them to plot the seasonal data into them. Let’s first plot the seasons and give different colors for the lines, and specify the <em>y</em>-scale limits to be the same with all subplots. With parameter <code class="docutils literal notranslate"><span class="pre">c</span></code> it is possible to specify the color of the line. You can find an extensive list of possible colors and RGB-color codes from <a class="reference external" href="http://www.rapidtables.com/web/color/RGB_Color.htm">this link</a>. With <code class="docutils literal notranslate"><span class="pre">lw</span></code>
 parameter you can specify the width of the line.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1342,11 +1309,11 @@ parameter you can specify the width of the line.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L7_advanced-plotting_42_0.png" src="../../_images/notebooks_L7_advanced-plotting_42_0.png" />
+<img alt="../../_images/notebooks_L7_advanced-plotting_36_0.png" src="../../_images/notebooks_L7_advanced-plotting_36_0.png" />
 </div>
 </div>
 <p>Great, now we have all the plots in same figure! However, we can see that there are some problems with our <em>x</em>-axis as we haven’t linked that axis to the dates of the observations. We can change that with a bit of <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module magic.</p>
@@ -1355,7 +1322,7 @@ parameter you can specify the width of the line.</p>
 <h3>Converting our date string to dates for Matplotlib plotting<a class="headerlink" href="#Converting-our-date-string-to-dates-for-Matplotlib-plotting" title="Permalink to this headline">¶</a></h3>
 <p>We can start by importing the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> submodule from <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1365,7 +1332,7 @@ parameter you can specify the width of the line.</p>
 </div>
 <p>With <code class="docutils literal notranslate"><span class="pre">datetime</span></code> imported, we can now create a function that will convert all of our dates in <code class="docutils literal notranslate"><span class="pre">date</span></code> to a special representation of that date data that Matplotlib understands as a date for plotting. Before we can define and use our function, however, we’ll need our dates as a character string array.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1378,7 +1345,7 @@ parameter you can specify the width of the line.</p>
 </div>
 <p>OK, so now we have our dates as strings in <code class="docutils literal notranslate"><span class="pre">&lt;season&gt;_str</span></code>. Now we can create our date conversion function.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1390,7 +1357,7 @@ parameter you can specify the width of the line.</p>
 <p><code class="docutils literal notranslate"><span class="pre">datetime.strptime()</span></code> is a special function in <code class="docutils literal notranslate"><span class="pre">datetime</span></code> used to convert strings to <code class="docutils literal notranslate"><span class="pre">datetime</span></code> objects. In our case, we will convert each value from the format <code class="docutils literal notranslate"><span class="pre">YYYYMMDDhhmm</span></code> to <code class="docutils literal notranslate"><span class="pre">datetime</span></code>, where <code class="docutils literal notranslate"><span class="pre">YYYY</span></code> is the year, <code class="docutils literal notranslate"><span class="pre">MM</span></code> is the month, <code class="docutils literal notranslate"><span class="pre">DD</span></code> is the day, <code class="docutils literal notranslate"><span class="pre">hh</span></code> is the hour of the day, and <code class="docutils literal notranslate"><span class="pre">mm</span></code> is the minute in the hour.</p>
 <p>Let’s put our function to work.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1411,7 +1378,7 @@ parameter you can specify the width of the line.</p>
 <p>What has happened here is that we have created a new list of <code class="docutils literal notranslate"><span class="pre">datetime</span></code> values using list comprehension, then converted the output to NumPy arrays for each season. If you don’t understand everything at this point, don’t worry. The important thing is we’re ready to plot again!</p>
 <p>We can set things up the way we did previously.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1430,12 +1397,12 @@ parameter you can specify the width of the line.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L7_advanced-plotting_52_0.png" src="../../_images/notebooks_L7_advanced-plotting_52_0.png" />
+<img alt="../../_images/notebooks_L7_advanced-plotting_46_0.png" src="../../_images/notebooks_L7_advanced-plotting_46_0.png" />
 </div>
 </div>
 <p>Now, we’ll add our seasonal temperatures to the plot commands for each time period.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1486,11 +1453,11 @@ parameter you can specify the width of the line.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L7_advanced-plotting_54_0.png" src="../../_images/notebooks_L7_advanced-plotting_54_0.png" />
+<img alt="../../_images/notebooks_L7_advanced-plotting_48_0.png" src="../../_images/notebooks_L7_advanced-plotting_48_0.png" />
 </div>
 </div>
 <p>Not bad.</p>
