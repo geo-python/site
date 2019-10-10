@@ -1069,7 +1069,7 @@ debugging.ipynb                            gcp-assertions.ipynb
 </pre></div>
 </div>
 </div>
-<p>At this point, you can already had a quick look at the input file <code class="docutils literal notranslate"><span class="pre">029440.txt</span></code> for Tampere Pirkkala and how it is structured. We can notice at least two things we need to consider when reading in the data:</p>
+<p>At this point, you can already have a quick look at the input file <code class="docutils literal notranslate"><span class="pre">029440.txt</span></code> for Tampere Pirkkala and how it is structured. We can notice at least two things we need to consider when reading in the data:</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>NOTE: Input data structure</strong></p>
 <ul class="simple">
@@ -1094,7 +1094,7 @@ debugging.ipynb                            gcp-assertions.ipynb
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/Users/whipp/anaconda3/lib/python3.7/site-packages/IPython/core/interactiveshell.py:3057: DtypeWarning: Columns (29,30,31) have mixed types. Specify dtype option on import or set low_memory=False.
+C:\HYapp\Anaconda3\lib\site-packages\IPython\core\interactiveshell.py:3058: DtypeWarning: Columns (29,30,31) have mixed types. Specify dtype option on import or set low_memory=False.
   interactivity=interactivity, compiler=compiler, result=result)
 </pre></div></div>
 </div>
@@ -1115,12 +1115,12 @@ debugging.ipynb                            gcp-assertions.ipynb
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-    USAF   WBAN  YR--MODAHRMN    DIR  SPD  GUS  CLG  SKC   L   M  ...     SLP  \
-0  29440  99999  190601010600   90.0  7.0  NaN  NaN  OVC NaN NaN  ...  1011.0
-1  29440  99999  190601011300    NaN  0.0  NaN  NaN  OVC NaN NaN  ...  1015.5
-2  29440  99999  190601012000    NaN  0.0  NaN  NaN  OVC NaN NaN  ...  1016.2
-3  29440  99999  190601020600    NaN  0.0  NaN  NaN  CLR NaN NaN  ...  1016.2
-4  29440  99999  190601021300  270.0  7.0  NaN  NaN  OVC NaN NaN  ...  1015.6
+    USAF   WBAN  YR--MODAHRMN    DIR  SPD  GUS  CLG  SKC   L   M ...     SLP  \
+0  29440  99999  190601010600   90.0  7.0  NaN  NaN  OVC NaN NaN ...  1011.0
+1  29440  99999  190601011300    NaN  0.0  NaN  NaN  OVC NaN NaN ...  1015.5
+2  29440  99999  190601012000    NaN  0.0  NaN  NaN  OVC NaN NaN ...  1016.2
+3  29440  99999  190601020600    NaN  0.0  NaN  NaN  CLR NaN NaN ...  1016.2
+4  29440  99999  190601021300  270.0  7.0  NaN  NaN  OVC NaN NaN ...  1015.6
 
    ALT  STP  MAX  MIN  PCP01  PCP06  PCP24  PCPXX  SD
 0  NaN  NaN  NaN  NaN    NaN    NaN    NaN    NaN NaN
@@ -1314,7 +1314,7 @@ debugging.ipynb                            gcp-assertions.ipynb
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;YR--MODAHRMN&#39;: &#39;TIME&#39;, &#39;SPD&#39;: &#39;SPEED&#39;, &#39;GUS&#39;: &#39;GUST&#39;}
+{&#39;SPD&#39;: &#39;SPEED&#39;, &#39;YR--MODAHRMN&#39;: &#39;TIME&#39;, &#39;GUS&#39;: &#39;GUST&#39;}
 &lt;class &#39;dict&#39;&gt;
 </pre></div></div>
 </div>
@@ -1904,7 +1904,7 @@ max      108.000000      91.000000     91.000000     81.000000
 <div class="section" id="Iterating-over-rows">
 <h3>Iterating over rows<a class="headerlink" href="#Iterating-over-rows" title="Permalink to this headline">¶</a></h3>
 <p>We can iterate over the rows of Pandas DataFrame by using the <code class="docutils literal notranslate"><span class="pre">iterrows()</span></code> -method and use the function one row at a time.</p>
-<p>When iterating over the rows in our <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, it is noteworthy to understand that the Pandas actually keeps track on the <code class="docutils literal notranslate"><span class="pre">index</span></code> value as well. Hence, the contents of a single row actually contains not only the values, but also the <code class="docutils literal notranslate"><span class="pre">index</span></code> of that row (each row is a pandas Series!).</p>
+<p>When iterating over the rows in our <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, it is noteworthy to understand that pandas actually keeps track on the <code class="docutils literal notranslate"><span class="pre">index</span></code> value as well. Hence, the contents of a single row actually contains not only the values, but also the <code class="docutils literal notranslate"><span class="pre">index</span></code> of that row (each row is a pandas Series!).</p>
 <ul class="simple">
 <li>Let’s see how <code class="docutils literal notranslate"><span class="pre">iterrows()</span></code> works by printing out the <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> value on each row using a <code class="docutils literal notranslate"><span class="pre">for</span></code>-loop:</li>
 </ul>
@@ -1937,7 +1937,7 @@ Temp F: 27.0
 </div>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>break</strong></p>
-<p>When developing a for-loop, you don’t always need to go trough the whole loop if you just want to test things out. <a class="reference external" href="https://www.tutorialspoint.com/python/python_break_statement.htm">break</a> statement in Python terminates the current loop after the first iteration and we used it here just to test check out the values on the first row.</p>
+<p>When developing a for-loop, you don’t always need to go trough the whole loop if you just want to test things out. <a class="reference external" href="https://www.tutorialspoint.com/python/python_break_statement.htm">break</a> statement in Python terminates the current loop after the first iteration and we used it here just to test check out the values on the first row. With a large data, you might not want to print out thousands of values to the screen!</p>
 </div>
 <p>We can see that the <code class="docutils literal notranslate"><span class="pre">idx</span></code> variable indeed contains the index value at position 0 (the first row) and the <code class="docutils literal notranslate"><span class="pre">row</span></code> variable contains all the data from that given row stored as a pandas <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
 <ul class="simple">
@@ -1963,9 +1963,10 @@ Temp F: 27.0
 </div>
 </div>
 <div class="admonition note">
-<p class="admonition-title fa fa-exclamation-circle"><strong>.at or .loc?</strong></p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Reminder: .at or .loc?</strong></p>
 <p>Here, you could also use <code class="docutils literal notranslate"><span class="pre">data.loc[idx,</span> <span class="pre">new_column]</span> <span class="pre">=</span> <span class="pre">celsius</span></code> to achieve the same result.</p>
 <p>If you only need to access a single value in a DataFrame, <a class="reference external" href="https://pandas.pydata.org/pandas-docs/version/0.25/reference/api/pandas.DataFrame.at.html">DataFrame.at</a> is faster compared to <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html">DataFrame.loc</a> which is designed for accessing groups of rows and columns.</p>
+<p>Check out more examples for using <code class="docutils literal notranslate"><span class="pre">.at</span></code> and <code class="docutils literal notranslate"><span class="pre">.loc</span></code> from lesson 5 materials.</p>
 </div>
 <ul class="simple">
 <li>Let’s see what we have now.</li>
@@ -2321,7 +2322,7 @@ Name: TIME, dtype: int64
 </pre></div>
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">TIME</span></code> column contains several observations per day (and even several observations per hour). The timestamp for the first observation is <code class="docutils literal notranslate"><span class="pre">191701010600</span></code>, i.e. from 1st of January 1917, and the timestamp for the latest observation is <code class="docutils literal notranslate"><span class="pre">201910012350</span></code> (from last week, by the time of writing this!)</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">TIME</span></code> column contains several observations per day (and even several observations per hour). The timestamp for the first observation is <code class="docutils literal notranslate"><span class="pre">190601010600</span></code>, i.e. from 1st of January 1906 (way back!), and the timestamp for the latest observation is <code class="docutils literal notranslate"><span class="pre">201910012350</span></code> (from last week, by the time of writing this!)</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
@@ -2341,7 +2342,7 @@ Name: TIME, dtype: int64
 </div>
 </div>
 <p>And the information is stored as integer values.</p>
-<p>There are several different options for proceeding from here. The bottom line is, that we would want to <strong>aggregate the data on a monthly level</strong>, and in order to do so we need to “label” each row of data based on the month when the record was observed. In practice, we could create a new column (or an index), which contains information about the month (including the year, but excluding hours and minutes).</p>
+<p>There are several different options for proceeding from here. The bottom line is, that we would want to <strong>aggregate the data on a monthly level</strong>, and in order to do so we need to “label” each row of data based on the month when the record was observed. In practice, we could create a new column (or an index), which contains information about the month (including the year, but excluding days, hours and minutes).</p>
 <div class="section" id="String-slicing">
 <h3>String slicing<a class="headerlink" href="#String-slicing" title="Permalink to this headline">¶</a></h3>
 <p>One approach would be to convert the date and time information into character strings and “cut” the needed information from the <a class="reference external" href="https://docs.python.org/3/tutorial/introduction.html#strings">string objects</a>. If we look at the latest time stamp in the data (<code class="docutils literal notranslate"><span class="pre">201910012350</span></code>), you can see that there is a systematic pattern <code class="docutils literal notranslate"><span class="pre">YEAR-MONTH-DAY-HOUR-MINUTE</span></code>. Four first characters represent the year, and six first characters are year + month!</p>
@@ -2384,7 +2385,7 @@ Name: TIME, dtype: int64
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># SLice the string</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;MONTH_STR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;TIME_STR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;YEAR_MONTH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;TIME_STR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 
 <span class="c1"># Let&#39;s see what we have</span>
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
@@ -2403,12 +2404,12 @@ Name: TIME, dtype: int64
 3           29440  190601020600    NaN    0.0   NaN    26.0  NaN  NaN
 4           29440  190601021300  270.0    7.0   NaN    27.0  NaN  NaN
 
-     TEMP_C      TIME_STR MONTH_STR
-0 -2.777778  190601010600    190601
-1 -2.777778  190601011300    190601
-2 -3.888889  190601012000    190601
-3 -3.333333  190601020600    190601
-4 -2.777778  190601021300    190601
+     TEMP_C      TIME_STR YEAR_MONTH
+0 -2.777778  190601010600     190601
+1 -2.777778  190601011300     190601
+2 -3.888889  190601012000     190601
+3 -3.333333  190601020600     190601
+4 -2.777778  190601021300     190601
 </pre></div></div>
 </div>
 <p>Nice! Now we have “labeled” the rows based on information about day of the year and hour of the day. However, let’s have a look at a more clever way of dealing with dates and times..</p>
@@ -2425,10 +2426,10 @@ Name: TIME, dtype: int64
 </div>
 <p>If needed, you can use the <code class="docutils literal notranslate"><span class="pre">format</span></code> parameter to define the output datetime format according to <a class="reference external" href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior">strftime(format) method</a>. together with <code class="docutils literal notranslate"><span class="pre">exact=False</span></code>, for example like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert to datetime</span>
-<span class="n">data</span><span class="p">[</span><span class="s2">&quot;DATE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;TIME_STR&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">%H&#39;</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;YEAR_MONTH&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;TIME_STR&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m&#39;</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In this example, <code class="docutils literal notranslate"><span class="pre">exact=False</span></code> drops out minutes and secods, because they are not included in the specified formatting.</p>
+<p>In this example, <code class="docutils literal notranslate"><span class="pre">exact=False</span></code> drops out days, hours and minutes, because they are not included in the specified formatting.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
@@ -2610,7 +2611,7 @@ Name: DATE, Length: 757983, dtype: int64
       <th>MIN</th>
       <th>TEMP_C</th>
       <th>TIME_STR</th>
-      <th>MONTH_STR</th>
+      <th>YEAR_MONTH</th>
       <th>DATE</th>
       <th>YEAR</th>
       <th>MONTH</th>
@@ -2770,7 +2771,7 @@ number of rows: 757983
       <th>MIN</th>
       <th>TEMP_C</th>
       <th>TIME_STR</th>
-      <th>MONTH_STR</th>
+      <th>YEAR_MONTH</th>
       <th>DATE</th>
       <th>YEAR</th>
       <th>MONTH</th>
@@ -2866,7 +2867,7 @@ number of rows: 757983
 </table>
 </div></div>
 </div>
-<p>We have quite a few rows of weather data, and several observations per day (and even per hour). <strong>Our goal is to create an aggreated data frame that would have only one row per month!</strong></p>
+<p>We have quite a few rows of weather data, and several observations per day. <strong>Our goal is to create an aggreated data frame that would have only one row per month!</strong></p>
 <p>Let’s <strong>group</strong> our data based on unique year and month combinations</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
@@ -2879,9 +2880,9 @@ number of rows: 757983
 </div>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>NOTE:</strong></p>
-<p>Here you could also group the data based on the <code class="docutils literal notranslate"><span class="pre">MONTH_STR</span></code> column to achieve the same result:</p>
+<p>Here you could also group the data based on the <code class="docutils literal notranslate"><span class="pre">YEAR_MONTH</span></code> column to achieve the same result:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Group the data</span>
-<span class="n">grouped</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;MONTH_STR&#39;</span><span class="p">)</span>
+<span class="n">grouped</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;YEAR_MONTH&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2907,7 +2908,7 @@ number of rows: 757983
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Type:
- &lt;class &#39;pandas.core.groupby.generic.DataFrameGroupBy&#39;&gt;
+ &lt;class &#39;pandas.core.groupby.groupby.DataFrameGroupBy&#39;&gt;
 Length:
  601
 </pre></div></div>
@@ -2923,7 +2924,7 @@ Length:
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Answer: the length of the grouped object should be the same as</span>
-<span class="n">data</span><span class="p">[</span><span class="s2">&quot;MONTH_STR&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;YEAR_MONTH&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
 
 <span class="c1"># in other words, the number of groups is the number of unique year and month combinations in our data</span>
 </pre></div>
@@ -2945,7 +2946,7 @@ Length:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Check the &quot;names&quot; of each group (uncomment the next row if you want to print out the result!)</span>
+<span></span><span class="c1"># Check the &quot;names&quot; of each group (uncomment the next row if you want to print out all the keys)</span>
 <span class="c1">#grouped.groups.keys()</span>
 </pre></div>
 </div>
@@ -3038,68 +3039,68 @@ Length:
 747259           29440  201904302320  990.0    1.0   NaN    34.0   NaN   NaN
 747260           29440  201904302350  190.0    3.0   NaN    36.0   NaN   NaN
 
-           TEMP_C      TIME_STR MONTH_STR                DATE  YEAR  MONTH
-745098  -1.111111  201904010000    201904 2019-04-01 00:00:00  2019      4
-745099   0.000000  201904010020    201904 2019-04-01 00:20:00  2019      4
-745100  -1.111111  201904010050    201904 2019-04-01 00:50:00  2019      4
-745101  -1.111111  201904010100    201904 2019-04-01 01:00:00  2019      4
-745102  -1.111111  201904010120    201904 2019-04-01 01:20:00  2019      4
-745103  -1.111111  201904010150    201904 2019-04-01 01:50:00  2019      4
-745104  -1.111111  201904010200    201904 2019-04-01 02:00:00  2019      4
-745105  -1.111111  201904010220    201904 2019-04-01 02:20:00  2019      4
-745106  -2.222222  201904010250    201904 2019-04-01 02:50:00  2019      4
-745107  -1.666667  201904010300    201904 2019-04-01 03:00:00  2019      4
-745108  -1.111111  201904010320    201904 2019-04-01 03:20:00  2019      4
-745109  -2.222222  201904010350    201904 2019-04-01 03:50:00  2019      4
-745110  -1.666667  201904010400    201904 2019-04-01 04:00:00  2019      4
-745111  -2.222222  201904010420    201904 2019-04-01 04:20:00  2019      4
-745112  -1.111111  201904010450    201904 2019-04-01 04:50:00  2019      4
-745113  -1.111111  201904010500    201904 2019-04-01 05:00:00  2019      4
-745114  -1.111111  201904010520    201904 2019-04-01 05:20:00  2019      4
-745115  -1.111111  201904010550    201904 2019-04-01 05:50:00  2019      4
-745116  -0.555556  201904010600    201904 2019-04-01 06:00:00  2019      4
-745117   0.000000  201904010620    201904 2019-04-01 06:20:00  2019      4
-745118   0.000000  201904010650    201904 2019-04-01 06:50:00  2019      4
-745119   0.555556  201904010700    201904 2019-04-01 07:00:00  2019      4
-745120   1.111111  201904010720    201904 2019-04-01 07:20:00  2019      4
-745121   1.111111  201904010750    201904 2019-04-01 07:50:00  2019      4
-745122   1.666667  201904010800    201904 2019-04-01 08:00:00  2019      4
-745123   2.222222  201904010820    201904 2019-04-01 08:20:00  2019      4
-745124   2.777778  201904010850    201904 2019-04-01 08:50:00  2019      4
-745125   2.777778  201904010900    201904 2019-04-01 09:00:00  2019      4
-745126   2.777778  201904010920    201904 2019-04-01 09:20:00  2019      4
-745127   3.888889  201904010950    201904 2019-04-01 09:50:00  2019      4
-...           ...           ...       ...                 ...   ...    ...
-747231  13.888889  201904301400    201904 2019-04-30 14:00:00  2019      4
-747232  13.888889  201904301420    201904 2019-04-30 14:20:00  2019      4
-747233  15.000000  201904301450    201904 2019-04-30 14:50:00  2019      4
-747234  14.444444  201904301500    201904 2019-04-30 15:00:00  2019      4
-747235  15.000000  201904301520    201904 2019-04-30 15:20:00  2019      4
-747236  13.888889  201904301550    201904 2019-04-30 15:50:00  2019      4
-747237  14.444444  201904301600    201904 2019-04-30 16:00:00  2019      4
-747238  13.888889  201904301620    201904 2019-04-30 16:20:00  2019      4
-747239  13.888889  201904301650    201904 2019-04-30 16:50:00  2019      4
-747240  13.888889  201904301700    201904 2019-04-30 17:00:00  2019      4
-747241  12.777778  201904301720    201904 2019-04-30 17:20:00  2019      4
-747242  12.222222  201904301750    201904 2019-04-30 17:50:00  2019      4
-747243  10.555556  201904301800    201904 2019-04-30 18:00:00  2019      4
-747244  11.111111  201904301820    201904 2019-04-30 18:20:00  2019      4
-747245  10.000000  201904301850    201904 2019-04-30 18:50:00  2019      4
-747246   8.333333  201904301900    201904 2019-04-30 19:00:00  2019      4
-747247   7.777778  201904301920    201904 2019-04-30 19:20:00  2019      4
-747248   5.000000  201904301950    201904 2019-04-30 19:50:00  2019      4
-747249   5.555556  201904302000    201904 2019-04-30 20:00:00  2019      4
-747250   5.000000  201904302020    201904 2019-04-30 20:20:00  2019      4
-747251   3.888889  201904302050    201904 2019-04-30 20:50:00  2019      4
-747252   3.888889  201904302100    201904 2019-04-30 21:00:00  2019      4
-747253   2.777778  201904302120    201904 2019-04-30 21:20:00  2019      4
-747254   2.777778  201904302150    201904 2019-04-30 21:50:00  2019      4
-747255   2.222222  201904302200    201904 2019-04-30 22:00:00  2019      4
-747256   2.222222  201904302220    201904 2019-04-30 22:20:00  2019      4
-747257   2.222222  201904302250    201904 2019-04-30 22:50:00  2019      4
-747258   2.222222  201904302300    201904 2019-04-30 23:00:00  2019      4
-747259   1.111111  201904302320    201904 2019-04-30 23:20:00  2019      4
-747260   2.222222  201904302350    201904 2019-04-30 23:50:00  2019      4
+           TEMP_C      TIME_STR YEAR_MONTH                DATE  YEAR  MONTH
+745098  -1.111111  201904010000     201904 2019-04-01 00:00:00  2019      4
+745099   0.000000  201904010020     201904 2019-04-01 00:20:00  2019      4
+745100  -1.111111  201904010050     201904 2019-04-01 00:50:00  2019      4
+745101  -1.111111  201904010100     201904 2019-04-01 01:00:00  2019      4
+745102  -1.111111  201904010120     201904 2019-04-01 01:20:00  2019      4
+745103  -1.111111  201904010150     201904 2019-04-01 01:50:00  2019      4
+745104  -1.111111  201904010200     201904 2019-04-01 02:00:00  2019      4
+745105  -1.111111  201904010220     201904 2019-04-01 02:20:00  2019      4
+745106  -2.222222  201904010250     201904 2019-04-01 02:50:00  2019      4
+745107  -1.666667  201904010300     201904 2019-04-01 03:00:00  2019      4
+745108  -1.111111  201904010320     201904 2019-04-01 03:20:00  2019      4
+745109  -2.222222  201904010350     201904 2019-04-01 03:50:00  2019      4
+745110  -1.666667  201904010400     201904 2019-04-01 04:00:00  2019      4
+745111  -2.222222  201904010420     201904 2019-04-01 04:20:00  2019      4
+745112  -1.111111  201904010450     201904 2019-04-01 04:50:00  2019      4
+745113  -1.111111  201904010500     201904 2019-04-01 05:00:00  2019      4
+745114  -1.111111  201904010520     201904 2019-04-01 05:20:00  2019      4
+745115  -1.111111  201904010550     201904 2019-04-01 05:50:00  2019      4
+745116  -0.555556  201904010600     201904 2019-04-01 06:00:00  2019      4
+745117   0.000000  201904010620     201904 2019-04-01 06:20:00  2019      4
+745118   0.000000  201904010650     201904 2019-04-01 06:50:00  2019      4
+745119   0.555556  201904010700     201904 2019-04-01 07:00:00  2019      4
+745120   1.111111  201904010720     201904 2019-04-01 07:20:00  2019      4
+745121   1.111111  201904010750     201904 2019-04-01 07:50:00  2019      4
+745122   1.666667  201904010800     201904 2019-04-01 08:00:00  2019      4
+745123   2.222222  201904010820     201904 2019-04-01 08:20:00  2019      4
+745124   2.777778  201904010850     201904 2019-04-01 08:50:00  2019      4
+745125   2.777778  201904010900     201904 2019-04-01 09:00:00  2019      4
+745126   2.777778  201904010920     201904 2019-04-01 09:20:00  2019      4
+745127   3.888889  201904010950     201904 2019-04-01 09:50:00  2019      4
+...           ...           ...        ...                 ...   ...    ...
+747231  13.888889  201904301400     201904 2019-04-30 14:00:00  2019      4
+747232  13.888889  201904301420     201904 2019-04-30 14:20:00  2019      4
+747233  15.000000  201904301450     201904 2019-04-30 14:50:00  2019      4
+747234  14.444444  201904301500     201904 2019-04-30 15:00:00  2019      4
+747235  15.000000  201904301520     201904 2019-04-30 15:20:00  2019      4
+747236  13.888889  201904301550     201904 2019-04-30 15:50:00  2019      4
+747237  14.444444  201904301600     201904 2019-04-30 16:00:00  2019      4
+747238  13.888889  201904301620     201904 2019-04-30 16:20:00  2019      4
+747239  13.888889  201904301650     201904 2019-04-30 16:50:00  2019      4
+747240  13.888889  201904301700     201904 2019-04-30 17:00:00  2019      4
+747241  12.777778  201904301720     201904 2019-04-30 17:20:00  2019      4
+747242  12.222222  201904301750     201904 2019-04-30 17:50:00  2019      4
+747243  10.555556  201904301800     201904 2019-04-30 18:00:00  2019      4
+747244  11.111111  201904301820     201904 2019-04-30 18:20:00  2019      4
+747245  10.000000  201904301850     201904 2019-04-30 18:50:00  2019      4
+747246   8.333333  201904301900     201904 2019-04-30 19:00:00  2019      4
+747247   7.777778  201904301920     201904 2019-04-30 19:20:00  2019      4
+747248   5.000000  201904301950     201904 2019-04-30 19:50:00  2019      4
+747249   5.555556  201904302000     201904 2019-04-30 20:00:00  2019      4
+747250   5.000000  201904302020     201904 2019-04-30 20:20:00  2019      4
+747251   3.888889  201904302050     201904 2019-04-30 20:50:00  2019      4
+747252   3.888889  201904302100     201904 2019-04-30 21:00:00  2019      4
+747253   2.777778  201904302120     201904 2019-04-30 21:20:00  2019      4
+747254   2.777778  201904302150     201904 2019-04-30 21:50:00  2019      4
+747255   2.222222  201904302200     201904 2019-04-30 22:00:00  2019      4
+747256   2.222222  201904302220     201904 2019-04-30 22:20:00  2019      4
+747257   2.222222  201904302250     201904 2019-04-30 22:50:00  2019      4
+747258   2.222222  201904302300     201904 2019-04-30 23:00:00  2019      4
+747259   1.111111  201904302320     201904 2019-04-30 23:20:00  2019      4
+747260   2.222222  201904302350     201904 2019-04-30 23:50:00  2019      4
 
 [2163 rows x 14 columns]
 </pre></div></div>
@@ -3164,8 +3165,7 @@ MONTH       4.000000
 dtype: float64
 </pre></div></div>
 </div>
-<p>Nice, now we have averaged our data and e.g. the mean Celsius temperature seems to be about right when comparing to the original values above.</p>
-<p>Here we saw how you can access data from a single group. For getting information about all groups (all months)we can a <code class="docutils literal notranslate"><span class="pre">for</span></code> -loop or methods available in the grouped object.</p>
+<p>Here we saw how you can access data from a single group. For getting information about all groups (all months) we can a <code class="docutils literal notranslate"><span class="pre">for</span></code> -loop or methods available in the grouped object.</p>
 <p><strong>For-loops and grouped objects:</strong></p>
 <p>When iterating over the groups in our <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code> -object it is important to understand that a single group in our <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code> actually contains not only the actual values, but also information about the <code class="docutils literal notranslate"><span class="pre">key</span></code> that was used to do the grouping. Hence, when iterating over the data we need to assign the <code class="docutils literal notranslate"><span class="pre">key</span></code> and the values into separate variables.</p>
 <ul class="simple">
@@ -3203,12 +3203,12 @@ First rows of data in this group:
 3           29440  190601020600    NaN    0.0   NaN    26.0  NaN  NaN
 4           29440  190601021300  270.0    7.0   NaN    27.0  NaN  NaN
 
-     TEMP_C      TIME_STR MONTH_STR                DATE  YEAR  MONTH
-0 -2.777778  190601010600    190601 1906-01-01 06:00:00  1906      1
-1 -2.777778  190601011300    190601 1906-01-01 13:00:00  1906      1
-2 -3.888889  190601012000    190601 1906-01-01 20:00:00  1906      1
-3 -3.333333  190601020600    190601 1906-01-02 06:00:00  1906      1
-4 -2.777778  190601021300    190601 1906-01-02 13:00:00  1906      1
+     TEMP_C      TIME_STR YEAR_MONTH                DATE  YEAR  MONTH
+0 -2.777778  190601010600     190601 1906-01-01 06:00:00  1906      1
+1 -2.777778  190601011300     190601 1906-01-01 13:00:00  1906      1
+2 -3.888889  190601012000     190601 1906-01-01 20:00:00  1906      1
+3 -3.333333  190601020600     190601 1906-01-02 06:00:00  1906      1
+4 -2.777778  190601021300     190601 1906-01-02 13:00:00  1906      1
 </pre></div></div>
 </div>
 <p>Okey so from here we can see that the <code class="docutils literal notranslate"><span class="pre">key</span></code> contains the name of the group (year, month).</p>
@@ -3228,7 +3228,8 @@ First rows of data in this group:
 
 <span class="c1"># Iterate over the groups</span>
 <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">grouped</span><span class="p">:</span>
-   <span class="c1"># Aggregate the data</span>
+
+   <span class="c1"># Calculate mean</span>
    <span class="n">mean_values</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="n">mean_cols</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
    <span class="c1"># Add the ´key´ (i.e. the date+time information) into the aggregated values</span>
@@ -3322,7 +3323,7 @@ First rows of data in this group:
 [601 rows x 7 columns]
 </pre></div></div>
 </div>
-<p>Awesome! Now we have aggregated our data based on daily averages and we have a new DataFrame called <code class="docutils literal notranslate"><span class="pre">monthly_data</span></code> where all those aggregated values are stored.</p>
+<p>Awesome! Now we have aggregated our data and we have a new DataFrame called <code class="docutils literal notranslate"><span class="pre">monthly_data</span></code> where we have mean values for each month in the data set.</p>
 <p><strong>Mean for all groups at once</strong></p>
 <p>We can also achieve the same result by computing the mean of all columns for all groups in the grouped object:</p>
 <div class="nbinput docutils container">
@@ -4489,7 +4490,7 @@ YEAR MONTH
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Number of files in the list 15
-[&#39;data/029170.txt&#39;, &#39;data/028690.txt&#39;, &#39;data/029820.txt&#39;, &#39;data/029700.txt&#39;, &#39;data/028970.txt&#39;, &#39;data/029070.txt&#39;, &#39;data/029500.txt&#39;, &#39;data/029110.txt&#39;, &#39;data/028750.txt&#39;, &#39;data/029720.txt&#39;, &#39;data/029440.txt&#39;, &#39;data/028360.txt&#39;, &#39;data/029810.txt&#39;, &#39;data/029740.txt&#39;, &#39;data/029350.txt&#39;]
+[&#39;data\\028360.txt&#39;, &#39;data\\028690.txt&#39;, &#39;data\\028750.txt&#39;, &#39;data\\028970.txt&#39;, &#39;data\\029070.txt&#39;, &#39;data\\029110.txt&#39;, &#39;data\\029170.txt&#39;, &#39;data\\029350.txt&#39;, &#39;data\\029440.txt&#39;, &#39;data\\029500.txt&#39;, &#39;data\\029700.txt&#39;, &#39;data\\029720.txt&#39;, &#39;data\\029740.txt&#39;, &#39;data\\029810.txt&#39;, &#39;data\\029820.txt&#39;]
 </pre></div></div>
 </div>
 <p>Now, you should have all the relevant file names in a list, and we can loop over the list using a for-loop:</p>
@@ -4508,21 +4509,21 @@ Number of files in the list 15
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-data/029170.txt
-data/028690.txt
-data/029820.txt
-data/029700.txt
-data/028970.txt
-data/029070.txt
-data/029500.txt
-data/029110.txt
-data/028750.txt
-data/029720.txt
-data/029440.txt
-data/028360.txt
-data/029810.txt
-data/029740.txt
-data/029350.txt
+data\028360.txt
+data\028690.txt
+data\028750.txt
+data\028970.txt
+data\029070.txt
+data\029110.txt
+data\029170.txt
+data\029350.txt
+data\029440.txt
+data\029500.txt
+data\029700.txt
+data\029720.txt
+data\029740.txt
+data\029810.txt
+data\029820.txt
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -4581,15 +4582,15 @@ data/029350.txt
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-STATION NUMBER: 29170
-NUMBER OF OBSERVATIONS: 561097
+STATION NUMBER: 28360
+NUMBER OF OBSERVATIONS: 193825
             STATION_NUMBER     TEMP_F    TEMP_C
 YEAR MONTH
-1937 4               29170  43.289157  6.271754
-2019 4               29170  40.666820  4.814900
-2011 4               29170  40.015962  4.453312
-2001 4               29170  39.713228  4.285126
-1906 4               29170  39.688889  4.271605
+1937 4               28360  38.738095  3.743386
+2011 4               28360  36.699571  2.610873
+1921 4               28360  36.622222  2.567901
+2002 4               28360  36.500000  2.500000
+2019 4               28360  34.979138  1.655076
 
 
 STATION NUMBER: 28690
@@ -4603,26 +4604,15 @@ YEAR MONTH
 2002 4               28690  34.279855  1.266586
 
 
-STATION NUMBER: 29820
-NUMBER OF OBSERVATIONS: 198334
+STATION NUMBER: 28750
+NUMBER OF OBSERVATIONS: 474562
             STATION_NUMBER     TEMP_F    TEMP_C
 YEAR MONTH
-2019 4               29820  41.182197  5.101221
-1990 4               29820  41.144681  5.080378
-2014 4               29820  40.497908  4.721060
-2008 4               29820  39.941423  4.411901
-1913 4               29820  39.622222  4.234568
-
-
-STATION NUMBER: 29700
-NUMBER OF OBSERVATIONS: 473881
-            STATION_NUMBER     TEMP_F    TEMP_C
-YEAR MONTH
-1921 4               29700  42.811111  6.006173
-2000 4               29700  42.375587  5.764215
-1990 4               29700  42.054167  5.585648
-2019 4               29700  41.548747  5.304859
-2004 4               29700  41.493392  5.274107
+1989 4               28750  39.008403  3.893557
+1983 4               28750  38.758475  3.754708
+2019 4               28750  38.651599  3.695333
+2002 4               28750  38.270419  3.483566
+1994 4               28750  38.145833  3.414352
 
 
 STATION NUMBER: 28970
@@ -4647,17 +4637,6 @@ YEAR MONTH
 2008 4               29070  34.241667  1.245370
 
 
-STATION NUMBER: 29500
-NUMBER OF OBSERVATIONS: 103105
-            STATION_NUMBER     TEMP_F    TEMP_C
-YEAR MONTH
-2019 4               29500  41.639777  5.355432
-2008 4               29500  40.838936  4.910520
-2014 4               29500  40.226415  4.570231
-2016 4               29500  39.176634  3.987019
-2011 4               29500  38.647826  3.693237
-
-
 STATION NUMBER: 29110
 NUMBER OF OBSERVATIONS: 483784
             STATION_NUMBER     TEMP_F    TEMP_C
@@ -4669,26 +4648,26 @@ YEAR MONTH
 2019 4               29110  40.636300  4.797945
 
 
-STATION NUMBER: 28750
-NUMBER OF OBSERVATIONS: 474562
+STATION NUMBER: 29170
+NUMBER OF OBSERVATIONS: 561097
             STATION_NUMBER     TEMP_F    TEMP_C
 YEAR MONTH
-1989 4               28750  39.008403  3.893557
-1983 4               28750  38.758475  3.754708
-2019 4               28750  38.651599  3.695333
-2002 4               28750  38.270419  3.483566
-1994 4               28750  38.145833  3.414352
+1937 4               29170  43.289157  6.271754
+2019 4               29170  40.666820  4.814900
+2011 4               29170  40.015962  4.453312
+2001 4               29170  39.713228  4.285126
+1906 4               29170  39.688889  4.271605
 
 
-STATION NUMBER: 29720
-NUMBER OF OBSERVATIONS: 843688
+STATION NUMBER: 29350
+NUMBER OF OBSERVATIONS: 559667
             STATION_NUMBER     TEMP_F    TEMP_C
 YEAR MONTH
-2019 4               29720  43.558414  6.421341
-1990 4               29720  43.313576  6.285320
-2000 4               29720  42.663169  5.923983
-2008 4               29720  42.349642  5.749801
-2004 4               29720  41.903492  5.501940
+1921 4               29350  45.144444  7.302469
+1925 4               29350  40.777778  4.876543
+2011 4               29350  40.670108  4.816727
+2019 4               29350  40.585002  4.769446
+2001 4               29350  39.662827  4.257126
 
 
 STATION NUMBER: 29440
@@ -4702,26 +4681,37 @@ YEAR MONTH
 2004 4               29440  41.249676  5.138709
 
 
-STATION NUMBER: 28360
-NUMBER OF OBSERVATIONS: 193825
+STATION NUMBER: 29500
+NUMBER OF OBSERVATIONS: 103105
             STATION_NUMBER     TEMP_F    TEMP_C
 YEAR MONTH
-1937 4               28360  38.738095  3.743386
-2011 4               28360  36.699571  2.610873
-1921 4               28360  36.622222  2.567901
-2002 4               28360  36.500000  2.500000
-2019 4               28360  34.979138  1.655076
+2019 4               29500  41.639777  5.355432
+2008 4               29500  40.838936  4.910520
+2014 4               29500  40.226415  4.570231
+2016 4               29500  39.176634  3.987019
+2011 4               29500  38.647826  3.693237
 
 
-STATION NUMBER: 29810
-NUMBER OF OBSERVATIONS: 199330
+STATION NUMBER: 29700
+NUMBER OF OBSERVATIONS: 473881
             STATION_NUMBER     TEMP_F    TEMP_C
 YEAR MONTH
-1990 4               29810  41.157895  5.087719
-2019 4               29810  40.783032  4.879462
-2014 4               29810  40.058036  4.476687
-2008 4               29810  40.044881  4.469378
-2016 4               29810  39.270308  4.039060
+1921 4               29700  42.811111  6.006173
+2000 4               29700  42.375587  5.764215
+1990 4               29700  42.054167  5.585648
+2019 4               29700  41.548747  5.304859
+2004 4               29700  41.493392  5.274107
+
+
+STATION NUMBER: 29720
+NUMBER OF OBSERVATIONS: 843688
+            STATION_NUMBER     TEMP_F    TEMP_C
+YEAR MONTH
+2019 4               29720  43.558414  6.421341
+1990 4               29720  43.313576  6.285320
+2000 4               29720  42.663169  5.923983
+2008 4               29720  42.349642  5.749801
+2004 4               29720  41.903492  5.501940
 
 
 STATION NUMBER: 29740
@@ -4735,15 +4725,26 @@ YEAR MONTH
 2011 4               29740  42.750702  5.972612
 
 
-STATION NUMBER: 29350
-NUMBER OF OBSERVATIONS: 559667
+STATION NUMBER: 29810
+NUMBER OF OBSERVATIONS: 199330
             STATION_NUMBER     TEMP_F    TEMP_C
 YEAR MONTH
-1921 4               29350  45.144444  7.302469
-1925 4               29350  40.777778  4.876543
-2011 4               29350  40.670108  4.816727
-2019 4               29350  40.585002  4.769446
-2001 4               29350  39.662827  4.257126
+1990 4               29810  41.157895  5.087719
+2019 4               29810  40.783032  4.879462
+2014 4               29810  40.058036  4.476687
+2008 4               29810  40.044881  4.469378
+2016 4               29810  39.270308  4.039060
+
+
+STATION NUMBER: 29820
+NUMBER OF OBSERVATIONS: 198334
+            STATION_NUMBER     TEMP_F    TEMP_C
+YEAR MONTH
+2019 4               29820  41.182197  5.101221
+1990 4               29820  41.144681  5.080378
+2014 4               29820  40.497908  4.721060
+2008 4               29820  39.941423  4.411901
+1913 4               29820  39.622222  4.234568
 
 
 </pre></div></div>
@@ -4774,7 +4775,7 @@ YEAR MONTH
     <p>
         &copy; Copyright 2019, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki
       <span class="lastupdated">
-        Last updated on Oct 09, 2019.
+        Last updated on Oct 10, 2019.
       </span>
 
     </p>
