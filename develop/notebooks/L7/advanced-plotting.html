@@ -1003,33 +1003,16 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">fp</span> <span class="o">=</span> <span class="s1">&#39;data/1924927457196dat.txt&#39;</span>
-<span class="n">dataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;**&#39;</span><span class="p">,</span> <span class="s1">&#39;***&#39;</span><span class="p">,</span> <span class="s1">&#39;****&#39;</span><span class="p">,</span> <span class="s1">&#39;*****&#39;</span><span class="p">,</span> <span class="s1">&#39;******&#39;</span><span class="p">])</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">usecols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;YR--MODAHRMN&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP&#39;</span><span class="p">],</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;**&#39;</span><span class="p">,</span> <span class="s1">&#39;***&#39;</span><span class="p">,</span> <span class="s1">&#39;****&#39;</span><span class="p">,</span> <span class="s1">&#39;*****&#39;</span><span class="p">,</span> <span class="s1">&#39;******&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<p>As in the last section of this week’s lesson, let’s separate <code class="docutils literal notranslate"><span class="pre">dataFrame</span></code> into separate value arrays for the <code class="docutils literal notranslate"><span class="pre">YR--MODAHRMN</span></code>, <code class="docutils literal notranslate"><span class="pre">SPD</span></code>, and <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> columns.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">date</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;YR--MODAHRMN&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">temp</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="Preparing-the-data">
-<h2>Preparing the data<a class="headerlink" href="#Preparing-the-data" title="Permalink to this headline">¶</a></h2>
-<p>A quick check of the <code class="docutils literal notranslate"><span class="pre">temp</span></code> data will reveal there are a handful of missing data values. We can check for the existence of <code class="docutils literal notranslate"><span class="pre">nan</span></code> values, for example, by running the cell below.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Number of date nans: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">date</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Number of temp nans: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Number of rows:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1038,46 +1021,181 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Number of date nans:  0
-Number of temp nans:  26
+Number of rows: 16569
 </pre></div></div>
 </div>
-<p>Ouch, 26 bad values to cut. Since we’re working with value arrays, the easiest way to drop the <code class="docutils literal notranslate"><span class="pre">nan</span></code> values from <code class="docutils literal notranslate"><span class="pre">temp</span></code> is save only the values that are not <code class="docutils literal notranslate"><span class="pre">nan</span></code>. We can do this, for example, using the following.</p>
+<p>Let’s have a closer look at the time and temperature columns:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   YR--MODAHRMN  TEMP
+0  201201010050  28.0
+1  201201010150  27.0
+2  201201010250  25.0
+3  201201010350  21.0
+4  201201010450  21.0
+</pre></div></div>
+</div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">temp_mask</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
-<span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="p">[</span><span class="n">temp_mask</span><span class="p">]</span>
+<span></span><span class="n">new_names</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;YR--MODAHRMN&#39;</span><span class="p">:</span> <span class="s1">&#39;TIME&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP&#39;</span><span class="p">:</span><span class="s1">&#39;TEMP_F&#39;</span><span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">new_names</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<p>This command simply uses the NumPy <code class="docutils literal notranslate"><span class="pre">isnan()</span></code> function to find all <code class="docutils literal notranslate"><span class="pre">nan</span></code> values, then takes the logical opposite (not) of those values using the <code class="docutils literal notranslate"><span class="pre">~</span></code> character.</p>
-<p>For those using Pandas, you could possibly use <code class="docutils literal notranslate"><span class="pre">dropna()</span></code> as an alternative to this approach, but only for the dataframe, not the value arrays.</p>
-<p>Lastly, since we’ve cut <code class="docutils literal notranslate"><span class="pre">nan</span></code> values from <code class="docutils literal notranslate"><span class="pre">temp</span></code> we should do the same in <code class="docutils literal notranslate"><span class="pre">date</span></code>.</p>
-<div class="nbinput nblast docutils container">
+</div>
+</div>
+<div class="section" id="Preparing-the-data">
+<h2>Preparing the data<a class="headerlink" href="#Preparing-the-data" title="Permalink to this headline">¶</a></h2>
+<p>First, we have to deal with no data values. Let’s check how many no data values we have:</p>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">date</span> <span class="o">=</span> <span class="n">date</span><span class="p">[</span><span class="n">temp_mask</span><span class="p">]</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Number of no data values per column: &#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="Converting-temperatures-to-Celsius">
-<h3>Converting temperatures to Celsius<a class="headerlink" href="#Converting-temperatures-to-Celsius" title="Permalink to this headline">¶</a></h3>
-<p>Now that we have loaded our data, we can convert the values of temperature in Fahrenheit to Celsius, much like we have in earlier lessons.</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of no data values per column:
+TIME       0
+TEMP_F    26
+dtype: int64
+</pre></div></div>
+</div>
+<p>So, we have 26 missing values in the TEMP column.</p>
+<p>We can remove missing values from a pandas dataframe using the <code class="docutils literal notranslate"><span class="pre">dropna()</span></code> method:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">temp_celsius</span> <span class="o">=</span> <span class="p">(</span><span class="n">temp</span> <span class="o">-</span> <span class="mf">32.0</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1.8</span>
+<span></span><span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<p>We should now have a value array <code class="docutils literal notranslate"><span class="pre">temp_celsius</span></code> with all of the temperatures from the data file in Celsius.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Number of rows after removing no data values:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of rows after removing no data values: 16543
+</pre></div></div>
+</div>
+<div class="section" id="Converting-temperatures-to-Celsius">
+<h3>Converting temperatures to Celsius<a class="headerlink" href="#Converting-temperatures-to-Celsius" title="Permalink to this headline">¶</a></h3>
+<p>Now that we have loaded our data, we can convert the values of temperature in Fahrenheit to Celsius, much like we have in earlier lessons.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;TEMP_C&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;TEMP_F&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="mf">32.0</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1.8</span>
+</pre></div>
+</div>
+</div>
+<p>Let’s check how our dataframe looks like at this point:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>TIME</th>
+      <th>TEMP_F</th>
+      <th>TEMP_C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>201201010050</td>
+      <td>28.0</td>
+      <td>-2.222222</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>201201010150</td>
+      <td>27.0</td>
+      <td>-2.777778</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>201201010250</td>
+      <td>25.0</td>
+      <td>-3.888889</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>201201010350</td>
+      <td>21.0</td>
+      <td>-6.111111</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>201201010450</td>
+      <td>21.0</td>
+      <td>-6.111111</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
 </div>
 </div>
 <div class="section" id="Using-subplots">
@@ -1087,94 +1205,40 @@ Number of temp nans:  26
 <h3>Extracting seasonal temperatures<a class="headerlink" href="#Extracting-seasonal-temperatures" title="Permalink to this headline">¶</a></h3>
 <p>Let’s first divide our data into different seasons: Winter (December-February), Spring (March-May), Summer (June-August), and Fall (Septempber-November).</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">winter_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">date</span> <span class="o">&gt;=</span> <span class="mi">201212010000</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">date</span> <span class="o">&lt;</span> <span class="mi">201303010000</span><span class="p">)</span>
-<span class="n">winter_dates</span> <span class="o">=</span> <span class="n">date</span><span class="p">[</span><span class="n">winter_mask</span><span class="p">]</span>
-<span class="n">winter_temps</span> <span class="o">=</span> <span class="n">temp_celsius</span><span class="p">[</span><span class="n">winter_mask</span><span class="p">]</span>
+<span></span><span class="n">winter</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;TIME&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">201212010000</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;TIME&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">201303010000</span><span class="p">)]</span>
+<span class="n">winter_temps</span> <span class="o">=</span> <span class="n">winter</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span>
 
-<span class="n">spring_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">date</span> <span class="o">&gt;=</span> <span class="mi">201303010000</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">date</span> <span class="o">&lt;</span> <span class="mi">201306010000</span><span class="p">)</span>
-<span class="n">spring_dates</span> <span class="o">=</span> <span class="n">date</span><span class="p">[</span><span class="n">spring_mask</span><span class="p">]</span>
-<span class="n">spring_temps</span> <span class="o">=</span> <span class="n">temp_celsius</span><span class="p">[</span><span class="n">spring_mask</span><span class="p">]</span>
+<span class="n">spring</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;TIME&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">201303010000</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;TIME&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">201306010000</span><span class="p">)]</span>
+<span class="n">spring_temps</span> <span class="o">=</span> <span class="n">spring</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span>
 
-<span class="n">summer_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">date</span> <span class="o">&gt;=</span> <span class="mi">201306010000</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">date</span> <span class="o">&lt;</span> <span class="mi">201309010000</span><span class="p">)</span>
-<span class="n">summer_dates</span> <span class="o">=</span> <span class="n">date</span><span class="p">[</span><span class="n">summer_mask</span><span class="p">]</span>
-<span class="n">summer_temps</span> <span class="o">=</span> <span class="n">temp_celsius</span><span class="p">[</span><span class="n">summer_mask</span><span class="p">]</span>
+<span class="n">summer</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;TIME&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">201306010000</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;TIME&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">201309010000</span><span class="p">)]</span>
+<span class="n">summer_temps</span> <span class="o">=</span> <span class="n">summer</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span>
 
-<span class="n">fall_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">date</span> <span class="o">&gt;=</span> <span class="mi">201309010000</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">date</span> <span class="o">&lt;</span> <span class="mi">201401010000</span><span class="p">)</span>
-<span class="n">fall_dates</span> <span class="o">=</span> <span class="n">date</span><span class="p">[</span><span class="n">fall_mask</span><span class="p">]</span>
-<span class="n">fall_temps</span> <span class="o">=</span> <span class="n">temp_celsius</span><span class="p">[</span><span class="n">fall_mask</span><span class="p">]</span>
+<span class="n">fall</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;TIME&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">201309010000</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;TIME&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">201401010000</span><span class="p">)]</span>
+<span class="n">fall_temps</span> <span class="o">=</span> <span class="n">fall</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <p>Now we can plot our data to see how the different seasons look separately.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">winter_temps</span><span class="p">)</span>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">winter</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[&lt;matplotlib.lines.Line2D at 0x2c69c2dc9e8&gt;]
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/notebooks_L7_advanced-plotting_25_1.png" src="../../_images/notebooks_L7_advanced-plotting_25_1.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spring_temps</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[&lt;matplotlib.lines.Line2D at 0x2c69c3b9fd0&gt;]
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/notebooks_L7_advanced-plotting_26_1.png" src="../../_images/notebooks_L7_advanced-plotting_26_1.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">summer_temps</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[&lt;matplotlib.lines.Line2D at 0x2c69c3f9390&gt;]
+<span></span>[&lt;matplotlib.lines.Line2D at 0x207ec359470&gt;]
 </pre></div>
 </div>
 </div>
@@ -1186,20 +1250,20 @@ Number of temp nans:  26
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fall_temps</span><span class="p">)</span>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spring</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[&lt;matplotlib.lines.Line2D at 0x2c69c42d8d0&gt;]
+<span></span>[&lt;matplotlib.lines.Line2D at 0x207ec3bc2e8&gt;]
 </pre></div>
 </div>
 </div>
@@ -1210,18 +1274,68 @@ Number of temp nans:  26
 <img alt="../../_images/notebooks_L7_advanced-plotting_28_1.png" src="../../_images/notebooks_L7_advanced-plotting_28_1.png" />
 </div>
 </div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">summer</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>[&lt;matplotlib.lines.Line2D at 0x207ec3f4710&gt;]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_L7_advanced-plotting_29_1.png" src="../../_images/notebooks_L7_advanced-plotting_29_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fall</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>[&lt;matplotlib.lines.Line2D at 0x207ec0165f8&gt;]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_L7_advanced-plotting_30_1.png" src="../../_images/notebooks_L7_advanced-plotting_30_1.png" />
+</div>
+</div>
 <p>OK, so from these plots we can already see that the temperatures in different seasons are quite different, which is rather obvious of course. It is important to also notice that the scale of the <em>y</em>-axis changes in these different plots. If we would like to compare different seasons to each other we need to make sure that the temperature scale is similar in the plots of the different seasons.</p>
 </div>
 <div class="section" id="Finding-data-bounds">
 <h3>Finding data bounds<a class="headerlink" href="#Finding-data-bounds" title="Permalink to this headline">¶</a></h3>
 <p>Let’s set our <em>y</em>-axis limits so that the upper limit is the maximum temperature + 5 degrees in our data (full year), and the lowest is the minimum temperature - 5 degrees.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">min_temp</span> <span class="o">=</span> <span class="n">temp_celsius</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">5</span>
-<span class="n">max_temp</span> <span class="o">=</span> <span class="n">temp_celsius</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">5</span>
+<span></span><span class="n">min_temp</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;TEMP_C&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">5</span>
+<span class="n">max_temp</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;TEMP_C&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">5</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Min:&quot;</span><span class="p">,</span> <span class="n">min_temp</span><span class="p">,</span> <span class="s2">&quot;Max:&quot;</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1240,7 +1354,7 @@ Min: -33.8888888889 Max: 33.8888888889
 <h3>Creating our first set of subplots<a class="headerlink" href="#Creating-our-first-set-of-subplots" title="Permalink to this headline">¶</a></h3>
 <p>Let’s now continue and see how we can plot all these different plots into the same figure. We can create a 2x2 panel for our visualization using matplotlib’s <code class="docutils literal notranslate"><span class="pre">subplots()</span></code> function where we specify how many rows and columns we want to have in our figure. We can also specify the size of our figure with <code class="docutils literal notranslate"><span class="pre">figsize()</span></code> parameter that takes the <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code> values (in inches) as input.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1250,14 +1364,14 @@ Min: -33.8888888889 Max: 33.8888888889
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002C69C3CF5F8&gt;,
-        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002C69CA6B588&gt;],
-       [&lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002C69CA83BA8&gt;,
-        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002C69CAA3240&gt;]], dtype=object)
+<span></span>array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000207EC00D7B8&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000207EC439240&gt;],
+       [&lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000207EC44E898&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000207EC466F28&gt;]], dtype=object)
 </pre></div>
 </div>
 </div>
@@ -1265,12 +1379,12 @@ Min: -33.8888888889 Max: 33.8888888889
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L7_advanced-plotting_32_1.png" src="../../_images/notebooks_L7_advanced-plotting_32_1.png" />
+<img alt="../../_images/notebooks_L7_advanced-plotting_34_1.png" src="../../_images/notebooks_L7_advanced-plotting_34_1.png" />
 </div>
 </div>
 <p>We can see that as a result we have now a list containing two nested lists where the first one contains the axis for column 1 and 2 on <strong>row 1</strong> and the second list contains the axis for columns 1 and 2 for <strong>row 2</strong>. We can parse these axes into own variables so it is easier to work with them.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1284,7 +1398,7 @@ Min: -33.8888888889 Max: 33.8888888889
 <p>Now we have four different axis variables for different panels in our figure. Next we can use them to plot the seasonal data into them. Let’s first plot the seasons and give different colors for the lines, and specify the <em>y</em>-scale limits to be the same with all subplots. With parameter <code class="docutils literal notranslate"><span class="pre">c</span></code> it is possible to specify the color of the line. You can find an extensive list of possible colors and RGB-color codes from <a class="reference external" href="http://www.rapidtables.com/web/color/RGB_Color.htm">this link</a>. With <code class="docutils literal notranslate"><span class="pre">lw</span></code>
 parameter you can specify the width of the line.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1292,10 +1406,10 @@ parameter you can specify the width of the line.</p>
 <span class="n">line_width</span> <span class="o">=</span> <span class="mf">1.5</span>
 
 <span class="c1"># Plot data</span>
-<span class="n">ax11</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">winter_temps</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">)</span>
-<span class="n">ax12</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spring_temps</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">)</span>
-<span class="n">ax21</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">summer_temps</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">)</span>
-<span class="n">ax22</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fall_temps</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">)</span>
+<span class="n">ax11</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">winter</span><span class="p">[</span><span class="s2">&quot;TEMP_C&quot;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">)</span>
+<span class="n">ax12</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spring</span><span class="p">[</span><span class="s2">&quot;TEMP_C&quot;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">)</span>
+<span class="n">ax21</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">summer</span><span class="p">[</span><span class="s2">&quot;TEMP_C&quot;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">)</span>
+<span class="n">ax22</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fall</span><span class="p">[</span><span class="s2">&quot;TEMP_C&quot;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">)</span>
 
 <span class="c1"># Set y-axis limits</span>
 <span class="n">ax11</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">)</span>
@@ -1309,11 +1423,11 @@ parameter you can specify the width of the line.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L7_advanced-plotting_36_0.png" src="../../_images/notebooks_L7_advanced-plotting_36_0.png" />
+<img alt="../../_images/notebooks_L7_advanced-plotting_38_0.png" src="../../_images/notebooks_L7_advanced-plotting_38_0.png" />
 </div>
 </div>
 <p>Great, now we have all the plots in same figure! However, we can see that there are some problems with our <em>x</em>-axis as we haven’t linked that axis to the dates of the observations. We can change that with a bit of <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module magic.</p>
@@ -1322,7 +1436,7 @@ parameter you can specify the width of the line.</p>
 <h3>Converting our date string to dates for Matplotlib plotting<a class="headerlink" href="#Converting-our-date-string-to-dates-for-Matplotlib-plotting" title="Permalink to this headline">¶</a></h3>
 <p>We can start by importing the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> submodule from <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1332,20 +1446,20 @@ parameter you can specify the width of the line.</p>
 </div>
 <p>With <code class="docutils literal notranslate"><span class="pre">datetime</span></code> imported, we can now create a function that will convert all of our dates in <code class="docutils literal notranslate"><span class="pre">date</span></code> to a special representation of that date data that Matplotlib understands as a date for plotting. Before we can define and use our function, however, we’ll need our dates as a character string array.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">winter_str</span> <span class="o">=</span> <span class="n">winter_dates</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-<span class="n">spring_str</span> <span class="o">=</span> <span class="n">spring_dates</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-<span class="n">summer_str</span> <span class="o">=</span> <span class="n">summer_dates</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-<span class="n">fall_str</span> <span class="o">=</span> <span class="n">fall_dates</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<span></span><span class="n">winter_str</span> <span class="o">=</span> <span class="n">winter</span><span class="p">[</span><span class="s2">&quot;TIME&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<span class="n">spring_str</span> <span class="o">=</span> <span class="n">spring</span><span class="p">[</span><span class="s2">&quot;TIME&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<span class="n">summer_str</span> <span class="o">=</span> <span class="n">summer</span><span class="p">[</span><span class="s2">&quot;TIME&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<span class="n">fall_str</span> <span class="o">=</span> <span class="n">fall</span><span class="p">[</span><span class="s2">&quot;TIME&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <p>OK, so now we have our dates as strings in <code class="docutils literal notranslate"><span class="pre">&lt;season&gt;_str</span></code>. Now we can create our date conversion function.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1357,7 +1471,7 @@ parameter you can specify the width of the line.</p>
 <p><code class="docutils literal notranslate"><span class="pre">datetime.strptime()</span></code> is a special function in <code class="docutils literal notranslate"><span class="pre">datetime</span></code> used to convert strings to <code class="docutils literal notranslate"><span class="pre">datetime</span></code> objects. In our case, we will convert each value from the format <code class="docutils literal notranslate"><span class="pre">YYYYMMDDhhmm</span></code> to <code class="docutils literal notranslate"><span class="pre">datetime</span></code>, where <code class="docutils literal notranslate"><span class="pre">YYYY</span></code> is the year, <code class="docutils literal notranslate"><span class="pre">MM</span></code> is the month, <code class="docutils literal notranslate"><span class="pre">DD</span></code> is the day, <code class="docutils literal notranslate"><span class="pre">hh</span></code> is the hour of the day, and <code class="docutils literal notranslate"><span class="pre">mm</span></code> is the minute in the hour.</p>
 <p>Let’s put our function to work.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1378,7 +1492,7 @@ parameter you can specify the width of the line.</p>
 <p>What has happened here is that we have created a new list of <code class="docutils literal notranslate"><span class="pre">datetime</span></code> values using list comprehension, then converted the output to NumPy arrays for each season. If you don’t understand everything at this point, don’t worry. The important thing is we’re ready to plot again!</p>
 <p>We can set things up the way we did previously.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1397,12 +1511,12 @@ parameter you can specify the width of the line.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L7_advanced-plotting_46_0.png" src="../../_images/notebooks_L7_advanced-plotting_46_0.png" />
+<img alt="../../_images/notebooks_L7_advanced-plotting_48_0.png" src="../../_images/notebooks_L7_advanced-plotting_48_0.png" />
 </div>
 </div>
 <p>Now, we’ll add our seasonal temperatures to the plot commands for each time period.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1453,11 +1567,11 @@ parameter you can specify the width of the line.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L7_advanced-plotting_48_0.png" src="../../_images/notebooks_L7_advanced-plotting_48_0.png" />
+<img alt="../../_images/notebooks_L7_advanced-plotting_50_0.png" src="../../_images/notebooks_L7_advanced-plotting_50_0.png" />
 </div>
 </div>
 <p>Not bad.</p>
@@ -1478,7 +1592,7 @@ parameter you can specify the width of the line.</p>
     <p>
         &copy; Copyright 2019, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki
       <span class="lastupdated">
-        Last updated on Oct 10, 2019.
+        Last updated on Oct 11, 2019.
       </span>
 
     </p>
