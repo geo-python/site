@@ -1,7 +1,16 @@
 Plotting in Python
 ==================
 
-Python has many nice and useful modules that can be used for plotting, such as:
+.. figure:: https://rougier.github.io/python-visualization-landscape/landscape-colors.png
+   :width: 800px
+   :align: center
+   :alt: Python plotting options
+
+   Plotting libraries available in Python. Source: `https://pyviz.org/overviews/index.html <https://pyviz.org/overviews/index.html>`__\.
+
+Python has many nice, useful libraries that can be used for plotting.
+In the figure above, you can see a number of the available plotting library options, along with how they relate to one another.
+Of the options above, we would like to highlight:
 
 - `Matplotlib <http://matplotlib.org/>`__ - "*the grand old man of Python plotting*" (`Matplotlib gallery <http://matplotlib.org/gallery.html>`__)
 
@@ -32,4 +41,4 @@ In our courses, we will be start our plotting experiments with Matplotlib and Pl
 .. note:: 
 
    Later, in the Automating GIS processes course, we will be learning a little bit of Bokeh as well.
-   We will work in Matplotlib in the Introduction to Quantitative Geology course.
+   We will likely work also in Matplotlib in the Introduction to Quantitative Geology course.
