@@ -1,30 +1,31 @@
 Exercise 7
 ==========
 
-.. warning::
+.. note::
 
-    Please note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
+    Please complete this exercise **by 4 pm on Monday 28 October 2019**.
 
 .. admonition:: Start your assignment
 
     **Pandas**
 
-    **You can start working on your copy of Exercise 7 (Pandas version) by** accepting the `GitHub Classroom assignment <https://classroom.github.com/a/nFG7H5VK>`__
+    **You can start working on your copy of Exercise 7 by** accepting the `GitHub Classroom assignment <https://classroom.github.com/a/IKdyfF9a>`__
 
-    **Exercise 7 is due by 16:00 on 28.10**.
-
-    You can also take a look at the open course copy of `Exercise 7 (Pandas version) in the course GitHub repository <https://github.com/Geo-Python-2018/Exercise-7P>`__ (does not require logging in).
+    You can also take a look at the open course copy of `Exercise 7  in the course GitHub repository <https://github.com/Geo-Python-2019/Exercise-7>`__ (does not require logging in).
     Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
-    **Numpy**
+.. warning::
 
-    **You can start working on your copy of Exercise 7 (NumPy version) by** accepting the `GitHub Classroom assignment <https://classroom.github.com/a/5ghFMPJP>`__
+    Please note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
 
-    **Exercise 7 is due by 16:00 on 28.10**.
+Cloud computing environments
+-----------------------------
 
-    You can also take a look at the open course copy of `Exercise 7 (NumPy version) in the course GitHub repository <https://github.com/Geo-Python-2018/Exercise-7N>`__ (does not require logging in).
-    Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
-    
+.. image:: https://img.shields.io/badge/launch-binder-red.svg
+   :target: https://mybinder.org/v2/gh/Geo-Python-2019/Binder/master?urlpath=lab
+
+.. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
+   :target: https://notebooks.csc.fi/#/blueprint/d71cd2d26d924f48820dc22b67a87d8e
 
 Hints for Exercise 7
 --------------------
@@ -77,6 +78,23 @@ Consider following example:
 
 Here, we created a folder path and a unique filename, and in the end parsed a full filepath that could be
 used to save a plot into that location on your computer.
+
+
+Settings for multiple subplots:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are different ways of manipulating matplotlib subplots.
+Here is one trick for modifying multiple subplot properties (of `axes`) at once:
+
+.. ipython:: python
+    # Set axis labels for all subplots
+    for ax in axes.flat:
+        ax.set(xlabel='xxx', ylabel='xxx')
+
+    # Set ylim for all subplots
+    for ax in axes.flat:
+        ax.set_ylim(0, 10)
+
 
 Preventing plot display
 ~~~~~~~~~~~~~~~~~~~~~~~
