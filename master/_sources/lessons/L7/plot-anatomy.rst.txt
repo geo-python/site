@@ -1,7 +1,7 @@
 Anatomy of a plot
 =================
 
-Before starting to do plotting it is useful if we take a look and try to understand **what actually is a plot?**
+Before starting to plot our data it is useful if we take a look and try to understand **what actually is a plot?**
 We won't go too deep into the details of different plots (as it is not the purpose of this lesson) but we rather give a short introduction to different plots that can be done with Python, and what kind of (typical) elements a plot has.
 
 There are a variety of different kinds of plots (also known as graphs, charts, diagrams, etc. - Our dear child has many names) available that have been designed to visually represent the characteristics of a dataset.
@@ -25,7 +25,7 @@ Thus, it is useful to know at least the basic terminology since it makes it easi
 The following figure illustrates different elements of a basic line plot.
 
 .. figure:: img/basic-elements-of-plot.png
-   :width: 600px
+   :width: 800px
    :align: center
    :alt: Basic elements of a plot
 
