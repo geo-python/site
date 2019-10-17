@@ -394,7 +394,7 @@
     }
    ],
    "source": [
-    "ax1 = winter['TEMP_C'].plot()"
+    "ax1 = winter_temps.plot()"
    ]
   },
   {
@@ -416,7 +416,7 @@
     }
    ],
    "source": [
-    "ax2 = spring['TEMP_C'].plot()"
+    "ax2 = spring_temps.plot()"
    ]
   },
   {
@@ -438,7 +438,7 @@
     }
    ],
    "source": [
-    "ax3 = summer['TEMP_C'].plot()"
+    "ax3 = summer_temps.plot()"
    ]
   },
   {
@@ -460,7 +460,7 @@
     }
    ],
    "source": [
-    "ax4 = autumn['TEMP_C'].plot()"
+    "ax4 = autumn_temps.plot()"
    ]
   },
   {
@@ -490,11 +490,9 @@
     }
    ],
    "source": [
-    "min_temp = min(winter['TEMP_C'].min(), spring['TEMP_C'].min(), summer['TEMP_C'].min(), \n",
-    "               autumn['TEMP_C'].min())\n",
+    "min_temp = min(winter_temps.min(), spring_temps.min(), summer_temps.min(), autumn_temps.min())\n",
     "min_temp = min_temp - 5.0\n",
-    "max_temp = max(winter['TEMP_C'].max(), spring['TEMP_C'].max(), summer['TEMP_C'].max(), \n",
-    "               autumn['TEMP_C'].max())\n",
+    "max_temp = max(winter_temps.max(), spring_temps.max(), summer_temps.max(), autumn_temps.max())\n",
     "max_temp = max_temp + 5.0\n",
     "\n",
     "print(\"Min:\", min_temp, \"Max:\", max_temp)"
@@ -522,10 +520,10 @@
     {
      "data": {
       "text/plain": [
-       "array([[<matplotlib.axes._subplots.AxesSubplot object at 0x12256a310>,\n",
-       "        <matplotlib.axes._subplots.AxesSubplot object at 0x1226e0b90>],\n",
-       "       [<matplotlib.axes._subplots.AxesSubplot object at 0x122664f10>,\n",
-       "        <matplotlib.axes._subplots.AxesSubplot object at 0x1225c3bd0>]],\n",
+       "array([[<matplotlib.axes._subplots.AxesSubplot object at 0x114d49990>,\n",
+       "        <matplotlib.axes._subplots.AxesSubplot object at 0x114ea6750>],\n",
+       "       [<matplotlib.axes._subplots.AxesSubplot object at 0x114e22410>,\n",
+       "        <matplotlib.axes._subplots.AxesSubplot object at 0x114d8c790>]],\n",
        "      dtype=object)"
       ]
      },
@@ -605,14 +603,10 @@
     "line_width = 1.5\n",
     "\n",
     "# Plot data\n",
-    "winter['TEMP_C'].plot(ax=ax11, c='blue', lw=line_width,\n",
-    "                      ylim=[min_temp, max_temp])\n",
-    "spring['TEMP_C'].plot(ax=ax12, c='orange', lw=line_width,\n",
-    "                      ylim=[min_temp, max_temp])\n",
-    "summer['TEMP_C'].plot(ax=ax21, c='green', lw=line_width,\n",
-    "                      ylim=[min_temp, max_temp])\n",
-    "autumn['TEMP_C'].plot(ax=ax22, c='brown', lw=line_width,\n",
-    "                      ylim=[min_temp, max_temp])\n",
+    "winter_temps.plot(ax=ax11, c='blue', lw=line_width, ylim=[min_temp, max_temp])\n",
+    "spring_temps.plot(ax=ax12, c='orange', lw=line_width, ylim=[min_temp, max_temp])\n",
+    "summer_temps.plot(ax=ax21, c='green', lw=line_width, ylim=[min_temp, max_temp])\n",
+    "autumn_temps.plot(ax=ax22, c='brown', lw=line_width, ylim=[min_temp, max_temp])\n",
     "\n",
     "# Display figure\n",
     "fig"
@@ -683,14 +677,14 @@
     "line_width = 1.5\n",
     "\n",
     "# Plot data\n",
-    "winter['TEMP_C'].plot(ax=ax11, c='blue', lw=line_width,\n",
-    "                      ylim=[min_temp, max_temp], grid=True)\n",
-    "spring['TEMP_C'].plot(ax=ax12, c='orange', lw=line_width,\n",
-    "                      ylim=[min_temp, max_temp], grid=True)\n",
-    "summer['TEMP_C'].plot(ax=ax21, c='green', lw=line_width,\n",
-    "                      ylim=[min_temp, max_temp], grid=True)\n",
-    "autumn['TEMP_C'].plot(ax=ax22, c='brown', lw=line_width,\n",
-    "                      ylim=[min_temp, max_temp], grid=True)\n",
+    "winter_temps.plot(ax=ax11, c='blue', lw=line_width, \n",
+    "                  ylim=[min_temp, max_temp], grid=True)\n",
+    "spring_temps.plot(ax=ax12, c='orange', lw=line_width,\n",
+    "                  ylim=[min_temp, max_temp], grid=True)\n",
+    "summer_temps.plot(ax=ax21, c='green', lw=line_width,\n",
+    "                  ylim=[min_temp, max_temp], grid=True)\n",
+    "autumn_temps.plot(ax=ax22, c='brown', lw=line_width,\n",
+    "                  ylim=[min_temp, max_temp], grid=True)\n",
     "\n",
     "# Set figure title\n",
     "fig.suptitle('2012-2013 Seasonal temperature observations - Helsinki-Vantaa airport')\n",
