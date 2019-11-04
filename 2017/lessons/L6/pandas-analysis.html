@@ -899,11 +899,11 @@ KeyError                                  Traceback (most recent call last)
 ----&gt; 1 std_wind = aggr_data['SPEED'].std()
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in __getitem__(self, key)
-   2978             if self.columns.nlevels &gt; 1:
-   2979                 return self._getitem_multilevel(key)
--&gt; 2980             indexer = self.columns.get_loc(key)
-   2981             if is_integer(indexer):
-   2982                 indexer = [indexer]
+   2993             if self.columns.nlevels &gt; 1:
+   2994                 return self._getitem_multilevel(key)
+-&gt; 2995             indexer = self.columns.get_loc(key)
+   2996             if is_integer(indexer):
+   2997                 indexer = [indexer]
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
    2897                 return self._engine.get_loc(key)
@@ -947,11 +947,11 @@ KeyError                                  Traceback (most recent call last)
 ----&gt; 1 avg_wind = aggr_data['SPEED'].mean()
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in __getitem__(self, key)
-   2978             if self.columns.nlevels &gt; 1:
-   2979                 return self._getitem_multilevel(key)
--&gt; 2980             indexer = self.columns.get_loc(key)
-   2981             if is_integer(indexer):
-   2982                 indexer = [indexer]
+   2993             if self.columns.nlevels &gt; 1:
+   2994                 return self._getitem_multilevel(key)
+-&gt; 2995             indexer = self.columns.get_loc(key)
+   2996             if is_integer(indexer):
+   2997                 indexer = [indexer]
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
    2897                 return self._engine.get_loc(key)
@@ -1076,11 +1076,11 @@ KeyError                                  Traceback (most recent call last)
 ----&gt; 1 std_wind = aggr_data['SPEED'].std()
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in __getitem__(self, key)
-   2978             if self.columns.nlevels &gt; 1:
-   2979                 return self._getitem_multilevel(key)
--&gt; 2980             indexer = self.columns.get_loc(key)
-   2981             if is_integer(indexer):
-   2982                 indexer = [indexer]
+   2993             if self.columns.nlevels &gt; 1:
+   2994                 return self._getitem_multilevel(key)
+-&gt; 2995             indexer = self.columns.get_loc(key)
+   2996             if is_integer(indexer):
+   2997                 indexer = [indexer]
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
    2897                 return self._engine.get_loc(key)
@@ -1124,11 +1124,11 @@ KeyError                                  Traceback (most recent call last)
 ----&gt; 1 avg_wind = aggr_data['SPEED'].mean()
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in __getitem__(self, key)
-   2978             if self.columns.nlevels &gt; 1:
-   2979                 return self._getitem_multilevel(key)
--&gt; 2980             indexer = self.columns.get_loc(key)
-   2981             if is_integer(indexer):
-   2982                 indexer = [indexer]
+   2993             if self.columns.nlevels &gt; 1:
+   2994                 return self._getitem_multilevel(key)
+-&gt; 2995             indexer = self.columns.get_loc(key)
+   2996             if is_integer(indexer):
+   2997                 indexer = [indexer]
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
    2897                 return self._engine.get_loc(key)
@@ -1202,11 +1202,11 @@ in a certain column (works best for categorigal data).</p>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">storm</span><span class="p">[</span><span class="s1">&#39;TIME_h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
 
 <span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2978</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2979</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2980</span>             <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2981</span>             <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2982</span>                 <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">2993</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2994</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2995</span>             <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2996</span>             <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2997</span>                 <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
 
 <span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
 <span class="g g-Whitespace">   </span><span class="mi">2897</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
@@ -1238,11 +1238,11 @@ KeyError                                  Traceback (most recent call last)
 ----&gt; 1 gust_sort = storm.sort_values(by='GUST', ascending=False)
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in sort_values(self, by, axis, ascending, inplace, kind, na_position)
-   4991 
-   4992             by = by[0]
--&gt; 4993             k = self._get_label_or_level_values(by, axis=axis)
-   4994 
-   4995             if isinstance(ascending, (tuple, list)):
+   5006 
+   5007             by = by[0]
+-&gt; 5008             k = self._get_label_or_level_values(by, axis=axis)
+   5009 
+   5010             if isinstance(ascending, (tuple, list)):
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/generic.py in _get_label_or_level_values(self, key, axis)
    1772             values = self.axes[axis].get_level_values(key)._values
@@ -1341,11 +1341,11 @@ Hence, in the end, you can see that this is a bit more generic function to use (
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data2</span> <span class="o">=</span> <span class="n">data2</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">fahrToCelsius</span><span class="p">,</span> <span class="n">src_col</span><span class="o">=</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;Celsius2&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py</span> in <span class="ni">apply</span><span class="nt">(self, func, axis, broadcast, raw, reduce, result_type, args, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6911</span>             <span class="n">kwds</span><span class="o">=</span><span class="n">kwds</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">6912</span>         <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">6913</span>         <span class="k">return</span> <span class="n">op</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">6914</span> 
-<span class="g g-Whitespace">   </span><span class="mi">6915</span>     <span class="k">def</span> <span class="nf">applymap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">6926</span>             <span class="n">kwds</span><span class="o">=</span><span class="n">kwds</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">6927</span>         <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">6928</span>         <span class="k">return</span> <span class="n">op</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">6929</span> 
+<span class="g g-Whitespace">   </span><span class="mi">6930</span>     <span class="k">def</span> <span class="nf">applymap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
 
 <span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/apply.py</span> in <span class="ni">get_result</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">    </span><span class="mi">184</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_raw</span><span class="p">()</span>
@@ -1381,11 +1381,11 @@ Hence, in the end, you can see that this is a bit more generic function to use (
 <span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="k">return</span> <span class="n">row</span>
 
 <span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/series.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1066</span>         <span class="n">key</span> <span class="o">=</span> <span class="n">com</span><span class="o">.</span><span class="n">apply_if_callable</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1067</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1068</span>             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1069</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1070</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">is_scalar</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1069</span>         <span class="n">key</span> <span class="o">=</span> <span class="n">com</span><span class="o">.</span><span class="n">apply_if_callable</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1070</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1071</span>             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1072</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1073</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">is_scalar</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
 
 <span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_value</span><span class="nt">(self, series, key)</span>
 <span class="g g-Whitespace">   </span><span class="mi">4742</span>                     <span class="k">raise</span> <span class="n">InvalidIndexError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
@@ -1456,11 +1456,11 @@ KeyError                                  Traceback (most recent call last)
 ----&gt; 1 data2 = data2.apply(fahrToCelsius, src_col='TEMP', target_col='Celsius3', axis=1)
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in apply(self, func, axis, broadcast, raw, reduce, result_type, args, **kwds)
-   6911             kwds=kwds,
-   6912         )
--&gt; 6913         return op.get_result()
-   6914 
-   6915     def applymap(self, func):
+   6926             kwds=kwds,
+   6927         )
+-&gt; 6928         return op.get_result()
+   6929 
+   6930     def applymap(self, func):
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/apply.py in get_result(self)
     184             return self.apply_raw()
@@ -1496,11 +1496,11 @@ KeyError                                  Traceback (most recent call last)
       3         return row
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/series.py in __getitem__(self, key)
-   1066         key = com.apply_if_callable(key, self)
-   1067         try:
--&gt; 1068             result = self.index.get_value(self, key)
-   1069 
-   1070             if not is_scalar(result):
+   1069         key = com.apply_if_callable(key, self)
+   1070         try:
+-&gt; 1071             result = self.index.get_value(self, key)
+   1072 
+   1073             if not is_scalar(result):
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_value(self, series, key)
    4742                     raise InvalidIndexError(key)

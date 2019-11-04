@@ -1299,7 +1299,7 @@ Number of rows after removing no data values: 928188
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ax1</span> <span class="o">=</span> <span class="n">winter</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span></span><span class="n">ax1</span> <span class="o">=</span> <span class="n">winter_temps</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1315,7 +1315,7 @@ Number of rows after removing no data values: 928188
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ax2</span> <span class="o">=</span> <span class="n">spring</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span></span><span class="n">ax2</span> <span class="o">=</span> <span class="n">spring_temps</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1331,7 +1331,7 @@ Number of rows after removing no data values: 928188
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ax3</span> <span class="o">=</span> <span class="n">summer</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span></span><span class="n">ax3</span> <span class="o">=</span> <span class="n">summer_temps</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1347,7 +1347,7 @@ Number of rows after removing no data values: 928188
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ax4</span> <span class="o">=</span> <span class="n">autumn</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span></span><span class="n">ax4</span> <span class="o">=</span> <span class="n">autumn_temps</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1368,11 +1368,9 @@ Number of rows after removing no data values: 928188
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">min_temp</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">winter</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">spring</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">summer</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
-               <span class="n">autumn</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span></span><span class="n">min_temp</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">winter_temps</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">spring_temps</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">summer_temps</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">autumn_temps</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
 <span class="n">min_temp</span> <span class="o">=</span> <span class="n">min_temp</span> <span class="o">-</span> <span class="mf">5.0</span>
-<span class="n">max_temp</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">winter</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">spring</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">summer</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
-               <span class="n">autumn</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">max_temp</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">winter_temps</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">spring_temps</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">summer_temps</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">autumn_temps</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
 <span class="n">max_temp</span> <span class="o">=</span> <span class="n">max_temp</span> <span class="o">+</span> <span class="mf">5.0</span>
 
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Min:&quot;</span><span class="p">,</span> <span class="n">min_temp</span><span class="p">,</span> <span class="s2">&quot;Max:&quot;</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">)</span>
@@ -1407,10 +1405,10 @@ Min: -35.0 Max: 35.0
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x12256a310&gt;,
-        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x1226e0b90&gt;],
-       [&lt;matplotlib.axes._subplots.AxesSubplot object at 0x122664f10&gt;,
-        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x1225c3bd0&gt;]],
+<span></span>array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x114d49990&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x114ea6750&gt;],
+       [&lt;matplotlib.axes._subplots.AxesSubplot object at 0x114e22410&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x114d8c790&gt;]],
       dtype=object)
 </pre></div>
 </div>
@@ -1446,14 +1444,10 @@ parameter you can specify the width of the line.</p>
 <span class="n">line_width</span> <span class="o">=</span> <span class="mf">1.5</span>
 
 <span class="c1"># Plot data</span>
-<span class="n">winter</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax11</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span>
-                      <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">])</span>
-<span class="n">spring</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax12</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span>
-                      <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">])</span>
-<span class="n">summer</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax21</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span>
-                      <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">])</span>
-<span class="n">autumn</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax22</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span>
-                      <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">])</span>
+<span class="n">winter_temps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax11</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">])</span>
+<span class="n">spring_temps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax12</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">])</span>
+<span class="n">summer_temps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax21</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">])</span>
+<span class="n">autumn_temps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax22</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">])</span>
 
 <span class="c1"># Display figure</span>
 <span class="n">fig</span>
@@ -1502,14 +1496,14 @@ parameter you can specify the width of the line.</p>
 <span class="n">line_width</span> <span class="o">=</span> <span class="mf">1.5</span>
 
 <span class="c1"># Plot data</span>
-<span class="n">winter</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax11</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span>
-                      <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">],</span> <span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">spring</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax12</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span>
-                      <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">],</span> <span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">summer</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax21</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span>
-                      <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">],</span> <span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">autumn</span><span class="p">[</span><span class="s1">&#39;TEMP_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax22</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span>
-                      <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">],</span> <span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">winter_temps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax11</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span>
+                  <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">],</span> <span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">spring_temps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax12</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span>
+                  <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">],</span> <span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">summer_temps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax21</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span>
+                  <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">],</span> <span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">autumn_temps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax22</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span>
+                  <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">],</span> <span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="c1"># Set figure title</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;2012-2013 Seasonal temperature observations - Helsinki-Vantaa airport&#39;</span><span class="p">)</span>
@@ -1572,7 +1566,7 @@ parameter you can specify the width of the line.</p>
     <p>
         &copy; Copyright 2019, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki
       <span class="lastupdated">
-        Last updated on Oct 16, 2019.
+        Last updated on Nov 04, 2019.
       </span>
 
     </p>
