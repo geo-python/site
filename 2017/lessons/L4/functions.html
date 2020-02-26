@@ -307,6 +307,16 @@ Thus we might need to repeat such calculations quite frequently when analysing o
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="k">def</span> <span class="nf">celsiusToFahr</span><span class="p">(</span><span class="n">tempCelsius</span><span class="p">):</span>
 <span class="gp">   ...: </span>    <span class="k">return</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">tempCelsius</span> <span class="o">+</span> <span class="mi">32</span>
 <span class="gp">   ...: </span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ni">__call__</span><span class="nt">(self, source, filename, symbol)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span> 
+<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">133</span>         <span class="n">codeob</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">_features</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>             <span class="k">if</span> <span class="n">codeob</span><span class="o">.</span><span class="n">co_flags</span> <span class="o">&amp;</span> <span class="n">feature</span><span class="o">.</span><span class="n">compiler_flag</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: required field &quot;type_ignores&quot; missing from Module
 </pre></div>
 </div>
 <div class="figure align-center" id="id5">
@@ -328,28 +338,73 @@ Calling our self-defined function is no different from calling any other functio
 You need to call it with its name and send your value to the required parameter(s) inside the parentheses:</p>
 <pre class="literal-block">
 In [2]: freezingPoint =  celsiusToFahr(0)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [3]: print('The freezing point of water in Fahrenheit is:', freezingPoint)
-The freezing point of water in Fahrenheit is: 32.0
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-3-7d1df63313f8&gt; in &lt;module&gt;()
+----&gt; 1 print('The freezing point of water in Fahrenheit is:', freezingPoint)
+
+NameError: name 'freezingPoint' is not defined
 
 In [4]: print('The boiling point of water in Fahrenheit is:', celsiusToFahr(100))
-The boiling point of water in Fahrenheit is: 212.0
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-4-0c2f2e9c5e0f&gt; in &lt;module&gt;()
+----&gt; 1 print('The boiling point of water in Fahrenheit is:', celsiusToFahr(100))
+
+NameError: name 'celsiusToFahr' is not defined
 </pre>
 </li>
 <li><p class="first">Now that we know how to create a function to convert Celsius to Fahrenheit, let’s create another function called <code class="docutils literal notranslate"><span class="pre">kelvinsToCelsius</span></code>:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="k">def</span> <span class="nf">kelvinsToCelsius</span><span class="p">(</span><span class="n">tempKelvins</span><span class="p">):</span>
 <span class="gp">   ...: </span>    <span class="k">return</span> <span class="n">tempKelvins</span> <span class="o">-</span> <span class="mf">273.15</span>
 <span class="gp">   ...: </span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ni">__call__</span><span class="nt">(self, source, filename, symbol)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span> 
+<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">133</span>         <span class="n">codeob</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">_features</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>             <span class="k">if</span> <span class="n">codeob</span><span class="o">.</span><span class="n">co_flags</span> <span class="o">&amp;</span> <span class="n">feature</span><span class="o">.</span><span class="n">compiler_flag</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: required field &quot;type_ignores&quot; missing from Module
 </pre></div>
 </div>
 </li>
 <li><p class="first">And let’s use it in the same way as the earlier one:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">absoluteZero</span> <span class="o">=</span> <span class="n">kelvinsToCelsius</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<pre class="literal-block">
+In [6]: absoluteZero = kelvinsToCelsius(tempKelvins=0)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-<span class="gp">In [7]: </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Absolute zero in Celsius is:&#39;</span><span class="p">,</span> <span class="n">absoluteZero</span><span class="p">)</span>
-<span class="go">Absolute zero in Celsius is: -273.15</span>
-</pre></div>
-</div>
+TypeError: required field &quot;type_ignores&quot; missing from Module
+
+In [7]: print('Absolute zero in Celsius is:', absoluteZero)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-7-3e75ac5b243d&gt; in &lt;module&gt;()
+----&gt; 1 print('Absolute zero in Celsius is:', absoluteZero)
+
+NameError: name 'absoluteZero' is not defined
+</pre>
 </li>
 <li><p class="first">What about converting Kelvins to Fahrenheit?
 We could write out a new formula for it, but we don’t need to.
@@ -359,16 +414,41 @@ Instead, we can do the conversion using the two functions we have already create
 <span class="gp">   ...: </span>    <span class="n">tempFahr</span> <span class="o">=</span> <span class="n">celsiusToFahr</span><span class="p">(</span><span class="n">tempCelsius</span><span class="p">)</span>
 <span class="gp">   ...: </span>    <span class="k">return</span> <span class="n">tempFahr</span>
 <span class="gp">   ...: </span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ni">__call__</span><span class="nt">(self, source, filename, symbol)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span> 
+<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">133</span>         <span class="n">codeob</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">_features</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>             <span class="k">if</span> <span class="n">codeob</span><span class="o">.</span><span class="n">co_flags</span> <span class="o">&amp;</span> <span class="n">feature</span><span class="o">.</span><span class="n">compiler_flag</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: required field &quot;type_ignores&quot; missing from Module
 </pre></div>
 </div>
 </li>
 <li><p class="first">Now let’s use the function:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">absoluteZeroF</span> <span class="o">=</span> <span class="n">kelvinsToFahrenheit</span><span class="p">(</span><span class="n">tempKelvins</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<pre class="literal-block">
+In [9]: absoluteZeroF = kelvinsToFahrenheit(tempKelvins=0)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-<span class="gp">In [10]: </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Absolute zero in Fahrenheit is:&#39;</span><span class="p">,</span> <span class="n">absoluteZeroF</span><span class="p">)</span>
-<span class="go">Absolute zero in Fahrenheit is: -459.66999999999996</span>
-</pre></div>
-</div>
+TypeError: required field &quot;type_ignores&quot; missing from Module
+
+In [10]: print('Absolute zero in Fahrenheit is:', absoluteZeroF)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-10-790643dbd172&gt; in &lt;module&gt;()
+----&gt; 1 print('Absolute zero in Fahrenheit is:', absoluteZeroF)
+
+NameError: name 'absoluteZeroF' is not defined
+</pre>
 </li>
 </ol>
 </div>
@@ -407,7 +487,7 @@ It should look like following:</p>
 </li>
 <li><p class="first">Let’s now import our <code class="docutils literal notranslate"><span class="pre">celsiusToFahr</span></code> function from the other script by adding a specific import statement at the top of our <code class="docutils literal notranslate"><span class="pre">calculator.py</span></code> script.
 Let’s also use the function so that we can see that it is working <a class="footnote-reference" href="#f3" id="id3">[3]</a>:</p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">temp_converter</span> <span class="k">import</span> <span class="n">celsiusToFahr</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">temp_converter</span> <span class="kn">import</span> <span class="n">celsiusToFahr</span>
 
 <span class="c1"># Testing that the function from another file works</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The freezing point of water in Fahrenheit is:&quot;</span><span class="p">,</span> <span class="n">celsiusToFahr</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
@@ -422,7 +502,7 @@ We should now get following output:</p>
 </div>
 <ul>
 <li><p class="first">It is also possible to import more functions at the same time by listing and separating them with a comma</p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">my_script</span> <span class="k">import</span> <span class="n">func1</span><span class="p">,</span> <span class="n">func2</span><span class="p">,</span> <span class="n">func3</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">my_script</span> <span class="kn">import</span> <span class="n">func1</span><span class="p">,</span> <span class="n">func2</span><span class="p">,</span> <span class="n">func3</span>
 </pre></div>
 </div>
 </li>
@@ -551,7 +631,7 @@ Run the script and try following:</p>
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td><p class="first">It is also possible to import functions by using specific the <code class="docutils literal notranslate"><span class="pre">*</span></code> character:</p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">moduleX</span> <span class="k">import</span> <span class="o">*</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">moduleX</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
 <p>The downside of using <code class="docutils literal notranslate"><span class="pre">*</span></code> symbol to import all functions is that you won’t see which functions are imported, unless checking them from the script itself or using the <code class="docutils literal notranslate"><span class="pre">dir()</span></code> function to list them (see <a class="reference internal" href="modules.html"><span class="doc">the lesson on modules</span></a>).</p>

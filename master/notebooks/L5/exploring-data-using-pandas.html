@@ -1048,17 +1048,34 @@ This page was generated from <a class="reference external" href="https://github.
 <div class="section" id="Reading-a-data-file-with-Pandas">
 <h2>Reading a data file with Pandas<a class="headerlink" href="#Reading-a-data-file-with-Pandas" title="Permalink to this headline">¶</a></h2>
 <p>Now we’re ready to read in our temperature data file. <strong>First, we need to import the Pandas module.</strong> It is customary to import pandas as <code class="docutils literal notranslate"><span class="pre">pd</span></code>:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
 <p><strong>Next, we’ll read the input data file</strong>, and store the contents of that file into a variable called <code class="docutils literal notranslate"><span class="pre">data</span></code> Using the <code class="docutils literal notranslate"><span class="pre">pandas.read_csv()</span></code> function:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
@@ -1067,6 +1084,23 @@ This page was generated from <a class="reference external" href="https://github.
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Reading data from different formats</strong></p>
@@ -1080,7 +1114,7 @@ This page was generated from <a class="reference external" href="https://github.
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1089,83 +1123,12 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-       # Data file contents: Daily temperatures (mean            min  \
-0                 #                     for June 1-30           2016
-1   # Data source: https://www.ncdc.noaa.gov/cdo-w...            NaN
-2   # Data processing: Extracted temperatures from...   converted to
-3           #                  comma-separated format            NaN
-4                                                   #            NaN
-5                          # David Whipp - 02.10.2017            NaN
-6                                            YEARMODA           TEMP
-7                                            20160601           65.5
-8                                            20160602           65.8
-9                                            20160603           68.4
-10                                           20160604           57.5
-11                                           20160605           51.4
-12                                           20160606           52.2
-13                                           20160607           56.9
-14                                           20160608           54.2
-15                                           20160609           49.4
-16                                           20160610           49.5
-17                                           20160611           54.0
-18                                           20160612           55.4
-19                                           20160613           58.3
-20                                           20160614           59.7
-21                                           20160615           63.4
-22                                           20160616           57.8
-23                                           20160617           60.4
-24                                           20160618           57.3
-25                                           20160619           56.3
-26                                           20160620           59.3
-27                                           20160621           62.6
-28                                           20160622           61.7
-29                                           20160623           60.9
-30                                           20160624           61.1
-31                                           20160625           65.7
-32                                           20160626           69.6
-33                                           20160627           60.7
-34                                           20160628           65.4
-35                                           20160629           65.8
-36                                           20160630           65.7
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-3-dbd883db58b7&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">)</span>
 
-    max) for Kumpula  Helsinki
-0                NaN       NaN
-1                NaN       NaN
-2                NaN       NaN
-3                NaN       NaN
-4                NaN       NaN
-5                NaN       NaN
-6                MAX       MIN
-7               73.6      54.7
-8               80.8      55.0
-9                NaN      55.6
-10              70.9      47.3
-11              58.3      43.2
-12              59.7      42.8
-13              65.1      45.9
-14               NaN      47.5
-15              54.1      45.7
-16              55.9      43.0
-17              62.1      41.7
-18              64.2      46.0
-19              68.2      47.3
-20              67.8      47.8
-21              70.3      49.3
-22              67.5      55.6
-23              70.7      55.9
-24               NaN      54.0
-25              59.2      54.1
-26              69.1      52.2
-27              71.4      50.4
-28              70.2      55.4
-29              67.1      54.9
-30              68.9      56.7
-31              75.4      57.9
-32              77.7      60.3
-33              70.0       NaN
-34              73.0      55.8
-35              73.2       NaN
-36              72.7      59.2
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
 </pre></div></div>
 </div>
 <p>This looks OK, but there are some strange values present such as <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, and the first lines of the dataframe look a bit weird..</p>
@@ -1183,7 +1146,7 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <p>Fortunately, that’s easy to do in pandas, we just need to add the <code class="docutils literal notranslate"><span class="pre">skiprows</span></code> parameter when we read the file, listing the number of rows to skip (8 in this case).</p>
 <p>Let’s try reading the datafile again, and this time defining the <code class="docutils literal notranslate"><span class="pre">skiprows</span></code> parameter.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
@@ -1192,13 +1155,30 @@ This page was generated from <a class="reference external" href="https://github.
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
 <p>Let’s now print the dataframe and see what changed:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1207,37 +1187,12 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-    YEARMODA  TEMP   MAX   MIN
-0   20160601  65.5  73.6  54.7
-1   20160602  65.8  80.8  55.0
-2   20160603  68.4   NaN  55.6
-3   20160604  57.5  70.9  47.3
-4   20160605  51.4  58.3  43.2
-5   20160606  52.2  59.7  42.8
-6   20160607  56.9  65.1  45.9
-7   20160608  54.2   NaN  47.5
-8   20160609  49.4  54.1  45.7
-9   20160610  49.5  55.9  43.0
-10  20160611  54.0  62.1  41.7
-11  20160612  55.4  64.2  46.0
-12  20160613  58.3  68.2  47.3
-13  20160614  59.7  67.8  47.8
-14  20160615  63.4  70.3  49.3
-15  20160616  57.8  67.5  55.6
-16  20160617  60.4  70.7  55.9
-17  20160618  57.3   NaN  54.0
-18  20160619  56.3  59.2  54.1
-19  20160620  59.3  69.1  52.2
-20  20160621  62.6  71.4  50.4
-21  20160622  61.7  70.2  55.4
-22  20160623  60.9  67.1  54.9
-23  20160624  61.1  68.9  56.7
-24  20160625  65.7  75.4  57.9
-25  20160626  69.6  77.7  60.3
-26  20160627  60.7  70.0   NaN
-27  20160628  65.4  73.0  55.8
-28  20160629  65.8  73.2   NaN
-29  20160630  65.7  72.7  59.2
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-5-dbd883db58b7&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
 </pre></div></div>
 </div>
 <p>After reading in the data, it is always good to check that everything went well (like we just did with the print-statement above). The challenge can also be that large datafiles might not nicely print on screen using the <code class="docutils literal notranslate"><span class="pre">print()</span></code>-function so it might be better to look at only the top 5-10 lines of the file rather than loading the entire thing.</p>
@@ -1252,73 +1207,17 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-6-304fa4ce4ebd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">.</span>head<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>YEARMODA</th>
-      <th>TEMP</th>
-      <th>MAX</th>
-      <th>MIN</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>20160601</td>
-      <td>65.5</td>
-      <td>73.6</td>
-      <td>54.7</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>20160602</td>
-      <td>65.8</td>
-      <td>80.8</td>
-      <td>55.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>20160603</td>
-      <td>68.4</td>
-      <td>NaN</td>
-      <td>55.6</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>20160604</td>
-      <td>57.5</td>
-      <td>70.9</td>
-      <td>47.3</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>20160605</td>
-      <td>51.4</td>
-      <td>58.3</td>
-      <td>43.2</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
+</pre></div></div>
 </div>
 <p>We can also check the last rows of the data using <code class="docutils literal notranslate"><span class="pre">data.tail()</span></code>:</p>
 <div class="nbinput docutils container">
@@ -1331,73 +1230,17 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-7-0b73fe40d24a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">.</span>tail<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>YEARMODA</th>
-      <th>TEMP</th>
-      <th>MAX</th>
-      <th>MIN</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>25</th>
-      <td>20160626</td>
-      <td>69.6</td>
-      <td>77.7</td>
-      <td>60.3</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>20160627</td>
-      <td>60.7</td>
-      <td>70.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>20160628</td>
-      <td>65.4</td>
-      <td>73.0</td>
-      <td>55.8</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>20160629</td>
-      <td>65.8</td>
-      <td>73.2</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>20160630</td>
-      <td>65.7</td>
-      <td>72.7</td>
-      <td>59.2</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
+</pre></div></div>
 </div>
 <p>Note that Pandas that DataFrames have <strong>labelled axes (rows and columns)</strong>. In our sample data, the rows labeled with an index value (<code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">29</span></code>), and columns labelled <code class="docutils literal notranslate"><span class="pre">YEARMODA</span></code>, <code class="docutils literal notranslate"><span class="pre">TEMP</span></code>, <code class="docutils literal notranslate"><span class="pre">MAX</span></code>, and <code class="docutils literal notranslate"><span class="pre">MIN</span></code>. Later on, we will learn how to use these labels for selecting and updating subsets of the data.</p>
 <p><strong>Let’s also confirm the data type of our data variable:</strong></p>
@@ -1411,13 +1254,17 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>pandas.core.frame.DataFrame
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-8-b5f01a7c0d9a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>type<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
+</pre></div></div>
 </div>
 <p>No surprises here, our data variable is a Pandas DataFrame ;).</p>
 <div class="admonition note">
@@ -1439,7 +1286,7 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-data     pd
+Interactive namespace is empty.
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1457,10 +1304,7 @@ data     pd
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Variable   Type         Data/Info
----------------------------------
-data       DataFrame        YEARMODA  TEMP   MAX &lt;...&gt;0160630  65.7  72.7  59.2
-pd         module       &lt;module &#39;pandas&#39; from &#39;/h&lt;...&gt;ages/pandas/__init__.py&#39;&gt;
+Interactive namespace is empty.
 </pre></div></div>
 </div>
 </div>
@@ -1474,7 +1318,7 @@ pd         module       &lt;module &#39;pandas&#39; from &#39;/h&lt;...&gt;ages/
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Print number of rows using len()-function</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1483,7 +1327,13 @@ pd         module       &lt;module &#39;pandas&#39; from &#39;/h&lt;...&gt;ages/
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-30
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-11-21e0eb75ee61&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Print number of rows using len()-function</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>len<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
 </pre></div></div>
 </div>
 <p>We can also get a quick sense of the size of the dataset using the <code class="docutils literal notranslate"><span class="pre">shape</span></code> attribute.</p>
@@ -1493,7 +1343,7 @@ pd         module       &lt;module &#39;pandas&#39; from &#39;/h&lt;...&gt;ages/
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Print dataframe shape</span>
-<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1502,7 +1352,13 @@ pd         module       &lt;module &#39;pandas&#39; from &#39;/h&lt;...&gt;ages/
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-(30, 4)
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-12-f0ce8541e3ce&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Print dataframe shape</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">.</span>shape<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
 </pre></div></div>
 </div>
 <p>Here we see that our dataset has 30 rows, 4 columns, just as we saw above when printing out the whole DataFrame.</p>
@@ -1513,7 +1369,7 @@ pd         module       &lt;module &#39;pandas&#39; from &#39;/h&lt;...&gt;ages/
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#Print column values</span>
-<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1522,7 +1378,13 @@ pd         module       &lt;module &#39;pandas&#39; from &#39;/h&lt;...&gt;ages/
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&#39;YEARMODA&#39; &#39;TEMP&#39; &#39;MAX&#39; &#39;MIN&#39;]
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-13-04d859114cf0&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg">#Print column values</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">.</span>columns<span class="ansi-blue-fg">.</span>values<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
 </pre></div></div>
 </div>
 <p>We can also find information about the row identifiers using the <code class="docutils literal notranslate"><span class="pre">index</span></code> attribute:</p>
@@ -1532,7 +1394,7 @@ pd         module       &lt;module &#39;pandas&#39; from &#39;/h&lt;...&gt;ages/
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#Print index</span>
-<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1541,7 +1403,13 @@ pd         module       &lt;module &#39;pandas&#39; from &#39;/h&lt;...&gt;ages/
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-RangeIndex(start=0, stop=30, step=1)
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-14-5ddd1cfe314c&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg">#Print index</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">.</span>index<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
 </pre></div></div>
 </div>
 <p>Here we see how the data is indexed, starting at 0, ending at 30, and with an increment of 1 between each value. This is basically the same way in which Python lists are indexed, however, pandas allows also other ways of identifying the rows. DataFrame indices could, for example, be character strings, or date objects (you will learn more about re-setting the index later). Eventually, the “length” of the DataFrame (the number of rows) is actually the length of the index:</p>
@@ -1556,13 +1424,18 @@ RangeIndex(start=0, stop=30, step=1)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>30
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-15-f64fbfea1985&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg">#Check length of the index</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>len<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">.</span>index<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
+</pre></div></div>
 </div>
 <p>What about the data types of each column in our dataFrame? We can check the data type of all the columns at once using <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame.dtypes</span></code>:</p>
 <div class="nbinput docutils container">
@@ -1571,7 +1444,7 @@ RangeIndex(start=0, stop=30, step=1)
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Print data types</span>
-<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1580,11 +1453,13 @@ RangeIndex(start=0, stop=30, step=1)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-YEARMODA      int64
-TEMP        float64
-MAX         float64
-MIN         float64
-dtype: object
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-16-db9b01e52bf4&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Print data types</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">.</span>dtypes<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
 </pre></div></div>
 </div>
 <p>Here we see that <code class="docutils literal notranslate"><span class="pre">YEARMODA</span></code> is an integer value (with 64-bit precision; int64), while the other values are all decimal values with 64-bit precision (float64).</p>
@@ -1598,7 +1473,7 @@ dtype: object
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;YEARMODA&#39;</span><span class="p">,</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1607,37 +1482,16 @@ dtype: object
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-    YEARMODA  TEMP
-0   20160601  65.5
-1   20160602  65.8
-2   20160603  68.4
-3   20160604  57.5
-4   20160605  51.4
-5   20160606  52.2
-6   20160607  56.9
-7   20160608  54.2
-8   20160609  49.4
-9   20160610  49.5
-10  20160611  54.0
-11  20160612  55.4
-12  20160613  58.3
-13  20160614  59.7
-14  20160615  63.4
-15  20160616  57.8
-16  20160617  60.4
-17  20160618  57.3
-18  20160619  56.3
-19  20160620  59.3
-20  20160621  62.6
-21  20160622  61.7
-22  20160623  60.9
-23  20160624  61.1
-24  20160625  65.7
-25  20160626  69.6
-26  20160627  60.7
-27  20160628  65.4
-28  20160629  65.8
-29  20160630  65.7
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
 </pre></div></div>
 </div>
 <p>Let’s also check the data type of this selection:</p>
@@ -1651,13 +1505,17 @@ dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>pandas.core.frame.DataFrame
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-18-221f8e6237eb&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>type<span class="ansi-blue-fg">(</span>selection<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;selection&#39; is not defined
+</pre></div></div>
 </div>
 <p>The subset is still a pandas DataFrame, and we are able to use all the methods related to a pandas DataFrame also with this subset. For example, we can check the shape:</p>
 <div class="nbinput docutils container">
@@ -1670,13 +1528,17 @@ dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>(30, 2)
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-19-937bde88912d&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>selection<span class="ansi-blue-fg">.</span>shape
+
+<span class="ansi-red-fg">NameError</span>: name &#39;selection&#39; is not defined
+</pre></div></div>
 </div>
 <p>We can also access a single column of the data based on the column name:</p>
 <div class="nbinput docutils container">
@@ -1689,43 +1551,17 @@ dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>0     65.5
-1     65.8
-2     68.4
-3     57.5
-4     51.4
-5     52.2
-6     56.9
-7     54.2
-8     49.4
-9     49.5
-10    54.0
-11    55.4
-12    58.3
-13    59.7
-14    63.4
-15    57.8
-16    60.4
-17    57.3
-18    56.3
-19    59.3
-20    62.6
-21    61.7
-22    60.9
-23    61.1
-24    65.7
-25    69.6
-26    60.7
-27    65.4
-28    65.8
-29    65.7
-Name: TEMP, dtype: float64
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-20-cf7d4568b949&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;TEMP&#39;</span><span class="ansi-blue-fg">]</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
+</pre></div></div>
 </div>
 <p>What about the type of the column itself?</p>
 <div class="nbinput docutils container">
@@ -1739,13 +1575,18 @@ Name: TEMP, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>pandas.core.series.Series
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-21-4d3312a9365e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Check datatype of the column</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>type<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;TEMP&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
+</pre></div></div>
 </div>
 <p><strong>Each column (and each row) in a pandas data frame is actually a pandas Series</strong> - a 1 dimensional data structure!</p>
 <div class="admonition note">
@@ -1766,13 +1607,17 @@ Name: TEMP, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>pandas.core.series.Series
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-22-624cdce2d39a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>type<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">.</span>TEMP<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Descriptive-statistics">
@@ -1790,13 +1635,18 @@ Name: TEMP, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>59.730000000000004
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-23-5109ed6a0477&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Check mean value of a column</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;TEMP&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>mean<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
+</pre></div></div>
 </div>
 <p>and for all columns (in the <em>DataFrame</em>):</p>
 <div class="nbinput docutils container">
@@ -1810,17 +1660,18 @@ Name: TEMP, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>YEARMODA    2.016062e+07
-TEMP        5.973000e+01
-MAX         6.804074e+01
-MIN         5.125714e+01
-dtype: float64
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-24-80156cf27b9a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Check mean value for all columns</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">.</span>mean<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
+</pre></div></div>
 </div>
 <p>For an overview of the basic statistics for all attributes in the data, we can use the <code class="docutils literal notranslate"><span class="pre">describe()</span></code> method:</p>
 <div class="nbinput docutils container">
@@ -1834,94 +1685,18 @@ dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-25-39a8f25af9ce&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Get descriptive statistics</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">.</span>describe<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>YEARMODA</th>
-      <th>TEMP</th>
-      <th>MAX</th>
-      <th>MIN</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>3.000000e+01</td>
-      <td>30.000000</td>
-      <td>27.000000</td>
-      <td>28.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>2.016062e+07</td>
-      <td>59.730000</td>
-      <td>68.040741</td>
-      <td>51.257143</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>8.803408e+00</td>
-      <td>5.475472</td>
-      <td>6.505575</td>
-      <td>5.498985</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>2.016060e+07</td>
-      <td>49.400000</td>
-      <td>54.100000</td>
-      <td>41.700000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>2.016061e+07</td>
-      <td>56.450000</td>
-      <td>64.650000</td>
-      <td>46.975000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>2.016062e+07</td>
-      <td>60.050000</td>
-      <td>69.100000</td>
-      <td>53.100000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>2.016062e+07</td>
-      <td>64.900000</td>
-      <td>72.050000</td>
-      <td>55.600000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>2.016063e+07</td>
-      <td>69.600000</td>
-      <td>80.800000</td>
-      <td>60.300000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Extra:-Very-basic-plots">
@@ -1947,21 +1722,18 @@ dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f234af00908&gt;
-</pre></div>
-</div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L5_exploring-data-using-pandas_67_1.png" src="../../_images/notebooks_L5_exploring-data-using-pandas_67_1.png" />
-</div>
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-27-bc9ee740c18a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;TEMP&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;MAX&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;MIN&#34;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>plot<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
+</pre></div></div>
 </div>
 <p>We can could also at the distribution of temperature values using a boxplot visualization:</p>
 <p>Now, you might want to start modifying the plots by adding axis labels, color settings and other formatting. For anythin more advanced, we should import matplotlib (<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code>). We will learn more about matplotlib and plotting data during week 7 :)</p>
@@ -1976,7 +1748,7 @@ dtype: float64
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Create Pandas Series from a list</span>
 <span class="n">number_series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">number_series</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">number_series</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1985,11 +1757,16 @@ dtype: float64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-0    4.0
-1    5.0
-2    6.0
-3    7.0
-dtype: float64
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
 </pre></div></div>
 </div>
 <p>Note that Pandas is smart about the conversion, detecting a single floating point value (<code class="docutils literal notranslate"><span class="pre">7.0</span></code>) and assigning all values in the Series the data type float64.</p>
@@ -2000,7 +1777,7 @@ dtype: float64
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">number_series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">number_series</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">number_series</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2009,11 +1786,16 @@ dtype: float64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-a    4.0
-b    5.0
-c    6.0
-d    7.0
-dtype: float64
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -2026,16 +1808,20 @@ dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>pandas.core.series.Series
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-30-b4139431d30b&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>type<span class="ansi-blue-fg">(</span>number_series<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;number_series&#39; is not defined
+</pre></div></div>
 </div>
 <p>How about combining several lists as a DataFrame? Let’s take a subset of the lists we used in Exercise 3, problem 3 and see how we could combine those as a pandas DataFrame:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
@@ -2051,6 +1837,23 @@ dtype: float64
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
 <p>Often we indeed create pandas DataFrames by reading in data (e.g. using <code class="docutils literal notranslate"><span class="pre">pd.read_csv(filename.csv)</span></code>), but sometimes your might also combine lists into a DataFrame inside the script using the <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> constructor. Here, we are using a <em>Python dictionary</em> <code class="docutils literal notranslate"><span class="pre">{&quot;column_1&quot;:</span> <span class="pre">list_1,</span> <span class="pre">&quot;column_2&quot;:</span> <span class="pre">list_2,</span> <span class="pre">...}</span></code> to indicate the structure of our data.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
@@ -2063,61 +1866,21 @@ dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>station_name</th>
-      <th>lat</th>
-      <th>lon</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Hanko Russarö</td>
-      <td>59.77</td>
-      <td>22.95</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Heinola Asemantaus</td>
-      <td>61.20</td>
-      <td>26.05</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Helsinki Kaisaniemi</td>
-      <td>60.18</td>
-      <td>24.94</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Helsinki Malmi airfield</td>
-      <td>60.25</td>
-      <td>25.05</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
@@ -2129,16 +1892,20 @@ dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>pandas.core.frame.DataFrame
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-33-78c31de88419&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>type<span class="ansi-blue-fg">(</span>new_data<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;new_data&#39; is not defined
+</pre></div></div>
 </div>
 <p>Often, you might start working with an empty data frame in stead of existing lists:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
@@ -2147,12 +1914,29 @@ dtype: float64
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2161,9 +1945,12 @@ dtype: float64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Empty DataFrame
-Columns: []
-Index: []
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-35-2a851eda2e88&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>df<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;df&#39; is not defined
 </pre></div></div>
 </div>
 <p>Check more details about available paramenters and methods from <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas-dataframe">the pandas.DataFrame documentation</a>.</p>

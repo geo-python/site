@@ -1045,7 +1045,7 @@ This page was generated from <a class="reference external" href="https://github.
 <p>PEP 8 guides us to <strong>limit all lines to max 79 characters</strong>: <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#maximum-line-length">https://www.python.org/dev/peps/pep-0008/#maximum-line-length</a>. Comments (multi-line or single line) should be limited to 72 characters.</p>
 <p>One of the guiding principles of Python is that <a class="reference external" href="https://www.python.org/dev/peps/pep-0020/#id3">Simple is better than complex</a>, but sometimes you might end up having a line of code that exceeds 79 characters, for example, when defining lists.</p>
 <p><strong>Python is able to interpret the code correctly from multiple lines within parentheses, brackets and braces:</strong></p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
@@ -1055,6 +1055,23 @@ This page was generated from <a class="reference external" href="https://github.
             <span class="s1">&#39;Portland&#39;</span><span class="p">,</span> <span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="s1">&#39;Houston&#39;</span><span class="p">,</span> <span class="s1">&#39;Orlando&#39;</span><span class="p">,]</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
 </div>
 <p>Note: backslash (<code class="docutils literal notranslate"><span class="pre">\</span></code>) might be required to break a line when using more complicated statements such as the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement (not covered during this course). See more examples in <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#maximum-line-length">here</a>.</p>
 </div>
@@ -1071,7 +1088,7 @@ This page was generated from <a class="reference external" href="https://github.
 <span class="n">wind</span> <span class="o">=</span> <span class="s1">&#39;Windy&#39;</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="n">weather</span> <span class="o">==</span> <span class="s1">&#39;Rain&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">wind</span> <span class="o">==</span> <span class="s1">&#39;Windy&#39;</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Just stay at home&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Just stay at home&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1080,7 +1097,16 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Just stay at home
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
 </pre></div></div>
 </div>
 <p>Following PEP 8, it is also possible to break the conditional expression into multiple lines if needed. Notice the extra parenheses:</p>
@@ -1091,7 +1117,7 @@ Just stay at home
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">if</span> <span class="p">((</span><span class="n">weather</span> <span class="o">==</span> <span class="s1">&#39;Rain&#39;</span><span class="p">)</span>
     <span class="ow">and</span> <span class="p">(</span><span class="n">wind</span> <span class="o">==</span> <span class="s1">&#39;Windy&#39;</span><span class="p">)):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Just stay at home&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Just stay at home&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1100,7 +1126,16 @@ Just stay at home
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Just stay at home
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
 </pre></div></div>
 </div>
 <p>To increase readability of this if-statement, we could add extra indetation to the continuation line of the conditional statement:</p>
@@ -1111,7 +1146,7 @@ Just stay at home
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">if</span> <span class="p">((</span><span class="n">weather</span> <span class="o">==</span> <span class="s1">&#39;Rain&#39;</span><span class="p">)</span>
         <span class="ow">and</span> <span class="p">(</span><span class="n">wind</span> <span class="o">==</span> <span class="s1">&#39;Windy&#39;</span><span class="p">)):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Just stay at home&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Just stay at home&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1120,12 +1155,21 @@ Just stay at home
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Just stay at home
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
 </pre></div></div>
 </div>
 <p>In our case, the first option with the conditional expression on one line is ok, as it is not that long afterall.</p>
 <p>In addition, indentation is needed when breaking one command into multiple lines, such as in our example with the list <code class="docutils literal notranslate"><span class="pre">us_cities</span></code> above, where we used the implied line continuation inside the brackets. Following PEP 8 indentation guidelines, we can define <code class="docutils literal notranslate"><span class="pre">us_cities</span></code> also using a <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#fn-hi">hanging indent</a>. Note that there is no value on the first line of the list, and the closing bracket is lined up with the last line of the list:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
@@ -1140,6 +1184,23 @@ Just stay at home
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
 <p>We will discuss more about indentations during week 4 when defining functions :)</p>
 </div>
 <div class="section" id="Whitespace-and-binary-operators">
@@ -1152,7 +1213,7 @@ Just stay at home
 <li>comparisons (<code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">in</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>, <code class="docutils literal notranslate"><span class="pre">is</span></code>, <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code>)</li>
 <li>Booleans (<code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>)</li>
 </ul>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
@@ -1164,7 +1225,24 @@ Just stay at home
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
@@ -1176,8 +1254,25 @@ Just stay at home
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
 <p>If using operators with different priorities, you can also do this:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
@@ -1189,6 +1284,23 @@ Just stay at home
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="Avoid-extraneous-whitespace">
 <h3>Avoid extraneous whitespace<a class="headerlink" href="#Avoid-extraneous-whitespace" title="Permalink to this headline">¶</a></h3>
@@ -1199,7 +1311,7 @@ Just stay at home
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># yes:</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1217,7 +1329,7 @@ Hello
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># no:</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1239,8 +1351,8 @@ Hello
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># yes:</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1249,8 +1361,16 @@ Hello
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Hello
-world
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1259,7 +1379,7 @@ world
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># no:</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">);</span> <span class="k">print</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1268,11 +1388,19 @@ world
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Hello
-world
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
 </pre></div></div>
 </div>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
@@ -1280,20 +1408,54 @@ world
 <span></span><span class="c1"># yes:</span>
 <span class="n">temperature</span> <span class="o">=</span> <span class="mi">17</span>
 <span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span><span class="s1">&#39;is greater than 25&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span><span class="s1">&#39;is greater than 25&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># no:</span>
 <span class="n">temperature</span> <span class="o">=</span> <span class="mi">17</span>
-<span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span><span class="s1">&#39;is greater than 25&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span><span class="s1">&#39;is greater than 25&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Advanced Note</strong></p>

@@ -870,37 +870,68 @@ of the DataFrames that can be used to combine the data together.</p>
 <p>Consider a following example. Let’s first create some test data to our DataFrames.</p>
 <pre class="literal-block">
 In [1]: data1 = pd.DataFrame(data=[['20170101', 'Pluto'], ['20170102', 'Panda'], ['20170103', 'Snoopy']], columns=['Time', 'Favourite_dog'])
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [2]: data2 = pd.DataFrame(data=[['20170101', 1], ['20170101', 2], ['20170102', 3], ['20170104', 3], ['20170104', 8]], columns=['Time', 'Value'])
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [3]: data1
-Out[3]: 
-       Time Favourite_dog
-0  20170101         Pluto
-1  20170102         Panda
-2  20170103        Snoopy
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-3-6e25229a93f2&gt; in &lt;module&gt;()
+----&gt; 1 data1
+
+NameError: name 'data1' is not defined
 
 In [4]: data2
-Out[4]: 
-       Time  Value
-0  20170101      1
-1  20170101      2
-2  20170102      3
-3  20170104      3
-4  20170104      8
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-4-eff1098d818d&gt; in &lt;module&gt;()
+----&gt; 1 data2
+
+NameError: name 'data2' is not defined
 </pre>
 <p>As we can see here, there different number of rows in the DataFrames. Important thing to notice is that there seems to be a common column called <code class="docutils literal notranslate"><span class="pre">Time</span></code> that we can use to
 join these DataFrames together. In Pandas we can conduct a table join with <code class="docutils literal notranslate"><span class="pre">merge</span></code> -function. Consider following example where we join the data <strong>from</strong> <code class="docutils literal notranslate"><span class="pre">data2</span></code> DataFrame <strong>to</strong> <code class="docutils literal notranslate"><span class="pre">data1</span></code> DataFrame.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">join1</span> <span class="o">=</span> <span class="n">data1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+<pre class="literal-block">
+In [5]: join1 = data1.merge(data2, on='Time')
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-<span class="gp">In [6]: </span><span class="n">join1</span>
-<span class="gh">Out[6]: </span><span class="go"></span>
-<span class="go">       Time Favourite_dog  Value</span>
-<span class="go">0  20170101         Pluto      1</span>
-<span class="go">1  20170101         Pluto      2</span>
-<span class="go">2  20170102         Panda      3</span>
-</pre></div>
-</div>
+TypeError: required field &quot;type_ignores&quot; missing from Module
+
+In [6]: join1
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-6-88cad91f5b6c&gt; in &lt;module&gt;()
+----&gt; 1 join1
+
+NameError: name 'join1' is not defined
+</pre>
 <p>Ahaa! Now we can see that we managed to get the <code class="docutils literal notranslate"><span class="pre">Value</span></code> column from <code class="docutils literal notranslate"><span class="pre">data2</span></code> in our <code class="docutils literal notranslate"><span class="pre">data1</span></code> DataFrame (here we just assigned those values to a new variable <code class="docutils literal notranslate"><span class="pre">join1</span></code>).
 Notice also that the <code class="docutils literal notranslate"><span class="pre">Pluto</span></code> is two times in the joined DataFrame although, it was only once in the original one. Hence, Pandas automatically duplicates the values in such
 columns where there are more matching values in one DataFrame compared to the other.</p>
@@ -908,19 +939,27 @@ columns where there are more matching values in one DataFrame compared to the ot
 This might be okey, but in some cases it is useful to also bring <strong>all</strong> values from another DataFrame even though there would not be a matching value in the column that used for making the join (i.e. the <code class="docutils literal notranslate"><span class="pre">key</span></code>).</p>
 <p>We can bring all the values from another DataFrame by specifyin parameter <code class="docutils literal notranslate"><span class="pre">how='outer'</span></code>, i.e. we will make an <strong>outer</strong> join.
 Let’s consider another example with the outer join.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">join2</span> <span class="o">=</span> <span class="n">data1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+<pre class="literal-block">
+In [7]: join2 = data1.merge(data2, on='Time', how='outer')
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-<span class="gp">In [8]: </span><span class="n">join2</span>
-<span class="gh">Out[8]: </span><span class="go"></span>
-<span class="go">       Time Favourite_dog  Value</span>
-<span class="go">0  20170101         Pluto    1.0</span>
-<span class="go">1  20170101         Pluto    2.0</span>
-<span class="go">2  20170102         Panda    3.0</span>
-<span class="go">3  20170103        Snoopy    NaN</span>
-<span class="go">4  20170104           NaN    3.0</span>
-<span class="go">5  20170104           NaN    8.0</span>
-</pre></div>
-</div>
+TypeError: required field &quot;type_ignores&quot; missing from Module
+
+In [8]: join2
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-8-037cce2e5445&gt; in &lt;module&gt;()
+----&gt; 1 join2
+
+NameError: name 'join2' is not defined
+</pre>
 <p>Cool! Nowe we have all the values included from both DataFrames and if Pandas did not find a common value in the <code class="docutils literal notranslate"><span class="pre">key</span></code> column, it still kept them and inserted <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values into <code class="docutils literal notranslate"><span class="pre">Favourite_dog</span></code> column and <code class="docutils literal notranslate"><span class="pre">Value</span></code> column.
 Overall, knowing how to conduct a table join can be really handy in many different situations.
 See more examples and documentation from <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/merging.html">official documentation of Pandas</a>.</p>
@@ -992,11 +1031,11 @@ Filling the array can be done several ways, but the example below is one “simp
 <div class="section" id="checking-your-work-for-problem-2">
 <h3>Checking your work for problem 2<a class="headerlink" href="#checking-your-work-for-problem-2" title="Permalink to this headline">¶</a></h3>
 <p>In case you want to double check that you are getting the correct answers for problem 2, you code should produce the following when you run the commands below.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">temp_monthly</span><span class="p">[:</span><span class="mi">7</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">temp_monthly</span><span class="p">[:</span><span class="mi">7</span><span class="p">])</span>
 <span class="p">[</span> <span class="mf">29.47826087</span>  <span class="mf">24.8</span>         <span class="mf">13.80769231</span>  <span class="mf">39.60714286</span>  <span class="mf">44.66666667</span>  <span class="mf">56.5</span>  <span class="mf">61.21428571</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">temp_monthly_celsius</span><span class="p">[:</span><span class="mi">7</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">temp_monthly_celsius</span><span class="p">[:</span><span class="mi">7</span><span class="p">])</span>
 <span class="p">[</span> <span class="o">-</span><span class="mf">1.40096618</span>  <span class="o">-</span><span class="mf">4.</span>         <span class="o">-</span><span class="mf">10.10683761</span>   <span class="mf">4.22619048</span>   <span class="mf">7.03703704</span>  <span class="mf">13.61111111</span>  <span class="mf">16.23015873</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1004,11 +1043,11 @@ Filling the array can be done several ways, but the example below is one “simp
 <div class="section" id="checking-your-work-for-problem-3">
 <h3>Checking your work for problem 3<a class="headerlink" href="#checking-your-work-for-problem-3" title="Permalink to this headline">¶</a></h3>
 <p>In case you want to double check that you are getting the correct answers for problem 3, you code should produce the following when you run the commands below.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">ref_temps</span><span class="p">[:</span><span class="mi">7</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ref_temps</span><span class="p">[:</span><span class="mi">7</span><span class="p">])</span>
 <span class="p">[</span> <span class="o">-</span><span class="mf">5.87734242</span>  <span class="o">-</span><span class="mf">6.9904821</span>   <span class="o">-</span><span class="mf">3.84126984</span>   <span class="mf">2.42787524</span>   <span class="mf">9.52261307</span>  <span class="mf">14.71189774</span>  <span class="mf">16.49888143</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">anomaly</span><span class="p">[:</span><span class="mi">11</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">anomaly</span><span class="p">[:</span><span class="mi">11</span><span class="p">])</span>
 <span class="p">[</span> <span class="mf">4.47637624</span>  <span class="mf">2.9904821</span>  <span class="o">-</span><span class="mf">6.26556777</span>  <span class="mf">1.79831523</span> <span class="o">-</span><span class="mf">2.48557603</span> <span class="o">-</span><span class="mf">1.10078663</span> <span class="o">-</span><span class="mf">0.2687227</span> <span class="o">-</span><span class="mf">0.86436896</span> <span class="o">-</span><span class="mf">1.44938108</span> <span class="o">-</span><span class="mf">2.78452381</span> <span class="o">-</span><span class="mf">2.7044648</span> <span class="p">]</span>
 </pre></div>
 </div>

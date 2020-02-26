@@ -1027,151 +1027,12 @@ This page was generated from <a class="reference external" href="https://github.
 <div class="section" id="A-(bad)-example">
 <h3>A (bad) example<a class="headerlink" href="#A-(bad)-example" title="Permalink to this headline">¶</a></h3>
 <p>Let’s consider an example using the list below:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">european_cities</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Helsinki&#39;</span><span class="p">,</span> <span class="s1">&#39;Paris&#39;</span><span class="p">,</span> <span class="s1">&#39;Barcelona&#39;</span><span class="p">,</span> <span class="s1">&#39;Uppsala&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<p>Suppose we want to print out the name of each city in our list. We could use the index value for each city and do the following:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">european_cities</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Helsinki
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">european_cities</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Paris
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">european_cities</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Barcelona
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">european_cities</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Uppsala
-</pre></div></div>
-</div>
-<p>But this is a bad idea. Why? Well there are two reasons. First, it does not scale nicely for long lists, and will take forever to type in. Second, it won’t work if the length of the list has fewer than 4 cities. Let’s see an example with a new list.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">european_cities</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Riga&#39;</span><span class="p">,</span> <span class="s1">&#39;Rome&#39;</span><span class="p">,</span> <span class="s1">&#39;Athens&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">european_cities</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Riga
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">european_cities</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Rome
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">european_cities</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Athens
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">european_cities</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1181,33 +1042,24 @@ Athens
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">IndexError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-10-4122ab57acf3&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>european_cities<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
 
-<span class="ansi-red-fg">IndexError</span>: list index out of range
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Introducing-the-for-loop">
-<h3>Introducing the for loop<a class="headerlink" href="#Introducing-the-for-loop" title="Permalink to this headline">¶</a></h3>
-<p>We could do a much better job by using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">european_cities</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Amsterdam&#39;</span><span class="p">,</span> <span class="s1">&#39;Brussels&#39;</span><span class="p">,</span> <span class="s1">&#39;Lisbon&#39;</span><span class="p">,</span> <span class="s1">&#39;Reykjavik&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
+<p>Suppose we want to print out the name of each city in our list. We could use the index value for each city and do the following:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">european_cities</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">european_cities</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1216,10 +1068,250 @@ Athens
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Amsterdam
-Brussels
-Lisbon
-Reykjavik
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-2-60022db54c60&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>european_cities<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;european_cities&#39; is not defined
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">european_cities</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-3-48f3bfe1e89e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>european_cities<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;european_cities&#39; is not defined
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">european_cities</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-4-5f4889b627e3&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>european_cities<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;european_cities&#39; is not defined
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">european_cities</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-5-4122ab57acf3&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>european_cities<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;european_cities&#39; is not defined
+</pre></div></div>
+</div>
+<p>But this is a bad idea. Why? Well there are two reasons. First, it does not scale nicely for long lists, and will take forever to type in. Second, it won’t work if the length of the list has fewer than 4 cities. Let’s see an example with a new list.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">european_cities</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Riga&#39;</span><span class="p">,</span> <span class="s1">&#39;Rome&#39;</span><span class="p">,</span> <span class="s1">&#39;Athens&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">european_cities</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-7-60022db54c60&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>european_cities<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;european_cities&#39; is not defined
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">european_cities</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-8-48f3bfe1e89e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>european_cities<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;european_cities&#39; is not defined
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">european_cities</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-9-5f4889b627e3&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>european_cities<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;european_cities&#39; is not defined
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">european_cities</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-10-4122ab57acf3&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>european_cities<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;european_cities&#39; is not defined
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Introducing-the-for-loop">
+<h3>Introducing the for loop<a class="headerlink" href="#Introducing-the-for-loop" title="Permalink to this headline">¶</a></h3>
+<p>We could do a much better job by using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">european_cities</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Amsterdam&#39;</span><span class="p">,</span> <span class="s1">&#39;Brussels&#39;</span><span class="p">,</span> <span class="s1">&#39;Lisbon&#39;</span><span class="p">,</span> <span class="s1">&#39;Reykjavik&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">european_cities</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
 </pre></div></div>
 </div>
 <p>Not only is this shorter, but it is also more flexible. Try printing out a different list of cities such as <code class="docutils literal notranslate"><span class="pre">['Detroit',</span> <span class="pre">'Chicago',</span> <span class="pre">'Denver',</span> <span class="pre">'Boston',</span> <span class="pre">'Portland',</span> <span class="pre">'San</span> <span class="pre">Francisco',</span> <span class="pre">'Houston',</span> <span class="pre">'Orlando']</span></code>. Still works, right?</p>
@@ -1230,7 +1322,7 @@ Reykjavik
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">us_cities</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Detroit&#39;</span><span class="p">,</span> <span class="s1">&#39;Chicago&#39;</span><span class="p">,</span> <span class="s1">&#39;Denver&#39;</span><span class="p">,</span> <span class="s1">&#39;Boston&#39;</span><span class="p">,</span> <span class="s1">&#39;Portland&#39;</span><span class="p">,</span> <span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="s1">&#39;Houston&#39;</span><span class="p">,</span> <span class="s1">&#39;Orlando&#39;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">us_cities</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1239,14 +1331,16 @@ Reykjavik
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Detroit
-Chicago
-Denver
-Boston
-Portland
-San Francisco
-Houston
-Orlando
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
 </pre></div></div>
 </div>
 </div>
@@ -1276,7 +1370,7 @@ Orlando
 <div class="section" id="for-loop-variables">
 <h3>for loop variables<a class="headerlink" href="#for-loop-variables" title="Permalink to this headline">¶</a></h3>
 <p>Note that the variable used in a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is just a normal variable and still exists after the loop has completed with the final value given to letter. Let’s loop over the list of weather conditions below and print them to the screen. If you use <code class="docutils literal notranslate"><span class="pre">weather</span></code> for the loop variable, what is its value after the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop has completed?</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
@@ -1285,13 +1379,30 @@ Orlando
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">for</span> <span class="n">weather</span> <span class="ow">in</span> <span class="n">weather_conditions</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">weather</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">weather</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1300,13 +1411,16 @@ Orlando
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-rain
-sleet
-snow
-freezing fog
-sunny
-cloudy
-ice pellets
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1314,7 +1428,7 @@ ice pellets
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;After the loop, weather is&#39;</span><span class="p">,</span> <span class="n">weather</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After the loop, weather is&#39;</span><span class="p">,</span> <span class="n">weather</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1323,7 +1437,12 @@ ice pellets
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-After the loop, weather is ice pellets
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-16-879a030701fd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;After the loop, weather is&#39;</span><span class="ansi-blue-fg">,</span> weather<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;weather&#39; is not defined
 </pre></div></div>
 </div>
 </div>
@@ -1336,7 +1455,7 @@ After the loop, weather is ice pellets
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1345,11 +1464,16 @@ After the loop, weather is ice pellets
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-0
-1
-2
-3
-4
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
 </pre></div></div>
 </div>
 <p>In this case, we use a special function called <code class="docutils literal notranslate"><span class="pre">range()</span></code> to give us a list of 5 numbers <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code> and then print each number in the list to the screen. When given a integer (whole number) as an argument, <code class="docutils literal notranslate"><span class="pre">range()</span></code> will produce a list of numbers with a length equal to the specified <code class="docutils literal notranslate"><span class="pre">number</span></code>. The list starts at <code class="docutils literal notranslate"><span class="pre">0</span></code> and ends with <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">-</span> <span class="pre">1</span></code>. You can learn a bit more about range by typing <code class="docutils literal notranslate"><span class="pre">help(range)</span></code>.</p>
@@ -1420,11 +1544,8 @@ class range(object)
  |  __ne__(self, value, /)
  |      Return self!=value.
  |
- |  __new__(*args, **kwargs) from builtins.type
- |      Create and return a new object.  See help(type) for accurate signature.
- |
  |  __reduce__(...)
- |      helper for pickle
+ |      Helper for pickle.
  |
  |  __repr__(self, /)
  |      Return repr(self).
@@ -1436,8 +1557,14 @@ class range(object)
  |      rangeobject.count(value) -&gt; integer -- return number of occurrences of value
  |
  |  index(...)
- |      rangeobject.index(value, [start, [stop]]) -&gt; integer -- return index of value.
+ |      rangeobject.index(value) -&gt; integer -- return index of value.
  |      Raise ValueError if the value is not present.
+ |
+ |  ----------------------------------------------------------------------
+ |  Static methods defined here:
+ |
+ |  __new__(*args, **kwargs) from builtins.type
+ |      Create and return a new object.  See help(type) for accurate signature.
  |
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
@@ -1454,7 +1581,7 @@ class range(object)
 <h4>Poll question pause<a class="headerlink" href="#Poll-question-pause" title="Permalink to this headline">¶</a></h4>
 <p>The program below will print numbers to the screen using the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Using the documentation that is produced when you run <code class="docutils literal notranslate"><span class="pre">help(range)</span></code>, what values would you replace the <code class="docutils literal notranslate"><span class="pre">...</span></code> in the parentheses of the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function with to have the following output printed to the screen?</p>
@@ -1471,7 +1598,7 @@ class range(object)
 <p>Since we already know how to find the length of a list using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function, and we can now take advantage of this knowledge to make our <code class="docutils literal notranslate"><span class="pre">for</span></code> loops more flexible. Starting with the list of numbers below, let’s use the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function to loop over the list of numbers and add the value of the loop variable <code class="docutils literal notranslate"><span class="pre">i</span></code> to each value. In addition, we can add a few print statements to display the values of <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">numbers[i]</span></code> within the loop. In the cell below the for loop, you can
 print the list of numbers again to see the updated values.</p>
 <p><em>Optional: You can display ``numbers[i]`` before and after the addition</em>.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
@@ -1480,17 +1607,34 @@ print the list of numbers again to see the updated values.</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Value of i:&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Value of numbers[i] before addition:&#39;</span><span class="p">,</span> <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Value of i:&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Value of numbers[i] before addition:&#39;</span><span class="p">,</span> <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">i</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Value of numbers[i] after addition:&#39;</span><span class="p">,</span> <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Value of numbers[i] after addition:&#39;</span><span class="p">,</span> <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1499,22 +1643,16 @@ print the list of numbers again to see the updated values.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Value of i: 0
-Value of numbers[i] before addition: 0
-Value of numbers[i] after addition: 0
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
 
-Value of i: 1
-Value of numbers[i] before addition: 1
-Value of numbers[i] after addition: 2
-
-Value of i: 2
-Value of numbers[i] before addition: 2
-Value of numbers[i] after addition: 4
-
-Value of i: 3
-Value of numbers[i] before addition: 3
-Value of numbers[i] after addition: 6
-
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1522,7 +1660,7 @@ Value of numbers[i] after addition: 6
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1531,7 +1669,12 @@ Value of numbers[i] after addition: 6
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[0, 2, 4, 6]
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-21-a2aabdc73a85&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>numbers<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;numbers&#39; is not defined
 </pre></div></div>
 </div>
 <p>Let’s see what we can observe:</p>
@@ -1548,7 +1691,7 @@ Value of numbers[i] after addition: 6
 <h3>Why bother looping over a list by the index value?<a class="headerlink" href="#Why-bother-looping-over-a-list-by-the-index-value?" title="Permalink to this headline">¶</a></h3>
 <p>Good question. First off, if you want to update individual values in a list you’re likely going to need to loop that includes the index values. There are functions such as <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> that can help, but their use can be somewhat confusing for new programmers. Second, in cases where you have multiple lists that are related to one another, it can be handy to use a loop with the index values to be able to access corresponding locations in each list. For this, let’s consider an example with the
 two lists below.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
@@ -1557,7 +1700,24 @@ two lists below.</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
@@ -1566,6 +1726,23 @@ two lists below.</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
 <p>As you can see we have 5 cities and 5 corresponding counties. Can you print out each pair using a single for loop?</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
@@ -1573,7 +1750,7 @@ two lists below.</p>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cities</span><span class="p">)):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">cities</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39;is the capital of&#39;</span><span class="p">,</span> <span class="n">countries</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">cities</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39;is the capital of&#39;</span><span class="p">,</span> <span class="n">countries</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1582,11 +1759,16 @@ two lists below.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Helsinki is the capital of Finland
-Stockholm is the capital of Sweden
-Oslo is the capital of Norway
-Reykjavik is the capital of Iceland
-Copenhagen is the capital of Denmark
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
 </pre></div></div>
 </div>
 <p>Cool. So as you can see, the index <code class="docutils literal notranslate"><span class="pre">i</span></code> is used in this case to access each item in the two lists of cities and countries and allow us to print out the city/country pairs. We’ll get more practice with this kind of thing in the exercises for this week.</p>
@@ -1598,7 +1780,7 @@ Copenhagen is the capital of Denmark
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">odd_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
 <span class="n">even_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">odd_numbers</span><span class="p">)):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">odd_numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">even_numbers</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">odd_numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">even_numbers</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Select your answer from the poll options at <a class="reference external" href="https://geo-python.github.io/poll/">https://geo-python.github.io/poll/</a>.</p>

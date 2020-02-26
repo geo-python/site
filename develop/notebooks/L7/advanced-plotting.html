@@ -1034,8 +1034,8 @@ This page was generated from <a class="reference external" href="https://github.
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -1049,7 +1049,7 @@ This page was generated from <a class="reference external" href="https://github.
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">fp</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;data/029740.txt&quot;</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">delim_whitespace</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">delim_whitespace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                    <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;**&#39;</span><span class="p">,</span> <span class="s1">&#39;***&#39;</span><span class="p">,</span> <span class="s1">&#39;****&#39;</span><span class="p">,</span> <span class="s1">&#39;*****&#39;</span><span class="p">,</span> <span class="s1">&#39;******&#39;</span><span class="p">],</span>
                    <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;YR--MODAHRMN&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;MAX&#39;</span><span class="p">,</span> <span class="s1">&#39;MIN&#39;</span><span class="p">],</span>
                    <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;YR--MODAHRMN&#39;</span><span class="p">],</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;YR--MODAHRMN&#39;</span><span class="p">)</span>
@@ -1061,7 +1061,7 @@ This page was generated from <a class="reference external" href="https://github.
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Number of rows:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of rows:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1080,7 +1080,7 @@ Number of rows: 931767
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1119,8 +1119,8 @@ YR--MODAHRMN
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Number of no data values per column: &#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of no data values per column: &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1143,7 +1143,7 @@ dtype: int64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEMP_F&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span></span><span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEMP_F&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1152,7 +1152,7 @@ dtype: int64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Number of rows after removing no data values:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of rows after removing no data values:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1376,7 +1376,7 @@ Number of rows after removing no data values: 928188
 <span class="n">max_temp</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">winter_temps</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">spring_temps</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">summer_temps</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">autumn_temps</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
 <span class="n">max_temp</span> <span class="o">=</span> <span class="n">max_temp</span> <span class="o">+</span> <span class="mf">5.0</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Min:&quot;</span><span class="p">,</span> <span class="n">min_temp</span><span class="p">,</span> <span class="s2">&quot;Max:&quot;</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Min:&quot;</span><span class="p">,</span> <span class="n">min_temp</span><span class="p">,</span> <span class="s2">&quot;Max:&quot;</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1500,13 +1500,13 @@ parameter you can specify the width of the line.</p>
 
 <span class="c1"># Plot data</span>
 <span class="n">winter_temps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax11</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span>
-                  <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">],</span> <span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                  <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">],</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">spring_temps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax12</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span>
-                  <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">],</span> <span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                  <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">],</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">summer_temps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax21</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span>
-                  <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">],</span> <span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                  <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">],</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">autumn_temps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax22</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span>
-                  <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">],</span> <span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                  <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">],</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Set figure title</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;2012-2013 Seasonal temperature observations - Helsinki-Vantaa airport&#39;</span><span class="p">)</span>

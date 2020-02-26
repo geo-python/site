@@ -309,7 +309,17 @@ Click on the file folder to select the directory where you would like to work, c
 <ol class="arabic">
 <li><p class="first">Now we’re ready to read in our temperature data file.
 First, we need to import the Pandas module.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ni">__call__</span><span class="nt">(self, source, filename, symbol)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span> 
+<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">133</span>         <span class="n">codeob</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">_features</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>             <span class="k">if</span> <span class="n">codeob</span><span class="o">.</span><span class="n">co_flags</span> <span class="o">&amp;</span> <span class="n">feature</span><span class="o">.</span><span class="n">compiler_flag</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: required field &quot;type_ignores&quot; missing from Module
 </pre></div>
 </div>
 <p>That’s it, Pandas is ready to use now.
@@ -323,11 +333,11 @@ Notice we imported the Pandas module with the name <code class="docutils literal
 We use it her by simply giving the name of the file to read.
 If all goes as planned, you should now have a new variable defined as <code class="docutils literal notranslate"><span class="pre">dataFrame</span></code> that contains the data file’s contents.
 You can check the the contents by typing</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
 <span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-3-23b7e8dbf202&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
 </pre></div>
@@ -356,11 +366,11 @@ Fortunately, that’s easy to do in Pandas, we just need to add the <code class=
 </pre></div>
 </div>
 <p>Let’s now print the rows and see what changed.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
 <span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-5-23b7e8dbf202&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
 </pre></div>
@@ -390,11 +400,11 @@ A normal first step when you load new data is to explore the dataset a bit to un
 <ol class="arabic">
 <li><p class="first">Let’s start by looking at the different columns we have in our DataFrame.
 We can find this in the <code class="docutils literal notranslate"><span class="pre">columns</span></code>  attribute that is part of the DataFrame data type, something that is known automatically for this kind of data.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 <span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-6-a60faba7eaca&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
 </pre></div>
@@ -402,11 +412,11 @@ We can find this in the <code class="docutils literal notranslate"><span class="
 <p>Here we see the names of the different columns in the datafile, as one might expect.</p>
 </li>
 <li><p class="first">We can also find information about the rows in the datafile using the <code class="docutils literal notranslate"><span class="pre">index</span></code> attribute.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 <span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-7-0237420587a1&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
 </pre></div>
@@ -415,11 +425,11 @@ We can find this in the <code class="docutils literal notranslate"><span class="
 This is basically the same way in which Python lists are indexed, but it suggests that maybe there are other ways to identify the rows in data using Pandas.
 Again, we’ll see a bit more about this later.
 For now, it is also useful to point out that if you want to just know how many rows you have, you can use the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
 <span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-8-ede550908b25&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
 
 <span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
 </pre></div>
@@ -430,7 +440,7 @@ For now, it is also useful to point out that if you want to just know how many r
 <blockquote>
 <div><div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">dataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
 
-<span class="gp">In [10]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="gp">In [10]: </span><span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -438,11 +448,11 @@ For now, it is also useful to point out that if you want to just know how many r
 </div>
 </li>
 <li><p class="first">We can also get a quick sense of the size of the dataset using the <code class="docutils literal notranslate"><span class="pre">shape</span></code> attribute.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-11-f146b6754a8c&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
 </pre></div>
@@ -463,11 +473,11 @@ First, let’s see what type of data the DataFrame is.</p>
 <p>No surprises here, our Pandas DataFrame is a Pandas DataFrame ;).</p>
 <p>What about the data?
 Again, finding the types of data in the columns of the DataFrame is easy.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
 <span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-13-e642788dba0f&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
 </pre></div>
@@ -476,11 +486,11 @@ Again, finding the types of data in the columns of the DataFrame is easy.</p>
 Here we see that <code class="docutils literal notranslate"><span class="pre">YEARMODA</span></code> is an integer value (with 64-bit precision; int64), while the other values are all decimal values with 64-bit precision (float64).</p>
 </li>
 <li><p class="first">We can select a single column of the data using the column name.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">])</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">])</span>
 <span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-14-8d5600ce696f&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">])</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">])</span>
 
 <span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
 </pre></div>
@@ -503,21 +513,39 @@ So rather than seeing a DataFrame type or float64, a selected column from a Data
 A Pandas Series is just a 1-D list of values.
 In fact, you can create a Pandas Series from a Python list.
 If you have long lists of numbers, for instance, creating a Pandas Series will allow you to interact with these values more efficiently in terms of computing time.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">]</span>
+<pre class="literal-block">
+In [16]: myList = [1, 2, 3, 4, 5, 6, 7.0]
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-<span class="gp">In [17]: </span><span class="n">mySeries</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
-<span class="gp">In [18]: </span><span class="k">print</span><span class="p">(</span><span class="n">mySeries</span><span class="p">)</span>
-<span class="go">0    1.0</span>
-<span class="go">1    2.0</span>
-<span class="go">2    3.0</span>
-<span class="go">3    4.0</span>
-<span class="go">4    5.0</span>
-<span class="go">5    6.0</span>
-<span class="go">6    7.0</span>
-<span class="go">dtype: float64</span>
-</pre></div>
-</div>
+In [17]: mySeries = pd.Series(myList)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
+
+In [18]: print(mySeries)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-18-31dcd3c76685&gt; in &lt;module&gt;()
+----&gt; 1 print(mySeries)
+
+NameError: name 'mySeries' is not defined
+</pre>
 <p>As you can see, <code class="docutils literal notranslate"><span class="pre">myList</span></code> is converted to a Pandas Series using the <code class="docutils literal notranslate"><span class="pre">ps.Series()</span></code> function.
 Also, note that Pandas is smart about the conversion, detecting a single floating point value (<code class="docutils literal notranslate"><span class="pre">7.0</span></code>) and assigning all values in the Series the data type float64.</p>
 </li>
@@ -549,22 +577,22 @@ Useful methods include <code class="docutils literal notranslate"><span class="p
 <li><p class="first">Finally, there are occasions where you’ll need to convert data in a Series to another data type.
 If you’re planning to print a large number of value to the screen, for instance, it might be helpful to have those values as character strings.
 Data type conversions is most easily done using the <code class="docutils literal notranslate"><span class="pre">astype()</span></code> method.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span>
 <span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-21-2fce7e334ccd&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span>
 
 <span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
 </pre></div>
 </div>
 <p>In this case, the object data type indicates the temperature values are stored as character strings.
 A more obvious case is converting to integer values.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [22]: </span><span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [22]: </span><span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
 <span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-22-558206cfac41&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
 
 <span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
 </pre></div>

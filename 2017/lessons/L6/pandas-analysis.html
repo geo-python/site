@@ -314,50 +314,15 @@ Our data also included No Data values with varying number of <code class="docuti
 into account when reading the data. We can tell Pandas to consider those characters as NaNs by specifying <code class="docutils literal notranslate"><span class="pre">na_values=['*',</span> <span class="pre">'**',</span> <span class="pre">'***',</span> <span class="pre">'****',</span> <span class="pre">'*****',</span> <span class="pre">'******']</span></code>.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;**&#39;</span><span class="p">,</span> <span class="s1">&#39;***&#39;</span><span class="p">,</span> <span class="s1">&#39;****&#39;</span><span class="p">,</span> <span class="s1">&#39;*****&#39;</span><span class="p">,</span> <span class="s1">&#39;******&#39;</span><span class="p">])</span>
 <span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-1-4c97493f75d7&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;**&#39;</span><span class="p">,</span> <span class="s1">&#39;***&#39;</span><span class="p">,</span> <span class="s1">&#39;****&#39;</span><span class="p">,</span> <span class="s1">&#39;*****&#39;</span><span class="p">,</span> <span class="s1">&#39;******&#39;</span><span class="p">])</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ni">__call__</span><span class="nt">(self, source, filename, symbol)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span> 
+<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">133</span>         <span class="n">codeob</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">_features</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>             <span class="k">if</span> <span class="n">codeob</span><span class="o">.</span><span class="n">co_flags</span> <span class="o">&amp;</span> <span class="n">feature</span><span class="o">.</span><span class="n">compiler_flag</span><span class="p">:</span>
 
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">parser_f</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)</span>
-<span class="g g-Whitespace">    </span><span class="mi">683</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">684</span> 
-<span class="ne">--&gt; </span><span class="mi">685</span>         <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">686</span> 
-<span class="g g-Whitespace">    </span><span class="mi">687</span>     <span class="n">parser_f</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">name</span>
-
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">455</span> 
-<span class="g g-Whitespace">    </span><span class="mi">456</span>     <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">457</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">fp_or_buf</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">458</span> 
-<span class="g g-Whitespace">    </span><span class="mi">459</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">893</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">894</span> 
-<span class="ne">--&gt; </span><span class="mi">895</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">896</span> 
-<span class="g g-Whitespace">    </span><span class="mi">897</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1133</span>     <span class="k">def</span> <span class="nf">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1134</span>         <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1135</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="n">CParserWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1136</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1137</span>             <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;python&quot;</span><span class="p">:</span>
-
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1915</span>         <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;usecols&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usecols</span>
-<span class="g g-Whitespace">   </span><span class="mi">1916</span> 
-<span class="ne">-&gt; </span><span class="mi">1917</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1918</span>         <span class="bp">self</span><span class="o">.</span><span class="n">unnamed_cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span><span class="o">.</span><span class="n">unnamed_cols</span>
-<span class="g g-Whitespace">   </span><span class="mi">1919</span> 
-
-<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader.__cinit__</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader._setup_parser_source</span><span class="nt">()</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] File b&#39;/home/travis/build/geo-python/site/data/L6/6591337447542dat_August.txt&#39; does not exist: b&#39;/home/travis/build/geo-python/site/data/L6/6591337447542dat_August.txt&#39;
+<span class="ne">TypeError</span>: required field &quot;type_ignores&quot; missing from Module
 </pre></div>
 </div>
 </div>
@@ -385,17 +350,31 @@ into account when reading the data. We can tell Pandas to consider those charact
 </div>
 <p>Okey there are quite many columns and we are not interested to use all of them.
 Let’s select only columns that might be used to detect unexceptional weather conditions, i.e. YR–MODAHRMN, DIR, SPD, GUS, TEMP, MAX, and MIN.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">select_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;YR--MODAHRMN&#39;</span><span class="p">,</span> <span class="s1">&#39;DIR&#39;</span><span class="p">,</span> <span class="s1">&#39;SPD&#39;</span><span class="p">,</span> <span class="s1">&#39;GUS&#39;</span><span class="p">,</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;MAX&#39;</span><span class="p">,</span> <span class="s1">&#39;MIN&#39;</span><span class="p">]</span>
+<pre class="literal-block">
+In [4]: select_cols = ['YR--MODAHRMN', 'DIR', 'SPD', 'GUS','TEMP', 'MAX', 'MIN']
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-<span class="gp">In [5]: </span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">select_cols</span><span class="p">]</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-5-e9def1dd97a5&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">select_cols</span><span class="p">]</span>
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
-<span class="ne">NameError</span>: name &#39;data&#39; is not defined
-</pre></div>
-</div>
+In [5]: data = data[select_cols]
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
+</pre>
 <p>Let’s see what our data looks like now by printing <strong>last</strong> 5 rows and the datatypes.</p>
 <pre class="literal-block">
 In [6]: data.tail()
@@ -419,22 +398,46 @@ We can define the new column names by using a specific data type in Python calle
 Let’s change <code class="docutils literal notranslate"><span class="pre">YR--MODAHRMN</span></code> column into <code class="docutils literal notranslate"><span class="pre">TIME</span></code>, <code class="docutils literal notranslate"><span class="pre">SPD</span></code> into <code class="docutils literal notranslate"><span class="pre">SPEED</span></code>, and <code class="docutils literal notranslate"><span class="pre">GUS</span></code> into <code class="docutils literal notranslate"><span class="pre">GUST</span></code></p>
 <pre class="literal-block">
 In [8]: name_conversion_dict = {'YR--MODAHRMN': 'TIME', 'SPD': 'SPEED', 'GUS': 'GUST'}
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [9]: print(name_conversion_dict)
-{'YR--MODAHRMN': 'TIME', 'SPD': 'SPEED', 'GUS': 'GUST'}
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-9-35aff57bb259&gt; in &lt;module&gt;()
+----&gt; 1 print(name_conversion_dict)
+
+NameError: name 'name_conversion_dict' is not defined
 
 In [10]: type(name_conversion_dict)
-Out[10]: dict
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-10-914699c77d38&gt; in &lt;module&gt;()
+----&gt; 1 type(name_conversion_dict)
+
+NameError: name 'name_conversion_dict' is not defined
 </pre>
 <p>Now we can change the column names by passing that dictionary into parameter <code class="docutils literal notranslate"><span class="pre">columns</span></code> in <code class="docutils literal notranslate"><span class="pre">rename()</span></code> -function.</p>
 <pre class="literal-block">
 In [11]: data = data.rename(columns=name_conversion_dict)
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-11-50fd1adf81d7&gt; in &lt;module&gt;()
-----&gt; 1 data = data.rename(columns=name_conversion_dict)
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'data' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [12]: data.columns
 ---------------------------------------------------------------------------
@@ -505,14 +508,15 @@ In [15]: for idx, row in data.iterrows():
    ....:     break
    ....: 
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-15-9d168aad9fa1&gt; in &lt;module&gt;()
-----&gt; 1 for idx, row in data.iterrows():
-      2     print('Index:', idx)
-      3     print(row)
-      4     break
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'data' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [16]: type(row)
 ---------------------------------------------------------------------------
@@ -552,19 +556,27 @@ Knowing how to use your own function in Pandas can be really useful when doing y
 <pre class="literal-block">
 In [18]: data['SPEED'] = data['SPEED']*0.44704
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-18-2d7e24d8ead3&gt; in &lt;module&gt;()
-----&gt; 1 data['SPEED'] = data['SPEED']*0.44704
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'data' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [19]: data['GUST'] = data['GUST']*0.44704
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-19-6b8133f245d3&gt; in &lt;module&gt;()
-----&gt; 1 data['GUST'] = data['GUST']*0.44704
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'data' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 </pre>
 <p>Let’s see the result by printing the first 30 rows.</p>
 </div>
@@ -601,11 +613,15 @@ First we need to be able to group the values by hour. This can be done e.g. by s
 <pre class="literal-block">
 In [21]: data['TIME_str'] = data['TIME'].astype(str)
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-21-87915f869435&gt; in &lt;module&gt;()
-----&gt; 1 data['TIME_str'] = data['TIME'].astype(str)
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'data' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [22]: data.head()
 ---------------------------------------------------------------------------
@@ -636,11 +652,15 @@ Now we can slice them into hourly level by including only 10 first characters fr
 <pre class="literal-block">
 In [25]: data['TIME_dh'] = data['TIME_str'].str.slice(start=0, stop=10)
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-25-0cd841112142&gt; in &lt;module&gt;()
-----&gt; 1 data['TIME_dh'] = data['TIME_str'].str.slice(start=0, stop=10)
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'data' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [26]: data.head()
 ---------------------------------------------------------------------------
@@ -659,19 +679,27 @@ NameError: name 'data' is not defined
 <pre class="literal-block">
 In [27]: data['TIME_h'] = data['TIME_str'].str.slice(start=8, stop=10)
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-27-7da4908562a0&gt; in &lt;module&gt;()
-----&gt; 1 data['TIME_h'] = data['TIME_str'].str.slice(start=8, stop=10)
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'data' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [28]: data['TIME_h'] = data['TIME_h'].astype(int)
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-28-7eabaa9a4448&gt; in &lt;module&gt;()
-----&gt; 1 data['TIME_h'] = data['TIME_h'].astype(int)
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'data' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [29]: data.head()
 ---------------------------------------------------------------------------
@@ -697,16 +725,30 @@ to compare all of them to each other.</p>
 </div></blockquote>
 <p>Let’s first create a new <strong>empty</strong> DataFrame where we will store our aggregated data</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [30]: </span><span class="n">aggr_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ni">__call__</span><span class="nt">(self, source, filename, symbol)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span> 
+<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">133</span>         <span class="n">codeob</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">_features</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>             <span class="k">if</span> <span class="n">codeob</span><span class="o">.</span><span class="n">co_flags</span> <span class="o">&amp;</span> <span class="n">feature</span><span class="o">.</span><span class="n">compiler_flag</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: required field &quot;type_ignores&quot; missing from Module
 </pre></div>
 </div>
 <p>Let’s then group our data based on <code class="docutils literal notranslate"><span class="pre">TIME_h</span></code> attribute that contains the information about the date + hour.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [31]: </span><span class="n">grouped</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;TIME_dh&#39;</span><span class="p">)</span>
 <span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-31-ba38166e7393&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">grouped</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;TIME_dh&#39;</span><span class="p">)</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ni">__call__</span><span class="nt">(self, source, filename, symbol)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span> 
+<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">133</span>         <span class="n">codeob</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">_features</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>             <span class="k">if</span> <span class="n">codeob</span><span class="o">.</span><span class="n">co_flags</span> <span class="o">&amp;</span> <span class="n">feature</span><span class="o">.</span><span class="n">compiler_flag</span><span class="p">:</span>
 
-<span class="ne">NameError</span>: name &#39;data&#39; is not defined
+<span class="ne">TypeError</span>: required field &quot;type_ignores&quot; missing from Module
 </pre></div>
 </div>
 <p>Let’s see what we have now.</p>
@@ -734,14 +776,28 @@ Let’s now see what we have on hour <code class="docutils literal notranslate">
 We can get the values of that hour from <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code> -object with <code class="docutils literal notranslate"><span class="pre">get_group()</span></code> -function.</p>
 <pre class="literal-block">
 In [34]: time1 = '2017080400'
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [35]: group1 = grouped.get_group(time1)
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-35-cc7df68a5c89&gt; in &lt;module&gt;()
-----&gt; 1 group1 = grouped.get_group(time1)
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'grouped' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [36]: group1
 ---------------------------------------------------------------------------
@@ -757,14 +813,28 @@ This is really useful, because now we can calculate e.g. the average values for 
 Let’s calculate the mean for following attributes: <code class="docutils literal notranslate"><span class="pre">DIR</span></code>, <code class="docutils literal notranslate"><span class="pre">SPEED</span></code>, <code class="docutils literal notranslate"><span class="pre">GUST</span></code>, <code class="docutils literal notranslate"><span class="pre">TEMP</span></code>, and <code class="docutils literal notranslate"><span class="pre">Celsius</span></code>.</p>
 <pre class="literal-block">
 In [37]: mean_cols = ['DIR', 'SPEED', 'GUST', 'TEMP', 'Celsius', 'TIME_h']
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [38]: mean_values = group1[mean_cols].mean()
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-38-dadda1ae5813&gt; in &lt;module&gt;()
-----&gt; 1 mean_values = group1[mean_cols].mean()
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'group1' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [39]: mean_values
 ---------------------------------------------------------------------------
@@ -779,11 +849,15 @@ We can insert that datetime-information into our <code class="docutils literal n
 <pre class="literal-block">
 In [40]: mean_values['TIME_dh'] = time1
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-40-4251b8d4ad9a&gt; in &lt;module&gt;()
-----&gt; 1 mean_values['TIME_dh'] = time1
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'mean_values' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [41]: mean_values
 ---------------------------------------------------------------------------
@@ -800,17 +874,23 @@ We also need to specify that we ignore the index values of our original DataFram
 <pre class="literal-block">
 In [42]: aggr_data = aggr_data.append(mean_values, ignore_index=True)
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-42-9a6bd50cf05b&gt; in &lt;module&gt;()
-----&gt; 1 aggr_data = aggr_data.append(mean_values, ignore_index=True)
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'mean_values' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [43]: aggr_data
-Out[43]: 
-Empty DataFrame
-Columns: []
-Index: []
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-43-6e0b758470c8&gt; in &lt;module&gt;()
+----&gt; 1 aggr_data
+
+NameError: name 'aggr_data' is not defined
 </pre>
 <p>Now we have a single row in our new DataFrame where we have aggregated the data based on hourly mean values.
 Next we could continue doing and insert the average values from other hours in a similar manner but, of course, that is not
@@ -821,19 +901,20 @@ it is important to understand that a single group in our <code class="docutils l
 Hence, when iterating over the data we need to assign the <code class="docutils literal notranslate"><span class="pre">key</span></code> and the values into separate variables.</p>
 <p>Let’s see how we can iterate over the groups and print the key and the data from a single group (again using <code class="docutils literal notranslate"><span class="pre">break</span></code> to only see what is happening).</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [44]: </span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">grouped</span><span class="p">:</span>
-<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+<span class="gp">   ....: </span>    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="gp">   ....: </span>    <span class="nb">print</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
 <span class="gp">   ....: </span>    <span class="k">break</span>
 <span class="gp">   ....: </span>
 <span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-44-8005ac9a13c3&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">grouped</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="k">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">print</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">break</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ni">__call__</span><span class="nt">(self, source, filename, symbol)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span> 
+<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">133</span>         <span class="n">codeob</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">_features</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>             <span class="k">if</span> <span class="n">codeob</span><span class="o">.</span><span class="n">co_flags</span> <span class="o">&amp;</span> <span class="n">feature</span><span class="o">.</span><span class="n">compiler_flag</span><span class="p">:</span>
 
-<span class="ne">NameError</span>: name &#39;grouped&#39; is not defined
+<span class="ne">TypeError</span>: required field &quot;type_ignores&quot; missing from Module
 </pre></div>
 </div>
 <p>Okey so from here we can see that the <code class="docutils literal notranslate"><span class="pre">key</span></code> contains the value <code class="docutils literal notranslate"><span class="pre">2017080400</span></code> that is the same
@@ -860,10 +941,12 @@ I will repeate slightly the earlier steps so that you can see and better underst
 </div>
 <p>Let’s see what we have now.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="n">aggr_data</span>
-<span class="gh">Out[45]: </span><span class="go"></span>
-<span class="go">Empty DataFrame</span>
-<span class="go">Columns: []</span>
-<span class="go">Index: []</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-45-6e0b758470c8&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">aggr_data</span>
+
+<span class="ne">NameError</span>: name &#39;aggr_data&#39; is not defined
 </pre></div>
 </div>
 <p>Great! Now we have aggregated our data based on daily averages and we have a new DataFrame called <code class="docutils literal notranslate"><span class="pre">aggr_data</span></code> where all those aggregated values are stored.</p>
@@ -876,99 +959,27 @@ We define an outlier if the wind speed is 2 times the standard deviation higher 
 <pre class="literal-block">
 In [46]: std_wind = aggr_data['SPEED'].std()
 ---------------------------------------------------------------------------
-KeyError                                  Traceback (most recent call last)
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
-   2896             try:
--&gt; 2897                 return self._engine.get_loc(key)
-   2898             except KeyError:
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-KeyError: 'SPEED'
-
-During handling of the above exception, another exception occurred:
-
-KeyError                                  Traceback (most recent call last)
-&lt;ipython-input-46-0e133e816ffd&gt; in &lt;module&gt;()
-----&gt; 1 std_wind = aggr_data['SPEED'].std()
-
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in __getitem__(self, key)
-   2993             if self.columns.nlevels &gt; 1:
-   2994                 return self._getitem_multilevel(key)
--&gt; 2995             indexer = self.columns.get_loc(key)
-   2996             if is_integer(indexer):
-   2997                 indexer = [indexer]
-
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
-   2897                 return self._engine.get_loc(key)
-   2898             except KeyError:
--&gt; 2899                 return self._engine.get_loc(self._maybe_cast_indexer(key))
-   2900         indexer = self.get_indexer([key], method=method, tolerance=tolerance)
-   2901         if indexer.ndim &gt; 1 or indexer.size &gt; 1:
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-KeyError: 'SPEED'
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [47]: avg_wind = aggr_data['SPEED'].mean()
 ---------------------------------------------------------------------------
-KeyError                                  Traceback (most recent call last)
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
-   2896             try:
--&gt; 2897                 return self._engine.get_loc(key)
-   2898             except KeyError:
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-KeyError: 'SPEED'
-
-During handling of the above exception, another exception occurred:
-
-KeyError                                  Traceback (most recent call last)
-&lt;ipython-input-47-1ff1df82ae4d&gt; in &lt;module&gt;()
-----&gt; 1 avg_wind = aggr_data['SPEED'].mean()
-
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in __getitem__(self, key)
-   2993             if self.columns.nlevels &gt; 1:
-   2994                 return self._getitem_multilevel(key)
--&gt; 2995             indexer = self.columns.get_loc(key)
-   2996             if is_integer(indexer):
-   2997                 indexer = [indexer]
-
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
-   2897                 return self._engine.get_loc(key)
-   2898             except KeyError:
--&gt; 2899                 return self._engine.get_loc(self._maybe_cast_indexer(key))
-   2900         indexer = self.get_indexer([key], method=method, tolerance=tolerance)
-   2901         if indexer.ndim &gt; 1 or indexer.size &gt; 1:
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-KeyError: 'SPEED'
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [48]: print('Std:', std_wind)
 ---------------------------------------------------------------------------
@@ -991,11 +1002,15 @@ Hence, the threshold for a wind speed to be an outlier with our criteria is:</p>
 <pre class="literal-block">
 In [50]: upper_threshold = avg_wind + (std_wind*2)
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-50-94e9b9316b9c&gt; in &lt;module&gt;()
-----&gt; 1 upper_threshold = avg_wind + (std_wind*2)
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'avg_wind' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [51]: print('Upper threshold for outlier:', upper_threshold)
 ---------------------------------------------------------------------------
@@ -1021,22 +1036,38 @@ We do this again by iterating over the rows.</p>
 </pre></div>
 </div>
 <p>Let’s see what we have now.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [52]: </span><span class="k">print</span><span class="p">(</span><span class="n">aggr_data</span><span class="p">)</span>
-<span class="go">Empty DataFrame</span>
-<span class="go">Columns: [Outlier]</span>
-<span class="go">Index: []</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [52]: </span><span class="nb">print</span><span class="p">(</span><span class="n">aggr_data</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-52-bc0bc614aaf5&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">aggr_data</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;aggr_data&#39; is not defined
 </pre></div>
 </div>
 <p>Okey now we have at least many False values in our <code class="docutils literal notranslate"><span class="pre">Outlier</span></code> -column.
 Let’s select the rows with potential storm and see if we have any potential storms in our data.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [53]: </span><span class="n">storm</span> <span class="o">=</span> <span class="n">aggr_data</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="n">aggr_data</span><span class="p">[</span><span class="s1">&#39;Outlier&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">True</span><span class="p">]</span>
+<pre class="literal-block">
+In [53]: storm = aggr_data.ix[aggr_data['Outlier'] == True]
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-<span class="gp">In [54]: </span><span class="k">print</span><span class="p">(</span><span class="n">storm</span><span class="p">)</span>
-<span class="go">Empty DataFrame</span>
-<span class="go">Columns: [Outlier]</span>
-<span class="go">Index: []</span>
-</pre></div>
-</div>
+TypeError: required field &quot;type_ignores&quot; missing from Module
+
+In [54]: print(storm)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-54-d9f3d8e2365a&gt; in &lt;module&gt;()
+----&gt; 1 print(storm)
+
+NameError: name 'storm' is not defined
+</pre>
 <p>Okey, so it seems that there was one outlier in our data but the wind during that time wasn’t that strong as the average speed was only 9 m/s.
 This is not too strange as we were only looking at data from a single day.</p>
 </div>
@@ -1053,99 +1084,27 @@ For this purpose you should change the input file to be <code class="docutils li
 <pre class="literal-block">
 In [55]: std_wind = aggr_data['SPEED'].std()
 ---------------------------------------------------------------------------
-KeyError                                  Traceback (most recent call last)
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
-   2896             try:
--&gt; 2897                 return self._engine.get_loc(key)
-   2898             except KeyError:
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-KeyError: 'SPEED'
-
-During handling of the above exception, another exception occurred:
-
-KeyError                                  Traceback (most recent call last)
-&lt;ipython-input-55-0e133e816ffd&gt; in &lt;module&gt;()
-----&gt; 1 std_wind = aggr_data['SPEED'].std()
-
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in __getitem__(self, key)
-   2993             if self.columns.nlevels &gt; 1:
-   2994                 return self._getitem_multilevel(key)
--&gt; 2995             indexer = self.columns.get_loc(key)
-   2996             if is_integer(indexer):
-   2997                 indexer = [indexer]
-
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
-   2897                 return self._engine.get_loc(key)
-   2898             except KeyError:
--&gt; 2899                 return self._engine.get_loc(self._maybe_cast_indexer(key))
-   2900         indexer = self.get_indexer([key], method=method, tolerance=tolerance)
-   2901         if indexer.ndim &gt; 1 or indexer.size &gt; 1:
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-KeyError: 'SPEED'
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [56]: avg_wind = aggr_data['SPEED'].mean()
 ---------------------------------------------------------------------------
-KeyError                                  Traceback (most recent call last)
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
-   2896             try:
--&gt; 2897                 return self._engine.get_loc(key)
-   2898             except KeyError:
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-KeyError: 'SPEED'
-
-During handling of the above exception, another exception occurred:
-
-KeyError                                  Traceback (most recent call last)
-&lt;ipython-input-56-1ff1df82ae4d&gt; in &lt;module&gt;()
-----&gt; 1 avg_wind = aggr_data['SPEED'].mean()
-
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in __getitem__(self, key)
-   2993             if self.columns.nlevels &gt; 1:
-   2994                 return self._getitem_multilevel(key)
--&gt; 2995             indexer = self.columns.get_loc(key)
-   2996             if is_integer(indexer):
-   2997                 indexer = [indexer]
-
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
-   2897                 return self._engine.get_loc(key)
-   2898             except KeyError:
--&gt; 2899                 return self._engine.get_loc(self._maybe_cast_indexer(key))
-   2900         indexer = self.get_indexer([key], method=method, tolerance=tolerance)
-   2901         if indexer.ndim &gt; 1 or indexer.size &gt; 1:
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-KeyError: 'SPEED'
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [57]: print('Std:', std_wind)
 ---------------------------------------------------------------------------
@@ -1165,10 +1124,12 @@ NameError: name 'avg_wind' is not defined
 </pre>
 <p>Okey so they are indeed different now as we have more data: e.g. the average wind speed was 5.2 m/s, whereas it is now only 4.2. Let’s see what we have now in our <code class="docutils literal notranslate"><span class="pre">storm</span></code> variable.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [59]: </span><span class="n">storm</span>
-<span class="gh">Out[59]: </span><span class="go"></span>
-<span class="go">Empty DataFrame</span>
-<span class="go">Columns: [Outlier]</span>
-<span class="go">Index: []</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-59-0a43648a34b9&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">storm</span>
+
+<span class="ne">NameError</span>: name &#39;storm&#39; is not defined
 </pre></div>
 </div>
 <p>Okey, interesting! Now we can see the the days and hours when it has been stormy in August 2017.
@@ -1177,53 +1138,13 @@ We can easily count how many stormy observations for different hour of the day t
 using a <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> -function that calculates how many observations per certain value there are
 in a certain column (works best for categorigal data).</p>
 <p>Let’s see the counts for different hours of the day</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [60]: </span><span class="k">print</span><span class="p">(</span><span class="n">storm</span><span class="p">[</span><span class="s1">&#39;TIME_h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [60]: </span><span class="nb">print</span><span class="p">(</span><span class="n">storm</span><span class="p">[</span><span class="s1">&#39;TIME_h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
 <span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2896</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2897</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2898</span>             <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-
-<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
-
-<span class="ne">KeyError</span>: &#39;TIME_h&#39;
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-60-1face81c7aee&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span><span class="p">(</span><span class="n">storm</span><span class="p">[</span><span class="s1">&#39;TIME_h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">storm</span><span class="p">[</span><span class="s1">&#39;TIME_h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
 
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2993</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2994</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2995</span>             <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2996</span>             <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2997</span>                 <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
-
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2897</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2898</span>             <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2899</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_maybe_cast_indexer</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
-<span class="g g-Whitespace">   </span><span class="mi">2900</span>         <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_indexer</span><span class="p">([</span><span class="n">key</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">tolerance</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2901</span>         <span class="k">if</span> <span class="n">indexer</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">indexer</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-
-<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
-
-<span class="ne">KeyError</span>: &#39;TIME_h&#39;
+<span class="ne">NameError</span>: name &#39;storm&#39; is not defined
 </pre></div>
 </div>
 <p>Okey, this is interesting. It seems that most often it has been stormy at 14:00 GMT (i.e. 16:00 at Finnish time).
@@ -1233,25 +1154,15 @@ Let’s see what were the strongest gust winds in our dataset by sorting the val
 <pre class="literal-block">
 In [61]: gust_sort = storm.sort_values(by='GUST', ascending=False)
 ---------------------------------------------------------------------------
-KeyError                                  Traceback (most recent call last)
-&lt;ipython-input-61-c1c81225c3b7&gt; in &lt;module&gt;()
-----&gt; 1 gust_sort = storm.sort_values(by='GUST', ascending=False)
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in sort_values(self, by, axis, ascending, inplace, kind, na_position)
-   5006 
-   5007             by = by[0]
--&gt; 5008             k = self._get_label_or_level_values(by, axis=axis)
-   5009 
-   5010             if isinstance(ascending, (tuple, list)):
-
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/generic.py in _get_label_or_level_values(self, key, axis)
-   1772             values = self.axes[axis].get_level_values(key)._values
-   1773         else:
--&gt; 1774             raise KeyError(key)
-   1775 
-   1776         # Check for duplicates
-
-KeyError: 'GUST'
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [62]: gust_sort
 ---------------------------------------------------------------------------
@@ -1308,110 +1219,29 @@ Hence, in the end, you can see that this is a bit more generic function to use (
 <p>Take a copy of the data.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [63]: </span><span class="n">data2</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-63-c5881cec65d0&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data2</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ni">__call__</span><span class="nt">(self, source, filename, symbol)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span> 
+<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">133</span>         <span class="n">codeob</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">_features</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>             <span class="k">if</span> <span class="n">codeob</span><span class="o">.</span><span class="n">co_flags</span> <span class="o">&amp;</span> <span class="n">feature</span><span class="o">.</span><span class="n">compiler_flag</span><span class="p">:</span>
 
-<span class="ne">NameError</span>: name &#39;data&#39; is not defined
+<span class="ne">TypeError</span>: required field &quot;type_ignores&quot; missing from Module
 </pre></div>
 </div>
 <p>Apply our new function and update the values into a new column called <code class="docutils literal notranslate"><span class="pre">Celsius2</span></code></p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [64]: </span><span class="n">data2</span> <span class="o">=</span> <span class="n">data2</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">fahrToCelsius</span><span class="p">,</span> <span class="n">src_col</span><span class="o">=</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;Celsius2&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_value</span><span class="nt">(self, series, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4735</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">4736</span>                 <span class="k">return</span> <span class="n">libindex</span><span class="o">.</span><span class="n">get_value_box</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4737</span>             <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+<span class="nn">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ni">__call__</span><span class="nt">(self, source, filename, symbol)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span> 
+<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">133</span>         <span class="n">codeob</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">_features</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>             <span class="k">if</span> <span class="n">codeob</span><span class="o">.</span><span class="n">co_flags</span> <span class="o">&amp;</span> <span class="n">feature</span><span class="o">.</span><span class="n">compiler_flag</span><span class="p">:</span>
 
-<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.get_value_box</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.get_value_at</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/util.pxd</span> in <span class="ni">pandas._libs.util.get_value_at</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/util.pxd</span> in <span class="ni">pandas._libs.util.validate_indexer</span><span class="nt">()</span>
-
-<span class="ne">TypeError</span>: &#39;str&#39; object cannot be interpreted as an integer
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-64-468c0343a19e&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data2</span> <span class="o">=</span> <span class="n">data2</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">fahrToCelsius</span><span class="p">,</span> <span class="n">src_col</span><span class="o">=</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;Celsius2&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py</span> in <span class="ni">apply</span><span class="nt">(self, func, axis, broadcast, raw, reduce, result_type, args, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6926</span>             <span class="n">kwds</span><span class="o">=</span><span class="n">kwds</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">6927</span>         <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">6928</span>         <span class="k">return</span> <span class="n">op</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">6929</span> 
-<span class="g g-Whitespace">   </span><span class="mi">6930</span>     <span class="k">def</span> <span class="nf">applymap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/apply.py</span> in <span class="ni">get_result</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">184</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_raw</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">185</span> 
-<span class="ne">--&gt; </span><span class="mi">186</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_standard</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">187</span> 
-<span class="g g-Whitespace">    </span><span class="mi">188</span>     <span class="k">def</span> <span class="nf">apply_empty_result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/apply.py</span> in <span class="ni">apply_standard</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">290</span> 
-<span class="g g-Whitespace">    </span><span class="mi">291</span>         <span class="c1"># compute the result using the series generator</span>
-<span class="ne">--&gt; </span><span class="mi">292</span>         <span class="bp">self</span><span class="o">.</span><span class="n">apply_series_generator</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">293</span> 
-<span class="g g-Whitespace">    </span><span class="mi">294</span>         <span class="c1"># wrap results</span>
-
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/apply.py</span> in <span class="ni">apply_series_generator</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">319</span>             <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">320</span>                 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">series_gen</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">321</span>                     <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">322</span>                     <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">323</span>             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/apply.py</span> in <span class="ni">f</span><span class="nt">(x)</span>
-<span class="g g-Whitespace">    </span><span class="mi">110</span> 
-<span class="g g-Whitespace">    </span><span class="mi">111</span>             <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">112</span>                 <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">113</span> 
-<span class="g g-Whitespace">    </span><span class="mi">114</span>         <span class="k">else</span><span class="p">:</span>
-
-<span class="nn">&lt;ipython-input-63-0199b9821261&gt;</span> in <span class="ni">fahrToCelsius</span><span class="nt">(row, src_col, target_col)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">fahrToCelsius</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">src_col</span><span class="p">,</span> <span class="n">target_col</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>         <span class="n">row</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">src_col</span><span class="p">]</span><span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1.8</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="k">return</span> <span class="n">row</span>
-
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/series.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1069</span>         <span class="n">key</span> <span class="o">=</span> <span class="n">com</span><span class="o">.</span><span class="n">apply_if_callable</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1070</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1071</span>             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1072</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1073</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">is_scalar</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
-
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_value</span><span class="nt">(self, series, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4742</span>                     <span class="k">raise</span> <span class="n">InvalidIndexError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4743</span>                 <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">4744</span>                     <span class="k">raise</span> <span class="n">e1</span>
-<span class="g g-Whitespace">   </span><span class="mi">4745</span>             <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
-<span class="g g-Whitespace">   </span><span class="mi">4746</span>                 <span class="k">raise</span> <span class="n">e1</span>
-
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_value</span><span class="nt">(self, series, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4728</span>         <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_scalar_indexer</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;getitem&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4729</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">4730</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">series</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="s2">&quot;tz&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">))</span>
-<span class="g g-Whitespace">   </span><span class="mi">4731</span>         <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e1</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">4732</span>             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">holds_integer</span><span class="p">()</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_boolean</span><span class="p">()):</span>
-
-<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_value</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_value</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
-
-<span class="ne">KeyError</span>: (&#39;TEMP&#39;, &#39;occurred at index 0&#39;)
+<span class="ne">TypeError</span>: required field &quot;type_ignores&quot; missing from Module
 </pre></div>
 </div>
 <p>As you can see here, we use the <code class="docutils literal notranslate"><span class="pre">apply()</span></code> function and as the first parameter
@@ -1419,13 +1249,12 @@ we pass the name of the function that we want to use with the <code class="docut
 Lastly, it is important to add as a last parameter <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> that tells for the function to apply the calculations vertically (row by row) instead of horizontally (would move from column to another).</p>
 <p>See the results.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [65]: </span><span class="n">data2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[65]: </span><span class="go"></span>
-<span class="go">       Time  Value</span>
-<span class="go">0  20170101      1</span>
-<span class="go">1  20170101      2</span>
-<span class="go">2  20170102      3</span>
-<span class="go">3  20170104      3</span>
-<span class="go">4  20170104      8</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-65-77bbe7b50a36&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;data2&#39; is not defined
 </pre></div>
 </div>
 <p>Indeed it seems that our function worked because the values in <code class="docutils literal notranslate"><span class="pre">Celsius</span></code> and <code class="docutils literal notranslate"><span class="pre">Celsius2</span></code> columns are the same.
@@ -1434,108 +1263,22 @@ With this approach it is extremely easy to reuse our function and pass the resul
 In [66]: data2 = data2.apply(fahrToCelsius, src_col='TEMP', target_col='Celsius3', axis=1)
 ---------------------------------------------------------------------------
 TypeError                                 Traceback (most recent call last)
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_value(self, series, key)
-   4735             try:
--&gt; 4736                 return libindex.get_value_box(s, key)
-   4737             except IndexError:
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-pandas/_libs/index.pyx in pandas._libs.index.get_value_box()
-
-pandas/_libs/index.pyx in pandas._libs.index.get_value_at()
-
-pandas/_libs/util.pxd in pandas._libs.util.get_value_at()
-
-pandas/_libs/util.pxd in pandas._libs.util.validate_indexer()
-
-TypeError: 'str' object cannot be interpreted as an integer
-
-During handling of the above exception, another exception occurred:
-
-KeyError                                  Traceback (most recent call last)
-&lt;ipython-input-66-b70a0a501690&gt; in &lt;module&gt;()
-----&gt; 1 data2 = data2.apply(fahrToCelsius, src_col='TEMP', target_col='Celsius3', axis=1)
-
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in apply(self, func, axis, broadcast, raw, reduce, result_type, args, **kwds)
-   6926             kwds=kwds,
-   6927         )
--&gt; 6928         return op.get_result()
-   6929 
-   6930     def applymap(self, func):
-
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/apply.py in get_result(self)
-    184             return self.apply_raw()
-    185 
---&gt; 186         return self.apply_standard()
-    187 
-    188     def apply_empty_result(self):
-
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/apply.py in apply_standard(self)
-    290 
-    291         # compute the result using the series generator
---&gt; 292         self.apply_series_generator()
-    293 
-    294         # wrap results
-
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/apply.py in apply_series_generator(self)
-    319             try:
-    320                 for i, v in enumerate(series_gen):
---&gt; 321                     results[i] = self.f(v)
-    322                     keys.append(v.name)
-    323             except Exception as e:
-
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/apply.py in f(x)
-    110 
-    111             def f(x):
---&gt; 112                 return func(x, *args, **kwds)
-    113 
-    114         else:
-
-&lt;ipython-input-63-0199b9821261&gt; in fahrToCelsius(row, src_col, target_col)
-      1 def fahrToCelsius(row, src_col, target_col):
-----&gt; 2         row[target_col] = (row[src_col]- 32) / 1.8
-      3         return row
-
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/series.py in __getitem__(self, key)
-   1069         key = com.apply_if_callable(key, self)
-   1070         try:
--&gt; 1071             result = self.index.get_value(self, key)
-   1072 
-   1073             if not is_scalar(result):
-
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_value(self, series, key)
-   4742                     raise InvalidIndexError(key)
-   4743                 else:
--&gt; 4744                     raise e1
-   4745             except Exception:  # pragma: no cover
-   4746                 raise e1
-
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_value(self, series, key)
-   4728         k = self._convert_scalar_indexer(k, kind=&quot;getitem&quot;)
-   4729         try:
--&gt; 4730             return self._engine.get_value(s, k, tz=getattr(series.dtype, &quot;tz&quot;, None))
-   4731         except KeyError as e1:
-   4732             if len(self) &gt; 0 and (self.holds_integer() or self.is_boolean()):
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_value()
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_value()
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-KeyError: ('TEMP', 'occurred at index 0')
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [67]: data2.head()
-Out[67]: 
-       Time  Value
-0  20170101      1
-1  20170101      2
-2  20170102      3
-3  20170104      3
-4  20170104      8
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-67-77bbe7b50a36&gt; in &lt;module&gt;()
+----&gt; 1 data2.head()
+
+NameError: name 'data2' is not defined
 </pre>
 <p class="last">Now we just added another column called <code class="docutils literal notranslate"><span class="pre">Celsius3</span></code> just by changing the value of the <code class="docutils literal notranslate"><span class="pre">target_col</span></code> -parameter.
 This is a good and efficient approach to use in many cases, and hence highly recommended (although it is a bit harder to understand).</p>

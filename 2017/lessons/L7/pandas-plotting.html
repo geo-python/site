@@ -313,15 +313,55 @@ It is derived from a data file of daily temperature measurments downloaded from 
 In Pandas, we can even read the data from a file and tell to Pandas that values from certain column should be
 interpreted as time, and we can actually use that as our index, which is cool! You will see later why.</p>
 <p>Let’s start by importing some modules that will be useful when plotting.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<pre class="literal-block">
+In [1]: import pandas as pd
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
-<span class="gp">In [3]: </span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+In [2]: import matplotlib.pyplot as plt
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-<span class="gp">In [4]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-</pre></div>
-</div>
+TypeError: required field &quot;type_ignores&quot; missing from Module
+
+In [3]: from datetime import datetime
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
+
+In [4]: import numpy as np
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
+</pre>
 <p>Next, let’s read the data into Pandas and determine that the values from <code class="docutils literal notranslate"><span class="pre">YR--MODAHRMN</span></code> column should be interpreted and converted into a time index.</p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">fp</span> <span class="o">=</span> <span class="s2">&quot;1924927457196dat.txt&quot;</span>
 </pre></div>
@@ -329,50 +369,15 @@ interpreted as time, and we can actually use that as our index, which is cool! Y
 <p>When reading the data we can use <code class="docutils literal notranslate"><span class="pre">parse_dates</span></code> parameter to parse the time information</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;YR--MODAHRMN&#39;</span><span class="p">],</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;**&#39;</span><span class="p">,</span> <span class="s1">&#39;***&#39;</span><span class="p">,</span> <span class="s1">&#39;****&#39;</span><span class="p">,</span> <span class="s1">&#39;*****&#39;</span><span class="p">,</span> <span class="s1">&#39;******&#39;</span><span class="p">])</span>
 <span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-5-5291211b00bc&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;YR--MODAHRMN&#39;</span><span class="p">],</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;**&#39;</span><span class="p">,</span> <span class="s1">&#39;***&#39;</span><span class="p">,</span> <span class="s1">&#39;****&#39;</span><span class="p">,</span> <span class="s1">&#39;*****&#39;</span><span class="p">,</span> <span class="s1">&#39;******&#39;</span><span class="p">])</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ni">__call__</span><span class="nt">(self, source, filename, symbol)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span> 
+<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">133</span>         <span class="n">codeob</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">_features</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>             <span class="k">if</span> <span class="n">codeob</span><span class="o">.</span><span class="n">co_flags</span> <span class="o">&amp;</span> <span class="n">feature</span><span class="o">.</span><span class="n">compiler_flag</span><span class="p">:</span>
 
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">parser_f</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)</span>
-<span class="g g-Whitespace">    </span><span class="mi">683</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">684</span> 
-<span class="ne">--&gt; </span><span class="mi">685</span>         <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">686</span> 
-<span class="g g-Whitespace">    </span><span class="mi">687</span>     <span class="n">parser_f</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">name</span>
-
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">455</span> 
-<span class="g g-Whitespace">    </span><span class="mi">456</span>     <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">457</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">fp_or_buf</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">458</span> 
-<span class="g g-Whitespace">    </span><span class="mi">459</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">893</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">894</span> 
-<span class="ne">--&gt; </span><span class="mi">895</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">896</span> 
-<span class="g g-Whitespace">    </span><span class="mi">897</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1133</span>     <span class="k">def</span> <span class="nf">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1134</span>         <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1135</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="n">CParserWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1136</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1137</span>             <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;python&quot;</span><span class="p">:</span>
-
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1915</span>         <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;usecols&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usecols</span>
-<span class="g g-Whitespace">   </span><span class="mi">1916</span> 
-<span class="ne">-&gt; </span><span class="mi">1917</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1918</span>         <span class="bp">self</span><span class="o">.</span><span class="n">unnamed_cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span><span class="o">.</span><span class="n">unnamed_cols</span>
-<span class="g g-Whitespace">   </span><span class="mi">1919</span> 
-
-<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader.__cinit__</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader._setup_parser_source</span><span class="nt">()</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] File b&#39;/home/travis/build/geo-python/site/data/L7/1924927457196dat.txt&#39; does not exist: b&#39;/home/travis/build/geo-python/site/data/L7/1924927457196dat.txt&#39;
+<span class="ne">TypeError</span>: required field &quot;type_ignores&quot; missing from Module
 </pre></div>
 </div>
 <p>Let’s check the datatypes of our columns.</p>
@@ -433,7 +438,7 @@ with <code class="docutils literal notranslate"><span class="pre">x</span></code
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;TIME&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Celsius&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/pandas_plot_1.png"><img alt="../../_images/pandas_plot_1.png" src="../../_images/pandas_plot_1.png" style="width: 450px;" /></a>
+<a class="reference internal image-reference" href="savefig/pandas_plot_1.png"><img alt="savefig/pandas_plot_1.png" src="savefig/pandas_plot_1.png" style="width: 450px;" /></a>
 <p>Cool, it was this easy to produce a line plot that can be used to understand our data better.
 We can clearly see that there is quite a lot of variation in the temperatures, and different seasons pop up quite clearly from the data.</p>
 </div>
@@ -445,11 +450,15 @@ Let’s see a trick, how we can really easily aggregate the data using Pandas.</
 <pre class="literal-block">
 In [10]: data = data.set_index('TIME')
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-10-8c0ed9f335b0&gt; in &lt;module&gt;()
-----&gt; 1 data = data.set_index('TIME')
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'data' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [11]: data.head()
 ---------------------------------------------------------------------------
@@ -465,11 +474,15 @@ What is cool about this thing is that you can really easily e.g. select data fro
 <pre class="literal-block">
 In [12]: first_jan = data['2013-01-01': '2013-01-01']
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-12-9e67bb0a689f&gt; in &lt;module&gt;()
-----&gt; 1 first_jan = data['2013-01-01': '2013-01-01']
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'data' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [13]: first_jan
 ---------------------------------------------------------------------------
@@ -484,11 +497,15 @@ In a similar manner you can also specify more accurately the time that you want 
 <pre class="literal-block">
 In [14]: first_jan_12h = data['2013-01-01 00:00': '2013-01-01 12:00']
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-14-c2dbd2b8f57e&gt; in &lt;module&gt;()
-----&gt; 1 first_jan_12h = data['2013-01-01 00:00': '2013-01-01 12:00']
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'data' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [15]: first_jan_12h
 ---------------------------------------------------------------------------
@@ -509,11 +526,15 @@ The last function in following command basically determines that we want to calc
 <pre class="literal-block">
 In [16]: daily = data.resample(rule='D').mean()
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-16-36ab1d38d6b9&gt; in &lt;module&gt;()
-----&gt; 1 daily = data.resample(rule='D').mean()
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'data' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [17]: daily.head()
 ---------------------------------------------------------------------------
@@ -531,11 +552,17 @@ we will now only use basic line plots in this tutorial. See many different kind 
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">daily</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">daily</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Celsius&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/pandas_plot_2.png"><img alt="../../_images/pandas_plot_2.png" src="../../_images/pandas_plot_2.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="savefig/pandas_plot_2.png"><img alt="savefig/pandas_plot_2.png" src="savefig/pandas_plot_2.png" style="width: 600px;" /></a>
 <p>Now we can see that our plot does not look so “crowded” as we have only daily observations instead of hourly.
 What we can also see is that Pandas actually formats now the x-axis tick-labels really nicely (showing month names and years below them) because we are using the datetime-index to plot the data.</p>
 <p>We can also save this figure to disk by using <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function. With <code class="docutils literal notranslate"><span class="pre">dpi</span></code> parameter it is possible to specify the resolution of the Figure.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;temp_plot1.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-19-a36c844c4d3e&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;temp_plot1.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
 </pre></div>
 </div>
 <div class="admonition note">
@@ -551,6 +578,12 @@ such Figures where you have multiple plots in different panels as was shown in t
 <p>Let’s start by changing our plotting style into a nicely looking <code class="docutils literal notranslate"><span class="pre">seaborn-whitegrid</span></code>.
 You can take a look of different readily-available styles from <a class="reference external" href="https://tonysyu.github.io/raw_content/matplotlib-style-gallery/gallery.html">here</a> .</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [20]: </span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-whitegrid&#39;</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-20-adcf1482bdd0&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-whitegrid&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
 </pre></div>
 </div>
 <p>Let’s first divide our data into different seasons: Winter (December-February), Spring (March-May),
@@ -559,35 +592,51 @@ Summer (June-August), and Fall (Septempber-November).</p>
 <pre class="literal-block">
 In [21]: winter = daily['2012-12-01': '2013-02-28']
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-21-ed2f9feafc3a&gt; in &lt;module&gt;()
-----&gt; 1 winter = daily['2012-12-01': '2013-02-28']
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'daily' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [22]: spring = daily['2013-03-01': '2013-05-31']
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-22-58c444162c20&gt; in &lt;module&gt;()
-----&gt; 1 spring = daily['2013-03-01': '2013-05-31']
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'daily' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [23]: summer = daily['2013-06-01': '2013-08-31']
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-23-4b3909151fa1&gt; in &lt;module&gt;()
-----&gt; 1 summer = daily['2013-06-01': '2013-08-31']
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'daily' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [24]: fall = daily['2013-09-01': '2013-11-30']
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-24-49ebfba388b6&gt; in &lt;module&gt;()
-----&gt; 1 fall = daily['2013-09-01': '2013-11-30']
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'daily' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 </pre>
 <p>Let’s check what we have e.g. in winter DataFrame now.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="n">winter</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -609,10 +658,10 @@ NameError: name 'daily' is not defined
 <span class="gp">In [29]: </span><span class="n">fall</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fall</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="s1">&#39;Celsius&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/pandas_plot_3.png"><img alt="../../_images/pandas_plot_3.png" src="../../_images/pandas_plot_3.png" style="width: 280px;" /></a>
-<a class="reference internal image-reference" href="../../_images/pandas_plot_4.png"><img alt="../../_images/pandas_plot_4.png" src="../../_images/pandas_plot_4.png" style="width: 280px;" /></a>
-<a class="reference internal image-reference" href="../../_images/pandas_plot_5.png"><img alt="../../_images/pandas_plot_5.png" src="../../_images/pandas_plot_5.png" style="width: 280px;" /></a>
-<a class="reference internal image-reference" href="../../_images/pandas_plot_6.png"><img alt="../../_images/pandas_plot_6.png" src="../../_images/pandas_plot_6.png" style="width: 280px;" /></a>
+<a class="reference internal image-reference" href="savefig/pandas_plot_3.png"><img alt="savefig/pandas_plot_3.png" src="savefig/pandas_plot_3.png" style="width: 280px;" /></a>
+<a class="reference internal image-reference" href="savefig/pandas_plot_4.png"><img alt="savefig/pandas_plot_4.png" src="savefig/pandas_plot_4.png" style="width: 280px;" /></a>
+<a class="reference internal image-reference" href="savefig/pandas_plot_5.png"><img alt="savefig/pandas_plot_5.png" src="savefig/pandas_plot_5.png" style="width: 280px;" /></a>
+<a class="reference internal image-reference" href="savefig/pandas_plot_6.png"><img alt="savefig/pandas_plot_6.png" src="savefig/pandas_plot_6.png" style="width: 280px;" /></a>
 <p>Okey, so from these plots we can already see that the temperatures in different seasons are quite different, which is quite obvious of course.
 It is important to notice that the scale of the y-axis changes in these different plots. If we would like to compare different seasons to each other
 we need to make sure that the temperature scale is similar with all different seasons.</p>
@@ -621,19 +670,27 @@ in our data (full year), and the lowest is the minimum temperature - 5 degrees, 
 <pre class="literal-block">
 In [30]: min_temp = daily['Celsius'].min() - 5
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-30-e66e1abfcf77&gt; in &lt;module&gt;()
-----&gt; 1 min_temp = daily['Celsius'].min() - 5
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'daily' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [31]: max_temp = daily['Celsius'].max() + 5
 ---------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-31-730001d6078a&gt; in &lt;module&gt;()
-----&gt; 1 max_temp = daily['Celsius'].max() + 5
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-NameError: name 'daily' is not defined
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [32]: print(&quot;Min:&quot;, min_temp, &quot;Max:&quot;, max_temp)
 ---------------------------------------------------------------------------
@@ -648,43 +705,103 @@ We can now use those values to standardize the y-axis scale of our plot.</p>
 <p>Let’s now continue and see how we can plot all these graphs different into the same Figure.
 We can create a 2x2 panel for our visualization using matplotlib’s <code class="docutils literal notranslate"><span class="pre">subplots()</span></code> function where we specify how many rows and columns we want to have in our Figure.
 We can also specify the size  of our figure with <code class="docutils literal notranslate"><span class="pre">figsize()</span></code> parameter that takes the <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code> values (in inches) as input.’</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [33]: </span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<pre class="literal-block">
+In [33]: fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(12,8))
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-<span class="gp">In [34]: </span><span class="n">axes</span>
-<span class="gh">Out[34]: </span><span class="go"></span>
-<span class="go">array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fe5c848c9e8&gt;,</span>
-<span class="go">        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fe5c832deb8&gt;],</span>
-<span class="go">       [&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fe5c8364400&gt;,</span>
-<span class="go">        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fe5c830e908&gt;]],</span>
-<span class="go">      dtype=object)</span>
-</pre></div>
-</div>
+TypeError: required field &quot;type_ignores&quot; missing from Module
+
+In [34]: axes
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-34-af34f4c1c1b0&gt; in &lt;module&gt;()
+----&gt; 1 axes
+
+NameError: name 'axes' is not defined
+</pre>
 <p>We can see that as a result we have now a list containing two nested lists where the first one contains the axis for column 1 and 2 on <strong>row 1</strong>
 and the second list contains the axis for columns 1 and 2 for <strong>row 2</strong>.
 We can parse these axes into own variables so it is easier to work with them.’</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [35]: </span><span class="n">ax11</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<pre class="literal-block">
+In [35]: ax11 = axes[0][0]
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-<span class="gp">In [36]: </span><span class="n">ax12</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
-<span class="gp">In [37]: </span><span class="n">ax21</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+In [36]: ax12 = axes[0][1]
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-<span class="gp">In [38]: </span><span class="n">ax22</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
+TypeError: required field &quot;type_ignores&quot; missing from Module
+
+In [37]: ax21 = axes[1][0]
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
+
+In [38]: ax22 = axes[1][1]
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
+</pre>
 <p>Now we have four different axis variables for different panels in our Figure.
 Next we can use them to plot the seasonal data into them.
 Let’s first plot the seasons and give different colors for the lines, and specify the y-scale limits to be the same with all subplots.
 With parameter <code class="docutils literal notranslate"><span class="pre">c</span></code> it is possible to specify the color of the line. You can find an extensive list of possible colors and RGB-color codes
 from <a class="reference external" href="http://www.rapidtables.com/web/color/RGB_Color.htm">this link</a>. With <code class="docutils literal notranslate"><span class="pre">lw</span></code> parameter you can specify the width of the line.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [39]: </span><span class="n">line_width</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ni">__call__</span><span class="nt">(self, source, filename, symbol)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span> 
+<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">133</span>         <span class="n">codeob</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">_features</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>             <span class="k">if</span> <span class="n">codeob</span><span class="o">.</span><span class="n">co_flags</span> <span class="o">&amp;</span> <span class="n">feature</span><span class="o">.</span><span class="n">compiler_flag</span><span class="p">:</span>
 
-<span class="gp">In [40]: </span><span class="n">winter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">winter</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Celsius&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax11</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">));</span>
+<span class="ne">TypeError</span>: required field &quot;type_ignores&quot; missing from Module
 
-<span class="gp">In [41]: </span><span class="n">spring</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">spring</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Celsius&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax12</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">));</span>
+<span class="gp">In [40]: </span><span class="n">winter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">winter</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Celsius&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax11</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">));</span>
 
-<span class="gp">In [42]: </span><span class="n">summer</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">summer</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Celsius&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax21</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">));</span>
+<span class="gp">In [41]: </span><span class="n">spring</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">spring</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Celsius&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax12</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">));</span>
 
-<span class="gp">In [43]: </span><span class="n">fall</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">fall</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Celsius&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax22</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">));</span>
+<span class="gp">In [42]: </span><span class="n">summer</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">summer</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Celsius&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax21</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">));</span>
+
+<span class="gp">In [43]: </span><span class="n">fall</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">fall</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Celsius&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax22</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">line_width</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">));</span>
 </pre></div>
 </div>
 <div class="figure">
@@ -698,6 +815,16 @@ With other data types of data (other than time data) modifying e.g. the tick int
 <p>Let’s first clean all the x-axis ticks. We can do that by going through all the axis and setting an empty list as ticks.
 At the same time we can specify that the y-ticks should be visible every 5 degree intervals. For this purpose, we can take advantage of <code class="docutils literal notranslate"><span class="pre">arange()</span></code> function from numpy module. We can also set the size of our ticklabels larger at this point.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [44]: </span><span class="n">yticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mi">25</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ni">__call__</span><span class="nt">(self, source, filename, symbol)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span> 
+<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">133</span>         <span class="n">codeob</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">_features</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>             <span class="k">if</span> <span class="n">codeob</span><span class="o">.</span><span class="n">co_flags</span> <span class="o">&amp;</span> <span class="n">feature</span><span class="o">.</span><span class="n">compiler_flag</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: required field &quot;type_ignores&quot; missing from Module
 </pre></div>
 </div>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span>
@@ -720,7 +847,7 @@ This part is quite advanced plotting, so again, do not worry if you don’t unde
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">dates</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">dates</span>
 
 <span class="c1"># Iterate over all four axes that we have and apply same procedures to each one of them</span>
 <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax11</span><span class="p">,</span> <span class="n">ax12</span><span class="p">,</span> <span class="n">ax21</span><span class="p">,</span> <span class="n">ax22</span><span class="p">]:</span>
@@ -742,17 +869,67 @@ the x-position, y-position and the text which will be added to the plot.</p>
 <p>Let’s specify the location for the Winter, Spring, Summer and Fall annotations.
 In here, we can use the same y-position for all of our plots. However, with x-position we need to specify the position as
 <code class="docutils literal notranslate"><span class="pre">datetime()</span></code> objects because the x-axis includes datetime values.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="n">all_y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">23</span>
+<pre class="literal-block">
+In [45]: all_y = -23
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-<span class="gp">In [46]: </span><span class="n">wint_x</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
-<span class="gp">In [47]: </span><span class="n">spr_x</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+In [46]: wint_x = datetime(2013, 2, 10)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-<span class="gp">In [48]: </span><span class="n">sum_x</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
-<span class="gp">In [49]: </span><span class="n">fal_x</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
-</pre></div>
-</div>
+In [47]: spr_x = datetime(2013, 5, 10)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
+
+In [48]: sum_x = datetime(2013, 8, 7)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
+
+In [49]: fal_x = datetime(2013, 11, 18)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
+</pre>
 <p>Let’s add those texts on top of our subplots.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [50]: </span><span class="n">ax11</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">wint_x</span><span class="p">,</span> <span class="n">all_y</span><span class="p">,</span> <span class="s1">&#39;Winter&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
 
@@ -765,15 +942,27 @@ In here, we can use the same y-position for all of our plots. However, with x-po
 </div>
 <p>Let’s add a common Y-label for the figure and a title, this can be done by adding another subplot that covers the area of the whole
 Figure and adding labels on top of that.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [54]: </span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="bp">False</span><span class="p">);</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [54]: </span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Let’s make sure that there are no ticks or labels added</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [55]: </span><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<pre class="literal-block">
+In [55]: plt.grid('off')
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-55-68d13098b7a5&gt; in &lt;module&gt;()
+----&gt; 1 plt.grid('off')
 
-<span class="gp">In [56]: </span><span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelcolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="s1">&#39;off&#39;</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="s1">&#39;off&#39;</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="s1">&#39;off&#39;</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
+NameError: name 'plt' is not defined
+
+In [56]: plt.tick_params(labelcolor='none', top='off', bottom='off', left='off', right='off')
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-56-832c5c284756&gt; in &lt;module&gt;()
+----&gt; 1 plt.tick_params(labelcolor='none', top='off', bottom='off', left='off', right='off')
+
+NameError: name 'plt' is not defined
+</pre>
 <p>Let’s now add common y-label and a title for our plot.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [57]: </span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature in Celsius&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="s1">&#39;Arial&#39;</span><span class="p">);</span>
 
@@ -782,10 +971,22 @@ Figure and adding labels on top of that.</p>
 </div>
 <p>By calling <code class="docutils literal notranslate"><span class="pre">plt.tightlayout()</span></code> it is possible to remove most of the extra whitespace around your figure.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [59]: </span><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-59-9c2d71959dfa&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
 </pre></div>
 </div>
 <p>Finally, we can save our subplot to disk in a similar manner as before.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [60]: </span><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;Temperature_seasons_subplot.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-60-b87d94575117&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;Temperature_seasons_subplot.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
 </pre></div>
 </div>
 <div class="figure">

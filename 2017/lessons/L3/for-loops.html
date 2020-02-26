@@ -289,18 +289,48 @@ Suppose we want to take a word and print out each letter of the word separately.
 We could do the following:</p>
 <pre class="literal-block">
 In [1]: word = 'snow'
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [2]: print(word[0])
-s
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-2-271e956685f4&gt; in &lt;module&gt;()
+----&gt; 1 print(word[0])
+
+NameError: name 'word' is not defined
 
 In [3]: print(word[1])
-n
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-3-e65a91587dbf&gt; in &lt;module&gt;()
+----&gt; 1 print(word[1])
+
+NameError: name 'word' is not defined
 
 In [4]: print(word[2])
-o
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-4-6b1082a60604&gt; in &lt;module&gt;()
+----&gt; 1 print(word[2])
+
+NameError: name 'word' is not defined
 
 In [5]: print(word[3])
-w
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-5-929d2b055d22&gt; in &lt;module&gt;()
+----&gt; 1 print(word[3])
+
+NameError: name 'word' is not defined
 </pre>
 <p>But this is a bad idea.
 Why?
@@ -309,37 +339,78 @@ First, it does not scale nicely for long strings, and will take forever to type 
 Second, it won’t work if the word is not 4 characters long.</p>
 <pre class="literal-block">
 In [6]: word = 'ice'
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [7]: print(word[0])
-i
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-7-271e956685f4&gt; in &lt;module&gt;()
+----&gt; 1 print(word[0])
+
+NameError: name 'word' is not defined
 
 In [8]: print(word[1])
-c
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-8-e65a91587dbf&gt; in &lt;module&gt;()
+----&gt; 1 print(word[1])
+
+NameError: name 'word' is not defined
 
 In [9]: print(word[2])
-e
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-9-6b1082a60604&gt; in &lt;module&gt;()
+----&gt; 1 print(word[2])
+
+NameError: name 'word' is not defined
 
 In [10]: print(word[3])
 ---------------------------------------------------------------------------
-IndexError                                Traceback (most recent call last)
+NameError                                 Traceback (most recent call last)
 &lt;ipython-input-10-929d2b055d22&gt; in &lt;module&gt;()
 ----&gt; 1 print(word[3])
 
-IndexError: string index out of range
+NameError: name 'word' is not defined
 </pre>
 </li>
 <li><p class="first">We could do a much better job by using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;snow&#39;</span>
+<pre class="literal-block">
+In [11]: word = 'snow'
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-<span class="gp">In [12]: </span><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
-<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
-<span class="gp">   ....: </span>
-<span class="go">s</span>
-<span class="go">n</span>
-<span class="go">o</span>
-<span class="go">w</span>
-</pre></div>
-</div>
+TypeError: required field &quot;type_ignores&quot; missing from Module
+
+In [12]: for char in word:
+   ....:     print(char)
+   ....: 
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
+</pre>
 <p>Note here that the <code class="docutils literal notranslate"><span class="pre">...</span></code> is displayed in the IPython console when entering code in a loop and you do not need to type in the <code class="docutils literal notranslate"><span class="pre">...</span></code>.
 Not only is this shorter, but it is also more flexible.
 Try out a different word such as <code class="docutils literal notranslate"><span class="pre">freezing</span> <span class="pre">fog</span></code>.
@@ -375,45 +446,95 @@ Consider using a <code class="docutils literal notranslate"><span class="pre">fo
 </div>
 </li>
 <li><p class="first">Let’s consider another example.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
+<pre class="literal-block">
+In [13]: length = 0
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-<span class="gp">In [14]: </span><span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s1">&#39;blizzard&#39;</span><span class="p">:</span>
-<span class="gp">   ....: </span>    <span class="n">length</span> <span class="o">=</span> <span class="n">length</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="gp">   ....: </span>
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
-<span class="gp">In [15]: </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;There are&#39;</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="s1">&#39;letters&#39;</span><span class="p">)</span>
-<span class="go">There are 8 letters</span>
-</pre></div>
-</div>
+In [14]: for letter in 'blizzard':
+   ....:     length = length + 1
+   ....: 
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
+
+In [15]: print('There are', length, 'letters')
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-15-d753c5989f24&gt; in &lt;module&gt;()
+----&gt; 1 print('There are', length, 'letters')
+
+NameError: name 'length' is not defined
+</pre>
 <p>Can you follow what happens in this loop?</p>
 </li>
 <li><p class="first">Note that the variable used in the loop, <code class="docutils literal notranslate"><span class="pre">letter</span></code> in the case above is just a normal variable and still exists after the loop has completed with the final value given to letter.</p>
 <pre class="literal-block">
 In [16]: letter = 'x'
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [17]: for letter in 'sleet':
    ....:     print(letter)
    ....: 
-s
-l
-e
-e
-t
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [18]: print('After the loop, letter is', letter)
-After the loop, letter is t
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-18-31bb034bb9af&gt; in &lt;module&gt;()
+----&gt; 1 print('After the loop, letter is', letter)
+
+NameError: name 'letter' is not defined
 </pre>
 </li>
 <li><p class="first">A loop can be used to iterate over any list of values in Python.
 So far we have considered only character strings, but we could also write a loop that performs a calculation a specified number of times.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="gp">   ....: </span>    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 <span class="gp">   ....: </span>
-<span class="go">0</span>
-<span class="go">1</span>
-<span class="go">2</span>
-<span class="go">3</span>
-<span class="go">4</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ni">__call__</span><span class="nt">(self, source, filename, symbol)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span> 
+<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">133</span>         <span class="n">codeob</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">_features</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>             <span class="k">if</span> <span class="n">codeob</span><span class="o">.</span><span class="n">co_flags</span> <span class="o">&amp;</span> <span class="n">feature</span><span class="o">.</span><span class="n">compiler_flag</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: required field &quot;type_ignores&quot; missing from Module
 </pre></div>
 </div>
 <p>What happens here?
@@ -475,11 +596,8 @@ You can learn a bit more about range by typing</p>
 <span class="go"> |  __ne__(self, value, /)</span>
 <span class="go"> |      Return self!=value.</span>
 <span class="go"> |  </span>
-<span class="go"> |  __new__(*args, **kwargs) from builtins.type</span>
-<span class="go"> |      Create and return a new object.  See help(type) for accurate signature.</span>
-<span class="go"> |  </span>
 <span class="go"> |  __reduce__(...)</span>
-<span class="go"> |      helper for pickle</span>
+<span class="go"> |      Helper for pickle.</span>
 <span class="go"> |  </span>
 <span class="go"> |  __repr__(self, /)</span>
 <span class="go"> |      Return repr(self).</span>
@@ -491,8 +609,14 @@ You can learn a bit more about range by typing</p>
 <span class="go"> |      rangeobject.count(value) -&gt; integer -- return number of occurrences of value</span>
 <span class="go"> |  </span>
 <span class="go"> |  index(...)</span>
-<span class="go"> |      rangeobject.index(value, [start, [stop]]) -&gt; integer -- return index of value.</span>
+<span class="go"> |      rangeobject.index(value) -&gt; integer -- return index of value.</span>
 <span class="go"> |      Raise ValueError if the value is not present.</span>
+<span class="go"> |  </span>
+<span class="go"> |  ----------------------------------------------------------------------</span>
+<span class="go"> |  Static methods defined here:</span>
+<span class="go"> |  </span>
+<span class="go"> |  __new__(*args, **kwargs) from builtins.type</span>
+<span class="go"> |      Create and return a new object.  See help(type) for accurate signature.</span>
 <span class="go"> |  </span>
 <span class="go"> |  ----------------------------------------------------------------------</span>
 <span class="go"> |  Data descriptors defined here:</span>
@@ -522,19 +646,49 @@ You can learn a bit more about range by typing</p>
 </li>
 <li><p class="first">Often when you use <code class="docutils literal notranslate"><span class="pre">for</span></code> loops, you are looping over the values in a list and either calculating a new value or modifying the existing values.
 Let’s consider an example.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]</span>
+<pre class="literal-block">
+In [21]: mylist = [0.0, 1.0, 2.0, 3.0, 4.0, 5.0]
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-<span class="gp">In [22]: </span><span class="k">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
-<span class="go">[0.0, 1.0, 2.0, 3.0, 4.0, 5.0]</span>
+TypeError: required field &quot;type_ignores&quot; missing from Module
 
-<span class="gp">In [23]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
-<span class="gp">   ....: </span>    <span class="n">mylist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mylist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">i</span>
-<span class="gp">   ....: </span>
+In [22]: print(mylist)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-22-aca29853c9f0&gt; in &lt;module&gt;()
+----&gt; 1 print(mylist)
 
-<span class="gp">In [24]: </span><span class="k">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
-<span class="go">[0.0, 2.0, 4.0, 6.0, 8.0, 10.0]</span>
-</pre></div>
-</div>
+NameError: name 'mylist' is not defined
+
+In [23]: for i in range(6):
+   ....:     mylist[i] = mylist[i] + i
+   ....: 
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
+
+In [24]: print(mylist)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-24-aca29853c9f0&gt; in &lt;module&gt;()
+----&gt; 1 print(mylist)
+
+NameError: name 'mylist' is not defined
+</pre>
 <p>So, what happened?
 We first create a list of 6 numbers.
 Then, we loop over 6 values using the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function and add each value to the existing location in <code class="docutils literal notranslate"><span class="pre">mylist</span></code>.
@@ -542,31 +696,78 @@ What would happen if we ran this for loop a second time?</p>
 </li>
 <li><p class="first">One of the drawbacks in the example above is that we need to know the length of the list before running that <code class="docutils literal notranslate"><span class="pre">for</span></code> loop example.
 However, we already know how to find the length of a list using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function, and we can take advantage of this knowledge to make our <code class="docutils literal notranslate"><span class="pre">for</span></code> loop more flexible.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)):</span>
-<span class="gp">   ....: </span>    <span class="n">mylist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mylist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">i</span>
-<span class="gp">   ....: </span>
+<pre class="literal-block">
+In [25]: for i in range(len(mylist)):
+   ....:     mylist[i] = mylist[i] + i
+   ....: 
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
 
-<span class="gp">In [26]: </span><span class="k">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
-<span class="go">[0.0, 3.0, 6.0, 9.0, 12.0, 15.0]</span>
-</pre></div>
-</div>
+TypeError: required field &quot;type_ignores&quot; missing from Module
+
+In [26]: print(mylist)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-26-aca29853c9f0&gt; in &lt;module&gt;()
+----&gt; 1 print(mylist)
+
+NameError: name 'mylist' is not defined
+</pre>
 <p>We’ve done exactly what we had done in the previous example, but replaced the known length of the list <code class="docutils literal notranslate"><span class="pre">6</span></code> with use of the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function to provide the list length.
 Now if we add or remove values in <code class="docutils literal notranslate"><span class="pre">mylist</span></code>, our code will still work as expected.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [27]: </span><span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">18.0</span><span class="p">)</span>
+<pre class="literal-block">
+In [27]: mylist.append(18.0)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-27-1a0aaf60034e&gt; in &lt;module&gt;()
+----&gt; 1 mylist.append(18.0)
 
-<span class="gp">In [28]: </span><span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">21.0</span><span class="p">)</span>
+NameError: name 'mylist' is not defined
 
-<span class="gp">In [29]: </span><span class="k">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
-<span class="go">[0.0, 3.0, 6.0, 9.0, 12.0, 15.0, 18.0, 21.0]</span>
+In [28]: mylist.append(21.0)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-28-7bda8e3fd7a3&gt; in &lt;module&gt;()
+----&gt; 1 mylist.append(21.0)
 
-<span class="gp">In [30]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)):</span>
-<span class="gp">   ....: </span>    <span class="n">mylist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mylist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">i</span>
-<span class="gp">   ....: </span>
+NameError: name 'mylist' is not defined
 
-<span class="gp">In [31]: </span><span class="k">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
-<span class="go">[0.0, 4.0, 8.0, 12.0, 16.0, 20.0, 24.0, 28.0]</span>
-</pre></div>
-</div>
+In [29]: print(mylist)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-29-aca29853c9f0&gt; in &lt;module&gt;()
+----&gt; 1 print(mylist)
+
+NameError: name 'mylist' is not defined
+
+In [30]: for i in range(len(mylist)):
+   ....:     mylist[i] = mylist[i] + i
+   ....: 
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
+    131 
+    132     def __call__(self, source, filename, symbol):
+--&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
+    134         for feature in _features:
+    135             if codeob.co_flags &amp; feature.compiler_flag:
+
+TypeError: required field &quot;type_ignores&quot; missing from Module
+
+In [31]: print(mylist)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-31-aca29853c9f0&gt; in &lt;module&gt;()
+----&gt; 1 print(mylist)
+
+NameError: name 'mylist' is not defined
+</pre>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function with <code class="docutils literal notranslate"><span class="pre">range()</span></code> to perform calcluations using list or array values is an <em>extremely</em> common operation in Python.</p>
 <div class="admonition attention">
 <p class="first admonition-title">Attention</p>
