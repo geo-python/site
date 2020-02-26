@@ -1,0 +1,2097 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-105019106-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Processing data with Pandas &mdash; Geo-Python site documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'site',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exercise 5" href="../../lessons/L5/exercise-5.html" />
+    <link rel="prev" title="Exploring data using Pandas" href="exploring-data-using-pandas.html" />
+    <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
+     
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Geo-Python
+          
+
+          
+            
+            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2019
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/course-info.html#course-meetings-in-period-i">Course meetings in Period I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/course-info.html#instructors">Instructors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/course-info.html#lecturers">Lecturers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/course-info.html#course-assistants">Course assistants</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/course-info.html#course-websites">Course websites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/grading.html#general-grading-breakdown">General grading breakdown</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/installing-anacondas.html">Installing Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/installing-anacondas.html#install-python-on-windows">Install Python on Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/installing-anacondas.html#install-python-on-macos">Install Python on macOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/installing-anacondas.html#install-python-on-linux">Install Python on Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/installing-anacondas.html#installing-packages-using-conda">Installing packages using Conda</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/installing-anacondas.html#the-easiest-way">The easiest way</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/installing-anacondas.html#installing-jupyter-lab-using-conda">Installing Jupyter Lab using conda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/installing-anacondas.html#alternative-way-to-install-packages-if-typical-doesn-t-work">Alternative way to install packages if typical doesn’t work</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/python-vocabulary.html">Vocabulary - Basic terms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/python-vocabulary.html#python-vocabulary">Python vocabulary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/python-vocabulary.html#basic-vocabulary-of-version-control">Basic vocabulary of Version Control</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#books">Books</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#python-tutorials">Python tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#git-github-tutorials">Git + Github tutorials</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/licensing.html#instructional-materials">Instructional materials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/licensing.html#you-are-free-to">you are free to</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/licensing.html#under-the-following-terms">Under the following terms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/licensing.html#notices">Notices</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/licensing.html#code-snippets-software">Code snippets / software</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/motivation.html">Motivation for the course</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/motivation.html#effective-data-visualization">Effective data visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/overview.html#lecture-video">Lecture video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/overview.html#lecture-slides">Lecture slides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/course-environment-components.html">Course environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#jupyterlab">JupyterLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#cloud-computing-environments">Cloud computing environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#binder">Binder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#csc-notebooks">CSC Notebooks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#using-your-own-computer">Using your own computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#git-and-github">Git and GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#slack">Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#voting-and-polling">Voting and polling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#page-summary">Page summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/slack-usage.html">Communicating with Slack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/slack-usage.html#accessing-the-workspace-in-slack">Accessing the workspace in Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/slack-usage.html#overview-of-slack">Overview of Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/slack-usage.html#basic-usage-of-slack">Basic usage of Slack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L1/slack-usage.html#notifying-a-user">Notifying a user</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L1/slack-usage.html#using-threads">Using threads</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/slack-usage.html#general-guidelines-for-communication">General guidelines for communication</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/a-taste-of-python.html">A taste of Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/a-taste-of-python.html#General-information">General information</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Sources">Sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#About-this-document">About this document</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Getting-started">Getting started</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/a-taste-of-python.html#Variables,-math-and-functions">Variables, math and functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Simple-Python-math">Simple Python math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Math-operations">Math operations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L1/a-taste-of-python.html#Check-your-understanding">Check your understanding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Combining-functions">Combining functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Variables">Variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L1/a-taste-of-python.html#Check-your-understanding">Check your understanding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Updating-variables">Updating variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Variable-values">Variable values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Data-types">Data types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L1/a-taste-of-python.html#Check-your-understanding">Check your understanding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/a-taste-of-python.html#Character-input">Character input</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/gcp-1-variable-naming.html">Good coding practices - Selecting “good” variable names</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/gcp-1-variable-naming.html#Some-&quot;not-so-good&quot;-variable-names">Some “not-so-good” variable names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/gcp-1-variable-naming.html#Selecting-&quot;good&quot;-variable-names">Selecting “good” variable names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/gcp-1-variable-naming.html#Formatting-&quot;good&quot;-variable-names">Formatting “good” variable names</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/exercise-1.html">Exercise 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/exercise-1.html#part-1-creating-a-github-com-account-and-using-slack">Part 1 - Creating a GitHub.com account and using Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/exercise-1.html#part-2-cooking-up-some-python">Part 2 - Cooking up some Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/exercise-1.html#summary-what-to-submit">Summary (what to submit)</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/overview.html#lecture-video">Lecture video</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/Python-basic-elements.html">Basic elements of Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Python-basic-elements.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Python-basic-elements.html#Data-types-revisited">Data types revisited</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Let's-start-with-some-data">Let’s start with some data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Reminder:-Data-types-and-their-compatibility">Reminder: Data types and their compatibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Converting-data-from-one-type-to-another">Converting data from one type to another</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Combining-text-and-numbers">Combining text and numbers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Python-basic-elements.html#Lists-and-indices">Lists and indices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Creating-a-list">Creating a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Index-values">Index values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#A-useful-analog---Bill-the-vending-machine">A useful analog - Bill the vending machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Number-of-items-in-a-list">Number of items in a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Index-value-tips">Index value tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Modifying-list-values">Modifying list values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Data-types-in-lists">Data types in lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Adding-and-removing-values-from-lists">Adding and removing values from lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Appending-to-an-integer?-Not-so-fast...">Appending to an integer? Not so fast…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Some-other-useful-list-methods">Some other useful list methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Reversing-a-list">Reversing a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Sorting-a-list">Sorting a list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/gcp-2-describing-code.html">Good coding practices - Describing your code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/gcp-2-describing-code.html#Do-I-need-to-describe-my-code?">Do I need to describe my code?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/gcp-2-describing-code.html#But-seriously,-the-Internet-says-I-shouldn't-comment-my-code">But seriously, the Internet says I shouldn’t comment my code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/gcp-2-describing-code.html#Code-comments">Code comments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/gcp-2-describing-code.html#Line-comments">Line comments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/gcp-2-describing-code.html#Block-comments">Block comments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/gcp-2-describing-code.html#Markdown-text">Markdown text</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/gcp-2-describing-code.html#Data-source">Data source</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html">Introduction to Version Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#familiar">Familiar?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#what-is-version-control">What is version control?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#what-is-git">What is Git?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#what-is-github">What is GitHub?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#relies-on-git">Relies on Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#social-collaborative-network">Social (collaborative) network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#open-source-science">Open source / science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#documentation">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#online-tools">Online tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#issue-tracking">Issue tracking</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#basic-vocabulary">Basic vocabulary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#resources">Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/git-basics.html">Meet Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/git-basics.html#overview-and-preparations">Overview and preparations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/git-basics.html#key-concepts-and-tools">Key concepts and tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/git-basics.html#using-git-from-the-command-line">Using Git from the command line</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#clone-a-repository-from-github">Clone a repository from GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#add-changes-to-the-staging-area">Add changes to the staging area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#commit-changes">Commit changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#publish-your-local-commits-to-github">Publish your local commits to GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/git-basics.html#using-the-jupyterlab-git-plugin">Using the JupyterLab Git plugin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#preparations-in-the-terminal">Preparations in the Terminal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#stage-changes-in-the-plugin">Stage changes in the plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#commit-changes-in-the-plugin">Commit changes in the plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#pull-and-push-using-the-plugin">Pull and push using the plugin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/git-basics.html#if-everything-else-fails">If everything else fails…</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/GitHub-classroom.html">Using Classroom for Github</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/GitHub-classroom.html#classroom-for-github">Classroom for GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/exercise-2.html">Exercise 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/exercise-2.html#cloud-computing-environments">Cloud computing environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/exercise-2.html#exercise-2-hints">Exercise 2 hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/exercise-2.html#git">Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/exercise-2.html#list-methods">List methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/exercise-2.html#indentation-woes">Indentation woes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L3/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L3/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L3/overview.html#lecture">Lecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/for-loops.html">for loops</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/for-loops.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/for-loops.html#Basics-of-for-loops">Basics of for loops</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#A-(bad)-example">A (bad) example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#Introducing-the-for-loop">Introducing the for loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#for-loop-format">for loop format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L3/for-loops.html#Your-daily-for-loop">Your daily for loop</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#for-loop-variables">for loop variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#for-loops-and-the-range()-function">for loops and the range() function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L3/for-loops.html#Poll-question-pause">Poll question pause</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#Looping-over-the-length-of-lists-using-index-values">Looping over the length of lists using index values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#Why-bother-looping-over-a-list-by-the-index-value?">Why bother looping over a list by the index value?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L3/for-loops.html#Poll-question-pause">Poll question pause</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/conditional-statements.html">Conditional statements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/conditional-statements.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/conditional-statements.html#Basics-of-conditional-statements">Basics of conditional statements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/conditional-statements.html#A-simple-conditional-statement">A simple conditional statement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/conditional-statements.html#Comparison-operators-and-boolean-values">Comparison operators and boolean values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/conditional-statements.html#if,-elif-and-else">if, elif and else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/conditional-statements.html#Combining-conditions">Combining conditions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/conditional-statements.html#Combining-for-loops-and-conditional-statements">Combining for-loops and conditional statements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/gcp-3-pep8.html">Good coding practices - writing readable code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/gcp-3-pep8.html#Working-code-vs-readable-code">Working code vs readable code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/gcp-3-pep8.html#PEP-8-Style-Guide">PEP 8 Style Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/gcp-3-pep8.html#Maximum-line-length">Maximum line length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/gcp-3-pep8.html#Indentation">Indentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/gcp-3-pep8.html#Whitespace-and-binary-operators">Whitespace and binary operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/gcp-3-pep8.html#Avoid-extraneous-whitespace">Avoid extraneous whitespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/gcp-3-pep8.html#Write-one-statement-per-line">Write one statement per line</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L3/exercise-3.html">Exercise 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L3/exercise-3.html#cloud-computing-environments">Cloud computing environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L3/exercise-3.html#exercise-3-hints">Exercise 3 hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L3/exercise-3.html#general-tips">General tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L3/exercise-3.html#tests">Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L3/exercise-3.html#combining-strings">Combining strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L3/exercise-3.html#nested-if-statements">Nested if statements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 4</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L4/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L4/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L4/overview.html#lecture">Lecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L4/overview.html#id1">Lecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#What-is-a-function?">What is a function?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#Anatomy-of-a-function">Anatomy of a function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Our-first-function-(aww...)">Our first function (aww…)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#Calling-functions">Calling functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Using-our-new-function">Using our new function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Let's-make-another-function">Let’s make another function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Using-our-second-function">Using our second function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L4/functions.html#Check-your-understanding">Check your understanding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Functions-within-a-function-(Yo-dawg...)">Functions within a function (Yo dawg…)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Using-our-combined-functions">Using our combined functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#An-introduction-to-script-files">An introduction to script files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#The-general-concept-of-a-.py-script-file">The general concept of a .py script file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Getting-started">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Saving-a-text-file-as-a-Python-file">Saving a text file as a Python file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#Saving-and-loading-functions">Saving and loading functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Saving-functions-in-a-script-file">Saving functions in a script file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#Calling-functions-from-a-script-file">Calling functions from a script file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Making-sure-we're-in-the-right-working-directory">Making sure we’re in the right working directory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L4/functions.html#Binder-users">Binder users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L4/functions.html#CSC-notebooks-users">CSC notebooks users</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Changing-the-working-directory">Changing the working directory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L4/functions.html#Binder-users">Binder users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L4/functions.html#CSC-notebooks-users">CSC notebooks users</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Importing-our-script-functions">Importing our script functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Using-our-script-functions">Using our script functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L4/functions.html#Importing-multiple-functions">Importing multiple functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Importing-all-functions-from-a-script">Importing all functions from a script</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#Temperature-calculator-(optional,-advanced-topic)">Temperature calculator (<em>optional, advanced topic</em>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Defining-the-function">Defining the function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Adding-some-conditional-statements">Adding some conditional statements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Returning-the-result">Returning the result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Adding-a-docstring">Adding a docstring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Testing-the-new-function">Testing the new function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Using-the-tempCalculator">Using the tempCalculator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/modules.html">Loading and using modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L4/modules.html#Modules,-packages-and-libraries?">Modules, packages and libraries?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/modules.html#Loading-modules">Loading modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/modules.html#Renaming-imported-modules">Renaming imported modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/modules.html#Importing-a-single-function">Importing a single function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/modules.html#Importing-a-submodule">Importing a submodule</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/modules.html#Using-module-functions">Using module functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/modules.html#What-should-I-not-do?">What should I not do?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/modules.html#from-X-import-*">from X import *</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/modules.html#Poor-names-when-renaming-on-import">Poor names when renaming on import</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/modules.html#Extra:-installing-packages">Extra: installing packages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/writing-scripts.html">Good coding practices - Writing our scripts the “right” way</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L4/writing-scripts.html#Inline-comments">Inline comments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/writing-scripts.html#Use-line-breaks-wisely">Use line breaks wisely</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/writing-scripts.html#Use-a-docstring">Use a docstring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/writing-scripts.html#Advanced-topics">Advanced topics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/writing-scripts.html#Adding-a-license">Adding a license</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/writing-scripts.html#Starting-with-a-shebang">Starting with a shebang</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/writing-scripts.html#Page-summary">Page summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L4/exercise-4.html">Exercise 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L4/exercise-4.html#cloud-computing-environments">Cloud computing environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L4/exercise-4.html#exercise-4-hints">Exercise 4 hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L4/exercise-4.html#importing-variables-from-a-script">Importing variables from a script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L4/exercise-4.html#counting-values-from-a-list">Counting values from a list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 5</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L5/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L5/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L5/overview.html#lecture-videos">Lecture videos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L5/pandas-overview.html">What is Pandas?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L5/pandas-overview.html#easy-to-use-data-structures">Easy-to-use data structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L5/pandas-overview.html#combines-functionalities-from-many-python-modules">Combines functionalities from many Python modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L5/pandas-overview.html#supports-data-read-write-from-multiple-formats">Supports data read/write from multiple formats</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exploring-data-using-pandas.html">Exploring data using Pandas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exploring-data-using-pandas.html#Input-data:-weather-statistics">Input data: weather statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exploring-data-using-pandas.html#Reading-a-data-file-with-Pandas">Reading a data file with Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exploring-data-using-pandas.html#DataFrame-properties">DataFrame properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exploring-data-using-pandas.html#Selecting-columns">Selecting columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exploring-data-using-pandas.html#Descriptive-statistics">Descriptive statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exploring-data-using-pandas.html#Extra:-Very-basic-plots">Extra: Very basic plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exploring-data-using-pandas.html#Extra:-From-lists-to-pandas-objects">Extra: From lists to pandas objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Processing data with Pandas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Basic-calculations">Basic calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Selecting-rows-and-columns">Selecting rows and columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Filtering-and-updating-data">Filtering and updating data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Dealing-with-missing-data">Dealing with missing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Data-type-conversions">Data type conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Unique-values">Unique values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Sorting-data">Sorting data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Writing-data-to-a-file">Writing data to a file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L5/exercise-5.html">Exercise 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L5/exercise-5.html#exercise-5-hints-for-pandas">Exercise 5 hints for Pandas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 6</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L6/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L6/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L6/overview.html#lesson-videos">Lesson videos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html">Data processing with Pandas, part 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Motivation">Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Input-data">Input data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Downloading-the-data">Downloading the data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#CSC-Notebooks-users">CSC Notebooks users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Users-with-Jupyter-on-their-personal-computers">Users with Jupyter on their personal computers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Binder-users">Binder users</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#About-the-data">About the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Reading-the-data">Reading the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Renaming-columns">Renaming columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Check-dataframe-properties">Check dataframe properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Using-your-own-functions-in-pandas">Using your own functions in pandas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Iterating-over-rows">Iterating over rows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Applying-a-function">Applying a function</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Parsing-dates">Parsing dates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#String-slicing">String slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#datetime">datetime</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Aggregating-data-in-Pandas-by-grouping">Aggregating data in Pandas by grouping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Detecting-warm-months">Detecting warm months</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Repeating-the-data-analysis-with-larger-dataset">Repeating the data analysis with larger dataset</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/errors.html">Dealing with errors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/errors.html#Interpreting-error-messages">Interpreting error messages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/errors.html#Reading-error-messages">Reading error messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/errors.html#Common-errors-and-exceptions">Common errors and exceptions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L6/errors.html#IndexErrors">IndexErrors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L6/errors.html#NameErrors">NameErrors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L6/errors.html#IndentationErrors">IndentationErrors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L6/errors.html#TypeErrors">TypeErrors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L6/errors.html#Other-kinds-of-errors">Other kinds of errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/errors.html#More-information">More information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/gcp-assertions.html">Good coding practices - Using assertions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/gcp-assertions.html#Assertions">Assertions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/gcp-assertions.html#Multiple-assertions">Multiple assertions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L6/gcp-assertions.html#A-bad-example">A bad example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L6/gcp-assertions.html#A-better-example">A better example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/gcp-assertions.html#More-information">More information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/debugging.html">Debugging your Python code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/debugging.html#Source">Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/debugging.html#Test-your-code-with-known-outputs">Test your code with known outputs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/debugging.html#Testing-with-a-simplified-data-file">Testing with a simplified data file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/debugging.html#Make-your-code-crash-quickly-and-regularly">Make your code crash quickly and regularly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/debugging.html#Make-small-changes-and-track-them">Make small changes and track them</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L6/exercise-6.html">Exercise 6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L6/exercise-6.html#cloud-computing-environments">Cloud computing environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L6/exercise-6.html#exercise-6-hints">Exercise 6 hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L6/exercise-6.html#data-format-for-problems-1-3">Data format for problems 1-3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L6/exercise-6.html#reading-in-fixed-width-text-files">Reading in fixed-width text files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L6/exercise-6.html#skipping-the-second-row-of-a-file">Skipping the second row of a file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L6/exercise-6.html#joining-data-from-one-dataframe-to-another">Joining data from one DataFrame to another</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 7</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L7/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L7/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L7/overview.html#lesson-videos">Lesson videos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L7/python-plotting.html">Plotting in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L7/plot-anatomy.html">Anatomy of a plot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L7/plot-anatomy.html#common-terms-when-doing-plotting">Common terms when doing plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/matplotlib.html">Plotting with Pandas (…and Matplotlib…and Bokeh)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L7/matplotlib.html#Input-data">Input data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/matplotlib.html#Downloading-the-data">Downloading the data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/matplotlib.html#Binder-users">Binder users</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/matplotlib.html#About-the-data">About the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/matplotlib.html#Getting-started">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/matplotlib.html#Basic-x-y-plot">Basic x-y plot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/matplotlib.html#Selecting-our-plotted-data">Selecting our plotted data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/matplotlib.html#Basic-plot-formatting">Basic plot formatting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/matplotlib.html#Embiggening*-the-plot">Embiggening* the plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/matplotlib.html#Other-common-plot-formatting-operations">Other common plot formatting operations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L7/matplotlib.html#Adding-text-to-the-plot">Adding text to the plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L7/matplotlib.html#Changing-the-axis-ranges">Changing the axis ranges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L7/matplotlib.html#Dealing-with-datetime-axes">Dealing with datetime axes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/matplotlib.html#Bar-plots-in-Pandas">Bar plots in Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/matplotlib.html#Saving-your-plots-as-image-files">Saving your plots as image files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/matplotlib.html#Interactive-plotting-with-Pandas-Bokeh">Interactive plotting with Pandas-Bokeh</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/advanced-plotting.html">More advanced plotting with Pandas/Matplotlib</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L7/advanced-plotting.html#The-data">The data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/advanced-plotting.html#Getting-started">Getting started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/advanced-plotting.html#Loading-the-data">Loading the data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/advanced-plotting.html#Preparing-the-data">Preparing the data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/advanced-plotting.html#Converting-temperatures-to-Celsius">Converting temperatures to Celsius</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/advanced-plotting.html#Using-subplots">Using subplots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/advanced-plotting.html#Extracting-seasonal-temperatures">Extracting seasonal temperatures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/advanced-plotting.html#Finding-data-bounds">Finding data bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/advanced-plotting.html#Creating-our-first-set-of-subplots">Creating our first set of subplots</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L7/exercise-7.html">Exercise 7</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L7/exercise-7.html#cloud-computing-environments">Cloud computing environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L7/exercise-7.html#hints-for-exercise-7">Hints for Exercise 7</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L7/exercise-7.html#labels-and-legends">Labels and legends</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L7/exercise-7.html#using-enumerate">Using <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L7/exercise-7.html#saving-multiple-plots-into-a-directory">Saving multiple plots into a directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L7/exercise-7.html#settings-for-multiple-subplots">Settings for multiple subplots:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L7/exercise-7.html#preventing-plot-display">Preventing plot display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L7/exercise-7.html#creating-an-animation-from-multiple-images">Creating an animation from multiple images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L7/exercise-7.html#creating-the-animation">Creating the animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L7/exercise-7.html#numpy-specific-hints">NumPy-specific hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L7/exercise-7.html#extracting-seasonal-dates-and-temperatures-in-many-years">Extracting seasonal dates and temperatures (in many years)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L7/exercise-7.html#finding-seasonal-average-temperatures-by-year">Finding seasonal average temperatures (by year)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Geo-Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Processing data with Pandas</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/geo-python/site/blob/book-dev/source/notebooks/L5/processing-data-with-pandas.ipynb" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+
+
+    
+    
+
+
+
+    <p class="scv-banner scv-sphinx_rtd_theme"><a href="../../../master/notebooks/L5/processing-data-with-pandas.html"><b>Warning:</b> This document is for the development version of Geo-Python. The main version is master.</a></p>
+
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="admonition note">
+This page was generated from <a class="reference external" href="https://github.com/Geo-Python/site/blob/master/source/notebooks/L5/processing-data-with-pandas.ipynb">source/notebooks/L5/processing-data-with-pandas.ipynb</a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/geo-python/site/master?urlpath=lab/tree/source/notebooks/L5/processing-data-with-pandas.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span>
+<span class="raw-html"><a href="https://mybinder.org/v2/gh/geo-python/notebooks/master?urlpath=lab/tree/notebooks/L5/processing-data-with-pandas.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-student%20binder-red.svg" style="vertical-align:text-bottom"></a></span>
+<span class="raw-html"><a href="https://notebooks.csc.fi/#/blueprint/df93f30d14e44b51907d135726eb6ef4"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a></span></div>
+<div class="section" id="Processing-data-with-Pandas">
+<h1>Processing data with Pandas<a class="headerlink" href="#Processing-data-with-Pandas" title="Permalink to this headline">¶</a></h1>
+<p>During the first part of this lesson you learned the basics of pandas data structures (<em>Series</em> and <em>DataFrame</em>) and got familiar with basic methods loading and exploring data. Here, we will continue with basic data manipulation and analysis methods such calculations and selections.</p>
+<p>We are now working in a new notebook-file and we need to import pandas again.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<p>Let’s work with the same input data <code class="docutils literal notranslate"><span class="pre">'Kumpula-June-2016-w-metadata.txt'</span></code> and load it using the <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> method. Remember, that the first 8 lines contain metadata so we can skip those:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fp</span> <span class="o">=</span> <span class="s1">&#39;Kumpula-June-2016-w-metadata.txt&#39;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<p>Here, we also added the <code class="docutils literal notranslate"><span class="pre">sep</span></code> parameter to indicate that we are dealing with a comma-delimited text file. Comma is also the default value for the sep-parameter. Depending on your operating system and the input data, you might need to specify other separators such as <code class="docutils literal notranslate"><span class="pre">;</span></code>.</p>
+<p>Remember to always check the data after reading it in:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-3-304fa4ce4ebd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">.</span>head<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
+</pre></div></div>
+</div>
+<div class="section" id="Basic-calculations">
+<h2>Basic calculations<a class="headerlink" href="#Basic-calculations" title="Permalink to this headline">¶</a></h2>
+<p>One of the most common things to do in pandas is to create new columns based on calculations between different variables (columns).</p>
+<p>We can create a new column into our DataFrame by specifying the name of the column and giving it some default value (in this case decimal number 0.0).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Define a new column &quot;DIFF&quot;</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;DIFF&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1"># Print the dataframe</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<p>Let’s check the datatype of our new column</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Check datatypes</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;DIFF&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-5-9bf175841817&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Check datatypes</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;DIFF&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>dtypes
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
+</pre></div></div>
+</div>
+<p>Okey, so we see that Pandas created a new column and recognized automatically that the data type is float as we passed a 0.0 value to it.</p>
+<p>Let’s update the column <code class="docutils literal notranslate"><span class="pre">DIFF</span></code> by calculating the difference between <code class="docutils literal notranslate"><span class="pre">MAX</span></code> and <code class="docutils literal notranslate"><span class="pre">MIN</span></code> columns to get an idea how much the temperatures have been varying during different days:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#Calculate max min difference</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;DIFF&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;MAX&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;MIN&#39;</span><span class="p">]</span>
+
+<span class="c1"># Check the result</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<p>The calculations were stored into the <code class="docutils literal notranslate"><span class="pre">DIFF</span></code> column as planned.</p>
+<p>You can also create new columns on-the-fly at the same time when doing the calculation. Let’s test this by calculating the difference between minimum temperature (<code class="docutils literal notranslate"><span class="pre">MIN</span></code>) and the mean temperature of the day (<code class="docutils literal notranslate"><span class="pre">TEMP</span></code>) into a new column <code class="docutils literal notranslate"><span class="pre">DIFF_MIN</span></code>:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Calculate difference between temp and min column values</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;DIFF_MIN&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;MIN&#39;</span><span class="p">]</span>
+
+<span class="c1"># Print the dataframe</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<p>As you can see, now we created directly a new column with the calculation. In a similar manner, you can do calculations using as many columns as you need and using any kind of math algebra (e.g. subtracttion, addition, multiplication, division, exponentiation, etc.).</p>
+<p>We can for example convert the Fahrenheit temperatures in <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> column into Celsius using the formula that we have seen already many times:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Create a new column and convert temp fahrenheit to celsius:</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;TEMP_CELSIUS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">9</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1">#Check output</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>TASK</strong></p>
+<p>Calculate Kelvin values based on the Celsius values <strong>and store the result a new column</strong> <code class="docutils literal notranslate"><span class="pre">TEMP_KELVIN</span></code> in our dataframe.</p>
+<p>0 Kelvins is is -273.15 degreese Celsius as we learned during <a class="reference external" href="https://geo-python.github.io/site/notebooks/L4/functions.html#Let's-make-another-function">Lesson 4</a>.</p>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Add column &quot;TEMP_KELVIN&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Selecting-rows-and-columns">
+<h2>Selecting rows and columns<a class="headerlink" href="#Selecting-rows-and-columns" title="Permalink to this headline">¶</a></h2>
+<p>One quite common procedure in programming that you want to select only specific rows from your data and possibly apply some operations into those rows only.</p>
+<p><strong>Selecting several rows:</strong></p>
+<p>One common way of selecting only specific rows from your DataFrame is done via <strong>index slicing</strong> to extract part of the DataFrame. Slicing in pandas can be done in a similar manner as with normal Python lists, i.e. you specify index range you want to select inside the square brackets <code class="docutils literal notranslate"><span class="pre">selection</span> <span class="pre">=</span> <span class="pre">dataframe[start_index:stop_index]</span></code>.</p>
+<p>Let’s select the first five rows and assign them to a variable called <code class="docutils literal notranslate"><span class="pre">selection</span></code>:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Select first five rows of dataframe using index values</span>
+<span class="n">selection</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<p><strong>Note:</strong> here selected the first five rows (index 0-4) using integer index.</p>
+<p><strong>Selecting several rows and columns:</strong></p>
+<p>It is also possible to control which columns are chosen when selecting a subset of rows. In this case we will use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html">pandas.DataFrame.loc</a> which selects data based on axis labels (row labels and column labels).</p>
+<p>Let’s select temperature values (column <code class="docutils literal notranslate"><span class="pre">TEMP</span></code>) on rows 0-5:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Select temp column values on rows 0-5</span>
+<span class="n">selection</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;TEMP&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<p><strong>Note:</strong> in this case, we get six rows of data (index 0-5)! We are now doing the selection based on axis labels in stead of the integer index.</p>
+<p>It is also possible to select multiple columns when using <code class="docutils literal notranslate"><span class="pre">loc</span></code>. Here, we select <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> and the <code class="docutils literal notranslate"><span class="pre">TEMP_CELSIUS</span></code> columns from a set of rows by passing them inside a list (<code class="docutils literal notranslate"><span class="pre">.loc[start_index:stop_index,</span> <span class="pre">list_of_columns]</span></code>):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Select columns temp and temp_celsius on rows 0-5</span>
+<span class="n">selection</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP_CELSIUS&#39;</span><span class="p">]]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<p><strong>Selecting a single row:</strong></p>
+<p>You can also select an individual row from specific position using the <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> indexing. Here we select all the data values using index 4 (the 5th row):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Select one row using index</span>
+<span class="n">selection</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> indexing returns the values from that position as a <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> where the indices are actually the column names of those variables. Hence, you can access the value of an individual column by referring to its index using following format (both should work):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#Print one attribute from the selected row</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">selection</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-14-84f922a0e730&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg">#Print one attribute from the selected row</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>selection<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;TEMP&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;selection&#39; is not defined
+</pre></div></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>TASK</strong></p>
+<p>Find the mean temperatures (in Celsius) for the last seven days of June. For now, you should do the selection using the row index values.</p>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Mean temperature for the last seven days of June (use loc indexing to select the correct rows):</span>
+
+</pre></div>
+</div>
+</div>
+<p><strong>Selecting a single value based on row and column:</strong></p>
+<p>Sometimes it is enought to access a single value in a DataFrame. In this case, we can use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/version/0.25/reference/api/pandas.DataFrame.at.html#pandas-dataframe-at">DataFrame.at</a> in stead of <code class="docutils literal notranslate"><span class="pre">Data.Frame.loc</span></code>.</p>
+<p>Let’s select the temprerature (column <code class="docutils literal notranslate"><span class="pre">TEMP</span></code>) on the first fow (index <code class="docutils literal notranslate"><span class="pre">0</span></code>) of our DataFrame:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">data</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;TEMP&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-16-29d49179901e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">.</span>at<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;TEMP&#34;</span><span class="ansi-blue-fg">]</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
+</pre></div></div>
+</div>
+<p><strong>EXTRA: Selections by integer position</strong></p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>.iloc</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">.loc</span></code> and <code class="docutils literal notranslate"><span class="pre">.at</span></code> are based on the <em>axis labels</em> - the names of columns and rows. <code class="docutils literal notranslate"><span class="pre">.iloc</span></code> is another indexing operator which is based on <em>integer values</em>.</p>
+<p>See pandas documentation for more information about <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-and-selecting-data">indexing and selecting data</a>.</p>
+</div>
+<p>For example, we could select select <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> and the <code class="docutils literal notranslate"><span class="pre">TEMP_CELSIUS</span></code> columns from a set of rows based on their index:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-17-7394ea37e436&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">.</span>iloc<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">:</span><span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">:</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">]</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
+</pre></div></div>
+</div>
+<p>To access the value on the first row and second column (<code class="docutils literal notranslate"><span class="pre">TEMP</span></code>), the syntax for <code class="docutils literal notranslate"><span class="pre">iloc</span></code> would be:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-18-7ad24eab008e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">.</span>iloc<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
+</pre></div></div>
+</div>
+<p>We can also access individual rows using <code class="docutils literal notranslate"><span class="pre">iloc</span></code>. Let’s check out the last row of data:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-19-9f8eff24926e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">.</span>iloc<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Filtering-and-updating-data">
+<h2>Filtering and updating data<a class="headerlink" href="#Filtering-and-updating-data" title="Permalink to this headline">¶</a></h2>
+<p>One really useful feature in pandas is the ability to easily filter and select rows based on a conditional statement. The following example shows how to select rows when the Celsius temperature has been higher than 15 degrees into variable <code class="docutils literal notranslate"><span class="pre">warm_temps</span></code> (warm temperatures). Pandas checks if the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> for each row, and returns those rows where the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Select rows with temp celsius higher than 15 degrees</span>
+<span class="n">warm_temps</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;TEMP_CELSIUS&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">warm_temps</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<p>It is also possible to combine multiple criteria at the same time. Here, we select temperatures above 15 degrees that were recorded on the second half of June in 2016 (i.e. <code class="docutils literal notranslate"><span class="pre">YEARMODA</span> <span class="pre">&gt;=</span> <span class="pre">20160615</span></code>). Combining multiple criteria can be done with <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> operator (AND) or <code class="docutils literal notranslate"><span class="pre">|</span></code> operator (OR). Notice, that it is often useful to separate the different clauses inside the parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Select rows with temp celsius higher than 15 degrees from late June 2016</span>
+<span class="n">warm_temps</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;TEMP_CELSIUS&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;YEARMODA&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">20160615</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">warm_temps</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<p>Now we have a subset of our DataFrame with only rows where the <code class="docutils literal notranslate"><span class="pre">TEMP_CELSIUS</span></code> is above 15 and the dates in <code class="docutils literal notranslate"><span class="pre">YEARMODA</span></code> column start from 15th of June.</p>
+<p>Notice, that the index values (numbers on the left) are still showing the positions from the original DataFrame. It is possible to <strong>reset</strong> the index using <code class="docutils literal notranslate"><span class="pre">reset_index()</span></code> function that might be useful in some cases to be able to slice the data in a similar manner as above. By default the <code class="docutils literal notranslate"><span class="pre">reset_index()</span></code> would make a new column called <code class="docutils literal notranslate"><span class="pre">index</span></code> to keep track on the previous index which might be useful in some cases but here not, so we can omit that by passing parameter <code class="docutils literal notranslate"><span class="pre">drop=True</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Reset index</span>
+<span class="n">warm_temps</span> <span class="o">=</span> <span class="n">warm_temps</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">warm_temps</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<p>As can be seen, now the index values goes from 0 to 12.</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>TASK</strong></p>
+<p>Find the mean temperatures (in Celsius) for the last seven days of June. Now, select the rows based on a condition for the <code class="docutils literal notranslate"><span class="pre">YEARMODA</span></code> column!</p>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Mean temperature for the last seven days of June (use a conditional statement to select the correct rows):</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Dealing-with-missing-data">
+<h2>Dealing with missing data<a class="headerlink" href="#Dealing-with-missing-data" title="Permalink to this headline">¶</a></h2>
+<p>As you may have noticed by now, we have several missing values for the temperature minimum, maximum, and difference columns (<code class="docutils literal notranslate"><span class="pre">MIN</span></code>, <code class="docutils literal notranslate"><span class="pre">MAX</span></code>, <code class="docutils literal notranslate"><span class="pre">DIFF</span></code>, and <code class="docutils literal notranslate"><span class="pre">DIFF_MIN</span></code>). These missing values are indicated as <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (not-a-number). Having missing data in your datafile is really common situation and typically you want to deal with it somehow. Common procedures to deal with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values are to either <strong>remove</strong> them from the DataFrame or <strong>fill</strong> them with some value. In Pandas both of these
+options are really easy to do.</p>
+<p>Let’s first see how we can remove the NoData values (i.e. clean the data) using <code class="docutils literal notranslate"><span class="pre">dropna()</span></code> function. Inside the function you can pass a list of column(s) from which the <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values should found using the <code class="docutils literal notranslate"><span class="pre">subset</span></code> parameter.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Drop no data values based on the MIN column</span>
+<span class="n">warm_temps</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MIN&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-24-57260f9934a4&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Drop no data values based on the MIN column</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>warm_temps<span class="ansi-blue-fg">.</span>dropna<span class="ansi-blue-fg">(</span>subset<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;MIN&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;warm_temps&#39; is not defined
+</pre></div></div>
+</div>
+<p>As you can see by looking at the table above (and the change in index values), we now have a DataFrame without the NoData values.</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong></p>
+<p>Be aware that we have not modified the <code class="docutils literal notranslate"><span class="pre">warm_temps</span></code> DataFrame in the example above. The table that is displayed is the returned value when the <code class="docutils literal notranslate"><span class="pre">dropna()</span></code> method is used. In order to update the values in the <code class="docutils literal notranslate"><span class="pre">warm_temps</span></code> DataFrame you would need to use code like the example below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">warm_temps</span> <span class="o">=</span> <span class="n">warm_temps</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MIN&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<p>Another option is to fill the NoData with some value using the <code class="docutils literal notranslate"><span class="pre">fillna()</span></code> function. Here we can fill the missing values in the with value -9999. Note that we are not giving the <code class="docutils literal notranslate"><span class="pre">subset</span></code> parameter this time.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Fill na values</span>
+<span class="n">warm_temps</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="o">-</span><span class="mi">9999</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-25-705550ea4297&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Fill na values</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>warm_temps<span class="ansi-blue-fg">.</span>fillna<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">9999</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;warm_temps&#39; is not defined
+</pre></div></div>
+</div>
+<p>As a result we now have a DataFrame where NoData values are filled with the value -9999.</p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Warning</strong></p>
+<p>In many cases filling the data with a specific value is dangerous because you end up modifying the actual data, which might affect the results of your analysis. For example, in the case above we would have dramatically changed the temperature difference columns because the -9999 values not an actual temperature difference! Hence, use caution when filling missing values.</p>
+<p>You might have to fill in no data values, for example, when working with GIS data. Always pay attention to potential no data values when reading in data files and doing further analysis!</p>
+</div>
+</div>
+<div class="section" id="Data-type-conversions">
+<h2>Data type conversions<a class="headerlink" href="#Data-type-conversions" title="Permalink to this headline">¶</a></h2>
+<p>There are occasions where you’ll need to convert data stored within a Series to another data type, for example, from floating point to integer.</p>
+<p>Remember, that we already did data type conversions using the <a class="reference external" href="https://docs.python.org/3/library/functions.html#built-in-functions">built-in Python functions</a> such as <code class="docutils literal notranslate"><span class="pre">int()</span></code> or <code class="docutils literal notranslate"><span class="pre">str()</span></code>.</p>
+<p>For values in pandas DataFrames and Series, we can use the <code class="docutils literal notranslate"><span class="pre">astype()</span></code> method.</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Truncating versus rounding up</strong></p>
+<p><strong>Be careful with type conversions from floating point values to integers.</strong> The conversion simply drops the stuff to the right of the decimal point, so all values are rounded down to the nearest whole number. For example, 99.99 will be truncated to 99 as an integer, when it should be rounded up to 100.</p>
+<p>Chaining the round and type conversion functions solves this issue as the <code class="docutils literal notranslate"><span class="pre">.round(0).astype(int)</span></code> command first rounds the values with zero decimals and then converts those values into integers.</p>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original values:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Truncated integer values:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rounded integer values:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<p>Looks correct now.</p>
+</div>
+<div class="section" id="Unique-values">
+<h2>Unique values<a class="headerlink" href="#Unique-values" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes it is useful to extract the unique values that you have in your column. We can do that by using <code class="docutils literal notranslate"><span class="pre">unique()</span></code> method:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Get unique celsius values</span>
+<span class="n">unique</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">unique</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<p>As a result we get an array of unique values in that column.</p>
+<p><strong>Note:</strong> Sometimes if you have a long list of unique values, you don’t necessarily see all the unique values directly as IPython/Jupyter may hide them with an elipsis <code class="docutils literal notranslate"><span class="pre">...</span></code>. It is, however, possible to see all those values by printing them as a list:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># unique values as list</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">unique</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-30-2dbb597f68a8&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># unique values as list</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>list<span class="ansi-blue-fg">(</span>unique<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;unique&#39; is not defined
+</pre></div></div>
+</div>
+<p>How many days with unique mean temperature did we have in June 2016? We can check that!</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Number of unique values</span>
+<span class="n">unique_temps</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There were&quot;</span><span class="p">,</span> <span class="n">unique_temps</span><span class="p">,</span> <span class="s2">&quot;days with unique mean temperatures in June 2016.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Sorting-data">
+<h2>Sorting data<a class="headerlink" href="#Sorting-data" title="Permalink to this headline">¶</a></h2>
+<p>Quite often it is useful to be able to sort your data (descending/ascending) based on values in some column This can be easily done with Pandas using <code class="docutils literal notranslate"><span class="pre">sort_values(by='YourColumnName')</span></code> -function.</p>
+<p>Let’s first sort the values on ascending order based on the <code class="docutils literal notranslate"><span class="pre">TEMP</span></code> column:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Sort dataframe, ascending</span>
+<span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;TEMP&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-32-468b6dc84d32&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Sort dataframe, ascending</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">.</span>sort_values<span class="ansi-blue-fg">(</span>by<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;TEMP&#39;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
+</pre></div></div>
+</div>
+<p>Of course, it is also possible to sort them in descending order with <code class="docutils literal notranslate"><span class="pre">ascending=False</span></code> parameter:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Sort dataframe, descending</span>
+<span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-33-7d330a2f642c&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Sort dataframe, descending</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">.</span>sort_values<span class="ansi-blue-fg">(</span>by<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;TEMP&#39;</span><span class="ansi-blue-fg">,</span> ascending<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Writing-data-to-a-file">
+<h2>Writing data to a file<a class="headerlink" href="#Writing-data-to-a-file" title="Permalink to this headline">¶</a></h2>
+<p>Lastly, it is of course important to be able to write the data that you have analyzed into your computer. This is really handy in Pandas as it <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">supports many different data formats by default</a>.</p>
+<p><strong>The most typical output format by far is CSV file.</strong> Function <code class="docutils literal notranslate"><span class="pre">to_csv()</span></code> can be used to easily save your data in CSV format. Let’s first save the data from our <code class="docutils literal notranslate"><span class="pre">data</span></code> DataFrame into a file called <code class="docutils literal notranslate"><span class="pre">Kumpula_temp_results_June_2016.csv</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># define output filename</span>
+<span class="n">output_fp</span> <span class="o">=</span> <span class="s2">&quot;Kumpula_temps_June_2016.csv&quot;</span>
+
+<span class="c1"># Save dataframe to csv</span>
+<span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<p>Now we have the data from our DataFrame saved to a file: <img alt="Text file output1" src="../../_images/pandas-save-file-1.png" /></p>
+<p>As you can see, the first value in the datafile contains now the index value of the rows. There are also quite many decimals present in the new columns that we created. Let’s deal with these and save the temperature values from <code class="docutils literal notranslate"><span class="pre">warm_temps</span></code> DataFrame without the index and with only 1 decimal in the floating point numbers.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">output_fp2</span> <span class="o">=</span> <span class="s2">&quot;Kumpula_temps_above15_June_2016.csv&quot;</span>
+<span class="n">warm_temps</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_fp2</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%.1f</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+</pre></div></div>
+</div>
+<p>Omitting the index can be with <code class="docutils literal notranslate"><span class="pre">index=False</span></code> parameter. Specifying how many decimals should be written can be done with <code class="docutils literal notranslate"><span class="pre">float_format</span></code> parameter where text <code class="docutils literal notranslate"><span class="pre">%.1f</span></code> defines Pandas to use 1 decimals in all columns when writing the data to a file (changing the value 1 to 2 would write 2 decimals etc.)</p>
+<p><img alt="Output after float fomatting" src="../../_images/pandas-save-file-2.png" /></p>
+<p>As a results you have a “cleaner” output file without the index column, and with only 1 decimal for floating point numbers.</p>
+<p>That’s it for this week. We will dive deeper into data analysis with Pandas in the following Lesson. Next, you can continue with Exercise 5 (for Pandas).</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../lessons/L5/exercise-5.html" class="btn btn-neutral float-right" title="Exercise 5" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="exploring-data-using-pandas.html" class="btn btn-neutral float-left" title="Exploring data using Pandas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki
+      <span class="lastupdated">
+        Last updated on Feb 26, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p> <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> </a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: book-dev
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Tags</dt>
+            <dd><a href="../../../2017/index.html">2017</a></dd>
+            <dd><a href="../../../2018/index.html">2018</a></dd>
+        </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="processing-data-with-pandas.html">book-dev</a></dd>
+            <dd><a href="../../../develop/notebooks/L5/processing-data-with-pandas.html">develop</a></dd>
+            <dd><a href="../../../master/notebooks/L5/processing-data-with-pandas.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

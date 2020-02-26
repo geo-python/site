@@ -1,0 +1,438 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Loading and using modules\n",
+    "\n",
+    "## Modules, packages and libraries?\n",
+    "\n",
+    "Python [module](https://docs.python.org/3/tutorial/modules.html#modules) is simply a Python `.py` file that contains function definitions and other statements. Python [packages](https://docs.python.org/3/tutorial/modules.html#packages) are a way of organizing modules into larger entities. \n",
+    "\n",
+    "Modules and packages are similar to what are more generally called libraries in programming languages, which again contain code related to a specific task such as mathematical operations.\n",
+    "There are a *HUGE* number of Python modules/packages, and many of them greatly extend what can be done in a normal Python program.\n",
+    "In fact, the abundance of free Python modules is one of the best reasons to learn and start using Python.\n",
+    "\n",
+    "The words \"module\", \"package\" and \"library\" are often used interchangeably.\n",
+    "\n",
+    "\n",
+    "## Loading modules\n",
+    "\n",
+    "Python modules can be loaded in a number of different ways.\n",
+    "\n",
+    "Let's start simple with the math module.\n",
+    "Here, we’ll load the math module using the `import` statement and try out some of the functions in the module:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import math"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "9.0"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "math.sqrt(81)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Here we have loaded the math module by typing `import math`, which tells Python to read in the functions in the math module and make them available for use.\n",
+    "In our example, we see that we can use a function within the math library by typing the name of the module first, a period, and then the name of function we would like to use afterward (e.g., `math.sqrt()`)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Built-in functions**\n",
+    "\n",
+    "[Built-in functions](https://docs.python.org/3/library/functions.html) such as `print()` are always available without importing anything:\n",
+    "    \n",
+    "```\n",
+    "print(\"Hello world!\")\n",
+    "```\n",
+    "    \n",
+    "Technically, the built-in functions belong to a module called `builtins`.\n",
+    "    \n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Renaming imported modules\n",
+    "\n",
+    "We can also rename modules when they are imported.\n",
+    "This can be helpful when using modules with longer names."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import math as m"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "7.0"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "m.sqrt(49)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "module"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(m)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "In this example we now see that when the math module is imported, it is imported to be usable with the name `m` instead of `math`.\n",
+    "It doesn't matter much in our toy example here since math is not a long module name, but we will see other examples later in the course where renaming the modules is very helpful. For example, next week we will start using the `pandas` library for data analysis. It is customary to import pandas as `pd`:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Importing a single function\n",
+    "\n",
+    "It is also possible to import only a single function from a module, rather than the entire module.\n",
+    "This is sometimes useful when needing only a small piece of a large module."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from math import sqrt"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "11.0"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "sqrt(121)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Though this can be useful, it has the drawback that **the imported function could conflict with other built-in or imported function names**, and you lose the information about which module contains the function.\n",
+    "You should only do this when you truly need to.\n",
+    "\n",
+    "### Importing a submodule\n",
+    "\n",
+    "Some modules have submodules that can also be imported without importing the entire module.\n",
+    "We may see examples of this later when making data plots using the pyplot sub-module of the [Matplotlib module](http://matplotlib.org/).\n",
+    "In case you're curious, here is an example."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import matplotlib.pyplot as plt"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<Figure size 432x288 with 0 Axes>"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    },
+    {
+     "data": {
+      "text/plain": [
+       "<Figure size 432x288 with 0 Axes>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "plt.figure()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "This creates a new figure window for a pyplot figure.\n",
+    "Again, we'll see how this works and what it means later in the course."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Using module functions\n",
+    "\n",
+    "As we see above, the easiest way to use a module is to import it an then use its functions by typing `modulename.functionname()` and providing the necessary arguments.\n",
+    "Yes, it is that simple.\n",
+    "\n",
+    "However, there are times you may not know the names of all of the functions in a given module, or which are part of a module.\n",
+    "You can view the list of functions that are part of a module by using the `dir()` function."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['__doc__', '__loader__', '__name__', '__package__', '__spec__', 'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign', 'cos', 'cosh', 'degrees', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'gcd', 'hypot', 'inf', 'isclose', 'isfinite', 'isinf', 'isnan', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'log2', 'modf', 'nan', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'trunc']\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(dir(math))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "You can also browse the available modules by typing in modulename. and then pressing the tab-key:\n",
+    "\n",
+    "![view module keys img](img/view_module_functions.png)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "So that's helpful, but what about when you don't know what a given function does?\n",
+    "The easiest solution is to use the `help()` function (after importing the module)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Help on built-in function sin in module math:\n",
+      "\n",
+      "sin(...)\n",
+      "    sin(x)\n",
+      "    \n",
+      "    Return the sine of x (measured in radians).\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "help(math.sin)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Note that you'll need to press `q` to exit the help viewer."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## What should I not do?\n",
+    "\n",
+    "Here are a few things to avoid.\n",
+    "\n",
+    "### from X import *\n",
+    "\n",
+    "Don't use `from X import *`.\n",
+    "This may be easier to understand by way of an example, but assuming `X` above is a Python module, `from X import *` will import all of the functions in module X.\n",
+    "Though you might think this is helpful, it is much better to simply `import X` or `import X as Y` to keep the connection between the functions and their module.\n",
+    "It is also much more likely you will encounter conflicting names when using `from X import *`.\n",
+    "\n",
+    "### Poor names when renaming on import\n",
+    "\n",
+    "Don't use confusing names when renaming on import.\n",
+    "Be smart when you import modules, and follow generally used conventions (`import pandas as pd` is a good way to do things!).\n",
+    "If you want to make the module name shorter on import, pick a reasonable abbreviation.\n",
+    "For instance, `import matplotlib as m` could be confusing, especially if you're also using `import math as m` in other Jupyter notebooks or script files.\n",
+    "Similarly, `import matplotlib as math` is perfectly OK syntax in Python, but bound to cause a world of trouble.\n",
+    "Remember, people need to be able to read and understand the code you write, keep it simple and logical."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**What does PEP 8 say about imports?**\n",
+    "\n",
+    "According to good coding practices described in [PEP 8](https://www.python.org/dev/peps/pep-0008/#imports), we should always import modules at the top of the file. In this lesson, we are demonstrating how to import different modules along the way, but in general it would be better to import requried modules as the very first thing. PEP 8 refers more to traditional script files, but we can apply the guideline to Jupyter Notebook files by placing our imports the first code cell in the Jupyter Notebook.\n",
+    "\n",
+    "    \n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Extra: installing packages\n",
+    "\n",
+    "For those using their own computers, we recommend using the **Conda** package management system that comes with the Anaconda distribution. Using conda, you can always list package names and versions using the `conda list` command line command. Read more about installing Anaconda, and about managing Python packages using conda on the [course webpages](https://geo-python.github.io/site/course-info/installing-anacondas.html) and [Conda documentation](https://docs.conda.io/projects/conda/en/latest/).\n",
+    "    \n",
+    "It's also good to be aware of [pip](https://pypi.org/project/pip/) - the package installer for python. Pip and conda are often used for similar purposes, but the key difference is that pip is used for installing packages written in Python, while conda handles packages which might also contain code written in other languages. Generally, we encourage you to use conda when installing packages (and within conda, prefer to use the same channel for installations). However, sometimes you might need a package that is not available via conda, but can be installed with pip. Read more about differences and similarities of Conda an pip [in here](https://www.anaconda.com/understanding-conda-and-pip/)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Checking all available modules in a Jupyter Notebook**\n",
+    "\n",
+    "**In a Jupyter Notebook**, you can type in `help(\"modules\")` to check the complete list of installed packages in Python. However, the output is a bit clumsy and hard to read.. \n",
+    "    \n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# List all available modules. Note: when running this command, you might first get several warnings related to deprecated packages etc.\n",
+    "#help(\"modules\")"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [default]",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.5.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

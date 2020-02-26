@@ -1,0 +1,236 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Good coding practices - Describing your code\n",
+    "\n",
+    "This week our good programming practice is about describing your code. What we mean here is providing some descriptive text that helps the user (you in many cases) understand what the code is used for, and how certain sections work. In a Jupyter notebook, this text can take two basic forms:\n",
+    "\n",
+    "- **Code comments**: Text included within a code cell to help the user understand what the code is doing\n",
+    "- **Markdown text**: Text in Markdown cells that provides a broader view of the code or analysis that follows.\n",
+    "\n",
+    "We'll provide examples of both, along with some tips, below."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Do I need to describe my code?\n",
+    "\n",
+    "![Comments image](https://cdn.pixabay.com/photo/2014/02/13/07/28/cms-265128_1280.jpg)\n",
+    "\n",
+    "**YES!!!**\n",
+    "\n",
+    "Providing comments or Markdown text to describe your code is essential for a number of reasons:\n",
+    "\n",
+    "1. **Code descriptions make it easier to understand your code**. Although [good variable names](gcp-1-variable-naming.ipynb) can help you and other users better understand what you code does, your Jupyter notebooks are seldom short enough for you to be able to read over the entire code at once and fully understand what is going on. For this reason, comments and Markdown text are essential parts of making sure your notebooks are easy to use and understand section by section.\n",
+    "2. **Code descriptions make it easier for other users to use your code**. Even when writing simple software it is worthwhile to take the time to include some extra documentaion about how it works. Everyone has their own tendencies in how they write their software and by including a few comments and/or Markdown text you can make it much easier for people to understand and use your work.\n",
+    "3. **Writing code descriptions can help you debug your code**. We'll all soon have more experience with not knowing why some piece of code doesn't work the way it should. One way to help fix (or debug) your code is to add comments stating what each line does. By taking things step by step, you may find that your code doesn't actually do what you thought, and fix issues in this way.\n",
+    "4. **Code descriptions are a big part of why Jupyter notebooks are so powerful**. Code comments are quite helpful in general, but the biggest feature of a Jupyter notebook is the ability to mix rich text with your code. With this platform you can even write scientific texts with embedded code cells to be able to perform calculations, analyze data and visualize your results. This powerful platform is an excellent open science tool that provides a clear means to reproduce your results on demand.\n",
+    "\n",
+    "Below we review the main forms of code descriptions we'll use in our Jupyter notebooks."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## But seriously, the Internet says I shouldn't comment my code\n",
+    "\n",
+    "![Code geek mug](https://cdn.pixabay.com/photo/2017/08/25/13/36/code-geek-2680204_1280.png)\n",
+    "\n",
+    "Yes, yes it does. But don't listen to everything you find on the Internet (except this, listen to this...).\n",
+    "\n",
+    "The fact of the matter is that programmers advocate people should not need to comment their code if it is easily understood. In essence, the argument is that if you need comments to understand what the code does, it isn't good code. They don't say you should never comment in your code, but rather that comments are really only needed to describe why something is done a given way (not what is done). While this is true to a degree, this advice doesn't apply to most of us.\n",
+    "\n",
+    "Most of us are only just getting started with programming, and our comments serve a bit different purpose. For us, comments make sure we understand what each line of our code does, and help the graders follow your thinking in the code in cases when you take a different path than expected to solve a given problem. In addition, the comments make you pause, look at your code, and then come up with a way to describe what you've done. For new programmers, this practice is excellent!"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Code comments\n",
+    "\n",
+    "Code comments are text within your Python software that does not get executed when the software is run. This text is mixed within the code, and often used to describe parts or all of the code work. There are two types of code comments in Python, described below.\n",
+    "\n",
+    "### Line comments\n",
+    "\n",
+    "Line comments begin with the `#` character and everything to the right of that character will be ignored by the Python interpreter. These comments are most frequently used to describe single lines of code or a small group of related lines. Let's have a look at an example."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# This is a line comment. It will be ignored when this cell is run"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "When you run the cell above, nothing happens. The `#` character indicates the line contains a comment and the Python interpreter simply skips over this line.\n",
+    "\n",
+    "Let's have a look at a few more examples."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# This list has the names of FMI observation stations in Helsinki\n",
+    "station_names = ['Helsinki Harmaja', 'Helsinki Kaisaniemi', 'Helsinki Kaivopuisto', 'Helsinki Kumpula']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(station_names[-1]) # This prints the last value in the list station_names"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# This doesn't work, so I'm commenting it out for now\n",
+    "# my_life.append(lots_of_money)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "In the examples above you can see some of the ways in which line comments can be used in Python. We encourage you to add line comments within your Python cells to help explain what your code does, especially if there are several lines within a given code cell."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Block comments\n",
+    "\n",
+    "Block comments are similar to line comments in that they are embedded within your code and are not executed when a code cell is run. You can begin a line comment with three quotation marks `'''` and end it with the same thing, three quotation marks `'''`. Everything within the groups of quotation marks will be ignored and it does not make any difference whether you use three single `'''` or double `\"\"\"` quotation marks.\n",
+    "Let's see some examples."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "''' This text will also be ignored.\n",
+    "Even if it is spread across multiple lines.\n",
+    "Cool! '''"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "''' The list below contains names of FMI observation stations in Helsinki.\n",
+    "More information and a complete list of stations can be found at \n",
+    "https://en.ilmatieteenlaitos.fi/observation-stations '''\n",
+    "station_names = ['Helsinki Harmaja', 'Helsinki Kaisaniemi', 'Helsinki Kaivopuisto', 'Helsinki Kumpula']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "''' None of the code below works, commenting this out for now.\n",
+    "step_one = learn_to_code()\n",
+    "step_two = become_programmer()\n",
+    "step_three = ???\n",
+    "step_four = profit()\n",
+    "'''"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "In Lesson 4 we'll be introduced to a common form of block comment called a docstring that can be used to provide information about certain parts of Python programs to the users."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Markdown text\n",
+    "\n",
+    "Finally, as noted above we can also use Markdown text cells to provide information about how our code works. The Markdown text is not a replacement for line or block comments in the code cells, but rather a place to provide a broader context for the code. Let's see an example of the use of a Markdown cell."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Data source\n",
+    "\n",
+    "Data used in this example comprises observtion station:\n",
+    "\n",
+    "- names\n",
+    "- locations\n",
+    "- types\n",
+    "- identification codes\n",
+    "\n",
+    "These data are sourced from the [Finnish Meterological Institute website](https://en.ilmatieteenlaitos.fi/observation-stations) and are freely available. The data be easily merged into Python lists manually for further analysis. An example Python cell with select observation station names in Helsinki is below. **NOTE**: These are only some of the observation stations in Helsinki."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "station_names = ['Helsinki Harmaja', 'Helsinki Kaisaniemi', 'Helsinki Kaivopuisto', 'Helsinki Kumpula']"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "In the example above, you clearly see the benefit of the Markdown cells for providing nicely formatted text to support the code block beneath it. We can also embed images and other features that make the Jupyter notebook document a powerful tool for studying and learning. We'll get more practice working with Markdown cells in the exercise for this week."
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

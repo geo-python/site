@@ -1,0 +1,1131 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "# Processing data with Pandas\n",
+    "\n",
+    "During the first part of this lesson you learned the basics of pandas data structures (*Series* and *DataFrame*) and got familiar with basic methods loading and exploring data.\n",
+    "Here, we will continue with basic data manipulation and analysis methods such calculations and selections.\n",
+    "\n",
+    "We are now working in a new notebook-file and we need to import pandas again. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Let's work with the same input data `'Kumpula-June-2016-w-metadata.txt'` and load it using the `pd.read_csv()` method. Remember, that the first 8 lines contain metadata so we can skip those:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "fp = 'Kumpula-June-2016-w-metadata.txt'\n",
+    "data = pd.read_csv(fp, sep=',', skiprows=8)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Here, we also added the `sep` parameter to indicate that we are dealing with a comma-delimited text file. Comma is also the default value for the sep-parameter. Depending on your operating system and the input data, you might need to specify other separators such as `;`. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Remember to always check the data after reading it in:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data.head()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "## Basic calculations\n",
+    "\n",
+    "One of the most common things to do in pandas is to create new columns based on calculations between different variables (columns).\n",
+    "\n",
+    "We can create a new column into our DataFrame by specifying the name of the column and giving it some default value (in this case decimal number 0.0).\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Define a new column \"DIFF\"\n",
+    "data['DIFF'] = 0.0\n",
+    "\n",
+    "# Print the dataframe\n",
+    "print(data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Let's check the datatype of our new column"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Check datatypes\n",
+    "data['DIFF'].dtypes"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Okey, so we see that Pandas created a new column and recognized automatically that the data type is float as we passed a 0.0 value to it.\n",
+    "\n",
+    "Let's update the column `DIFF` by calculating the difference between `MAX` and `MIN` columns to get an idea how much the temperatures have\n",
+    "been varying during different days:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "#Calculate max min difference\n",
+    "data['DIFF'] = data['MAX'] - data['MIN']\n",
+    "\n",
+    "# Check the result\n",
+    "print(data.head())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "The calculations were stored into the ``DIFF`` column as planned. \n",
+    "\n",
+    "You can also create new columns on-the-fly at the same time when doing the calculation. Let's test this by calculating the difference between minimum temperature (`MIN`) and the mean temperature of the day (`TEMP`) into a new column `DIFF_MIN`:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Calculate difference between temp and min column values\n",
+    "data['DIFF_MIN'] = data['TEMP'] - data['MIN']\n",
+    "\n",
+    "# Print the dataframe\n",
+    "print(data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "As you can see, now we created directly a new column with the calculation. In a similar manner, you can do calculations using as many columns as you need and using any kind of math\n",
+    "algebra (e.g. subtracttion, addition, multiplication, division, exponentiation, etc.).\n",
+    "\n",
+    "\n",
+    "We can for example convert the Fahrenheit temperatures in `TEMP` column into Celsius using the formula that we have seen already many times:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Create a new column and convert temp fahrenheit to celsius:\n",
+    "data['TEMP_CELSIUS'] = (data['TEMP'] - 32) / (9/5)\n",
+    "\n",
+    "#Check output\n",
+    "print(data.head())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**TASK**\n",
+    "\n",
+    "Calculate Kelvin values based on the Celsius values **and store the result a new column** `TEMP_KELVIN` in our dataframe.\n",
+    "    \n",
+    "0 Kelvins is is -273.15 degreese Celsius as we learned during [Lesson 4](https://geo-python.github.io/site/notebooks/L4/functions.html#Let's-make-another-function).\n",
+    "    \n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Add column \"TEMP_KELVIN\" "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "## Selecting rows and columns\n",
+    "\n",
+    "One quite common procedure in programming that you want to select only specific rows from your data and possibly apply some operations into those rows only.\n",
+    "\n",
+    "\n",
+    "**Selecting several rows:**\n",
+    "\n",
+    "One common way of selecting only specific rows from your DataFrame is done via **index slicing** to extract part of the DataFrame. Slicing in pandas can be done in a similar manner as with normal Python lists, i.e. you specify index range you want to select inside the square brackets ``selection = dataframe[start_index:stop_index]``.\n",
+    "\n",
+    "Let's select the first five rows and assign them to a variable called `selection`:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Select first five rows of dataframe using index values\n",
+    "selection = data[0:5]\n",
+    "\n",
+    "print(selection)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "**Note:** here selected the first five rows (index 0-4) using integer index. \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "**Selecting several rows and columns:**\n",
+    "\n",
+    "\n",
+    "It is also possible to control which columns are chosen when selecting a subset of rows. In this case we will use [pandas.DataFrame.loc](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html) which selects data based on axis labels (row labels and column labels). \n",
+    "\n",
+    "Let's select temperature values (column `TEMP`) on rows 0-5:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Select temp column values on rows 0-5\n",
+    "selection = data.loc[0:5, 'TEMP']\n",
+    "\n",
+    "print(selection)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Note:** in this case, we get six rows of data (index 0-5)! We are now doing the selection based on axis labels in stead of the integer index."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "It is also possible to select multiple columns when using `loc`. Here, we select `TEMP` and the `TEMP_CELSIUS` columns from a set of rows by passing them inside a list (`.loc[start_index:stop_index, list_of_columns]`):"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Select columns temp and temp_celsius on rows 0-5\n",
+    "selection = data.loc[0:5, ['TEMP', 'TEMP_CELSIUS']]\n",
+    "\n",
+    "print(selection)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Selecting a single row:**\n",
+    "\n",
+    "You can also select an individual row from specific position using the `.loc[]` indexing. Here we select all the data values using index 4 (the 5th row):"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Select one row using index\n",
+    "selection = data.loc[4]\n",
+    "\n",
+    "print(selection)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "``.loc[]`` indexing returns the values from that position as a ``pd.Series`` where the indices are actually the column names of those variables. Hence, you can access the value of an individual column by referring to its index using following format (both should work):\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "#Print one attribute from the selected row\n",
+    "print(selection['TEMP'])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**TASK**\n",
+    "\n",
+    "Find the mean temperatures (in Celsius) for the last seven days of June. For now, you should do the selection using the row index values.\n",
+    "    \n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Mean temperature for the last seven days of June (use loc indexing to select the correct rows):\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Selecting a single value based on row and column:**\n",
+    "\n",
+    "\n",
+    "Sometimes it is enought to access a single value in a DataFrame. In this case, we can use [DataFrame.at](https://pandas.pydata.org/pandas-docs/version/0.25/reference/api/pandas.DataFrame.at.html#pandas-dataframe-at) in stead of `Data.Frame.loc`. \n",
+    "\n",
+    "Let's select the temprerature (column `TEMP`) on the first fow (index `0`) of our DataFrame:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data.at[0, \"TEMP\"]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**EXTRA: Selections by integer position**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**.iloc**\n",
+    "\n",
+    "`.loc` and `.at` are based on the *axis labels* - the names of columns and rows. \n",
+    "`.iloc` is another indexing operator which is based on *integer values*. \n",
+    "    \n",
+    "See pandas documentation for more information about [indexing and selecting data](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-and-selecting-data).\n",
+    "    \n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "For example, we could select select `TEMP` and the `TEMP_CELSIUS` columns from a set of rows based on their index:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data.iloc[0:5:,0:2]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "To access the value on the first row and second column (`TEMP`), the syntax for `iloc` would be:\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data.iloc[0,1]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We can also access individual rows using `iloc`. Let's check out the last row of data:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data.iloc[-1]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "## Filtering and updating data\n",
+    "\n",
+    "\n",
+    "One really useful feature in pandas is the ability to easily filter and select rows based on a conditional statement.\n",
+    "The following example shows how to select rows when the Celsius temperature has been higher than 15 degrees into variable `warm_temps` (warm temperatures). Pandas checks if the condition is `True` or `False` for each row, and returns those rows where the condition is `True`:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Select rows with temp celsius higher than 15 degrees\n",
+    "warm_temps = data.loc[data['TEMP_CELSIUS'] > 15]\n",
+    "print(warm_temps)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "It is also possible to combine multiple criteria at the same time. Here, we select temperatures above 15 degrees that were recorded on the second half of June in 2016 (i.e. `YEARMODA >= 20160615`).\n",
+    "Combining multiple criteria can be done with `&` operator (AND) or `|` operator (OR). Notice, that it is often useful to separate the different clauses inside the parentheses ``()``.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Select rows with temp celsius higher than 15 degrees from late June 2016\n",
+    "warm_temps = data.loc[(data['TEMP_CELSIUS'] > 15) & (data['YEARMODA'] >= 20160615)]\n",
+    "print(warm_temps)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Now we have a subset of our DataFrame with only rows where the `TEMP_CELSIUS` is above 15 and the dates in `YEARMODA` column start from 15th of June.\n",
+    "\n",
+    "Notice, that the index values (numbers on the left) are still showing the positions from the original DataFrame. It is possible to **reset** the index using `reset_index()` function that\n",
+    "might be useful in some cases to be able to slice the data in a similar manner as above. By default the `reset_index()` would make a new column called `index` to keep track on the previous\n",
+    "index which might be useful in some cases but here not, so we can omit that by passing parameter `drop=True`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Reset index\n",
+    "warm_temps = warm_temps.reset_index(drop=True)\n",
+    "print(warm_temps)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "As can be seen, now the index values goes from 0 to 12."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**TASK**\n",
+    "\n",
+    "Find the mean temperatures (in Celsius) for the last seven days of June. Now, select the rows based on a condition for the `YEARMODA` column!\n",
+    "    \n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Mean temperature for the last seven days of June (use a conditional statement to select the correct rows):\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "## Dealing with missing data\n",
+    "\n",
+    "As you may have noticed by now, we have several missing values for the temperature minimum, maximum, and difference columns (`MIN`, `MAX`, `DIFF`, and `DIFF_MIN`). These missing values are indicated as `NaN` (not-a-number). Having missing data in your datafile is really common situation and typically you want to deal with it somehow. Common procedures to deal with `NaN` values are to either **remove** them from\n",
+    "the DataFrame or **fill** them with some value. In Pandas both of these options are really easy to do.\n",
+    "\n",
+    "Let's first see how we can remove the NoData values (i.e. clean the data) using `dropna()` function. Inside the function you can pass a list of column(s) from which the `NaN` values should found using the `subset` parameter."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Drop no data values based on the MIN column\n",
+    "warm_temps.dropna(subset=['MIN'])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "As you can see by looking at the table above (and the change in index values), we now have a DataFrame without the NoData values.\n",
+    "\n",
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Note**\n",
+    "    \n",
+    "Be aware that we have not modified the `warm_temps` DataFrame in the example above. The table that is displayed is the returned value when the `dropna()` method is used. In order to update the values in the `warm_temps` DataFrame you would need to use code like the example below.\n",
+    "    \n",
+    "```python\n",
+    "warm_temps = warm_temps.dropna(subset=['MIN'])\n",
+    "```\n",
+    "\n",
+    "</div>\n",
+    "\n",
+    "Another option is to fill the NoData with some value using the `fillna()` function. Here we can fill the missing values in the with value -9999. Note that we are not giving the `subset` parameter this time."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Fill na values\n",
+    "warm_temps.fillna(-9999)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "As a result we now have a DataFrame where NoData values are filled with the value -9999."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "<div class=\"alert alert-warning\">\n",
+    "\n",
+    "**Warning** \n",
+    "    \n",
+    "In many cases filling the data with a specific value is dangerous because you end up modifying the actual data, which might affect the results of your analysis. For example, in the case above we would have dramatically changed the temperature difference columns because the -9999 values not an actual temperature difference! Hence, use caution when filling missing values. \n",
+    "    \n",
+    "You might have to fill in no data values, for example, when working with GIS data. Always pay attention to potential no data values when reading in data files and doing further analysis!\n",
+    "\n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Data type conversions"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "editable": true
+   },
+   "source": [
+    "There are occasions where you'll need to convert data stored within a Series to another data type, for example, from floating point to integer."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Remember, that we already did data type conversions using the [built-in Python functions](https://docs.python.org/3/library/functions.html#built-in-functions) such as `int()` or `str()`."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "For values in pandas DataFrames and Series, we can use the `astype()` method."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "editable": true
+   },
+   "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Truncating versus rounding up**\n",
+    "    \n",
+    "**Be careful with type conversions from floating point values to integers.** The conversion simply drops the stuff to the right of the decimal point, so all values are rounded down to the nearest whole number. For example, 99.99 will be truncated to 99 as an integer, when it should be rounded up to 100.\n",
+    "\n",
+    "Chaining the round and type conversion functions solves this issue as the `.round(0).astype(int)` command first rounds the values with zero decimals and then converts those values into integers.\n",
+    "\n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(\"Original values:\")\n",
+    "print(data['TEMP'].head())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(\"Truncated integer values:\")\n",
+    "print(data['TEMP'].astype(int).head())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print(\"Rounded integer values:\")\n",
+    "print(data['TEMP'].round(0).astype(int).head())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Looks correct now."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "## Unique values"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Sometimes it is useful to extract the unique values that you have in your column.\n",
+    "We can do that by using `unique()` method:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Get unique celsius values\n",
+    "unique = data['TEMP'].unique()\n",
+    "unique"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "As a result we get an array of unique values in that column."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "**Note:** Sometimes if you have a long list of unique values, you don't necessarily see all the unique values directly as IPython/Jupyter may hide them with an elipsis `...`. It is, however, possible to see all those values by printing them as a list:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# unique values as list\n",
+    "print(list(unique))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "How many days with unique mean temperature did we have in June 2016? We can check that!\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Number of unique values\n",
+    "unique_temps = len(unique)\n",
+    "print(\"There were\", unique_temps, \"days with unique mean temperatures in June 2016.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Sorting data\n",
+    "\n",
+    "Quite often it is useful to be able to sort your data (descending/ascending) based on values in some column\n",
+    "This can be easily done with Pandas using `sort_values(by='YourColumnName')` -function.\n",
+    "\n",
+    "Let's first sort the values on ascending order based on the `TEMP` column:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Sort dataframe, ascending\n",
+    "data.sort_values(by='TEMP')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Of course, it is also possible to sort them in descending order with ``ascending=False`` parameter:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Sort dataframe, descending\n",
+    "data.sort_values(by='TEMP', ascending=False)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "## Writing data to a file\n",
+    "\n",
+    "Lastly, it is of course important to be able to write the data that you have analyzed into your computer. This is really handy in Pandas as it [supports many different data formats\n",
+    "by default](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html).\n",
+    "\n",
+    "**The most typical output format by far is CSV file.** Function `to_csv()` can be used to easily save your data in CSV format.\n",
+    "Let's first save the data from our `data` DataFrame into a file called `Kumpula_temp_results_June_2016.csv`.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# define output filename\n",
+    "output_fp = \"Kumpula_temps_June_2016.csv\"\n",
+    "\n",
+    "# Save dataframe to csv\n",
+    "data.to_csv(output_fp, sep=',')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Now we have the data from our DataFrame saved to a file:\n",
+    "![Text file output1](img/pandas-save-file-1.png)\n",
+    "\n",
+    "As you can see, the first value in the datafile contains now the index value of the rows. There are also quite many decimals present in the new columns\n",
+    "that we created. Let's deal with these and save the temperature values from `warm_temps` DataFrame without the index and with only 1 decimal in the floating point numbers."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "output_fp2 = \"Kumpula_temps_above15_June_2016.csv\"\n",
+    "warm_temps.to_csv(output_fp2, sep=',', index=False, float_format=\"%.1f\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Omitting the index can be with `index=False` parameter. Specifying how many decimals should be written can be done with `float_format` parameter where text `%.1f` defines Pandas to use 1 decimals\n",
+    "in all columns when writing the data to a file (changing the value 1 to 2 would write 2 decimals etc.)\n",
+    "\n",
+    "![Output after float fomatting](img/pandas-save-file-2.png)\n",
+    "\n",
+    "As a results you have a \"cleaner\" output file without the index column, and with only 1 decimal for floating point numbers."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "That's it for this week. We will dive deeper into data analysis with Pandas in the following Lesson. Next, you can continue with Exercise 5 (for Pandas). "
+   ]
+  }
+ ],
+ "metadata": {
+  "anaconda-cloud": {},
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

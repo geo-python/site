@@ -1,0 +1,753 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Functions\n",
+    "\n",
+    "## Sources\n",
+    "\n",
+    "This lesson is partly based on the [Software Carpentry group's](http://software-carpentry.org/) lessons on [Programming with Python](http://swcarpentry.github.io/python-novice-inflammation/)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## What is a function?\n",
+    "\n",
+    "A function is a block of organized, reusable code that can make your scripts more effective, easier to read, and simple to manage.\n",
+    "You can think functions as little self-contained programs that can perform a specific task that you can use repeatedly in your code.\n",
+    "One of the basic principles in good programming is \"do not to repeat yourself\".\n",
+    "In other words, you should avoid having duplicate lines of code in your scripts.\n",
+    "Functions are a good way to avoid such situations and they can save you a lot of time and effort as you don't need to tell the computer repeatedly what to do every time it does a common task, such as converting temperatures from Fahrenheit to Celsius.\n",
+    "During the course we have already used some functions such as the `print()` command which is actually a built-in function in Python."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Anatomy of a function\n",
+    "\n",
+    "Let's consider the task from the first lesson when we converted temperatures from Celsius to Fahrenheit.\n",
+    "Such an operation is a fairly common task when dealing with temperature data.\n",
+    "Thus we might need to repeat such calculations quite frequently when analysing or comparing weather or climate data between the US and Europe, for example.\n",
+    "\n",
+    "### Our first function (aww...)\n",
+    "\n",
+    "Let's define our first function called `celsius_to_fahr`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def celsius_to_fahr(temp):\n",
+    "    return 9/5 * temp + 32"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![Anatomy of a function.](img/Function_anatomy-400.png)\n",
+    "\n",
+    "The function definition opens with the keyword `def` followed by the name of the function and a list of parameter names in parentheses.\n",
+    "The body of the function — the statements that are executed when it runs — is indented below the definition line.\n",
+    "\n",
+    "When we call the function, the values we pass to it are assigned to the corresponding parameter variables so that we can use them inside the function (e.g., the variable `temp` in this function example).\n",
+    "Inside the function, we use a `return` statement to define the value that should be given back when the function is used, or called."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Calling functions\n",
+    "\n",
+    "### Using our new function\n",
+    "\n",
+    "Now let's try using our function.\n",
+    "Calling our self-defined function is no different from calling any other function such as `print()`.\n",
+    "You need to call it with its name and send your value to the required parameter(s) inside the parentheses.\n",
+    "Here, we can define a variable `freezing_point` that is the temperature in degrees Fahrenheit we get when using our function with the temperature 0°C (the temperature at which water freezes). We can then print that value to confirm. We should get a temperature of 32°F."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "freezing_point =  celsius_to_fahr(0)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print('The freezing point of water in Fahrenheit is:', freezing_point)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We can do the same thing with the boiling point of water in degrees Celsius (100°C). Just like with other functions, we can use our new function directly within something like the `print()` function to print out the boiling point of water in degrees Fahrenheit."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print('The boiling point of water in Fahrenheit is:', celsius_to_fahr(100))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Let's make another function\n",
+    "\n",
+    "Now that we know how to create a function to convert Celsius to Fahrenheit, let’s create another function called `kelvins_to_celsius`. We can define this just like we did with our `celsius_to_fahr()` function, noting that the Celsius temperature is just the temperature in Kelvins minus 273.15. Just to avoid confusion this time, let's call the temperature variable used in the function `temp_kelvins`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def kelvins_to_celsius(temp_kelvins):\n",
+    "    return temp_kelvins - 273.15"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Using our second function\n",
+    "\n",
+    "Let's use it in the same way as the earlier one by defining a new variable `absolute_zero` that is the Celsius temperature of 0 Kelvins. Note that we can also use the variable name `temp_kelvins` when calling the function to explicitly state which variable values is being used. Again, let's print the result to confirm everything works."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "absolute_zero = kelvins_to_celsius(temp_kelvins=0)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print('Absolute zero in Celsius is:', absolute_zero)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<hr>\n",
+    "\n",
+    "#### Check your understanding\n",
+    "\n",
+    "Let's see how things are going so far with functions. In the Python cell below, please:\n",
+    "\n",
+    "- Create a new function called `hello` with 2 parameters\n",
+    "    - Parameter 1 should be called `name` and you should assign some text to this parameter this when using the function\n",
+    "    - Parameter 2 should be called `age` and you should provide a number value for this parameter when using the function\n",
+    "\n",
+    "When using your function, the value that is returned should be a character string stating the `name` and `age` that were provided, which you can assign to a variable called `output`.\n",
+    "Printing out `output` should produce something like the following:\n",
+    "\n",
+    "```python\n",
+    "print(output)\n",
+    "'Hello, my name is Dave. I am 39 years old.'\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def hello(name, age):\n",
+    "    return 'Hello, my name is ' + name + '. I am ' + str(age) + ' years old.'\n",
+    "\n",
+    "output = hello(name='Dave', age=39)\n",
+    "print(output)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<hr>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Functions within a function (Yo dawg...)\n",
+    "\n",
+    "What about converting Kelvins to Fahrenheit?\n",
+    "We could write out a new formula for it, but we don’t need to.\n",
+    "Instead, we can do the conversion using the two functions we have already created and calling those from the function we are now creating. Let's create a new function `kelvins_to_fahr` that takes the temperature in Kelvins as the parameter value `temp_kelvins` and uses our `kelvins_to_celsius` and `celsius_to_fahr` functions within the new function to convert temperatures from Kelvins to degrees Fahrenheit."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def kelvins_to_fahr(temp_kelvins):\n",
+    "    temp_celsius = kelvins_to_celsius(temp_kelvins)\n",
+    "    temp_fahr = celsius_to_fahr(temp_celsius)\n",
+    "    return temp_fahr"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Using our combined functions\n",
+    "\n",
+    "Now let's use the function."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "absolute_zero_fahr = kelvins_to_fahr(temp_kelvins=0)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print('Absolute zero in Fahrenheit is:', absolute_zero_fahr)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## An introduction to script files\n",
+    "\n",
+    "Up to this point we have been keeping our Python code and Markdown comments in a single Jupyter notebook document.\n",
+    "This is great, but there are some cases, like when you have long Python code blocks or a set of functions used in many notebooks, in which you may want to have Python code in a separate document to make sure your Jupyter notebook is easy to read (and use).\n",
+    "An alternative to typing in all of the commands you would like to run is the list them in a Python *script file*.\n",
+    "A Python script file is simply a file containing a list of the commands you would like to run, normally with one command per line, and formatted in the same way as if you were to type them in.\n",
+    "Python script files traditionally use the `.py` file extension in their names.\n",
+    "\n",
+    "### The general concept of a .py script file\n",
+    "\n",
+    "A Python script file is simply a list of commands that you might otherwise type into a Python cell in a Jupyter notebook or a Python console.\n",
+    "As such, we can quite easily create a basic script file and test things out.\n",
+    "\n",
+    "### Getting started\n",
+    "\n",
+    "First, we need to create a new text file by clicking on **File** -> **New** -> **Text File** in the JupyterLab menu bar.\n",
+    "\n",
+    "![Creating a new text file in JupyterLab.](img/new-text-file-400.png)\n",
+    "\n",
+    "This will create a new tab in your JupyterLab window that should look something like that below, a blank slate.\n",
+    "\n",
+    "![Our new text file in JupyterLab.](img/new-text-tab-800.png)\n",
+    "\n",
+    "Start by copying and pasting the text below into your new text file editor panel.\n",
+    "\n",
+    "```python\n",
+    "def celsius_to_fahr(temp_celsius):\n",
+    "    return 9/5 * temp_celsius + 32\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Saving a text file as a Python file\n",
+    "\n",
+    "As it turns out, Python scripts are just regular text files with a certain file extension to identify them as source code for Python.\n",
+    "In order for our new text file to be detected as a Python source file in JupyterLab we need to rename it to have a `.py` file extension.\n",
+    "You can rename the file by right clicking on the tab titled \"untitled.txt\" and renaming it as \"temp_converter.py\".\n",
+    "\n",
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Note**\n",
+    "\n",
+    "Be sure you change the `.txt` file extension to `.py`.\n",
+    "\n",
+    "</div>\n",
+    "\n",
+    "![Renaming a text file in JupyterLab.](img/rename-file-part-1-600.png)\n",
+    "\n",
+    "![Changing the file name in JupyterLab.](img/rename-file-part-2-300.png)\n",
+    "\n",
+    "If all goes well, you should now see the Python syntax is highlighted in different colors in the JupyterLab editor panel.\n",
+    "\n",
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Note**\n",
+    "\n",
+    "Be sure to save your `temp_converter.py` file after making your changes.\n",
+    "\n",
+    "</div>\n",
+    "\n",
+    "We'll return later to some best practices for writing script files, but for now let's continue with how to use our functions saved in the Python file we just created."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Saving and loading functions\n",
+    "\n",
+    "Functions such as the ones we just created can also be saved in a script file and called from Jupyter notebooks in JupyterLab.\n",
+    "In fact, quite often it is useful to create a dedicated function library for functions that you use frequently, when doing data analysis, for example.\n",
+    "Basically this is done by listing useful functions in a single `.py` file from which you can then import and use them whenever needed.\n",
+    "\n",
+    "### Saving functions in a script file\n",
+    "\n",
+    "Basically, we've just seen how to save some functions to a script file.\n",
+    "Let's now add the other functions we had been using to our script.\n",
+    "Simply copy and paste the text below into your `temp_converter.py` file leaving one blank line between each function.\n",
+    "\n",
+    "```python\n",
+    "def kelvins_to_celsius(temp_kelvins):\n",
+    "    return temp_kelvins - 273.15\n",
+    "```\n",
+    "\n",
+    "```python\n",
+    "def kelvins_to_fahr(temp_kelvins):\n",
+    "    temp_celsius = kelvins_to_celsius(temp_kelvins)\n",
+    "    temp_fahr = celsius_to_fahr(temp_celsius)\n",
+    "    return temp_fahr\n",
+    "```\n",
+    "\n",
+    "Don't forget to save your changes!"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Calling functions from a script file\n",
+    "\n",
+    "Now that we have saved our temperature conversion functions into a script file we can start using them.\n",
+    "\n",
+    "### Making sure we're in the right working directory\n",
+    "\n",
+    "Hopefully you have saved you `temp_converter.py` file in the same location as this Jupyter notebook (`functions.ipynb`).\n",
+    "If so, that's good, but we need to do one more thing to be able to start working with it.\n",
+    "We need to change the working directory in JupyterLab to be the one where the `temp_converter.py` exists.\n",
+    "\n",
+    "First, we can check where we are working currently using an IPython magic command called `%ls`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%ls"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Your output from `%ls` probably looks different than that above, but don't worry.\n",
+    "`%ls` allows us to see the files located in the directory where we are currently working.\n",
+    "\n",
+    "#### Binder users\n",
+    "\n",
+    "If you are using Binder, you might see\n",
+    "\n",
+    "```bash\n",
+    "L1/  L2/  L3/  L4/  Untitled.ipynb\n",
+    "```\n",
+    "\n",
+    "for example.\n",
+    "\n",
+    "#### CSC notebooks users\n",
+    "\n",
+    "Those using the CSC notebooks might see something like\n",
+    "\n",
+    "```bash\n",
+    "exercises/  installations.sh*  notebooks/  Untitled.ipynb\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Changing the working directory\n",
+    "\n",
+    "Hopefully you've seen some output from `%ls` like that above.\n",
+    "Now we need to change into the directory where you've saved your `temp_converter.py` file.\n",
+    "\n",
+    "#### Binder users\n",
+    "\n",
+    "Those using Binder should type the following to change into the directory containing the `temp_converter.py` file.\n",
+    "\n",
+    "```ipython\n",
+    "%cd L4/\n",
+    "```\n",
+    "\n",
+    "#### CSC notebooks users\n",
+    "\n",
+    "Those using the CSC notebooks system should type the following to change into the directory containing the `temp_converter.py` file.\n",
+    "\n",
+    "```ipython\n",
+    "%cd notebooks/notebooks/L4/\n",
+    "```\n",
+    "\n",
+    "If all has gone well you should now see `temp_converter.py` among the files when you type `%ls` in a Python cell.\n",
+    "Try that out below."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%ls"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Now we can continue."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Importing our script functions\n",
+    "\n",
+    "Let's now import our `celsius_to_fahr()` function from the other script by adding a specific `import` statement in the Python cell below: `from temp_converter import celsius_to_fahr`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from temp_converter import celsius_to_fahr"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Using our script functions\n",
+    "\n",
+    "Let's also use the function so that we can see that it is working. We can print the temperature in Fahrenheit at which water freezes using our `celsius_to_fahr()` function in the cell below."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(\"The freezing point of water in Fahrenheit is:\", celsius_to_fahr(0))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "You should get following output:\n",
+    "\n",
+    "```\n",
+    "The freezing point of water in Fahrenheit is: 32.0\n",
+    "```\n",
+    "\n",
+    "#### Importing multiple functions\n",
+    "\n",
+    "It is also possible to import more functions at the same time by listing and separating them with a comma.\n",
+    "\n",
+    "```python\n",
+    "from my_script import func1, func2, func3\n",
+    "```\n",
+    "\n",
+    "### Importing all functions from a script\n",
+    "\n",
+    "Sometimes it is useful to import the whole script and all of its functions at once. Let's use a different `import` statement and test that all functions work. This time we can type `import temp_converter as tc`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import temp_converter as tc"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Just like the examples we have seen earlier with the `math` library, such as using `math.sin()`, we can now use our functions such as `tc.celsius_to_fahr()`. In the cells below, test our functions as they were used above by printing the freezing point of water in Fahrenheit, absolute zero in Celsius, and absolute zero in Fahrenheit."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(\"The freezing point of water in Fahrenheit is:\", tc.celsius_to_fahr(0))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print('Absolute zero in Celsius is:', tc.kelvins_to_celsius(temp_kelvins=0))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print('Absolute zero in Fahrenheit is:', tc.kelvins_to_fahr(temp_kelvins=0))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Temperature calculator (*optional, advanced topic*)\n",
+    "\n",
+    "So far our functions have had only one parameter, but it is also possible to define a function with multiple parameters.\n",
+    "Let's now make a simple `temp_calculator` function that accepts temperatures in Kelvins and returns either Celsius or Fahrenheit.\n",
+    "The new function will have two parameters:\n",
+    "\n",
+    "- `temp_k` = The parameter for passing temperature in Kelvin\n",
+    "- `convert_to` = The parameter that determines whether to output should be in Celsius or in Fahrenheit (using letters `C` or `F` accordingly)\n",
+    "\n",
+    "### Defining the function\n",
+    "\n",
+    "Let's start defining our function by giving it a name and setting the parameters.\n",
+    "\n",
+    "```python\n",
+    "def temp_calculator(temp_k, convert_to):\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Adding some conditional statements\n",
+    "\n",
+    "Next, we need to add conditional statements that check whether the output temperature is wanted in Celsius or Fahrenheit, and then call corresponding function that was imported from the `temp_converter.py` file.\n",
+    "\n",
+    "```python\n",
+    "def temp_calculator(temp_k, convert_to):\n",
+    "    # Check if user wants the temperature in Celsius\n",
+    "    if convert_to == \"C\":\n",
+    "        # Convert the value to Celsius using the dedicated function for the task that we imported from another script\n",
+    "        converted_temp = kelvins_to_celsius(temp_kelvins=temp_k)\n",
+    "    elif convert_to == \"F\":\n",
+    "        # Convert the value to Fahrenheit using the dedicated function for the task that we imported from another script\n",
+    "        converted_temp = kelvins_to_fahr(temp_kelvins=temp_k)\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Returning the result\n",
+    "\n",
+    "Next, we need to add a **return statement** so that our function sends back the value that we are interested in.\n",
+    "\n",
+    "```python\n",
+    "def temp_calculator(temp_k, convert_to):\n",
+    "    # Check if user wants the temperature in Celsius\n",
+    "    if convert_to == \"C\":\n",
+    "        # Convert the value to Celsius using the dedicated function for the task that we imported from another script\n",
+    "        converted_temp = kelvins_to_celsius(temp_kelvins=temp_k)\n",
+    "    elif convert_to == \"F\":\n",
+    "        # Convert the value to Fahrenheit using the dedicated function for the task that we imported from another script\n",
+    "        converted_temp = kelvins_to_fahr(temp_kelvins=temp_k)\n",
+    "    # Return the result\n",
+    "    return converted_temp\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Adding a docstring\n",
+    "\n",
+    "Lastly, as we want to be good programmers, we add a short docstring at the beginning of our function that tells what the function does and how the parameters work.\n",
+    "\n",
+    "```python\n",
+    "def temp_calculator(temp_k, convert_to):\n",
+    "    \"\"\"\n",
+    "    Function for converting temperature in Kelvins to Celsius or Fahrenheit.\n",
+    "\n",
+    "    Parameters\n",
+    "    ----------\n",
+    "    temp_k: <numerical>\n",
+    "        Temperature in Kelvins\n",
+    "    convert_to: <str>\n",
+    "        Target temperature that can be either Celsius ('C') or Fahrenheit ('F'). Supported values: 'C' | 'F'\n",
+    "\n",
+    "    Returns\n",
+    "    -------\n",
+    "    <float>\n",
+    "        Converted temperature.\n",
+    "    \"\"\"\n",
+    "\n",
+    "    # Check if user wants the temperature in Celsius\n",
+    "    if convert_to == \"C\":\n",
+    "        # Convert the value to Celsius using the dedicated function for the task that we imported from another script\n",
+    "        converted_temp = kelvins_to_celsius(temp_kelvins=temp_k)\n",
+    "    elif convert_to == \"F\":\n",
+    "        # Convert the value to Fahrenheit using the dedicated function for the task that we imported from another script\n",
+    "        converted_temp = kelvins_to_fahr(temp_kelvins=temp_k)\n",
+    "    # Return the result\n",
+    "    return converted_temp\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Testing the new function\n",
+    "\n",
+    "That's it!\n",
+    "Now we have a temperature calculator that has a simple control for the user where s/he can change the output by using the `convert_to` parameter.\n",
+    "Now as we added the short docstring in the beginning of the function we can use the `help()` function in Python to find out how our function should be used.\n",
+    "Run the Python cell below and then try running `help(temp_calculator)`.\n",
+    "\n",
+    "<div class=\"alert alert-warning\">\n",
+    "\n",
+    "**Attention**\n",
+    "\n",
+    "Reloading modules from within a Jupyter notebook is a bit of a pain.\n",
+    "The easiest option is to restart the IPython kernel by going to **Kernel** -> **Restart kernel...**.\n",
+    "Note that this will delete all variables currently stored in memory in the Jupyter notebook you're using, so you may need to re-run some cells.\n",
+    "\n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import temp_converter as tc"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "help(tc.temp_calculator)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Using the tempCalculator\n",
+    "\n",
+    "Let's use it."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "temp_kelvin = 30"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "temperature_c = tc.temp_calculator(temp_k=temp_kelvin, convert_to=\"C\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(\"Temperature\", temp_kelvin, \"in Kelvins is\", temperature_c, \"in Celsius\")"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

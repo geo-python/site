@@ -1,0 +1,448 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Conditional statements\n",
+    "\n",
+    "## Sources\n",
+    "\n",
+    "This lesson is based on the [Software Carpentry group’s](http://software-carpentry.org/) lessons on [Programming with Python](http://swcarpentry.github.io/python-novice-inflammation/) and [McKinney's book (2017): Python for Data Analysis](https://geo-python.github.io/site/course-info/resources.html#books).\n",
+    "\n",
+    "## Basics of conditional statements\n",
+    "\n",
+    "Conditional statements can change the code behaviour based on certain conditions. The idea is simple: **IF** a condition is met, THEN a set of actions is performed. \n",
+    "\n",
+    "### A simple conditional statement\n",
+    "\n",
+    "**Let’s look at a simple example with temperatures**, and check if temperature 17 (celsius degrees) is hot or not: "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "temperature = 17\n",
+    "\n",
+    "if temperature > 25:\n",
+    "    print('it is hot')\n",
+    "else:\n",
+    "    print('it is not hot')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "What did we do here?\n",
+    "First, we used the `if` and `else` statements to determine what parts of the code to execute.\n",
+    "\n",
+    "What do these tests do?\n",
+    "The `if` statement checks to see whether the variable value for `temperature` is greater than 25.\n",
+    "If this condition is met, `'it is hot'` would be written to the screen. \n",
+    "Since 17 is smaller than 25, the code beneath `else` is executed.\n",
+    "Code under the `else` statement will run whenever the `if` test is `False`."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Let's look at another example from our daily lives ☔**\n",
+    "\n",
+    "As it turns out, we all use logic similar to `if` and `else` conditional statements daily.\n",
+    "Imagine you’re getting ready to leave your home for the day and want to decide what to wear.\n",
+    "You might look outside to check the weather conditions.\n",
+    "If it is raining, you will wear a rain jacket.\n",
+    "Otherwise, you will not.\n",
+    "In Python we could say:\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "weather = 'rain'\n",
+    "\n",
+    "if weather == 'rain':\n",
+    "    print('Wear a raincoat')\n",
+    "else:\n",
+    "    print('No raincoat needed')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Note here that we use the `==` operator to test if a value is exactly equal to another."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Note the syntax**\n",
+    "\n",
+    "Similarly as with for-loops, Python uses colons (`:`) and whitespace (indentations; often four spaces) to structure conditional statements. If the condition is True, the indented code block after the colon (`:`) is executed. The code block may contain several lines of code, but they all must be indented identically:\n",
+    "\n",
+    "```\n",
+    "    \n",
+    "weather = 'rain'\n",
+    "\n",
+    "if weather == 'rain':\n",
+    "    print('Wear a raincoat')\n",
+    "    print('Wear rain boots')\n",
+    "    print('Bring an umbrella')\n",
+    "else:\n",
+    "    print('No rainwear needed')\n",
+    "    \n",
+    "```    \n",
+    "    \n",
+    "You will receive an `IndentationError`, a `SyntaxError`, or unwated behavior if you haven't indented the code correctly.\n",
+    "    \n",
+    "</div>\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Try changing the indentation in the above examples and see what output or errors you get:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Comparison operators and boolean values\n",
+    "\n",
+    "Comparison operators such as `>` and `==` compare the values on each side of the operator. Here is the full list of operators used for value comparisons in Python: \n",
+    "\n",
+    "| Operator | Description              |\n",
+    "| -------- | ------------------------ |\n",
+    "| <        | Less than                |\n",
+    "| <=       | Less than or equal to    |\n",
+    "| ==       | Equal to                 |\n",
+    "| >=       | Greater than or equal to |\n",
+    "| >        | Greater than             |\n",
+    "| !=       | Not equal to             |\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Comparison operations yield boolean values (`True` or `False`). In Python, the words `True` and `False` are reserved for these Boolean values, and can't be used for anything else. \n",
+    "\n",
+    "Let's check the current value of the conditions we used in the previous examples:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "temperature > 25"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "weather == 'Rain'"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Makes sense, right? Conditional statements always check if the conditional expression is **True** or **False**. If True, the codeblock under the conditional statement gets executed."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**if without else?**\n",
+    "\n",
+    "The combination of `if` and `else` is very common, but the `else`-statement is not strictly required.\n",
+    "   \n",
+    "```\n",
+    "temperature = 17\n",
+    "    \n",
+    "if temperature > 25:\n",
+    "    print(temperature,'is greater than 25')\n",
+    "```  \n",
+    "\n",
+    " Python simply does nothing if the `if`-statement is False and there is no `else`-statement. \n",
+    "    \n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Try it out yourself:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "temperature = 17"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "if temperature > 25:\n",
+    "    print(temperature,'is greater than 25')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Nothing is printed to the screen if temperature is smaller than 25."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### if, elif and else\n",
+    "\n",
+    "We can link several conditions together using the \"else if\" -statement `elif`. Python checks the `elif` and `else` statements only if previous conditions were False. You can have multiple `elif` statements to check for additional conditions."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Let's create a chain of `if` `elif` and `else` -statements that are able to tell us if the temperature is above freezing, exactly at freezing point or below freezing: "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "temperature = -3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "if temperature > 0:\n",
+    "     print(temperature, 'is above freezing')\n",
+    "elif temperature == 0:\n",
+    "     print(temperature, 'is freezing')\n",
+    "else:\n",
+    "     print(temperature, 'is below freezing')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<div class=\"alert alert-warning\">\n",
+    "\n",
+    "**Attention, poll pause!**\n",
+    "\n",
+    "Let's assume that yesterday it was 14°C, it is 10°C outside today, and tomorrow it will be 13°C.\n",
+    "The following code compares these temperatures and prints something to the screen based on the comparison.\n",
+    "\n",
+    "```python\n",
+    "yesterday = 14\n",
+    "today = 10\n",
+    "tomorrow = 13\n",
+    "\n",
+    "if yesterday <= today:\n",
+    "    print('A')\n",
+    "elif today != tomorrow:\n",
+    "    print('B')\n",
+    "elif yesterday > tomorrow:\n",
+    "    print('C')\n",
+    "elif today == today:\n",
+    "    print('D')\n",
+    "```\n",
+    "\n",
+    "Which of the letters `A`, `B`, `C`, and `D` would be printed to the screen?\n",
+    "Select your answer from the poll options at https://geo-python.github.io/poll/.\n",
+    "\n",
+    "\n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Combining conditions\n",
+    "\n",
+    "We can also use `and` and `or` to combine multiple conditions on boolean values."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "| Keyword   |example   | Description                          |\n",
+    "| --------- |--------- |------------------------------------- |\n",
+    "|  and      | a and b  | True if both a and b are True        |\n",
+    "|  or       | a or b   | True if either a or b is True        |"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "if (1 > 0) and (-1 > 0):\n",
+    "     print('Both parts are true')\n",
+    "else:\n",
+    "     print('At least one part is not true')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "if (1 < 0) or (-1 < 0):\n",
+    "    print('At least one test is true')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "How about two `False` values? Try out what happens if you connect two `False` expressions using the `and` keyword:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Note: later on we will also need the bitwise operators `&` for `and`, and `|` for `or`."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Let's return to our example about making decisions on a rainy day ☔.** Imagine that we consider not only the rain, but also whether or not it is windy. If it is windy or raining, we’ll just stay at home. If it's not windy or raining, we can go out and enjoy the weather! Let's try to solve this problem using Python:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "weather = 'rain'\n",
+    "wind = 'windy'\n",
+    "\n",
+    "if (weather == 'rain') or (wind == 'windy'):\n",
+    "    print('Just stay at home')\n",
+    "else:\n",
+    "    print('Go out and enjoy the weather! :)')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "As you can see, we better just stay home if it is windy or raining 😏. If you don't agree, you can modify the conditions and print statements accordingly!"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Combining for-loops and conditional statements\n",
+    "\n",
+    "Finally, we can also combine for-loops and conditional statements. Let's iterate over a list of temperatures, and check if the temperature is hot or not:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "temperatures = [0, 12, 17, 28, 30]\n",
+    "\n",
+    "for temperature in temperatures:\n",
+    "    if temperature > 25:\n",
+    "        print(temperature, 'celsius degrees is hot')\n",
+    "    else:\n",
+    "        print(temperature, 'is not hot')"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
