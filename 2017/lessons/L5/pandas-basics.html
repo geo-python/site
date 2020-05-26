@@ -310,16 +310,6 @@ Click on the file folder to select the directory where you would like to work, c
 <li><p class="first">Now we’re ready to read in our temperature data file.
 First, we need to import the Pandas module.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ni">__call__</span><span class="nt">(self, source, filename, symbol)</span>
-<span class="g g-Whitespace">    </span><span class="mi">131</span> 
-<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">133</span>         <span class="n">codeob</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">134</span>         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">_features</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">135</span>             <span class="k">if</span> <span class="n">codeob</span><span class="o">.</span><span class="n">co_flags</span> <span class="o">&amp;</span> <span class="n">feature</span><span class="o">.</span><span class="n">compiler_flag</span><span class="p">:</span>
-
-<span class="ne">TypeError</span>: required field &quot;type_ignores&quot; missing from Module
 </pre></div>
 </div>
 <p>That’s it, Pandas is ready to use now.
@@ -513,39 +503,21 @@ So rather than seeing a DataFrame type or float64, a selected column from a Data
 A Pandas Series is just a 1-D list of values.
 In fact, you can create a Pandas Series from a Python list.
 If you have long lists of numbers, for instance, creating a Pandas Series will allow you to interact with these values more efficiently in terms of computing time.</p>
-<pre class="literal-block">
-In [16]: myList = [1, 2, 3, 4, 5, 6, 7.0]
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">]</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+<span class="gp">In [17]: </span><span class="n">mySeries</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
 
-In [17]: mySeries = pd.Series(myList)
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [18]: print(mySeries)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-18-31dcd3c76685&gt; in &lt;module&gt;()
-----&gt; 1 print(mySeries)
-
-NameError: name 'mySeries' is not defined
-</pre>
+<span class="gp">In [18]: </span><span class="nb">print</span><span class="p">(</span><span class="n">mySeries</span><span class="p">)</span>
+<span class="go">0    1.0</span>
+<span class="go">1    2.0</span>
+<span class="go">2    3.0</span>
+<span class="go">3    4.0</span>
+<span class="go">4    5.0</span>
+<span class="go">5    6.0</span>
+<span class="go">6    7.0</span>
+<span class="go">dtype: float64</span>
+</pre></div>
+</div>
 <p>As you can see, <code class="docutils literal notranslate"><span class="pre">myList</span></code> is converted to a Pandas Series using the <code class="docutils literal notranslate"><span class="pre">ps.Series()</span></code> function.
 Also, note that Pandas is smart about the conversion, detecting a single floating point value (<code class="docutils literal notranslate"><span class="pre">7.0</span></code>) and assigning all values in the Series the data type float64.</p>
 </li>
@@ -705,7 +677,6 @@ After you open the Anaconda Prompt you should be able to change into the directo
         </dl>
         <dl>
             <dt>Branches</dt>
-            <dd><a href="../../../book-dev/index.html">book-dev</a></dd>
             <dd><a href="../../../develop/index.html">develop</a></dd>
             <dd><a href="../../../master/index.html">master</a></dd>
         </dl>

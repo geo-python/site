@@ -316,31 +316,11 @@ We can change how plots are displayed in Spyder to have them show up in a separa
 <h2>Plotting data with Matplotlib<a class="headerlink" href="#plotting-data-with-matplotlib" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">To start, we will need to import both Pandas and pyplot.</p>
-<pre class="literal-block">
-In [1]: import pandas as pd
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [2]: import matplotlib.pyplot as plt
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-</pre>
+<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
 <p>Note again that we are renaming the modules when we import them.
 Perhaps now it is more clear why you might want to rename a module on import.
 Having to type <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> every time you use one of its methods would be a pain.</p>
@@ -365,27 +345,19 @@ We can start by using the Matplotlib <code class="docutils literal notranslate">
 <pre class="literal-block">
 In [5]: x = dataFrame['YEARMODA']
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-5-1903336fb770&gt; in &lt;module&gt;()
+----&gt; 1 x = dataFrame['YEARMODA']
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'dataFrame' is not defined
 
 In [6]: y = dataFrame['TEMP']
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-6-67865b05ba4e&gt; in &lt;module&gt;()
+----&gt; 1 y = dataFrame['TEMP']
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'dataFrame' is not defined
 
 In [7]: plt.plot(x, y)
 ---------------------------------------------------------------------------
@@ -393,15 +365,9 @@ NameError                                 Traceback (most recent call last)
 &lt;ipython-input-7-d0d1dfa5badf&gt; in &lt;module&gt;()
 ----&gt; 1 plt.plot(x, y)
 
-NameError: name 'plt' is not defined
+NameError: name 'x' is not defined
 
 In [8]: plt.show()
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-8-1eb00ff78cf2&gt; in &lt;module&gt;()
-----&gt; 1 plt.show()
-
-NameError: name 'plt' is not defined
 </pre>
 <a class="reference internal image-reference" href="../../_images/plt_temp.png"><img alt="../../_images/plt_temp.png" src="../../_images/plt_temp.png" style="width: 600px;" /></a>
 <p>If all goes well, you should see the plot above.</p>
@@ -420,39 +386,18 @@ NameError                                 Traceback (most recent call last)
 &lt;ipython-input-9-7f7aa66b70da&gt; in &lt;module&gt;()
 ----&gt; 1 plt.plot(x, y, 'ro--')
 
-NameError: name 'plt' is not defined
+NameError: name 'x' is not defined
 
 In [10]: plt.title('Kumpula temperatures in June 2016')
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-10-acdeca1ec29c&gt; in &lt;module&gt;()
-----&gt; 1 plt.title('Kumpula temperatures in June 2016')
-
-NameError: name 'plt' is not defined
+Out[10]: Text(0.5, 1.0, 'Kumpula temperatures in June 2016')
 
 In [11]: plt.xlabel('Date')
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-11-5a735cf02338&gt; in &lt;module&gt;()
-----&gt; 1 plt.xlabel('Date')
-
-NameError: name 'plt' is not defined
+Out[11]: Text(0.5, 0, 'Date')
 
 In [12]: plt.ylabel('Temperature [°F]')
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-12-cb42a32195a4&gt; in &lt;module&gt;()
-----&gt; 1 plt.ylabel('Temperature [°F]')
-
-NameError: name 'plt' is not defined
+Out[12]: Text(0, 0.5, 'Temperature [°F]')
 
 In [13]: plt.show()
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-13-1eb00ff78cf2&gt; in &lt;module&gt;()
-----&gt; 1 plt.show()
-
-NameError: name 'plt' is not defined
 </pre>
 <a class="reference internal image-reference" href="../../_images/plt_temp_annotated.png"><img alt="../../_images/plt_temp_annotated.png" src="../../_images/plt_temp_annotated.png" style="width: 600px;" /></a>
 <p>This should produce the plot above.</p>
@@ -465,12 +410,7 @@ We have also added a title and axis labels, but their use is straightforward.</p
 </li>
 <li><p class="first">Adding text to plots can be done using <code class="docutils literal notranslate"><span class="pre">plt.text()</span></code>.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">20160604.0</span><span class="p">,</span> <span class="mf">68.0</span><span class="p">,</span> <span class="s1">&#39;High temperature in early June&#39;</span><span class="p">)</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-14-cdd2d267e655&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">20160604.0</span><span class="p">,</span> <span class="mf">68.0</span><span class="p">,</span> <span class="s1">&#39;High temperature in early June&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
+<span class="gh">Out[14]: </span><span class="go">Text(20160604.0, 68.0, &#39;High temperature in early June&#39;)</span>
 </pre></div>
 </div>
 <p>This will display the text “High temperature in early June” at the location <em>x</em> = 20160604.0 (i.e., June 4, 2016), <em>y</em> = 68.0 on the plot.
@@ -478,12 +418,7 @@ You would need to type the other plotting commands and <code class="docutils lit
 </li>
 <li><p class="first">Changing the plot axes can be done using the <code class="docutils literal notranslate"><span class="pre">plt.axis()</span></code> function.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">20160615</span><span class="p">,</span> <span class="mi">20160630</span><span class="p">,</span> <span class="mf">55.0</span><span class="p">,</span> <span class="mf">70.0</span><span class="p">])</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-15-6729e53233fc&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">20160615</span><span class="p">,</span> <span class="mi">20160630</span><span class="p">,</span> <span class="mf">55.0</span><span class="p">,</span> <span class="mf">70.0</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
+<span class="gh">Out[15]: </span><span class="go">(20160615.0, 20160630.0, 55.0, 70.0)</span>
 </pre></div>
 </div>
 <p>The format for <code class="docutils literal notranslate"><span class="pre">plt.axis()</span></code> is <code class="docutils literal notranslate"><span class="pre">[xmin,</span> <span class="pre">xmax,</span> <span class="pre">ymin,</span> <span class="pre">ymax]</span></code> enclosed in square brackets (i.e., a Python list).
@@ -496,55 +431,24 @@ NameError                                 Traceback (most recent call last)
 &lt;ipython-input-16-7f7aa66b70da&gt; in &lt;module&gt;()
 ----&gt; 1 plt.plot(x, y, 'ro--')
 
-NameError: name 'plt' is not defined
+NameError: name 'x' is not defined
 
 In [17]: plt.title('Kumpula temperatures in June 2016')
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-17-acdeca1ec29c&gt; in &lt;module&gt;()
-----&gt; 1 plt.title('Kumpula temperatures in June 2016')
-
-NameError: name 'plt' is not defined
+Out[17]: Text(0.5, 1.0, 'Kumpula temperatures in June 2016')
 
 In [18]: plt.xlabel('Date')
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-18-5a735cf02338&gt; in &lt;module&gt;()
-----&gt; 1 plt.xlabel('Date')
-
-NameError: name 'plt' is not defined
+Out[18]: Text(0.5, 0, 'Date')
 
 In [19]: plt.ylabel('Temperature [°F]')
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-19-cb42a32195a4&gt; in &lt;module&gt;()
-----&gt; 1 plt.ylabel('Temperature [°F]')
-
-NameError: name 'plt' is not defined
+Out[19]: Text(0, 0.5, 'Temperature [°F]')
 
 In [20]: plt.text(20160604.0, 68.0, 'High temperature in early June')
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-20-cdd2d267e655&gt; in &lt;module&gt;()
-----&gt; 1 plt.text(20160604.0, 68.0, 'High temperature in early June')
-
-NameError: name 'plt' is not defined
+Out[20]: Text(20160604.0, 68.0, 'High temperature in early June')
 
 In [21]: plt.axis([20160615, 20160630, 55.0, 70.0])
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-21-6729e53233fc&gt; in &lt;module&gt;()
-----&gt; 1 plt.axis([20160615, 20160630, 55.0, 70.0])
-
-NameError: name 'plt' is not defined
+Out[21]: (20160615.0, 20160630.0, 55.0, 70.0)
 
 In [22]: plt.show()
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-22-1eb00ff78cf2&gt; in &lt;module&gt;()
-----&gt; 1 plt.show()
-
-NameError: name 'plt' is not defined
 </pre>
 <a class="reference internal image-reference" href="../../_images/plt_temp_annotated_w_text.png"><img alt="../../_images/plt_temp_annotated_w_text.png" src="../../_images/plt_temp_annotated_w_text.png" style="width: 600px;" /></a>
 <p>Note that the text does not appear here because of the axis range.</p>
@@ -558,55 +462,24 @@ NameError                                 Traceback (most recent call last)
 &lt;ipython-input-23-a6615192c27a&gt; in &lt;module&gt;()
 ----&gt; 1 plt.bar(x, y)
 
-NameError: name 'plt' is not defined
+NameError: name 'x' is not defined
 
 In [24]: plt.title('Kumpula temperatures in June 2016')
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-24-acdeca1ec29c&gt; in &lt;module&gt;()
-----&gt; 1 plt.title('Kumpula temperatures in June 2016')
-
-NameError: name 'plt' is not defined
+Out[24]: Text(0.5, 1.0, 'Kumpula temperatures in June 2016')
 
 In [25]: plt.xlabel('Date')
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-25-5a735cf02338&gt; in &lt;module&gt;()
-----&gt; 1 plt.xlabel('Date')
-
-NameError: name 'plt' is not defined
+Out[25]: Text(0.5, 0, 'Date')
 
 In [26]: plt.ylabel('Temperature [°F]')
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-26-cb42a32195a4&gt; in &lt;module&gt;()
-----&gt; 1 plt.ylabel('Temperature [°F]')
-
-NameError: name 'plt' is not defined
+Out[26]: Text(0, 0.5, 'Temperature [°F]')
 
 In [27]: plt.text(20160604.0, 68.0, 'High temperature in early June')
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-27-cdd2d267e655&gt; in &lt;module&gt;()
-----&gt; 1 plt.text(20160604.0, 68.0, 'High temperature in early June')
-
-NameError: name 'plt' is not defined
+Out[27]: Text(20160604.0, 68.0, 'High temperature in early June')
 
 In [28]: plt.axis([20160615, 20160630, 55.0, 70.0])
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-28-6729e53233fc&gt; in &lt;module&gt;()
-----&gt; 1 plt.axis([20160615, 20160630, 55.0, 70.0])
-
-NameError: name 'plt' is not defined
+Out[28]: (20160615.0, 20160630.0, 55.0, 70.0)
 
 In [29]: plt.show()
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-29-1eb00ff78cf2&gt; in &lt;module&gt;()
-----&gt; 1 plt.show()
-
-NameError: name 'plt' is not defined
 </pre>
 <a class="reference internal image-reference" href="../../_images/plt_temp_annotated_w_bars.png"><img alt="../../_images/plt_temp_annotated_w_bars.png" src="../../_images/plt_temp_annotated_w_bars.png" style="width: 600px;" /></a>
 <p>You can find more about how to format bar charts on the <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.bar.html?highlight=matplotlib%20pyplot%20bar#matplotlib.pyplot.bar">Matplotlib documentation website</a>.</p>
@@ -708,7 +581,6 @@ For this, it may be easiest to save a copy of the commands in a <code class="doc
         </dl>
         <dl>
             <dt>Branches</dt>
-            <dd><a href="../../../book-dev/index.html">book-dev</a></dd>
             <dd><a href="../../../develop/index.html">develop</a></dd>
             <dd><a href="../../../master/index.html">master</a></dd>
         </dl>

@@ -291,27 +291,12 @@ In fact, the abundance of free Python modules is one of the best reasons to lear
 <ol class="arabic">
 <li><p class="first">Let’s start simple with the <code class="docutils literal notranslate"><span class="pre">math</span></code> module.
 Here, we’ll load the <code class="docutils literal notranslate"><span class="pre">math</span></code> module using the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement.</p>
-<pre class="literal-block">
-In [1]: import math
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">math</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [2]: math.sqrt(81)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-2-bfc688a7b752&gt; in &lt;module&gt;()
-----&gt; 1 math.sqrt(81)
-
-NameError: name 'math' is not defined
-</pre>
+<span class="gp">In [2]: </span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">81</span><span class="p">)</span>
+<span class="gh">Out[2]: </span><span class="go">9.0</span>
+</pre></div>
+</div>
 <p>Here we have loaded the <code class="docutils literal notranslate"><span class="pre">math</span></code> module by typing <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code>, which tells Python to read in the functions in the <code class="docutils literal notranslate"><span class="pre">math</span></code> module and make them available for use.
 In our example, we see that we can use a function within the <code class="docutils literal notranslate"><span class="pre">math</span></code> library by typing the name of the module first, a period, and then the name of function we would like to use afterward (e.g., <code class="docutils literal notranslate"><span class="pre">math.sqrt()</span></code>).
 Built-in functions such as <code class="docutils literal notranslate"><span class="pre">print()</span></code> do not require the name of the module first since nothing is explicitly imported.</p>
@@ -325,32 +310,12 @@ Built-in functions such as <code class="docutils literal notranslate"><span clas
 This can be helpful when using modules with longer names.</p>
 <pre class="literal-block">
 In [3]: import math as m
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [4]: m.sqrt(49)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-4-9ad84a1c3f22&gt; in &lt;module&gt;()
-----&gt; 1 m.sqrt(49)
-
-NameError: name 'm' is not defined
+Out[4]: 7.0
 
 In [5]: type(m)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-5-41744b43a9fc&gt; in &lt;module&gt;()
-----&gt; 1 type(m)
-
-NameError: name 'm' is not defined
+Out[5]: module
 </pre>
 <p>In this example we now see that when the <code class="docutils literal notranslate"><span class="pre">math</span></code> module is imported, it is imported to be usable with the name <code class="docutils literal notranslate"><span class="pre">m</span></code> instead of <code class="docutils literal notranslate"><span class="pre">math</span></code>.
 It doesn’t matter much in our toy example here since math is not a long module name, but we will see other examples later in the course where renaming the modules is very helpful (e.g., <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>).</p>
@@ -362,27 +327,12 @@ It doesn’t matter much in our toy example here since math is not a long module
 <ol class="arabic" start="3">
 <li><p class="first">It is also possible to import only a single function from a module, rather than the entire module.
 This is sometimes useful when using large modules that have much more available than the desired use.</p>
-<pre class="literal-block">
-In [6]: from math import sqrt
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [7]: sqrt(121)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-7-096abbe0ed3b&gt; in &lt;module&gt;()
-----&gt; 1 sqrt(121)
-
-NameError: name 'sqrt' is not defined
-</pre>
+<span class="gp">In [7]: </span><span class="n">sqrt</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="gh">Out[7]: </span><span class="go">11.0</span>
+</pre></div>
+</div>
 <p>Though this can be useful, it has the drawback that the imported function could conflict with other built-in or imported function names, and you lose the information about which module contains the function.
 You should only do this when you truly need to.</p>
 </li>
@@ -394,27 +344,12 @@ You should only do this when you truly need to.</p>
 <li><p class="first">Some modules have sub-modules that can also be imported without importing the entire module.
 We may see examples of this later when making data plots using the pyplot sub-module of the <a class="reference external" href="http://matplotlib.org/">Matplotlib module</a>.
 In case you’re curious, here is an example.</p>
-<pre class="literal-block">
-In [8]: import matplotlib.pyplot as plt
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [9]: plt.figure()
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-9-65b822729fc4&gt; in &lt;module&gt;()
-----&gt; 1 plt.figure()
-
-NameError: name 'plt' is not defined
-</pre>
+<span class="gp">In [9]: </span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="gh">Out[9]: </span><span class="go">&lt;Figure size 640x480 with 0 Axes&gt;</span>
+</pre></div>
+</div>
 <p>This creates a new figure window for a pyplot figure.
 Again, we’ll see how this works and what it means later in the course.</p>
 </li>
@@ -427,23 +362,18 @@ Yes, it is that simple.</p>
 <p>However, there are times you may not know the names of all of the functions in a given module, or which are part of a module.
 You can view the list of functions that are part of a module by using the <code class="docutils literal notranslate"><span class="pre">dir()</span></code> function.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">math</span><span class="p">))</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-10-d121256e9997&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">math</span><span class="p">))</span>
-
-<span class="ne">NameError</span>: name &#39;math&#39; is not defined
+<span class="go">[&#39;__doc__&#39;, &#39;__file__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;, &#39;acos&#39;, &#39;acosh&#39;, &#39;asin&#39;, &#39;asinh&#39;, &#39;atan&#39;, &#39;atan2&#39;, &#39;atanh&#39;, &#39;ceil&#39;, &#39;copysign&#39;, &#39;cos&#39;, &#39;cosh&#39;, &#39;degrees&#39;, &#39;e&#39;, &#39;erf&#39;, &#39;erfc&#39;, &#39;exp&#39;, &#39;expm1&#39;, &#39;fabs&#39;, &#39;factorial&#39;, &#39;floor&#39;, &#39;fmod&#39;, &#39;frexp&#39;, &#39;fsum&#39;, &#39;gamma&#39;, &#39;gcd&#39;, &#39;hypot&#39;, &#39;inf&#39;, &#39;isclose&#39;, &#39;isfinite&#39;, &#39;isinf&#39;, &#39;isnan&#39;, &#39;ldexp&#39;, &#39;lgamma&#39;, &#39;log&#39;, &#39;log10&#39;, &#39;log1p&#39;, &#39;log2&#39;, &#39;modf&#39;, &#39;nan&#39;, &#39;pi&#39;, &#39;pow&#39;, &#39;radians&#39;, &#39;sin&#39;, &#39;sinh&#39;, &#39;sqrt&#39;, &#39;tan&#39;, &#39;tanh&#39;, &#39;tau&#39;, &#39;trunc&#39;]</span>
 </pre></div>
 </div>
 <p>So that’s helpful, but what about when you don’t know what a given function does?
 The easiest solution is to use the <code class="docutils literal notranslate"><span class="pre">help()</span></code> function.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">help</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">)</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-11-5e7945893b7c&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">help</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">)</span>
+<span class="go">Help on built-in function sin in module math:</span>
 
-<span class="ne">NameError</span>: name &#39;math&#39; is not defined
+<span class="go">sin(...)</span>
+<span class="go">    sin(x)</span>
+<span class="go">    </span>
+<span class="go">    Return the sine of x (measured in radians).</span>
 </pre></div>
 </div>
 <p>Note that you’ll need to press <strong>q</strong> to exit the help viewer.</p>
@@ -524,7 +454,6 @@ Remember, people need to be able to read and understand the code you write, keep
         </dl>
         <dl>
             <dt>Branches</dt>
-            <dd><a href="../../../book-dev/index.html">book-dev</a></dd>
             <dd><a href="../../../develop/index.html">develop</a></dd>
             <dd><a href="../../../master/index.html">master</a></dd>
         </dl>

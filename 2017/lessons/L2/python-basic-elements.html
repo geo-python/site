@@ -291,95 +291,30 @@ You can find <a class="reference internal" href="../L1/A-taste-of-Python.html"><
 <li><p class="first">We saw a bit about variables and their values in the lesson last week, and we continue today with some variables related to <a class="reference external" href="http://en.ilmatieteenlaitos.fi/observation-stations">FMI observation stations in Finland</a>.
 For each station, a number of pieces of information are given, including the name of the station, an FMISID, its latitude, its longitude, and the station type.
 We can store this information and some additional information for a given station in Python as follows:</p>
-<pre class="literal-block">
-In [1]: stationName = 'Helsinki Kaivopuisto'
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">stationName</span> <span class="o">=</span> <span class="s1">&#39;Helsinki Kaivopuisto&#39;</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+<span class="gp">In [2]: </span><span class="n">stationID</span> <span class="o">=</span> <span class="mi">132310</span>
 
-In [2]: stationID = 132310
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<span class="gp">In [3]: </span><span class="n">stationLat</span> <span class="o">=</span> <span class="mf">60.15</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+<span class="gp">In [4]: </span><span class="n">stationLong</span> <span class="o">=</span> <span class="mf">24.96</span>
 
-In [3]: stationLat = 60.15
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [4]: stationLong = 24.96
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [5]: stationType = 'Mareographs'
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-</pre>
+<span class="gp">In [5]: </span><span class="n">stationType</span> <span class="o">=</span> <span class="s1">&#39;Mareographs&#39;</span>
+</pre></div>
+</div>
 <p>Here we have 5 values assigned to variables related to a single observation station.
 Each variable has a unique name and they can store different types of data.</p>
 </li>
 <li><p class="first">We can explore the different types of data stored in variables using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function.</p>
 <pre class="literal-block">
 In [6]: type(stationName)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-6-83879fc125ee&gt; in &lt;module&gt;()
-----&gt; 1 type(stationName)
-
-NameError: name 'stationName' is not defined
+Out[6]: str
 
 In [7]: type(stationID)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-7-cea0efdfc5eb&gt; in &lt;module&gt;()
-----&gt; 1 type(stationID)
-
-NameError: name 'stationID' is not defined
+Out[7]: int
 
 In [8]: type(stationLat)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-8-fa4770021088&gt; in &lt;module&gt;()
-----&gt; 1 type(stationLat)
-
-NameError: name 'stationLat' is not defined
+Out[8]: float
 </pre>
 <p>As expected, we see that the <code class="docutils literal notranslate"><span class="pre">stationName</span></code> is a character string, the <code class="docutils literal notranslate"><span class="pre">stationID</span></code> is an integer, and the <code class="docutils literal notranslate"><span class="pre">stationLat</span></code> is a floating point number.</p>
 <div class="admonition note">
@@ -388,11 +323,11 @@ NameError: name 'stationLat' is not defined
 </div>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">stationName</span> <span class="o">+</span> <span class="n">stationID</span>
 <span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-9-a9cbfafbc479&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">stationName</span> <span class="o">+</span> <span class="n">stationID</span>
 
-<span class="ne">NameError</span>: name &#39;stationName&#39; is not defined
+<span class="ne">TypeError</span>: must be str, not int
 </pre></div>
 </div>
 <p>Here we get a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> because Python does not know how we are expected to combine a string of characters (<code class="docutils literal notranslate"><span class="pre">stationName</span></code>) with an integer value (<code class="docutils literal notranslate"><span class="pre">stationID</span></code>).</p>
@@ -401,32 +336,12 @@ NameError: name 'stationLat' is not defined
 For example, we can could convert the <code class="docutils literal notranslate"><span class="pre">stationID</span></code> into a character string using the <code class="docutils literal notranslate"><span class="pre">str()</span></code> function.</p>
 <pre class="literal-block">
 In [10]: stationIDStr = str(stationID)
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [11]: type(stationIDStr)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-11-567d215835b5&gt; in &lt;module&gt;()
-----&gt; 1 type(stationIDStr)
-
-NameError: name 'stationIDStr' is not defined
+Out[11]: str
 
 In [12]: print(stationIDStr)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-12-d89305954ffb&gt; in &lt;module&gt;()
-----&gt; 1 print(stationIDStr)
-
-NameError: name 'stationIDStr' is not defined
+132310
 </pre>
 <p>As you can see, <code class="docutils literal notranslate"><span class="pre">str()</span></code> converts a numerical value into a character string with the same numbers as before.</p>
 <div class="admonition note">
@@ -440,27 +355,12 @@ NameError: name 'stationIDStr' is not defined
 </div>
 </li>
 <li><p class="first">Although most mathematical operations operate on numerical values, a common way to combine character strings is using the addition operator <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p>
-<pre class="literal-block">
-In [13]: stationNameAndID = stationName + &quot;: &quot; + str(stationID)
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">stationNameAndID</span> <span class="o">=</span> <span class="n">stationName</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">stationID</span><span class="p">)</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [14]: print(stationNameAndID)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-14-7af144b7f174&gt; in &lt;module&gt;()
-----&gt; 1 print(stationNameAndID)
-
-NameError: name 'stationNameAndID' is not defined
-</pre>
+<span class="gp">In [14]: </span><span class="nb">print</span><span class="p">(</span><span class="n">stationNameAndID</span><span class="p">)</span>
+<span class="go">Helsinki Kaivopuisto: 132310</span>
+</pre></div>
+</div>
 <p>Note that here we are converting <code class="docutils literal notranslate"><span class="pre">stationID</span></code> to a character string using the <code class="docutils literal notranslate"><span class="pre">str()</span></code> function within the assignment to the variable <code class="docutils literal notranslate"><span class="pre">stationNameAndID</span></code>.
 Alternatively, we could have simply added <code class="docutils literal notranslate"><span class="pre">stationName</span></code> and <code class="docutils literal notranslate"><span class="pre">stationIDStr</span></code>.</p>
 </li>
@@ -475,32 +375,12 @@ The simplest type of <em>collection</em> in Python is a <strong>list</strong>.</
 <li><p class="first">Let’s first create a list of selected <code class="docutils literal notranslate"><span class="pre">stationName</span></code> values.</p>
 <pre class="literal-block">
 In [15]: stationNames = ['Helsinki Harmaja', 'Helsinki Kaisaniemi', 'Helsinki Kaivopuisto', 'Helsinki Kumpula']
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [16]: print(stationNames)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-16-fd2d6b8215af&gt; in &lt;module&gt;()
-----&gt; 1 print(stationNames)
-
-NameError: name 'stationNames' is not defined
+['Helsinki Harmaja', 'Helsinki Kaisaniemi', 'Helsinki Kaivopuisto', 'Helsinki Kumpula']
 
 In [17]: type(stationNames)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-17-371569db184d&gt; in &lt;module&gt;()
-----&gt; 1 type(stationNames)
-
-NameError: name 'stationNames' is not defined
+Out[17]: list
 </pre>
 <p>Here we have a list of 4 <code class="docutils literal notranslate"><span class="pre">stationName</span></code> values in a list called <code class="docutils literal notranslate"><span class="pre">stationNames</span></code>.
 As you can see, the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function recognizes this as a list.
@@ -510,12 +390,7 @@ Lists can be created using the square brackets (<code class="docutils literal no
 An <strong>index value</strong> is a number that refers to a given position in the list.
 Let’s check out the first value in our list as an example:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="nb">print</span><span class="p">(</span><span class="n">stationNames</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-18-50f4467dead1&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">stationNames</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;stationNames&#39; is not defined
+<span class="go">Helsinki Kaisaniemi</span>
 </pre></div>
 </div>
 <p>Wait, what?
@@ -523,12 +398,7 @@ This is the second value in the list we’ve created, what is wrong?
 As it turns out, Python (and many other programming languages) start values stored in collections with the index value 0.
 Thus, to get the value for the first item in the list, we must use index 0.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="nb">print</span><span class="p">(</span><span class="n">stationNames</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-19-2e74447d960e&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">stationNames</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;stationNames&#39; is not defined
+<span class="go">Helsinki Harmaja</span>
 </pre></div>
 </div>
 <p>OK, that makes sense, but it may take some getting used to…</p>
@@ -547,23 +417,13 @@ In an analogy to Python, we could say Bill is simply a <em>list</em> of food ite
 For example, if you would like to buy a taco from Bill, you would push button <code class="docutils literal notranslate"><span class="pre">3</span></code>.
 The equivalent operation in Python would simply be</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [20]: </span><span class="nb">print</span><span class="p">(</span><span class="n">Bill</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-20-93b0a1dec97a&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">Bill</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;Bill&#39; is not defined
+<span class="go">Taco</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">We can find the length of a list using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="nb">len</span><span class="p">(</span><span class="n">stationNames</span><span class="p">)</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-21-23e3f2489caa&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">len</span><span class="p">(</span><span class="n">stationNames</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;stationNames&#39; is not defined
+<span class="gh">Out[21]: </span><span class="go">4</span>
 </pre></div>
 </div>
 <p>Just as expected, there are 4 values in our list and <code class="docutils literal notranslate"><span class="pre">len(stationNames)</span></code> returns a value of 4.</p>
@@ -571,11 +431,11 @@ The equivalent operation in Python would simply be</p>
 <li><p class="first">If we know the length of the list, we can now use it to find the value of the last item in the list, right?</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [22]: </span><span class="nb">print</span><span class="p">(</span><span class="n">stationNames</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
 <span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-22-802825731e74&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">stationNames</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
 
-<span class="ne">NameError</span>: name &#39;stationNames&#39; is not defined
+<span class="ne">IndexError</span>: list index out of range
 </pre></div>
 </div>
 <p>What, an <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>?
@@ -583,39 +443,24 @@ That’s right, since our list starts with index 0 and has 4 values, the index o
 That isn’t ideal, but fortunately there’s a nice trick in Python to find the last item in a list.</p>
 <pre class="literal-block">
 In [23]: print(stationNames)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-23-fd2d6b8215af&gt; in &lt;module&gt;()
-----&gt; 1 print(stationNames)
-
-NameError: name 'stationNames' is not defined
+['Helsinki Harmaja', 'Helsinki Kaisaniemi', 'Helsinki Kaivopuisto', 'Helsinki Kumpula']
 
 In [24]: print(stationNames[-1])
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-24-ee022fc764ab&gt; in &lt;module&gt;()
-----&gt; 1 print(stationNames[-1])
-
-NameError: name 'stationNames' is not defined
+Helsinki Kumpula
 
 In [25]: print(stationNames[-4])
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-25-ec8982490ae7&gt; in &lt;module&gt;()
-----&gt; 1 print(stationNames[-4])
-
-NameError: name 'stationNames' is not defined
+Helsinki Harmaja
 </pre>
 <p>Yes, in Python you can go backwards through lists by using negative index values.
 Index -1 gives the last value in the list and index <code class="docutils literal notranslate"><span class="pre">-len(SampleIDs)</span></code> would give the first.
 Of course, you still need to keep the index values within their ranges.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [26]: </span><span class="nb">print</span><span class="p">(</span><span class="n">stationNames</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">])</span>
 <span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-26-b40ca6c3b597&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">stationNames</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">])</span>
 
-<span class="ne">NameError</span>: name &#39;stationNames&#39; is not defined
+<span class="ne">IndexError</span>: list index out of range
 </pre></div>
 </div>
 <div class="admonition attention">
@@ -626,170 +471,68 @@ Of course, you still need to keep the index values within their ranges.</p>
 </li>
 <li><p class="first">Another nice feature of lists is that they are <em>mutable</em>, meaning that the values in a list that has been defined can be modified.
 Consider a list of the observation station types corresponding to the station names in the <code class="docutils literal notranslate"><span class="pre">stationNames</span></code> list.</p>
-<pre class="literal-block">
-In [27]: stationTypes = ['Weather stations', 'Weather stations', 'Weather stations', 'Weather stations']
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [27]: </span><span class="n">stationTypes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Weather stations&#39;</span><span class="p">,</span> <span class="s1">&#39;Weather stations&#39;</span><span class="p">,</span> <span class="s1">&#39;Weather stations&#39;</span><span class="p">,</span> <span class="s1">&#39;Weather stations&#39;</span><span class="p">]</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [28]: print(stationTypes)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-28-1d6b5b0d995b&gt; in &lt;module&gt;()
-----&gt; 1 print(stationTypes)
-
-NameError: name 'stationTypes' is not defined
-</pre>
+<span class="gp">In [28]: </span><span class="nb">print</span><span class="p">(</span><span class="n">stationTypes</span><span class="p">)</span>
+<span class="go">[&#39;Weather stations&#39;, &#39;Weather stations&#39;, &#39;Weather stations&#39;, &#39;Weather stations&#39;]</span>
+</pre></div>
+</div>
 <p>Now as we saw before, the station type for Helsinki Kaivopuisto should be ‘Mareographs’, not ‘Weather stations’.
 Fortunately, this is an easy fix.
 We simply replace the value at the corresponding location in the list with the correct one.</p>
-<pre class="literal-block">
-In [29]: stationTypes[2] = 'Mareographs'
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [29]: </span><span class="n">stationTypes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Mareographs&#39;</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [30]: print(stationTypes)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-30-1d6b5b0d995b&gt; in &lt;module&gt;()
-----&gt; 1 print(stationTypes)
-
-NameError: name 'stationTypes' is not defined
-</pre>
+<span class="gp">In [30]: </span><span class="nb">print</span><span class="p">(</span><span class="n">stationTypes</span><span class="p">)</span>
+<span class="go">[&#39;Weather stations&#39;, &#39;Weather stations&#39;, &#39;Mareographs&#39;, &#39;Weather stations&#39;]</span>
+</pre></div>
+</div>
 </li>
 <li><p class="first">Lists also do not need to have only one type of data.
 Let’s consider that in addition to having a list of each station name, FMISID, latitude, etc. we would like to have a list of all of the values for station ‘Helsinki Kaivopuisto’.</p>
-<pre class="literal-block">
-In [31]: stationHelKaivo = [stationName, stationID, stationLat, stationLong, stationType]
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [31]: </span><span class="n">stationHelKaivo</span> <span class="o">=</span> <span class="p">[</span><span class="n">stationName</span><span class="p">,</span> <span class="n">stationID</span><span class="p">,</span> <span class="n">stationLat</span><span class="p">,</span> <span class="n">stationLong</span><span class="p">,</span> <span class="n">stationType</span><span class="p">]</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [32]: print(stationHelKaivo)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-32-6c805d660b9e&gt; in &lt;module&gt;()
-----&gt; 1 print(stationHelKaivo)
-
-NameError: name 'stationHelKaivo' is not defined
-</pre>
+<span class="gp">In [32]: </span><span class="nb">print</span><span class="p">(</span><span class="n">stationHelKaivo</span><span class="p">)</span>
+<span class="go">[&#39;Helsinki Kaivopuisto&#39;, 132310, 60.15, 24.96, &#39;Mareographs&#39;]</span>
+</pre></div>
+</div>
 <p>Here we have one list with 3 different type of data in it.
 We can confirm this using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function.</p>
 <pre class="literal-block">
 In [33]: type(stationHelKaivo)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-33-7d5e3c476c81&gt; in &lt;module&gt;()
-----&gt; 1 type(stationHelKaivo)
-
-NameError: name 'stationHelKaivo' is not defined
+Out[33]: list
 
 In [34]: type(stationHelKaivo[0])    # The station name
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-34-2a849d6ae705&gt; in &lt;module&gt;()
-----&gt; 1 type(stationHelKaivo[0])    # The station name
-
-NameError: name 'stationHelKaivo' is not defined
+Out[34]: str
 
 In [35]: type(stationHelKaivo[1])    # The FMISID
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-35-ddac7ed42d31&gt; in &lt;module&gt;()
-----&gt; 1 type(stationHelKaivo[1])    # The FMISID
-
-NameError: name 'stationHelKaivo' is not defined
+Out[35]: int
 
 In [36]: type(stationHelKaivo[2])    # The station latitude
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-36-9a4c8a40277e&gt; in &lt;module&gt;()
-----&gt; 1 type(stationHelKaivo[2])    # The station latitude
-
-NameError: name 'stationHelKaivo' is not defined
+Out[36]: float
 </pre>
 </li>
 <li><p class="first">Finally, we can add and remove values from lists to change their lengths.
 Let’s consider that we no longer want to include the first value in the <code class="docutils literal notranslate"><span class="pre">stationNames</span></code> list.</p>
-<pre class="literal-block">
-In [37]: print(stationNames)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-37-fd2d6b8215af&gt; in &lt;module&gt;()
-----&gt; 1 print(stationNames)
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [37]: </span><span class="nb">print</span><span class="p">(</span><span class="n">stationNames</span><span class="p">)</span>
+<span class="go">[&#39;Helsinki Harmaja&#39;, &#39;Helsinki Kaisaniemi&#39;, &#39;Helsinki Kaivopuisto&#39;, &#39;Helsinki Kumpula&#39;]</span>
 
-NameError: name 'stationNames' is not defined
+<span class="gp">In [38]: </span><span class="k">del</span> <span class="n">stationNames</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-In [38]: del stationNames[0]
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [39]: print(stationNames)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-39-fd2d6b8215af&gt; in &lt;module&gt;()
-----&gt; 1 print(stationNames)
-
-NameError: name 'stationNames' is not defined
-</pre>
+<span class="gp">In [39]: </span><span class="nb">print</span><span class="p">(</span><span class="n">stationNames</span><span class="p">)</span>
+<span class="go">[&#39;Helsinki Kaisaniemi&#39;, &#39;Helsinki Kaivopuisto&#39;, &#39;Helsinki Kumpula&#39;]</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">del</span></code> allows values in lists to be removed.
 It can also be used to delete values from memory in Python.
 If we would instead like to add a few samples to the <code class="docutils literal notranslate"><span class="pre">stationNames</span></code> list, we can do so as follows.</p>
-<pre class="literal-block">
-In [40]: stationNames.append('Helsinki lighthouse')
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-40-e857c6b4804a&gt; in &lt;module&gt;()
-----&gt; 1 stationNames.append('Helsinki lighthouse')
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [40]: </span><span class="n">stationNames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Helsinki lighthouse&#39;</span><span class="p">)</span>
 
-NameError: name 'stationNames' is not defined
+<span class="gp">In [41]: </span><span class="n">stationNames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Helsinki Malmi airfield&#39;</span><span class="p">)</span>
 
-In [41]: stationNames.append('Helsinki Malmi airfield')
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-41-bfaf69b6a554&gt; in &lt;module&gt;()
-----&gt; 1 stationNames.append('Helsinki Malmi airfield')
-
-NameError: name 'stationNames' is not defined
-
-In [42]: print(stationNames)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-42-fd2d6b8215af&gt; in &lt;module&gt;()
-----&gt; 1 print(stationNames)
-
-NameError: name 'stationNames' is not defined
-</pre>
+<span class="gp">In [42]: </span><span class="nb">print</span><span class="p">(</span><span class="n">stationNames</span><span class="p">)</span>
+<span class="go">[&#39;Helsinki Kaisaniemi&#39;, &#39;Helsinki Kaivopuisto&#39;, &#39;Helsinki Kumpula&#39;, &#39;Helsinki lighthouse&#39;, &#39;Helsinki Malmi airfield&#39;]</span>
+</pre></div>
+</div>
 <p>As you can see, we add values one at a time using <code class="docutils literal notranslate"><span class="pre">stationNames.append()</span></code>.
 <code class="docutils literal notranslate"><span class="pre">list.append()</span></code> is called a <em>method</em> in Python, which is a function that works for a given data type (a list in this case).
 We’ll see a bit more about these below.</p>
@@ -807,43 +550,22 @@ As we know, we already have data in the list <code class="docutils literal notra
 We can also do other things such as count the number of times a value occurs in a list, or where it occurs.</p>
 <pre class="literal-block">
 In [43]: stationNames.count('Helsinki Kumpula')    # The count method counts the number of occurences of a value
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-43-2706977ee63e&gt; in &lt;module&gt;()
-----&gt; 1 stationNames.count('Helsinki Kumpula')    # The count method counts the number of occurences of a value
-
-NameError: name 'stationNames' is not defined
+Out[43]: 1
 
 In [44]: stationNames.index('Helsinki Kumpula')    # The index method gives the index value of an item in a list
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-44-f6c85e6b5154&gt; in &lt;module&gt;()
-----&gt; 1 stationNames.index('Helsinki Kumpula')    # The index method gives the index value of an item in a list
-
-NameError: name 'stationNames' is not defined
+Out[44]: 2
 </pre>
 <p>The good news here is that our selected station name is only in the list once.
 Should we need to modify it for some reason, we also now know where it is in the list (index <code class="docutils literal notranslate"><span class="pre">2</span></code>).</p>
 </li>
 <li><p class="first">There are two other common methods for lists that we need to see.
 First, there is the <code class="docutils literal notranslate"><span class="pre">.reverse()</span></code> method, used to reverse the order of items in a list.</p>
-<pre class="literal-block">
-In [45]: stationNames.reverse()
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-45-d8309ac50b75&gt; in &lt;module&gt;()
-----&gt; 1 stationNames.reverse()
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="n">stationNames</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
 
-NameError: name 'stationNames' is not defined
-
-In [46]: print(stationNames)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-46-fd2d6b8215af&gt; in &lt;module&gt;()
-----&gt; 1 print(stationNames)
-
-NameError: name 'stationNames' is not defined
-</pre>
+<span class="gp">In [46]: </span><span class="nb">print</span><span class="p">(</span><span class="n">stationNames</span><span class="p">)</span>
+<span class="go">[&#39;Helsinki Malmi airfield&#39;, &#39;Helsinki lighthouse&#39;, &#39;Helsinki Kumpula&#39;, &#39;Helsinki Kaivopuisto&#39;, &#39;Helsinki Kaisaniemi&#39;]</span>
+</pre></div>
+</div>
 <p>Yay, it works!</p>
 <div class="admonition caution">
 <p class="first admonition-title">Caution</p>
@@ -855,23 +577,12 @@ This means you’ve deleted the list contents (!).</p>
 </div>
 </li>
 <li><p class="first">The <code class="docutils literal notranslate"><span class="pre">.sort()</span></code> method works the same way.</p>
-<pre class="literal-block">
-In [47]: stationNames.sort()   # Notice no output here...
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-47-52efe3c4f68f&gt; in &lt;module&gt;()
-----&gt; 1 stationNames.sort()   # Notice no output here...
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [47]: </span><span class="n">stationNames</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>   <span class="c1"># Notice no output here...</span>
 
-NameError: name 'stationNames' is not defined
-
-In [48]: print(stationNames)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-48-fd2d6b8215af&gt; in &lt;module&gt;()
-----&gt; 1 print(stationNames)
-
-NameError: name 'stationNames' is not defined
-</pre>
+<span class="gp">In [48]: </span><span class="nb">print</span><span class="p">(</span><span class="n">stationNames</span><span class="p">)</span>
+<span class="go">[&#39;Helsinki Kaisaniemi&#39;, &#39;Helsinki Kaivopuisto&#39;, &#39;Helsinki Kumpula&#39;, &#39;Helsinki Malmi airfield&#39;, &#39;Helsinki lighthouse&#39;]</span>
+</pre></div>
+</div>
 <p>As you can see, the list has been sorted alphabetically using the <code class="docutils literal notranslate"><span class="pre">.sort()</span></code> method, but there is no screen output when this occurs.
 Again, if you were to assign that output to <code class="docutils literal notranslate"><span class="pre">stationNames</span></code> the list would get sorted, but the contents would then be assigned <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 <div class="admonition note">
@@ -938,7 +649,6 @@ This is because alphabetical sorting in Python places capital letters before low
         </dl>
         <dl>
             <dt>Branches</dt>
-            <dd><a href="../../../book-dev/index.html">book-dev</a></dd>
             <dd><a href="../../../develop/index.html">develop</a></dd>
             <dd><a href="../../../master/index.html">master</a></dd>
         </dl>

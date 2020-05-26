@@ -294,15 +294,11 @@ Next we continue to explore some of the basic data operations that are regularly
 <pre class="literal-block">
 In [1]: dataFrame['DIFF'] = 0.0
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-1-467690b2748d&gt; in &lt;module&gt;()
+----&gt; 1 dataFrame['DIFF'] = 0.0
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'dataFrame' is not defined
 
 In [2]: print(dataFrame)
 ---------------------------------------------------------------------------
@@ -329,15 +325,11 @@ using the columns that we have in our dataFrameFrame.</p>
 <pre class="literal-block">
 In [4]: dataFrame['DIFF'] = dataFrame['MAX'] - dataFrame['MIN']
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-4-3f5e45abd704&gt; in &lt;module&gt;()
+----&gt; 1 dataFrame['DIFF'] = dataFrame['MAX'] - dataFrame['MIN']
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'dataFrame' is not defined
 
 In [5]: print(dataFrame)
 ---------------------------------------------------------------------------
@@ -352,15 +344,11 @@ this by calculating the difference between minimum temperature (<code class="doc
 <pre class="literal-block">
 In [6]: dataFrame['DIFF_Min'] = dataFrame['TEMP'] - dataFrame['MIN']
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-6-4e18ca0589cb&gt; in &lt;module&gt;()
+----&gt; 1 dataFrame['DIFF_Min'] = dataFrame['TEMP'] - dataFrame['MIN']
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'dataFrame' is not defined
 
 In [7]: print(dataFrame)
 ---------------------------------------------------------------------------
@@ -376,15 +364,11 @@ algebra (e.g. subtracttion, addition, multiplication, division, exponentiation, 
 <pre class="literal-block">
 In [8]: dataFrame['TEMP_Celsius'] = (dataFrame['TEMP'] - 32) / (9/5)
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-8-b731cc09f71d&gt; in &lt;module&gt;()
+----&gt; 1 dataFrame['TEMP_Celsius'] = (dataFrame['TEMP'] - 32) / (9/5)
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'dataFrame' is not defined
 
 In [9]: print(dataFrame)
 ---------------------------------------------------------------------------
@@ -404,15 +388,11 @@ In Pandas there are different ways of doing this.</p>
 <pre class="literal-block">
 In [10]: rows5 = dataFrame[0:5]
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-10-d3acb6d06e91&gt; in &lt;module&gt;()
+----&gt; 1 rows5 = dataFrame[0:5]
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'dataFrame' is not defined
 
 In [11]: print(rows5)
 ---------------------------------------------------------------------------
@@ -428,15 +408,11 @@ NameError: name 'rows5' is not defined
 <pre class="literal-block">
 In [12]: row8 = dataFrame.loc[8]
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-12-cb34aff2ba32&gt; in &lt;module&gt;()
+----&gt; 1 row8 = dataFrame.loc[8]
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'dataFrame' is not defined
 
 In [13]: print(row8)
 ---------------------------------------------------------------------------
@@ -476,15 +452,11 @@ NameError: name 'row8' is not defined
 <pre class="literal-block">
 In [16]: temps_5to10 = dataFrame.loc[5:10, 'TEMP']
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-16-b11a046cfae5&gt; in &lt;module&gt;()
+----&gt; 1 temps_5to10 = dataFrame.loc[5:10, 'TEMP']
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'dataFrame' is not defined
 
 In [17]: print(temps_5to10)
 ---------------------------------------------------------------------------
@@ -498,15 +470,11 @@ NameError: name 'temps_5to10' is not defined
 <pre class="literal-block">
 In [18]: temps_5to10 = dataFrame.loc[5:10, ['TEMP', 'TEMP_Celsius']]
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-18-afa97d7f37e8&gt; in &lt;module&gt;()
+----&gt; 1 temps_5to10 = dataFrame.loc[5:10, ['TEMP', 'TEMP_Celsius']]
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'dataFrame' is not defined
 
 In [19]: print(temps_5to10)
 ---------------------------------------------------------------------------
@@ -520,15 +488,11 @@ NameError: name 'temps_5to10' is not defined
 <pre class="literal-block">
 In [20]: temps_only = dataFrame[['TEMP', 'TEMP_Celsius']]
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-20-a66480fe3896&gt; in &lt;module&gt;()
+----&gt; 1 temps_only = dataFrame[['TEMP', 'TEMP_Celsius']]
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'dataFrame' is not defined
 
 In [21]: print(temps_only)
 ---------------------------------------------------------------------------
@@ -546,15 +510,11 @@ The following example shows how to select rows when the Celsius temperature has 
 <pre class="literal-block">
 In [22]: w_temps = dataFrame.ix[dataFrame['TEMP_Celsius'] &gt; 15]
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-22-6c84ba90db30&gt; in &lt;module&gt;()
+----&gt; 1 w_temps = dataFrame.ix[dataFrame['TEMP_Celsius'] &gt; 15]
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'dataFrame' is not defined
 
 In [23]: print(w_temps)
 ---------------------------------------------------------------------------
@@ -569,15 +529,11 @@ Combining multiple criteria can be done with <code class="docutils literal notra
 <pre class="literal-block">
 In [24]: w_temps2 = dataFrame.ix[(dataFrame['TEMP_Celsius'] &gt; 15) &amp; (dataFrame['YEARMODA'] &gt;= 20160615)]
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-24-9105d55e97a3&gt; in &lt;module&gt;()
+----&gt; 1 w_temps2 = dataFrame.ix[(dataFrame['TEMP_Celsius'] &gt; 15) &amp; (dataFrame['YEARMODA'] &gt;= 20160615)]
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'dataFrame' is not defined
 
 In [25]: print(w_temps2)
 ---------------------------------------------------------------------------
@@ -594,15 +550,11 @@ index which might be useful in some cases but here not, so we can omit that by p
 <pre class="literal-block">
 In [26]: w_temps2 = w_temps2.reset_index(drop=True)
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-26-cf18e9f68848&gt; in &lt;module&gt;()
+----&gt; 1 w_temps2 = w_temps2.reset_index(drop=True)
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'w_temps2' is not defined
 
 In [27]: print(w_temps2)
 ---------------------------------------------------------------------------
@@ -620,15 +572,11 @@ NameError: name 'w_temps2' is not defined
 <pre class="literal-block">
 In [28]: w_temps2.loc[:4, 'TEMP_Celsius'] = None
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-28-3251b4a5c3b5&gt; in &lt;module&gt;()
+----&gt; 1 w_temps2.loc[:4, 'TEMP_Celsius'] = None
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'w_temps2' is not defined
 
 In [29]: print(w_temps2)
 ---------------------------------------------------------------------------
@@ -650,15 +598,11 @@ you can pass with <code class="docutils literal notranslate"><span class="pre">s
 <pre class="literal-block">
 In [30]: w_temps_clean = w_temps2.dropna(subset=['TEMP_Celsius'])
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-30-fce4ded4bd09&gt; in &lt;module&gt;()
+----&gt; 1 w_temps_clean = w_temps2.dropna(subset=['TEMP_Celsius'])
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'w_temps2' is not defined
 
 In [31]: print(w_temps_clean)
 ---------------------------------------------------------------------------
@@ -673,15 +617,11 @@ NameError: name 'w_temps_clean' is not defined
 <pre class="literal-block">
 In [32]: w_temps_na_filled = w_temps2.fillna(0)
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-32-91a0325d8ba1&gt; in &lt;module&gt;()
+----&gt; 1 w_temps_na_filled = w_temps2.fillna(0)
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'w_temps2' is not defined
 
 In [33]: print(w_temps_na_filled)
 ---------------------------------------------------------------------------
@@ -706,15 +646,11 @@ This can be easily done with Pandas using <code class="docutils literal notransl
 <pre class="literal-block">
 In [34]: sorted_temp_a = dataFrame.sort_values(by='TEMP')
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-34-65b63b18249e&gt; in &lt;module&gt;()
+----&gt; 1 sorted_temp_a = dataFrame.sort_values(by='TEMP')
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'dataFrame' is not defined
 
 In [35]: print(sorted_temp_a)
 ---------------------------------------------------------------------------
@@ -728,15 +664,11 @@ NameError: name 'sorted_temp_a' is not defined
 <pre class="literal-block">
 In [36]: sorted_temp_d = dataFrame.sort_values(by='TEMP', ascending=False)
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-36-f81bb97822d3&gt; in &lt;module&gt;()
+----&gt; 1 sorted_temp_d = dataFrame.sort_values(by='TEMP', ascending=False)
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'dataFrame' is not defined
 
 In [37]: print(sorted_temp_d)
 ---------------------------------------------------------------------------
@@ -753,15 +685,11 @@ NameError: name 'sorted_temp_d' is not defined
 <pre class="literal-block">
 In [38]: dataFrame['Celsius_rounded'] = dataFrame['TEMP_Celsius'].round(0)
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-38-279cbb9149b0&gt; in &lt;module&gt;()
+----&gt; 1 dataFrame['Celsius_rounded'] = dataFrame['TEMP_Celsius'].round(0)
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'dataFrame' is not defined
 
 In [39]: print(dataFrame)
 ---------------------------------------------------------------------------
@@ -776,15 +704,11 @@ We can do that by using <code class="docutils literal notranslate"><span class="
 <pre class="literal-block">
 In [40]: unique = dataFrame['Celsius_rounded'].unique()
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-40-47fcb7836a00&gt; in &lt;module&gt;()
+----&gt; 1 unique = dataFrame['Celsius_rounded'].unique()
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'dataFrame' is not defined
 
 In [41]: unique
 ---------------------------------------------------------------------------
@@ -812,15 +736,11 @@ NameError: name 'unique' is not defined
 <pre class="literal-block">
 In [43]: uniq_temp_days = len(unique)
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-43-8719dceea370&gt; in &lt;module&gt;()
+----&gt; 1 uniq_temp_days = len(unique)
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'unique' is not defined
 
 In [44]: print(&quot;There were&quot;, uniq_temp_days, &quot;days with unique mean temperatures in June 2016.&quot;)
 ---------------------------------------------------------------------------
@@ -837,54 +757,34 @@ NameError: name 'uniq_temp_days' is not defined
 by default (<a class="reference external" href="pandas-overview.html#supports-data-read-write-from-multiple-formats">see more info here</a>).
 The most typical output format by far is CSV file. Function <code class="docutils literal notranslate"><span class="pre">to_csv()</span></code> can be used to easily save your data in CSV format.</p>
 <p>Let’s first save the data from our <code class="docutils literal notranslate"><span class="pre">data</span></code> DataFrame into a file called <code class="docutils literal notranslate"><span class="pre">Kumpula_temp_results_June_2016.csv</span></code> .</p>
-<pre class="literal-block">
-In [45]: output_fp = &quot;Kumpula_temps_June_2016.csv&quot;
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="n">output_fp</span> <span class="o">=</span> <span class="s2">&quot;Kumpula_temps_June_2016.csv&quot;</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+<span class="gp">In [46]: </span><span class="n">dataFrame</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-46-b683b7a0065e&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
 
-In [46]: dataFrame.to_csv(output_fp, sep=',')
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-46-b683b7a0065e&gt; in &lt;module&gt;()
-----&gt; 1 dataFrame.to_csv(output_fp, sep=',')
-
-NameError: name 'dataFrame' is not defined
-</pre>
+<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+</pre></div>
+</div>
 <p>Nice, now we have the data from our DataFrame saved to a file:</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../_images/pandas_save_file_result_1.PNG"><img alt="../../_images/pandas_save_file_result_1.PNG" src="../../_images/pandas_save_file_result_1.PNG" style="width: 500px;" /></a>
 </div>
 <p>As you can see, the first value in the datafile contains now the index value of the rows. There are also quite many decimals present in the new columns
 that we created. Let’s deal with these and save the temperature values from <code class="docutils literal notranslate"><span class="pre">w_temps</span></code> DataFrame without the index and with only 1 decimal in the floating point numbers.</p>
-<pre class="literal-block">
-In [47]: output_fp2 = &quot;Kumpula_temps_above15_June_2016.csv&quot;
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [47]: </span><span class="n">output_fp2</span> <span class="o">=</span> <span class="s2">&quot;Kumpula_temps_above15_June_2016.csv&quot;</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+<span class="gp">In [48]: </span><span class="n">dataFrame</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_fp2</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%.1f</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-48-566e696c670a&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_fp2</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%.1f</span><span class="s2">&quot;</span><span class="p">)</span>
 
-In [48]: dataFrame.to_csv(output_fp2, sep=',', index=False, float_format=&quot;%.1f&quot;)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-48-566e696c670a&gt; in &lt;module&gt;()
-----&gt; 1 dataFrame.to_csv(output_fp2, sep=',', index=False, float_format=&quot;%.1f&quot;)
-
-NameError: name 'dataFrame' is not defined
-</pre>
+<span class="ne">NameError</span>: name &#39;dataFrame&#39; is not defined
+</pre></div>
+</div>
 <p>Omitting the index can be with <code class="docutils literal notranslate"><span class="pre">index=False</span></code> parameter. Specifying how many decimals should be written can be done with <code class="docutils literal notranslate"><span class="pre">float_fomat</span></code> -parameter where text <code class="docutils literal notranslate"><span class="pre">%.1f</span></code> defines Pandas to use 1 decimals
 in all columns when writing the data to a file (changing the value 1 to 2 would write 2 decimals etc.)</p>
 <div class="figure">
@@ -898,28 +798,21 @@ First, you need to initialize a specific <code class="docutils literal notransla
 Optionally, you can also omit the index and specify the float formatting as in our earlier examples:</p>
 <pre class="literal-block">
 In [49]: excel_output_fp = &quot;Kumpula_temps_June_2016.xlsx&quot;
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [50]: writer = pd.ExcelWriter(excel_output_fp)
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+ModuleNotFoundError                       Traceback (most recent call last)
+&lt;ipython-input-50-17f6f6c3da7e&gt; in &lt;module&gt;()
+----&gt; 1 writer = pd.ExcelWriter(excel_output_fp)
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/excel/_openpyxl.py in __init__(self, path, engine, mode, **engine_kwargs)
+     16     def __init__(self, path, engine=None, mode=&quot;w&quot;, **engine_kwargs):
+     17         # Use the openpyxl module as the Excel writer.
+---&gt; 18         from openpyxl.workbook import Workbook
+     19 
+     20         super().__init__(path, mode=mode, **engine_kwargs)
+
+ModuleNotFoundError: No module named 'openpyxl'
 
 In [51]: dataFrame.to_excel(writer, sheet_name=&quot;Kumpula_temperatures&quot;, index=False, float_format=&quot;%.1f&quot;)
 ---------------------------------------------------------------------------
@@ -989,7 +882,6 @@ NameError: name 'dataFrame' is not defined
         </dl>
         <dl>
             <dt>Branches</dt>
-            <dd><a href="../../../book-dev/index.html">book-dev</a></dd>
             <dd><a href="../../../develop/index.html">develop</a></dd>
             <dd><a href="../../../master/index.html">master</a></dd>
         </dl>

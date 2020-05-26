@@ -1042,16 +1042,7 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+A wind speed of 9 km/hr is 2.5 m/s.
 </pre></div></div>
 </div>
 <p>This all seems fine, but you might want to ensure that the values for the wind speed are not negative numbers, since speed is simply the magnitude of the wind velocity, which should always be positive or zero. We can enforce this condition by adding an assertion to our function.</p>
@@ -1077,16 +1068,7 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+A wind speed of 9 km/hr is 2.5 m/s.
 </pre></div></div>
 </div>
 <p>OK, so everything still works when using a positive value, but what happens if we now give a negative value for the wind speed? Let’s check!</p>
@@ -1108,15 +1090,21 @@ This page was generated from <a class="reference external" href="https://github.
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+<span class="ansi-red-fg">AssertionError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-3-e1923472b34d&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> wind_speed_km <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">27</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>wind_speed_ms <span class="ansi-blue-fg">=</span> convert_kph_ms<span class="ansi-blue-fg">(</span>wind_speed_km<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;A wind speed of&#39;</span><span class="ansi-blue-fg">,</span> wind_speed_km<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;km/hr is&#39;</span><span class="ansi-blue-fg">,</span> wind_speed_ms<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;m/s.&#39;</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+<span class="ansi-green-fg">&lt;ipython-input-2-be0b73a70f84&gt;</span> in <span class="ansi-cyan-fg">convert_kph_ms</span><span class="ansi-blue-fg">(speed)</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">def</span> convert_kph_ms<span class="ansi-blue-fg">(</span>speed<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span>     <span class="ansi-blue-fg">&#34;&#34;&#34;Converts velocity (speed) in km/hr to m/s&#34;&#34;&#34;</span>
+<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">assert</span> speed <span class="ansi-blue-fg">&gt;=</span> <span class="ansi-cyan-fg">0.0</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span class="ansi-green-fg">return</span> speed <span class="ansi-blue-fg">*</span> <span class="ansi-cyan-fg">1000</span> <span class="ansi-blue-fg">/</span> <span class="ansi-cyan-fg">3600</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>
+
+<span class="ansi-red-fg">AssertionError</span>:
 </pre></div></div>
 </div>
 <p>OK, so now we get an <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> when a negative value is provided. This <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> is produced because of the <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement we entered in the function definition. If the condition listed after <code class="docutils literal notranslate"><span class="pre">assert</span></code> is false, an <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> is raised.</p>
@@ -1144,15 +1132,22 @@ This page was generated from <a class="reference external" href="https://github.
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+<span class="ansi-red-fg">AssertionError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-4-c3f5cf9b7bae&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span> wind_speed_km <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">27</span>
+<span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg"> </span>wind_speed_ms <span class="ansi-blue-fg">=</span> convert_kph_ms<span class="ansi-blue-fg">(</span>wind_speed_km<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      8</span>
+<span class="ansi-green-intense-fg ansi-bold">      9</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;A wind speed of&#39;</span><span class="ansi-blue-fg">,</span> wind_speed_km<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;km/hr is&#39;</span><span class="ansi-blue-fg">,</span> wind_speed_ms<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;m/s.&#39;</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+<span class="ansi-green-fg">&lt;ipython-input-4-c3f5cf9b7bae&gt;</span> in <span class="ansi-cyan-fg">convert_kph_ms</span><span class="ansi-blue-fg">(speed)</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">def</span> convert_kph_ms<span class="ansi-blue-fg">(</span>speed<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span>     <span class="ansi-blue-fg">&#34;&#34;&#34;Converts velocity (speed) in km/hr to m/s&#34;&#34;&#34;</span>
+<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">assert</span> speed <span class="ansi-blue-fg">&gt;=</span> <span class="ansi-cyan-fg">0.0</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;Wind speed values must be positive or zero&#39;</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span class="ansi-green-fg">return</span> speed <span class="ansi-blue-fg">*</span> <span class="ansi-cyan-fg">1000</span> <span class="ansi-blue-fg">/</span> <span class="ansi-cyan-fg">3600</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>
+
+<span class="ansi-red-fg">AssertionError</span>: Wind speed values must be positive or zero
 </pre></div></div>
 </div>
 <p>Nice! Now we see that when the <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> is raised, the message informs us about why it happened without having to interpret the code. The message also makes it easy to fix our value for <code class="docutils literal notranslate"><span class="pre">wind_speed_km</span></code> to work with the <code class="docutils literal notranslate"><span class="pre">convert_kph_ms</span></code> function.</p>
@@ -1190,15 +1185,22 @@ This page was generated from <a class="reference external" href="https://github.
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+<span class="ansi-red-fg">AssertionError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-5-3619235161ea&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>
+<span class="ansi-green-intense-fg ansi-bold">      7</span> wind_speed_km <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;dog&#39;</span>
+<span class="ansi-green-fg">----&gt; 8</span><span class="ansi-red-fg"> </span>wind_speed_ms <span class="ansi-blue-fg">=</span> convert_kph_ms<span class="ansi-blue-fg">(</span>wind_speed_km<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      9</span>
+<span class="ansi-green-intense-fg ansi-bold">     10</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;A wind speed of&#39;</span><span class="ansi-blue-fg">,</span> wind_speed_km<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;km/hr is&#39;</span><span class="ansi-blue-fg">,</span> wind_speed_ms<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;m/s.&#39;</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+<span class="ansi-green-fg">&lt;ipython-input-5-3619235161ea&gt;</span> in <span class="ansi-cyan-fg">convert_kph_ms</span><span class="ansi-blue-fg">(speed)</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">def</span> convert_kph_ms<span class="ansi-blue-fg">(</span>speed<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span>     <span class="ansi-blue-fg">&#34;&#34;&#34;Converts velocity (speed) in km/hr to m/s&#34;&#34;&#34;</span>
+<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">assert</span> type<span class="ansi-blue-fg">(</span>speed<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> int <span class="ansi-green-fg">or</span> type<span class="ansi-blue-fg">(</span>speed<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> float<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;Wind speed values must be numbers&#39;</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span class="ansi-green-fg">assert</span> speed <span class="ansi-blue-fg">&gt;=</span> <span class="ansi-cyan-fg">0.0</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;Wind speed values must be positive or zero&#39;</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>     <span class="ansi-green-fg">return</span> speed <span class="ansi-blue-fg">*</span> <span class="ansi-cyan-fg">1000</span> <span class="ansi-blue-fg">/</span> <span class="ansi-cyan-fg">3600</span>
+
+<span class="ansi-red-fg">AssertionError</span>: Wind speed values must be numbers
 </pre></div></div>
 </div>
 <p>OK, so that works. Now, if the user attempts to give a data type that is not <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code>, the function will raise an <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> indicating a number is expected for the function to work. This is fine, but as noted below, there are reasons why you may not want to include assertions of this type in a function.</p>
@@ -1235,14 +1237,21 @@ This page was generated from <a class="reference external" href="https://github.
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">&lt;ipython-input-6-672ca609c152&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>
+<span class="ansi-green-intense-fg ansi-bold">      7</span> wind_speed_km <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;409&#39;</span>
+<span class="ansi-green-fg">----&gt; 8</span><span class="ansi-red-fg"> </span>wind_speed_ms <span class="ansi-blue-fg">=</span> convert_kph_ms<span class="ansi-blue-fg">(</span>wind_speed_km<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      9</span>
+<span class="ansi-green-intense-fg ansi-bold">     10</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;A wind speed of&#39;</span><span class="ansi-blue-fg">,</span> wind_speed_km<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;km/hr is&#39;</span><span class="ansi-blue-fg">,</span> wind_speed_ms<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;m/s.&#39;</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+<span class="ansi-green-fg">&lt;ipython-input-6-672ca609c152&gt;</span> in <span class="ansi-cyan-fg">convert_kph_ms</span><span class="ansi-blue-fg">(speed)</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">def</span> convert_kph_ms<span class="ansi-blue-fg">(</span>speed<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span>     <span class="ansi-blue-fg">&#34;&#34;&#34;Converts velocity (speed) in km/hr to m/s&#34;&#34;&#34;</span>
+<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">assert</span> speed <span class="ansi-blue-fg">&gt;=</span> <span class="ansi-cyan-fg">0.0</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;Wind speed values must be positive or zero&#39;</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span class="ansi-green-fg">assert</span> speed <span class="ansi-blue-fg">&lt;=</span> <span class="ansi-cyan-fg">408.0</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;Wind speed exceeds fastest winds ever measured&#39;</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>     <span class="ansi-green-fg">return</span> speed <span class="ansi-blue-fg">*</span> <span class="ansi-cyan-fg">1000</span> <span class="ansi-blue-fg">/</span> <span class="ansi-cyan-fg">3600</span>
+
+<span class="ansi-red-fg">TypeError</span>: &#39;&gt;=&#39; not supported between instances of &#39;str&#39; and &#39;float&#39;
 </pre></div></div>
 </div>
 <p>This is a better example for two reasons:</p>
@@ -1315,7 +1324,6 @@ This page was generated from <a class="reference external" href="https://github.
         </dl>
         <dl>
             <dt>Branches</dt>
-            <dd><a href="../../book-dev/notebooks/L6/gcp-assertions.html">book-dev</a></dd>
             <dd><a href="../../develop/notebooks/L6/gcp-assertions.html">develop</a></dd>
             <dd><a href="../../master/notebooks/L6/gcp-assertions.html">master</a></dd>
         </dl>

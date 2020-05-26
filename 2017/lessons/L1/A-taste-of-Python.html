@@ -393,32 +393,12 @@ trigonometry? Of course it can, but we need one more step.</p>
 <p>For anything more advanced, we need to load a <em>module</em>.</p>
 <pre class="literal-block">
 In [5]: import math
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [6]: math.sin(3)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-6-6bafe0030c44&gt; in &lt;module&gt;()
-----&gt; 1 math.sin(3)
-
-NameError: name 'math' is not defined
+Out[6]: 0.1411200080598672
 
 In [7]: math.sqrt(4)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-7-65fb388543e8&gt; in &lt;module&gt;()
-----&gt; 1 math.sqrt(4)
-
-NameError: name 'math' is not defined
+Out[7]: 2.0
 </pre>
 <p>A <em>module</em>, also known as a <em>library</em>, is a group of code items such as functions that are related to one another.
 Modules are loaded using <code class="docutils literal notranslate"><span class="pre">import</span></code>.
@@ -427,148 +407,69 @@ For example, <code class="docutils literal notranslate"><span class="pre">sin()<
 Modules may also contain constants such as <code class="docutils literal notranslate"><span class="pre">math.pi</span></code>.</p>
 <pre class="literal-block">
 In [8]: math.pi
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-8-c49acc181da4&gt; in &lt;module&gt;()
-----&gt; 1 math.pi
-
-NameError: name 'math' is not defined
+Out[8]: 3.141592653589793
 
 In [9]: math.sin(math.pi)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-9-765fc4c8de70&gt; in &lt;module&gt;()
-----&gt; 1 math.sin(math.pi)
-
-NameError: name 'math' is not defined
+Out[9]: 1.2246467991473532e-16
 </pre>
 </li>
 <li><p class="first">Functions can also be combined.</p>
 <pre class="literal-block">
 In [10]: print(math.sqrt(4))
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-10-30811a5eb0c8&gt; in &lt;module&gt;()
-----&gt; 1 print(math.sqrt(4))
-
-NameError: name 'math' is not defined
+2.0
 
 In [11]: print('The square root of 4 is',math.sqrt(4))
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-11-faa7b0bff866&gt; in &lt;module&gt;()
-----&gt; 1 print('The square root of 4 is',math.sqrt(4))
-
-NameError: name 'math' is not defined
+The square root of 4 is 2.0
 </pre>
 </li>
 <li><p class="first"><em>Variables</em> can be used to store values calculated in expressions and used for other calculations.</p>
 <pre class="literal-block">
 In [12]: temp_celsius = 10.0
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [13]: print(temp_celsius)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-13-9416a025154d&gt; in &lt;module&gt;()
-----&gt; 1 print(temp_celsius)
-
-NameError: name 'temp_celsius' is not defined
+10.0
 
 In [14]: print('temperature in Fahrenheit:', 9/5 * temp_celsius + 32)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-14-95e49b37e995&gt; in &lt;module&gt;()
-----&gt; 1 print('temperature in Fahrenheit:', 9/5 * temp_celsius + 32)
-
-NameError: name 'temp_celsius' is not defined
+temperature in Fahrenheit: 50.0
 </pre>
 <p>Above, we also see one common format for <em>good</em> variable naming, separation of words by underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">temp_celsius</span></code>).
 This is called pothole_case_naming.
 We’ll see another below.</p>
 </li>
 <li><p class="first">Values stored in <em>variables</em> can also be updated.</p>
-<pre class="literal-block">
-In [15]: temp_celsius = 15.0
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="n">temp_celsius</span> <span class="o">=</span> <span class="mf">15.0</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+<span class="gp">In [16]: </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Celsius is now:&#39;</span><span class="p">,</span> <span class="n">temp_celsius</span><span class="p">)</span>
+<span class="go">temperature in Celsius is now: 15.0</span>
 
-In [16]: print('temperature in Celsius is now:', temp_celsius)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-16-b314163ea3b3&gt; in &lt;module&gt;()
-----&gt; 1 print('temperature in Celsius is now:', temp_celsius)
+<span class="gp">In [17]: </span><span class="n">temperatureInFahrenheit</span> <span class="o">=</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">temp_celsius</span> <span class="o">+</span> <span class="mi">32</span>
 
-NameError: name 'temp_celsius' is not defined
-
-In [17]: temperatureInFahrenheit = 9/5 * temp_celsius + 32
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [18]: print('temperature in Celsius:', temp_celsius, 'and in Fahrenheit:', temperatureInFahrenheit)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-18-ae2fb5ac56f0&gt; in &lt;module&gt;()
-----&gt; 1 print('temperature in Celsius:', temp_celsius, 'and in Fahrenheit:', temperatureInFahrenheit)
-
-NameError: name 'temp_celsius' is not defined
-</pre>
+<span class="gp">In [18]: </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Celsius:&#39;</span><span class="p">,</span> <span class="n">temp_celsius</span><span class="p">,</span> <span class="s1">&#39;and in Fahrenheit:&#39;</span><span class="p">,</span> <span class="n">temperatureInFahrenheit</span><span class="p">)</span>
+<span class="go">temperature in Celsius: 15.0 and in Fahrenheit: 59.0</span>
+</pre></div>
+</div>
 <p>An alternative to naming variables using pothole_case_naming is to use capital letters for each word with no spaces between (e.g., <code class="docutils literal notranslate"><span class="pre">temperatureInFahrenheit</span></code>).
 This is called camelCaseNaming.
 Both options are easy to read and help you use <em>good</em> variable names.
 After all, <em>people</em> should be able to easily understand what different variables contain.</p>
 </li>
 <li><p class="first">Note that changing the values of a variable does not affect those of other variables.</p>
-<pre class="literal-block">
-In [19]: temp_celsius = 20.0
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="n">temp_celsius</span> <span class="o">=</span> <span class="mf">20.0</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [20]: print('temperature in Celsius is now:', temp_celsius, 'and temperature in Fahrenheit is still:', temperatureInFahrenheit)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-20-881ceb65777f&gt; in &lt;module&gt;()
-----&gt; 1 print('temperature in Celsius is now:', temp_celsius, 'and temperature in Fahrenheit is still:', temperatureInFahrenheit)
-
-NameError: name 'temp_celsius' is not defined
-</pre>
+<span class="gp">In [20]: </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Celsius is now:&#39;</span><span class="p">,</span> <span class="n">temp_celsius</span><span class="p">,</span> <span class="s1">&#39;and temperature in Fahrenheit is still:&#39;</span><span class="p">,</span> <span class="n">temperatureInFahrenheit</span><span class="p">)</span>
+<span class="go">temperature in Celsius is now: 20.0 and temperature in Fahrenheit is still: 59.0</span>
+</pre></div>
+</div>
 </li>
 <li><p class="first">One of the nice options in IPython is that you can see which variables are in memory by typing <code class="docutils literal notranslate"><span class="pre">%whos</span></code>.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="o">%</span><span class="k">whos</span>
-<span class="go">Interactive namespace is empty.</span>
+<span class="go">Variable                  Type      Data/Info</span>
+<span class="gt">---------------------------------------------</span>
+<span class="n">math</span>                      <span class="n">module</span>    <span class="o">&lt;</span><span class="n">module</span> <span class="s1">&#39;math&#39;</span> <span class="kn">from</span> <span class="s1">&#39;/hom&lt;...&gt;36m-x86_64-linux-gnu.so&#39;</span><span class="o">&gt;</span>
+<span class="n">np</span>                        <span class="n">module</span>    <span class="o">&lt;</span><span class="n">module</span> <span class="s1">&#39;numpy&#39;</span> <span class="kn">from</span> <span class="s1">&#39;/ho&lt;...&gt;kages/numpy/__init__.py&#39;</span><span class="o">&gt;</span>
+<span class="n">plt</span>                       <span class="n">module</span>    <span class="o">&lt;</span><span class="n">module</span> <span class="s1">&#39;matplotlib.pyplo&lt;...&gt;es/matplotlib/pyplot.py&#39;</span><span class="o">&gt;</span>
+<span class="n">temp_celsius</span>              <span class="nb">float</span>     <span class="mf">20.0</span>
+<span class="n">temperatureInFahrenheit</span>   <span class="nb">float</span>     <span class="mf">59.0</span>
 </pre></div>
 </div>
 <p>Note that the <code class="docutils literal notranslate"><span class="pre">np</span></code> and <code class="docutils literal notranslate"><span class="pre">plt</span></code> modules are loaded in the IPython session above, which may not be the case for you.
@@ -614,44 +515,20 @@ In addition, you can view this same information using the Variable explorer pane
 As you will see, the data types are important because some are not compatible with one another.</p>
 <pre class="literal-block">
 In [22]: weatherForecast = 'Hot'
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
 
 In [23]: type(weatherForecast)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-23-4559230fef2d&gt; in &lt;module&gt;()
-----&gt; 1 type(weatherForecast)
-
-NameError: name 'weatherForecast' is not defined
+Out[23]: str
 
 In [24]: type(temperatureInFahrenheit)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-24-1e14fba9ef8b&gt; in &lt;module&gt;()
-----&gt; 1 type(temperatureInFahrenheit)
-
-NameError: name 'temperatureInFahrenheit' is not defined
+Out[24]: float
 
 In [25]: temperatureInFahrenheit = temperatureInFahrenheit + 5.0 * weatherForecast
 ---------------------------------------------------------------------------
 TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+&lt;ipython-input-25-1d5d069c47c8&gt; in &lt;module&gt;()
+----&gt; 1 temperatureInFahrenheit = temperatureInFahrenheit + 5.0 * weatherForecast
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+TypeError: can't multiply sequence by non-int of type 'float'
 </pre>
 </li>
 </ol>
@@ -716,7 +593,6 @@ In the coming weeks we will explore each of these items, and many more, in great
         </dl>
         <dl>
             <dt>Branches</dt>
-            <dd><a href="../../../book-dev/index.html">book-dev</a></dd>
             <dd><a href="../../../develop/index.html">develop</a></dd>
             <dd><a href="../../../master/index.html">master</a></dd>
         </dl>

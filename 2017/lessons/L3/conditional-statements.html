@@ -285,35 +285,16 @@
 <p>Conditional statements can change the code behaviour based on meeting certain conditions.</p>
 <ol class="arabic">
 <li><p class="first">Let’s take a simple example.</p>
-<pre class="literal-block">
-In [1]: temperature = 17
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">17</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [2]: if temperature &gt; 25:
-   ...:      print('it is hot')
-   ...: else:
-   ...:      print('it is not hot')
-   ...: 
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-</pre>
+<span class="gp">In [2]: </span><span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">:</span>
+<span class="gp">   ...: </span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;it is hot&#39;</span><span class="p">)</span>
+<span class="gp">   ...: </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">   ...: </span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;it is not hot&#39;</span><span class="p">)</span>
+<span class="gp">   ...: </span>
+<span class="go">it is not hot</span>
+</pre></div>
+</div>
 <p>What did we do here?
 First, we used the <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements to determine what parts of the code to execute.
 Note that both lines containing <code class="docutils literal notranslate"><span class="pre">if</span></code> or <code class="docutils literal notranslate"><span class="pre">else</span></code> end with a <code class="docutils literal notranslate"><span class="pre">:</span></code> and the text beneath is indented.
@@ -330,100 +311,42 @@ You might look outside to check the weather conditions.
 If it is raining, you will wear a rain jacket.
 Otherwise, you will not.
 In Python we could say:</p>
-<pre class="literal-block">
-In [3]: weather = 'Rain'
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">weather</span> <span class="o">=</span> <span class="s1">&#39;Rain&#39;</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [4]: if weather == 'Rain':
-   ...:      print('Wear a raincoat')
-   ...: else:
-   ...:      print('No raincoat needed')
-   ...: 
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-</pre>
+<span class="gp">In [4]: </span><span class="k">if</span> <span class="n">weather</span> <span class="o">==</span> <span class="s1">&#39;Rain&#39;</span><span class="p">:</span>
+<span class="gp">   ...: </span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Wear a raincoat&#39;</span><span class="p">)</span>
+<span class="gp">   ...: </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">   ...: </span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No raincoat needed&#39;</span><span class="p">)</span>
+<span class="gp">   ...: </span>
+<span class="go">Wear a raincoat</span>
+</pre></div>
+</div>
 <p class="last">Note here that we use the <code class="docutils literal notranslate"><span class="pre">==</span></code> to test if a value is exactly equal to another.</p>
 </div>
 </li>
 <li><p class="first">The combination of <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> is very common, but both are not strictly required.</p>
-<pre class="literal-block">
-In [5]: temperature = 13
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">13</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [6]: if temperature &gt; 25:
-   ...:     print('13 is greater than 25')
-   ...: 
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-</pre>
+<span class="gp">In [6]: </span><span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">:</span>
+<span class="gp">   ...: </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;13 is greater than 25&#39;</span><span class="p">)</span>
+<span class="gp">   ...: </span>
+</pre></div>
+</div>
 <p>Note that here we use only the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement, and because 13 is not greater than 25, nothing is printed to the screen.</p>
 </li>
 <li><p class="first">We can also have a second test for an <code class="docutils literal notranslate"><span class="pre">if</span></code> statment by using the <code class="docutils literal notranslate"><span class="pre">elif</span></code> (else-if) statement.</p>
-<pre class="literal-block">
-In [7]: temperature = -3
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">temperature</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [8]: if temperature &gt; 0:
-   ...:      print(temperature, 'is above freezing')
-   ...: elif temperature == 0:
-   ...:      print(temperature, 'is freezing')
-   ...: else:
-   ...:      print(temperature, 'is below freezing')
-   ...: 
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-</pre>
+<span class="gp">In [8]: </span><span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">   ...: </span>     <span class="nb">print</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="s1">&#39;is above freezing&#39;</span><span class="p">)</span>
+<span class="gp">   ...: </span><span class="k">elif</span> <span class="n">temperature</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">   ...: </span>     <span class="nb">print</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="s1">&#39;is freezing&#39;</span><span class="p">)</span>
+<span class="gp">   ...: </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">   ...: </span>     <span class="nb">print</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="s1">&#39;is below freezing&#39;</span><span class="p">)</span>
+<span class="gp">   ...: </span>
+<span class="go">-3 is below freezing</span>
+</pre></div>
+</div>
 <p>Makes sense, right?
 Note here that we again use the <code class="docutils literal notranslate"><span class="pre">==</span></code> to test if a value is exactly equal to another.
 The complete list of these comparison operators is given in the table below.</p>
@@ -489,31 +412,13 @@ Select your answer from the poll options at <a class="reference external" href="
 <span class="gp">   ...: </span><span class="k">else</span><span class="p">:</span>
 <span class="gp">   ...: </span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;One part is not true&#39;</span><span class="p">)</span>
 <span class="gp">   ...: </span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ni">__call__</span><span class="nt">(self, source, filename, symbol)</span>
-<span class="g g-Whitespace">    </span><span class="mi">131</span> 
-<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">133</span>         <span class="n">codeob</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">134</span>         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">_features</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">135</span>             <span class="k">if</span> <span class="n">codeob</span><span class="o">.</span><span class="n">co_flags</span> <span class="o">&amp;</span> <span class="n">feature</span><span class="o">.</span><span class="n">compiler_flag</span><span class="p">:</span>
-
-<span class="ne">TypeError</span>: required field &quot;type_ignores&quot; missing from Module
+<span class="go">One part is not true</span>
 </pre></div>
 </div>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="k">if</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
 <span class="gp">   ....: </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;At least one test is true&#39;</span><span class="p">)</span>
 <span class="gp">   ....: </span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ni">__call__</span><span class="nt">(self, source, filename, symbol)</span>
-<span class="g g-Whitespace">    </span><span class="mi">131</span> 
-<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">133</span>         <span class="n">codeob</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">134</span>         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">_features</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">135</span>             <span class="k">if</span> <span class="n">codeob</span><span class="o">.</span><span class="n">co_flags</span> <span class="o">&amp;</span> <span class="n">feature</span><span class="o">.</span><span class="n">compiler_flag</span><span class="p">:</span>
-
-<span class="ne">TypeError</span>: required field &quot;type_ignores&quot; missing from Module
+<span class="go">At least one test is true</span>
 </pre></div>
 </div>
 <p>These are just simple examples, but concepts that can be quite handy.</p>
@@ -524,49 +429,20 @@ Imagine that we consider not only the rain, but also whether or not it is windy.
 If it is windy and raining, we’ll just stay home.
 Otherwise, we need appropriate clothing to go out.
 We can again handle this kind of decision with Python.</p>
-<pre class="literal-block">
-In [11]: weather = 'Rain'
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">weather</span> <span class="o">=</span> <span class="s1">&#39;Rain&#39;</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+<span class="gp">In [12]: </span><span class="n">wind</span> <span class="o">=</span> <span class="s1">&#39;Windy&#39;</span>
 
-In [12]: wind = 'Windy'
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [13]: if (weather == 'Rain') and (wind == 'Windy'):
-   ....:      print('Just stay home')
-   ....: elif weather == 'Rain':
-   ....:      print('Wear a raincoat')
-   ....: else:
-   ....:      print('No raincoat needed')
-   ....: 
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-</pre>
+<span class="gp">In [13]: </span><span class="k">if</span> <span class="p">(</span><span class="n">weather</span> <span class="o">==</span> <span class="s1">&#39;Rain&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">wind</span> <span class="o">==</span> <span class="s1">&#39;Windy&#39;</span><span class="p">):</span>
+<span class="gp">   ....: </span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Just stay home&#39;</span><span class="p">)</span>
+<span class="gp">   ....: </span><span class="k">elif</span> <span class="n">weather</span> <span class="o">==</span> <span class="s1">&#39;Rain&#39;</span><span class="p">:</span>
+<span class="gp">   ....: </span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Wear a raincoat&#39;</span><span class="p">)</span>
+<span class="gp">   ....: </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">   ....: </span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No raincoat needed&#39;</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+<span class="go">Just stay home</span>
+</pre></div>
+</div>
 <p class="last">As you can see, we better just stay home if it is windy and raining.</p>
 </div>
 </li>
@@ -626,7 +502,6 @@ TypeError: required field &quot;type_ignores&quot; missing from Module
         </dl>
         <dl>
             <dt>Branches</dt>
-            <dd><a href="../../../book-dev/index.html">book-dev</a></dd>
             <dd><a href="../../../develop/index.html">develop</a></dd>
             <dd><a href="../../../master/index.html">master</a></dd>
         </dl>

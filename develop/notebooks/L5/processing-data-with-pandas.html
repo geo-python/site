@@ -1022,7 +1022,7 @@ This page was generated from <a class="reference external" href="https://github.
 <h1>Processing data with Pandas<a class="headerlink" href="#Processing-data-with-Pandas" title="Permalink to this headline">¶</a></h1>
 <p>During the first part of this lesson you learned the basics of pandas data structures (<em>Series</em> and <em>DataFrame</em>) and got familiar with basic methods loading and exploring data. Here, we will continue with basic data manipulation and analysis methods such calculations and selections.</p>
 <p>We are now working in a new notebook-file and we need to import pandas again.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
@@ -1031,25 +1031,8 @@ This page was generated from <a class="reference external" href="https://github.
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
-</pre></div></div>
-</div>
 <p>Let’s work with the same input data <code class="docutils literal notranslate"><span class="pre">'Kumpula-June-2016-w-metadata.txt'</span></code> and load it using the <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> method. Remember, that the first 8 lines contain metadata so we can skip those:</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
@@ -1058,23 +1041,6 @@ This page was generated from <a class="reference external" href="https://github.
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
-</pre></div></div>
 </div>
 <p>Here, we also added the <code class="docutils literal notranslate"><span class="pre">sep</span></code> parameter to indicate that we are dealing with a comma-delimited text file. Comma is also the default value for the sep-parameter. Depending on your operating system and the input data, you might need to specify other separators such as <code class="docutils literal notranslate"><span class="pre">;</span></code>.</p>
 <p>Remember to always check the data after reading it in:</p>
@@ -1088,17 +1054,73 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-3-304fa4ce4ebd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">.</span>head<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
-</pre></div></div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEARMODA</th>
+      <th>TEMP</th>
+      <th>MAX</th>
+      <th>MIN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>20160601</td>
+      <td>65.5</td>
+      <td>73.6</td>
+      <td>54.7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>20160602</td>
+      <td>65.8</td>
+      <td>80.8</td>
+      <td>55.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>20160603</td>
+      <td>68.4</td>
+      <td>NaN</td>
+      <td>55.6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>20160604</td>
+      <td>57.5</td>
+      <td>70.9</td>
+      <td>47.3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20160605</td>
+      <td>51.4</td>
+      <td>58.3</td>
+      <td>43.2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
 <div class="section" id="Basic-calculations">
 <h2>Basic calculations<a class="headerlink" href="#Basic-calculations" title="Permalink to this headline">¶</a></h2>
@@ -1122,16 +1144,37 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+    YEARMODA  TEMP   MAX   MIN  DIFF
+0   20160601  65.5  73.6  54.7   0.0
+1   20160602  65.8  80.8  55.0   0.0
+2   20160603  68.4   NaN  55.6   0.0
+3   20160604  57.5  70.9  47.3   0.0
+4   20160605  51.4  58.3  43.2   0.0
+5   20160606  52.2  59.7  42.8   0.0
+6   20160607  56.9  65.1  45.9   0.0
+7   20160608  54.2   NaN  47.5   0.0
+8   20160609  49.4  54.1  45.7   0.0
+9   20160610  49.5  55.9  43.0   0.0
+10  20160611  54.0  62.1  41.7   0.0
+11  20160612  55.4  64.2  46.0   0.0
+12  20160613  58.3  68.2  47.3   0.0
+13  20160614  59.7  67.8  47.8   0.0
+14  20160615  63.4  70.3  49.3   0.0
+15  20160616  57.8  67.5  55.6   0.0
+16  20160617  60.4  70.7  55.9   0.0
+17  20160618  57.3   NaN  54.0   0.0
+18  20160619  56.3  59.2  54.1   0.0
+19  20160620  59.3  69.1  52.2   0.0
+20  20160621  62.6  71.4  50.4   0.0
+21  20160622  61.7  70.2  55.4   0.0
+22  20160623  60.9  67.1  54.9   0.0
+23  20160624  61.1  68.9  56.7   0.0
+24  20160625  65.7  75.4  57.9   0.0
+25  20160626  69.6  77.7  60.3   0.0
+26  20160627  60.7  70.0   NaN   0.0
+27  20160628  65.4  73.0  55.8   0.0
+28  20160629  65.8  73.2   NaN   0.0
+29  20160630  65.7  72.7  59.2   0.0
 </pre></div></div>
 </div>
 <p>Let’s check the datatype of our new column</p>
@@ -1146,18 +1189,13 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-5-9bf175841817&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Check datatypes</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;DIFF&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>dtypes
-
-<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
-</pre></div></div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>dtype(&#39;float64&#39;)
+</pre></div>
+</div>
 </div>
 <p>Okey, so we see that Pandas created a new column and recognized automatically that the data type is float as we passed a 0.0 value to it.</p>
 <p>Let’s update the column <code class="docutils literal notranslate"><span class="pre">DIFF</span></code> by calculating the difference between <code class="docutils literal notranslate"><span class="pre">MAX</span></code> and <code class="docutils literal notranslate"><span class="pre">MIN</span></code> columns to get an idea how much the temperatures have been varying during different days:</p>
@@ -1179,16 +1217,12 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+   YEARMODA  TEMP   MAX   MIN  DIFF
+0  20160601  65.5  73.6  54.7  18.9
+1  20160602  65.8  80.8  55.0  25.8
+2  20160603  68.4   NaN  55.6   NaN
+3  20160604  57.5  70.9  47.3  23.6
+4  20160605  51.4  58.3  43.2  15.1
 </pre></div></div>
 </div>
 <p>The calculations were stored into the <code class="docutils literal notranslate"><span class="pre">DIFF</span></code> column as planned.</p>
@@ -1211,16 +1245,37 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+    YEARMODA  TEMP   MAX   MIN  DIFF  DIFF_MIN
+0   20160601  65.5  73.6  54.7  18.9      10.8
+1   20160602  65.8  80.8  55.0  25.8      10.8
+2   20160603  68.4   NaN  55.6   NaN      12.8
+3   20160604  57.5  70.9  47.3  23.6      10.2
+4   20160605  51.4  58.3  43.2  15.1       8.2
+5   20160606  52.2  59.7  42.8  16.9       9.4
+6   20160607  56.9  65.1  45.9  19.2      11.0
+7   20160608  54.2   NaN  47.5   NaN       6.7
+8   20160609  49.4  54.1  45.7   8.4       3.7
+9   20160610  49.5  55.9  43.0  12.9       6.5
+10  20160611  54.0  62.1  41.7  20.4      12.3
+11  20160612  55.4  64.2  46.0  18.2       9.4
+12  20160613  58.3  68.2  47.3  20.9      11.0
+13  20160614  59.7  67.8  47.8  20.0      11.9
+14  20160615  63.4  70.3  49.3  21.0      14.1
+15  20160616  57.8  67.5  55.6  11.9       2.2
+16  20160617  60.4  70.7  55.9  14.8       4.5
+17  20160618  57.3   NaN  54.0   NaN       3.3
+18  20160619  56.3  59.2  54.1   5.1       2.2
+19  20160620  59.3  69.1  52.2  16.9       7.1
+20  20160621  62.6  71.4  50.4  21.0      12.2
+21  20160622  61.7  70.2  55.4  14.8       6.3
+22  20160623  60.9  67.1  54.9  12.2       6.0
+23  20160624  61.1  68.9  56.7  12.2       4.4
+24  20160625  65.7  75.4  57.9  17.5       7.8
+25  20160626  69.6  77.7  60.3  17.4       9.3
+26  20160627  60.7  70.0   NaN   NaN       NaN
+27  20160628  65.4  73.0  55.8  17.2       9.6
+28  20160629  65.8  73.2   NaN   NaN       NaN
+29  20160630  65.7  72.7  59.2  13.5       6.5
 </pre></div></div>
 </div>
 <p>As you can see, now we created directly a new column with the calculation. In a similar manner, you can do calculations using as many columns as you need and using any kind of math algebra (e.g. subtracttion, addition, multiplication, division, exponentiation, etc.).</p>
@@ -1243,16 +1298,12 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+   YEARMODA  TEMP   MAX   MIN  DIFF  DIFF_MIN  TEMP_CELSIUS
+0  20160601  65.5  73.6  54.7  18.9      10.8     18.611111
+1  20160602  65.8  80.8  55.0  25.8      10.8     18.777778
+2  20160603  68.4   NaN  55.6   NaN      12.8     20.222222
+3  20160604  57.5  70.9  47.3  23.6      10.2     14.166667
+4  20160605  51.4  58.3  43.2  15.1       8.2     10.777778
 </pre></div></div>
 </div>
 <div class="admonition note">
@@ -1293,16 +1344,12 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+   YEARMODA  TEMP   MAX   MIN  DIFF  DIFF_MIN  TEMP_CELSIUS
+0  20160601  65.5  73.6  54.7  18.9      10.8     18.611111
+1  20160602  65.8  80.8  55.0  25.8      10.8     18.777778
+2  20160603  68.4   NaN  55.6   NaN      12.8     20.222222
+3  20160604  57.5  70.9  47.3  23.6      10.2     14.166667
+4  20160605  51.4  58.3  43.2  15.1       8.2     10.777778
 </pre></div></div>
 </div>
 <p><strong>Note:</strong> here selected the first five rows (index 0-4) using integer index.</p>
@@ -1326,16 +1373,13 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+0    65.5
+1    65.8
+2    68.4
+3    57.5
+4    51.4
+5    52.2
+Name: TEMP, dtype: float64
 </pre></div></div>
 </div>
 <p><strong>Note:</strong> in this case, we get six rows of data (index 0-5)! We are now doing the selection based on axis labels in stead of the integer index.</p>
@@ -1357,16 +1401,13 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+   TEMP  TEMP_CELSIUS
+0  65.5     18.611111
+1  65.8     18.777778
+2  68.4     20.222222
+3  57.5     14.166667
+4  51.4     10.777778
+5  52.2     11.222222
 </pre></div></div>
 </div>
 <p><strong>Selecting a single row:</strong></p>
@@ -1388,16 +1429,14 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+YEARMODA        2.016060e+07
+TEMP            5.140000e+01
+MAX             5.830000e+01
+MIN             4.320000e+01
+DIFF            1.510000e+01
+DIFF_MIN        8.200000e+00
+TEMP_CELSIUS    1.077778e+01
+Name: 4, dtype: float64
 </pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> indexing returns the values from that position as a <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> where the indices are actually the column names of those variables. Hence, you can access the value of an individual column by referring to its index using following format (both should work):</p>
@@ -1416,13 +1455,7 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-14-84f922a0e730&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg">#Print one attribute from the selected row</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>selection<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;TEMP&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;selection&#39; is not defined
+51.4
 </pre></div></div>
 </div>
 <div class="admonition note">
@@ -1452,17 +1485,13 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-16-29d49179901e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">.</span>at<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;TEMP&#34;</span><span class="ansi-blue-fg">]</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
-</pre></div></div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>65.5
+</pre></div>
+</div>
 </div>
 <p><strong>EXTRA: Selections by integer position</strong></p>
 <div class="admonition note">
@@ -1481,17 +1510,61 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-17-7394ea37e436&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">.</span>iloc<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">:</span><span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">:</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">]</span>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
-</pre></div></div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEARMODA</th>
+      <th>TEMP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>20160601</td>
+      <td>65.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>20160602</td>
+      <td>65.8</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>20160603</td>
+      <td>68.4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>20160604</td>
+      <td>57.5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20160605</td>
+      <td>51.4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
 <p>To access the value on the first row and second column (<code class="docutils literal notranslate"><span class="pre">TEMP</span></code>), the syntax for <code class="docutils literal notranslate"><span class="pre">iloc</span></code> would be:</p>
 <div class="nbinput docutils container">
@@ -1504,17 +1577,13 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-18-7ad24eab008e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">.</span>iloc<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
-</pre></div></div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>65.5
+</pre></div>
+</div>
 </div>
 <p>We can also access individual rows using <code class="docutils literal notranslate"><span class="pre">iloc</span></code>. Let’s check out the last row of data:</p>
 <div class="nbinput docutils container">
@@ -1527,17 +1596,20 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-19-9f8eff24926e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">.</span>iloc<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
-</pre></div></div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>YEARMODA        2.016063e+07
+TEMP            6.570000e+01
+MAX             7.270000e+01
+MIN             5.920000e+01
+DIFF            1.350000e+01
+DIFF_MIN        6.500000e+00
+TEMP_CELSIUS    1.872222e+01
+Name: 29, dtype: float64
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="Filtering-and-updating-data">
@@ -1559,16 +1631,24 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+    YEARMODA  TEMP   MAX   MIN  DIFF  DIFF_MIN  TEMP_CELSIUS
+0   20160601  65.5  73.6  54.7  18.9      10.8     18.611111
+1   20160602  65.8  80.8  55.0  25.8      10.8     18.777778
+2   20160603  68.4   NaN  55.6   NaN      12.8     20.222222
+13  20160614  59.7  67.8  47.8  20.0      11.9     15.388889
+14  20160615  63.4  70.3  49.3  21.0      14.1     17.444444
+16  20160617  60.4  70.7  55.9  14.8       4.5     15.777778
+19  20160620  59.3  69.1  52.2  16.9       7.1     15.166667
+20  20160621  62.6  71.4  50.4  21.0      12.2     17.000000
+21  20160622  61.7  70.2  55.4  14.8       6.3     16.500000
+22  20160623  60.9  67.1  54.9  12.2       6.0     16.055556
+23  20160624  61.1  68.9  56.7  12.2       4.4     16.166667
+24  20160625  65.7  75.4  57.9  17.5       7.8     18.722222
+25  20160626  69.6  77.7  60.3  17.4       9.3     20.888889
+26  20160627  60.7  70.0   NaN   NaN       NaN     15.944444
+27  20160628  65.4  73.0  55.8  17.2       9.6     18.555556
+28  20160629  65.8  73.2   NaN   NaN       NaN     18.777778
+29  20160630  65.7  72.7  59.2  13.5       6.5     18.722222
 </pre></div></div>
 </div>
 <p>It is also possible to combine multiple criteria at the same time. Here, we select temperatures above 15 degrees that were recorded on the second half of June in 2016 (i.e. <code class="docutils literal notranslate"><span class="pre">YEARMODA</span> <span class="pre">&gt;=</span> <span class="pre">20160615</span></code>). Combining multiple criteria can be done with <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> operator (AND) or <code class="docutils literal notranslate"><span class="pre">|</span></code> operator (OR). Notice, that it is often useful to separate the different clauses inside the parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
@@ -1588,16 +1668,20 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+    YEARMODA  TEMP   MAX   MIN  DIFF  DIFF_MIN  TEMP_CELSIUS
+14  20160615  63.4  70.3  49.3  21.0      14.1     17.444444
+16  20160617  60.4  70.7  55.9  14.8       4.5     15.777778
+19  20160620  59.3  69.1  52.2  16.9       7.1     15.166667
+20  20160621  62.6  71.4  50.4  21.0      12.2     17.000000
+21  20160622  61.7  70.2  55.4  14.8       6.3     16.500000
+22  20160623  60.9  67.1  54.9  12.2       6.0     16.055556
+23  20160624  61.1  68.9  56.7  12.2       4.4     16.166667
+24  20160625  65.7  75.4  57.9  17.5       7.8     18.722222
+25  20160626  69.6  77.7  60.3  17.4       9.3     20.888889
+26  20160627  60.7  70.0   NaN   NaN       NaN     15.944444
+27  20160628  65.4  73.0  55.8  17.2       9.6     18.555556
+28  20160629  65.8  73.2   NaN   NaN       NaN     18.777778
+29  20160630  65.7  72.7  59.2  13.5       6.5     18.722222
 </pre></div></div>
 </div>
 <p>Now we have a subset of our DataFrame with only rows where the <code class="docutils literal notranslate"><span class="pre">TEMP_CELSIUS</span></code> is above 15 and the dates in <code class="docutils literal notranslate"><span class="pre">YEARMODA</span></code> column start from 15th of June.</p>
@@ -1618,16 +1702,20 @@ This page was generated from <a class="reference external" href="https://github.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+    YEARMODA  TEMP   MAX   MIN  DIFF  DIFF_MIN  TEMP_CELSIUS
+0   20160615  63.4  70.3  49.3  21.0      14.1     17.444444
+1   20160617  60.4  70.7  55.9  14.8       4.5     15.777778
+2   20160620  59.3  69.1  52.2  16.9       7.1     15.166667
+3   20160621  62.6  71.4  50.4  21.0      12.2     17.000000
+4   20160622  61.7  70.2  55.4  14.8       6.3     16.500000
+5   20160623  60.9  67.1  54.9  12.2       6.0     16.055556
+6   20160624  61.1  68.9  56.7  12.2       4.4     16.166667
+7   20160625  65.7  75.4  57.9  17.5       7.8     18.722222
+8   20160626  69.6  77.7  60.3  17.4       9.3     20.888889
+9   20160627  60.7  70.0   NaN   NaN       NaN     15.944444
+10  20160628  65.4  73.0  55.8  17.2       9.6     18.555556
+11  20160629  65.8  73.2   NaN   NaN       NaN     18.777778
+12  20160630  65.7  72.7  59.2  13.5       6.5     18.722222
 </pre></div></div>
 </div>
 <p>As can be seen, now the index values goes from 0 to 12.</p>
@@ -1662,18 +1750,151 @@ options are really easy to do.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-24-57260f9934a4&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Drop no data values based on the MIN column</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>warm_temps<span class="ansi-blue-fg">.</span>dropna<span class="ansi-blue-fg">(</span>subset<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;MIN&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ansi-red-fg">NameError</span>: name &#39;warm_temps&#39; is not defined
-</pre></div></div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEARMODA</th>
+      <th>TEMP</th>
+      <th>MAX</th>
+      <th>MIN</th>
+      <th>DIFF</th>
+      <th>DIFF_MIN</th>
+      <th>TEMP_CELSIUS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>20160615</td>
+      <td>63.4</td>
+      <td>70.3</td>
+      <td>49.3</td>
+      <td>21.0</td>
+      <td>14.1</td>
+      <td>17.444444</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>20160617</td>
+      <td>60.4</td>
+      <td>70.7</td>
+      <td>55.9</td>
+      <td>14.8</td>
+      <td>4.5</td>
+      <td>15.777778</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>20160620</td>
+      <td>59.3</td>
+      <td>69.1</td>
+      <td>52.2</td>
+      <td>16.9</td>
+      <td>7.1</td>
+      <td>15.166667</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>20160621</td>
+      <td>62.6</td>
+      <td>71.4</td>
+      <td>50.4</td>
+      <td>21.0</td>
+      <td>12.2</td>
+      <td>17.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20160622</td>
+      <td>61.7</td>
+      <td>70.2</td>
+      <td>55.4</td>
+      <td>14.8</td>
+      <td>6.3</td>
+      <td>16.500000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>20160623</td>
+      <td>60.9</td>
+      <td>67.1</td>
+      <td>54.9</td>
+      <td>12.2</td>
+      <td>6.0</td>
+      <td>16.055556</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>20160624</td>
+      <td>61.1</td>
+      <td>68.9</td>
+      <td>56.7</td>
+      <td>12.2</td>
+      <td>4.4</td>
+      <td>16.166667</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>20160625</td>
+      <td>65.7</td>
+      <td>75.4</td>
+      <td>57.9</td>
+      <td>17.5</td>
+      <td>7.8</td>
+      <td>18.722222</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>20160626</td>
+      <td>69.6</td>
+      <td>77.7</td>
+      <td>60.3</td>
+      <td>17.4</td>
+      <td>9.3</td>
+      <td>20.888889</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>20160628</td>
+      <td>65.4</td>
+      <td>73.0</td>
+      <td>55.8</td>
+      <td>17.2</td>
+      <td>9.6</td>
+      <td>18.555556</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>20160630</td>
+      <td>65.7</td>
+      <td>72.7</td>
+      <td>59.2</td>
+      <td>13.5</td>
+      <td>6.5</td>
+      <td>18.722222</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
 <p>As you can see by looking at the table above (and the change in index values), we now have a DataFrame without the NoData values.</p>
 <div class="admonition note">
@@ -1695,18 +1916,171 @@ options are really easy to do.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-25-705550ea4297&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Fill na values</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>warm_temps<span class="ansi-blue-fg">.</span>fillna<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">9999</span><span class="ansi-blue-fg">)</span>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ansi-red-fg">NameError</span>: name &#39;warm_temps&#39; is not defined
-</pre></div></div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEARMODA</th>
+      <th>TEMP</th>
+      <th>MAX</th>
+      <th>MIN</th>
+      <th>DIFF</th>
+      <th>DIFF_MIN</th>
+      <th>TEMP_CELSIUS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>20160615</td>
+      <td>63.4</td>
+      <td>70.3</td>
+      <td>49.3</td>
+      <td>21.0</td>
+      <td>14.1</td>
+      <td>17.444444</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>20160617</td>
+      <td>60.4</td>
+      <td>70.7</td>
+      <td>55.9</td>
+      <td>14.8</td>
+      <td>4.5</td>
+      <td>15.777778</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>20160620</td>
+      <td>59.3</td>
+      <td>69.1</td>
+      <td>52.2</td>
+      <td>16.9</td>
+      <td>7.1</td>
+      <td>15.166667</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>20160621</td>
+      <td>62.6</td>
+      <td>71.4</td>
+      <td>50.4</td>
+      <td>21.0</td>
+      <td>12.2</td>
+      <td>17.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20160622</td>
+      <td>61.7</td>
+      <td>70.2</td>
+      <td>55.4</td>
+      <td>14.8</td>
+      <td>6.3</td>
+      <td>16.500000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>20160623</td>
+      <td>60.9</td>
+      <td>67.1</td>
+      <td>54.9</td>
+      <td>12.2</td>
+      <td>6.0</td>
+      <td>16.055556</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>20160624</td>
+      <td>61.1</td>
+      <td>68.9</td>
+      <td>56.7</td>
+      <td>12.2</td>
+      <td>4.4</td>
+      <td>16.166667</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>20160625</td>
+      <td>65.7</td>
+      <td>75.4</td>
+      <td>57.9</td>
+      <td>17.5</td>
+      <td>7.8</td>
+      <td>18.722222</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>20160626</td>
+      <td>69.6</td>
+      <td>77.7</td>
+      <td>60.3</td>
+      <td>17.4</td>
+      <td>9.3</td>
+      <td>20.888889</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>20160627</td>
+      <td>60.7</td>
+      <td>70.0</td>
+      <td>-9999.0</td>
+      <td>-9999.0</td>
+      <td>-9999.0</td>
+      <td>15.944444</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>20160628</td>
+      <td>65.4</td>
+      <td>73.0</td>
+      <td>55.8</td>
+      <td>17.2</td>
+      <td>9.6</td>
+      <td>18.555556</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>20160629</td>
+      <td>65.8</td>
+      <td>73.2</td>
+      <td>-9999.0</td>
+      <td>-9999.0</td>
+      <td>-9999.0</td>
+      <td>18.777778</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>20160630</td>
+      <td>65.7</td>
+      <td>72.7</td>
+      <td>59.2</td>
+      <td>13.5</td>
+      <td>6.5</td>
+      <td>18.722222</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
 <p>As a result we now have a DataFrame where NoData values are filled with the value -9999.</p>
 <div class="admonition warning">
@@ -1740,16 +2114,13 @@ options are really easy to do.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+Original values:
+0    65.5
+1    65.8
+2    68.4
+3    57.5
+4    51.4
+Name: TEMP, dtype: float64
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1767,16 +2138,13 @@ options are really easy to do.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+Truncated integer values:
+0    65
+1    65
+2    68
+3    57
+4    51
+Name: TEMP, dtype: int64
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1794,16 +2162,13 @@ options are really easy to do.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+Rounded integer values:
+0    66
+1    66
+2    68
+3    58
+4    51
+Name: TEMP, dtype: int64
 </pre></div></div>
 </div>
 <p>Looks correct now.</p>
@@ -1823,21 +2188,15 @@ options are really easy to do.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
-</pre></div></div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([65.5, 65.8, 68.4, 57.5, 51.4, 52.2, 56.9, 54.2, 49.4, 49.5, 54. ,
+       55.4, 58.3, 59.7, 63.4, 57.8, 60.4, 57.3, 56.3, 59.3, 62.6, 61.7,
+       60.9, 61.1, 65.7, 69.6, 60.7, 65.4])
+</pre></div>
+</div>
 </div>
 <p>As a result we get an array of unique values in that column.</p>
 <p><strong>Note:</strong> Sometimes if you have a long list of unique values, you don’t necessarily see all the unique values directly as IPython/Jupyter may hide them with an elipsis <code class="docutils literal notranslate"><span class="pre">...</span></code>. It is, however, possible to see all those values by printing them as a list:</p>
@@ -1856,13 +2215,7 @@ options are really easy to do.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-30-2dbb597f68a8&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># unique values as list</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>list<span class="ansi-blue-fg">(</span>unique<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;unique&#39; is not defined
+[65.5, 65.8, 68.4, 57.5, 51.4, 52.2, 56.9, 54.2, 49.4, 49.5, 54.0, 55.4, 58.3, 59.7, 63.4, 57.8, 60.4, 57.3, 56.3, 59.3, 62.6, 61.7, 60.9, 61.1, 65.7, 69.6, 60.7, 65.4]
 </pre></div></div>
 </div>
 <p>How many days with unique mean temperature did we have in June 2016? We can check that!</p>
@@ -1882,16 +2235,7 @@ options are really easy to do.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
+There were 28 days with unique mean temperatures in June 2016.
 </pre></div></div>
 </div>
 </div>
@@ -1910,18 +2254,341 @@ options are really easy to do.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-32-468b6dc84d32&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Sort dataframe, ascending</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">.</span>sort_values<span class="ansi-blue-fg">(</span>by<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;TEMP&#39;</span><span class="ansi-blue-fg">)</span>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
-</pre></div></div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEARMODA</th>
+      <th>TEMP</th>
+      <th>MAX</th>
+      <th>MIN</th>
+      <th>DIFF</th>
+      <th>DIFF_MIN</th>
+      <th>TEMP_CELSIUS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8</th>
+      <td>20160609</td>
+      <td>49.4</td>
+      <td>54.1</td>
+      <td>45.7</td>
+      <td>8.4</td>
+      <td>3.7</td>
+      <td>9.666667</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>20160610</td>
+      <td>49.5</td>
+      <td>55.9</td>
+      <td>43.0</td>
+      <td>12.9</td>
+      <td>6.5</td>
+      <td>9.722222</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20160605</td>
+      <td>51.4</td>
+      <td>58.3</td>
+      <td>43.2</td>
+      <td>15.1</td>
+      <td>8.2</td>
+      <td>10.777778</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>20160606</td>
+      <td>52.2</td>
+      <td>59.7</td>
+      <td>42.8</td>
+      <td>16.9</td>
+      <td>9.4</td>
+      <td>11.222222</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>20160611</td>
+      <td>54.0</td>
+      <td>62.1</td>
+      <td>41.7</td>
+      <td>20.4</td>
+      <td>12.3</td>
+      <td>12.222222</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>20160608</td>
+      <td>54.2</td>
+      <td>NaN</td>
+      <td>47.5</td>
+      <td>NaN</td>
+      <td>6.7</td>
+      <td>12.333333</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>20160612</td>
+      <td>55.4</td>
+      <td>64.2</td>
+      <td>46.0</td>
+      <td>18.2</td>
+      <td>9.4</td>
+      <td>13.000000</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>20160619</td>
+      <td>56.3</td>
+      <td>59.2</td>
+      <td>54.1</td>
+      <td>5.1</td>
+      <td>2.2</td>
+      <td>13.500000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>20160607</td>
+      <td>56.9</td>
+      <td>65.1</td>
+      <td>45.9</td>
+      <td>19.2</td>
+      <td>11.0</td>
+      <td>13.833333</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>20160618</td>
+      <td>57.3</td>
+      <td>NaN</td>
+      <td>54.0</td>
+      <td>NaN</td>
+      <td>3.3</td>
+      <td>14.055556</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>20160604</td>
+      <td>57.5</td>
+      <td>70.9</td>
+      <td>47.3</td>
+      <td>23.6</td>
+      <td>10.2</td>
+      <td>14.166667</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>20160616</td>
+      <td>57.8</td>
+      <td>67.5</td>
+      <td>55.6</td>
+      <td>11.9</td>
+      <td>2.2</td>
+      <td>14.333333</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>20160613</td>
+      <td>58.3</td>
+      <td>68.2</td>
+      <td>47.3</td>
+      <td>20.9</td>
+      <td>11.0</td>
+      <td>14.611111</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20160620</td>
+      <td>59.3</td>
+      <td>69.1</td>
+      <td>52.2</td>
+      <td>16.9</td>
+      <td>7.1</td>
+      <td>15.166667</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>20160614</td>
+      <td>59.7</td>
+      <td>67.8</td>
+      <td>47.8</td>
+      <td>20.0</td>
+      <td>11.9</td>
+      <td>15.388889</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>20160617</td>
+      <td>60.4</td>
+      <td>70.7</td>
+      <td>55.9</td>
+      <td>14.8</td>
+      <td>4.5</td>
+      <td>15.777778</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>20160627</td>
+      <td>60.7</td>
+      <td>70.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15.944444</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>20160623</td>
+      <td>60.9</td>
+      <td>67.1</td>
+      <td>54.9</td>
+      <td>12.2</td>
+      <td>6.0</td>
+      <td>16.055556</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>20160624</td>
+      <td>61.1</td>
+      <td>68.9</td>
+      <td>56.7</td>
+      <td>12.2</td>
+      <td>4.4</td>
+      <td>16.166667</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>20160622</td>
+      <td>61.7</td>
+      <td>70.2</td>
+      <td>55.4</td>
+      <td>14.8</td>
+      <td>6.3</td>
+      <td>16.500000</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>20160621</td>
+      <td>62.6</td>
+      <td>71.4</td>
+      <td>50.4</td>
+      <td>21.0</td>
+      <td>12.2</td>
+      <td>17.000000</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>20160615</td>
+      <td>63.4</td>
+      <td>70.3</td>
+      <td>49.3</td>
+      <td>21.0</td>
+      <td>14.1</td>
+      <td>17.444444</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>20160628</td>
+      <td>65.4</td>
+      <td>73.0</td>
+      <td>55.8</td>
+      <td>17.2</td>
+      <td>9.6</td>
+      <td>18.555556</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>20160601</td>
+      <td>65.5</td>
+      <td>73.6</td>
+      <td>54.7</td>
+      <td>18.9</td>
+      <td>10.8</td>
+      <td>18.611111</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>20160625</td>
+      <td>65.7</td>
+      <td>75.4</td>
+      <td>57.9</td>
+      <td>17.5</td>
+      <td>7.8</td>
+      <td>18.722222</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>20160630</td>
+      <td>65.7</td>
+      <td>72.7</td>
+      <td>59.2</td>
+      <td>13.5</td>
+      <td>6.5</td>
+      <td>18.722222</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>20160602</td>
+      <td>65.8</td>
+      <td>80.8</td>
+      <td>55.0</td>
+      <td>25.8</td>
+      <td>10.8</td>
+      <td>18.777778</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>20160629</td>
+      <td>65.8</td>
+      <td>73.2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>18.777778</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>20160603</td>
+      <td>68.4</td>
+      <td>NaN</td>
+      <td>55.6</td>
+      <td>NaN</td>
+      <td>12.8</td>
+      <td>20.222222</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>20160626</td>
+      <td>69.6</td>
+      <td>77.7</td>
+      <td>60.3</td>
+      <td>17.4</td>
+      <td>9.3</td>
+      <td>20.888889</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
 <p>Of course, it is also possible to sort them in descending order with <code class="docutils literal notranslate"><span class="pre">ascending=False</span></code> parameter:</p>
 <div class="nbinput docutils container">
@@ -1935,25 +2602,348 @@ options are really easy to do.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-33-7d330a2f642c&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Sort dataframe, descending</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>data<span class="ansi-blue-fg">.</span>sort_values<span class="ansi-blue-fg">(</span>by<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;TEMP&#39;</span><span class="ansi-blue-fg">,</span> ascending<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
-</pre></div></div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEARMODA</th>
+      <th>TEMP</th>
+      <th>MAX</th>
+      <th>MIN</th>
+      <th>DIFF</th>
+      <th>DIFF_MIN</th>
+      <th>TEMP_CELSIUS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>25</th>
+      <td>20160626</td>
+      <td>69.6</td>
+      <td>77.7</td>
+      <td>60.3</td>
+      <td>17.4</td>
+      <td>9.3</td>
+      <td>20.888889</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>20160603</td>
+      <td>68.4</td>
+      <td>NaN</td>
+      <td>55.6</td>
+      <td>NaN</td>
+      <td>12.8</td>
+      <td>20.222222</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>20160602</td>
+      <td>65.8</td>
+      <td>80.8</td>
+      <td>55.0</td>
+      <td>25.8</td>
+      <td>10.8</td>
+      <td>18.777778</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>20160629</td>
+      <td>65.8</td>
+      <td>73.2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>18.777778</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>20160630</td>
+      <td>65.7</td>
+      <td>72.7</td>
+      <td>59.2</td>
+      <td>13.5</td>
+      <td>6.5</td>
+      <td>18.722222</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>20160625</td>
+      <td>65.7</td>
+      <td>75.4</td>
+      <td>57.9</td>
+      <td>17.5</td>
+      <td>7.8</td>
+      <td>18.722222</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>20160601</td>
+      <td>65.5</td>
+      <td>73.6</td>
+      <td>54.7</td>
+      <td>18.9</td>
+      <td>10.8</td>
+      <td>18.611111</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>20160628</td>
+      <td>65.4</td>
+      <td>73.0</td>
+      <td>55.8</td>
+      <td>17.2</td>
+      <td>9.6</td>
+      <td>18.555556</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>20160615</td>
+      <td>63.4</td>
+      <td>70.3</td>
+      <td>49.3</td>
+      <td>21.0</td>
+      <td>14.1</td>
+      <td>17.444444</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>20160621</td>
+      <td>62.6</td>
+      <td>71.4</td>
+      <td>50.4</td>
+      <td>21.0</td>
+      <td>12.2</td>
+      <td>17.000000</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>20160622</td>
+      <td>61.7</td>
+      <td>70.2</td>
+      <td>55.4</td>
+      <td>14.8</td>
+      <td>6.3</td>
+      <td>16.500000</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>20160624</td>
+      <td>61.1</td>
+      <td>68.9</td>
+      <td>56.7</td>
+      <td>12.2</td>
+      <td>4.4</td>
+      <td>16.166667</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>20160623</td>
+      <td>60.9</td>
+      <td>67.1</td>
+      <td>54.9</td>
+      <td>12.2</td>
+      <td>6.0</td>
+      <td>16.055556</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>20160627</td>
+      <td>60.7</td>
+      <td>70.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15.944444</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>20160617</td>
+      <td>60.4</td>
+      <td>70.7</td>
+      <td>55.9</td>
+      <td>14.8</td>
+      <td>4.5</td>
+      <td>15.777778</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>20160614</td>
+      <td>59.7</td>
+      <td>67.8</td>
+      <td>47.8</td>
+      <td>20.0</td>
+      <td>11.9</td>
+      <td>15.388889</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20160620</td>
+      <td>59.3</td>
+      <td>69.1</td>
+      <td>52.2</td>
+      <td>16.9</td>
+      <td>7.1</td>
+      <td>15.166667</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>20160613</td>
+      <td>58.3</td>
+      <td>68.2</td>
+      <td>47.3</td>
+      <td>20.9</td>
+      <td>11.0</td>
+      <td>14.611111</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>20160616</td>
+      <td>57.8</td>
+      <td>67.5</td>
+      <td>55.6</td>
+      <td>11.9</td>
+      <td>2.2</td>
+      <td>14.333333</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>20160604</td>
+      <td>57.5</td>
+      <td>70.9</td>
+      <td>47.3</td>
+      <td>23.6</td>
+      <td>10.2</td>
+      <td>14.166667</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>20160618</td>
+      <td>57.3</td>
+      <td>NaN</td>
+      <td>54.0</td>
+      <td>NaN</td>
+      <td>3.3</td>
+      <td>14.055556</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>20160607</td>
+      <td>56.9</td>
+      <td>65.1</td>
+      <td>45.9</td>
+      <td>19.2</td>
+      <td>11.0</td>
+      <td>13.833333</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>20160619</td>
+      <td>56.3</td>
+      <td>59.2</td>
+      <td>54.1</td>
+      <td>5.1</td>
+      <td>2.2</td>
+      <td>13.500000</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>20160612</td>
+      <td>55.4</td>
+      <td>64.2</td>
+      <td>46.0</td>
+      <td>18.2</td>
+      <td>9.4</td>
+      <td>13.000000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>20160608</td>
+      <td>54.2</td>
+      <td>NaN</td>
+      <td>47.5</td>
+      <td>NaN</td>
+      <td>6.7</td>
+      <td>12.333333</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>20160611</td>
+      <td>54.0</td>
+      <td>62.1</td>
+      <td>41.7</td>
+      <td>20.4</td>
+      <td>12.3</td>
+      <td>12.222222</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>20160606</td>
+      <td>52.2</td>
+      <td>59.7</td>
+      <td>42.8</td>
+      <td>16.9</td>
+      <td>9.4</td>
+      <td>11.222222</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20160605</td>
+      <td>51.4</td>
+      <td>58.3</td>
+      <td>43.2</td>
+      <td>15.1</td>
+      <td>8.2</td>
+      <td>10.777778</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>20160610</td>
+      <td>49.5</td>
+      <td>55.9</td>
+      <td>43.0</td>
+      <td>12.9</td>
+      <td>6.5</td>
+      <td>9.722222</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>20160609</td>
+      <td>49.4</td>
+      <td>54.1</td>
+      <td>45.7</td>
+      <td>8.4</td>
+      <td>3.7</td>
+      <td>9.666667</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
 </div>
 <div class="section" id="Writing-data-to-a-file">
 <h2>Writing data to a file<a class="headerlink" href="#Writing-data-to-a-file" title="Permalink to this headline">¶</a></h2>
 <p>Lastly, it is of course important to be able to write the data that you have analyzed into your computer. This is really handy in Pandas as it <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">supports many different data formats by default</a>.</p>
 <p><strong>The most typical output format by far is CSV file.</strong> Function <code class="docutils literal notranslate"><span class="pre">to_csv()</span></code> can be used to easily save your data in CSV format. Let’s first save the data from our <code class="docutils literal notranslate"><span class="pre">data</span></code> DataFrame into a file called <code class="docutils literal notranslate"><span class="pre">Kumpula_temp_results_June_2016.csv</span></code>.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
@@ -1966,26 +2956,9 @@ options are really easy to do.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
-</pre></div></div>
-</div>
 <p>Now we have the data from our DataFrame saved to a file: <img alt="Text file output1" src="../../_images/pandas-save-file-1.png" /></p>
 <p>As you can see, the first value in the datafile contains now the index value of the rows. There are also quite many decimals present in the new columns that we created. Let’s deal with these and save the temperature values from <code class="docutils literal notranslate"><span class="pre">warm_temps</span></code> DataFrame without the index and with only 1 decimal in the floating point numbers.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
@@ -1994,23 +2967,6 @@ options are really easy to do.</p>
 <span class="n">warm_temps</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_fp2</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%.1f</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, source, filename, symbol)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 133</span><span class="ansi-red-fg">         </span>codeob <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>source<span class="ansi-blue-fg">,</span> filename<span class="ansi-blue-fg">,</span> symbol<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span>         <span class="ansi-green-fg">for</span> feature <span class="ansi-green-fg">in</span> _features<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    135</span>             <span class="ansi-green-fg">if</span> codeob<span class="ansi-blue-fg">.</span>co_flags <span class="ansi-blue-fg">&amp;</span> feature<span class="ansi-blue-fg">.</span>compiler_flag<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: required field &#34;type_ignores&#34; missing from Module
-</pre></div></div>
 </div>
 <p>Omitting the index can be with <code class="docutils literal notranslate"><span class="pre">index=False</span></code> parameter. Specifying how many decimals should be written can be done with <code class="docutils literal notranslate"><span class="pre">float_format</span></code> parameter where text <code class="docutils literal notranslate"><span class="pre">%.1f</span></code> defines Pandas to use 1 decimals in all columns when writing the data to a file (changing the value 1 to 2 would write 2 decimals etc.)</p>
 <p><img alt="Output after float fomatting" src="../../_images/pandas-save-file-2.png" /></p>
@@ -2041,7 +2997,7 @@ options are really easy to do.</p>
     <p>
         &copy; Copyright 2019, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki
       <span class="lastupdated">
-        Last updated on Oct 17, 2019.
+        Last updated on May 26, 2020.
       </span>
 
     </p>
@@ -2074,7 +3030,6 @@ options are really easy to do.</p>
         </dl>
         <dl>
             <dt>Branches</dt>
-            <dd><a href="../../../book-dev/notebooks/L5/processing-data-with-pandas.html">book-dev</a></dd>
             <dd><a href="processing-data-with-pandas.html">develop</a></dd>
             <dd><a href="../../../master/notebooks/L5/processing-data-with-pandas.html">master</a></dd>
         </dl>

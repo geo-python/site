@@ -298,15 +298,50 @@ data with <code class="docutils literal notranslate"><span class="pre">read_csv(
 <pre class="literal-block">
 In [1]: data = pd.read_csv(fp, sep=',', parse_dates=['DATE'])
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+FileNotFoundError                         Traceback (most recent call last)
+&lt;ipython-input-1-f20dd3876fdc&gt; in &lt;module&gt;()
+----&gt; 1 data = pd.read_csv(fp, sep=',', parse_dates=['DATE'])
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py in parser_f(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)
+    674         )
+    675 
+--&gt; 676         return _read(filepath_or_buffer, kwds)
+    677 
+    678     parser_f.__name__ = name
+
+~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py in _read(filepath_or_buffer, kwds)
+    446 
+    447     # Create the parser.
+--&gt; 448     parser = TextFileReader(fp_or_buf, **kwds)
+    449 
+    450     if chunksize or iterator:
+
+~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py in __init__(self, f, engine, **kwds)
+    878             self.options[&quot;has_index_names&quot;] = kwds[&quot;has_index_names&quot;]
+    879 
+--&gt; 880         self._make_engine(self.engine)
+    881 
+    882     def close(self):
+
+~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py in _make_engine(self, engine)
+   1112     def _make_engine(self, engine=&quot;c&quot;):
+   1113         if engine == &quot;c&quot;:
+-&gt; 1114             self._engine = CParserWrapper(self.f, **self.options)
+   1115         else:
+   1116             if engine == &quot;python&quot;:
+
+~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py in __init__(self, src, **kwds)
+   1889         kwds[&quot;usecols&quot;] = self.usecols
+   1890 
+-&gt; 1891         self._reader = parsers.TextReader(src, **kwds)
+   1892         self.unnamed_cols = self._reader.unnamed_cols
+   1893 
+
+pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader.__cinit__()
+
+pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._setup_parser_source()
+
+FileNotFoundError: [Errno 2] File /home/travis/build/geo-python/site/data/L7/hintData.txt does not exist: '/home/travis/build/geo-python/site/data/L7/hintData.txt'
 
 In [2]: data.head()
 ---------------------------------------------------------------------------
@@ -332,15 +367,11 @@ are represented in the data. Consider following example:</p>
 <pre class="literal-block">
 In [4]: data['datetime'] =  pd.to_datetime(data['DATE'], format='%Y%m')
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-4-1c7d066de4f0&gt; in &lt;module&gt;()
+----&gt; 1 data['datetime'] =  pd.to_datetime(data['DATE'], format='%Y%m')
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+NameError: name 'data' is not defined
 
 In [5]: data.head()
 ---------------------------------------------------------------------------
@@ -369,52 +400,26 @@ In order to do this, we’ll need first to create a variable to store the dates 
 Let’s consider an example for my world, where there are two seasons: <code class="docutils literal notranslate"><span class="pre">coldSeason</span></code> and <code class="docutils literal notranslate"><span class="pre">warmSeason</span></code>.
 For each season, I want list the number of times I wore a jacket, with data from the past 4 years.
 I can start by making a variable with 1 date for each of the past 4 years using the Pandas <code class="docutils literal notranslate"><span class="pre">pd.date_range()</span></code> function.</p>
-<pre class="literal-block">
-In [7]: timeIndex = pd.date_range('2014', '2017', freq='AS')
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">timeIndex</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2014&#39;</span><span class="p">,</span> <span class="s1">&#39;2017&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;AS&#39;</span><span class="p">)</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [8]: print(timeIndex)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-8-ebca62f6c014&gt; in &lt;module&gt;()
-----&gt; 1 print(timeIndex)
-
-NameError: name 'timeIndex' is not defined
-</pre>
+<span class="gp">In [8]: </span><span class="nb">print</span><span class="p">(</span><span class="n">timeIndex</span><span class="p">)</span>
+<span class="go">DatetimeIndex([&#39;2014-01-01&#39;, &#39;2015-01-01&#39;, &#39;2016-01-01&#39;, &#39;2017-01-01&#39;], dtype=&#39;datetime64[ns]&#39;, freq=&#39;AS-JAN&#39;)</span>
+</pre></div>
+</div>
 <p>As you can see, we now have a variable <code class="docutils literal notranslate"><span class="pre">timeIndex</span></code> in the Pandas datetime format with dates for January 1 of the past 4 years.
 The starting and ending years are clear, and the <code class="docutils literal notranslate"><span class="pre">freq='AS'</span></code> indicates the frequecy of dates between the listed starting and ending times.
 In this case, <code class="docutils literal notranslate"><span class="pre">AS</span></code> refers to annual values (1 time per year) at the start of the year.</p>
 <p>With the <code class="docutils literal notranslate"><span class="pre">timeIndex</span></code> variable, we can now create our empty DataFrame to store the seasonal jacket numbers using the Pandas <code class="docutils literal notranslate"><span class="pre">pd.DataFrame()</span></code> function.</p>
-<pre class="literal-block">
-In [9]: seasonData = pd.DataFrame(index=timeIndex, columns=['coldSeason', 'warmSeason'])
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">seasonData</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">timeIndex</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;coldSeason&#39;</span><span class="p">,</span> <span class="s1">&#39;warmSeason&#39;</span><span class="p">])</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [10]: print(seasonData)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-10-9757a06f83f0&gt; in &lt;module&gt;()
-----&gt; 1 print(seasonData)
-
-NameError: name 'seasonData' is not defined
-</pre>
+<span class="gp">In [10]: </span><span class="nb">print</span><span class="p">(</span><span class="n">seasonData</span><span class="p">)</span>
+<span class="go">           coldSeason warmSeason</span>
+<span class="go">2014-01-01        NaN        NaN</span>
+<span class="go">2015-01-01        NaN        NaN</span>
+<span class="go">2016-01-01        NaN        NaN</span>
+<span class="go">2017-01-01        NaN        NaN</span>
+</pre></div>
+</div>
 <p>Now we have our empty DataFrame where I can fill in the number of times I needed a jacket in each season using the date index!</p>
 </div>
 <div class="section" id="slicing-up-the-seasons">
@@ -459,47 +464,22 @@ files and generating good file names automatically.</p>
 only the directory path. Then during every loop you combine this directory path, and the file name together.
 This can be done by using a function <code class="docutils literal notranslate"><span class="pre">os.path.join()</span></code> which is part of <code class="docutils literal notranslate"><span class="pre">os</span></code> built-in Python module.</p>
 <p>Consider following example:</p>
-<pre class="literal-block">
-In [11]: import os
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="kn">import</span> <span class="nn">os</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+<span class="gp">In [12]: </span><span class="n">myfolder</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\MyUserName\Temp_visualizations&quot;</span>
 
-In [12]: myfolder = r&quot;C:\MyUserName\Temp_visualizations&quot;
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [13]: for i in range(5):
-   ....:     filename = &quot;My_File_&quot; + str(i) + &quot;.png&quot;
-   ....:     filepath = os.path.join(myfolder, filename)
-   ....:     print(filepath)
-   ....: 
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-</pre>
+<span class="gp">In [13]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;My_File_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.png&quot;</span>
+<span class="gp">   ....: </span>    <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">myfolder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+<span class="gp">   ....: </span>    <span class="nb">print</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+<span class="go">C:\MyUserName\Temp_visualizations/My_File_0.png</span>
+<span class="go">C:\MyUserName\Temp_visualizations/My_File_1.png</span>
+<span class="go">C:\MyUserName\Temp_visualizations/My_File_2.png</span>
+<span class="go">C:\MyUserName\Temp_visualizations/My_File_3.png</span>
+<span class="go">C:\MyUserName\Temp_visualizations/My_File_4.png</span>
+</pre></div>
+</div>
 <p>Here, we created a folder path and a unique filename, and in the end parsed a full filepath that could be
 used to save a plot into that location on your computer.</p>
 </div>
@@ -522,16 +502,6 @@ with admin rights (Command prompt –&gt; right click –&gt; Run as administrat
 </div>
 <p>When you have imageio installed you should be able to import it, in Spyder:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="kn">import</span> <span class="nn">imageio</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ni">__call__</span><span class="nt">(self, source, filename, symbol)</span>
-<span class="g g-Whitespace">    </span><span class="mi">131</span> 
-<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">133</span>         <span class="n">codeob</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">134</span>         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">_features</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">135</span>             <span class="k">if</span> <span class="n">codeob</span><span class="o">.</span><span class="n">co_flags</span> <span class="o">&amp;</span> <span class="n">feature</span><span class="o">.</span><span class="n">compiler_flag</span><span class="p">:</span>
-
-<span class="ne">TypeError</span>: required field &quot;type_ignores&quot; missing from Module
 </pre></div>
 </div>
 <div class="section" id="creating-the-animation">
@@ -612,7 +582,6 @@ Finally, we create the animation into the computer.</p>
         </dl>
         <dl>
             <dt>Branches</dt>
-            <dd><a href="../../../book-dev/index.html">book-dev</a></dd>
             <dd><a href="../../../develop/index.html">develop</a></dd>
             <dd><a href="../../../master/index.html">master</a></dd>
         </dl>

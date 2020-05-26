@@ -853,33 +853,16 @@ This is as easy as adding a parameter that say <code class="docutils literal not
 <p>In case the <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function is causing you some confusion, here is a simple example.
 The general idea is that <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> will return both the value in a list and its index when you use it.
 Let’s see if this helps…</p>
-<pre class="literal-block">
-In [1]: animals=['dog', 'cat', 'frog']
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">animals</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;frog&#39;</span><span class="p">]</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [2]: for index, animal in enumerate(animals):
-   ...:     print(animal, 'is in location', index)
-   ...: 
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-</pre>
+<span class="gp">In [2]: </span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">animal</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">animals</span><span class="p">):</span>
+<span class="gp">   ...: </span>    <span class="nb">print</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span> <span class="s1">&#39;is in location&#39;</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+<span class="gp">   ...: </span>
+<span class="go">dog is in location 0</span>
+<span class="go">cat is in location 1</span>
+<span class="go">frog is in location 2</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="saving-multiple-plots-into-a-directory">
 <h3>Saving multiple plots into a directory<a class="headerlink" href="#saving-multiple-plots-into-a-directory" title="Permalink to this headline">¶</a></h3>
@@ -891,47 +874,22 @@ files and generating good file names automatically.</p>
 only the directory path. Then during every loop you combine this directory path, and the file name together.
 This can be done by using a function <code class="docutils literal notranslate"><span class="pre">os.path.join()</span></code> which is part of <code class="docutils literal notranslate"><span class="pre">os</span></code> built-in Python module.</p>
 <p>Consider following example:</p>
-<pre class="literal-block">
-In [3]: import os
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="kn">import</span> <span class="nn">os</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+<span class="gp">In [4]: </span><span class="n">myfolder</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\MyUserName\Temp_visualizations&quot;</span>
 
-In [4]: myfolder = r&quot;C:\MyUserName\Temp_visualizations&quot;
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [5]: for i in range(5):
-   ...:     filename = &quot;My_File_&quot; + str(i) + &quot;.png&quot;
-   ...:     filepath = os.path.join(myfolder, filename)
-   ...:     print(filepath)
-   ...: 
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-</pre>
+<span class="gp">In [5]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="gp">   ...: </span>    <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;My_File_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.png&quot;</span>
+<span class="gp">   ...: </span>    <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">myfolder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+<span class="gp">   ...: </span>    <span class="nb">print</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+<span class="gp">   ...: </span>
+<span class="go">C:\MyUserName\Temp_visualizations/My_File_0.png</span>
+<span class="go">C:\MyUserName\Temp_visualizations/My_File_1.png</span>
+<span class="go">C:\MyUserName\Temp_visualizations/My_File_2.png</span>
+<span class="go">C:\MyUserName\Temp_visualizations/My_File_3.png</span>
+<span class="go">C:\MyUserName\Temp_visualizations/My_File_4.png</span>
+</pre></div>
+</div>
 <p>Here, we created a folder path and a unique filename, and in the end parsed a full filepath that could be
 used to save a plot into that location on your computer.</p>
 </div>
@@ -972,16 +930,6 @@ with admin rights (Command prompt –&gt; right click –&gt; Run as administrat
 </div>
 <p>When you have imageio installed you should be able to import it, in Spyder:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="kn">import</span> <span class="nn">imageio</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">/opt/python/3.8.0/lib/python3.8/codeop.py</span> in <span class="ni">__call__</span><span class="nt">(self, source, filename, symbol)</span>
-<span class="g g-Whitespace">    </span><span class="mi">131</span> 
-<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">133</span>         <span class="n">codeob</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">134</span>         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">_features</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">135</span>             <span class="k">if</span> <span class="n">codeob</span><span class="o">.</span><span class="n">co_flags</span> <span class="o">&amp;</span> <span class="n">feature</span><span class="o">.</span><span class="n">compiler_flag</span><span class="p">:</span>
-
-<span class="ne">TypeError</span>: required field &quot;type_ignores&quot; missing from Module
 </pre></div>
 </div>
 </div>
@@ -1117,7 +1065,6 @@ There are other ways you could do this same loop, but here we use <code class="d
         </dl>
         <dl>
             <dt>Branches</dt>
-            <dd><a href="../../../book-dev/lessons/L7/exercise-7.html">book-dev</a></dd>
             <dd><a href="exercise-7.html">develop</a></dd>
             <dd><a href="../../../master/lessons/L7/exercise-7.html">master</a></dd>
         </dl>

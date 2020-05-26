@@ -289,106 +289,42 @@
 <div class="section" id="combining-strings">
 <h2>Combining strings<a class="headerlink" href="#combining-strings" title="Permalink to this headline">¶</a></h2>
 <p>In case you have forgotten, string variables can be added together. For example,</p>
-<pre class="literal-block">
-In [1]: a = &quot;Taco &quot;
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;Taco &quot;</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+<span class="gp">In [2]: </span><span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;time&quot;</span>
 
-In [2]: b = &quot;time&quot;
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<span class="gp">In [3]: </span><span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [3]: c = a + b
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [4]: print(c)
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-&lt;ipython-input-4-1dd5973cae19&gt; in &lt;module&gt;()
-----&gt; 1 print(c)
-
-NameError: name 'c' is not defined
-</pre>
+<span class="gp">In [4]: </span><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="go">Taco time</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="nested-if-statements">
 <h2>Nested if statements<a class="headerlink" href="#nested-if-statements" title="Permalink to this headline">¶</a></h2>
 <p>In some cases it might be useful to have nested if statements, meaning that you have another layer of
 conditions after the first condition resolves to True.</p>
 <p>Take a look of following example:</p>
-<pre class="literal-block">
-In [5]: season = &quot;Winter&quot;
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">season</span> <span class="o">=</span> <span class="s2">&quot;Winter&quot;</span>
 
-TypeError: required field &quot;type_ignores&quot; missing from Module
+<span class="gp">In [6]: </span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">10</span>
 
-In [6]: temperature = 10
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-
-In [7]: if season == &quot;Winter&quot;:
-   ...:      if temperature &gt; 7:
-   ...:          print(&quot;No need for winter jacket!&quot;)
-   ...:      else:
-   ...:          print(&quot;It might be cold! Wear a proper jacket!&quot;)
-   ...: elif season == &quot;Summer&quot;:
-   ...:      if temperature &gt; 20:
-   ...:          print(&quot;It's warm! Time to wear shorts!&quot;)
-   ...:      else:
-   ...:          print(&quot;Well this is Finland, better wear long trousers!&quot;)
-   ...: else:
-   ...:      print(&quot;Check the weather forecast!&quot;)
-   ...: 
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-/opt/python/3.8.0/lib/python3.8/codeop.py in __call__(self, source, filename, symbol)
-    131 
-    132     def __call__(self, source, filename, symbol):
---&gt; 133         codeob = compile(source, filename, symbol, self.flags, 1)
-    134         for feature in _features:
-    135             if codeob.co_flags &amp; feature.compiler_flag:
-
-TypeError: required field &quot;type_ignores&quot; missing from Module
-</pre>
+<span class="gp">In [7]: </span><span class="k">if</span> <span class="n">season</span> <span class="o">==</span> <span class="s2">&quot;Winter&quot;</span><span class="p">:</span>
+<span class="gp">   ...: </span>     <span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">:</span>
+<span class="gp">   ...: </span>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No need for winter jacket!&quot;</span><span class="p">)</span>
+<span class="gp">   ...: </span>     <span class="k">else</span><span class="p">:</span>
+<span class="gp">   ...: </span>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It might be cold! Wear a proper jacket!&quot;</span><span class="p">)</span>
+<span class="gp">   ...: </span><span class="k">elif</span> <span class="n">season</span> <span class="o">==</span> <span class="s2">&quot;Summer&quot;</span><span class="p">:</span>
+<span class="gp">   ...: </span>     <span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+<span class="gp">   ...: </span>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s warm! Time to wear shorts!&quot;</span><span class="p">)</span>
+<span class="gp">   ...: </span>     <span class="k">else</span><span class="p">:</span>
+<span class="gp">   ...: </span>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Well this is Finland, better wear long trousers!&quot;</span><span class="p">)</span>
+<span class="gp">   ...: </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">   ...: </span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Check the weather forecast!&quot;</span><span class="p">)</span>
+<span class="gp">   ...: </span>
+<span class="go">No need for winter jacket!</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -444,7 +380,6 @@ TypeError: required field &quot;type_ignores&quot; missing from Module
         </dl>
         <dl>
             <dt>Branches</dt>
-            <dd><a href="../../../book-dev/index.html">book-dev</a></dd>
             <dd><a href="../../../develop/index.html">develop</a></dd>
             <dd><a href="../../../master/index.html">master</a></dd>
         </dl>
