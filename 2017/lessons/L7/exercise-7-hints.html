@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8">
   <script type="text/javascript">
@@ -23,6 +22,12 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/geo-python.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../../_static/GeoPython_favicon.ico"/>
   
@@ -30,7 +35,9 @@
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript">
@@ -52,12 +59,6 @@
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/geo-python.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="prev" title="Exercise 7" href="ex-7.html" />
@@ -77,7 +78,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Geo-Python
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Geo-Python
           
 
           
@@ -107,6 +108,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -212,6 +214,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -250,7 +253,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Hints for Exercise 7</li>
     
@@ -302,46 +305,46 @@ FileNotFoundError                         Traceback (most recent call last)
 &lt;ipython-input-1-f20dd3876fdc&gt; in &lt;module&gt;()
 ----&gt; 1 data = pd.read_csv(fp, sep=',', parse_dates=['DATE'])
 
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py in parser_f(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)
-    674         )
-    675 
---&gt; 676         return _read(filepath_or_buffer, kwds)
-    677 
-    678     parser_f.__name__ = name
+~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py in read_csv(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)
+    684     )
+    685 
+--&gt; 686     return _read(filepath_or_buffer, kwds)
+    687 
+    688 
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py in _read(filepath_or_buffer, kwds)
-    446 
-    447     # Create the parser.
---&gt; 448     parser = TextFileReader(fp_or_buf, **kwds)
-    449 
-    450     if chunksize or iterator:
+    450 
+    451     # Create the parser.
+--&gt; 452     parser = TextFileReader(fp_or_buf, **kwds)
+    453 
+    454     if chunksize or iterator:
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py in __init__(self, f, engine, **kwds)
-    878             self.options[&quot;has_index_names&quot;] = kwds[&quot;has_index_names&quot;]
-    879 
---&gt; 880         self._make_engine(self.engine)
-    881 
-    882     def close(self):
+    934             self.options[&quot;has_index_names&quot;] = kwds[&quot;has_index_names&quot;]
+    935 
+--&gt; 936         self._make_engine(self.engine)
+    937 
+    938     def close(self):
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py in _make_engine(self, engine)
-   1112     def _make_engine(self, engine=&quot;c&quot;):
-   1113         if engine == &quot;c&quot;:
--&gt; 1114             self._engine = CParserWrapper(self.f, **self.options)
-   1115         else:
-   1116             if engine == &quot;python&quot;:
+   1166     def _make_engine(self, engine=&quot;c&quot;):
+   1167         if engine == &quot;c&quot;:
+-&gt; 1168             self._engine = CParserWrapper(self.f, **self.options)
+   1169         else:
+   1170             if engine == &quot;python&quot;:
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py in __init__(self, src, **kwds)
-   1889         kwds[&quot;usecols&quot;] = self.usecols
-   1890 
--&gt; 1891         self._reader = parsers.TextReader(src, **kwds)
-   1892         self.unnamed_cols = self._reader.unnamed_cols
-   1893 
+   1996         kwds[&quot;usecols&quot;] = self.usecols
+   1997 
+-&gt; 1998         self._reader = parsers.TextReader(src, **kwds)
+   1999         self.unnamed_cols = self._reader.unnamed_cols
+   2000 
 
 pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader.__cinit__()
 
 pandas/_libs/parsers.pyx in pandas._libs.parsers.TextReader._setup_parser_source()
 
-FileNotFoundError: [Errno 2] File /home/travis/build/geo-python/site/data/L7/hintData.txt does not exist: '/home/travis/build/geo-python/site/data/L7/hintData.txt'
+FileNotFoundError: [Errno 2] No such file or directory: '/home/travis/build/geo-python/site/data/L7/hintData.txt'
 
 In [2]: data.head()
 ---------------------------------------------------------------------------
@@ -550,11 +553,19 @@ Finally, we create the animation into the computer.</p>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2017 Tenkanen &amp; Whipp, University of Helsinki
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
     <p> <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> </a></p>
      
 

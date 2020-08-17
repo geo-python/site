@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8">
   <script type="text/javascript">
@@ -23,6 +22,12 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/geo-python.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../../_static/GeoPython_favicon.ico"/>
   
@@ -30,7 +35,9 @@
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript">
@@ -52,12 +59,6 @@
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/geo-python.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Dealing with errors" href="interpreting-errors.html" />
@@ -78,7 +79,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Geo-Python
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Geo-Python
           
 
           
@@ -108,6 +109,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -211,6 +213,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -249,7 +252,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Advanced data processing with Pandas</li>
     
@@ -318,46 +321,46 @@ into account when reading the data. We can tell Pandas to consider those charact
 <span class="nn">&lt;ipython-input-1-4c97493f75d7&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;**&#39;</span><span class="p">,</span> <span class="s1">&#39;***&#39;</span><span class="p">,</span> <span class="s1">&#39;****&#39;</span><span class="p">,</span> <span class="s1">&#39;*****&#39;</span><span class="p">,</span> <span class="s1">&#39;******&#39;</span><span class="p">])</span>
 
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">parser_f</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)</span>
-<span class="g g-Whitespace">    </span><span class="mi">674</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">675</span> 
-<span class="ne">--&gt; </span><span class="mi">676</span>         <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">677</span> 
-<span class="g g-Whitespace">    </span><span class="mi">678</span>     <span class="n">parser_f</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">name</span>
+<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)</span>
+<span class="g g-Whitespace">    </span><span class="mi">684</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span> 
+<span class="ne">--&gt; </span><span class="mi">686</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span> 
+<span class="g g-Whitespace">    </span><span class="mi">688</span> 
 
 <span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">446</span> 
-<span class="g g-Whitespace">    </span><span class="mi">447</span>     <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">448</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">fp_or_buf</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">449</span> 
-<span class="g g-Whitespace">    </span><span class="mi">450</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span> 
+<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">452</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">fp_or_buf</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span> 
+<span class="g g-Whitespace">    </span><span class="mi">454</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
 
 <span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">878</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">879</span> 
-<span class="ne">--&gt; </span><span class="mi">880</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">881</span> 
-<span class="g g-Whitespace">    </span><span class="mi">882</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">934</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">935</span> 
+<span class="ne">--&gt; </span><span class="mi">936</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">937</span> 
+<span class="g g-Whitespace">    </span><span class="mi">938</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
 <span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1112</span>     <span class="k">def</span> <span class="nf">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1113</span>         <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1114</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="n">CParserWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1115</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1116</span>             <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;python&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1166</span>     <span class="k">def</span> <span class="nf">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1167</span>         <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1168</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="n">CParserWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1169</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1170</span>             <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;python&quot;</span><span class="p">:</span>
 
 <span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1889</span>         <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;usecols&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usecols</span>
-<span class="g g-Whitespace">   </span><span class="mi">1890</span> 
-<span class="ne">-&gt; </span><span class="mi">1891</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1892</span>         <span class="bp">self</span><span class="o">.</span><span class="n">unnamed_cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span><span class="o">.</span><span class="n">unnamed_cols</span>
-<span class="g g-Whitespace">   </span><span class="mi">1893</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1996</span>         <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;usecols&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usecols</span>
+<span class="g g-Whitespace">   </span><span class="mi">1997</span> 
+<span class="ne">-&gt; </span><span class="mi">1998</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1999</span>         <span class="bp">self</span><span class="o">.</span><span class="n">unnamed_cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span><span class="o">.</span><span class="n">unnamed_cols</span>
+<span class="g g-Whitespace">   </span><span class="mi">2000</span> 
 
 <span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader.__cinit__</span><span class="nt">()</span>
 
 <span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader._setup_parser_source</span><span class="nt">()</span>
 
-<span class="ne">FileNotFoundError</span>: [Errno 2] File /home/travis/build/geo-python/site/data/L6/6591337447542dat_August.txt does not exist: &#39;/home/travis/build/geo-python/site/data/L6/6591337447542dat_August.txt&#39;
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/home/travis/build/geo-python/site/data/L6/6591337447542dat_August.txt&#39;
 </pre></div>
 </div>
 </div>
@@ -878,9 +881,9 @@ In [46]: std_wind = aggr_data['SPEED'].std()
 ---------------------------------------------------------------------------
 KeyError                                  Traceback (most recent call last)
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
-   2645             try:
--&gt; 2646                 return self._engine.get_loc(key)
-   2647             except KeyError:
+   2888             try:
+-&gt; 2889                 return self._engine.get_loc(casted_key)
+   2890             except KeyError as err:
 
 pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
 
@@ -892,33 +895,25 @@ pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTa
 
 KeyError: 'SPEED'
 
-During handling of the above exception, another exception occurred:
+The above exception was the direct cause of the following exception:
 
 KeyError                                  Traceback (most recent call last)
 &lt;ipython-input-46-0e133e816ffd&gt; in &lt;module&gt;()
 ----&gt; 1 std_wind = aggr_data['SPEED'].std()
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in __getitem__(self, key)
-   2798             if self.columns.nlevels &gt; 1:
-   2799                 return self._getitem_multilevel(key)
--&gt; 2800             indexer = self.columns.get_loc(key)
-   2801             if is_integer(indexer):
-   2802                 indexer = [indexer]
+   2897             if self.columns.nlevels &gt; 1:
+   2898                 return self._getitem_multilevel(key)
+-&gt; 2899             indexer = self.columns.get_loc(key)
+   2900             if is_integer(indexer):
+   2901                 indexer = [indexer]
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
-   2646                 return self._engine.get_loc(key)
-   2647             except KeyError:
--&gt; 2648                 return self._engine.get_loc(self._maybe_cast_indexer(key))
-   2649         indexer = self.get_indexer([key], method=method, tolerance=tolerance)
-   2650         if indexer.ndim &gt; 1 or indexer.size &gt; 1:
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
+   2889                 return self._engine.get_loc(casted_key)
+   2890             except KeyError as err:
+-&gt; 2891                 raise KeyError(key) from err
+   2892 
+   2893         if tolerance is not None:
 
 KeyError: 'SPEED'
 
@@ -926,9 +921,9 @@ In [47]: avg_wind = aggr_data['SPEED'].mean()
 ---------------------------------------------------------------------------
 KeyError                                  Traceback (most recent call last)
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
-   2645             try:
--&gt; 2646                 return self._engine.get_loc(key)
-   2647             except KeyError:
+   2888             try:
+-&gt; 2889                 return self._engine.get_loc(casted_key)
+   2890             except KeyError as err:
 
 pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
 
@@ -940,33 +935,25 @@ pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTa
 
 KeyError: 'SPEED'
 
-During handling of the above exception, another exception occurred:
+The above exception was the direct cause of the following exception:
 
 KeyError                                  Traceback (most recent call last)
 &lt;ipython-input-47-1ff1df82ae4d&gt; in &lt;module&gt;()
 ----&gt; 1 avg_wind = aggr_data['SPEED'].mean()
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in __getitem__(self, key)
-   2798             if self.columns.nlevels &gt; 1:
-   2799                 return self._getitem_multilevel(key)
--&gt; 2800             indexer = self.columns.get_loc(key)
-   2801             if is_integer(indexer):
-   2802                 indexer = [indexer]
+   2897             if self.columns.nlevels &gt; 1:
+   2898                 return self._getitem_multilevel(key)
+-&gt; 2899             indexer = self.columns.get_loc(key)
+   2900             if is_integer(indexer):
+   2901                 indexer = [indexer]
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
-   2646                 return self._engine.get_loc(key)
-   2647             except KeyError:
--&gt; 2648                 return self._engine.get_loc(self._maybe_cast_indexer(key))
-   2649         indexer = self.get_indexer([key], method=method, tolerance=tolerance)
-   2650         if indexer.ndim &gt; 1 or indexer.size &gt; 1:
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
+   2889                 return self._engine.get_loc(casted_key)
+   2890             except KeyError as err:
+-&gt; 2891                 raise KeyError(key) from err
+   2892 
+   2893         if tolerance is not None:
 
 KeyError: 'SPEED'
 
@@ -1037,11 +1024,11 @@ AttributeError                            Traceback (most recent call last)
 ----&gt; 1 storm = aggr_data.ix[aggr_data['Outlier'] == True]
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/generic.py in __getattr__(self, name)
-   5272             if self._info_axis._can_hold_identifiers_and_holds_name(name):
-   5273                 return self[name]
--&gt; 5274             return object.__getattribute__(self, name)
-   5275 
-   5276     def __setattr__(self, name: str, value) -&gt; None:
+   5128             if self._info_axis._can_hold_identifiers_and_holds_name(name):
+   5129                 return self[name]
+-&gt; 5130             return object.__getattribute__(self, name)
+   5131 
+   5132     def __setattr__(self, name: str, value) -&gt; None:
 
 AttributeError: 'DataFrame' object has no attribute 'ix'
 
@@ -1071,9 +1058,9 @@ In [55]: std_wind = aggr_data['SPEED'].std()
 ---------------------------------------------------------------------------
 KeyError                                  Traceback (most recent call last)
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
-   2645             try:
--&gt; 2646                 return self._engine.get_loc(key)
-   2647             except KeyError:
+   2888             try:
+-&gt; 2889                 return self._engine.get_loc(casted_key)
+   2890             except KeyError as err:
 
 pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
 
@@ -1085,33 +1072,25 @@ pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTa
 
 KeyError: 'SPEED'
 
-During handling of the above exception, another exception occurred:
+The above exception was the direct cause of the following exception:
 
 KeyError                                  Traceback (most recent call last)
 &lt;ipython-input-55-0e133e816ffd&gt; in &lt;module&gt;()
 ----&gt; 1 std_wind = aggr_data['SPEED'].std()
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in __getitem__(self, key)
-   2798             if self.columns.nlevels &gt; 1:
-   2799                 return self._getitem_multilevel(key)
--&gt; 2800             indexer = self.columns.get_loc(key)
-   2801             if is_integer(indexer):
-   2802                 indexer = [indexer]
+   2897             if self.columns.nlevels &gt; 1:
+   2898                 return self._getitem_multilevel(key)
+-&gt; 2899             indexer = self.columns.get_loc(key)
+   2900             if is_integer(indexer):
+   2901                 indexer = [indexer]
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
-   2646                 return self._engine.get_loc(key)
-   2647             except KeyError:
--&gt; 2648                 return self._engine.get_loc(self._maybe_cast_indexer(key))
-   2649         indexer = self.get_indexer([key], method=method, tolerance=tolerance)
-   2650         if indexer.ndim &gt; 1 or indexer.size &gt; 1:
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
+   2889                 return self._engine.get_loc(casted_key)
+   2890             except KeyError as err:
+-&gt; 2891                 raise KeyError(key) from err
+   2892 
+   2893         if tolerance is not None:
 
 KeyError: 'SPEED'
 
@@ -1119,9 +1098,9 @@ In [56]: avg_wind = aggr_data['SPEED'].mean()
 ---------------------------------------------------------------------------
 KeyError                                  Traceback (most recent call last)
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
-   2645             try:
--&gt; 2646                 return self._engine.get_loc(key)
-   2647             except KeyError:
+   2888             try:
+-&gt; 2889                 return self._engine.get_loc(casted_key)
+   2890             except KeyError as err:
 
 pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
 
@@ -1133,33 +1112,25 @@ pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTa
 
 KeyError: 'SPEED'
 
-During handling of the above exception, another exception occurred:
+The above exception was the direct cause of the following exception:
 
 KeyError                                  Traceback (most recent call last)
 &lt;ipython-input-56-1ff1df82ae4d&gt; in &lt;module&gt;()
 ----&gt; 1 avg_wind = aggr_data['SPEED'].mean()
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in __getitem__(self, key)
-   2798             if self.columns.nlevels &gt; 1:
-   2799                 return self._getitem_multilevel(key)
--&gt; 2800             indexer = self.columns.get_loc(key)
-   2801             if is_integer(indexer):
-   2802                 indexer = [indexer]
+   2897             if self.columns.nlevels &gt; 1:
+   2898                 return self._getitem_multilevel(key)
+-&gt; 2899             indexer = self.columns.get_loc(key)
+   2900             if is_integer(indexer):
+   2901                 indexer = [indexer]
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
-   2646                 return self._engine.get_loc(key)
-   2647             except KeyError:
--&gt; 2648                 return self._engine.get_loc(self._maybe_cast_indexer(key))
-   2649         indexer = self.get_indexer([key], method=method, tolerance=tolerance)
-   2650         if indexer.ndim &gt; 1 or indexer.size &gt; 1:
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
+   2889                 return self._engine.get_loc(casted_key)
+   2890             except KeyError as err:
+-&gt; 2891                 raise KeyError(key) from err
+   2892 
+   2893         if tolerance is not None:
 
 KeyError: 'SPEED'
 
@@ -1282,59 +1253,62 @@ Hence, in the end, you can see that this is a bit more generic function to use (
 <p>Apply our new function and update the values into a new column called <code class="docutils literal notranslate"><span class="pre">Celsius2</span></code></p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [64]: </span><span class="n">data2</span> <span class="o">=</span> <span class="n">data2</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">fahrToCelsius</span><span class="p">,</span> <span class="n">src_col</span><span class="o">=</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;Celsius2&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_value</span><span class="nt">(self, series, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4409</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">4410</span>                 <span class="k">return</span> <span class="n">libindex</span><span class="o">.</span><span class="n">get_value_at</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4411</span>             <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2888</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2889</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2890</span>             <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
 
-<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.get_value_at</span><span class="nt">()</span>
+<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
 
-<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.get_value_at</span><span class="nt">()</span>
+<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
 
-<span class="nn">pandas/_libs/util.pxd</span> in <span class="ni">pandas._libs.util.get_value_at</span><span class="nt">()</span>
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
 
-<span class="nn">pandas/_libs/util.pxd</span> in <span class="ni">pandas._libs.util.validate_indexer</span><span class="nt">()</span>
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
 
-<span class="ne">TypeError</span>: &#39;str&#39; object cannot be interpreted as an integer
+<span class="ne">KeyError</span>: &#39;TEMP&#39;
 
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
 
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-64-468c0343a19e&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data2</span> <span class="o">=</span> <span class="n">data2</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">fahrToCelsius</span><span class="p">,</span> <span class="n">src_col</span><span class="o">=</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;Celsius2&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py</span> in <span class="ni">apply</span><span class="nt">(self, func, axis, raw, result_type, args, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6876</span>             <span class="n">kwds</span><span class="o">=</span><span class="n">kwds</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">6877</span>         <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">6878</span>         <span class="k">return</span> <span class="n">op</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">6879</span> 
-<span class="g g-Whitespace">   </span><span class="mi">6880</span>     <span class="k">def</span> <span class="nf">applymap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;DataFrame&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">7539</span>             <span class="n">kwds</span><span class="o">=</span><span class="n">kwds</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">7540</span>         <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">7541</span>         <span class="k">return</span> <span class="n">op</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">7542</span> 
+<span class="g g-Whitespace">   </span><span class="mi">7543</span>     <span class="k">def</span> <span class="nf">applymap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;DataFrame&quot;</span><span class="p">:</span>
 
 <span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/apply.py</span> in <span class="ni">get_result</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">184</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_raw</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">185</span> 
-<span class="ne">--&gt; </span><span class="mi">186</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_standard</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">187</span> 
-<span class="g g-Whitespace">    </span><span class="mi">188</span>     <span class="k">def</span> <span class="nf">apply_empty_result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">178</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_raw</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">179</span> 
+<span class="ne">--&gt; </span><span class="mi">180</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_standard</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">181</span> 
+<span class="g g-Whitespace">    </span><span class="mi">182</span>     <span class="k">def</span> <span class="nf">apply_empty_result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
 <span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/apply.py</span> in <span class="ni">apply_standard</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">294</span>             <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">295</span>                 <span class="n">result</span> <span class="o">=</span> <span class="n">libreduction</span><span class="o">.</span><span class="n">compute_reduction</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">296</span>                     <span class="n">values</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">,</span> <span class="n">dummy</span><span class="o">=</span><span class="n">dummy</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span>
-<span class="g g-Whitespace">    </span><span class="mi">297</span>                 <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">298</span>             <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">253</span> 
+<span class="g g-Whitespace">    </span><span class="mi">254</span>     <span class="k">def</span> <span class="nf">apply_standard</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">255</span>         <span class="n">results</span><span class="p">,</span> <span class="n">res_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_series_generator</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">256</span> 
+<span class="g g-Whitespace">    </span><span class="mi">257</span>         <span class="c1"># wrap results</span>
 
-<span class="nn">pandas/_libs/reduction.pyx</span> in <span class="ni">pandas._libs.reduction.compute_reduction</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/reduction.pyx</span> in <span class="ni">pandas._libs.reduction.Reducer.get_result</span><span class="nt">()</span>
+<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/apply.py</span> in <span class="ni">apply_series_generator</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">282</span>                 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">series_gen</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">283</span>                     <span class="c1"># ignore SettingWithCopy here in case the user mutates</span>
+<span class="ne">--&gt; </span><span class="mi">284</span>                     <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">285</span>                     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ABCSeries</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">286</span>                         <span class="c1"># If we have a view on v, we need to make a copy because</span>
 
 <span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/apply.py</span> in <span class="ni">f</span><span class="nt">(x)</span>
-<span class="g g-Whitespace">    </span><span class="mi">111</span> 
-<span class="g g-Whitespace">    </span><span class="mi">112</span>             <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">113</span>                 <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">114</span> 
-<span class="g g-Whitespace">    </span><span class="mi">115</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span> 
+<span class="g g-Whitespace">    </span><span class="mi">108</span>             <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">109</span>                 <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span> 
+<span class="g g-Whitespace">    </span><span class="mi">111</span>         <span class="k">else</span><span class="p">:</span>
 
 <span class="nn">&lt;ipython-input-63-0199b9821261&gt;</span> in <span class="ni">fahrToCelsius</span><span class="nt">(row, src_col, target_col)</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">fahrToCelsius</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">src_col</span><span class="p">,</span> <span class="n">target_col</span><span class="p">):</span>
@@ -1342,35 +1316,25 @@ Hence, in the end, you can see that this is a bit more generic function to use (
 <span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="k">return</span> <span class="n">row</span>
 
 <span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/series.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">    </span><span class="mi">869</span>         <span class="n">key</span> <span class="o">=</span> <span class="n">com</span><span class="o">.</span><span class="n">apply_if_callable</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">870</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">871</span>             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">872</span> 
-<span class="g g-Whitespace">    </span><span class="mi">873</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">is_scalar</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">880</span> 
+<span class="g g-Whitespace">    </span><span class="mi">881</span>         <span class="k">elif</span> <span class="n">key_is_scalar</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">882</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_value</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">883</span> 
+<span class="g g-Whitespace">    </span><span class="mi">884</span>         <span class="k">if</span> <span class="p">(</span>
 
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_value</span><span class="nt">(self, series, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4416</span>                     <span class="k">raise</span> <span class="n">InvalidIndexError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4417</span>                 <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">4418</span>                     <span class="k">raise</span> <span class="n">e1</span>
-<span class="g g-Whitespace">   </span><span class="mi">4419</span>             <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">4420</span>                 <span class="k">raise</span> <span class="n">e1</span>
+<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/series.py</span> in <span class="ni">_get_value</span><span class="nt">(self, label, takeable)</span>
+<span class="g g-Whitespace">    </span><span class="mi">989</span> 
+<span class="g g-Whitespace">    </span><span class="mi">990</span>         <span class="c1"># Similar to Index.get_value, but we do not fall back to positional</span>
+<span class="ne">--&gt; </span><span class="mi">991</span>         <span class="n">loc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">992</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">_get_values_for_loc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">993</span> 
 
-<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_value</span><span class="nt">(self, series, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4402</span>         <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_scalar_indexer</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;getitem&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4403</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">4404</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">series</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="s2">&quot;tz&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-<span class="g g-Whitespace">   </span><span class="mi">4405</span>         <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e1</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">4406</span>             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">holds_integer</span><span class="p">()</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_boolean</span><span class="p">()):</span>
-
-<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_value</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_value</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+<span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2889</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2890</span>             <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2891</span>                 <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">2892</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2893</span>         <span class="k">if</span> <span class="n">tolerance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
 <span class="ne">KeyError</span>: &#39;TEMP&#39;
 </pre></div>
@@ -1394,59 +1358,62 @@ With this approach it is extremely easy to reuse our function and pass the resul
 <pre class="literal-block">
 In [66]: data2 = data2.apply(fahrToCelsius, src_col='TEMP', target_col='Celsius3', axis=1)
 ---------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_value(self, series, key)
-   4409             try:
--&gt; 4410                 return libindex.get_value_at(s, key)
-   4411             except IndexError:
+KeyError                                  Traceback (most recent call last)
+~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
+   2888             try:
+-&gt; 2889                 return self._engine.get_loc(casted_key)
+   2890             except KeyError as err:
 
-pandas/_libs/index.pyx in pandas._libs.index.get_value_at()
+pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
 
-pandas/_libs/index.pyx in pandas._libs.index.get_value_at()
+pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
 
-pandas/_libs/util.pxd in pandas._libs.util.get_value_at()
+pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
 
-pandas/_libs/util.pxd in pandas._libs.util.validate_indexer()
+pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
 
-TypeError: 'str' object cannot be interpreted as an integer
+KeyError: 'TEMP'
 
-During handling of the above exception, another exception occurred:
+The above exception was the direct cause of the following exception:
 
 KeyError                                  Traceback (most recent call last)
 &lt;ipython-input-66-b70a0a501690&gt; in &lt;module&gt;()
 ----&gt; 1 data2 = data2.apply(fahrToCelsius, src_col='TEMP', target_col='Celsius3', axis=1)
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in apply(self, func, axis, raw, result_type, args, **kwds)
-   6876             kwds=kwds,
-   6877         )
--&gt; 6878         return op.get_result()
-   6879 
-   6880     def applymap(self, func) -&gt; &quot;DataFrame&quot;:
+   7539             kwds=kwds,
+   7540         )
+-&gt; 7541         return op.get_result()
+   7542 
+   7543     def applymap(self, func) -&gt; &quot;DataFrame&quot;:
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/apply.py in get_result(self)
-    184             return self.apply_raw()
-    185 
---&gt; 186         return self.apply_standard()
-    187 
-    188     def apply_empty_result(self):
+    178             return self.apply_raw()
+    179 
+--&gt; 180         return self.apply_standard()
+    181 
+    182     def apply_empty_result(self):
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/apply.py in apply_standard(self)
-    294             try:
-    295                 result = libreduction.compute_reduction(
---&gt; 296                     values, self.f, axis=self.axis, dummy=dummy, labels=labels
-    297                 )
-    298             except ValueError as err:
+    253 
+    254     def apply_standard(self):
+--&gt; 255         results, res_index = self.apply_series_generator()
+    256 
+    257         # wrap results
 
-pandas/_libs/reduction.pyx in pandas._libs.reduction.compute_reduction()
-
-pandas/_libs/reduction.pyx in pandas._libs.reduction.Reducer.get_result()
+~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/apply.py in apply_series_generator(self)
+    282                 for i, v in enumerate(series_gen):
+    283                     # ignore SettingWithCopy here in case the user mutates
+--&gt; 284                     results[i] = self.f(v)
+    285                     if isinstance(results[i], ABCSeries):
+    286                         # If we have a view on v, we need to make a copy because
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/apply.py in f(x)
-    111 
-    112             def f(x):
---&gt; 113                 return func(x, *args, **kwds)
-    114 
-    115         else:
+    107 
+    108             def f(x):
+--&gt; 109                 return func(x, *args, **kwds)
+    110 
+    111         else:
 
 &lt;ipython-input-63-0199b9821261&gt; in fahrToCelsius(row, src_col, target_col)
       1 def fahrToCelsius(row, src_col, target_col):
@@ -1454,35 +1421,25 @@ pandas/_libs/reduction.pyx in pandas._libs.reduction.Reducer.get_result()
       3         return row
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/series.py in __getitem__(self, key)
-    869         key = com.apply_if_callable(key, self)
-    870         try:
---&gt; 871             result = self.index.get_value(self, key)
-    872 
-    873             if not is_scalar(result):
+    880 
+    881         elif key_is_scalar:
+--&gt; 882             return self._get_value(key)
+    883 
+    884         if (
 
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_value(self, series, key)
-   4416                     raise InvalidIndexError(key)
-   4417                 else:
--&gt; 4418                     raise e1
-   4419             except Exception:
-   4420                 raise e1
+~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/series.py in _get_value(self, label, takeable)
+    989 
+    990         # Similar to Index.get_value, but we do not fall back to positional
+--&gt; 991         loc = self.index.get_loc(label)
+    992         return self.index._get_values_for_loc(self, loc, label)
+    993 
 
-~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_value(self, series, key)
-   4402         k = self._convert_scalar_indexer(k, kind=&quot;getitem&quot;)
-   4403         try:
--&gt; 4404             return self._engine.get_value(s, k, tz=getattr(series.dtype, &quot;tz&quot;, None))
-   4405         except KeyError as e1:
-   4406             if len(self) &gt; 0 and (self.holds_integer() or self.is_boolean()):
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_value()
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_value()
-
-pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.get_loc()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-pandas/_libs/hashtable_class_helper.pxi in pandas._libs.hashtable.PyObjectHashTable.get_item()
+~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
+   2889                 return self._engine.get_loc(casted_key)
+   2890             except KeyError as err:
+-&gt; 2891                 raise KeyError(key) from err
+   2892 
+   2893         if tolerance is not None:
 
 KeyError: 'TEMP'
 
@@ -1521,11 +1478,19 @@ This is a good and efficient approach to use in many cases, and hence highly rec
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2017 Tenkanen &amp; Whipp, University of Helsinki
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
     <p> <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> </a></p>
      
 
