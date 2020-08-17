@@ -41,7 +41,7 @@ release = 'site'
 extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
-    #'sphinxcontrib.googleanalytics',
+    'sphinxcontrib.googleanalytics',
     'nbsphinx',
     'IPython.sphinxext.ipython_console_highlighting',
     'IPython.sphinxext.ipython_directive',
