@@ -41,7 +41,7 @@ release = 'site'
 extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
-    'sphinxcontrib.googleanalytics',
+    #'sphinxcontrib.googleanalytics',
     'nbsphinx',
     'IPython.sphinxext.ipython_console_highlighting',
     'IPython.sphinxext.ipython_directive',
@@ -139,6 +139,12 @@ htmlhelp_basename = 'Geo-Pythondoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
+# latex_docclass = {
+#    'howto': 'krantz.cls',
+#    'manual': 'krantz.cls',
+# }
+#
+# latex_additional_files = ["hyperref.sty"]
 
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
