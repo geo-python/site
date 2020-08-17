@@ -42,9 +42,10 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
     'sphinxcontrib.googleanalytics',
-    'nbsphinx',
     'IPython.sphinxext.ipython_console_highlighting',
     'IPython.sphinxext.ipython_directive',
+    #'nbsphinx',
+    "myst_nb",
 ]
 
 # Google Analytics ID to enable tracking of site traffic
@@ -84,16 +85,36 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-import sphinx_rtd_theme
 
+# ======================
+# TODO: Remove OLD SETUP
+# ======================
+#import sphinx_rtd_theme
 #html_theme = 'alabaster'
-html_theme = 'sphinx_rtd_theme'
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+#html_theme = 'sphinx_rtd_theme'
+#html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+#def setup(app):
+#    app.add_stylesheet('theme_overrides.css')
+#html_logo = 'img/HY-logo-2017.png'
 
-def setup(app):
-    app.add_stylesheet('theme_overrides.css')
+# =======================
+# NEW SPHINX THEME SETUP
+# =======================
 
-html_logo = 'img/HY-logo-2017.png'
+html_theme = 'sphinx_book_theme'
+
+html_theme_options = {
+    #"external_links": [],
+    "repository_url": "https://github.com/geo-python/site/",
+    #"twitter_url": "https://twitter.com/pythongis",
+    #"google_analytics_id": "UA-159257488-1",
+    "use_edit_page_button": True,
+    "launch_buttons": {
+        "binderhub_url": "https://mybinder.org/v2/gh/geo-python/site/master",
+        "thebelab": True,
+        "notebook_interface": "jupyterlab",
+    },
+}
 
 # Add last modified to all pages
 html_last_updated_fmt = ""
