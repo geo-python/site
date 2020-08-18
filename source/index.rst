@@ -34,7 +34,6 @@ This course covers the necessary skills needed before continuing to the more adv
     using Python programming.
 
 
-
 Course format
 -------------
 
@@ -47,9 +46,11 @@ to related questions. You are encouraged to discuss and work together with other
 on the weekly exercises. However, the exercises you submit must be completed individually and
 must clearly reflect your own work (in short, don't copy paste from other students).
 
-.. admonition:: Online support
+.. admonition:: Online teaching
 
+    Please note that all teaching is organized online in autumn 2020.
     Online support will be available throughout the course during the weekly exercise sessions and discussion channels in Slack.
+    Details of participation in the exercise sessions will be sent out to enrolled students.
 
 Schedule
 --------
