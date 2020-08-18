@@ -15,7 +15,7 @@ how to solve common data-related tasks using Python.
 Geo-Python is organized by the `Department of Geosciences and Geography <https://www.helsinki.fi/en/faculty-of-science/faculty/geosciences-and-geography>`__
 at the University of Helsinki.
 
-This course covers the necessary skills needed before continuing to the more advanced courses
+Geo-Python covers the necessary skills needed before continuing to the more advanced courses
 `Automating GIS processes course <https://autogis.github.io>`_ and
 `Introduction to Quantitative Geology <https://introqg.github.io>`_.
 
@@ -33,7 +33,6 @@ This course covers the necessary skills needed before continuing to the more adv
     The course is **open for everyone to follow online**. The aim of this course is to share the knowledge and help people to get started with their journey for doing science more efficiently and in a reproducible manner
     using Python programming.
 
-
 Course format
 -------------
 
@@ -48,7 +47,7 @@ must clearly reflect your own work (in short, don't copy paste from other studen
 
 .. admonition:: Online teaching
 
-    Please note that all teaching is organized online in autumn 2020.
+    Please note that all teaching is organized online during the 2020 Autumn semester.
     Online support will be available throughout the course during the weekly exercise sessions and discussion channels in Slack.
     Details of participation in the exercise sessions will be sent out to enrolled students.
 
