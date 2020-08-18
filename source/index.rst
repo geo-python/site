@@ -5,24 +5,51 @@
 
 .. figure:: img/banner/GeoPython_banner.png
 
-Welcome to Geo-Python 2019!
+Welcome to Geo-Python 2020!
 ===========================
 
-The **Geo-Python** course teaches you the basic concepts of programming using the Python programming language in a format that is easy to learn and understand (no previous programming experience required).
-Each lesson is a tutorial with specific topic(s) where the aim is to gain skills and understanding how to solve common data-related tasks using Python programming (see schedule & learning goals).
-Course is organized by the `Department of Geosciences and Geography <https://www.helsinki.fi/en/faculty-of-science/faculty/geosciences-and-geography>`__ at the University of Helsinki.
+The **Geo-Python** course teaches you the basic concepts of programming and scientific data analysis using the Python programming language
+in a format that is easy to learn and understand (no previous programming experience required).
+Each lesson is a tutorial with specific topic(s) where the aim is to gain skills and understanding
+how to solve common data-related tasks using Python.
+Geo-Python is organized by the `Department of Geosciences and Geography <https://www.helsinki.fi/en/faculty-of-science/faculty/geosciences-and-geography>`__
+at the University of Helsinki.
+
+This course covers the necessary skills needed before continuing to the more advanced courses
+`Automating GIS processes course <https://autogis.github.io>`_ and
+`Introduction to Quantitative Geology <https://introqg.github.io>`_.
+
+.. admonition:: Course codes
+
+    The Geo-Python course runs under two course codes in teaching period 1 at the University of Helsinki.
+
+    - GEOG-329-1 for geography students
+    - GEOK_3030 for geology students
+
+    Helsinki students, please sign up using only one of these course codes (not both)!
+
+.. admonition:: Open Access!
+
+    The course is **open for everyone to follow online**. The aim of this course is to share the knowledge and help people to get started with their journey for doing science more efficiently and in a reproducible manner
+    using Python programming.
+
+
 
 Course format
 -------------
 
-The majority of this course will be spent in front of a computer learning to program in the Python language and working on exercises.
-During Teaching Period I, the `Automating GIS processes <https://autogis.github.io>`_ and `Introduction to Quantitative Geology <https://introqg.github.io>`_
-courses will meet together and focus on learning the basic concepts of programming using Python programming language.
+The majority of this course will be spent in front of a computer learning to program in the Python language.
+The course consists of interactive lectures and weekly exercises. The exercises will focus on developing
+basic programming skills using Python and applying those skills to various analytical problems.
+Typical exercises will involve a brief introduction followed by topical computer-based tasks.
+For each exercise, you may be asked to submit the Python codes you have written, output figures and answers
+to related questions. You are encouraged to discuss and work together with other students while working
+on the weekly exercises. However, the exercises you submit must be completed individually and
+must clearly reflect your own work (in short, don't copy paste from other students).
 
-The computer exercises will focus on developing basic programming skills using the Python language and applying those skills to various problems.
-Typical exercises will involve a brief introduction followed by topical computer-based tasks. At the end of the exercises, you may be asked to submit answers
-to relevant questions, some related plots, and/or Python codes you have written or used. You are encouraged to discuss and work together with other students
-on the laboratory exercises, however the laboratory summary write-ups that you submit must be completed individually and must clearly reflect your own work.
+.. admonition:: Online support
+
+    Online support will be available throughout the course during the weekly exercise sessions and discussion channels in Slack.
 
 Schedule
 --------
@@ -65,10 +92,6 @@ Themes for each week are listed below. Read more about the weekly :doc:`learning
 |          |                      |
 +----------+----------------------+
 
-.. admonition:: Open Access!
-
-    The course is **open for everyone**. The aim of this course is to share the knowledge and help people to get started with their journey for doing science more efficiently and in a reproducible manner
-    using Python programming.
 
 .. admonition:: Step by step instructions with cloud computing!
 
