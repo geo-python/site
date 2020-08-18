@@ -1,0 +1,1759 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-105019106-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>A taste of Python &mdash; Geo-Python site documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'site',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Good coding practices - Selecting “good” variable names" href="gcp-1-variable-naming.html" />
+    <link rel="prev" title="Communicating with Slack" href="../../lessons/L1/slack-usage.html" />
+    <link href="../../_static/geo-python.css" rel="stylesheet" type="text/css">
+     
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Geo-Python
+          
+
+          
+            
+            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2019
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/course-info.html#course-meetings-in-period-i">Course meetings in Period I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/course-info.html#instructors">Instructors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/course-info.html#lecturers">Lecturers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/course-info.html#course-assistants">Course assistants</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/course-info.html#course-websites">Course websites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/grading.html#general-grading-breakdown">General grading breakdown</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/installing-anacondas.html">Installing Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/installing-anacondas.html#install-python-on-windows">Install Python on Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/installing-anacondas.html#install-python-on-macos">Install Python on macOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/installing-anacondas.html#install-python-on-linux">Install Python on Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/installing-anacondas.html#installing-packages-using-conda">Installing packages using Conda</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/installing-anacondas.html#the-easiest-way">The easiest way</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/installing-anacondas.html#installing-jupyter-lab-using-conda">Installing Jupyter Lab using conda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/installing-anacondas.html#alternative-way-to-install-packages-if-typical-doesn-t-work">Alternative way to install packages if typical doesn’t work</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/python-vocabulary.html">Vocabulary - Basic terms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/python-vocabulary.html#python-vocabulary">Python vocabulary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/python-vocabulary.html#basic-vocabulary-of-version-control">Basic vocabulary of Version Control</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#books">Books</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#python-tutorials">Python tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#git-github-tutorials">Git + Github tutorials</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/licensing.html#instructional-materials">Instructional materials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/licensing.html#you-are-free-to">you are free to</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/licensing.html#under-the-following-terms">Under the following terms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/licensing.html#notices">Notices</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/licensing.html#code-snippets-software">Code snippets / software</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 1</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/motivation.html">Motivation for the course</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/motivation.html#effective-data-visualization">Effective data visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/overview.html#lecture-video">Lecture video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/overview.html#lecture-slides">Lecture slides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/course-environment-components.html">Course environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#jupyterlab">JupyterLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#cloud-computing-environments">Cloud computing environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#binder">Binder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#csc-notebooks">CSC Notebooks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#using-your-own-computer">Using your own computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#git-and-github">Git and GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#slack">Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#voting-and-polling">Voting and polling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/course-environment-components.html#page-summary">Page summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/slack-usage.html">Communicating with Slack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/slack-usage.html#accessing-the-workspace-in-slack">Accessing the workspace in Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/slack-usage.html#overview-of-slack">Overview of Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/slack-usage.html#basic-usage-of-slack">Basic usage of Slack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L1/slack-usage.html#notifying-a-user">Notifying a user</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L1/slack-usage.html#using-threads">Using threads</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/slack-usage.html#general-guidelines-for-communication">General guidelines for communication</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">A taste of Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#General-information">General information</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Sources">Sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#About-this-document">About this document</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Getting-started">Getting started</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Variables,-math-and-functions">Variables, math and functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Simple-Python-math">Simple Python math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Math-operations">Math operations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Check-your-understanding">Check your understanding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Combining-functions">Combining functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Variables">Variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Check-your-understanding">Check your understanding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Updating-variables">Updating variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Variable-values">Variable values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Data-types">Data types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Check-your-understanding">Check your understanding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Character-input">Character input</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gcp-1-variable-naming.html">Good coding practices - Selecting “good” variable names</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gcp-1-variable-naming.html#Some-&quot;not-so-good&quot;-variable-names">Some “not-so-good” variable names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcp-1-variable-naming.html#Selecting-&quot;good&quot;-variable-names">Selecting “good” variable names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcp-1-variable-naming.html#Formatting-&quot;good&quot;-variable-names">Formatting “good” variable names</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L1/exercise-1.html">Exercise 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/exercise-1.html#part-1-creating-a-github-com-account-and-using-slack">Part 1 - Creating a GitHub.com account and using Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/exercise-1.html#part-2-cooking-up-some-python">Part 2 - Cooking up some Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L1/exercise-1.html#summary-what-to-submit">Summary (what to submit)</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/overview.html#lecture-video">Lecture video</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/Python-basic-elements.html">Basic elements of Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Python-basic-elements.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Python-basic-elements.html#Data-types-revisited">Data types revisited</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Let's-start-with-some-data">Let’s start with some data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Reminder:-Data-types-and-their-compatibility">Reminder: Data types and their compatibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Converting-data-from-one-type-to-another">Converting data from one type to another</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Combining-text-and-numbers">Combining text and numbers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Python-basic-elements.html#Lists-and-indices">Lists and indices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Creating-a-list">Creating a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Index-values">Index values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#A-useful-analog---Bill-the-vending-machine">A useful analog - Bill the vending machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Number-of-items-in-a-list">Number of items in a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Index-value-tips">Index value tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Modifying-list-values">Modifying list values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Data-types-in-lists">Data types in lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Adding-and-removing-values-from-lists">Adding and removing values from lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Appending-to-an-integer?-Not-so-fast...">Appending to an integer? Not so fast…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Some-other-useful-list-methods">Some other useful list methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Reversing-a-list">Reversing a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/Python-basic-elements.html#Sorting-a-list">Sorting a list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/gcp-2-describing-code.html">Good coding practices - Describing your code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/gcp-2-describing-code.html#Do-I-need-to-describe-my-code?">Do I need to describe my code?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/gcp-2-describing-code.html#But-seriously,-the-Internet-says-I-shouldn't-comment-my-code">But seriously, the Internet says I shouldn’t comment my code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/gcp-2-describing-code.html#Code-comments">Code comments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/gcp-2-describing-code.html#Line-comments">Line comments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/gcp-2-describing-code.html#Block-comments">Block comments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/gcp-2-describing-code.html#Markdown-text">Markdown text</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/gcp-2-describing-code.html#Data-source">Data source</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html">Introduction to Version Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#familiar">Familiar?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#what-is-version-control">What is version control?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#what-is-git">What is Git?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#what-is-github">What is GitHub?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#relies-on-git">Relies on Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#social-collaborative-network">Social (collaborative) network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#open-source-science">Open source / science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#documentation">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#online-tools">Online tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#issue-tracking">Issue tracking</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#basic-vocabulary">Basic vocabulary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/intro-to-GitHub.html#resources">Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/git-basics.html">Meet Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/git-basics.html#overview-and-preparations">Overview and preparations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/git-basics.html#key-concepts-and-tools">Key concepts and tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/git-basics.html#using-git-from-the-command-line">Using Git from the command line</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#clone-a-repository-from-github">Clone a repository from GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#add-changes-to-the-staging-area">Add changes to the staging area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#commit-changes">Commit changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#publish-your-local-commits-to-github">Publish your local commits to GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/git-basics.html#using-the-jupyterlab-git-plugin">Using the JupyterLab Git plugin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#preparations-in-the-terminal">Preparations in the Terminal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#stage-changes-in-the-plugin">Stage changes in the plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#commit-changes-in-the-plugin">Commit changes in the plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/git-basics.html#pull-and-push-using-the-plugin">Pull and push using the plugin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/git-basics.html#if-everything-else-fails">If everything else fails…</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/GitHub-classroom.html">Using Classroom for Github</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/GitHub-classroom.html#classroom-for-github">Classroom for GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L2/exercise-2.html">Exercise 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/exercise-2.html#cloud-computing-environments">Cloud computing environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L2/exercise-2.html#exercise-2-hints">Exercise 2 hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/exercise-2.html#git">Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/exercise-2.html#list-methods">List methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L2/exercise-2.html#indentation-woes">Indentation woes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L3/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L3/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L3/overview.html#lecture">Lecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/for-loops.html">for loops</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/for-loops.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/for-loops.html#Basics-of-for-loops">Basics of for loops</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#A-(bad)-example">A (bad) example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#Introducing-the-for-loop">Introducing the for loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#for-loop-format">for loop format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L3/for-loops.html#Your-daily-for-loop">Your daily for loop</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#for-loop-variables">for loop variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#for-loops-and-the-range()-function">for loops and the range() function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L3/for-loops.html#Poll-question-pause">Poll question pause</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#Looping-over-the-length-of-lists-using-index-values">Looping over the length of lists using index values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/for-loops.html#Why-bother-looping-over-a-list-by-the-index-value?">Why bother looping over a list by the index value?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L3/for-loops.html#Poll-question-pause">Poll question pause</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/conditional-statements.html">Conditional statements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/conditional-statements.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/conditional-statements.html#Basics-of-conditional-statements">Basics of conditional statements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/conditional-statements.html#A-simple-conditional-statement">A simple conditional statement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/conditional-statements.html#Comparison-operators-and-boolean-values">Comparison operators and boolean values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/conditional-statements.html#if,-elif-and-else">if, elif and else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/conditional-statements.html#Combining-conditions">Combining conditions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/conditional-statements.html#Combining-for-loops-and-conditional-statements">Combining for-loops and conditional statements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/gcp-3-pep8.html">Good coding practices - writing readable code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/gcp-3-pep8.html#Working-code-vs-readable-code">Working code vs readable code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/gcp-3-pep8.html#PEP-8-Style-Guide">PEP 8 Style Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/gcp-3-pep8.html#Maximum-line-length">Maximum line length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/gcp-3-pep8.html#Indentation">Indentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/gcp-3-pep8.html#Whitespace-and-binary-operators">Whitespace and binary operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/gcp-3-pep8.html#Avoid-extraneous-whitespace">Avoid extraneous whitespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/gcp-3-pep8.html#Write-one-statement-per-line">Write one statement per line</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L3/exercise-3.html">Exercise 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L3/exercise-3.html#cloud-computing-environments">Cloud computing environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L3/exercise-3.html#exercise-3-hints">Exercise 3 hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L3/exercise-3.html#general-tips">General tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L3/exercise-3.html#tests">Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L3/exercise-3.html#combining-strings">Combining strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L3/exercise-3.html#nested-if-statements">Nested if statements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 4</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L4/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L4/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L4/overview.html#lecture">Lecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L4/overview.html#id1">Lecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#Sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#What-is-a-function?">What is a function?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#Anatomy-of-a-function">Anatomy of a function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Our-first-function-(aww...)">Our first function (aww…)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#Calling-functions">Calling functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Using-our-new-function">Using our new function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Let's-make-another-function">Let’s make another function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Using-our-second-function">Using our second function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L4/functions.html#Check-your-understanding">Check your understanding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Functions-within-a-function-(Yo-dawg...)">Functions within a function (Yo dawg…)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Using-our-combined-functions">Using our combined functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#An-introduction-to-script-files">An introduction to script files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#The-general-concept-of-a-.py-script-file">The general concept of a .py script file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Getting-started">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Saving-a-text-file-as-a-Python-file">Saving a text file as a Python file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#Saving-and-loading-functions">Saving and loading functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Saving-functions-in-a-script-file">Saving functions in a script file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#Calling-functions-from-a-script-file">Calling functions from a script file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Making-sure-we're-in-the-right-working-directory">Making sure we’re in the right working directory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L4/functions.html#Binder-users">Binder users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L4/functions.html#CSC-notebooks-users">CSC notebooks users</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Changing-the-working-directory">Changing the working directory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L4/functions.html#Binder-users">Binder users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L4/functions.html#CSC-notebooks-users">CSC notebooks users</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Importing-our-script-functions">Importing our script functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Using-our-script-functions">Using our script functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L4/functions.html#Importing-multiple-functions">Importing multiple functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Importing-all-functions-from-a-script">Importing all functions from a script</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/functions.html#Temperature-calculator-(optional,-advanced-topic)">Temperature calculator (<em>optional, advanced topic</em>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Defining-the-function">Defining the function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Adding-some-conditional-statements">Adding some conditional statements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Returning-the-result">Returning the result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Adding-a-docstring">Adding a docstring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Testing-the-new-function">Testing the new function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/functions.html#Using-the-tempCalculator">Using the tempCalculator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/modules.html">Loading and using modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L4/modules.html#Modules,-packages-and-libraries?">Modules, packages and libraries?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/modules.html#Loading-modules">Loading modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/modules.html#Renaming-imported-modules">Renaming imported modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/modules.html#Importing-a-single-function">Importing a single function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/modules.html#Importing-a-submodule">Importing a submodule</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/modules.html#Using-module-functions">Using module functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/modules.html#What-should-I-not-do?">What should I not do?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/modules.html#from-X-import-*">from X import *</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/modules.html#Poor-names-when-renaming-on-import">Poor names when renaming on import</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/modules.html#Extra:-installing-packages">Extra: installing packages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/writing-scripts.html">Good coding practices - Writing our scripts the “right” way</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L4/writing-scripts.html#Inline-comments">Inline comments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/writing-scripts.html#Use-line-breaks-wisely">Use line breaks wisely</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/writing-scripts.html#Use-a-docstring">Use a docstring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/writing-scripts.html#Advanced-topics">Advanced topics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/writing-scripts.html#Adding-a-license">Adding a license</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/writing-scripts.html#Starting-with-a-shebang">Starting with a shebang</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/writing-scripts.html#Page-summary">Page summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L4/exercise-4.html">Exercise 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L4/exercise-4.html#cloud-computing-environments">Cloud computing environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L4/exercise-4.html#exercise-4-hints">Exercise 4 hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L4/exercise-4.html#importing-variables-from-a-script">Importing variables from a script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L4/exercise-4.html#counting-values-from-a-list">Counting values from a list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 5</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L5/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L5/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L5/overview.html#lecture-videos">Lecture videos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L5/pandas-overview.html">What is Pandas?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L5/pandas-overview.html#easy-to-use-data-structures">Easy-to-use data structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L5/pandas-overview.html#combines-functionalities-from-many-python-modules">Combines functionalities from many Python modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L5/pandas-overview.html#supports-data-read-write-from-multiple-formats">Supports data read/write from multiple formats</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/exploring-data-using-pandas.html">Exploring data using Pandas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L5/exploring-data-using-pandas.html#Input-data:-weather-statistics">Input data: weather statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/exploring-data-using-pandas.html#Reading-a-data-file-with-Pandas">Reading a data file with Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/exploring-data-using-pandas.html#DataFrame-properties">DataFrame properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/exploring-data-using-pandas.html#Selecting-columns">Selecting columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/exploring-data-using-pandas.html#Descriptive-statistics">Descriptive statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/exploring-data-using-pandas.html#Extra:-Very-basic-plots">Extra: Very basic plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/exploring-data-using-pandas.html#Extra:-From-lists-to-pandas-objects">Extra: From lists to pandas objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/processing-data-with-pandas.html">Processing data with Pandas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L5/processing-data-with-pandas.html#Basic-calculations">Basic calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/processing-data-with-pandas.html#Selecting-rows-and-columns">Selecting rows and columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/processing-data-with-pandas.html#Filtering-and-updating-data">Filtering and updating data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/processing-data-with-pandas.html#Dealing-with-missing-data">Dealing with missing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/processing-data-with-pandas.html#Data-type-conversions">Data type conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/processing-data-with-pandas.html#Unique-values">Unique values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/processing-data-with-pandas.html#Sorting-data">Sorting data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/processing-data-with-pandas.html#Writing-data-to-a-file">Writing data to a file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L5/exercise-5.html">Exercise 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L5/exercise-5.html#exercise-5-hints-for-pandas">Exercise 5 hints for Pandas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 6</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L6/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L6/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L6/overview.html#lesson-videos">Lesson videos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html">Data processing with Pandas, part 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Motivation">Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Input-data">Input data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Downloading-the-data">Downloading the data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#CSC-Notebooks-users">CSC Notebooks users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Users-with-Jupyter-on-their-personal-computers">Users with Jupyter on their personal computers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Binder-users">Binder users</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#About-the-data">About the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Reading-the-data">Reading the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Renaming-columns">Renaming columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Check-dataframe-properties">Check dataframe properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Using-your-own-functions-in-pandas">Using your own functions in pandas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Iterating-over-rows">Iterating over rows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Applying-a-function">Applying a function</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Parsing-dates">Parsing dates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#String-slicing">String slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#datetime">datetime</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Aggregating-data-in-Pandas-by-grouping">Aggregating data in Pandas by grouping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Detecting-warm-months">Detecting warm months</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/advanced-data-processing-with-pandas.html#Repeating-the-data-analysis-with-larger-dataset">Repeating the data analysis with larger dataset</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/errors.html">Dealing with errors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/errors.html#Interpreting-error-messages">Interpreting error messages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/errors.html#Reading-error-messages">Reading error messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/errors.html#Common-errors-and-exceptions">Common errors and exceptions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L6/errors.html#IndexErrors">IndexErrors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L6/errors.html#NameErrors">NameErrors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L6/errors.html#IndentationErrors">IndentationErrors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L6/errors.html#TypeErrors">TypeErrors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L6/errors.html#Other-kinds-of-errors">Other kinds of errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/errors.html#More-information">More information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/gcp-assertions.html">Good coding practices - Using assertions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/gcp-assertions.html#Assertions">Assertions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/gcp-assertions.html#Multiple-assertions">Multiple assertions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L6/gcp-assertions.html#A-bad-example">A bad example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L6/gcp-assertions.html#A-better-example">A better example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/gcp-assertions.html#More-information">More information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/debugging.html">Debugging your Python code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/debugging.html#Source">Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/debugging.html#Test-your-code-with-known-outputs">Test your code with known outputs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/debugging.html#Testing-with-a-simplified-data-file">Testing with a simplified data file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/debugging.html#Make-your-code-crash-quickly-and-regularly">Make your code crash quickly and regularly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/debugging.html#Make-small-changes-and-track-them">Make small changes and track them</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L6/exercise-6.html">Exercise 6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L6/exercise-6.html#cloud-computing-environments">Cloud computing environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L6/exercise-6.html#exercise-6-hints">Exercise 6 hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L6/exercise-6.html#data-format-for-problems-1-3">Data format for problems 1-3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L6/exercise-6.html#reading-in-fixed-width-text-files">Reading in fixed-width text files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L6/exercise-6.html#skipping-the-second-row-of-a-file">Skipping the second row of a file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L6/exercise-6.html#joining-data-from-one-dataframe-to-another">Joining data from one DataFrame to another</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lesson 7</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L7/overview.html">Lesson overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L7/overview.html#learning-goals">Learning goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L7/overview.html#lesson-videos">Lesson videos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L7/python-plotting.html">Plotting in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L7/plot-anatomy.html">Anatomy of a plot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L7/plot-anatomy.html#common-terms-when-doing-plotting">Common terms when doing plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/matplotlib.html">Plotting with Pandas (…and Matplotlib…and Bokeh)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L7/matplotlib.html#Input-data">Input data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/matplotlib.html#Downloading-the-data">Downloading the data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/matplotlib.html#Binder-users">Binder users</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/matplotlib.html#About-the-data">About the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/matplotlib.html#Getting-started">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/matplotlib.html#Basic-x-y-plot">Basic x-y plot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/matplotlib.html#Selecting-our-plotted-data">Selecting our plotted data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/matplotlib.html#Basic-plot-formatting">Basic plot formatting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/matplotlib.html#Embiggening*-the-plot">Embiggening* the plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/matplotlib.html#Other-common-plot-formatting-operations">Other common plot formatting operations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L7/matplotlib.html#Adding-text-to-the-plot">Adding text to the plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L7/matplotlib.html#Changing-the-axis-ranges">Changing the axis ranges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L7/matplotlib.html#Dealing-with-datetime-axes">Dealing with datetime axes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/matplotlib.html#Bar-plots-in-Pandas">Bar plots in Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/matplotlib.html#Saving-your-plots-as-image-files">Saving your plots as image files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/matplotlib.html#Interactive-plotting-with-Pandas-Bokeh">Interactive plotting with Pandas-Bokeh</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/advanced-plotting.html">More advanced plotting with Pandas/Matplotlib</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L7/advanced-plotting.html#The-data">The data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/advanced-plotting.html#Getting-started">Getting started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/advanced-plotting.html#Loading-the-data">Loading the data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/advanced-plotting.html#Preparing-the-data">Preparing the data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/advanced-plotting.html#Converting-temperatures-to-Celsius">Converting temperatures to Celsius</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/advanced-plotting.html#Using-subplots">Using subplots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/advanced-plotting.html#Extracting-seasonal-temperatures">Extracting seasonal temperatures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/advanced-plotting.html#Finding-data-bounds">Finding data bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/advanced-plotting.html#Creating-our-first-set-of-subplots">Creating our first set of subplots</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/L7/exercise-7.html">Exercise 7</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L7/exercise-7.html#cloud-computing-environments">Cloud computing environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L7/exercise-7.html#hints-for-exercise-7">Hints for Exercise 7</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L7/exercise-7.html#labels-and-legends">Labels and legends</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L7/exercise-7.html#using-enumerate">Using <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L7/exercise-7.html#saving-multiple-plots-into-a-directory">Saving multiple plots into a directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L7/exercise-7.html#settings-for-multiple-subplots">Settings for multiple subplots:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L7/exercise-7.html#preventing-plot-display">Preventing plot display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L7/exercise-7.html#creating-an-animation-from-multiple-images">Creating an animation from multiple images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L7/exercise-7.html#creating-the-animation">Creating the animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lessons/L7/exercise-7.html#numpy-specific-hints">NumPy-specific hints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L7/exercise-7.html#extracting-seasonal-dates-and-temperatures-in-many-years">Extracting seasonal dates and temperatures (in many years)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lessons/L7/exercise-7.html#finding-seasonal-average-temperatures-by-year">Finding seasonal average temperatures (by year)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Geo-Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>A taste of Python</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/geo-python/site/blob/2019/source/notebooks/L1/a-taste-of-python.ipynb" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="admonition note">
+This page was generated from <a class="reference external" href="https://github.com/Geo-Python/site/blob/master/source/notebooks/L1/a-taste-of-python.ipynb">source/notebooks/L1/a-taste-of-python.ipynb</a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/geo-python/site/master?urlpath=lab/tree/source/notebooks/L1/a-taste-of-python.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span>
+<span class="raw-html"><a href="https://mybinder.org/v2/gh/geo-python/notebooks/master?urlpath=lab/tree/notebooks/L1/a-taste-of-python.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-student%20binder-red.svg" style="vertical-align:text-bottom"></a></span>
+<span class="raw-html"><a href="https://notebooks.csc.fi/#/blueprint/df93f30d14e44b51907d135726eb6ef4"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a></span></div>
+<div class="section" id="A-taste-of-Python">
+<h1>A taste of Python<a class="headerlink" href="#A-taste-of-Python" title="Permalink to this headline">¶</a></h1>
+<p>We will start our Python lesson by learning a bit of the basic operations you can perform using Python.</p>
+<div class="section" id="General-information">
+<h2>General information<a class="headerlink" href="#General-information" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Sources">
+<h3>Sources<a class="headerlink" href="#Sources" title="Permalink to this headline">¶</a></h3>
+<p>This lesson is inspired by the <a class="reference external" href="http://swcarpentry.github.io/python-novice-inflammation/">Programming in Python lessons</a> from the <a class="reference external" href="http://software-carpentry.org">Software Carpentry organization</a>.</p>
+</div>
+<div class="section" id="About-this-document">
+<h3>About this document<a class="headerlink" href="#About-this-document" title="Permalink to this headline">¶</a></h3>
+<p>This is a <a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a>. This particular notebook is designed to introduce you to a few of the basic concepts of programming in Python. The contents of this document are divided into cells, which can contain Markdown-formatted text, Python code, or raw text. You can execute a snippet of code in a cell by pressing <strong>Shift-Enter</strong>. Try this out with the examples below.</p>
+</div>
+<div class="section" id="Getting-started">
+<h3>Getting started<a class="headerlink" href="#Getting-started" title="Permalink to this headline">¶</a></h3>
+<p>Presumably if you have made it this far, you have already opened this Jupyter Notebook using Binder, the CSC notebooks server, or on your own computer. If not, you can launch <a class="reference external" href="http://jupyterlab.readthedocs.io/en/stable/">Jupyter Lab</a> by clicking on either of the launch buttons at the top of this document or by typing the following in a terminal window.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ jupyter lab
+</pre></div>
+</div>
+<p>This should open a new Jupyter Lab session from which you can open this document by navigating its location in the <strong>Files</strong> tab and double clicking on it. After that you should be ready to go.</p>
+</div>
+</div>
+<div class="section" id="Variables,-math-and-functions">
+<h2>Variables, math and functions<a class="headerlink" href="#Variables,-math-and-functions" title="Permalink to this headline">¶</a></h2>
+<p>We will start our Python lesson by learning a bit of the basic operations you can perform using Python.</p>
+<div class="section" id="Simple-Python-math">
+<h3>Simple Python math<a class="headerlink" href="#Simple-Python-math" title="Permalink to this headline">¶</a></h3>
+<p>Python can be used as a simple calculator. Remember, you can press <strong>Shift-Enter</strong> to execute the code in the cells below. Try it out by typing <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">*</span> <span class="pre">7</span></code> and see what you get.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>2
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="mi">5</span> <span class="o">*</span> <span class="mi">7</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>35
+</pre></div>
+</div>
+</div>
+<p>If you want to edit and re-run some code, simply make changes to the cell and press <strong>Shift-Enter</strong> to execute the revised code.</p>
+</div>
+<div class="section" id="Functions">
+<h3>Functions<a class="headerlink" href="#Functions" title="Permalink to this headline">¶</a></h3>
+<p>You can use Python for more advanced math by using functions. Functions are pieces of code that perform a single action such as printing information to the screen (e.g., the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function). Functions exist for a huge number of operations in Python.</p>
+<p>Let’s try out a few simple examples using functions to find the sine or square root of a value. You can type <code class="docutils literal notranslate"><span class="pre">sin(3)</span></code> or <code class="docutils literal notranslate"><span class="pre">sqrt(4)</span></code> into the cells below to test this out.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-3-2b5fc2868c51&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>sin<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;sin&#39; is not defined
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-4-317e033d29d5&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>sqrt<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">4</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;sqrt&#39; is not defined
+</pre></div></div>
+</div>
+<p>Wait, what? Python can’t calculate square roots or do basic trigonometry? Of course it can, but we need one more step.</p>
+</div>
+<div class="section" id="Math-operations">
+<h3>Math operations<a class="headerlink" href="#Math-operations" title="Permalink to this headline">¶</a></h3>
+<p>The list of basic arithmetic operations that can be done by default in Python is in the table below.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="16%" />
+<col width="28%" />
+<col width="28%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Symbol</th>
+<th class="head">Example syntax</th>
+<th class="head">Returned value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Addition</td>
+<td><code class="docutils literal notranslate"><span class="pre">+</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">2</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">4</span></code></td>
+</tr>
+<tr class="row-odd"><td>Subtraction</td>
+<td><code class="docutils literal notranslate"><span class="pre">-</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">-</span> <span class="pre">2</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">2</span></code></td>
+</tr>
+<tr class="row-even"><td>Multiplication</td>
+<td><code class="docutils literal notranslate"><span class="pre">*</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">3</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">6</span></code></td>
+</tr>
+<tr class="row-odd"><td>Division</td>
+<td><code class="docutils literal notranslate"><span class="pre">/</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">/</span> <span class="pre">2</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">2</span></code></td>
+</tr>
+<tr class="row-even"><td>Exponentiation</td>
+<td><code class="docutils literal notranslate"><span class="pre">**</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">2**3</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">8</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>For anything more advanced, we need to load a <em>module</em>. For math operations, this module is called <em>math</em> and it can be loaded by typing <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code>. Try that below.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">math</span>
+</pre></div>
+</div>
+</div>
+<p>Now that we have access to functions in the math module, we can use it by typing the module name, a period (dot), and the the name of the function we want to use. For example, <code class="docutils literal notranslate"><span class="pre">math.sin(3)</span></code>. Try this with the sine and square root examples from above.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0.1411200080598672
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>2.0
+</pre></div>
+</div>
+</div>
+<p>Let’s summarize what we’ve just seen with modules:</p>
+<ol class="arabic simple">
+<li>A <em>module</em> is a group of code items such as functions that are related to one another. Individual modules are often in a group referred to as a <em>library</em>.</li>
+<li>Modules can be loaded using <code class="docutils literal notranslate"><span class="pre">import</span></code>. Functions that are part of the module <code class="docutils literal notranslate"><span class="pre">modulename</span></code> can then be used by typing <code class="docutils literal notranslate"><span class="pre">modulename.functionname()</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">sin()</span></code> is a function that is part of the <code class="docutils literal notranslate"><span class="pre">math</span></code> module, and used by typing <code class="docutils literal notranslate"><span class="pre">math.sin()</span></code> with some number between the parentheses.</li>
+<li>Within a given Jupyter Notebook the variables you define earlier in the notebook will be available for use in the cells that follow as long as you have already executed the cells.</li>
+<li>Modules may also contain constants such as <code class="docutils literal notranslate"><span class="pre">math.pi</span></code>. Type this in the cell below to see the value of the contant <code class="docutils literal notranslate"><span class="pre">math.pi</span></code>.</li>
+</ol>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>3.141592653589793
+</pre></div>
+</div>
+</div>
+<div class="section" id="Check-your-understanding">
+<h4>Check your understanding<a class="headerlink" href="#Check-your-understanding" title="Permalink to this headline">¶</a></h4>
+<p>Use the empty Python cell below to calculate the sine of pi. What value do you expect for this calculation? Did you get the expected result?</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Place your code on the line(s) below. Note that lines starting with &quot;#&quot; are ignored in Python.</span>
+
+
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Combining-functions">
+<h3>Combining functions<a class="headerlink" href="#Combining-functions" title="Permalink to this headline">¶</a></h3>
+<p>Functions can also be combined. The <code class="docutils literal notranslate"><span class="pre">print()</span></code> function returns values within the parentheses as text on the screen. Below, try printing the value of the square root of four.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2.0
+</pre></div></div>
+</div>
+<p>You can also combine text with other calculated values using the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function. For example, <code class="docutils literal notranslate"><span class="pre">print('Two</span> <span class="pre">plus</span> <span class="pre">two</span> <span class="pre">is',</span> <span class="pre">2+2)</span></code> would generate text reading ‘Two plus two is 4’. Combine the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function with the <code class="docutils literal notranslate"><span class="pre">math.sqrt()</span></code> function in the cell below to produce text that reads ‘The square root of 4 is 2.0’.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The square root of 4 is&#39;</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The square root of 4 is 2.0
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Variables">
+<h3>Variables<a class="headerlink" href="#Variables" title="Permalink to this headline">¶</a></h3>
+<p><em>Variables</em> can be used to store values calculated in expressions and used for other calculations. Assigning value to variables is straightforward. To assign a value, you simply type <code class="docutils literal notranslate"><span class="pre">variable_name</span> <span class="pre">=</span> <span class="pre">value</span></code>, where <code class="docutils literal notranslate"><span class="pre">variable_name</span></code> is the name of the variable you wish to define. In the cell below, define a variable called <code class="docutils literal notranslate"><span class="pre">temp_celsius</span></code>, assign it a value of ‘10.0’, and then print that variable value using the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function. Note that you need to do this on two separate lines.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">temp_celsius</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">temp_celsius</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+10.0
+</pre></div></div>
+</div>
+<p>As we did above, you can combine text and even use some math when printing out variable values. The idea is similar to the examples of adding 2+2 or calculating the square root of four from the previous section. In the cell below, print out the value of <code class="docutils literal notranslate"><span class="pre">temp_celsius</span></code> in degrees Fahrenheit by multiplying <code class="docutils literal notranslate"><span class="pre">temp_celsius</span></code> by 9/5 and adding 32. This should be done within the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function to produce output that reads ‘Temperature in Fahrenheit: 50.0’.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Temperature in Fahrenheit:&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">temp_celsius</span> <span class="o">+</span> <span class="mi">32</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Temperature in Fahrenheit: 50.0
+</pre></div></div>
+</div>
+<div class="section" id="Check-your-understanding">
+<h4>Check your understanding<a class="headerlink" href="#Check-your-understanding" title="Permalink to this headline">¶</a></h4>
+<p>Use the empty Python cell below to define a variable and print its value to the screen using the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function. The variable value can be anything you like, and you can even consider defining several variables and printing them out together. Consider using pothole_case_naming for your variable name.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Place your code on the line(s) below. Note that lines starting with &quot;#&quot; are ignored in Python.</span>
+
+
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Updating-variables">
+<h3>Updating variables<a class="headerlink" href="#Updating-variables" title="Permalink to this headline">¶</a></h3>
+<p>Values stored in variables can also be updated. Let’s redefine the value of <code class="docutils literal notranslate"><span class="pre">temp_celsius</span></code> to be equal to 15.0 and print its value in the cells below.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">temp_celsius</span> <span class="o">=</span> <span class="mf">15.0</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Celsius is now:&#39;</span><span class="p">,</span> <span class="n">temp_celsius</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+temperature in Celsius is now: 15.0
+</pre></div></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Warning</strong></p>
+<p>If you try to run some code that accesses a variable that has not yet been defined you will get a <code class="docutils literal notranslate"><span class="pre">NameError</span></code> message. Try printing out the value of the variable <code class="docutils literal notranslate"><span class="pre">tempFahrenheit</span></code> using the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function in the cell below.</p>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Temperature in Celsius:&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">9</span> <span class="o">*</span> <span class="p">(</span><span class="n">tempFahrenheit</span> <span class="o">-</span> <span class="mi">32</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-17-2067e78f4444&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;Temperature in Celsius:&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">/</span><span class="ansi-cyan-fg">9</span> <span class="ansi-blue-fg">*</span> <span class="ansi-blue-fg">(</span>tempFahrenheit <span class="ansi-blue-fg">-</span> <span class="ansi-cyan-fg">32</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;tempFahrenheit&#39; is not defined
+</pre></div></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong></p>
+<p>One of the interesting things here is that if we define the undefined variable in a cell lower down in the notebook and execute that cell, we can return to the earlier cell and the code should now work. That was a bit of a complicated sentence, so let’s test this all out. First, let’s define a variable called <code class="docutils literal notranslate"><span class="pre">tempFahrenheit</span></code> in the cell below and assign it to be equal to <code class="docutils literal notranslate"><span class="pre">9/5</span> <span class="pre">*</span> <span class="pre">temp_celsius</span> <span class="pre">+</span> <span class="pre">32</span></code>, the conversion factor from temperatures in Celsius to Fahrenheit. Then, return to the cell
+above this text and run that cell again. See how the error message has gone away? <code class="docutils literal notranslate"><span class="pre">tempFahrenheit</span></code> has now been defined and thus the cell above no longer generates a <code class="docutils literal notranslate"><span class="pre">NameError</span></code> when the code is executed.</p>
+<p>Also, the number beside the cell, for example <code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">[2]</span></code>, tells you the order in which the Python cells have been executed. This way you can see a history of the order in which you have run the cells.</p>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tempFahrenheit</span> <span class="o">=</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">temp_celsius</span> <span class="o">+</span> <span class="mi">32</span>
+</pre></div>
+</div>
+</div>
+<p>Just to check their current values, print out the values of <code class="docutils literal notranslate"><span class="pre">temp_celsius</span></code> and <code class="docutils literal notranslate"><span class="pre">tempFahrenheit</span></code> in the cell below.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Celsius:&#39;</span><span class="p">,</span> <span class="n">temp_celsius</span><span class="p">,</span> <span class="s1">&#39;and in Fahrenheit:&#39;</span><span class="p">,</span> <span class="n">tempFahrenheit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+temperature in Celsius: 15.0 and in Fahrenheit: 59.0
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Variable-values">
+<h3>Variable values<a class="headerlink" href="#Variable-values" title="Permalink to this headline">¶</a></h3>
+<p>Changing the value of a variable does not affect other variable values. Let’s redefine <code class="docutils literal notranslate"><span class="pre">temp_celsius</span></code> to be equal to 20.0, and print out the values of <code class="docutils literal notranslate"><span class="pre">temp_celsius</span></code> and <code class="docutils literal notranslate"><span class="pre">tempFahrenheit</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">temp_celsius</span> <span class="o">=</span> <span class="mf">20.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Celsius is now:&#39;</span><span class="p">,</span> <span class="n">temp_celsius</span><span class="p">,</span> <span class="s1">&#39;and temperature in Fahrenheit is still:&#39;</span><span class="p">,</span> <span class="n">tempFahrenheit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+temperature in Celsius is now: 20.0 and temperature in Fahrenheit is still: 59.0
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Data-types">
+<h3>Data types<a class="headerlink" href="#Data-types" title="Permalink to this headline">¶</a></h3>
+<p>There are 4 basic <em>data types</em> in Python as shown in the table below.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="43%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Data type name</th>
+<th class="head">Data type</th>
+<th class="head">Example</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">int</span></code></td>
+<td>Whole integer values</td>
+<td><code class="docutils literal notranslate"><span class="pre">4</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">float</span></code></td>
+<td>Decimal values</td>
+<td><code class="docutils literal notranslate"><span class="pre">3.1415</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">str</span></code></td>
+<td>Character strings</td>
+<td><code class="docutils literal notranslate"><span class="pre">'Hot'</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">bool</span></code></td>
+<td>True/false values</td>
+<td><code class="docutils literal notranslate"><span class="pre">True</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>The data type can be found using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function. As you will see, the data types are important because some are not compatible with one another.</p>
+<p>Let’s define a variable <code class="docutils literal notranslate"><span class="pre">weatherForecast</span></code> and assign it the value <code class="docutils literal notranslate"><span class="pre">'Hot'</span></code>. After this, we can check its data type using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">weatherForecast</span> <span class="o">=</span> <span class="s1">&#39;Hot&#39;</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">weatherForecast</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>str
+</pre></div>
+</div>
+</div>
+<p>Let’s also check the type of <code class="docutils literal notranslate"><span class="pre">tempFahrenheit</span></code>. What happens if you try to combine <code class="docutils literal notranslate"><span class="pre">tempFahrenheit</span></code> and <code class="docutils literal notranslate"><span class="pre">weatherForecast</span></code> in a single math equation such as <code class="docutils literal notranslate"><span class="pre">tempFahrenheit</span> <span class="pre">=</span> <span class="pre">tempFahrenheit</span> <span class="pre">+</span> <span class="pre">5.0</span> <span class="pre">*</span> <span class="pre">weatherForecast</span></code>?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">tempFahrenheit</span><span class="p">)</span>
+<span class="n">tempFahrenheit</span> <span class="o">=</span> <span class="n">tempFahrenheit</span> <span class="o">+</span> <span class="mf">5.0</span> <span class="o">*</span> <span class="n">weatherForecast</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-22-41e07022ce91&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> type<span class="ansi-blue-fg">(</span>tempFahrenheit<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>tempFahrenheit <span class="ansi-blue-fg">=</span> tempFahrenheit <span class="ansi-blue-fg">+</span> <span class="ansi-cyan-fg">5.0</span> <span class="ansi-blue-fg">*</span> weatherForecast
+
+<span class="ansi-red-fg">TypeError</span>: can&#39;t multiply sequence by non-int of type &#39;float&#39;
+</pre></div></div>
+</div>
+<p>In this case we get at <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> because we are trying to execute a math operation with data types that are not compatible. There is no way in Python to multpily numbers with a character string.</p>
+<div class="section" id="Check-your-understanding">
+<h4>Check your understanding<a class="headerlink" href="#Check-your-understanding" title="Permalink to this headline">¶</a></h4>
+<p>As it turns out, you can do some math with character strings in Python. Define two variables and assign them character string values in the Python cell below. What happens if you try to add two character strings together? Can you subtract them? Which other math operations work for character strings?</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Place your code on the line(s) below.</span>
+
+
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Character-input">
+<h3>Character input<a class="headerlink" href="#Character-input" title="Permalink to this headline">¶</a></h3>
+<p>Python and Jupyter notebooks also let us interact in another way with our code! The built-in <a class="reference external" href="https://docs.python.org/3.6/library/functions.html?highlight=input#input">input()</a> function reads a line from input and returns it as a string.</p>
+<p>Let’s try it out. To start, we can define a varaible <code class="docutils literal notranslate"><span class="pre">place</span></code> and assign its value using the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function to prompt the user for the location where they are from (e.g., <code class="docutils literal notranslate"><span class="pre">input('Where</span> <span class="pre">are</span> <span class="pre">you</span> <span class="pre">from?</span> <span class="pre">')</span></code>). When the cell is run, the user (you) can type in their response. Once <code class="docutils literal notranslate"><span class="pre">place</span></code> is defined, we can say something good about where the user is from (e.g., <code class="docutils literal notranslate"><span class="pre">print(place,</span> <span class="pre">'is</span> <span class="pre">a</span> <span class="pre">nice</span> <span class="pre">place!')</span></code>).</p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Warning</strong></p>
+<p>Jupyter Notebooks might sometimes get stuck when using the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function. If this happens, restart the kernel and run the cell again (<strong>Kernel</strong> -&gt; <strong>Restart Kernel…</strong>).</p>
+<p>Also, we realize these cells <strong>will not render properly on the course website</strong>, but should work just fine in Binder or using the CSC notebooks. Sorry.</p>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">place</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Where are you from? &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">place</span><span class="p">,</span> <span class="s1">&#39;is a nice place!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">StdinNotImplementedError</span>                  Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-24-d8ebf4ec1af1&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>place <span class="ansi-blue-fg">=</span> input<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;Where are you from? &#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>place<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;is a nice place!&#39;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/virtualenv/python3.6.7/lib/python3.6/site-packages/ipykernel/kernelbase.py</span> in <span class="ansi-cyan-fg">raw_input</span><span class="ansi-blue-fg">(self, prompt)</span>
+<span class="ansi-green-intense-fg ansi-bold">    856</span>         <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> self<span class="ansi-blue-fg">.</span>_allow_stdin<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    857</span>             raise StdinNotImplementedError(
+<span class="ansi-green-fg">--&gt; 858</span><span class="ansi-red-fg">                 </span><span class="ansi-blue-fg">&#34;raw_input was called, but this frontend does not support input requests.&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    859</span>             )
+<span class="ansi-green-intense-fg ansi-bold">    860</span>         return self._input_request(str(prompt),
+
+<span class="ansi-red-fg">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div></div>
+</div>
+<p>Let’s try another example in the cell below using the similar approach. Ask the user for a temperature in Celsius using the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function and print the input value to the screen.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">temp_celsius</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;How cold can it be in Vantaa (in degrees Celsius)? &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">temp_celsius</span><span class="p">,</span> <span class="s1">&#39;degrees Celsius is quite cold!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">StdinNotImplementedError</span>                  Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-25-a821fcc29b0c&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>temp_celsius <span class="ansi-blue-fg">=</span> input<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;How cold can it be in Vantaa (in degrees Celsius)? &#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>temp_celsius<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;degrees Celsius is quite cold!&#39;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/virtualenv/python3.6.7/lib/python3.6/site-packages/ipykernel/kernelbase.py</span> in <span class="ansi-cyan-fg">raw_input</span><span class="ansi-blue-fg">(self, prompt)</span>
+<span class="ansi-green-intense-fg ansi-bold">    856</span>         <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> self<span class="ansi-blue-fg">.</span>_allow_stdin<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    857</span>             raise StdinNotImplementedError(
+<span class="ansi-green-fg">--&gt; 858</span><span class="ansi-red-fg">                 </span><span class="ansi-blue-fg">&#34;raw_input was called, but this frontend does not support input requests.&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    859</span>             )
+<span class="ansi-green-intense-fg ansi-bold">    860</span>         return self._input_request(str(prompt),
+
+<span class="ansi-red-fg">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div></div>
+</div>
+<p>What is the data type of variable <code class="docutils literal notranslate"><span class="pre">place</span></code>? What about the other variable you defined? Check their data types using the cell below.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">place</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">temp_celsius</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-26-ac42a1786083&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>type<span class="ansi-blue-fg">(</span>place<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>type<span class="ansi-blue-fg">(</span>temp_celsius<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;place&#39; is not defined
+</pre></div></div>
+</div>
+<p>What happens when you try to convert your Celsius temperature value to Fahrenheit using the equation from earlier in the lesson?</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tempFahrenheit</span> <span class="o">=</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">temp_celsius</span> <span class="o">+</span> <span class="mi">32</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gcp-1-variable-naming.html" class="btn btn-neutral float-right" title="Good coding practices - Selecting “good” variable names" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../lessons/L1/slack-usage.html" class="btn btn-neutral float-left" title="Communicating with Slack" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki
+      <span class="lastupdated">
+        Last updated on May 26, 2020.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p> <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> </a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: 2019
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Tags</dt>
+            <dd><a href="../../../2017/index.html">2017</a></dd>
+            <dd><a href="../../../2018/notebooks/L1/a-taste-of-python.html">2018</a></dd>
+            <dd><a href="a-taste-of-python.html">2019</a></dd>
+        </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../../../master/notebooks/L1/a-taste-of-python.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

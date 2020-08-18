@@ -1,0 +1,1015 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "# Exploring data using Pandas\n",
+    "\n",
+    "Our first task in this week's lesson is to learn how to **read and explore data files in Python**. We will focus on using [pandas](https://pandas.pydata.org/pandas-docs/stable/) which is an open-source package for data analysis in Python. Pandas is an excellent toolkit for working with **real world data** that often have a tabular structure (rows and columns).\n",
+    "\n",
+    "We will first get familiar with **pandas data structures**: *DataFrame* and *Series*:\n",
+    "\n",
+    "![Pandas data structures](img/pandas-structures.png)\n",
+    "\n",
+    "- **Pandas DataFrame** (a 2-dimensional data structure) is used for storing and mainpulating table-like data (data with rows and columns) in Python. You can think of pandas DataFrame as a programmable spreadsheet. \n",
+    "- **Pandas Series** (a 1-dimensional data structure) is used for storing and manipulating an sequence of values. Pandas Series is kind of like a list, but more clever. One row or one column in a Pandas DataFrame is actually a Pandas Series. \n",
+    "\n",
+    "These Pandas structures incorporate a number of things we've already encountered, such as indices, data stored in a collection, and data types. Let's have another look at the Pandas data structures below with some additional annotation.\n",
+    "\n",
+    "![Pandas data structures annotated](img/pandas-structures-annotated.png)\n",
+    "\n",
+    "As you can see, both DataFrames and Series in pandas have an index that can be used to select values, but they also have column labels to identify columns in DataFrames. In the lesson this week we'll use many of these features to explore real-world data and learn some useful data analysis procedures.\n",
+    "\n",
+    "For a comprehensive overview of pandas data structures you can have a look at Chapter 5 in Wes MacKinney's book [Python for Data Analysis (2nd Edition, 2017)](https://geo-python.github.io/site/course-info/resources.html#books) and [Pandas online documentation about data structures](https://pandas.pydata.org/pandas-docs/stable/dsintro.html).\n",
+    "\n",
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Note**\n",
+    "    \n",
+    "Pandas is a \"high-level\" package, which means that it makes use of several other packages, such as [NumPy](https://numpy.org/), in the background. There are several ways in which data can be read from a file in Python, and this year we have decided to focus primarily on pandas because it is easy-to-use, efficient and intuitive. If you are curoius about other approaches for interacting with data files, you can find lesson materials from previous years about reading data using [NumPy](https://geo-python.github.io/site/2018/notebooks/L5/numpy/1-Exploring-data-using-numpy.html#Reading-a-data-file-with-NumPy) or [built-in Python functions](https://geo-python.github.io/site/2017/lessons/L5/reading-data-from-file.html). \n",
+    " \n",
+    "</div>\n",
+    "\n",
+    "\n",
+    "## Input data: weather statistics\n",
+    "\n",
+    "Our input data is a text file containing weather observations from Kumpula, Helsinki, Finland retrieved from [NOAA](https://www.ncdc.noaa.gov/)*:\n",
+    "\n",
+    "- File name: [Kumpula-June-2016-w-metadata.txt](Kumpula-June-2016-w-metadata.txt)\n",
+    "- The file is available in the binder and CSC notebook instances, under L5 folder \n",
+    "- The data file contains observed daily mean, minimum, and maximum temperatures from June 2016 recorded from the Kumpula weather observation station in Helsinki.\n",
+    "- There are 30 rows of data in this sample data set.\n",
+    "- The data has been derived from a data file of daily temperature measurments downloaded from [NOAA](https://www.ncdc.noaa.gov/cdo-web/).\n",
+    "\n",
+    "\n",
+    "\\*US National Oceanographic and Atmospheric Administration's National Centers for Environmental Information climate database\n",
+    "\n",
+    "## Reading a data file with Pandas\n",
+    "\n",
+    "\n",
+    "Now we're ready to read in our temperature data file. **First, we need to import the Pandas module.** It is customary to import pandas as `pd`:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [],
+   "source": [
+    "import pandas as pd"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "**Next, we'll read the input data file**, and store the contents of that file into a variable called `data` Using the `pandas.read_csv()` function:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Read the file using pandas\n",
+    "data = pd.read_csv('Kumpula-June-2016-w-metadata.txt')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Reading data from different formats**\n",
+    "    \n",
+    "`pandas.read_csv()` is a general function for reading data files separated by commas, spaces, or other common separators. \n",
+    "Here we only provided one argument (the filepath) to the `pd.read_csv()` method. For a full list of available parameters, please refer to [pandas documentation for pandas.read_csv](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html), or run `help(pd.read_csv)`.\n",
+    "    \n",
+    "Pandas has several different functions for parsing input data from different formats. There is, for example, a separate function for reading Excel files `read_excel`. Another useful function is `read_pickle` for reading data stored in the [Python pickle format](https://docs.python.org/3/library/pickle.html). Check out [pandas documentation about input and output functions](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#io-tools-text-csv-hdf5) and Chapter 6 in [MacKinney (2017): Python for Data Analysis](https://geo-python.github.io/site/course-info/resources.html#books) for more details about reading data.\n",
+    " \n",
+    "</div>\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "If all goes as planned, you should now have a new variable `data` in memory that contains the input data. You can check the the contents of this variable by calling `data` or `print(data)`:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print(data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "This looks OK, but there are some strange values present such as `NaN`, and the first lines of the dataframe look a bit weird.. \n",
+    "\n",
+    "`NaN` stands for \"not a number\", and might indicate some problem with reading in the contents of the file. Plus, we expected about 30 lines of data, but the index values go up to 36 when we print the contents of the `data` variable. Looks like we need to investigate this further."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "As we can observe, there are some metadata at the top of the file giving basic information about its contents and source. This isn't data we want to process, so we need to skip over that part of the file when we load it.\n",
+    "\n",
+    "Here are the 8 first rows of data in the text file (note that the 8th row is blank):"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "```\n",
+    "# Data file contents: Daily temperatures (mean, min, max) for Kumpula, Helsinki\n",
+    "#                     for June 1-30, 2016\n",
+    "# Data source: https://www.ncdc.noaa.gov/cdo-web/search?datasetid=GHCND\n",
+    "# Data processing: Extracted temperatures from raw data file, converted to\n",
+    "#                  comma-separated format\n",
+    "#\n",
+    "# David Whipp - 02.10.2017\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Fortunately, that's easy to do in pandas, we just need to add the `skiprows` parameter when we read the file, listing the number of rows to skip (8 in this case).\n",
+    "\n",
+    "Let's try reading the datafile again, and this time defining the `skiprows` parameter."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "data = pd.read_csv('Kumpula-June-2016-w-metadata.txt', skiprows=8)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Let's now print the dataframe and see what changed:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print(data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "After reading in the data, it is always good to check that everything went well (like we just did with the print-statement above). The challenge can also be that large datafiles might not nicely print on screen using the `print()`-function so it might be better to look at only the top 5-10 lines of the file rather than loading the entire thing. \n",
+    "\n",
+    "We can  use `pandas.DataFrame.head` to quickly check the contents of the dataframe. This method returns the first n rows for the dataframe. By default, it returns 5 first rows of the DataFrame:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "data.head()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We can also check the last rows of the data using `data.tail()`:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data.tail()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Note that Pandas that DataFrames have **labelled axes (rows and columns)**.  In our sample data, the rows labeled with an index value (`0` to `29`), and columns labelled `YEARMODA`, `TEMP`, `MAX`, and `MIN`. Later on, we will learn how to use these labels for selecting and updating subsets of the data."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "**Let's also confirm the data type of our data variable:**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "type(data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "No surprises here, our data variable is a Pandas DataFrame ;)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Note**\n",
+    "\n",
+    " We can use [IPython magic commands](https://ipython.readthedocs.io/en/stable/interactive/magics.html#line-magics) to figure out what variables we have in memory. IPython magic command `%who` will display names of those variables that you have defined during this session. Magic command `%whose` prints out more information about these variables.\n",
+    "    \n",
+    "    \n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Display variable names:\n",
+    "%who"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Display variable name, type and info\n",
+    "%whos"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "## DataFrame properties\n",
+    "\n",
+    "We now have some basic Python skills and the ability to read in data from a file for processing. A normal first step when you load new data is to explore the dataset a bit to understand how the data is structured, and what kind of values are stored in there."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Let's start by checking the size of our data frame. We can use the `len()` function similarly as with lists to check how many rows we have:**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Print number of rows using len()-function\n",
+    "print(len(data))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "We can also get a quick sense of the size of the dataset using the `shape` attribute.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Print dataframe shape\n",
+    "print(data.shape)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Here we see that our dataset has 30 rows, 4 columns, just as we saw above when printing out the whole DataFrame."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**We can also check the column names we have in our DataFrame.** We already saw the column names when we checked the 5 first rows using `data.head()`, but often it is useful to access only the column names. You can call `data.columns` (returns the an index object) or `data.columns.values` (returns a list of column values) to check the column names:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "#Print column values\n",
+    "print(data.columns.values)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "We can also find information about the row identifiers using the `index` attribute:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "#Print index\n",
+    "print(data.index)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Here we see how the data is indexed, starting at 0, ending at 30, and with an increment of 1 between each value. This is basically the same way in which Python lists are indexed, however, pandas allows also other ways of identifying the rows. DataFrame indices could, for example, be character strings, or date objects (you will learn more about re-setting the index later). Eventually, the \"length\" of the DataFrame (the number of rows) is actually the length of the index:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Check length of the index\n",
+    "len(data.index)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "What about the data types of each column in our dataFrame? We can check the data type of all the columns at once using `pandas.DataFrame.dtypes`:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Print data types\n",
+    "print(data.dtypes)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Here we see that `YEARMODA` is an integer value (with 64-bit precision; int64), while the other values are all decimal values with 64-bit precision (float64)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Selecting columns"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "In pandas, we select columns based on the column values (columns names). The basic syntax is `dataframe[value]`, where value can be a single column name, or a list of column names. Let's start by selecting two columns, `'YEARMODA'` and `'TEMP'`:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "selection = data[['YEARMODA','TEMP']]\n",
+    "print(selection)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Let's also check the data type of this selection:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "type(selection)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The subset is still a pandas DataFrame, and we are able to use all the methods related to a pandas DataFrame also with this subset. For example, we can check the shape:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "selection.shape"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "We can also access a single column of the data based on the column name:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "data['TEMP']"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "What about the type of the column itself?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Check datatype of the column\n",
+    "type(data['TEMP'])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "**Each column (and each row) in a pandas data frame is actually a pandas Series** - a 1 dimensional data structure!"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<div class=\"alert alert-info\">\n",
+    "\n",
+    "**Note**\n",
+    "\n",
+    "You can also retreive a column using a different syntax:\n",
+    "    \n",
+    "``` \n",
+    "data.TEMP\n",
+    "```\n",
+    "This syntax works only if the column name is a valid name for a Python variable (e.g. the column name should not contain whitespace).\n",
+    "The syntax `data[\"column\"]` works for all kinds of column names, so we recommend using this approach :)\n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "type(data.TEMP)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Descriptive statistics"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Pandas DataFrames and Series contain useful methods for getting summary statistics. Available methods include `mean()`, `median()`, `min()`, `max()`, and `std()` (the standard deviation)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We could, for example, check the mean temperature in our input data. We check the mean for a single column (*Series*): "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Check mean value of a column\n",
+    "data['TEMP'].mean()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "and for all columns (in the *DataFrame*):"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Check mean value for all columns\n",
+    "data.mean()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "For an overview of the basic statistics for all attributes in the data, we can use the `describe()` method:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Get descriptive statistics\n",
+    "data.describe()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Extra: Very basic plots"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Pandas comes with a handful of plotting methods, which all rely on the plotting library [matplotlib](https://matplotlib.org/). "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "For very basic plots, we don’t need to import matplotlib separately, but we need to run a magic command %matplotlib inline in order to make the plots visible in our notebook:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%matplotlib inline"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We can already achieve very simple plots using the `DataFrame.plot` -method. Let's plot all the columns that contain values related to temperatures:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data[[\"TEMP\", \"MAX\", \"MIN\"]].plot()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We can could also at the distribution of temperature values using a boxplot visualization:"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Now, you might want to start modifying the plots by adding axis labels, color settings and other formatting. For anythin more advanced, we should import matplotlib (`import matplotlib.pyplot as plt`). We will learn more about matplotlib and plotting data during week 7 :)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "## Extra: From lists to pandas objects\n",
+    "\n",
+    "Most often we create pandas objects by reading in data from an external source, such as a text file. Here, we will briefly see how you can create pandas objects from Python lists. If you have long lists of numbers, for instance, creating a Pandas Series will allow you to interact with these values more efficiently in terms of computing time."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true,
+    "jupyter": {
+     "outputs_hidden": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Create Pandas Series from a list\n",
+    "number_series = pd.Series([ 4, 5, 6, 7.0])\n",
+    "print(number_series)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Note that Pandas is smart about the conversion, detecting a single floating point value (`7.0`) and assigning all values in the Series the data type float64."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "If needed, you can also set a custom index when creating the object:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "number_series = pd.Series([ 4, 5, 6, 7.0], index=['a','b','c','d'])\n",
+    "print(number_series)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "type(number_series)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "How about combining several lists as a DataFrame? Let's take a subset of the lists we used in Exercise 3, problem 3 and see how we could combine those as a pandas DataFrame:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Station names\n",
+    "stations = ['Hanko Russarö', 'Heinola Asemantaus', 'Helsinki Kaisaniemi', 'Helsinki Malmi airfield']\n",
+    "\n",
+    "# Latitude coordinates of Weather stations  \n",
+    "lats = [59.77, 61.2, 60.18, 60.25]\n",
+    "\n",
+    "# Longitude coordinates of Weather stations \n",
+    "lons = [22.95, 26.05, 24.94, 25.05]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Often we indeed create pandas DataFrames by reading in data (e.g. using `pd.read_csv(filename.csv)`), but sometimes your might also combine lists into a DataFrame inside the script using the `pandas.DataFrame` constructor. Here, we are using a *Python dictionary* `{\"column_1\": list_1, \"column_2\": list_2, ...}` to indicate the structure of our data. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "new_data = pd.DataFrame(data = {\"station_name\" : stations, \"lat\" : lats, \"lon\" : lons})\n",
+    "new_data"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "type(new_data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Often, you might start working with an empty data frame in stead of existing lists:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df = pd.DataFrame()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(df)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Check more details about available paramenters and methods from [the pandas.DataFrame documentation](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas-dataframe)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "That's it! Next, we will have a look at [basic operations for data analysis in Pandas](processing-data-with-pandas.ipynb)."
+   ]
+  }
+ ],
+ "metadata": {
+  "anaconda-cloud": {},
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

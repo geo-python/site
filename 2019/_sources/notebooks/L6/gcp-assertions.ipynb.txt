@@ -1,0 +1,226 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Good coding practices - Using assertions\n",
+    "\n",
+    "The goal of [defensive programming](https://en.wikipedia.org/wiki/Defensive_programming) is to try to maximize the reliability and overall quality of a piece of software. For us, this means that we should take steps to handle unexpected input values in our code, and to provide helpful error messages that provide meaningful guidance to the user when a program raises an exception. We can take steps toward writing more reliable software by utilizing a helpful features in Python: Assertions.\n",
+    "\n",
+    "## Assertions\n",
+    "\n",
+    "*Assertions* are a way to assert, or ensure, that the values being used in your scripts are going to be suitable for what the code does. Let's start by considering a function `convert_kph_ms` that converts wind speeds from kilometers per hour to meters per second. We can define and use our function in the cell below."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def convert_kph_ms(speed):\n",
+    "    \"\"\"Converts velocity (speed) in km/hr to m/s\"\"\"\n",
+    "    return speed * 1000 / 3600\n",
+    "\n",
+    "wind_speed_km = 9\n",
+    "wind_speed_ms = convert_kph_ms(wind_speed_km)\n",
+    "\n",
+    "print('A wind speed of', wind_speed_km, 'km/hr is', wind_speed_ms, 'm/s.')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "This all seems fine, but you might want to ensure that the values for the wind speed are not negative numbers, since speed is simply the magnitude of the wind velocity, which should always be positive or zero. We can enforce this condition by adding an assertion to our function."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def convert_kph_ms(speed):\n",
+    "    \"\"\"Converts velocity (speed) in km/hr to m/s\"\"\"\n",
+    "    assert speed >= 0.0\n",
+    "    return speed * 1000 / 3600\n",
+    "\n",
+    "wind_speed_km = 9\n",
+    "wind_speed_ms = convert_kph_ms(wind_speed_km)\n",
+    "\n",
+    "print('A wind speed of', wind_speed_km, 'km/hr is', wind_speed_ms, 'm/s.')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "OK, so everything still works when using a positive value, but what happens if we now give a negative value for the wind speed? Let's check!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "wind_speed_km = -27\n",
+    "wind_speed_ms = convert_kph_ms(wind_speed_km)\n",
+    "\n",
+    "print('A wind speed of', wind_speed_km, 'km/hr is', wind_speed_ms, 'm/s.')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "OK, so now we get an `AssertionError` when a negative value is provided. This `AssertionError` is produced because of the `assert` statement we entered in the function definition. If the condition listed after `assert` is false, an `AssertionError` is raised.\n",
+    "\n",
+    "This is a definite improvement, however, it would be much better to provide the user with some information about why this assertion exists. Fortunately, we can do this simply by adding some text after the assertion condition."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def convert_kph_ms(speed):\n",
+    "    \"\"\"Converts velocity (speed) in km/hr to m/s\"\"\"\n",
+    "    assert speed >= 0.0, 'Wind speed values must be positive or zero'\n",
+    "    return speed * 1000 / 3600\n",
+    "\n",
+    "wind_speed_km = -27\n",
+    "wind_speed_ms = convert_kph_ms(wind_speed_km)\n",
+    "\n",
+    "print('A wind speed of', wind_speed_km, 'km/hr is', wind_speed_ms, 'm/s.')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Nice! Now we see that when the `AssertionError` is raised, the message informs us about why it happened without having to interpret the code. The message also makes it easy to fix our value for `wind_speed_km` to work with the `convert_kph_ms` function.\n",
+    "\n",
+    "\n",
+    "More generally, assertions take on the following form:\n",
+    "\n",
+    "```python\n",
+    "assert <some test>, 'Error message to display'\n",
+    "```\n",
+    "\n",
+    "So we start with the `assert` statement, then give a logical test for some condition. If the test is true, nothing happens and the code continues. If not, the code stops and an `AssertionError` is displayed with the text written after the comma on the line containing the `assert` statement."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Multiple assertions\n",
+    "\n",
+    "#### A bad example\n",
+    "\n",
+    "Of course, you may want to have several assertions in a function in order to ensure it works as expected and provides meaningful output. In our case, we might first want to check that the value provided to be converted is a number. If not, we would not be able to convert the units. Let's add a second assertion to make sure our function is \"safe\"."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def convert_kph_ms(speed):\n",
+    "    \"\"\"Converts velocity (speed) in km/hr to m/s\"\"\"\n",
+    "    assert type(speed) == int or type(speed) == float, 'Wind speed values must be numbers'\n",
+    "    assert speed >= 0.0, 'Wind speed values must be positive or zero'\n",
+    "    return speed * 1000 / 3600\n",
+    "\n",
+    "wind_speed_km = 'dog'\n",
+    "wind_speed_ms = convert_kph_ms(wind_speed_km)\n",
+    "\n",
+    "print('A wind speed of', wind_speed_km, 'km/hr is', wind_speed_ms, 'm/s.')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "OK, so that works. Now, if the user attempts to give a data type that is not `int` or `float`, the function will raise an `AssertionError` indicating a number is expected for the function to work. This is fine, but as noted below, there are reasons why you may not want to include assertions of this type in a function.\n",
+    "\n",
+    "<div class=\"alert alert-warning\">\n",
+    "\n",
+    "**Warning**\n",
+    "    \n",
+    "You might think that it would be useful to use an assertion to check the type of `speed` in our function in order to make sure that you don't get a `TypeError` as occurred in the previous section. It turns out that this is not really a good idea. The reason is that the philosophical idea of a `TypeError` is to indicate you have incompatible data types. With that in mind, why raise an `AssertionError` to do the same thing?\n",
+    "\n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### A better example\n",
+    "\n",
+    "So we don't want to check our data type compatibility using assertions, but we can include a second assertion to ensure the maximum of the input wind speed is a reasonable number. In this case, we can asssume that the wind speed being converted was measured on Earth, and thus should be lower than [the fastest wind speed ever measured](https://en.wikipedia.org/wiki/Wind_speed#Highest_speed), 408 km/hr. Let's add that condition."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def convert_kph_ms(speed):\n",
+    "    \"\"\"Converts velocity (speed) in km/hr to m/s\"\"\"\n",
+    "    assert speed >= 0.0, 'Wind speed values must be positive or zero'\n",
+    "    assert speed <= 408.0, 'Wind speed exceeds fastest winds ever measured'\n",
+    "    return speed * 1000 / 3600\n",
+    "\n",
+    "wind_speed_km = '409'\n",
+    "wind_speed_ms = convert_kph_ms(wind_speed_km)\n",
+    "\n",
+    "print('A wind speed of', wind_speed_km, 'km/hr is', wind_speed_ms, 'm/s.')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "This is a better example for two reasons:\n",
+    "\n",
+    "1. We now allow a `TypeError` when incompatible data types are used in our function, which is a clear and familiar error message.\n",
+    "2. We use assertions to check the values used in the function make sense for its intended use. If we want to help users convert wind speeds on Earth, we provide bounds that make sure they are using reasonable input values. Thus, we help them use our function the correct way.\n",
+    "\n",
+    "Combined, these assertions ensure our function handles common mistakes and provide the user with helpful feedback to be able to use the function properly.\n",
+    "\n",
+    "### More information\n",
+    "\n",
+    "More information about assertions can be found on the [Software Carpentry website](http://swcarpentry.github.io/python-novice-inflammation/08-defensive/)."
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
