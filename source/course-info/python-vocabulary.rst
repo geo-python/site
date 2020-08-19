@@ -1,5 +1,5 @@
-Vocabulary - Basic terms
-========================
+Glossary
+========
 
 Python vocabulary
 -----------------
