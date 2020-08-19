@@ -20,11 +20,11 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Geo-Python'
-copyright = '2019, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki'
+copyright = '2020, D. Whipp, H. Tenkanen and V. Heikinheimo, Department of Geosciences and Geography, University of Helsinki'
 author = 'David Whipp, Henrikki Tenkanen and Vuokko Heikinheimo'
 
 # The short X.Y version
-version = '2019'
+version = '2020'
 # The full version, including alpha/beta/rc tags
 release = 'site'
 
@@ -41,11 +41,12 @@ release = 'site'
 extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
+    'sphinx.ext.todo',
     'sphinxcontrib.googleanalytics',
     'IPython.sphinxext.ipython_console_highlighting',
     'IPython.sphinxext.ipython_directive',
     #'nbsphinx',
-    "myst_nb",
+    'myst_nb',
 ]
 
 # Google Analytics ID to enable tracking of site traffic
@@ -246,8 +247,8 @@ nbsphinx_prolog = r"""
     \vspace{-2\baselineskip}
 """
 
-nbsphinx_allow_errors = True
+#nbsphinx_allow_errors = True
 
 # Sphinx versioning settings
-scv_show_banner = True
-scv_whitelist_branches = ('master', 'develop')
+#scv_show_banner = True
+#scv_whitelist_branches = ('master', 'develop')
