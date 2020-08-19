@@ -12,12 +12,10 @@ Here we provide a list of commonly used terms that you will most probably encoun
 
 .. glossary::
 
-  Variable
+  Variable / *muuttuja*
      A way of storing values in the memory of the computer using specific names that you define.
 
-  *muuttuja*
      *Definition to be given in Finnish.*
-  
 
 - **Data types**
 
