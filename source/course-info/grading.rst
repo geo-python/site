@@ -19,3 +19,4 @@ For the Geo-Python part of the course your grade will be based on weekly program
           If you anticipate you will not be able to submit the exercises in the given deadline, you should let us know as early as possible, latest one day in advance before the deadline.
           Late write-ups will be marked down 25% per day late, so please submit them on time.
 
+Testing link for term  :term:`variable <Variable>`.
