@@ -15,6 +15,9 @@ Here we provide a list of commonly used terms that you will most probably encoun
   Index
      A number indicating the location of a specific value stored in Python lists or tuples. The first index value of list is always ``0``.
 
+  Script
+     A dedicated document for writing Python code that you can execute. Python script files should always have the ``.py`` file extension.
+
   Variable / *muuttuja*
      A way of storing values in the memory of the computer using specific names that you define.
 
@@ -33,10 +36,6 @@ Here we provide a list of commonly used terms that you will most probably encoun
    - List (list) = A "container" that can store any kind of values. You can create a list with square brackets e.g. ``[1, 2, 3, 'a', 'b', 'c']``.
 
    - Tuple (tuple) = A similar "container" as list with a difference that you cannot update the values in a tuple. You can create a tuple with parentheses ``(1, 2, 3, 'a', 'b', 'c')``.
-
-
-
-- **Script** is a dedicated document for writing Python code that you can execute. Python script files should always have the `` .py `` file extension.
 
 Basic vocabulary of Version Control
 -----------------------------------
