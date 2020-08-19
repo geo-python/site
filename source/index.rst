@@ -19,19 +19,18 @@ Geo-Python covers the necessary skills needed before continuing to the more adva
 `Automating GIS processes course <https://autogis.github.io>`_ and
 `Introduction to Quantitative Geology <https://introqg.github.io>`_.
 
-.. admonition:: Course codes
-
-    The Geo-Python course runs under two course codes in teaching period 1 at the University of Helsinki.
-
-    - GEOG-329-1 for geography students
-    - GEOK_3030 for geology students
-
-    Helsinki students, please sign up using only one of these course codes (not both)!
-
 .. admonition:: Open Access!
 
     The course is **open for everyone to follow online**. The aim of this course is to share the knowledge and help people to get started with their journey for doing science more efficiently and in a reproducible manner
     using Python programming.
+
+.. admonition:: University of Helsinki students
+
+    The Geo-Python course runs under two course codes in teaching period 1 at the University of Helsinki.
+    Please sign up using only one of these course codes (not both)!
+
+    - GEOG-329-1 for geography students
+    - GEOK_3030 for geology students
 
 Course format
 -------------
@@ -47,16 +46,19 @@ must clearly reflect your own work (in short, don't copy paste from other studen
 
 .. admonition:: Online teaching
 
-    Please note that all teaching is organized online during the 2020 Autumn semester.
+    Please note that the course is organized completely online during the 2020 Autumn semester.
     Online support will be available throughout the course during the weekly exercise sessions and discussion channels in Slack.
     Details of participation in the exercise sessions will be sent out to enrolled students.
 
-Schedule
---------
-
-Lessons and practical exercise sessions are held at the University of Helsinki during the autumn semester. Please find teaching dates and rooms under :doc:`general info <course-info/course-info>`).
-The course runs for seven weeks, and **we publish updated course materials at these pages every Wednesday morning before the lesson.**
+Course topics
+-------------
+After completing this course, the students understand basic programming concepts,
+are able to write short programs, and can manage, analyze and visualize scientific data using Python.
+The students also learn to use version control (git) and online repositories (GitHub) for documenting and communicating their work.
 Themes for each week are listed below. Read more about the weekly :doc:`learning goals in here <course-info/learning-goals>`.
+
+The course runs for seven weeks in the Autumn semester starting on the 2nd of September 2020
+New materials are updated on this course page each Wednesday.
 
 +----------+----------------------+
 | Week     | Theme                |
