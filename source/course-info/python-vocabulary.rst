@@ -10,12 +10,14 @@ Python vocabulary
 
 Here we provide a list of commonly used terms that you will most probably encounter when doing Python programming.
 
-
 .. glossary::
 
   Variable
-     A way of storing values into the memory of the computer by using specific names that you define.
+     A way of storing values in the memory of the computer using specific names that you define.
 
+  *muuttuja*
+     *Definition to be given in Finnish.*
+  
 
 - **Data types**
 
