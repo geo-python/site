@@ -57,7 +57,7 @@ are able to write short programs, and can manage, analyze and visualize scientif
 The students also learn to use version control (git) and online repositories (GitHub) for documenting and communicating their work.
 Themes for each week are listed below. Read more about the weekly :doc:`learning goals in here <course-info/learning-goals>`.
 
-The course runs for seven weeks in the Autumn semester starting on the 2nd of September 2020
+The course runs for seven weeks in the Autumn semester starting on the 2nd of September 2020.
 New materials are updated on this course page each Wednesday.
 
 +----------+----------------------+
