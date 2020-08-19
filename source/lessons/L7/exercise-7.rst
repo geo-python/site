@@ -86,7 +86,8 @@ Settings for multiple subplots:
 There are different ways of manipulating matplotlib subplots.
 Here is one trick for modifying multiple subplot properties (of `axes`) at once:
 
-.. ipython:: python
+.. code-block:: python
+
     # Set axis labels for all subplots
     for ax in axes.flat:
         ax.set(xlabel='xxx', ylabel='xxx')
@@ -94,7 +95,6 @@ Here is one trick for modifying multiple subplot properties (of `axes`) at once:
     # Set ylim for all subplots
     for ax in axes.flat:
         ax.set_ylim(0, 10)
-
 
 Preventing plot display
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -124,7 +124,7 @@ But, first you need to install ``imageio`` module.
 
 Installing the module can be done by running following command **from the command prompt / terminal** with **admin rights**:
 
-.. code:: bash
+.. code-block:: bash
 
     $ conda install -c conda-forge imageio
 
@@ -137,7 +137,7 @@ Installing the module can be done by running following command **from the comman
 
 When you have imageio installed you should be able to import it, in Spyder:
 
-.. ipython:: python
+.. code-block:: python
 
     import imageio
 
@@ -153,7 +153,7 @@ the name of the file can be anything (the purpose of the star). ``.png`` after t
 If there are some other files with other file format than .png, they will be excluded.
 Finally, we create the animation into the computer.
 
-.. code:: python
+.. code-block:: python
 
     import glob
     import imageio
@@ -203,7 +203,7 @@ You can use this to create some arrays (of zeros, for example) to store the seas
 Once you have those arrays, you can use a ``for`` loop to go over each year and store the average anomaly values for each season.
 An example of this kind of loop is below.
 
-.. code:: python
+.. code-block:: python
 
     index = 0
     for year in unique_years:
