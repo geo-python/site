@@ -43,10 +43,12 @@ Basic vocabulary of Version Control
 Few basic terms that are used often when discussing about version
 control (not exhaustive).
 
--  **Repository** = a location where all the files for a particular
-   project are stored, usually abbreviated to “repo.” Each project will
-   have its own repo, which is usually located on a server and can be
-   accessed by a unique URL (a link to GitHub page for example).
+.. glossary::
+
+  Repository
+     A location where all the files for a particular project are stored, usually abbreviated to “repo.”
+     Each project will have its own repo, which is usually located on a server and can be accessed by a unique URL (a link to GitHub page for example).
+
 
 -  **Commit** = To commit is to write or merge the changes made in the
    working copy back to the repository. Whe you commit, you are
