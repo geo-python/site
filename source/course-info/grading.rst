@@ -12,11 +12,14 @@ Course grades will be given using the standard six-level grading scale from 0 to
 - 1 (Passable)
 - 0 (Fail)
 
-For the Geo-Python part of the course your grade will be based on weekly programming exercises, 7 in total.
+Your grade will be based on weekly programming exercises, with an emphasis on the final exercises.
 
-.. note:: Deadlines for exercises are firm and given in the course schedule.
-          Generally, exercises are due at the start of class the week following their assignment.
-          If you anticipate you will not be able to submit the exercises in the given deadline, you should let us know as early as possible, latest one day in advance before the deadline.
-          Late write-ups will be marked down 25% per day late, so please submit them on time.
+.. admonition:: Weekly deadlines
+
+    Generally, exercises are due at the start of class the week following their assignment.
+    Please submit the exercises on time in order to keep up with the course.
+    You can discuss with the course assistants in case you need more time with the exercises.
+
+
 
 Testing link for term  :term:`variable <Variable>`.
