@@ -893,11 +893,11 @@ KeyError                                  Traceback (most recent call last)
 ----&gt; 1 std_wind = aggr_data['SPEED'].std()
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in __getitem__(self, key)
-   2897             if self.columns.nlevels &gt; 1:
-   2898                 return self._getitem_multilevel(key)
--&gt; 2899             indexer = self.columns.get_loc(key)
-   2900             if is_integer(indexer):
-   2901                 indexer = [indexer]
+   2900             if self.columns.nlevels &gt; 1:
+   2901                 return self._getitem_multilevel(key)
+-&gt; 2902             indexer = self.columns.get_loc(key)
+   2903             if is_integer(indexer):
+   2904                 indexer = [indexer]
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
    2889                 return self._engine.get_loc(casted_key)
@@ -933,11 +933,11 @@ KeyError                                  Traceback (most recent call last)
 ----&gt; 1 avg_wind = aggr_data['SPEED'].mean()
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in __getitem__(self, key)
-   2897             if self.columns.nlevels &gt; 1:
-   2898                 return self._getitem_multilevel(key)
--&gt; 2899             indexer = self.columns.get_loc(key)
-   2900             if is_integer(indexer):
-   2901                 indexer = [indexer]
+   2900             if self.columns.nlevels &gt; 1:
+   2901                 return self._getitem_multilevel(key)
+-&gt; 2902             indexer = self.columns.get_loc(key)
+   2903             if is_integer(indexer):
+   2904                 indexer = [indexer]
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
    2889                 return self._engine.get_loc(casted_key)
@@ -1070,11 +1070,11 @@ KeyError                                  Traceback (most recent call last)
 ----&gt; 1 std_wind = aggr_data['SPEED'].std()
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in __getitem__(self, key)
-   2897             if self.columns.nlevels &gt; 1:
-   2898                 return self._getitem_multilevel(key)
--&gt; 2899             indexer = self.columns.get_loc(key)
-   2900             if is_integer(indexer):
-   2901                 indexer = [indexer]
+   2900             if self.columns.nlevels &gt; 1:
+   2901                 return self._getitem_multilevel(key)
+-&gt; 2902             indexer = self.columns.get_loc(key)
+   2903             if is_integer(indexer):
+   2904                 indexer = [indexer]
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
    2889                 return self._engine.get_loc(casted_key)
@@ -1110,11 +1110,11 @@ KeyError                                  Traceback (most recent call last)
 ----&gt; 1 avg_wind = aggr_data['SPEED'].mean()
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in __getitem__(self, key)
-   2897             if self.columns.nlevels &gt; 1:
-   2898                 return self._getitem_multilevel(key)
--&gt; 2899             indexer = self.columns.get_loc(key)
-   2900             if is_integer(indexer):
-   2901                 indexer = [indexer]
+   2900             if self.columns.nlevels &gt; 1:
+   2901                 return self._getitem_multilevel(key)
+-&gt; 2902             indexer = self.columns.get_loc(key)
+   2903             if is_integer(indexer):
+   2904                 indexer = [indexer]
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/indexes/base.py in get_loc(self, key, method, tolerance)
    2889                 return self._engine.get_loc(casted_key)
@@ -1267,11 +1267,11 @@ Hence, in the end, you can see that this is a bit more generic function to use (
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data2</span> <span class="o">=</span> <span class="n">data2</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">fahrToCelsius</span><span class="p">,</span> <span class="n">src_col</span><span class="o">=</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;Celsius2&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py</span> in <span class="ni">apply</span><span class="nt">(self, func, axis, raw, result_type, args, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">7539</span>             <span class="n">kwds</span><span class="o">=</span><span class="n">kwds</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">7540</span>         <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">7541</span>         <span class="k">return</span> <span class="n">op</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">7542</span> 
-<span class="g g-Whitespace">   </span><span class="mi">7543</span>     <span class="k">def</span> <span class="nf">applymap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;DataFrame&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">7543</span>             <span class="n">kwds</span><span class="o">=</span><span class="n">kwds</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">7544</span>         <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">7545</span>         <span class="k">return</span> <span class="n">op</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">7546</span> 
+<span class="g g-Whitespace">   </span><span class="mi">7547</span>     <span class="k">def</span> <span class="nf">applymap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;DataFrame&quot;</span><span class="p">:</span>
 
 <span class="nn">~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/apply.py</span> in <span class="ni">get_result</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">    </span><span class="mi">178</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_raw</span><span class="p">()</span>
@@ -1372,11 +1372,11 @@ KeyError                                  Traceback (most recent call last)
 ----&gt; 1 data2 = data2.apply(fahrToCelsius, src_col='TEMP', target_col='Celsius3', axis=1)
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/frame.py in apply(self, func, axis, raw, result_type, args, **kwds)
-   7539             kwds=kwds,
-   7540         )
--&gt; 7541         return op.get_result()
-   7542 
-   7543     def applymap(self, func) -&gt; &quot;DataFrame&quot;:
+   7543             kwds=kwds,
+   7544         )
+-&gt; 7545         return op.get_result()
+   7546 
+   7547     def applymap(self, func) -&gt; &quot;DataFrame&quot;:
 
 ~/virtualenv/python3.6.7/lib/python3.6/site-packages/pandas/core/apply.py in get_result(self)
     178             return self.apply_raw()
