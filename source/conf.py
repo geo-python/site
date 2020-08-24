@@ -31,10 +31,6 @@ release = 'site'
 
 # -- General configuration ---------------------------------------------------
 
-# If your documentation needs a minimal Sphinx version, state it here.
-#
-# needs_sphinx = '1.0'
-
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
@@ -45,7 +41,6 @@ extensions = [
     'sphinxcontrib.googleanalytics',
     'IPython.sphinxext.ipython_console_highlighting',
     'IPython.sphinxext.ipython_directive',
-    #'nbsphinx',
     'myst_nb',
 ]
 
@@ -247,7 +242,11 @@ nbsphinx_prolog = r"""
     \vspace{-2\baselineskip}
 """
 
-#nbsphinx_allow_errors = True
+# Allow errors
+execution_allow_errors = True
+
+# Execute cells only if any of the cells is missing output
+jupyter_execute_notebooks = "auto"
 
 # Sphinx versioning settings
 #scv_show_banner = True
