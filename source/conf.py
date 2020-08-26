@@ -42,7 +42,7 @@ extensions = [
     'IPython.sphinxext.ipython_console_highlighting',
     'IPython.sphinxext.ipython_directive',
     'myst_nb',
-    'jupyter_sphinx.execute',
+    'jupyter_sphinx',
 ]
 
 # Google Analytics ID to enable tracking of site traffic
