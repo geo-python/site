@@ -110,19 +110,13 @@ html_theme_options = {
         "binderhub_url": "https://mybinder.org/v2/gh/geo-python/site/master",
         "thebelab": True,
         "notebook_interface": "jupyterlab",
+    "collapse_navigation" : False
+
     },
 }
 
 # Add last modified to all pages
 html_last_updated_fmt = ""
-
-# Theme options are theme-specific and customize the look and feel of a theme
-# further.  For a list of options available for each theme, see the
-# documentation.
-#
-html_theme_options = {
-    "collapse_navigation" : False
-}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
