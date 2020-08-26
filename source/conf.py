@@ -42,6 +42,7 @@ extensions = [
     'IPython.sphinxext.ipython_console_highlighting',
     'IPython.sphinxext.ipython_directive',
     'myst_nb',
+    'sphinx_thebe'
 ]
 
 # Google Analytics ID to enable tracking of site traffic
@@ -98,19 +99,6 @@ pygments_style = 'sphinx'
 # =======================
 
 html_theme = 'sphinx_book_theme'
-
-html_theme_options = {
-    #"external_links": [],
-    "repository_url": "https://github.com/geo-python/site/",
-    #"twitter_url": "https://twitter.com/pythongis",
-    #"google_analytics_id": "UA-159257488-1",
-    "use_edit_page_button": True,
-    "launch_buttons": {
-        "binderhub_url": "https://mybinder.org/v2/gh/geo-python/site/master",
-        "thebelab": True,
-        "notebook_interface": "jupyterlab",
-    },
-}
 
 # Add last modified to all pages
 html_last_updated_fmt = ""
@@ -189,7 +177,6 @@ latex_documents = [
      'H. Tenkanen and D. Whipp', 'manual'),
 ]
 
-
 # -- Options for manual page output ------------------------------------------
 
 # One entry per manual page. List of tuples
@@ -199,55 +186,13 @@ man_pages = [
      [author], 1)
 ]
 
-
-# -- Options for Texinfo output ----------------------------------------------
-
-# Grouping the document tree into Texinfo files. List of tuples
-# (source start file, target name, title, author,
-#  dir menu entry, description, category)
-texinfo_documents = [
-    (master_doc, 'Geo-Python', 'Geo-Python Documentation',
-     author, 'Geo-Python', 'One line description of project.',
-     'Miscellaneous'),
-]
-
-
-# -- Extension configuration -------------------------------------------------
-# This is processed by Jinja2 and inserted before each notebook
-nbsphinx_prolog = r"""
-{% set docname = env.doc2path(env.docname, base='source') %}
-{% set docname2 = env.doc2path(env.docname, base='') %}
-
-.. only:: html
-
-    .. role:: raw-html(raw)
-        :format: html
-
-    .. nbinfo::
-
-        This page was generated from `{{ docname }}`__.
-        :raw-html:`<br/><a href="https://mybinder.org/v2/gh/geo-python/{{ env.config.release }}/master?urlpath=lab/tree/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a>`
-        :raw-html:`<a href="https://mybinder.org/v2/gh/geo-python/notebooks/master?urlpath=lab/tree/{{ docname2 }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-student%20binder-red.svg" style="vertical-align:text-bottom"></a>`
-        :raw-html:`<a href="https://notebooks.csc.fi/#/blueprint/df93f30d14e44b51907d135726eb6ef4"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a>`
-
-    __ https://github.com/Geo-Python/{{ env.config.release }}/blob/master/{{ docname }}
-
-.. raw:: latex
-
-    \vfil\penalty-1\vfilneg
-    \vspace{\baselineskip}
-    \textcolor{gray}{The following section was generated from
-    \texttt{\strut{}{{ docname }}}\\[-0.5\baselineskip]
-    \noindent\rule{\textwidth}{0.4pt}}
-    \vspace{-2\baselineskip}
-"""
-
 # Allow errors
 execution_allow_errors = True
 
 # Execute cells only if any of the cells is missing output
 jupyter_execute_notebooks = "auto"
 
-# Sphinx versioning settings
-#scv_show_banner = True
-#scv_whitelist_branches = ('master', 'develop')
+# Configuration for Thebe
+thebe_config = {
+   "selector": "div.highlight"
+}
