@@ -45,8 +45,7 @@ Course assistants
 
 * Sonja Koivisto
 * Emil Ehnström
-
-
+* Aleksi Rantanen
 
 Course websites
 ---------------
