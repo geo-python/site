@@ -10,7 +10,7 @@ Course meetings in Period I
 ---------------------------
 
 - Lectures:
-   - Wednesdays 09:15 - 12:00, CK112, Exactum
+   - Wednesdays 09:15 - 12:00
 - Work sessions:
    - Group 1 on Thursdays 12:15 - 16:00
    - Group 2 on Fridays 10:15 - 14:00
@@ -45,8 +45,7 @@ Course assistants
 
 * Sonja Koivisto
 * Emil Ehnström
-
-
+* Aleksi Rantanen
 
 Course websites
 ---------------
