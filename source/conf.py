@@ -107,7 +107,7 @@ html_theme_options = {
     #"google_analytics_id": "UA-159257488-1",
     "use_edit_page_button": True,
     "launch_buttons": {
-        "binderhub_url": "https://mybinder.org/v2/gh/geo-python/site/master",
+        "binderhub_url": "https://mybinder.org/v2/gh/geo-python/site/develop",
         "thebelab": True,
         "notebook_interface": "jupyterlab",
     "collapse_navigation" : False
