@@ -112,7 +112,7 @@ html_theme_options = {
     "use_edit_page_button": True,
     "launch_buttons": {
         "binderhub_url": "https://mybinder.org",
-        "thebelab": True,
+        "thebe": True,
         "notebook_interface": "jupyterlab",
     "collapse_navigation" : False
 
