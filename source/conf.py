@@ -99,7 +99,7 @@ pygments_style = 'sphinx'
 # =======================
 
 html_theme = 'sphinx_book_theme'
-html_logo = "_static/geopython2.png"
+html_logo = "_static/geopython.png"
 html_title = ""
 
 html_theme_options = {
