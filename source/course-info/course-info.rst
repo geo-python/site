@@ -2,7 +2,7 @@ General info
 ============
 
 This is a joint course for geography and geology students
-at the Department of Geosciences and Geography, University of Helsinki (course codes GEOK_3030 and GEOG-329).
+at the Department of Geosciences and Geography, University of Helsinki (course codes GEOK_3030 and GEOG-329-1).
 
 Course materials are freely available online for anyone interested in the course contents.
 
@@ -10,10 +10,16 @@ Course meetings in Period I
 ---------------------------
 
 - Lectures:
-   - Wednesdays 09:15 - 12:00, CK112, Exactum (4 September - 20 October 2019)
+   - Wednesdays 09:15 - 12:00
 - Work sessions:
-   - Group 1 on Thursdays 12:15 - 16:00, A113-114, Physicum
-   - Group 2 on Fridays 10:15 - 14:00 OR 08:15 - 12:00 (see Weboodi), A113-114, Physicum
+   - Group 1 on Thursdays 12:15 - 16:00
+   - Group 2 on Fridays 10:15 - 14:00
+
+
+.. admonition:: Online teaching
+
+    Please note that all teaching is organized online in autumn 2020.
+    Details of participation in the exercise sessions will be sent out to enrolled students.
 
 Instructors
 -----------
@@ -37,11 +43,9 @@ Email: *firstname.lastname@helsinki.fi*
 Course assistants
 ~~~~~~~~~~~~~~~~~
 
-* Yijun Wang
-* Lotta Ylä-Mella
-* Sakari Sarjakoski
-* Sara Todorovic
-
+* Sonja Koivisto
+* Emil Ehnström
+* Aleksi Rantanen
 
 Course websites
 ---------------
@@ -50,11 +54,11 @@ Course websites
 
   - Main course site: `<https://geo-python.github.io>`_
   - Notebooks by CSC: `<https://notebooks.csc.fi>`_
-  - Slack (Q&A + chat): `<https://geopython2019.slack.com>`_
+  - Slack (Q&A + chat): `<https://geo-python-2020.slack.com>`_
   - Polling / voting (active during lectures only): `<https://geo-python.github.io/poll>`_
 
 - Course websites for Period II
 
-  - Automating GIS processes (GEOG-329): `<https://autogis.github.io>`_
+  - Automating GIS processes (GEOG-329-2): `<https://autogis.github.io>`_
   - Introduction to Quantitative Geology (GEOK_3031): `<https://introqg.github.io>`_
 

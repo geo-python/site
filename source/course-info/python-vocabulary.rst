@@ -1,5 +1,5 @@
-Vocabulary - Basic terms
-========================
+Glossary
+========
 
 Python vocabulary
 -----------------
@@ -9,8 +9,22 @@ Python vocabulary
     Add links to dedicated parts of the documentation.
 
 Here we provide a list of commonly used terms that you will most probably encounter when doing Python programming.
+Terms are listed in alphabetical order in English. Finnish terms and definitions are shown in italics.
 
-- **Variable** is a way of storing values into the memory of the computer by using specific names that you define.
+.. glossary::
+
+  Index
+     A number indicating the location of a specific value stored in Python lists or tuples. The first index value of list is always ``0``.
+
+  Script (*ohjelma*)
+     A dedicated document for writing Python code that you can execute. Python script files should always have the ``.py`` file extension.
+
+     *Definition to be given in Finnish.*
+
+  Variable (*muuttuja*)
+     A way of storing values in the memory of the computer using specific names that you define.
+
+     *Definition to be given in Finnish.*
 
 - **Data types**
 
@@ -26,20 +40,18 @@ Here we provide a list of commonly used terms that you will most probably encoun
 
    - Tuple (tuple) = A similar "container" as list with a difference that you cannot update the values in a tuple. You can create a tuple with parentheses ``(1, 2, 3, 'a', 'b', 'c')``.
 
-- **Index** number is the location of specific value stored in Python lists or tuples. The first index value of list is always **0**.
-
-- **Script** is a dedicated document for writing Python code that you can execute. Python script files should always have the `` .py `` file extension.
-
 Basic vocabulary of Version Control
 -----------------------------------
 
 Few basic terms that are used often when discussing about version
 control (not exhaustive).
 
--  **Repository** = a location where all the files for a particular
-   project are stored, usually abbreviated to “repo.” Each project will
-   have its own repo, which is usually located on a server and can be
-   accessed by a unique URL (a link to GitHub page for example).
+.. glossary::
+
+  Repository
+     A location where all the files for a particular project are stored, usually abbreviated to “repo.”
+     Each project will have its own repo, which is usually located on a server and can be accessed by a unique URL (a link to GitHub page for example).
+
 
 -  **Commit** = To commit is to write or merge the changes made in the
    working copy back to the repository. Whe you commit, you are

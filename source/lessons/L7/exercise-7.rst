@@ -96,7 +96,6 @@ Here is one trick for modifying multiple subplot properties (of `axes`) at once:
     for ax in axes.flat:
         ax.set_ylim(0, 10)
 
-
 Preventing plot display
 ~~~~~~~~~~~~~~~~~~~~~~~
 
