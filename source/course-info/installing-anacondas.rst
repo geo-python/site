@@ -3,9 +3,15 @@ Installing Python
 
 **It is possible to do programming with Python on your own computer**, but first you need to install Python. The purpose of this page is to help you to
 install Python and different Python packages into your own computer. Even though it is possible to install Python from their `homepage <https://www.python.org/>`_,
-**we highly recommend using** `Anaconda <https://www.anaconda.com/download/>`_ which is an open source distribution of the Python and R programming
+**we highly recommend using** `Anaconda <https://www.anaconda.com/>`_  or `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ for installing Python.
+
+`Anaconda <https://www.anaconda.com/>`_ is an open source distribution of the Python and R programming
 languages for large-scale data processing, predictive analytics, and scientific computing, that aims to simplify package management and deployment. In short,
-it makes life much easier when installing new tools to your Python.
+it makes life much easier when installing new tools to your Python. Full anaconda installation comes with all packages needed in the Geo-Python course (and many more!).
+
+Miniconda is a mini version of Anaconda that comes with Python and a small number of useful packages.
+Additional packages can be installed using the package management system `conda <https://docs.conda.io/en/latest/>`__.
+
 
 Install Python on Windows
 -------------------------
