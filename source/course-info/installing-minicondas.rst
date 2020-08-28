@@ -45,15 +45,20 @@ Install Python on macOS
 Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#macosx-installers>`__ and download the latest
 Python 3.8 installer for macOSX.
 
-.. figure:: img/Anaconda-Mac.png
+.. figure:: img/miniconda-osx.png
     :width: 600px
     :align: center
-    :alt: Downloading the latest Anaconda for Mac
+    :alt: Downloading the latest Miniconda for Mac
 
 Install Python on Linux
 -----------------------
 Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#linux-installers>`__ and download the latest
 Python 3.8 installer for Linux.
+
+.. figure:: img/miniconda-linux.png
+    :width: 600px
+    :align: center
+    :alt: Downloading the latest Miniconda for Linux
 
 The following have been tested on Ubuntu 16.04. Might work also on Mac (not tested yet).
 
