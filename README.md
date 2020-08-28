@@ -1,6 +1,6 @@
 # Geo-Python 
 
-[![Build Status](https://travis-ci.org/geo-python/site.svg?branch=master)](https://travis-ci.org/geo-python/site)
+[![Documentation Status](https://readthedocs.org/projects/geo-python-site/badge/?version=latest)](https://geo-python-site.readthedocs.io/en/latest/?badge=latest)
 
 This repository contains the source files of course material available at [https://geo-python.github.io/site/](https://geo-python.github.io/site/)
 
