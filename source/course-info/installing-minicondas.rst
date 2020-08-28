@@ -3,59 +3,57 @@ Installing Python
 
 **It is possible to do programming with Python on your own computer**, but first you need to install Python. The purpose of this page is to help you to
 install Python and different Python packages into your own computer. Even though it is possible to install Python from their `homepage <https://www.python.org/>`_,
-**we highly recommend using** `Anaconda <https://www.anaconda.com/>`_  or `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ for installing Python.
+**we highly recommend using** `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ for installing Python.
+Miniconda comes with Python and a small number of useful packages. Additional packages can be installed using the package management system `conda <https://docs.conda.io/en/latest/>`__.
 
-`Anaconda <https://www.anaconda.com/>`_ is an open source distribution of the Python and R programming
+Miniconda is a mini version of `Anaconda <https://www.anaconda.com/>`_ which is an open source distribution of the Python and R programming
 languages for large-scale data processing, predictive analytics, and scientific computing, that aims to simplify package management and deployment. In short,
-it makes life much easier when installing new tools to your Python. Full anaconda installation comes with all packages needed in the Geo-Python course (and many more!).
+it makes life much easier when installing new tools to your Python. Full anaconda installation comes with all packages needed in the Geo-Python course (and many more!),
+but Miniconda allows us to save some disk space and avoid conflicts among packages (important for those installing GIS-packages!).
 
-Miniconda is a mini version of Anaconda that comes with Python and a small number of useful packages.
-Additional packages can be installed using the package management system `conda <https://docs.conda.io/en/latest/>`__.
+In case you already have Anaconda installed on your computer, you can continue using that during the Geo-Python course without a problem.
+**If you are new to Python and have not yet installed anything, we recommend you to start by** `installing Miniconda on your computer <https://docs.conda.io/en/latest/miniconda.html>`__.
 
 
-Install Python on Windows
+Install Miniconda on Windows
 -------------------------
 
-For people working with computers from University of Helsinki: A recent version of Anaconda should be available from the `University of Helsinki Software Center <https://helpdesk.it.helsinki.fi/en/instructions/computer-and-printing/software/software-center>`__.
+Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#windows-installers>`__ and download the latest
+**Miniconda3 Windows 64-bit** installer for Windows.
 
-Following steps have been tested to work on Windows 7 and 10 with Anaconda3 version 5.2.0 (June 2018) that installs Python 3.6 and various useful packages.
+.. figure:: img/Aminiconda-windows.png
+    :width: 600px
+    :align: center
+    :alt: Downloading the latest Miniconda for Windows
 
-`Download Anaconda installer (64 bit) <https://repo.anaconda.com/archive/Anaconda3-5.2.0-Windows-x86_64.exe>`_ for Windows.
-
-Install Anaconda to your computer by double clicking the installer and install it into a directory you want (needs admin rights).
+Install Miniconda to your computer by double clicking the installer and install it into a directory you want (needs admin rights).
 Install it to **all users** and use default settings.
 
 .. note::
 
-    Note for Windows users with a **computer administered by the University of Helsinki**: If you don't have administrator rights on your
+    Windows users with a **computer administered by the University of Helsinki**: If you don't have administrator rights on your
     computer, you might want to apply for an admin account.
     Read more about administrator rights and software installations in `here <https://helpdesk.it.helsinki.fi/en/instructions/computer-and-printing/workstation-administrator-rights>`__
 
 
-Test that the Anaconda´s package manage called ``conda`` works by
+Test that the package manager ``conda`` works by
 `opening a command prompt as a admin user <http://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-8.1/>`_
 and running command ``conda --version``. If the command returns a version number of conda (e.g. ``conda 4.5.9``) everything is working correctly.
 
 Install Python on macOS
 -----------------------
-
-There is now a convenient graphical installer that can be used to install Anaconda for Mac.
-For the IntroQG people, we recommend you install Anaconda 4.4.0 by visiting `the Anaconda downloads page <https://www.anaconda.com/download/#macos>`__ and clicking on the button to install the latest Python 3 version of Anaconda, as shown below.
-
-.. note::
-
-    For the AutoGIS people, we recommend that you install a slightly older version of Anaconda for Mac (version 4.2.0).
-    You can download that version using `this link to the Anaconda software repository <https://repo.continuum.io/archive/Anaconda3-4.2.0-MacOSX-x86_64.pkg>`__.
+Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#macosx-installers>`__ and download the latest
+Python 3.8 installer for macOSX.
 
 .. figure:: img/Anaconda-Mac.png
     :width: 600px
     :align: center
     :alt: Downloading the latest Anaconda for Mac
 
-    Anaconda installation for the IntroQG students
-
 Install Python on Linux
 -----------------------
+Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#linux-installers>`__ and download the latest
+Python 3.8 installer for Linux.
 
 The following have been tested on Ubuntu 16.04. Might work also on Mac (not tested yet).
 
