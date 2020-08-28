@@ -112,6 +112,7 @@ html_theme_options = {
         "binderhub_url": "https://mybinder.org",
         "thebelab": True,
         "notebook_interface": "jupyterlab",
+        "book_path": "source/",
     "collapse_navigation" : False
 
     },
