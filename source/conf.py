@@ -105,6 +105,7 @@ html_title = ""
 html_theme_options = {
     #"external_links": [],
     "repository_url": "https://github.com/geo-python/site/",
+    "path_to_docs": "source/",
     #"twitter_url": "https://twitter.com/pythongis",
     #"google_analytics_id": "UA-159257488-1",
     "use_edit_page_button": True,
@@ -112,7 +113,6 @@ html_theme_options = {
         "binderhub_url": "https://mybinder.org",
         "thebelab": True,
         "notebook_interface": "jupyterlab",
-        "book_path": "source/",
     "collapse_navigation" : False
 
     },
