@@ -21,8 +21,9 @@ Install it to **all users** and use default settings.
 
 .. note::
 
-    Note for University of Helsinki workers: you need to set the installation location as ``C:\HYapp`` so that it can be used easily by anyone without the need to
-    pass admin credentials all the time. If you don't have ``C:\HYapp`` -folder, create one with admin rights.
+    Note for Windows users with a **computer administered by the University of Helsinki**: If you don't have administrator rights on your
+    computer, you might want to apply for an admin account.
+    Read more about administrator rights and software installations in `here <https://helpdesk.it.helsinki.fi/en/instructions/computer-and-printing/workstation-administrator-rights>`__
 
 
 Test that the Anaconda´s package manage called ``conda`` works by
