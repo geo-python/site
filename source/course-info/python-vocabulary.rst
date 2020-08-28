@@ -9,16 +9,19 @@ Python vocabulary
     Add links to dedicated parts of the documentation.
 
 Here we provide a list of commonly used terms that you will most probably encounter when doing Python programming.
+Terms are listed in alphabetical order in English. Finnish terms and definitions are shown in italics.
 
 .. glossary::
 
   Index
      A number indicating the location of a specific value stored in Python lists or tuples. The first index value of list is always ``0``.
 
-  Script
+  Script (*ohjelma*)
      A dedicated document for writing Python code that you can execute. Python script files should always have the ``.py`` file extension.
 
-  Variable / *muuttuja*
+     *Definition to be given in Finnish.*
+
+  Variable (*muuttuja*)
      A way of storing values in the memory of the computer using specific names that you define.
 
      *Definition to be given in Finnish.*
