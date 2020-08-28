@@ -113,6 +113,7 @@ New materials are updated on this course page each Wednesday.
     course-info/course-info
     course-info/learning-goals
     course-info/grading
+    course-info/python-vocabulary
 ..
     .. toctree::
         :maxdepth: 2
@@ -194,7 +195,6 @@ New materials are updated on this course page each Wednesday.
     :maxdepth: 2
     :caption: Resources
 
-    course-info/installing-anacondas
     course-info/python-vocabulary
+    course-info/installing-anacondas
     course-info/resources
-    course-info/licensing
