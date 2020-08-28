@@ -21,7 +21,7 @@ Install Miniconda on Windows
 Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#windows-installers>`__ and download the latest
 **Miniconda3 Windows 64-bit** installer for Windows.
 
-.. figure:: img/Aminiconda-windows.png
+.. figure:: img/miniconda-windows.png
     :width: 600px
     :align: center
     :alt: Downloading the latest Miniconda for Windows
