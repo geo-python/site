@@ -8,25 +8,7 @@ computing <https://en.wikipedia.org/wiki/Cloud_computing>`__. This first
 tutorial will introduce you to the basic components of the course
 environment, guide you through how they are used, and conclude with a
 hands-on introduction to some key concepts and elements of programming
-in Python. The main components of this first lesson are below.
-
-.. toctree::
-    :maxdepth: 1
-    :caption: Lesson 1 materials
-
-    motivation
-    overview
-    course-environment-components
-    slack-usage
-    ../../notebooks/L1/a-taste-of-python.ipynb
-    ../../notebooks/L1/gcp-1-variable-naming.ipynb
-    exercise-1
-
-1. :doc:`Overview of the course environment <course-environment-components>`
-2. :doc:`Communicating and chatting with Slack <slack-usage>`
-3. `Our first taste of Python <../../notebooks/L1/a-taste-of-python.ipynb>`_ 
-4. `Good coding practices - Selecting “good” variable names <../../notebooks/L1/gcp-1-variable-naming.ipynb>`_ 
-5. :doc:`Exercise 1: Creating a Github.com account and using the cloud <exercise-1>` 
+in Python. The main components can be found in the navigation bar to the left.
 
 .. note::
 
