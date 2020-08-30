@@ -14,13 +14,13 @@ in Python. The main components of this first lesson are below.
     :maxdepth: 1
     :caption: Lesson 1 materials
 
-    lessons/L1/motivation
-    lessons/L1/overview
-    lessons/L1/course-environment-components
-    lessons/L1/slack-usage
-    notebooks/L1/a-taste-of-python.ipynb
-    notebooks/L1/gcp-1-variable-naming.ipynb
-    lessons/L1/exercise-1
+    motivation
+    overview
+    course-environment-components
+    slack-usage
+    ../../notebooks/L1/a-taste-of-python.ipynb
+    ../../notebooks/L1/gcp-1-variable-naming.ipynb
+    exercise-1
 
 1. :doc:`Overview of the course environment <course-environment-components>`
 2. :doc:`Communicating and chatting with Slack <slack-usage>`
