@@ -196,5 +196,5 @@ New materials are updated on this course page each Wednesday.
     :caption: Resources
 
     course-info/python-vocabulary
-    course-info/installing-minicondas
+    course-info/installing-miniconda
     course-info/resources
