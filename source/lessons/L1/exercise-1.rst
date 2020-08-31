@@ -52,7 +52,7 @@ Part 3 - Cooking up some Python
    :target: https://mybinder.org/v2/gh/Geo-Python-2019/Binder/master?urlpath=lab
    
 .. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
-   :target: https://notebooks.csc.fi/#/blueprint/d71cd2d26d924f48820dc22b67a87d8e
+   :target: https://notebooks.csc.fi/#/blueprint/7e62ac3bddf74483b7ac7333721630e2
 
 
 Time to start coding!
