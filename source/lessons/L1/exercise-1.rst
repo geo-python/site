@@ -27,9 +27,14 @@ Part 1 - Sign up to GitHub
 
 Part 2 - Identify yourself in Slack
 ------------------------------------
-*This part is only for registered students.*
 
-1. Once you have a GitHub account, go to our **Slack** page at `geopython2020.slack.com`__. *We have sent an invite link to Slack to all registered participants before the first lesson.*
+.. figure:: img/Slack-logo.png
+   :width: 150px
+
+*This part is only for registered students. We have sent an invite link to Slack to all registered participants before the first lesson.*
+*Please contact the course instructors via email in case you are registered for the course, but don't have access to Slack.*
+
+1. Go to our **Slack** page at `geopython2020.slack.com <geopython2020.slack.com>`__.
 2. **Post a new message** in the `#week-1 <https://geo-python-2020.slack.com/archives/C018Z51GKNG>`__ channel with
 your **full name, GitHub username, course code** (GEOK_3030 or GEOG-329-1).
 
@@ -51,13 +56,13 @@ Part 3 - Cooking up some Python
 
 Time to start coding!
 
-1. Get the recipe by accepting our first `GitHub Classroom for the Exercise 1 <https://classroom.github.com/a/8GzFdvOv>`__ (click the link).
+1. Get the recipe by accepting our first `GitHub Classroom for the Exercise 1 <https://classroom.github.com/a/8GzFdvOv>`__ (click on the link).
 
-    *After accepting the assignment, you are directed to your personal Exercise 1 repository (for example: Exercise-1-VuokkoH), which is a private version of the exercise only visible to you and the course instructors. This repository contains the instructions for doing the coding parts of Exercise 1.*
+    *After accepting the assignment, you are directed to your personal Exercise 1 repository (for example: Exercise-1-VuokkoH). This repository contains the instructions for doing the coding parts of Exercise 1.*
 
 2. Launch a new JupyterLab instance from the launch button above - we do the cooking in there
 
-    *You can use either binder or CSC Notebooks. Just remember to save your work!*
+    *You can use either binder or CSC Notebooks. Remember to save your work ;) !*
 
 3. Download your solution, and upload it to GitHub.com into your personal Exercise-1 repository.
 
