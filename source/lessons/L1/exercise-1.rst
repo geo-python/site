@@ -46,7 +46,7 @@ Part 2 - Cooking up some Python
 
 Time to start coding!
 
-1. Get the recipe by accepting our first `GitHub Classroom for the Exercise 1 <https://classroom.github.com/a/n-QT5uIP>`__ (click the link).
+1. Get the recipe by accepting our first `GitHub Classroom for the Exercise 1 <https://classroom.github.com/a/8GzFdvOv>`__ (click the link).
 
     *After accepting the assignment, you are directed to your personal Exercise 1 repository (for example: Exercise-1-VuokkoH), which is a private version of the exercise only visible to you and the course instructors. This repository contains the instructions for doing the coding parts of Exercise 1.*
 
@@ -69,11 +69,10 @@ Time to start coding!
 Summary (what to submit)
 -------------------------
 
+1. Post a message in the `#week-1 <https://geo-python-2020.slack.com/archives/C018Z51GKNG>`__ channel at `geopython2020.slack.com <https://geopython2020.slack.com>`__ with your name, GitHub username and course.
+2. Accept Exercise-1 in Github classroom and upload the jupyter notebook (file name should be `Exercise-1.ipynb`) containing your solutions for Part 2.
 
-1. Post a message in the `#week-1 <https://geopython2019.slack.com/messages/CM157NX41>`__ channel at `geopython2019.slack.com <https://geopython2019.slack.com>`__ with your name, GitHub username and course.
-2. Accept Exercise-1 in Github classroom and upload the jupyter notebook containing the solutions for Part 2.
-
-We ask that you complete this exercise by **09:00 next Wednesday, 11 September 2019**.
+We ask that you complete this exercise by **the start of the next lesson**.
 
 .. note::
 
