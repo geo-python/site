@@ -1,6 +1,11 @@
 Installing Python
 =================
 
+.. admonition:: Do I need to install anything?
+
+    Please note that you can also complete the Geo-Python course without installing anything on your own computer!
+    Each lesson contains a launch button for running the code **interactively in the browser**.
+
 **It is possible to do programming with Python on your own computer**, but first you need to install Python. The purpose of this page is to help you to
 install Python and different Python packages into your own computer. Even though it is possible to install Python from their `homepage <https://www.python.org/>`_,
 **we highly recommend using** `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ for installing Python.
@@ -68,15 +73,14 @@ The following have been tested on Ubuntu 16.04. Might work also on Mac (not test
 .. code-block::
 
     # Download and install Anaconda
-    sudo wget https://repo.continuum.io/archive/Anaconda3-4.1.1-Linux-x86_64.sh
-    sudo bash Anaconda3-4.1.1-Linux-x86_64.sh
+    sudo wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    sudo bash Miniconda3-latest-Linux-x86_64.sh
 
     # Add Anaconda installation permanently to PATH variable
     nano ~/.bashrc
 
     # Add following line at the end of the file and save (EDIT ACCORDING YOUR INSTALLATION PATH)
     export PATH=$PATH:/PATH_TO_ANACONDA/anaconda3/bin:/PATH_TO_ANACONDA/anaconda3/lib/python3.5/site-packages
-
 
 
 Installing packages using Conda
