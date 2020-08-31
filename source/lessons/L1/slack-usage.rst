@@ -9,12 +9,12 @@ During this course we will use `Slack <http://slack.com>`__ for discussion and q
 Accessing the workspace in Slack
 --------------------------------
 
-We will send an invitation link for all enrolled students to the Slack Team called ``geopython2019``.
+We will send an invitation link for all enrolled students to the Slack Team called ``geopython2020``.
 Before you can start using Slack, you should create a new account for Slack (if you don't have one already) and accept the invitation you have received.
 
 **After accepting the invitation, you can access the course Slack team from following link:**
 
-  * `<http://geopython2019.slack.com>`__
+  * `<http://geopython2020.slack.com>`__
 
 Overview of Slack
 -----------------
@@ -26,7 +26,6 @@ Using Slack for communication is easy. It works in a similar manner as any chatt
   - you can notify different users by using @ character (e.g. @user1)
   - you can start threads e.g. for specific question and add comments into that thread (keeps comments nicely grouped under the question)
   - works nicely in browser and has phone applications for all major operating systems (Android, iOS, Windows Phone)
-
 
 Basic usage of Slack
 --------------------
