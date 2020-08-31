@@ -88,27 +88,63 @@ Installing packages using Conda
 
 Conda has an excellent `online user guide <https://docs.conda.io/projects/conda/en/latest/index.html>`__ which covers most of the basic things, such as installing new packages.
 
-The easiest way
+Conda install
 ~~~~~~~~~~~~~~~
 
-You can install new packages using the ``conda install`` command in a terminal of an Anaconda Prompt (as admin).
+You can install new packages using the `conda install <https://docs.conda.io/projects/conda/en/latest/commands/install.html `__
+command. The basic syntax for installing packages is ``conda install [packagename]``.
 
-::
+In addition to the package name, we often want to specify the
+specific source, ie the `conda channel <https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html>`__
+from where to download the package. During this course (and in general when installing packages for scientific computing and GIS analysis)
+we download most packages from the `conda-forge <https://conda-forge.org/#about>`__ channel.
 
-    conda install [packagename]
+**Installing Pandas package from the conda-forge channel:**
 
-You can first check which packages you have installed using the ``conda list`` command.
+.. code-block::
+
+    conda install -c conda-forge pandas
+
+Once you run this command, you will see also other packages getting installed and/or updated as conda checks for dependencies of the installed package.
+Read more about package installations in the `conda documentation <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html#installing-packages>`__
 It's a good idea to search for installation instructions for each package online.
 
+You can install other useful packages in a similar way:
+
+.. code-block::
+
+    conda install -c conda-forge matplotlib
+    conda install -c conda-forge bokeh
+    conda install -c conda-forge geopandas
 
 
-Installing Jupyter Lab using conda
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+List all packages
+~~~~~~~~~~~~~~~~~~
 
-If you want to use Jupyter Lab on your own computer, you can install it using conda (or pip).
-First, have a quick look at the Jupyter Lab installation instructions: https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html
+You can check all installed packages using the `conda list <https://docs.conda.io/projects/conda/en/latest/commands/list.html?highlight=conda%20list>`__
+command.
 
-According to the instructions, you can run:
+.. code-block::
+
+    conda list
+
+This command will list out all installed packages, their versions and related channels in your environment.
+
+.. admonition:: Conflicting packages
+
+    A good rule of thumb is to always install packages from the same channel (for this course, we prefer the `conda-forge` channel).
+    In case you encounter an error message when installing new packages, you might want to first check the versions and channels of existing
+    packages using the `conda list` command before trying again.
+
+Installing Jupyter Lab
+~~~~~~~~~~~~~~~~~~~~~~~
+
+We use `Jupyer Lab <https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html>`__ as the main developing environment during this course.
+JupyterLab can be installed like any other packages using the conda install command.
+
+For other options and more information, take a look at the `JupyterLab installation instructions <https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html>`__.
+
+**Install JupyterLab from the conda-forge channel:**
 
 ```
 conda install -c conda-forge jupyterlab
@@ -121,8 +157,15 @@ After installation is completed, you can start a Jupyter Lab instance by running
 
     jupyter lab
 
-Jupyter Lab should open up in a browser window.
+JupyterLab should open up in a browser window.
 
+Git extension for JupyterLab
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+After you have installed JupyterLab, you can also add the JupyterLab Git extension to your environment:
+
+.. code-block::
+    conda install -c conda-forge jupyterlab-git
 
 
 Alternative way to install packages if typical doesn't work
