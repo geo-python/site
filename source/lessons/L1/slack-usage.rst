@@ -12,9 +12,7 @@ Accessing the workspace in Slack
 We will send an invitation link for all enrolled students to the Slack Team called ``geopython2020``.
 Before you can start using Slack, you should create a new account for Slack (if you don't have one already) and accept the invitation you have received.
 
-**After accepting the invitation, you can access the course Slack team from following link:**
-
-  * `<http://geopython2020.slack.com>`__
+**After accepting the invitation, you can access the course Slack team via this link:** `<http://geopython2020.slack.com>`__
 
 Overview of Slack
 -----------------
@@ -33,7 +31,7 @@ Basic usage of Slack
 When entering to our Slack Team you should see something like following where you have:
 
  - all channels listed on the left panel
- - on the right you have the selected channel (1-lesson) where you can start discussing about the contents of the lesson (lesson 1 in this case)
+ - on the right you have the selected channel where you can start discussing about the topics for that week:
 
 .. figure:: img/slack-basic-view.png
    :alt: Basic view of Slack
