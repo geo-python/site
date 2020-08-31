@@ -11,10 +11,10 @@ install Python and different Python packages into your own computer. Even though
 **we highly recommend using** `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ for installing Python.
 Miniconda comes with Python and a small number of useful packages. Additional packages can be installed using the package management system `conda <https://docs.conda.io/en/latest/>`__.
 
-Miniconda is a mini version of `Anaconda <https://www.anaconda.com/>`_ which is an open source distribution of the Python and R programming
+Miniconda is a light-weight version of `Anaconda <https://www.anaconda.com/>`_ which is an open source distribution of the Python and R programming
 languages for large-scale data processing, predictive analytics, and scientific computing, that aims to simplify package management and deployment. In short,
 it makes life much easier when installing new tools to your Python. Full anaconda installation comes with all packages needed in the Geo-Python course (and many more!),
-but Miniconda allows us to save some disk space and avoid conflicts among packages (important for those installing GIS-packages!).
+but Miniconda allows us to save some disk space and avoid package conflicts (important for those installing GIS-packages!).
 
 In case you already have Anaconda installed on your computer, you can continue using that during the Geo-Python course without a problem.
 **If you are new to Python and have not yet installed anything, we recommend you to start by** `installing Miniconda on your computer <https://docs.conda.io/en/latest/miniconda.html>`__.
@@ -136,10 +136,10 @@ This command will list out all installed packages, their versions and related ch
     In case you encounter an error message when installing new packages, you might want to first check the versions and channels of existing
     packages using the `conda list` command before trying again.
 
-Installing Jupyter Lab
+Installing JupyterLab
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-We use `Jupyer Lab <https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html>`__ as the main developing environment during this course.
+We use `JupyerLab <https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html>`__ as the main developing environment during this course.
 JupyterLab can be installed like any other packages using the conda install command.
 
 For other options and more information, take a look at the `JupyterLab installation instructions <https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html>`__.
