@@ -94,20 +94,19 @@ Conda install
 ~~~~~~~~~~~~~~~
 
 You can install new packages using the `conda install <https://docs.conda.io/projects/conda/en/latest/commands/install.html>`__
-command. The basic syntax for installing packages is ``conda install packagename``.
+command. The basic syntax for installing packages is ``conda install package-name``.
 
 In addition to the package name, we often want to specify the source, ie the
 `conda channel <https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html>`__
 from where to download the package. During this course (and in general when installing packages for scientific computing and GIS analysis)
 we download most packages from the `conda-forge <https://conda-forge.org/#about>`__ channel.
+This way our final syntax is `` conda install -c channel-name package-name`` where `-c` is short for "channel".
 
 **Installing Pandas package from the conda-forge channel:**
 
 .. code-block::
 
     conda install -c conda-forge pandas
-
-where `-c` is short for `--channel`.
 
 Once you run this command, you will see also other packages getting installed and/or updated as conda checks for dependencies of the installed package.
 Read more about package installations in the `conda documentation <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html#installing-packages>`__
@@ -154,13 +153,13 @@ For other options and more information, take a look at the `JupyterLab installat
 
     conda install -c conda-forge jupyterlab
 
-After installation is completed, you can start a Jupyter Lab instance by running this command:
+After installation is completed, you can start a JupyterLab instance by running this command (notice the space between the words!):
 
 .. code-block::
 
     jupyter lab
 
-JupyterLab should open up in a browser window.
+After running the command, JupyterLab should open up automatically in a browser window.
 
 Git extension for JupyterLab
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
