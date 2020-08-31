@@ -3,13 +3,26 @@ Course environment
 
 During this course, we will use different tools and applications for programming and communications:
 
-1. `JupyterLab`_ for the actual programming. You have two options for accessing the programming environment:
-    - `Using JupyterLab on a cloud computing environment <#cloud-computing-environments>`_
-    - `Using JupyterLab on your own computer <#using-your-own-computer>`_
-2. `Git and GitHub`_ for version control and documentation
-3. `Slack`_ for communicating among course participants
-4. `Voting / polling  <#voting-and-polling>`_ for interactive questions during the lectures
+1. `Interactive code cells <#interactive-code-cells>`__ for live coding in the browser
+2. `JupyterLab`_ for the actual programming
+3. `Cloud computing environments`__ Binder or CSC Notebooks
+4. `Git and GitHub`_ for version control and documentation
+5. `Slack`_ for communicating among course participants
+6. `Voting / polling  <#voting-and-polling>`_ for interactive questions during the lectures
 
+Interactive code cells
+-----------------------
+
+All pages with code cells can be turned into an interactive mode where you can run the code directly in the browser!
+
+.. figure:: img/Thebe_launcher.png
+   :alt: Activate Thebe that makes the page interactive
+   :width: 700px
+
+.. note::
+
+    The interactive code cells are a new feature in the 2020 course materials, and it is still a bit experimental!
+    Remember that you can always open up the materials in Binder or CSC Notebooks and run the code in there.
 
 JupyterLab
 ------------
@@ -19,7 +32,8 @@ The Jupyter lab interface consists of different components such as a file browse
 **Jupyter Notebooks** (filename extension ``.ipynb``) are documents inside the JupyterLab environment which contain computer code, and rich text elements (figures, links etc.).
 Jupyter Notebooks are perfect for documenting a data science workflow in an interactive format.
 
-We use JupyterLab/Jupyter Notebooks as the default programming environment during this course. All of the course materials are available in a JupyterLab setting via `cloud computing environments`_ (Binder or CSC Notebooks).
+**We use JupyterLab/Jupyter Notebooks as the default programming environment during this course.**
+All of the course materials are available in a JupyterLab setting via `cloud computing environments`_ (Binder or CSC Notebooks).
 
 .. figure:: img/Binder_launcher.png
    :alt: Binder Jupyter Notebook
@@ -59,7 +73,7 @@ Furthermore, CSC Notebooks contain persistent cloud storage, but are only availa
 We recommend that students from Finnish universities use the CSC Notebooks environment when working with the exercises.
 
 Binder
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~
 
 Binder (https://mybinder.org/) runs Jupyter Notebooks in your web browser in a customized environment. The original files (notebooks) are hosted on GitHub.
 Binder does not require the user to log in, you can just click on the link in the lesson / exercise and start working.
@@ -75,7 +89,7 @@ Once the instance is ready, you can navigate to the lesson folders and start wor
 **Remember to save your work! The Binder instance is temporary, and all your files will be lost after the session.**
 
 CSC Notebooks
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
 
 Notebooks by CSC (https://notebooks.csc.fi) is a computing environment hosted by the Finnish IT Center for Science (CSC). Similarly as in Binder, CSC notebooks are used for running Jupyter Notebooks in a customized environment.
 CSC Notebooks is available only for students who are affiliated with Finnish universities and research institutes (via the HAKA user authentication).
@@ -148,7 +162,7 @@ Slack
 ------
 
 During the course we will use actively an application called `Slack <http://slack.com>`__ for discussion and
-questions about the lessons and exercises. All enrolled students have received an invite link to the `geopython2019` workspace at the start of the course.
+questions about the lessons and exercises. All enrolled students have received an invite link to the `geopython2020` workspace at the start of the course.
 :doc:`Read more about Slack  <slack-usage>`.
 
 Voting and polling
