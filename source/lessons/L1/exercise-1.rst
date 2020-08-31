@@ -28,17 +28,17 @@ Part 1 - Sign up to GitHub
 Part 2 - Identify yourself in Slack
 ------------------------------------
 
-.. figure:: img/Slack-logo.png
-   :width: 150px
-
 *This part is only for registered students. We have sent an invite link to Slack to all registered participants before the first lesson.*
 *Please contact the course instructors via email in case you are registered for the course, but don't have access to Slack.*
+
+.. figure:: img/Slack-logo.png
+   :width: 150px
 
 1. Go to our **Slack** page at `geopython2020.slack.com <geopython2020.slack.com>`__.
 2. **Post a new message** in the `#week-1 <https://geo-python-2020.slack.com/archives/C018Z51GKNG>`__ channel with
 your **full name, GitHub username, course code** (GEOK_3030 or GEOG-329-1).
 
-For example, ``Dave Whipp, davewhipp, GEOK_3030`` or ``Vuokko Heikinheimo, VuokkoH, GEOG-329-1`` (please use comma to separate the different parts).
+For example,``Dave Whipp, davewhipp, GEOK_3030`` or ``Vuokko Heikinheimo, VuokkoH, GEOG-329-1`` (please use comma to separate the different parts).
 This will help us know you were able to create your account, that you have also figured out how to use Slack,
 and we'll know who is who on GitHub :).
 
@@ -53,6 +53,7 @@ Part 3 - Cooking up some Python
    
 .. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
    :target: https://notebooks.csc.fi/#/blueprint/d71cd2d26d924f48820dc22b67a87d8e
+
 
 Time to start coding!
 
