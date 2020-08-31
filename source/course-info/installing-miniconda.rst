@@ -94,7 +94,8 @@ Conda install
 ~~~~~~~~~~~~~~~
 
 You can install new packages using the `conda install <https://docs.conda.io/projects/conda/en/latest/commands/install.html>`__
-command. The basic syntax for installing packages is ``conda install package-name``. In addition, we also want to specify the conda channel from where the package is downloaded:
+command. The basic syntax for installing packages is ``conda install package-name``.
+In addition, we also want to specify the **conda channel** from where the package is downloaded using the parameter `-c`.
 
 **Installing Pandas package from the conda-forge channel:**
 
