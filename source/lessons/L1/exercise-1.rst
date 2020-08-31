@@ -1,11 +1,12 @@
 Exercise 1
 ==========
 
-.. note::
 
-    Please complete this exercise by **09:00 Wednesday, 11 September 2019**.
+.. admonition:: Deadline
 
-The exercise for this week has two parts. In the first part, you will create an account on GitHub.com, and share your username with us via Slack.
+    Please complete this exercise **by the start of the next lesson**.
+
+The exercise for this week has two parts. In the first part, you will **create an account on GitHub.com, and share your username with us via Slack**.
 In the second part, you will cook up some python using the skills you learned during the first lesson!
 
 Part 1 - Creating a GitHub.com account and using Slack
@@ -22,11 +23,17 @@ Part 1 - Creating a GitHub.com account and using Slack
         The GitHub.com homepage
 
 3. Enter a username, email address, and password. Click Create an account.
-4. When prompted to select a plan, choose the free option. We will provide private repositories through the course GitHub organization account.
-5. Once you have a GitHub account, go to **Slack** and **post a message** in the `#week-1 <https://geopython2019.slack.com/messages/CM157NX41>`__ channel with your **full name, GitHub username and which course are you taking**.
+4. When prompted to select a plan, choose the free option.
+5. Once you have a GitHub account, go to our **Slack** page at `geopython2020.slack.com`__. *We have sent an invite link to Slack to all registered participants before the first lesson.*
+6. **Post a new message** in the `#week-1 <https://geo-python-2020.slack.com/archives/C018Z51GKNG>`__ channel with
+your **full name, GitHub username, course code** (GEOK_3030 or GEOG-329-1).
 
-For example, ``Dave Whipp, davewhipp, Geo-Python`` or ``Henrikki Tenkanen, HTenkanen, AutoGIS``. This will help us know you were able to create your account, that you have also figured out how to use Slack, and we'll know who is who on GitHub :).
-We have sent an invite link to Slack to all registered participants before the first lesson.
+For example, ``Dave Whipp, davewhipp, GEOK_3030`` or ``Vuokko Heikinheimo, VuokkoH, GEOG-329-1`` (please use comma to separate the different parts).
+This will help us know you were able to create your account, that you have also figured out how to use Slack,
+and we'll know who is who on GitHub :).
+
+Students from other universities, you can add the name of your home institution (Aalto / Turku / Oulu) in stead of the course code like this;
+``Tua Nylén, tuanylen, Turku``.
 
 Part 2 - Cooking up some Python
 -------------------------------
