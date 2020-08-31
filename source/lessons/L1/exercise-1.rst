@@ -6,8 +6,7 @@ Exercise 1
     Please complete this exercise **by the start of the next lesson**.
 
 The exercise for this week has three parts. First, you will **create an account on GitHub.com**. Next, you will
- **let us know your your GitHub username via Slack**. Finally, you will **cook up some Python** using the
- skills you learned during the first lesson!
+**let us know your GitHub username via Slack**. Finally, you will **cook up some Python** using the skills you learned during the first lesson!
 
 Part 1 - Sign up to GitHub
 ---------------------------
