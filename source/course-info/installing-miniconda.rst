@@ -155,5 +155,6 @@ Git extension for JupyterLab
 After you have installed JupyterLab, you can also add the JupyterLab Git extension to your environment:
 
 .. code-block::
+
     conda install -c conda-forge jupyterlab-git
 
