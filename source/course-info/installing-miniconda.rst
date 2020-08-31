@@ -94,13 +94,7 @@ Conda install
 ~~~~~~~~~~~~~~~
 
 You can install new packages using the `conda install <https://docs.conda.io/projects/conda/en/latest/commands/install.html>`__
-command. The basic syntax for installing packages is ``conda install package-name``.
-
-In addition to the package name, we often want to specify the source, ie the
-`conda channel <https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html>`__
-from where to download the package. During this course (and in general when installing packages for scientific computing and GIS analysis)
-we download most packages from the `conda-forge <https://conda-forge.org/#about>`__ channel.
-This way our final syntax is `` conda install -c channel-name package-name`` where `-c` is short for "channel".
+command. The basic syntax for installing packages is ``conda install package-name``. In addition, we also want to specify the conda channel from where the package is downloaded:
 
 **Installing Pandas package from the conda-forge channel:**
 
@@ -120,18 +114,11 @@ You can **install other useful packages in a similar way:**
     conda install -c conda-forge bokeh
     conda install -c conda-forge geopandas
 
+.. admonition:: Conda channels
 
-List all packages
-~~~~~~~~~~~~~~~~~~
+    `Conda channels <https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html>`__ are remote locations where packages are stored.
+    During this course (and in general when installing packages for scientific computing and GIS analysis) we download most packages from the `conda-forge <https://conda-forge.org/#about>`__ channel.
 
-You can check all installed packages using the `conda list <https://docs.conda.io/projects/conda/en/latest/commands/list.html?highlight=conda%20list>`__
-command:
-
-.. code-block::
-
-    conda list
-
-This command will list out all installed packages, their versions and related channels in your environment.
 
 .. admonition:: Conflicting packages
 
