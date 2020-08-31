@@ -7,8 +7,9 @@ During this course, we will use different tools and applications for programming
 2. `JupyterLab`_ for the actual programming
 3. `Cloud computing environments`__ Binder or CSC Notebooks
 4. `Git and GitHub`_ for version control and documentation
-5. `Slack`_ for communicating among course participants
-6. `Voting / polling  <#voting-and-polling>`_ for interactive questions during the lectures
+5. `Voting / polling  <#voting-and-polling>`_ for interactive questions during the lectures
+6. `Slack`_ for communicating among UH students
+7. `Zoom`_ for live session at UH
 
 Interactive code cells
 -----------------------
@@ -158,13 +159,6 @@ Both Git and GitHub provide many more features than the ones mentioned
 here, but for now we are happy to understand the basic idea of what they
 are.
 
-Slack
-------
-
-During the course we will use actively an application called `Slack <http://slack.com>`__ for discussion and
-questions about the lessons and exercises. All enrolled students have received an invite link to the `geopython2020` workspace at the start of the course.
-:doc:`Read more about Slack  <slack-usage>`.
-
 Voting and polling
 ------------------
 
@@ -176,6 +170,18 @@ You can access the polling system of our course from `<https://geo-python.github
     The polling system is active only **during** the lessons. If you access the website outside the lecture times, you
     will most probably see only a white page without any content.
 
+Slack
+------
+
+During the course we will use actively an application called `Slack <http://slack.com>`__ for discussion and
+questions about the lessons and exercises. All enrolled students have received an invite link to the `geopython2020` workspace at the start of the course.
+:doc:`Read more about Slack  <slack-usage>`.
+
+Zoom
+------
+
+We will use zoom during the live sessions at the University of Helsinki during the remote teaching period in Autumn 2020.
+Zoom link and details will be shared in Slack and sent out via email to registered students.
 
 Page summary
 ------------
