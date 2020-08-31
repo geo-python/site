@@ -33,7 +33,7 @@ Part 2 - Slack
 .. figure:: img/Slack-logo.png
    :width: 150px
 
-1. Go to our **Slack** page at `geopython2020.slack.com <geopython2020.slack.com>`__.
+1. Go to our **Slack** page at https://geopython2020.slack.com.
 2. **Post a new message** in the `#week-1 <https://geo-python-2020.slack.com/archives/C018Z51GKNG>`__ channel with
 your **full name, GitHub username, course code** (GEOK_3030 or GEOG-329-1).
 
@@ -76,7 +76,7 @@ Part 3 - Cooking up some Python
 
     Each week, you will create a personal copy of the exercise repository on GitHub.com by clicking on the GitHub classroom link.
 
-    You can also take a look at the template repository on GitHub: https://github.com/geo-python-2020/exercise-1
+    You can also take a look at the template repository on GitHub: https://github.com/geo-python-2020/exercise-1 .
     Note that you are only able to make changes in your personal repository generated via GitHub Classroom.
 
 Summary (what to submit)
