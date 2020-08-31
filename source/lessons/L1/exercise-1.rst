@@ -24,8 +24,8 @@ Part 1 - Sign up to GitHub
 3. Enter a username, email address, and password. Click Create an account.
 4. When prompted to select a plan, choose the free option.
 
-Part 2 - Identify yourself in Slack
-------------------------------------
+Part 2 - Slack
+-------------------
 
 *This part is only for registered students. We have sent an invite link to Slack to all registered participants before the first lesson.*
 *Please contact the course instructors via email in case you are registered for the course, but don't have access to Slack.*
@@ -44,6 +44,11 @@ and we'll know who is who on GitHub :).
 Students from other universities; you can add the name of your home institution (Aalto / Turku / Oulu) in stead of the course code like this;
 ``Tua Nylén, tuanylen, Turku``.
 
+.. note::
+
+    In case you're curious, we need your GitHub user name in order to access your exercise repositories in GitHub
+    for grading and feedback.
+
 Part 3 - Cooking up some Python
 -------------------------------
 
@@ -54,19 +59,18 @@ Part 3 - Cooking up some Python
    :target: https://notebooks.csc.fi/#/blueprint/7e62ac3bddf74483b7ac7333721630e2
 
 
-Time to start coding!
+.. admonition:: Start your assignment
 
-1. Get the recipe by accepting our first `GitHub Classroom for the Exercise 1 <https://classroom.github.com/a/8GzFdvOv>`__ (click on the link).
+    **You can start working on your copy of Exercise 1 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/8GzFdvOv>`__.
 
-    *After accepting the assignment, you are directed to your personal Exercise 1 repository (for example: Exercise-1-VuokkoH). This repository contains the instructions for doing the coding parts of Exercise 1.*
 
-2. Launch a new JupyterLab instance from the launch button above - we do the cooking in there
+1. Start the coding exercise by accepting the GitHub classroom assignment.
+2. Read the instructions from the repository.
+3. Launch a new JupyterLab instance from the launch button above. *You can use either binder or CSC Notebooks.*
+4. Cook up some python according to the instructions!  *Remember to save your work ;) !*
+5. Download your solution, and upload it to GitHub.com into your personal Exercise-1 repository.
 
-    *You can use either binder or CSC Notebooks. Remember to save your work ;) !*
-
-3. Download your solution, and upload it to GitHub.com into your personal Exercise-1 repository.
-
-    *This week, we upload the exercise manually to GitHub. Next week, you will learn how to pull and push the exercises directly from GitHub to Jupyter Lab using Git!*
+*This week, we upload the exercise manually to GitHub. Next week, you will learn how to pull and push the exercises directly from GitHub to Jupyter Lab using Git!*
 
 .. note::
 
@@ -82,11 +86,6 @@ Summary (what to submit)
 2. Accept Exercise-1 in Github classroom and upload the jupyter notebook (file name should be `Exercise-1.ipynb`) containing your solutions for Part 2.
 
 We ask that you complete this exercise by **the start of the next lesson**.
-
-.. note::
-
-    In case you're curious, we need your GitHub user name in order to access your exercise repositories in GitHub
-    for grading and feedback.
 
 .. admonition:: Private repositories
 
