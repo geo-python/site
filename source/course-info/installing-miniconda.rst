@@ -20,8 +20,14 @@ In case you already have Anaconda installed on your computer, you can continue u
     Please note that you can also complete the Geo-Python course without installing anything on your own computer!
     Each lesson contains a launch button for running the code **interactively in the browser**.
 
-Install Miniconda on Windows
--------------------------
+Install Miniconda
+-------------------
+
+You can find the latest version of Miniconda for different operating systems in the `Miniconda dowload page <https://docs.conda.io/en/latest/miniconda.html>`__.
+Tips and tricks for Windows, macOS and Linux users below.
+
+Windows
+~~~~~~~~
 
 Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#windows-installers>`__ and download the latest
 **Miniconda3 Windows 64-bit** installer for Windows.
@@ -34,19 +40,18 @@ Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.ht
 Install Miniconda to your computer by double clicking the installer and install it into a directory you want (needs admin rights).
 Install it to **all users** and use default settings.
 
-.. note::
-
-    Windows users with a **computer administered by the University of Helsinki**: If you don't have administrator rights on your
-    computer, you might want to apply for an admin account.
-    Read more about administrator rights and software installations in `here <https://helpdesk.it.helsinki.fi/en/instructions/computer-and-printing/workstation-administrator-rights>`__
-
-
-Test that the package manager ``conda`` works by
+After the installation is completed, test that the package manager ``conda`` works by
 `opening a command prompt as a admin user <http://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-8.1/>`_
 and running command ``conda --version``. If the command returns a version number of conda (e.g. ``conda 4.5.9``) everything is working correctly.
 
-Install Python on macOS
------------------------
+.. admonition:: Winows admin rights for UH computers
+
+    Windows users with a **computer administered by the University of Helsinki**: If you don't have **administrator rights** on your
+    computer, you might want to apply for an admin account. Read more about administrator rights and
+    software installations in `here <https://helpdesk.it.helsinki.fi/en/instructions/computer-and-printing/workstation-administrator-rights>`__.
+
+macOS
+~~~~~~~~
 Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#macosx-installers>`__ and download the latest
 Python 3.8 installer for macOSX.
 
@@ -55,8 +60,8 @@ Python 3.8 installer for macOSX.
     :align: center
     :alt: Downloading the latest Miniconda for Mac
 
-Install Python on Linux
------------------------
+Linux
+~~~~~~~~
 Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#linux-installers>`__ and download the latest
 Python 3.8 installer for Linux.
 
@@ -65,10 +70,7 @@ Python 3.8 installer for Linux.
     :align: center
     :alt: Downloading the latest Miniconda for Linux
 
-The following have been tested on Ubuntu 16.04. Might work also on Mac (not tested yet).
-
-**Install Anaconda 3 and add it to system path**
-
+**Install Miniconda 3 and add it to system path:**
 
 .. code-block::
 
@@ -82,20 +84,20 @@ The following have been tested on Ubuntu 16.04. Might work also on Mac (not test
     # Add following line at the end of the file and save (EDIT ACCORDING YOUR INSTALLATION PATH)
     export PATH=$PATH:/PATH_TO_MINICONDA/miniconda3/bin:/PATH_TO_MINICONDA/miniconda3/lib/python3.8/site-packages
 
-
 Installing packages using Conda
 ---------------------------------
 
-Conda has an excellent `online user guide <https://docs.conda.io/projects/conda/en/latest/index.html>`__ which covers most of the basic things, such as installing new packages.
+Conda has an excellent `online user guide <https://docs.conda.io/projects/conda/en/latest/index.html>`__ which covers most of the basic things,
+such as installing new packages.
 
 Conda install
 ~~~~~~~~~~~~~~~
 
-You can install new packages using the `conda install <https://docs.conda.io/projects/conda/en/latest/commands/install.html `__
-command. The basic syntax for installing packages is ``conda install [packagename]``.
+You can install new packages using the `conda install <https://docs.conda.io/projects/conda/en/latest/commands/install.html>`__
+command. The basic syntax for installing packages is ``conda install packagename``.
 
-In addition to the package name, we often want to specify the
-specific source, ie the `conda channel <https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html>`__
+In addition to the package name, we often want to specify the source, ie the
+`conda channel <https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html>`__
 from where to download the package. During this course (and in general when installing packages for scientific computing and GIS analysis)
 we download most packages from the `conda-forge <https://conda-forge.org/#about>`__ channel.
 
@@ -105,11 +107,13 @@ we download most packages from the `conda-forge <https://conda-forge.org/#about>
 
     conda install -c conda-forge pandas
 
+where `-c` is short for `--channel`.
+
 Once you run this command, you will see also other packages getting installed and/or updated as conda checks for dependencies of the installed package.
 Read more about package installations in the `conda documentation <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html#installing-packages>`__
 It's a good idea to search for installation instructions for each package online.
 
-You can install other useful packages in a similar way:
+You can **install other useful packages in a similar way:**
 
 .. code-block::
 
@@ -122,7 +126,7 @@ List all packages
 ~~~~~~~~~~~~~~~~~~
 
 You can check all installed packages using the `conda list <https://docs.conda.io/projects/conda/en/latest/commands/list.html?highlight=conda%20list>`__
-command.
+command:
 
 .. code-block::
 
@@ -132,7 +136,7 @@ This command will list out all installed packages, their versions and related ch
 
 .. admonition:: Conflicting packages
 
-    A good rule of thumb is to always install packages from the same channel (for this course, we prefer the `conda-forge` channel).
+    A good rule of thumb is to **always install packages from the same channel** (for this course, we prefer the `conda-forge` channel).
     In case you encounter an error message when installing new packages, you might want to first check the versions and channels of existing
     packages using the `conda list` command before trying again.
 
@@ -146,12 +150,11 @@ For other options and more information, take a look at the `JupyterLab installat
 
 **Install JupyterLab from the conda-forge channel:**
 
-```
-conda install -c conda-forge jupyterlab
-```
+.. code-block::
+
+    conda install -c conda-forge jupyterlab
 
 After installation is completed, you can start a Jupyter Lab instance by running this command:
-
 
 .. code-block::
 
