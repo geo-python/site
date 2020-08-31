@@ -64,9 +64,9 @@ Part 3 - Cooking up some Python
     **You can start working on your copy of Exercise 1 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/8GzFdvOv>`__.
 
 
-1. Start the coding exercise by accepting the GitHub classroom assignment.
+1. Start the coding exercise by accepting the GitHub classroom assignment (click on the link above).
 2. Read the instructions from the repository.
-3. Launch a new JupyterLab instance from the launch button above. *You can use either binder or CSC Notebooks.*
+3. Launch a new JupyterLab instance. *You can use either binder or CSC Notebooks.*
 4. Cook up some python according to the instructions!  *Remember to save your work ;) !*
 5. Download your solution, and upload it to GitHub.com into your personal Exercise-1 repository.
 
