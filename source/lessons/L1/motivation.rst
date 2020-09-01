@@ -8,7 +8,7 @@ These include:
 1. Writing programs that are easy to understand and share
 2. Keeping a log of the changes you make to your programs
 3. Using programs that ensure your science is reproducible
-4. Producing simple, effective data visualizations that make your results easy to understand
+4. Producing simple, effective data visualizations that make your results accessible and easy to understand
 
 To help clarify our goals, consider the example below.
 
@@ -17,8 +17,7 @@ Effective data visualization
 
 One of the things we will learn in this course is how to use Python to plot data.
 As you well know, raw data itself is often not particularly useful in helping you understand what the data shows.
-Let's look at an example that might be familiar to you, global temperature anomalies.
-And we can start with some data.
+Let's look at an example that might be familiar to you, global temperature data.
 
 .. code-block:: none
 
@@ -72,12 +71,12 @@ However, this is global data and we are missing something important about the da
 
 Let's consider another option, plotting temperature anomalies on a map.
 
-.. figure:: https://www.ncdc.noaa.gov/sotc/service/global/map-blended-mntp/201603.gif
+.. figure:: https://www.ncdc.noaa.gov/sotc/service/global/map-blended-mntp/202001.png
     :width: 800px
     :align: center
     :alt: Global mean temperature anomaly map
 
-    Global temperature anomalies for March 2016. Source: https://www.ncdc.noaa.gov/sotc/global/201603
+    Global temperature anomalies for January 2020. Source: https://www.ncdc.noaa.gov/sotc/global/201603
 
 And yet again, this helps us understand the data further.
 Not only do we see the changed in temperature, but now we see how temperatures vary across the globe.
