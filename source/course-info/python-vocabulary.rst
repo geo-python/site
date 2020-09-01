@@ -13,20 +13,20 @@ Terms are listed in alphabetical order in English. Finnish terms and definitions
 
 .. glossary::
 
-  Function (*sana*)
+  function (*sana*)
     A reusable piece of code that performs a single action.
 
     *Definition to be given in Finnish.*
 
-  Index
+  index
      A number indicating the location of a specific value stored in Python lists or tuples. The first index value of list is always ``0``.
 
-  Script (*ohjelma*)
+  script (*ohjelma*)
      A dedicated document for writing Python code that you can execute. Python script files should always have the ``.py`` file extension.
 
      *Definition to be given in Finnish.*
 
-  Variable (*muuttuja*)
+  variable (*muuttuja*)
      A way of storing values in the memory of the computer using specific names that you define.
 
      *Definition to be given in Finnish.*
