@@ -27,7 +27,7 @@ Geo-Python covers the necessary skills needed before continuing to the more adva
 .. admonition:: University of Helsinki students
 
     The Geo-Python course runs under two course codes in teaching period 1 at the University of Helsinki.
-    Please sign up using only one of these course codes (not both)!
+    Please sign up using one of these course codes (not both)!
 
     - GEOG-329-1 for geography students
     - GEOK_3030 for geology students

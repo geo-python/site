@@ -37,7 +37,11 @@ Part 2 - Slack
 2. **Post a new message** in the `#week-1 <https://geo-python-2020.slack.com/archives/C018Z51GKNG>`__ channel with
 your **full name, GitHub username, course code** (GEOK_3030 or GEOG-329-1).
 
-For example,``Dave Whipp, davewhipp, GEOK_3030`` or ``Vuokko Heikinheimo, VuokkoH, GEOG-329-1`` (please use comma to separate the different parts).
+For example,
+``Dave Whipp, davewhipp, GEOK_3030``
+or
+``Vuokko Heikinheimo, VuokkoH, GEOG-329-1``
+(please use comma to separate the different parts).
 This will help us know you were able to create your account, that you have also figured out how to use Slack,
 and we'll know who is who on GitHub :).
 

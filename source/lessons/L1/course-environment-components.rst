@@ -5,7 +5,7 @@ During this course, we will use different tools and applications for programming
 
 1. `Interactive code cells <#interactive-code-cells>`__ for live coding in the browser
 2. `JupyterLab`_ for the actual programming
-3. `Cloud computing environments`__ Binder or CSC Notebooks
+3. `Cloud computing environments`_ Binder or CSC Notebooks
 4. `Git and GitHub`_ for version control and documentation
 5. `Voting / polling  <#voting-and-polling>`_ for interactive questions during the lectures
 6. `Slack`_ for communicating among UH students
@@ -22,15 +22,15 @@ All pages with code cells can be turned into an interactive mode where you can r
 
 .. note::
 
-    The interactive code cells are a new feature in the 2020 course materials, and it is still a bit experimental!
+    The interactive code cells are a new feature in the 2020 course materials. This feature is still a bit experimental!
     Remember that you can always open up the materials in Binder or CSC Notebooks and run the code in there.
 
 JupyterLab
 ------------
 `JupyerLab <https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html>`__ is an open-source web-based user interface for doing data science.
-The Jupyter lab interface consists of different components such as a file browser, terminal, image viewer, console, text editor, etc.
+The JupyterLab interface consists of different components such as a file browser, terminal, image viewer, console, text editor, etc.
 
-**Jupyter Notebooks** (filename extension ``.ipynb``) are documents inside the JupyterLab environment which contain computer code, and rich text elements (figures, links etc.).
+**Jupyter Notebooks** (filename extension ``.ipynb``) are documents inside the JupyterLab environment which contain computer code, and rich text elements (figures, links, etc.).
 Jupyter Notebooks are perfect for documenting a data science workflow in an interactive format.
 
 **We use JupyterLab/Jupyter Notebooks as the default programming environment during this course.**
@@ -43,10 +43,10 @@ All of the course materials are available in a JupyterLab setting via `cloud com
    Basic view of JupyterLab
 
 .. figure:: img/JupyterLab.png
-   :alt: A Jupyter Notebook open in Jupyter Lab
+   :alt: A Jupyter Notebook open in JupyterLab
    :width: 700px
 
-   A Jupyter Notebook open in Jupyter Lab
+   A Jupyter Notebook open in JupyterLab
 
 Cloud computing environments
 --------------------------------
@@ -125,7 +125,7 @@ CSC Notebooks is available only for students who are affiliated with Finnish uni
 Using your own computer
 --------------------------------
 We recommend everyone to use the available `cloud computing environments`_ during this course.
-In case you want to work on your own computer, start by `installing Python (via Anaconda) <https://geo-python.github.io/site/course-info/installing-anacondas.html>`_.
+In case you want to work on your own computer, you need to `install Python (via Miniconda) <../../course-info/installing-miniconda.html>`_.
 
 
 Git and GitHub
