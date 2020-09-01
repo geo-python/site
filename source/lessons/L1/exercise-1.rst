@@ -33,7 +33,7 @@ Part 2 - Slack
 .. figure:: img/Slack-logo.png
    :width: 150px
 
-1. Go to our **Slack** page at https://geopython2020.slack.com.
+1. Go to our **Slack** page at https://geo-python-2020.slack.com.
 2. **Post a new message** in the `#week-1 <https://geo-python-2020.slack.com/archives/C018Z51GKNG>`__ channel with
 your **full name, GitHub username, course code** (GEOK_3030 or GEOG-329-1).
 
@@ -86,7 +86,7 @@ Part 3 - Cooking up some Python
 Summary (what to submit)
 -------------------------
 
-1. Post a message in the `#week-1 <https://geo-python-2020.slack.com/archives/C018Z51GKNG>`__ channel at `geopython2020.slack.com <https://geopython2020.slack.com>`__ with your name, GitHub username and course.
+1. Post a message in the `#week-1 <https://geo-python-2020.slack.com/archives/C018Z51GKNG>`__ channel at `Geo-Python-2020.slack.com <https://geo-python-2020.slack.com>`__ with your name, GitHub username and course.
 2. Accept Exercise-1 in Github classroom and upload the jupyter notebook (file name should be `Exercise-1.ipynb`) containing your solutions for Part 2.
 
 We ask that you complete this exercise by **the start of the next lesson**.

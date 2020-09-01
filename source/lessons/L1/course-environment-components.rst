@@ -18,7 +18,6 @@ All pages with code cells can be turned into an interactive mode where you can r
 
 .. figure:: img/Thebe_launcher.png
    :alt: Activate Thebe that makes the page interactive
-   :width: 700px
 
 .. note::
 

@@ -9,10 +9,10 @@ During this course we will use `Slack <http://slack.com>`__ for discussion and q
 Accessing the workspace in Slack
 --------------------------------
 
-We will send an invitation link for all enrolled students to the Slack Team called ``geopython2020``.
+We will send an invitation link for all enrolled students to the Slack Team called ``Geo-Python-2020``.
 Before you can start using Slack, you should create a new account for Slack (if you don't have one already) and accept the invitation you have received.
 
-**After accepting the invitation, you can access the course Slack team via this link:** `<http://geopython2020.slack.com>`__
+**After accepting the invitation, you can access the course Slack team via this link:** `<http://geo-python-2020.slack.com>`__
 
 Overview of Slack
 -----------------
