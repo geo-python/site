@@ -190,10 +190,6 @@ Now you should see the updates in GitHub! Go and have a look at your personal re
 
 That's all you need to know about Git for know :)
 
-.. admonition:: Merge conflicts
-
-    It is possible that you will encounter a merge conflict at some point of this course.
-    Sometimes Git might provide an error message that suggest a solution for the conflict.
 
 Using Git from the command line
 -------------------------------
@@ -268,8 +264,14 @@ Anything above version 2 is just fine.
     You can read more about managing remotes `in here <https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes>`__.
 
 
-If everything else fails...
-------------------------------------
+Conflicts
+--------------
+
+.. admonition:: Merge conflicts
+
+    It is possible that you will encounter a **merge conflict** at some point of this course. A merge conflict might happen if two users have edited the same content, or if you
+    yourself have edited the same content both on GitHub and locally without properly synchronizing the changes. **The best thing to do to avoid merge conflicts is to always Pull before you Push new changes.**
+    In case you encounter a merge conflict, don't panic! Read carefully the message related to the merge conflict, and try searching for a solution online.
 
 Remember that you can always download your files on your own computer, and upload them manually to GitHub like we did in exercise 1!
 
