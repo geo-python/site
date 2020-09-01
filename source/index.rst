@@ -16,7 +16,7 @@ Geo-Python is organized by the `Department of Geosciences and Geography <https:/
 at the University of Helsinki.
 
 Geo-Python covers the necessary skills needed before continuing to the more advanced courses
-`Automating GIS processes course <https://autogis.github.io>`_ and
+`Automating GIS processes <https://autogis.github.io>`_ and/or
 `Introduction to Quantitative Geology <https://introqg.github.io>`_.
 
 .. admonition:: Open Access!
@@ -27,7 +27,7 @@ Geo-Python covers the necessary skills needed before continuing to the more adva
 .. admonition:: University of Helsinki students
 
     The Geo-Python course runs under two course codes in teaching period 1 at the University of Helsinki.
-    Please sign up using one of these course codes (not both)!
+    Please sign up using only one of these course codes (not both)!
 
     - GEOG-329-1 for geography students
     - GEOK_3030 for geology students
