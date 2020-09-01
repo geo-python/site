@@ -21,6 +21,18 @@ Terms are listed in alphabetical order in English. Finnish terms and definitions
   index
      A number indicating the location of a specific value stored in Python lists or tuples. The first index value of list is always ``0``.
 
+     *Definition to be given in Finnish.*
+
+  library (*ohjelmakirjasto*)
+    A group of related modules.
+
+    *Definition to be given in Finnish.*
+
+  module (*moduuli*)
+     A file containing Python definitions and statements. Module files have the ``.py`` file extension.
+
+    *Definition to be given in Finnish.*
+
   script (*ohjelma*)
      A dedicated document for writing Python code that you can execute. Python script files should always have the ``.py`` file extension.
 
