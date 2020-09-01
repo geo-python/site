@@ -12,7 +12,10 @@ Course grades will be given using the standard six-level grading scale from 0 to
 - 1 (Passable)
 - 0 (Fail)
 
-Your grade will be based on weekly programming exercises, with an emphasis on the final exercises.
+Your grade will be determined as follows:
+
+- 60% from weekly exercises
+- 40% from the final course project
 
 .. admonition:: Weekly deadlines
 
