@@ -13,6 +13,11 @@ Terms are listed in alphabetical order in English. Finnish terms and definitions
 
 .. glossary::
 
+  Function (*sana*)
+    A reusable piece of code that performs a single action.
+
+    *Definition to be given in Finnish.*
+
   Index
      A number indicating the location of a specific value stored in Python lists or tuples. The first index value of list is always ``0``.
 
