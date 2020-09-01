@@ -31,7 +31,7 @@ Email: *firstname.lastname@helsinki.fi*
 
 * David Whipp
 
-  * Office: D430, Exactum
+  * Office: C417, Exactum
   * Phone: +358 50 3199336
 
 * Vuokko Heikinheimo
@@ -60,5 +60,5 @@ Course websites
 - Course websites for Period II
 
   - Automating GIS processes (GEOG-329-2): `<https://autogis.github.io>`_
-  - Introduction to Quantitative Geology (GEOK_3031): `<https://introqg.github.io>`_
+  - Introduction to Quantitative Geology (GEOK_3031 - taught next time in 2021): `<https://introqg.github.io>`_
 
