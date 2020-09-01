@@ -13,7 +13,7 @@ Terms are listed in alphabetical order in English. Finnish terms and definitions
 
 .. glossary::
 
-  function (*sana*)
+  function (*funktio*)
     A reusable piece of code that performs a single action.
 
     *Definition to be given in Finnish.*
