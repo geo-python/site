@@ -38,6 +38,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
     'sphinx.ext.todo',
+    "sphinx_thebe",
     'sphinxcontrib.googleanalytics',
     'IPython.sphinxext.ipython_console_highlighting',
     'IPython.sphinxext.ipython_directive',
@@ -105,12 +106,14 @@ html_title = ""
 html_theme_options = {
     #"external_links": [],
     "repository_url": "https://github.com/geo-python/site/",
+    "path_to_docs": "source/",
     #"twitter_url": "https://twitter.com/pythongis",
     #"google_analytics_id": "UA-159257488-1",
     "use_edit_page_button": True,
+    "use_repository_button": True,
     "launch_buttons": {
-        "binderhub_url": "https://mybinder.org/v2/gh/geo-python/site/develop",
-        "thebelab": True,
+        "binderhub_url": "https://mybinder.org",
+        "thebe": True,
         "notebook_interface": "jupyterlab",
     "collapse_navigation" : False
 

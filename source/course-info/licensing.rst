@@ -1,9 +1,11 @@
 License and terms of usage
 ==========================
 
-We hope that the materials provided here would be helpful for others. Thus, we share all the lesson materials openly, and also our source codes and lesson materials are openly available `from GitHub <https://github.com/Geo-Python/site>`_.
-There, you can also find information how to use the materials and modify them to your own purposes. **However**, if you modify the lesson materials we wish that you would also share your materials openly e.g. on GitHub where
-everyone could benefit from you work, in a similar manner as we provide these materials for you. We also welcome collaboration and ideas of how to improve the materials on these pages.
+It is our hope that the materials provided here will be helpful for others.
+Thus, we share all the lesson materials openly, and our source codes and lesson materials are openly available `from GitHub <https://github.com/geo-python/site>`_.
+There, you can also find information on how to use the materials and modify them to your own purposes.
+**However**, if you modify the lesson materials we request that you also share your materials openly (e.g., on GitHub), where everyone could benefit from your work in the same way that we provide these materials for you.
+We also welcome collaboration and ideas of how to improve the materials on these pages.
 Contact us via :doc:`email <course-info>` or fork the docs on **GitHub**.
 
 **Our materials and code snippets are licensed** as explained below:
@@ -73,7 +75,4 @@ or moral rights may limit how you use the material.
 Code snippets / software
 ------------------------
 
-Except where otherwise noted, the example programs, code snippets and other software provided by the Automating GIS processes -course are made
-available under the **GNU GPLv3 license** (read licence `here <https://www.gnu.org/licenses/gpl.html>`_.
-
-
+Except where otherwise noted, the example programs, code snippets and other software provided by the Geo-Python course are made available under the **GNU GPLv3 license** (read the licence `here <https://www.gnu.org/licenses/gpl.html>`_).
