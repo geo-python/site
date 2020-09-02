@@ -13,10 +13,15 @@ Terms are listed in alphabetical order in English. Finnish terms and definitions
 
 .. glossary::
 
-  function (*funktio*)
-    A reusable piece of code that performs a single action.
+  data type (*tietotyyppi*)
+     An attribute defining the characteristics of a value in a program. For example, type `int` is an integer (whole number).
 
-    *Definition to be given in Finnish.*
+     *Definition to be given in Finnish.*
+
+  function (*funktio*)
+     A reusable piece of code that performs a single action.
+
+     *Definition to be given in Finnish.*
 
   index
      A number indicating the location of a specific value stored in Python lists or tuples. The first index value of list is always ``0``.
@@ -24,14 +29,14 @@ Terms are listed in alphabetical order in English. Finnish terms and definitions
      *Definition to be given in Finnish.*
 
   library (*ohjelmakirjasto*)
-    A group of related modules.
+     A group of related modules.
 
-    *Definition to be given in Finnish.*
+     *Definition to be given in Finnish.*
 
   module (*moduuli*)
      A file containing Python definitions and statements. Module files have the ``.py`` file extension.
 
-    *Definition to be given in Finnish.*
+     *Definition to be given in Finnish.*
 
   script (*ohjelma*)
      A dedicated document for writing Python code that you can execute. Python script files should always have the ``.py`` file extension.
