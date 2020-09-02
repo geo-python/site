@@ -37,6 +37,9 @@ The lecture video will be added after today's lesson has been presented.
 Lecture slides
 --------------
 
-.. admonition:: Lesson slides
+The lecture slides will be added after today's lesson has been presented.
 
-    `Slides for Lecture 1 (PDF) <../../_static/01-Computers-and-programs.pdf>`__
+..
+    .. admonition:: Lesson slides
+
+        `Slides for Lecture 1 (PDF) <../../_static/01-Computers-and-programs.pdf>`__
