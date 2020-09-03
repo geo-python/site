@@ -21,8 +21,8 @@ After this weeks lesson your should be able to:
 - describe the concept of a data type
 - determine the data type of a variable in Python
 
-Lecture video
--------------
+Lecture videos
+--------------
 
 .. admonition:: Lesson 1.1 - Course introduction and computing basics
 
