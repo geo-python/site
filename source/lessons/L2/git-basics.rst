@@ -175,19 +175,19 @@ On the command line the syntax for committing is ``git commit -m "commit message
 Push changes to GitHub
 ~~~~~~~~~~~~~~~~~~~~~~
 Next, we want to synchronize our local changes with the remote repository on GitHub.
-First, it's good to use :code:`git pull` to double check for remote changes before contributing your own changes.
 
-.. figure:: img/git-plugin-pull.png
+.. figure:: img/git-plugin-pull-push-buttons.png
 
+    Buttons for Pulling and Pushing changes between the local and remote repositories
+
+First, it's good to use :code:`git pull` (button with arrow down) to double check for remote changes before contributing your own changes.
 Unless you cached your credentials, Git will once more prompt you for username and password at this point.
 
 .. figure:: img/git-plugin-pull-ok.png
 
 In this case, the repository is probably up-to-date and no new changes are downloaded. However, it is good practice to always use Git Pull before publishing your local changes in case someone made changes in the remote repository in the meanwhile!
 
-Now we are ready to push the local changes to GitHub using :code:`git push`:
-
-.. figure:: img/git-plugin-push.png
+Now we are ready to push the local changes to GitHub using :code:`git push` (button with arrow up):
 
 .. figure:: img/git-plugin-push-ok.png
 
@@ -200,8 +200,10 @@ That's all you need to know about Git for know :)
 
 Using Git from the command line
 -------------------------------
-
 There are many different ways of using git, and you might want to try out using Git from the command line at some point.
+
+Terminal
+~~~~~~~~~~
 
 .. note::
     You will need to know a couple of basic command line commands in order to use Git from the command line. Code Academy's `list of command line commands <https://www.codecademy.com/articles/command-line-commands>`__ provides
@@ -221,7 +223,7 @@ There are many different ways of using git, and you might want to try out using 
 
 .. code-block:: bash
 
-    $ git --version
+    git --version
 
 Anything above version 2 is just fine.
 
@@ -229,15 +231,20 @@ Anything above version 2 is just fine.
 
     You can paste text on the terminal using :code:`Ctrl + V` or :code:`Shift + Right Click --> paste`
 
-.. admonition:: Configuring Git credentials on the command line
+Configuring Git credentials
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    Configure Git to remember your identity using the ``git config`` tools. You (hopefully) only need to do this once
-    if working on your own computer, or a cloud computer with persistent storage.
+Configure Git to remember your identity using the ``git config`` tools. You (hopefully) only need to do this once
+if working on your own computer, or on a cloud computer with persistent storage on CSC notebooks.
 
-    ``git config --global user.name "[firstname lastname]"``
+.. code-block:: bash
 
-    ``git config --global user.email "[email@example.com]"``
+    git config --global user.name "[firstname lastname]"
+    git config --global user.email "[email@example.com]"
 
+
+Basic commands
+~~~~~~~~~~~~~~~~~
 The basic workflow of cloning a repository, adding changes to the staging area, committing and pushing the changes can be completed using these command line commands:
 
 - ``git clone [url]`` - retrieve a repository from a remote location (often from GitHub)
@@ -249,11 +256,12 @@ The basic workflow of cloning a repository, adding changes to the staging area, 
 
 .. note::
 
+    Remember to use ``git status`` often to check the status of our repository.
+
+.. admonition:: Other useful Git commands
+
     Check out other commonly used git commands from `the GIT CHEAT SHEET <https://education.github.com/git-cheat-sheet-education.pdf>`__
 
-.. note::
-
-    Remember to use ``git status`` often to check the status of our repository.
 
 .. admonition:: Remote repository
 
@@ -264,6 +272,13 @@ The basic workflow of cloning a repository, adding changes to the staging area, 
     **A common mistake during this course is that you have accidentally cloned the template repository in stead of your own/your teams repository.**
 
     You can read more about managing remotes `in here <https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes>`__.
+
+
+.. admonition:: Master branch
+
+    **Branches and branching** are powerful features in Git that allow maintaining parallel versions of the same project.
+    During this course you don't need to worry too much about branches. However, it is good to understand that **we are working on the master branch of our repository**. For example, when using the ``git push`` command,
+    the full syntax is ``git push origin master`` which means that we are pushing the changes to the master branch of the remote repository called origin. Read more about git branches `in here <https://git-scm.com/docs/git-branch>`__.
 
 
 What to do case of conflicts?
