@@ -81,7 +81,7 @@ Go ahead and paste your exercise repository URL into the pop-up window:
 .. figure:: img/git-plugin-clone.png
 
 
-This action is equivalent to the ``git clone`` command in the command line.
+On the command line this action is equivalent to the ``git clone`` command.
 
 .. note::
 
@@ -100,6 +100,8 @@ Git needs to know who you are in order to give you access to remote repositories
 
 Now you should see a new folder in JupyterLab that is identical to the repository on GitHub.
 
+On the command line, credentials can be managed using ``git config``.
+
 
 Git status
 ~~~~~~~~~~~~~~
@@ -108,7 +110,7 @@ Navigate to the new folder in JupyterLab and activate the Git plugin. You should
 
 .. figure:: img/git-plugin-status1.png
 
-*When using Git from the command line, the most common command is ``git status`` for checking the state of the repository*.
+On the command line ``git status`` shows the status of the repository.
 
 
 Add changes
@@ -135,6 +137,8 @@ After adding the changes, you should see the changed file under **Staged** in th
 Note that you can also **unstage** and **discard changes** using the plugin.
 For now, we are happy with the changes made, and are ready to commit them.
 
+On the command line, ``git add``  is the command for adding changes to the staging area.
+
 Commit changes
 ~~~~~~~~~~~~~~~~~
 
@@ -156,6 +160,8 @@ Once the commit succeeds, you should see the latest set of changes under the His
 .. figure:: img/git-plugin-history1.png
 
 *Note: You might also see some previous changes by the course instructors. These changes have been generated automatically and you can ignore them.*
+
+On the command line the syntax for committing is ``git commit -m "commit message"``. After committing, it is good practice to check the repository status using ``git status``.
 
 .. note::
 
@@ -187,6 +193,7 @@ Now we are ready to push the local changes to GitHub using :code:`git push`:
 
 Now you should see the updates in GitHub! Go and have a look at your personal repository in https://github.com/Geo-Python-2020/ .
 
+On the command line, ``git pull`` fetches and merges changes from the remote repository, and ``git pull`` publishes local changes.
 
 That's all you need to know about Git for know :)
 
@@ -222,56 +229,55 @@ Anything above version 2 is just fine.
 
     You can paste text on the terminal using :code:`Ctrl + V` or :code:`Shift + Right Click --> paste`
 
-.. note::
-    The basic workflow of cloning a repository, adding changes to the staging area, committing and pushing the changes can be completed using these command line commands:
-
-    - ``git clone [url]`` - retrieve a repository from a remote location (often from GitHub)
-    - ``git status``- review the status of your repository (use this command often!)
-    - ``git add [file]`` - add files to the next commit (add files to the staging area)
-    - ``git commit -m "[descriptive message]"`` - commit staged files as a new snapshot
-    - ``git pull`` - bring the local branch up to date (fetch and merge changes from the remote)
-    - ``git push`` - transmit local branch commits to the remote repository
-
-    Remember to use ``git status`` often to check the status of our repository.
-
-    Check out other commonly used git commands from `the GIT CHEAT SHEET <https://education.github.com/git-cheat-sheet-education.pdf>`__
-
-
 .. admonition:: Configuring Git credentials on the command line
 
     Configure Git to remember your identity using the ``git config`` tools. You (hopefully) only need to do this once
-    if working on your own computer, or a cloud computer with presistent storage.
+    if working on your own computer, or a cloud computer with persistent storage.
 
     ``git config --global user.name "[firstname lastname]"``
 
     ``git config --global user.email "[email@example.com]"``
 
+The basic workflow of cloning a repository, adding changes to the staging area, committing and pushing the changes can be completed using these command line commands:
+
+- ``git clone [url]`` - retrieve a repository from a remote location (often from GitHub)
+- ``git status``- review the status of your repository (use this command often!)
+- ``git add [file]`` - add files to the next commit (add files to the staging area)
+- ``git commit -m "[descriptive message]"`` - commit staged files as a new snapshot
+- ``git pull`` - bring the local branch up to date (fetch and merge changes from the remote)
+- ``git push`` - transmit local branch commits to the remote repository
 
 .. note::
 
+    Check out other commonly used git commands from `the GIT CHEAT SHEET <https://education.github.com/git-cheat-sheet-education.pdf>`__
+
+.. note::
+
+    Remember to use ``git status`` often to check the status of our repository.
+
+.. admonition:: Remote repository
+
     Remote repositories are versions of your project that are hosted on a network location (such as GitHub).
     When we cloned the repository using ``git clone``, Git automatically started tracking the remote repository from where we cloned the project.
-    You can use the ``git remote -v`` command to double check which remote your repository is tracking:
+    You can use the ``git remote -v`` command to double check which remote your repository is tracking.
 
-    .. code-block:: bash
-
-        $ git remote -v
-
-    **A common mistake is that you have accidentally cloned the template repository in stead of your own/your teams repository.**
+    **A common mistake during this course is that you have accidentally cloned the template repository in stead of your own/your teams repository.**
 
     You can read more about managing remotes `in here <https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes>`__.
 
 
-Conflicts
---------------
+What to do case of conflicts?
+------------------------------
 
-.. admonition:: Merge conflicts
+It is possible that you will encounter a **merge conflict** at some point of this course. A merge conflict might happen if two users have edited the same content, or if you
+yourself have edited the same content both on GitHub and locally without properly synchronizing the changes. In short, Git will tell you if it is not able to sort out the version history of your project by announcing a merge conflict.
 
-    It is possible that you will encounter a **merge conflict** at some point of this course. A merge conflict might happen if two users have edited the same content, or if you
-    yourself have edited the same content both on GitHub and locally without properly synchronizing the changes. **The best thing to do to avoid merge conflicts is to always Pull before you Push new changes.**
-    In case you encounter a merge conflict, don't panic! Read carefully the message related to the merge conflict, and try searching for a solution online.
 
-Remember that you can always download your files on your own computer, and upload them manually to GitHub like we did in exercise 1!
+We won't cover how to solve merge conflicts in detail during the lessons. You can read more about `how to resolve merge conflicts from the Git documentation <https://git-scm.com/docs/git-merge#_how_to_resolve_conflicts>`__.
+**The best thing to do to avoid merge conflicts is to always Pull before you Push new changes.**
+In case you encounter a merge conflict, don't panic! Read carefully the message related to the merge conflict, and try searching for a solution online and ask for help on Slack.
+
+Remember that you can always download your files on your own computer, and upload them manually to GitHub like we did in Exercise 1!
 
 .. figure:: https://imgs.xkcd.com/comics/git.png
     :alt: https://xkcd.com/1597/
