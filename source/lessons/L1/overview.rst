@@ -21,18 +21,22 @@ After this weeks lesson your should be able to:
 - describe the concept of a data type
 - determine the data type of a variable in Python
 
-Lecture video
--------------
+Lecture videos
+--------------
 
-The lecture video will be added after today's lesson has been presented.
+.. admonition:: Lesson 1.1 - Course introduction and computing basics
 
-..
-    .. admonition:: Lesson 1 - Computing basics and a taste of Python
+    .. raw:: html
 
-        .. raw:: html
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/WX5P_2gapps" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/xsV6xcxjo-c?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+.. admonition:: Lesson 1.2 - Course environment and a taste of Python
+
+    .. raw:: html
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/29iiE-HCPUQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
 Lecture slides
 --------------

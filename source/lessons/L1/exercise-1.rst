@@ -57,7 +57,7 @@ Part 3 - Cooking up some Python
 -------------------------------
 
 .. image:: https://img.shields.io/badge/launch-binder-red.svg
-   :target: https://mybinder.org/v2/gh/Geo-Python-2019/Binder/master?urlpath=lab
+   :target: https://mybinder.org/v2/gh/Geo-Python-2020/Binder/master?urlpath=lab
    
 .. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
    :target: https://notebooks.csc.fi/#/blueprint/7e62ac3bddf74483b7ac7333721630e2
@@ -98,6 +98,6 @@ We ask that you complete this exercise by **the start of the next lesson**.
 
 .. warning::
 
-    Some instructions on this page are specific tos students at the University of Helsinki. Others can skip
-    the Slack step and proceed to solving exercise 1 problems! Please note that
+    Some instructions on this page are specific to students at the University of Helsinki. Others can skip
+    the Slack step and proceed to solving the Exercise 1 problems! Please note that
     **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
