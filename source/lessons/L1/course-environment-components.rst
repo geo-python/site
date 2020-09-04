@@ -55,22 +55,14 @@ and to work on the weekly exercises. You can use the cloud computing environment
 
 Please note that the cloud computing environments are **temporary**. Always remember to push your changes to GitHub (and / or download a local copy).
 
-.. figure:: img/LaunchButtons2.png
-   :alt: Launch buttons on the Lesson 1: a Taste of Python page
+.. figure:: img/launch-buttons.png
+   :alt: Launch buttons
    :width: 700px
 
-   Launch buttons on the Lesson 1: a Taste of Python -page
+   Different options for making the lesson interactive
 
 Each interactive lesson and exercise will have a launch button for both Binder and CSC Notebook.
-Each lesson typically contains three different launch buttons:
-
-- *full binder* contains lesson notebooks including all the necessary code
-- *student binder* contains lesson notebooks without pre-filled code
-- *CSC notebook* contains lesson notebooks in an environment which has persistent storage
-
-Binder and CSC Notebook are similar environments, but we have two options available in case one of the services is not working properly.
-Furthermore, CSC Notebooks contain persistent cloud storage, but are only available to students in Finnish universities.
-We recommend that students from Finnish universities use the CSC Notebooks environment when working with the exercises.
+The CSC notebooks environment is only accessible to students from Finnish universities and research institutes.
 
 Binder
 ~~~~~~~
@@ -100,7 +92,7 @@ CSC Notebooks is available only for students who are affiliated with Finnish uni
     2. Go to Account-tab
     3. Join Group **Geo-Python** using the joining code: ``geo-python-tadl4``
 
-    After joining the group, you should be able to view an environment called `Geo-Python 2019` on the Dashboard.
+    After joining the group, you should be able to view an environment called `Geo-Python` on the Dashboard.
 
 .. figure:: img/CSC_join_group.png
    :alt: Join Group in CSC Notebooks
