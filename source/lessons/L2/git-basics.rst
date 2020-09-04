@@ -51,8 +51,8 @@ You can find instructions for using Binder and CSC Notebooks in :doc:`Lesson 1 m
    :target: https://notebooks.csc.fi/#/blueprint/7e62ac3bddf74483b7ac7333721630e2
 
 
-Using the JupyterLab git plugin
--------------------------------
+JupyterLab git plugin
+------------------------
 
 Before we continue, we need the URL of your exercise repository from GitHub. **Go to** https://github.com/geo-python-2020/ **and navigate to your personal Exercise-1 repository.**
 
@@ -198,8 +198,8 @@ On the command line, ``git pull`` fetches and merges changes from the remote rep
 That's all you need to know about Git for know :)
 
 
-Using Git from the command line
--------------------------------
+Git from the command line
+--------------------------
 There are many different ways of using git, and you might want to try out using Git from the command line at some point.
 
 Terminal
@@ -281,8 +281,8 @@ The basic workflow of cloning a repository, adding changes to the staging area, 
     the full syntax is ``git push origin master`` which means that we are pushing the changes to the master branch of the remote repository called origin. Read more about git branches `in here <https://git-scm.com/docs/git-branch>`__.
 
 
-What to do case of conflicts?
-------------------------------
+Resolving conflicts
+---------------------
 
 It is possible that you will encounter a **merge conflict** at some point of this course. A merge conflict might happen if two users have edited the same content, or if you
 yourself have edited the same content both on GitHub and locally without properly synchronizing the changes. In short, Git will tell you if it is not able to sort out the version history of your project by announcing a merge conflict.
