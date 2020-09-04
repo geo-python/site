@@ -19,13 +19,14 @@ A "repository", or a "Git project", or a "repo", is a location for storing files
 In general, it is recommended that each project, library or discrete piece of software should have it's own repository.
 In this course each exercise has it's own repository on GitHub.
 
-During this course, we often start by cloning an existing repository from GitHub to our own computer using ``git clone``. Using ``git pull`` we can fetch (and merge) new changes from GitHub.
- ``git push`` publishes our local changes to GitHub. Read more about sharing and updating Git projects `in here <https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Sharing-and-Updating-Projects>`__.
+During this course, we often start by cloning an existing repository from GitHub
+to our own computer using ``git clone``. Using ``git pull`` we can fetch (and merge) new changes from GitHub,
+and ``git push`` publishes our local changes to GitHub. Read more about sharing and updating
+Git projects `in here <https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Sharing-and-Updating-Projects>`__.
 
 .. figure:: img/pull-push-illustration.png
 
     Update your Git project using the pull and push commands. Always pull before you push (especially when working in a shared project)!
-
 
 Version control history consists of snapshots of all the files in our project.
 In order record changes to our files, we first add changes to a so called staging area (using ``git add``). The idea is, that you can have a (sometimes messy) working directory, and by using ``git add`` you tell
@@ -80,7 +81,7 @@ Go ahead and paste your exercise repository URL into the pop-up window:
 .. figure:: img/git-plugin-clone.png
 
 
-This action is equivalent to the `git clone` command in the command line.
+This action is equivalent to the ``git clone`` command in the command line.
 
 .. note::
 
@@ -107,7 +108,7 @@ Navigate to the new folder in JupyterLab and activate the Git plugin. You should
 
 .. figure:: img/git-plugin-status1.png
 
-*When using Git from the command line, the most common command is `git status` for checking the state of the repository*.
+*When using Git from the command line, the most common command is ``git status`` for checking the state of the repository*.
 
 
 Add changes
@@ -119,13 +120,13 @@ Let's start making changes in the repository! Open the ``README.md`` -file and m
 
     Edit a file in JupyterLab
 
-After saving your changes, check the status of the repository. You should see `README.md` listed under **Changed** files:
+After saving your changes, check the status of the repository. You should see ``README.md`` listed under **Changed** files:
 
 .. figure:: img/git-plugin-changed.png
 
     Changes visible in the Git plugin
 
-In Git terminology, these changes are not yet "staged for commit", and we need to add them to the staging area.
+These changes are not yet "staged for commit", which means that we need to add them first to the staging area if we want to make a permanent snapshot of these changes.
 
 .. figure:: img/git-plugin-stage-changes.png
 
@@ -142,13 +143,15 @@ Always remember to write an informative commit message to accompany your changes
 
 .. figure:: img/git-plugin-commit.png
 
-Once you hit the commit-button, the plugin will most likely ask your name and email. Use the same details you used when signing up to GitHub:
+Once you hit the commit-button, the plugin will most likely ask your name and email.
 
 .. figure:: img/git-commit-credentials.png
 
+You can insert the same details you used when signing up to GitHub.
+
 .. figure:: img/git-plugin-commit-ok.png
 
-Once the commit succeeds, you should see the latest changeset under the History-tab in the Git-plugin.
+Once the commit succeeds, you should see the latest set of changes under the History-tab in the Git-plugin:
 
 .. figure:: img/git-plugin-history1.png
 
@@ -187,6 +190,7 @@ Now you should see the updates in GitHub! Go and have a look at your personal re
 
 That's all you need to know about Git for know :)
 
+
 Using Git from the command line
 -------------------------------
 
@@ -196,10 +200,10 @@ There are many different ways of using git, and you might want to try out using 
     You will need to know a couple of basic command line commands in order to use Git. Code Academy's `list of command line commands <https://www.codecademy.com/articles/command-line-commands>`__ provides
     a good overview of commonly used commands for navigating trough files on the command line. For using Git on the command line, you should at least be familiar with these commands:
 
-    **ls** - list contents of the current directory
-    **ls -a** - list contents of the current directory including hidden files
-    **cd** - change directory
-    **cd ..** -
+    - **ls** - list contents of the current directory
+    - **ls -a** - list contents of the current directory including hidden files
+    - **cd** - change directory
+    - **cd ..** -
 
 
 **Start a new Terminal session in JupyterLab** using the icon on the Launcher, or from *File* > *New* > *Terminal*.
@@ -221,12 +225,12 @@ Anything above version 2 is just fine.
 .. note::
     The basic workflow of cloning a repository, adding changes to the staging area, committing and pushing the changes can be completed using these command line commands:
 
-    **git clone [url]** - retrieve a repository from a remote location (often from GitHub)
-    **git status** - review the status of your repository (use this command often!)
-    **git add [file]** - add files to the next commit (add files to the staging area)
-    **git commit -m "[descriptive message]"** - commit staged files as a new snapshot
-    **git pull** - bring the local branch up to date (fetch and merge changes from the remote)
-    **git push** - transmit local branch commits to the remote repository
+    - **git clone [url]** - retrieve a repository from a remote location (often from GitHub)
+    - **git status** - review the status of your repository (use this command often!)
+    - **git add [file]** - add files to the next commit (add files to the staging area)
+    - **git commit -m "[descriptive message]"** - commit staged files as a new snapshot
+    - **git pull** - bring the local branch up to date (fetch and merge changes from the remote)
+    - **git push** - transmit local branch commits to the remote repository
 
     Remember to use `git status` often to check the status of our repository.
 
@@ -260,8 +264,14 @@ Anything above version 2 is just fine.
     You can read more about managing remotes `in here <https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes>`__.
 
 
-If everything else fails...
-------------------------------------
+Conflicts
+--------------
+
+.. admonition:: Merge conflicts
+
+    It is possible that you will encounter a **merge conflict** at some point of this course. A merge conflict might happen if two users have edited the same content, or if you
+    yourself have edited the same content both on GitHub and locally without properly synchronizing the changes. **The best thing to do to avoid merge conflicts is to always Pull before you Push new changes.**
+    In case you encounter a merge conflict, don't panic! Read carefully the message related to the merge conflict, and try searching for a solution online.
 
 Remember that you can always download your files on your own computer, and upload them manually to GitHub like we did in exercise 1!
 
