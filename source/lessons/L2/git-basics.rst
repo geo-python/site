@@ -197,13 +197,13 @@ Using Git from the command line
 There are many different ways of using git, and you might want to try out using Git from the command line at some point.
 
 .. note::
-    You will need to know a couple of basic command line commands in order to use Git. Code Academy's `list of command line commands <https://www.codecademy.com/articles/command-line-commands>`__ provides
+    You will need to know a couple of basic command line commands in order to use Git from the command line. Code Academy's `list of command line commands <https://www.codecademy.com/articles/command-line-commands>`__ provides
     a good overview of commonly used commands for navigating trough files on the command line. For using Git on the command line, you should at least be familiar with these commands:
 
-    - **ls** - list contents of the current directory
-    - **ls -a** - list contents of the current directory including hidden files
-    - **cd** - change directory
-    - **cd ..** -
+    - ``ls`` - list contents of the current directory
+    - ``ls -a`` - list contents of the current directory including hidden files
+    - ``cd`` - change directory. For example, ``cd exercises``
+    - ``cd ..`` - move one directory up
 
 
 **Start a new Terminal session in JupyterLab** using the icon on the Launcher, or from *File* > *New* > *Terminal*.
@@ -225,28 +225,26 @@ Anything above version 2 is just fine.
 .. note::
     The basic workflow of cloning a repository, adding changes to the staging area, committing and pushing the changes can be completed using these command line commands:
 
-    - **git clone [url]** - retrieve a repository from a remote location (often from GitHub)
-    - **git status** - review the status of your repository (use this command often!)
-    - **git add [file]** - add files to the next commit (add files to the staging area)
-    - **git commit -m "[descriptive message]"** - commit staged files as a new snapshot
-    - **git pull** - bring the local branch up to date (fetch and merge changes from the remote)
-    - **git push** - transmit local branch commits to the remote repository
+    - ``git clone [url]`` - retrieve a repository from a remote location (often from GitHub)
+    - ``git status``- review the status of your repository (use this command often!)
+    - ``git add [file]`` - add files to the next commit (add files to the staging area)
+    - ``git commit -m "[descriptive message]"`` - commit staged files as a new snapshot
+    - ``git pull`` - bring the local branch up to date (fetch and merge changes from the remote)
+    - ``git push`` - transmit local branch commits to the remote repository
 
-    Remember to use `git status` often to check the status of our repository.
+    Remember to use ``git status`` often to check the status of our repository.
 
     Check out other commonly used git commands from `the GIT CHEAT SHEET <https://education.github.com/git-cheat-sheet-education.pdf>`__
 
 
 .. admonition:: Configuring Git credentials on the command line
 
-    Configure Git to remember your identity using the `git config` tools. You (hopefully) only need to do this once
+    Configure Git to remember your identity using the ``git config`` tools. You (hopefully) only need to do this once
     if working on your own computer, or a cloud computer with presistent storage.
 
-    `git config --global user.name "[firstname lastname]"`
+    ``git config --global user.name "[firstname lastname]"``
 
-    `git config --global user.email "[email@example.com]"`
-
-
+    ``git config --global user.email "[email@example.com]"``
 
 
 .. note::
