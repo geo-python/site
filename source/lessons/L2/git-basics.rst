@@ -12,7 +12,7 @@ After this lesson you should be able to do these steps in JupyterLab using git a
 4. `Push changes to GitHub`_
 
 Key concepts
-~~~~~~~~~~~~
+-------------
 
 We use Git to record changes to our files over time, and for communicating between the local repository on our computer and the remote repository on GitHub.
 A "repository", or a "Git project", or a "repo", is a location for storing files. A repo contains all the files and folders associated with a project and the revision history of each entity.
