@@ -126,18 +126,19 @@ New materials are updated on this course page each Wednesday.
     notebooks/L1/a-taste-of-python.ipynb
     notebooks/L1/gcp-1-variable-naming.ipynb
     lessons/L1/exercise-1
-..
-    .. toctree::
-        :maxdepth: 2
-        :caption: Lesson 2
 
-        lessons/L2/overview
-        notebooks/L2/Python-basic-elements.ipynb
-        notebooks/L2/gcp-2-describing-code.ipynb
-        lessons/L2/intro-to-GitHub
-        lessons/L2/git-basics
-        lessons/L2/GitHub-classroom
-        lessons/L2/exercise-2
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 2
+
+    lessons/L2/overview
+    notebooks/L2/Python-basic-elements.ipynb
+    notebooks/L2/gcp-2-describing-code.ipynb
+    lessons/L2/intro-to-GitHub
+    lessons/L2/git-basics
+    lessons/L2/GitHub-classroom
+    lessons/L2/exercise-2
+..
 
     .. toctree::
     :maxdepth: 2
