@@ -8,16 +8,20 @@ Classroom for GitHub
 --------------------
 
 Classroom for GitHub is basically an application that helps you make private copies of an assignment that you can modify and submit as your answers for the exercises.
-We will create some template for an assignment that normally would include the following:
+We will create a template repository for each assignment, and GitHub classroom takes care of the student copies.
+The exercise repositories normally include the following:
 
 -  A basic description of the assignment
 -  A list of problems for you to solve/answer
--  Some "starter" Jupyter notebook or Python code that you need to modify for the assignment
--  Some data files to use with the code
+-  "Starter" Jupyter notebook or Python code that you need to modify for the assignment
+-  Data files to use with the code
 
-For each exercise, We will post a link to the assignment (such as ``https://classroom.github.com/assignment-invitations/a3e02d425c06db7948bcfe7ae78043``).
+You can find the GitHub classroom link for each exercise on these web pages in
+the **Start your assignment** -info box on the exercise pages.
 
-When you click the link, you will be taken to a web page where you can accept the assignment
+.. figure:: img/start-assignment.png
+
+When you click the GitHub classroom link, you will be taken to a web page where you can accept the assignment.
 
 .. note::
 
