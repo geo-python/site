@@ -3,13 +3,13 @@ Exercise 2
 
 .. note::
 
-    Please complete this exercise by **09:00 Wednesday, 18 September 2019**.
+    Please complete this exercise by **the start of the next lesson**.
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 2 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/f3fEs1Xn>`__.
+    **You can start working on your copy of Exercise 2 by** `accepting the GitHub Classroom assignment <>`__.
 
-You can also take a look at at the template repository for `Exercise 2 on GitHub <https://github.com/Geo-Python-2019/Exercise-2>`__ (does not require logging in).
+You can also take a look at at the template repository for `Exercise 2 on GitHub <https://github.com/Geo-Python-2020/Exercise-2>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
 .. warning::
