@@ -88,10 +88,9 @@ which you can simply think of as a directory containing files (or other
 directories) related to a single 'project'. **In practice git takes "snapshots" of your files each
 time you commit changes.** Git follows the idea of `distributed version control <https://git-scm.com/book/en/v1/Getting-Started-About-Version-Control#Distributed-Version-Control-Systems>`__.
 Git is widely used by professionals to keep track of what they’ve done and to collaborate with
-other people.
+other people. Git is the version control system that is running behind the scenes and used with GitHub (``Git + Hub``!).
 
-Git is the version control system that is running behind the scenes and used with GitHub. And that's
-actually where the name ``Git + Hub`` originates from.
+During this lesson, we will learn :doc:`step-by-step how to record changes to our files using Git <git-basics>`.
 
 What is GitHub?
 ---------------
