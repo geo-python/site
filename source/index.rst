@@ -139,7 +139,6 @@ New materials are updated on this course page each Wednesday.
     lessons/L2/GitHub-classroom
     lessons/L2/exercise-2
 ..
-
     .. toctree::
     :maxdepth: 2
     :caption: Lesson 3
