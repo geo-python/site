@@ -12,10 +12,6 @@ Exercise 2
 You can also take a look at at the template repository for `Exercise 2 on GitHub <https://github.com/Geo-Python-2020/Exercise-2>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
-.. warning::
-
-    Please note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
-
 Cloud computing environments
 -----------------------------
 
