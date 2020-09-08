@@ -27,10 +27,10 @@ When you click the GitHub classroom link, you will be taken to a web page where 
 
    Note that the first time you accept an assignment you will need to authorize the application on Github. This will not work if you have not verified your email address for your Github account.
 
-.. figure:: img/2_Accept_classroom_invitation.PNG
-   :alt: Accept GitHub classroom invitation
+.. figure:: img/github_classroom_create_repository.png
+   :alt: Creating an exercise repository using GitHub Classroom
 
-   Accept GitHub classroom invitation
+   Creating an exercise repository using GitHub Classroom
 
 When you accept the assignment a copy of it will be made in your personal GitHub repositories (a repository on Github is basically like a folder for a given assignment/project), and you will be asked to make changes to the Python code and main document for each assignment.
 
