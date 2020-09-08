@@ -10,7 +10,7 @@ Familiar?
 ---------
 
 .. figure:: https://imgs.xkcd.com/comics/documents.png
-        :alt: xkcd DOCUMENTS comic
+   :alt: xkcd DOCUMENTS comic
 
         Source: https://xkcd.com/1459/
 
@@ -74,10 +74,8 @@ software for doing version control) but one of the most popular one is
 What is Git?
 ------------
 
-Git-Logo-2Color.png
-
 .. figure:: Git-Logo-2Color.png
-        :alt: Git logo by Jason Long
+   :alt: Git logo by Jason Long
 
         Git Logo by Jason Long, licensed under the `Creative Commons Attribution 3.0 Unported License <https://creativecommons.org/licenses/by/3.0/>`_.
 

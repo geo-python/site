@@ -203,7 +203,7 @@ That's all you need to know about Git for know :)
 
 Git from the command line
 --------------------------
-There are many different ways of using git, and you might want to try out using Git from the command line at some point.
+There are many different ways of using Git, and you might want to try out using Git from the command line at some point.
 
 Terminal
 ~~~~~~~~~~
