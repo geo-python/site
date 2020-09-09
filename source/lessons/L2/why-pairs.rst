@@ -20,12 +20,12 @@ Here is how we suggest you work in your pairs:
 
 - One person will be designated as the *driver* each week, and the other person will be the *navigator*
 
-    - You will alternate roles each week
+  - You will alternate roles each week
 
 - The driver will clone the GitHub repository and be responsible for the version of the exercise solutions that will be graded
 - When working, the driver should open the exercise on their computer and arrange for the navigator to be able to view their screen
 
-    - This can be done in person (keeping appropriate social distancing) or via screen sharing in Zoom or other similar software
+  - This can be done in person (keeping appropriate social distancing) or via screen sharing in Zoom or other similar software
 
 - The driver will write the Python and/or Markdown code, while the navigator follows on their screen
 - The navigator should be actively involved in suggesting ideas, corrections, and otherwise interacting with the driver to help jointly generate the code
@@ -45,9 +45,9 @@ We would like to remind you that:
 
 - Only the driver's GitHub repository will be graded
 
-    - The navigator is welcome to make their own copy of the exercise if they would like to complete the exercise themselves for practice, however we will not grade the navigator's exercise
+  - The navigator is welcome to make their own copy of the exercise if they would like to complete the exercise themselves for practice, however we will not grade the navigator's exercise
 
 - The driver *can* add the navigator as a private collaborator in GitHub, but we would prefer that only the driver make changes to the exercise code in their GitHub repository
 - This is an experiment for 2020 and we would appreciate your feedback on how things go
 
-    - We will provide an e-form for anonymous feedback about the exercises each week
+  - We will provide an e-form for anonymous feedback about the exercises each week
