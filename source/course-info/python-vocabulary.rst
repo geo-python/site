@@ -23,7 +23,7 @@ Terms are listed in alphabetical order in English. Finnish terms and definitions
 
      *Definition to be given in Finnish.*
 
-  index
+  index (*taulukko*)
      A number indicating the location of a specific value stored in Python lists or tuples. The first index value of list is always ``0``.
 
      *Definition to be given in Finnish.*

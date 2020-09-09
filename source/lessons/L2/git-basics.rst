@@ -2,7 +2,7 @@ Meet Git
 =========
 
 This tutorial covers the very basics of version control using Git and GitHub.
-These materials have been adapted for the geo-python course from `GitHubClassroom Campus Advisors -resources <https://github.com/Campus-Advisors>`_, and `Git documentation <https://git-scm.com/about/>`__.
+These materials have been adapted for the geo-python course from `GitHub Education Campus Advisors -resources <https://github.com/Campus-Advisors>`_, and `Git documentation <https://git-scm.com/about/>`__.
 
 After this lesson you should be able to do these steps in JupyterLab using git and the JupyterLab git-plugin:
 
@@ -10,6 +10,9 @@ After this lesson you should be able to do these steps in JupyterLab using git a
 2. `Add changes`_
 3. `Commit changes`_
 4. `Push changes to GitHub`_
+
+These steps can be completed either using the `JupyterLab git plugin`_ (we recommend this option for beginners) or using
+`Git from the command line`_.
 
 Key concepts
 -------------
@@ -50,10 +53,6 @@ You can find instructions for using Binder and CSC Notebooks in :doc:`Lesson 1 m
 .. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
    :target: https://notebooks.csc.fi/#/blueprint/7e62ac3bddf74483b7ac7333721630e2
 
-
-JupyterLab git plugin
-------------------------
-
 Before we continue, we need the URL of your exercise repository from GitHub. **Go to** https://github.com/geo-python-2020/ **and navigate to your personal Exercise-1 repository.**
 
 On GitHub, find the button **Clone** and copy the url under *Clone with HTTPS*.
@@ -63,11 +62,15 @@ https://github.com/Geo-Python-2020/exercise-1-VuokkoH.git but with your own user
 
 .. figure:: img/git-copy-url.png
 
+
+JupyterLab git plugin
+------------------------
+
 Clone a repository from GitHub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 During this course, we will most often start working with the exercises using an existing repository from GitHub.
-In order to get a copy of the exercise repository on our own computer (or the cloud computer), we need to `clone` it.
+In order to get a copy of the exercise repository on our own computer (or the cloud computer), we need to ``clone`` it.
 
 Navigate to the **exercises** folder in JupyterLab and activate the git-plugin. The plugin will tell you that **exercises**
 is not a Git repository and gives you some options.
@@ -200,7 +203,7 @@ That's all you need to know about Git for know :)
 
 Git from the command line
 --------------------------
-There are many different ways of using git, and you might want to try out using Git from the command line at some point.
+There are many different ways of using Git, and you might want to try out using Git from the command line at some point.
 
 Terminal
 ~~~~~~~~~~

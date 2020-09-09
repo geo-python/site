@@ -9,10 +9,15 @@ lesson on `Version Control with Git <http://swcarpentry.github.io/git-novice/>`_
 Familiar?
 ---------
 
+.. figure:: https://imgs.xkcd.com/comics/documents.png
+   :alt: xkcd DOCUMENTS comic
+
+        Source: https://xkcd.com/1459/
+
 .. figure:: img/version_control_motivation_comics.png
    :alt: Motivation for version control
 
-   Motivation for version control, source: “Piled Higher and Deeper” by Jorge Cham, http://www.phdcomics.com
+   Source: “Piled Higher and Deeper” by Jorge Cham, http://www.phdcomics.com
 
 .. admonition:: Wouldn't it be nice to learn how to avoid this situation!?!?
 
@@ -69,6 +74,11 @@ software for doing version control) but one of the most popular one is
 What is Git?
 ------------
 
+.. figure:: Git-Logo-2Color.png
+   :alt: Git logo by Jason Long
+
+        Git Logo by Jason Long, licensed under the `Creative Commons Attribution 3.0 Unported License <https://creativecommons.org/licenses/by/3.0/>`_.
+
 `Git <https://en.wikipedia.org/wiki/Git_(software)>`__ is a version
 control software (developed in 2005 by a rather famous Finn named Linus
 Torvalds - he also created Linux!) that is used to track and store
@@ -78,10 +88,9 @@ which you can simply think of as a directory containing files (or other
 directories) related to a single 'project'. **In practice git takes "snapshots" of your files each
 time you commit changes.** Git follows the idea of `distributed version control <https://git-scm.com/book/en/v1/Getting-Started-About-Version-Control#Distributed-Version-Control-Systems>`__.
 Git is widely used by professionals to keep track of what they’ve done and to collaborate with
-other people.
+other people. Git is the version control system that is running behind the scenes and used with GitHub (``Git + Hub``!).
 
-Git is the version control system that is running behind the scenes and used with GitHub. And that's
-actually where the name ``Git + Hub`` originates from.
+During this lesson, we will learn :doc:`step-by-step how to record changes to our files using Git <git-basics>`.
 
 What is GitHub?
 ---------------

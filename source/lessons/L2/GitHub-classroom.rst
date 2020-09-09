@@ -8,25 +8,29 @@ Classroom for GitHub
 --------------------
 
 Classroom for GitHub is basically an application that helps you make private copies of an assignment that you can modify and submit as your answers for the exercises.
-We will create some template for an assignment that normally would include the following:
+We will create a template repository for each assignment, and GitHub classroom takes care of the student copies.
+The exercise repositories normally include the following:
 
 -  A basic description of the assignment
 -  A list of problems for you to solve/answer
--  Some "starter" Jupyter notebook or Python code that you need to modify for the assignment
--  Some data files to use with the code
+-  "Starter" Jupyter notebook or Python code that you need to modify for the assignment
+-  Data files to use with the code
 
-For each exercise, We will post a link to the assignment (such as ``https://classroom.github.com/assignment-invitations/a3e02d425c06db7948bcfe7ae78043``).
+You can find the GitHub classroom link for each exercise on these web pages in
+the **Start your assignment** -info box on the exercise pages.
 
-When you click the link, you will be taken to a web page where you can accept the assignment
+.. figure:: img/start-assignment.png
+
+When you click the GitHub classroom link, you will be taken to a web page where you can accept the assignment.
 
 .. note::
 
    Note that the first time you accept an assignment you will need to authorize the application on Github. This will not work if you have not verified your email address for your Github account.
 
-.. figure:: img/2_Accept_classroom_invitation.PNG
-   :alt: Accept GitHub classroom invitation
+.. figure:: img/github_classroom_create_repository.png
+   :alt: Creating an exercise repository using GitHub Classroom
 
-   Accept GitHub classroom invitation
+   Creating an exercise repository using GitHub Classroom
 
 When you accept the assignment a copy of it will be made in your personal GitHub repositories (a repository on Github is basically like a folder for a given assignment/project), and you will be asked to make changes to the Python code and main document for each assignment.
 
