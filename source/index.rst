@@ -137,6 +137,7 @@ New materials are updated on this course page each Wednesday.
     lessons/L2/git-basics
     lessons/L2/GitHub-classroom
     notebooks/L2/gcp-2-describing-code.ipynb
+    lessons/L2/why-pairs
     lessons/L2/exercise-2
 ..
     .. toctree::
