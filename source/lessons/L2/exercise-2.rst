@@ -7,7 +7,7 @@ Exercise 2
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 2 by** `accepting the GitHub Classroom assignment <>`__.
+    **You can start working on your copy of Exercise 2 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/6pjnCyXd>`__.
 
 You can also take a look at at the template repository for `Exercise 2 on GitHub <https://github.com/Geo-Python-2020/Exercise-2>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
@@ -27,7 +27,7 @@ Exercise 2 hints
 Here are a few things that may be helpful in completing Exercise 2.
 
 Git
-~~~~
+~~~
 
 You can find step-by-step instructions for using Git `in here <git-basics.html>`__.
 Remember to commit your changes after each major edit! Also, it's better to push your changes to GitHub every now and then, rather than only at the very end.
