@@ -21,10 +21,17 @@ Lesson videos
 
 Lesson videos will be added after the lesson has been given.
 
-..
-    .. admonition:: Lesson 2 - Data types, lists, and version control with Git
 
-        .. raw:: html
+.. admonition:: Lesson 2.1 - Data types and working with lists
 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/-HO8NxlbMKY?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+    .. raw:: html
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/88Npv4Gs4xw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+
+.. admonition:: Lesson 2.2 - Version control with Git and GitHub
+
+    .. raw:: html
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/SvZBBTdMDYc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
