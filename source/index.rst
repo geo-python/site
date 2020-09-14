@@ -139,8 +139,8 @@ New materials are updated on this course page each Wednesday.
     notebooks/L2/gcp-2-describing-code.ipynb
     lessons/L2/why-pairs
     lessons/L2/exercise-2
-..
-    .. toctree::
+
+.. toctree::
     :maxdepth: 2
     :caption: Lesson 3
 
@@ -149,7 +149,7 @@ New materials are updated on this course page each Wednesday.
     notebooks/L3/conditional-statements.ipynb
     notebooks/L3/gcp-3-pep8.ipynb
     lessons/L3/exercise-3
-
+..
     .. toctree::
         :maxdepth: 2
         :caption: Lesson 4
