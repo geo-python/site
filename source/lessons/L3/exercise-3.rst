@@ -9,12 +9,14 @@ Exercise 3
 
     **You can start working on your copy of Exercise 3 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/_wibmH9c>`__.
 
+.. admonition:: Pair programming
+
+    Students attending the course in Helsinki, **note that we continue working in pairs**.
+    We will only grade the repository of the member of your pair that is responsible for this week's exercise.
+    See more information in Slack, and in week 2: `Why are we working in pairs? <https://geo-python-site.readthedocs.io/en/latest/lessons/L2/why-pairs.html>`_
+
 You can also take a look at the template repository for `Exercise 3 on GitHub  <https://github.com/Geo-Python-2020/Exercise-3>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
-
-.. warning::
-
-    Please note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
 
 Cloud computing environments
 -----------------------------
@@ -31,19 +33,12 @@ Exercise 3 hints
 
 Here are a few things that may be helpful in completing Exercise 3.
 
-General tips
-~~~~~~~~~~~~
-
-1. Start by cloning your personal Exercise 3 repository on your (cloud) computer. See :doc:`instructions for using git from Lesson 2. <../L2/git-basics.rst>`
-2. Some code cells contain a line that says: `raise NotImplementedError()`. Always remove this piece of code from your submission and replace it with your own code. The error tells us if you have not started the exercise.
-3. Remember to commit your changes often!
-4. Follow carefully the instructions about variable names and other details (this week's exercises will bee graded automatically!)
-5. Ask for help in Slack and/or come to the practical sessions if you get stuck :)
-
 Tests
 ~~~~~~
 
-The exercise notebook contains some tests help you see if your code is working correctly.
+The exercise notebook contains some tests help you see if your code is working correctly. Some code cells contain
+a line that says: `raise NotImplementedError()`. Always remove this piece of code from your submission and replace
+it with your own code. The error tells us if you have not started the exercise.
 
 Combining strings
 ~~~~~~~~~~~~~~~~~
