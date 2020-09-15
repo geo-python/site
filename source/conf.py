@@ -106,6 +106,7 @@ html_title = ""
 html_theme_options = {
     #"external_links": [],
     "repository_url": "https://github.com/geo-python/site/",
+    "repository_branch": "master",
     "path_to_docs": "source/",
     #"twitter_url": "https://twitter.com/pythongis",
     #"google_analytics_id": "UA-159257488-1",
