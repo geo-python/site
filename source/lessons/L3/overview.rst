@@ -11,14 +11,15 @@ Learning goals
 
 After this weeks lesson your should be able to:
 
-    - Create a ``for`` loop and use it to repeat a section of code
-    - Use ``if``, ``elif``, and ``else`` statements to make decisions in your programs
-    - Explain how values can be compared using comparison operators
+- Create a ``for`` loop and use it to repeat a section of code
+- Use ``if``, ``elif``, and ``else`` statements to make decisions in your programs
+- Explain how values can be compared using comparison operators
 
 Lesson videos
 -------------
 
 Lesson videos will be posted soon...
+
 ..
     .. admonition:: Lesson 3 - Loops and conditional statements
 
