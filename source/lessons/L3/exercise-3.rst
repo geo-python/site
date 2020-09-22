@@ -9,14 +9,14 @@ Exercise 3
 
     **You can start working on your copy of Exercise 3 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/_wibmH9c>`__.
 
+You can also take a look at the template repository for `Exercise 3 on GitHub  <https://github.com/Geo-Python-2020/Exercise-3>`__ (does not require logging in).
+Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
+
 .. admonition:: Pair programming
 
     Students attending the course in Helsinki, **note that we continue working in pairs**.
     We will only grade the repository of the member of your pair that is responsible for this week's exercise.
     See more information in Slack, and in week 2: `Why are we working in pairs? <https://geo-python-site.readthedocs.io/en/latest/lessons/L2/why-pairs.html>`_
-
-You can also take a look at the template repository for `Exercise 3 on GitHub  <https://github.com/Geo-Python-2020/Exercise-3>`__ (does not require logging in).
-Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
 Cloud computing environments
 -----------------------------
@@ -51,7 +51,6 @@ In case you have forgotten, string variables can be added together. For example,
     b = "time"
     c = a + b
     print(c)
-
 
 Nested if statements
 ~~~~~~~~~~~~~~~~~~~~

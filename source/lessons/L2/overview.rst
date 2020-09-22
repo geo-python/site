@@ -19,9 +19,6 @@ After this week you will be able to:
 Lesson videos
 -------------
 
-Lesson videos will be added after the lesson has been given.
-
-
 .. admonition:: Lesson 2.1 - Data types and working with lists
 
     .. raw:: html
