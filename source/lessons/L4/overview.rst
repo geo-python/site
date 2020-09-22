@@ -12,9 +12,9 @@ Learning goals
 
 After this weeks lesson your should be able to:
 
-  - Explain how functions are used and their benefits
-  - Create your own functions to calculate an output value based on an input value
-  - Save functions to a script file for future use
+- Explain how functions are used and their benefits
+- Create your own functions to calculate an output value based on an input value
+- Save functions to a script file for future use
 
 Lesson videos
 -------------
