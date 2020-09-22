@@ -2,7 +2,7 @@ Lesson overview
 ===============
 
 In this lesson we will learn how to create and use :term:`function (funktio)`, one of the most powerful concepts in programming.
-We will also introduce you to the concept of a {term}`module (moduuli)` (also known as a {term}`library (ohjelmakirjasto)` in other programming languages), which you can think of as a toolbox for a specific purpose.
+We will also introduce you to the concept of a :term:`module (moduuli)` (also known as a :term:`library (ohjelmakirjasto)` in other programming languages), which you can think of as a toolbox for a specific purpose.
 Each module contains specific functionalities (i.e., functions) that you can use for different tasks.
 Thus functions and modules are closely related.
 The main components of today's lesson can be found in the navigation bar to the left.
