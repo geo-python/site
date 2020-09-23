@@ -36,7 +36,7 @@ Here are a few things that may be helpful in completing Exercise 4.
 Importing variables from a script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In the lesson materials we saw how to `import functions from a script <../../notebooks/L4/functions.html#Calling-functions-from-a-script-file>`__.
+In the lesson materials we saw how to `import functions from a script <../../notebooks/L4/functions.html#calling-functions-from-a-script-file>`__.
 
 In a similar manner you can also import any variable that has been defined in another script, hence, it is not limited
 to functions that you can import.
