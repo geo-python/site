@@ -19,12 +19,16 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-Lesson videos will be posted after this lesson has been presented...
+.. admonition:: Lesson 4.1 - Introduction to Functions
 
-..
-    .. admonition:: Lesson 4 - Functions and libraries
+    .. raw:: html
 
-        .. raw:: html
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/CoRTczNTheg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/Oj-D6z6UZA8?rel=0" frameborder="0" allowfullscreen></iframe>
-            <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+.. admonition:: Lesson 4.2 - Functions in script files and using modules
+
+    .. raw:: html
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/qAldGu4Ox2k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
