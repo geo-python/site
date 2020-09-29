@@ -9,16 +9,18 @@ Exercise 5
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 5 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/ZS8qlS1C>`__.
+    **You can start working on your copy of Exercise 5 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/8WpdJqyv>`__.
 
     **Exercise 5 is due by the start of lecture in week 6**.
 
-You can also take a look at the open course copy of `Exercise 5 in the course GitHub repository <https://github.com/Geo-Python-2019/Exercise-5>`__ (does not require logging in).
+You can also take a look at the open course copy of `Exercise 5 in the course GitHub repository <https://github.com/Geo-Python-2020/Exercise-5>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
-.. warning::
+.. admonition:: Pair programming (optional!)
 
-    Please note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
+    Students attending the course in Helsinki, **if you wish, you can continue working in pairs**.
+    See more information in Slack, and in week 2: `Why are we working in pairs? <https://geo-python-site.readthedocs.io/en/latest/lessons/L2/why-pairs.html>`_.
+    Those students who want to submit their own solutions, please contact the course assistant that is grading your assignments (see list in Slack).
 
 
 Exercise 5 hints for Pandas
