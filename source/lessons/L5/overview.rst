@@ -18,11 +18,12 @@ After this weeks lesson your should be able to:
 Lecture videos
 --------------
 
-.. admonition:: Lesson 5 - Data analysis with Pandas I
+..
+    .. admonition:: Lesson 5 - Data analysis with Pandas I
 
-Lesson videos will be added here after the lesson.
+    Lesson videos will be added here after the lesson.
 
-    .. raw:: html
+        .. raw:: html
 
-        <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
-        <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+            <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+            <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
