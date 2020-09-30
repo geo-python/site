@@ -5,32 +5,37 @@ Summary of mid-term course feedback
 -----------------------------------------------------------------
 
 - Seems to be about right on average. A bit slow for some (with experience), a bit too fast for others (new coders)
-- Dave sometimes goes too quickly when typing things
-- Explaining the previous exercise takes too much time
-- Would be great to get materials in advance to be able to formulate questions ahead of time
+- Would be good in a normal classroom, but can be hard to keep up remotely when you have the notebooks in another tab
+- 3 hours is a long time and some material could be left out of the lessons as material to read independently
 
 2. Is the content of the lessons too simple, too difficult, or about right?
 ---------------------------------------------------------------------------
 
-*Exactly the same as last year*
+*Very similar to last year*
 
 - Seems to be about right for many
 - Students with earlier programming experience feel its a bit simple
 - Some topics have been more challenging than others
+- Lessons are made far too difficult due to poor teaching skills :(
+- 
 
 3. Is the content of the exercises too simple, too difficult, or about right?
 -----------------------------------------------------------------------------
 
 - About right for many
 - A bit challenging for some and time consuming
-- Some would like more of the challenging problems, perhaps with less structure for how to complete the tasks
-- The difficulty level of the exercises has varied a bit
+- Optional extra problems would be nice, such as making the flag
+- Exercises are considerably harder than the lesson material
+- Some things have not been properly taught in the lessons
+- Would be easier if the course infrastructure was clear
 
 4. Which aspect(s) of the course is/are most helpful to you?
 ------------------------------------------------------------
 
 - Exercises
+- Pair programming (!)
 - Lesson materials online
+- Course website
 - Step-by-step instructions
 - Interactive questions in class
 - Lecture videos (uploaded right after class, if possible)
@@ -39,30 +44,37 @@ Summary of mid-term course feedback
 5. Which aspect(s) of the course is/are least helpful to you?
 -------------------------------------------------------------
 
-- **Too much time spent reviewing last exercise**
-- Going to the lectures :(
-- Exercises are too hard
-- Exercise instructions sometimes break things down into steps that can cause confusion
-- Vague exercise hints
-- Slack - It's just easier to ask in person
+- Zoom exercise sessions
+- Working in pairs
+- Not being able to save things with Binder (any solutions?)
+- Too many platforms/services/sites
 
-6. What suggestions do you have for improving this course?
-----------------------------------------------------------
+6. Useful parts of the course
+-----------------------------
 
-- Grades for the exercises sooner rather than later
-- A few easier exercise questions/problems
-- More time explaining for loops
-- Instructions for Exercise 3 were confusing
-- Post course materials earlier
-- More specific hints
-- More short exercise questions closer to the lesson content
-- Release a solutions guide after the assignments are due
-- More stuff on best practices
-- Two versions of the exercises, one like the current, one with less guidance
+On a scale from 1 to 5, how useful do you find the different elements of this course? (1=not at all useful, 5=very useful): 
 
-7. Do you have any other general comments about the course? Comments on things like the computing environment or use of GitHub would be quite helpful!
-------------------------------------------------------------------------------------------------------------------------------------------------------
+- Interactive lessons in Zoom: 4.24 ± 0.93 (25 responses)
+- Recorded lesson videos: 4.20 ± 1.01 (20 responses)
+- Exercise sessions in Zoom: 3.74 ± 0.87 (19 responses)
+- Pair programming: 3.41 ± 1.25 (27 responses)
+- Slack: 3.81 ± 1.04 (27 responses)
 
-- Exercise instructions are too specific
-- GitHub is still not really that clear to me
-- *And some good stuff too :)*
+6. What suggestions do you have for improving this course? Comments related to online teaching would be especially useful!
+--------------------------------------------------------------------------------------------------------------------------
+
+- Make pair programming optional
+- More detail in exercise instructions
+- Cut videos into smaller pieces
+- Include time to start on the exercises during class
+- Videos could be up sooner
+- Would be good to have more info about what you can do with Python
+- Extra exercise problems!
+- More interactivity
+- Faster feedback
+
+7. Do you have any other general comments about the course?
+-----------------------------------------------------------
+
+- *Many positive comments, thanks!*
+- Too many platforms
