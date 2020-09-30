@@ -15,8 +15,10 @@ After this weeks lesson your should be able to:
 - Do simple data analysis using pandas data structures and functions
 - Write data to a .csv text file
 
-Lecture videos
---------------
+Lesson videos
+-------------
+
+Lesson videos will be added soon...
 
 ..
     .. admonition:: Lesson 5 - Data analysis with Pandas I
