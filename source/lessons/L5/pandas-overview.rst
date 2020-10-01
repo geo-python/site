@@ -36,16 +36,14 @@ Supports data read/write from multiple formats
 One of the most useful features of Pandas is its ability to read data from numerous different data formats directly.
 Pandas supports reading and writing data e.g. from/to:
 
- - CSV
- - JSON
- - HTML
- - MS Excel
- - HDF5
- - Stata
- - SAS
- - Python Pickle format
- - SQL (Postgresql, MySQL, Oracle, MariaDB, etc.)
+- CSV
+- JSON
+- HTML
+- MS Excel
+- HDF5
+- Stata
+- SAS
+- Python Pickle format
+- SQL (Postgresql, MySQL, Oracle, MariaDB, etc.)
 
 See full list from `Pandas docs <http://pandas.pydata.org/pandas-docs/version/0.20/io.html>`__.
-
-
