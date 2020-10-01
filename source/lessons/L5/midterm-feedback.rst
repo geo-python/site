@@ -17,7 +17,6 @@ Summary of mid-term course feedback
 - Students with earlier programming experience feel its a bit simple
 - Some topics have been more challenging than others
 - Lessons are made far too difficult due to poor teaching skills :(
-- 
 
 3. Is the content of the exercises too simple, too difficult, or about right?
 -----------------------------------------------------------------------------
@@ -60,7 +59,7 @@ On a scale from 1 to 5, how useful do you find the different elements of this co
 - Pair programming: 3.41 ± 1.25 (27 responses)
 - Slack: 3.81 ± 1.04 (27 responses)
 
-6. What suggestions do you have for improving this course? Comments related to online teaching would be especially useful!
+7. What suggestions do you have for improving this course? Comments related to online teaching would be especially useful!
 --------------------------------------------------------------------------------------------------------------------------
 
 - Make pair programming optional
@@ -73,7 +72,7 @@ On a scale from 1 to 5, how useful do you find the different elements of this co
 - More interactivity
 - Faster feedback
 
-7. Do you have any other general comments about the course?
+8. Do you have any other general comments about the course?
 -----------------------------------------------------------
 
 - *Many positive comments, thanks!*
