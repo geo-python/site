@@ -161,27 +161,27 @@ New materials are updated on this course page each Wednesday.
     lessons/L4/exercise-4
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Lesson 5
+    :maxdepth: 2
+    :caption: Lesson 5
 
-   lessons/L5/overview
-   lessons/L5/pandas-overview.rst
-   notebooks/L5/exploring-data-using-pandas.ipynb
-   notebooks/L5/processing-data-with-pandas.ipynb
-   lessons/L5/exercise-5
+    lessons/L5/overview
+    lessons/L5/pandas-overview.rst
+    notebooks/L5/exploring-data-using-pandas.ipynb
+    notebooks/L5/processing-data-with-pandas.ipynb
+    lessons/L5/exercise-5
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 6
+
+    lessons/L6/overview
+    notebooks/L6/advanced-data-processing-with-pandas.ipynb
+    notebooks/L6/errors.ipynb
+    notebooks/L6/gcp-assertions.ipynb
+    notebooks/L6/debugging.ipynb
+    lessons/L6/exercise-6
 
 ..
-    .. toctree::
-        :maxdepth: 2
-        :caption: Lesson 6
-
-        lessons/L6/overview
-        notebooks/L6/advanced-data-processing-with-pandas.ipynb
-        notebooks/L6/errors.ipynb
-        notebooks/L6/gcp-assertions.ipynb
-        notebooks/L6/debugging.ipynb
-        lessons/L6/exercise-6
-
     .. toctree::
         :maxdepth: 2
         :caption: Lesson 7
