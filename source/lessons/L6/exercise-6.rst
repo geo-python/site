@@ -122,21 +122,16 @@ We provided examples of how to break out of a ``for`` loop after a single iterat
 This can be done by creating a counter variable (``count`` in this case) and using that to break after a certain number of iterations as follows:
 
 .. ipython:: python
-   :okexcept:
 
     # Initialize counter variable
     count = 0
-
     # Create a list of months
     months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-
     # Loop over months and print them
     for month in months:
         print('The current month is', month)
-
         # Increment counter variable
         count = count + 1
-
         # Exit if the month counter equals 5
         if count == 5:
             break
