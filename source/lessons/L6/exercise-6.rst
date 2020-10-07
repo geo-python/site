@@ -136,5 +136,5 @@ This can be done by creating a counter variable (``count`` in this case) and usi
         if count == 5:
             break
 
-As you can see, here our code will exit the loop when the month counter is larger than 5.
+As you can see, here our code will exit the loop when the month counter is equal to 5.
 This can be a handy way to break after a fixed number of iterations.
