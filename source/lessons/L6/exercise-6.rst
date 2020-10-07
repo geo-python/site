@@ -122,6 +122,7 @@ We provided examples of how to break out of a ``for`` loop after a single iterat
 This can be done by creating a counter variable (``count`` in this case) and using that to break after a certain number of iterations as follows:
 
 .. ipython:: python
+   :okexcept:
 
     # Initialize counter variable
     count = 0
@@ -137,8 +138,8 @@ This can be done by creating a counter variable (``count`` in this case) and usi
         # Increment counter variable
         count = count + 1
 
-        # Exit if the month counter exceeds 5
-        if count > 5:
+        # Exit if the month counter equals 5
+        if count == 5:
             break
 
 As you can see, here our code will exit the loop when the month counter is larger than 5.
