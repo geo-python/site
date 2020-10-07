@@ -112,3 +112,34 @@ Let's consider another example with the outer join.
 Cool! Nowe we have all the values included from both DataFrames and if Pandas did not find a common value in the ``key`` column, it still kept them and inserted ``NaN`` values into ``Favourite_dog`` column and ``Value`` column.
 Overall, knowing how to conduct a table join can be really handy in many different situations.
 See more examples and documentation from `official documentation of Pandas <https://pandas.pydata.org/pandas-docs/stable/merging.html>`__.
+
+Breaking loops after a certain number of iterations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We had a question during the lesson about breaking out of a loop after a certain number of iterations.
+As you may recall, the ``break`` can be used to exit a loop or conditional statement.
+We provided examples of how to break out of a ``for`` loop after a single iteration, but what if you want to loop 5 times and then break?
+This can be done by creating a counter variable (``count`` in this case) and using that to break after a certain number of iterations as follows:
+
+.. ipython:: python
+
+    # Initialize counter variable
+    count = 0
+
+    # Create a list of months
+    months = ['January', 'February', 'March', 'April', 'May', 'June',
+              'July', 'August', 'September', 'October', 'November', 'December']
+
+    # Loop over months and print them
+    for month in months:
+        print('The current month is', month)
+
+        # Increment counter variable
+        count = count + 1
+
+        # Exit if the month counter exceeds 5
+        if count > 5:
+            break
+
+As you can see, here our code will exit the loop when the month counter is larger than 5.
+This can be a handy way to break after a fixed number of iterations.
