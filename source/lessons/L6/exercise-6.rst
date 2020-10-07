@@ -128,8 +128,7 @@ This can be done by creating a counter variable (``count`` in this case) and usi
     count = 0
 
     # Create a list of months
-    months = ['January', 'February', 'March', 'April', 'May', 'June',
-              'July', 'August', 'September', 'October', 'November', 'December']
+    months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
     # Loop over months and print them
     for month in months:
