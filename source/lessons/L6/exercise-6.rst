@@ -117,7 +117,7 @@ Breaking loops after a certain number of iterations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We had a question during the lesson about breaking out of a loop after a certain number of iterations.
-As you may recall, the ``break`` can be used to exit a loop or conditional statement.
+As you may recall, the ``break`` can be used to exit a loop.
 We provided examples of how to break out of a ``for`` loop after a single iteration, but what if you want to loop 5 times and then break?
 This can be done by creating a counter variable (``count`` in this case) and using that to break after a certain number of iterations as follows:
 
