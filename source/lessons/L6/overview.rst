@@ -20,12 +20,16 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-The lesson videos will be posted soon...
+.. admonition:: Lesson 6.1 - Data analysis with Pandas
 
-..
-    .. admonition:: Lesson 6 - Data analysis with Pandas II
+    .. raw:: html
 
-        .. raw:: html
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/0bY225OWuIA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/KtSh3ePE12U?rel=0" frameborder="0" allowfullscreen></iframe>
-            <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+.. admonition:: Lesson 6.2 - Data analysis with Pandas (ctd.)
+
+    .. raw:: html
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/4i_U0viixEM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
