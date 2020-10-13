@@ -3,29 +3,31 @@ Exercise 7
 
 .. note::
 
-    Please complete this exercise **by 4 pm on Monday 28 October 2019**.
+    Please complete exercise 7 **within one week**.
 
 .. admonition:: Start your assignment
 
     **Pandas**
 
-    **You can start working on your copy of Exercise 7 by** accepting the `GitHub Classroom assignment <https://classroom.github.com/a/IKdyfF9a>`__
+    **You can start working on your copy of Exercise 7 by** accepting the `GitHub Classroom assignment <>`__
 
-    You can also take a look at the open course copy of `Exercise 7  in the course GitHub repository <https://github.com/Geo-Python-2019/Exercise-7>`__ (does not require logging in).
-    Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
+You can also take a look at the open course copy of `Exercise 7  in the course GitHub repository <https://github.com/Geo-Python-2020/Exercise-7>`__ (does not require logging in).
+Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
-.. warning::
+.. admonition:: Pair programming (optional!)
 
-    Please note that **we provide assignment feedback only for students enrolled in the course at the University of Helsinki**.
+    Students attending the course in Helsinki, **if you wish, you can continue working in pairs**.
+    See more information in Slack, and in week 2: `Why are we working in pairs? <https://geo-python-site.readthedocs.io/en/latest/lessons/L2/why-pairs.html>`_.
+    Those students who want to submit their own solutions, please contact the course assistant that is grading your assignments (see list in Slack).
 
 Cloud computing environments
 -----------------------------
 
 .. image:: https://img.shields.io/badge/launch-binder-red.svg
-   :target: https://mybinder.org/v2/gh/Geo-Python-2019/Binder/master?urlpath=lab
+   :target: https://mybinder.org/v2/gh/Geo-Python-2020/Binder/master?urlpath=lab
 
 .. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
-   :target: https://notebooks.csc.fi/#/blueprint/d71cd2d26d924f48820dc22b67a87d8e
+   :target: https://notebooks.csc.fi/#/blueprint/7e62ac3bddf74483b7ac7333721630e2
 
 Hints for Exercise 7
 --------------------
