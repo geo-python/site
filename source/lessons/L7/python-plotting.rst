@@ -12,20 +12,20 @@ Python has many nice, useful libraries that can be used for plotting.
 In the figure above, you can see a number of the available plotting library options, along with how they relate to one another.
 Of the options above, we would like to highlight:
 
-- `Matplotlib <http://matplotlib.org/>`__ - "*the grand old man of Python plotting*" (`Matplotlib gallery <http://matplotlib.org/gallery.html>`__)
+- `Matplotlib <https://matplotlib.org/>`__ - "*the grand old man of Python plotting*" (`Matplotlib gallery <https://matplotlib.org/gallery.html>`__)
 
-  - `Matplotlib Basemap <http://matplotlib.org/basemap/index.html>`__ - Matplotlib plugin for visualizing maps in Python (`Matplotlib basemap gallery <http://matplotlib.org/basemap/users/examples.html>`__)
-  - `Seaborn <https://seaborn.github.io/>`__ - High-level interface for drawing attractive statistical graphics that is built on top of Matplotlib (`Seaborn gallery <https://seaborn.github.io/examples/index.html>`__)
+  - `Matplotlib Basemap <https://matplotlib.org/basemap/index.html>`__ - Matplotlib plugin for visualizing maps in Python (`Matplotlib basemap gallery <https://matplotlib.org/basemap/users/examples.html>`__)
+  - `Seaborn <https://seaborn.pydata.org/>`__ - High-level interface for drawing attractive statistical graphics that is built on top of Matplotlib (`Seaborn gallery <https://seaborn.pydata.org/examples/index.html>`__)
 
-- `Bokeh <http://bokeh.pydata.org/en/latest/>`__ - Modern plotting library for static / interactive web-based plots such as graphs, maps, charts etc. (`Bokeh gallery <http://bokeh.pydata.org/en/latest/docs/gallery.html>`__)
-- `Plotly <https://plot.ly/python/>`__ - Modern plotting library for static / interactive web-based plots such as graphs, maps, charts etc. Some features are commercial. (`Plotly gallery <https://plot.ly/python/#basic-charts>`__)
-- `Dash <https://plot.ly/products/dash/>`__ - Dash is a Python framework for building analytical web applications. No JavaScript required.
-- `ggplot <http://yhat.github.io/ggpy/>`__ - Familiar with doing plots in R using ggplot2? You can use ggplot in Python too! `(ggplot examples) <http://yhat.github.io/ggpy/>`__
-- `HoloViews <http://holoviews.org/>`__ and `GeoViews <http://geoviews.org//>`__ - Let the data visualize itself. (see this `HoloViews introductory video <https://www.youtube.com/watch?v=hNsR2H7Lrg0>`__)
+- `Bokeh <https://docs.bokeh.org/en/latest/>`__ - Modern plotting library for static / interactive web-based plots such as graphs, maps, charts etc. (`Bokeh gallery <https://docs.bokeh.org/en/latest/docs/gallery.html>`__)
+- `Plotly <https://plotly.com/python/>`__ - Modern plotting library for static / interactive web-based plots such as graphs, maps, charts etc. Some features are commercial. (`Plotly gallery <https://plotly.com/python/basic-charts/>`__)
+- `Dash <https://plotly.com/dash/>`__ - Dash is a Python framework for building analytical web applications. No JavaScript required.
+- `ggplot <https://yhat.github.io/ggpy/>`__ - Familiar with doing plots in R using ggplot2? You can use ggplot in Python too! `(ggplot examples) <https://yhat.github.io/ggpy/>`__
+- `HoloViews <https://holoviews.org/>`__ and `GeoViews <https://geoviews.org/>`__ - Let the data visualize itself. (see this `HoloViews introductory video <https://www.youtube.com/watch?v=hNsR2H7Lrg0>`__)
 
   - Modern and powerful visualization libraries built on top of Matplotlib and Bokeh that makes exploring and visualizing your data quicker than ever before
-  - HoloViews is designed for basic plotting (`HoloViews tutorial <http://holoviews.org/Tutorials/index.html>`__ and `HoloViews examples <http://holoviews.org/Examples/index.html>`__)
-  - GeoViews is designed for creating nice and interactive maps (`GeoViews gallery <http://geoviews.org/gallery/index.html>`__)
+  - HoloViews is designed for basic plotting (`HoloViews tutorial <https://holoviews.org/Tutorials/index.html>`__ and `HoloViews examples <https://holoviews.org/Examples/index.html>`__)
+  - GeoViews is designed for creating nice and interactive maps (`GeoViews gallery <https://geoviews.org/gallery/index.html>`__)
 
 .. attention::
 
@@ -35,10 +35,9 @@ As you can see from the examples, the plotting possibilities in Python are numer
 Do you need to know them all?
 Of course not.
 Not even we do.
-It is not even rational for trying to use them all, instead you should start by learning to use one of them that suits your needs and then later extend your knowledge and skills to other visualizing libraries when necessary.
-In our courses, we will be start our plotting experiments with Matplotlib and Plotly that makes it possible to store and show our interactive plots in the web.
+It is not even reasonable to use them all.
+Instead you should start by learning to use one that suits your needs and then later extend your knowledge and skills to other visualization libraries when necessary.
 
 .. note:: 
 
-   Later, in the Automating GIS processes course, we will be learning a little bit of Bokeh as well.
-   We will likely work also in Matplotlib in the Introduction to Quantitative Geology course.
+   In the Automating GIS processes course we will be learning a bit of some other plotting libraries not used in the Geo-Python course.
