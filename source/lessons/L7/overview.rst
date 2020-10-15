@@ -17,12 +17,16 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-Lesson videos will be added soon...
+.. admonition:: Lesson 7.1 - Basics of plotting with Pandas/Matplotlib
 
-..
-    .. admonition:: Lesson 7 - Data visualization with Pandas and Matplotlib
+    .. raw:: html
 
-        .. raw:: html
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/85tbEfURQz8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/Pozy-RQ36iQ?rel=0" frameborder="0" allowfullscreen></iframe>
-            <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+.. admonition:: Lesson 7.2 - Advanced plotting with Pandas/Matplotlib
+
+    .. raw:: html
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/FdVeA9k62JU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
