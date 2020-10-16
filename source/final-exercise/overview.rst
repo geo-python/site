@@ -1,5 +1,5 @@
-Final exercise overview
-=======================
+Final exercise assignment
+=========================
 
 .. note::
 
@@ -14,7 +14,7 @@ Note that you should not try to make changes to this copy of the exercise, but r
 
 .. attention::
 
-    The final exercise should be completed indivudially, not with your partner.
+    The final exercise should be **completed indivudially**, not with your partner.
     Each person will need to submit their own solutions of their own work for this final exercise!
 
 Cloud computing environments
