@@ -3,7 +3,7 @@ Final exercise assignment
 
 .. note::
 
-    The final exercise is due by **17:00 on November 6, 2020**.
+    The final exercise is due by **17:00 on November 13, 2020**.
 
 .. admonition:: Start your assignment
 
