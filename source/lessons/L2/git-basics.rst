@@ -198,7 +198,7 @@ Now you should see the updates in GitHub! Go and have a look at your personal re
 
 On the command line, ``git pull`` fetches and merges changes from the remote repository, and ``git pull`` publishes local changes.
 
-That's all you need to know about Git for know :)
+That's all you need to know about Git for now :)
 
 
 Git from the command line
