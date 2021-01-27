@@ -12,7 +12,7 @@ Familiar?
 .. figure:: https://imgs.xkcd.com/comics/documents.png
    :alt: xkcd DOCUMENTS comic
 
-        Source: https://xkcd.com/1459/
+   Source: https://xkcd.com/1459/
 
 .. figure:: img/version_control_motivation_comics.png
    :alt: Motivation for version control
@@ -77,7 +77,7 @@ What is Git?
 .. figure:: Git-Logo-2Color.png
    :alt: Git logo by Jason Long
 
-        Git Logo by Jason Long, licensed under the `Creative Commons Attribution 3.0 Unported License <https://creativecommons.org/licenses/by/3.0/>`_.
+   Git Logo by Jason Long, licensed under the `Creative Commons Attribution 3.0 Unported License <https://creativecommons.org/licenses/by/3.0/>`_.
 
 `Git <https://en.wikipedia.org/wiki/Git_(software)>`__ is a version
 control software (developed in 2005 by a rather famous Finn named Linus

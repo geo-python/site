@@ -34,8 +34,7 @@ Part 2 - Slack
    :width: 150px
 
 1. Go to our **Slack** page at https://geo-python-2020.slack.com.
-2. **Post a new message** in the `#week-1 <https://geo-python-2020.slack.com/archives/C018Z51GKNG>`__ channel with
-your **full name, GitHub username, course code** (GEOK_3030 or GEOG-329-1).
+2. **Post a new message** in the `#week-1 <https://geo-python-2020.slack.com/archives/C018Z51GKNG>`__ channel with your **full name, GitHub username, course code** (GEOK_3030 or GEOG-329-1).
 
 For example,
 ``Dave Whipp, davewhipp, GEOK_3030``
