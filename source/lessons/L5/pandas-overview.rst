@@ -21,8 +21,8 @@ Wes McKinney first `developed Pandas as an alternative for R <https://blog.quant
 Combines functionalities from many Python modules
 -------------------------------------------------
 
-Pandas takes advantage of `numpy <http://www.numpy.org/>`__ -module which runs under the hood and is mostly written in C,
-which makes it fast and powerful library that can handle efficiently even large datasets.
+Pandas takes advantage of the `numpy <http://www.numpy.org/>`__ -module which runs under the hood and is mostly written in C,
+which makes it a fast and powerful library that can handle efficiently even large datasets.
 Pandas offers easier and more intuitive syntax to do data analysis and manipulation using either `numpy`
 functionalities in the background or dedicated functionalities written explicitly for Pandas.
 However, Pandas is much more than easier-to-use `numpy` as it also combines many functionalities from other Python
