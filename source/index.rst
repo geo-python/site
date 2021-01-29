@@ -197,6 +197,7 @@ New materials are updated on this course page each Wednesday.
     :caption: Final exercise
 
     final-exercise/overview
+    final-exercise/grading.ipynb
 
 .. toctree::
     :maxdepth: 2

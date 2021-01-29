@@ -235,7 +235,7 @@ Anything above version 2 is just fine.
     You can paste text on the terminal using :code:`Ctrl + V` or :code:`Shift + Right Click --> paste`
 
 Configuring Git credentials
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Configure Git to remember your identity using the ``git config`` tools. You (hopefully) only need to do this once
 if working on your own computer, or on a cloud computer with persistent storage on CSC notebooks.
