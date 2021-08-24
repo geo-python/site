@@ -5,7 +5,7 @@
 
 .. figure:: img/banner/geo-python-2020.png
 
-Welcome to Geo-Python 2020!
+Welcome to Geo-Python 2021!
 ===========================
 
 The **Geo-Python** course teaches you the basic concepts of programming and scientific data analysis using the Python programming language
@@ -46,7 +46,7 @@ must clearly reflect your own work (in short, don't copy paste from other studen
 
 .. admonition:: Online teaching
 
-    Please note that the course is organized completely online during the 2020 Autumn semester.
+    Please note that the course is organized completely online during the 2021 Autumn semester.
     Online support will be available throughout the course during the weekly exercise sessions and discussion channels in Slack.
     Details of participation in the exercise sessions will be sent out to enrolled students.
 
@@ -57,7 +57,7 @@ are able to write short programs, and can manage, analyze and visualize scientif
 The students also learn to use version control (git) and online repositories (GitHub) for documenting and communicating their work.
 Themes for each week are listed below. Read more about the weekly :doc:`learning goals in here <course-info/learning-goals>`.
 
-The course runs for seven weeks in the Autumn semester starting on the 2nd of September 2020.
+The course runs for seven weeks in the Autumn semester starting on the 8th of September 2021.
 New materials are updated on this course page each Wednesday.
 
 +----------+----------------------+
@@ -115,89 +115,90 @@ New materials are updated on this course page each Wednesday.
     course-info/grading
     course-info/licensing
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 1
+..
+   .. toctree::
+       :maxdepth: 2
+       :caption: Lesson 1
 
-    lessons/L1/motivation
-    lessons/L1/overview
-    lessons/L1/course-environment-components
-    lessons/L1/slack-usage
-    notebooks/L1/a-taste-of-python.ipynb
-    notebooks/L1/gcp-1-variable-naming.ipynb
-    lessons/L1/exercise-1
+       lessons/L1/motivation
+       lessons/L1/overview
+       lessons/L1/course-environment-components
+       lessons/L1/slack-usage
+       notebooks/L1/a-taste-of-python.ipynb
+       notebooks/L1/gcp-1-variable-naming.ipynb
+       lessons/L1/exercise-1
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 2
+   .. toctree::
+       :maxdepth: 2
+       :caption: Lesson 2
 
-    lessons/L2/overview
-    notebooks/L2/Python-basic-elements.ipynb
-    lessons/L2/intro-to-GitHub
-    lessons/L2/git-basics
-    lessons/L2/GitHub-classroom
-    notebooks/L2/gcp-2-describing-code.ipynb
-    lessons/L2/why-pairs
-    lessons/L2/exercise-2
+       lessons/L2/overview
+       notebooks/L2/Python-basic-elements.ipynb
+       lessons/L2/intro-to-GitHub
+       lessons/L2/git-basics
+       lessons/L2/GitHub-classroom
+       notebooks/L2/gcp-2-describing-code.ipynb
+       lessons/L2/why-pairs
+       lessons/L2/exercise-2
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 3
+   .. toctree::
+       :maxdepth: 2
+       :caption: Lesson 3
 
-    lessons/L3/overview
-    notebooks/L3/for-loops.ipynb
-    notebooks/L3/conditional-statements.ipynb
-    notebooks/L3/gcp-3-pep8.ipynb
-    lessons/L3/exercise-3
+       lessons/L3/overview
+       notebooks/L3/for-loops.ipynb
+       notebooks/L3/conditional-statements.ipynb
+       notebooks/L3/gcp-3-pep8.ipynb
+       lessons/L3/exercise-3
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 4
+   .. toctree::
+       :maxdepth: 2
+       :caption: Lesson 4
 
-    lessons/L4/overview
-    notebooks/L4/functions.ipynb
-    notebooks/L4/modules.ipynb
-    notebooks/L4/gcp-4-writing-scripts.ipynb
-    lessons/L4/exercise-4
+       lessons/L4/overview
+       notebooks/L4/functions.ipynb
+       notebooks/L4/modules.ipynb
+       notebooks/L4/gcp-4-writing-scripts.ipynb
+       lessons/L4/exercise-4
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 5
+   .. toctree::
+       :maxdepth: 2
+       :caption: Lesson 5
 
-    lessons/L5/overview
-    lessons/L5/pandas-overview.rst
-    notebooks/L5/exploring-data-using-pandas.ipynb
-    notebooks/L5/processing-data-with-pandas.ipynb
-    lessons/L5/exercise-5
+       lessons/L5/overview
+       lessons/L5/pandas-overview.rst
+       notebooks/L5/exploring-data-using-pandas.ipynb
+       notebooks/L5/processing-data-with-pandas.ipynb
+       lessons/L5/exercise-5
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 6
+   .. toctree::
+       :maxdepth: 2
+       :caption: Lesson 6
 
-    lessons/L6/overview
-    notebooks/L6/advanced-data-processing-with-pandas.ipynb
-    notebooks/L6/errors.ipynb
-    notebooks/L6/gcp-5-assertions.ipynb
-    notebooks/L6/debugging.ipynb
-    lessons/L6/exercise-6
+       lessons/L6/overview
+       notebooks/L6/advanced-data-processing-with-pandas.ipynb
+       notebooks/L6/errors.ipynb
+       notebooks/L6/gcp-5-assertions.ipynb
+       notebooks/L6/debugging.ipynb
+       lessons/L6/exercise-6
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 7
+   .. toctree::
+       :maxdepth: 2
+       :caption: Lesson 7
 
-    lessons/L7/overview
-    lessons/L7/python-plotting
-    lessons/L7/plot-anatomy
-    notebooks/L7/matplotlib.ipynb
-    notebooks/L7/advanced-plotting.ipynb
-    lessons/L7/exercise-7
+       lessons/L7/overview
+       lessons/L7/python-plotting
+       lessons/L7/plot-anatomy
+       notebooks/L7/matplotlib.ipynb
+       notebooks/L7/advanced-plotting.ipynb
+       lessons/L7/exercise-7
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Final exercise
+   .. toctree::
+       :maxdepth: 2
+       :caption: Final exercise
 
-    final-exercise/overview
-    final-exercise/grading.ipynb
+       final-exercise/overview
+       final-exercise/grading.ipynb
 
 .. toctree::
     :maxdepth: 2
