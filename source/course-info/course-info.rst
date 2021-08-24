@@ -53,7 +53,7 @@ Course websites
 
   - Main course site: `<https://geo-python.github.io>`_
   - Notebooks by CSC: `<https://notebooks.csc.fi>`_
-  - Slack (Q&A + chat): `<https://geo-python-2020.slack.com>`_
+  - Slack (Q&A + chat): `<https://geo-python2021.slack.com>`_
   - Polling / voting (active during lectures only): `<https://geo-python.github.io/poll>`_
 
 - Course websites for Period II
