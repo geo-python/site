@@ -21,7 +21,7 @@
 
 project = 'Geo-Python'
 copyright = '2021, D. Whipp, H. Tenkanen, V. Heikinheimo, and H. Aagesen, Department of Geosciences and Geography, University of Helsinki'
-# author = 'David Whipp, Henrikki Tenkanen, Vuokko Heikinheimo, Håvard Aagesen'
+author = 'David Whipp, Henrikki Tenkanen, Vuokko Heikinheimo, Håvard Aagesen'
 
 # The short X.Y version
 version = '2021'
