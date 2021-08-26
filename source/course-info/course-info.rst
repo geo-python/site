@@ -18,7 +18,7 @@ Course meetings in Period I
 
 .. admonition:: Online teaching
 
-    Please note that all teaching is organized online in autumn 2020.
+    Please note that all teaching is organized online in autumn 2021.
     Details of participation in the exercise sessions will be sent out to enrolled students.
 
 Instructors
@@ -34,17 +34,16 @@ Email: *firstname.lastname@helsinki.fi*
   * Office: C417, Exactum
   * Phone: +358 50 3199336
 
-* Vuokko Heikinheimo
+* Håvard Wallin Aagesen
 
-  * Office: A125a, Physicum
-  * Phone: +358 40 7497961
+  * Office: Remote
+  * Phone: +47 92492011
 
 
 Course assistants
 ~~~~~~~~~~~~~~~~~
 
-* Sonja Koivisto
-* Emil Ehnström
+* Bryan R. Vallejo
 * Aleksi Rantanen
 
 Course websites
@@ -54,11 +53,11 @@ Course websites
 
   - Main course site: `<https://geo-python.github.io>`_
   - Notebooks by CSC: `<https://notebooks.csc.fi>`_
-  - Slack (Q&A + chat): `<https://geo-python-2020.slack.com>`_
+  - Slack (Q&A + chat): `<https://geo-python2021.slack.com>`_
   - Polling / voting (active during lectures only): `<https://geo-python.github.io/poll>`_
 
 - Course websites for Period II
 
   - Automating GIS processes (GEOG-329-2): `<https://autogis.github.io>`_
-  - Introduction to Quantitative Geology (GEOK_3031 - taught next time in 2021): `<https://introqg.github.io>`_
+  - Introduction to Quantitative Geology (GEOK_3031): `<https://introqg.github.io>`_
 
