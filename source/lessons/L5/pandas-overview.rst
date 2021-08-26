@@ -21,7 +21,7 @@ Wes McKinney first `developed Pandas as an alternative for R <https://blog.quant
 Combines functionalities from many Python modules
 -------------------------------------------------
 
-Pandas takes advantage of the `numpy <http://www.numpy.org/>`__ -module which runs under the hood and is mostly written in C,
+Pandas takes advantage of the `numpy <http://www.numpy.org/>`__ module which runs under the hood and is mostly written in C,
 which makes it a fast and powerful library that can handle efficiently even large datasets.
 Pandas offers easier and more intuitive syntax to do data analysis and manipulation using either `numpy`
 functionalities in the background or dedicated functionalities written explicitly for Pandas.
@@ -46,4 +46,4 @@ Pandas supports reading and writing data e.g. from/to:
 - Python Pickle format
 - SQL (Postgresql, MySQL, Oracle, MariaDB, etc.)
 
-See full list from `Pandas docs <http://pandas.pydata.org/pandas-docs/version/0.20/io.html>`__.
+See the full list from the `Pandas docs <https://pandas.pydata.org/docs/user_guide/io.html>`__.
