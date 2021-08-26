@@ -3,7 +3,7 @@ Lesson overview
 
 This week we will focus on making decisions and repeating tasks in Python.
 Both of these concepts are part of the larger computing idea called *control flow*, which refers to how the execution of different parts of a computer program is determined.
-We will learn how to alter the execution of our scripts are using (1) *loops*, which are used to repeat execution of parts of a program, and (2) *conditional statements*, which use basic logical tests to determine which parts of a program will be run.
+We will learn how to alter the execution of our scripts using (1) *loops*, which are used to repeat execution of parts of a program, and (2) *conditional statements*, which use basic logical tests to determine which parts of a program will be run.
 The main components of today's lesson can be found in the navigation bar to the left.
 
 Learning goals
