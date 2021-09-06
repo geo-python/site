@@ -4,8 +4,13 @@ Useful books and sites
 In addition to our course, there are countless of excellent books, tutorials and examples related to programming in Python.
 Here we list some good places to look for further information.
 
-Books
------
+Introduction to Python for Geographic Data Analysis
+---------------------------------------------------
+
+Henrikki Tenkanen, Vuokko Heikinheimo, and David Whipp (all current or past course teachers) are working on a textbook that is based on the Geo-Python and Automating GIS processes courses. The book will be openly available online and is currently under development during the next year. Much of the material in the first part of the book draft is very similar to that in this course, but in case you are interested we invite you to have a look at the latest draft of the book at `<https://python-gis-book.readthedocs.io/en/latest/>`_.
+
+Other books
+-----------
 
 There are **no required textbooks** for this course. This course uses a wide range of sources for course information and the main textbooks are given below.
 
@@ -34,4 +39,3 @@ Git + Github tutorials
 - `Tutorial on few extra features of GitHub not (most probably) covered in this course (e.g. branch, pull-request, merge) <https://guides.github.com/activities/hello-world/>`__
 - `A TechCrunch article about 'What is GitHub Anyway?' <https://techcrunch.com/2012/07/14/what-exactly-is-github-anyway/>`__
 - `A list of resources for learning Git and GitHub <https://help.github.com/articles/good-resources-for-learning-git-and-github/>`__
-
