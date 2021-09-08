@@ -9,10 +9,10 @@ During this course we will use `Slack <http://slack.com>`__ for discussion and q
 Accessing the workspace in Slack
 --------------------------------
 
-We will send an invitation link for all enrolled students to the Slack Team called ``Geo-Python-2020``.
+We will send an invitation link for all enrolled students to the Slack Team called ``Geo-Python 2021``.
 Before you can start using Slack, you should create a new account for Slack (if you don't have one already) and accept the invitation you have received.
 
-**After accepting the invitation, you can access the course Slack team via this link:** `<http://geo-python-2020.slack.com>`__
+**After accepting the invitation, you can access the course Slack team via this link:** `<http://geo-python2021.slack.com>`__
 
 Overview of Slack
 -----------------
@@ -65,8 +65,9 @@ to start discussing about and press button in the middle that creates a new thre
 
    Organizing discussion with threads.
 
-You can view the active thread by pressing the thread that has some replies. The thread opens up as a new panel on the right side where you will see all the discussion that
-is relevant for the question at hand. You can send your comments into that thread by putting your comment on the text box on the right:
+You can view the active thread by pressing the thread that has some replies.
+The thread opens up as a new panel on the right side where you will see all the discussion that is relevant for the question at hand.
+You can send your comments into that thread by putting your comment on the text box on the right:
 
 .. figure:: img/answering-thread.PNG
    :alt: Viewing and answering to a specific thread can be done with dedicated panel on the right.
@@ -83,8 +84,8 @@ Here we have few general guidelines for using Slack to keep things well organize
 
   1. **You should always select the right channel for your question!**
 
-    - If you have question related to week 2 lesson or exercise, you make your question in channel ``week-2``.
-    - If you want to share a funny GIF you found online, you can post it into channel ``random``.
+    - If you have question related to week 2 lesson or exercise, you make your question in channel ``#week-2``.
+    - If you want to share a funny GIF you found online, you can post it into channel ``#random``.
 
   2. Use threads to maintain the discussion of specific topic under the same question / comment.
 
