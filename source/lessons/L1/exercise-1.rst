@@ -85,9 +85,7 @@ Summary (what to submit)
 ------------------------
 
 1. Post a message in the `#week-1 <https://geo-python2021.slack.com/archives/C02D923SLTT>`__ channel at `Geo-Python2021.slack.com <https://geo-python2021.slack.com>`__ with your name, GitHub username and course.
-2. Accept Exercise-1 in Github classroom and upload the jupyter notebook (file name should be ``Exercise-1.ipynb``) containing your solutions for Part 2.
-
-We ask that you complete this exercise by **the start of the next lesson**.
+2. Accept Exercise-1 in Github classroom and upload the jupyter notebook (file name should be ``Exercise-1.ipynb``) containing your solutions for Part 3.
 
 .. admonition:: Private repositories
 
