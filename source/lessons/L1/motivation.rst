@@ -7,7 +7,7 @@ These include:
 
 1. Writing programs that are easy to understand and share
 2. Keeping a log of the changes you make to your programs
-3. Using programs that ensure your science is reproducible
+3. Creating programs that ensure your science is reproducible
 4. Producing simple, effective data visualizations that make your results accessible and easy to understand
 
 To help clarify our goals, consider the example below.
