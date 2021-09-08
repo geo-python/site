@@ -93,7 +93,7 @@ CSC Notebooks is available only for students who are affiliated with Finnish uni
     2. Go to Account-tab
     3. Join Group **Geo-Python** using the joining code: ``geo-python-tadl4``
 
-    After joining the group, you should be able to view twn new environment called `Geo-Python 2021` on the Dashboard.
+    After joining the group, you should be able to view the course environments called `Geo-Python 2021` on the Dashboard.
 
 .. figure:: img/CSC_join_group.png
    :alt: Join Group in CSC Notebooks
