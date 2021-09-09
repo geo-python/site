@@ -49,9 +49,6 @@ Lesson videos
 Lecture slides
 --------------
 
-Lecture slides will be added after the first lesson.
+.. admonition:: Lesson slides
 
-..
-    .. admonition:: Lesson slides
-
-        `Slides for Lecture 1 (PDF) <../../_static/01-Computers-and-programs.pdf>`__
+    `Slides for Lecture 1 (PDF) <../../_static/01-Computers-and-programs.pdf>`__
