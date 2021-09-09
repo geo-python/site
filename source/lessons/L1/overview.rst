@@ -24,7 +24,19 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-Additional lesson videos will be added after the first lesson.
+.. admonition:: Lesson 1.1 - Course introduction and computing basics
+
+    .. raw:: html
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/swtAsYPczSE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Dave Whipp & Håvard Aagesen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+
+.. admonition:: Lesson 1.2 - Course environment and a taste of Python
+
+    .. raw:: html
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/6y-MQ1VaDgQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Dave Whipp & Håvard Aagesen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
 .. admonition:: GCP 1 - Selecting "good" variable names
 
@@ -33,20 +45,6 @@ Additional lesson videos will be added after the first lesson.
         <iframe width="560" height="315" src="https://www.youtube.com/embed/G0FZkgbQYGg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
-..
-    .. admonition:: Lesson 1.1 - Course introduction and computing basics
-
-        .. raw:: html
-
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/WX5P_2gapps" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
-
-    .. admonition:: Lesson 1.2 - Course environment and a taste of Python
-
-        .. raw:: html
-
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/29iiE-HCPUQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
 Lecture slides
 --------------
