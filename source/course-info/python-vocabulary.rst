@@ -33,6 +33,11 @@ Terms are listed in alphabetical order in English. Finnish terms and definitions
 
      *Definition to be given in Finnish.*
 
+  list (*lista*)
+     A data type in Python that can be used to store collections of values. The data in lists can be heterogeneous and data can be added or removed from lists. Index values can be used to access invididual list items.
+
+     *Definition to be given in Finnish.*
+
   module (*moduuli*)
      A file containing Python definitions and statements. Module files have the ``.py`` file extension.
 
