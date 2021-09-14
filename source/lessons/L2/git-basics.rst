@@ -53,12 +53,66 @@ You can find instructions for using Binder and CSC Notebooks in :doc:`Lesson 1 m
 .. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
    :target: https://notebooks.csc.fi/#/blueprint/7e62ac3bddf74483b7ac7333721630e2
 
-Before we continue, we need the URL of your exercise repository from GitHub. **Go to** https://github.com/geo-python-2020/ **and navigate to your personal Exercise-1 repository.**
+Open a text file in the JupyterLab session, as we will need that after the next section.
+
+Create a Personal Access Token
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Before we start cloning our repository from GitHub, we need to create a Personal Access Token for us to be able to interact with GitHub. We will go through the basic setup here, you can also find more detailed instructions in the `GitHub documentation <https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token>`_.
+
+If you have not already verified your email address, make sure to do so in your GitHub-settings (`GitHub email verification <https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address>`_). On GitHub, go into your settings.
+
+.. image:: https://docs.github.com/assets/images/help/settings/userbar-account-settings.png
+    :width: 200
+
+Go to the **developer settings** in the left sidebar.
+
+.. image:: https://docs.github.com/assets/images/help/settings/developer-settings.png
+    :width: 200
+
+Then click on **Personal access tokens**.
+
+.. image:: https://docs.github.com/assets/images/help/settings/personal_access_tokens_tab.png
+    :width: 200
+
+Then we will create the token by clicking on **Generate new token**.
+
+.. image:: https://docs.github.com/assets/images/help/settings/generate_new_token.png
+    :width: 500
+
+Start by giving your token a name.
+
+.. image:: img/token_name.png
+    :width: 500
+
+We will then give the token a expiration date. You can choose the duration you prefer, here we set it to the end of the year.
+
+.. image:: img/token_expiration.png
+    :width: 300
+
+Next, we need to set the permissions, or scopes, that our token is granted. We are going to need it to be able to access and change our repositories. For that, we can select the check marks **repo**, **admin:repo_hook**, and **delete_repo**.
+
+.. image:: img/token_scopes.png
+    :width: 500
+
+Then we can click the **Generate token** button to create and see our token.
+
+.. image:: https://docs.github.com/assets/images/help/settings/generate_token.png
+    :width: 350
+
+We are then presented with our Personal access token, click the copy button to copy it to your clipboard and then paste it into your text file in the JupyterLab session.
+
+.. image:: https://docs.github.com/assets/images/help/settings/personal_access_tokens.png
+    :width: 500
+
+Make sure you have your Personal access token copied and pasted in your text file, because for now we are going to use it like this, and we will later see how we can cache it so that we don't need to copy and paste it every time we need it. If your access token is lost, then you can just follow the steps above again to create a new one.
+
+Now the first thing we need is the URL of your exercise repository from GitHub. **Go to** https://github.com/geo-python-2021/ **and navigate to your personal Exercise-1 repository.**
 
 On GitHub, find the button **Clone** and copy the url under *Clone with HTTPS*.
 
 The URL looks something like this:
-https://github.com/Geo-Python-2020/exercise-1-VuokkoH.git but with your own username or team name.
+https://github.com/Geo-Python-2021/exercise-1-haavardaagesen.git but with your own username or team name.
 
 .. figure:: img/git-copy-url.png
 
@@ -97,7 +151,7 @@ Credentials
 
 Git needs to know who you are in order to give you access to remote repositories.
 
-**Insert your GitHub username and password**:
+**Insert your GitHub username and personal access token**:
 
 .. figure:: img/git-plugin-credentials.png
 
@@ -122,18 +176,21 @@ Add changes
 Let's start making changes in the repository! Open the ``README.md`` -file and make some edits. For example, add some text at the end of the file:
 
 .. figure:: img/edit-readme.png
+    :width: 750
 
     Edit a file in JupyterLab
 
 After saving your changes, check the status of the repository. You should see ``README.md`` listed under **Changed** files:
 
 .. figure:: img/git-plugin-changed.png
+    :width: 350
 
     Changes visible in the Git plugin
 
 These changes are not yet "staged for commit", which means that we need to add them first to the staging area if we want to make a permanent snapshot of these changes.
 
 .. figure:: img/git-plugin-stage-changes.png
+    :width: 350
 
 After adding the changes, you should see the changed file under **Staged** in the Git plugin.
 
@@ -149,6 +206,7 @@ Once the changed files are in the staging area, we can create a permanent snapsh
 Always remember to write an informative commit message to accompany your changes:
 
 .. figure:: img/git-plugin-commit.png
+    :width: 300
 
 Once you hit the commit-button, the plugin will most likely ask your name and email.
 
@@ -168,11 +226,19 @@ On the command line the syntax for committing is ``git commit -m "commit message
 
 .. note::
 
-    We can **tell Git to remember our GitHub username and password** to avoid typing them in all the time. Open up a Terminal window and type in this command:
+    We can **tell Git to remember our GitHub username and access token** to avoid typing them in all the time. Open up a Terminal window and type in this command:
 
-    ``git config --global credential.helper 'cache --timeout=3600'``
+    ``git config --global credential.helper store``
 
-    The ``--timeout`` parameter specifies the time Git remembers our credentials in seconds.  See instructions for other operating systems than linux `here <https://help.github.com/en/articles/caching-your-github-password-in-git>`__.
+    Then change the folder you are in by typing (with your username):
+
+    ``cd excercise-1-haavardaagesen/``
+
+    We then pull from our GitHub repository:
+
+    ``git pull``
+
+    Type your username, press enter, and go to the text file with your access token, copy it, and paste into your terminal with **ctrl+shift+v** and press enter. Then your username and access token should be stored and you can pull and push to and from GitHub without having to type your access token every time.
 
 
 Push changes to GitHub
@@ -184,7 +250,6 @@ Next, we want to synchronize our local changes with the remote repository on Git
     Buttons for Pulling and Pushing changes between the local and remote repositories
 
 First, it's good to use :code:`git pull` (button with arrow down) to double check for remote changes before contributing your own changes.
-Unless you cached your credentials, Git will once more prompt you for username and password at this point.
 
 .. figure:: img/git-plugin-pull-ok.png
 
@@ -194,7 +259,7 @@ Now we are ready to push the local changes to GitHub using :code:`git push` (but
 
 .. figure:: img/git-plugin-push-ok.png
 
-Now you should see the updates in GitHub! Go and have a look at your personal repository in https://github.com/Geo-Python-2020/ .
+Now you should see the updates in GitHub! Go and have a look at your personal repository in https://github.com/Geo-Python-2021/ .
 
 On the command line, ``git pull`` fetches and merges changes from the remote repository, and ``git pull`` publishes local changes.
 
