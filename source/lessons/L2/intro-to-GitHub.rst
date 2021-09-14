@@ -1,10 +1,10 @@
 Introduction to Version Control
-================================
+===============================
 
-**Sources**
+Sources
+-------
 
-These materials are inspired and partially based on Software Carpentry's
-lesson on `Version Control with Git <http://swcarpentry.github.io/git-novice/>`__ and `GitHub Campus Advisor materials <https://education.github.com/teachers/advisors>`__.
+These materials are inspired and partially based on the Software Carpentry lesson on `Version Control with Git <http://swcarpentry.github.io/git-novice/>`__ and the `GitHub Campus Advisor materials <https://education.github.com/teachers/advisors>`__.
 
 Familiar?
 ---------
@@ -21,24 +21,16 @@ Familiar?
 
 .. admonition:: Wouldn't it be nice to learn how to avoid this situation!?!?
 
-   We’ve all been in this situation before: it seems ridiculous to have
-   multiple nearly-identical versions of the same document. Some word
-   processors let us deal with this a little better, such as Microsoft
-   Word’s “Track Changes”, however, it can be quite unpractical if you would like to see
-   changes that are older than your previous changes.
+   We’ve all been in this situation before; it seems ridiculous to have multiple nearly identical versions of the same document.
+   Some word processors let us deal with this situation a little better, such as with Microsoft Word’s “Track Changes” feature, however, it can be quite impractical if you would like to see changes that are older than your previous round of changes.
 
 What is version control?
 ------------------------
 
-`Version control <https://en.wikipedia.org/wiki/Version_control>`__ is
-used to track and store changes in your files without losing the history
-of your past changes.
+`Version control <https://en.wikipedia.org/wiki/Version_control>`__ is used to track and store changes in your files without losing the history of your past changes.
 
-Version control systems start with a base version of the document and
-then save just the changes you made at each step of the way. You can
-think of it as a tape: if you rewind the tape and start at the base
-document, then you can play back each change and end up with your latest
-version.
+Version control systems start with a base version of the document and then save just the changes you make at each step of the way.
+You can think of it as a tape: if you rewind the tape and start at the base document, then you can play back each change and end up with your latest version.
 
 .. figure:: img/play-changes.PNG
    :alt: Illustration of committing changes
@@ -174,7 +166,7 @@ features or auditing old ones.
 
 
 Basic vocabulary
------------------
+----------------
 
 Few basic terms that are used often when using git and GitHub (not exhaustive).
 
