@@ -53,7 +53,6 @@ You can find instructions for using Binder and CSC Notebooks in :doc:`Lesson 1 m
 .. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
    :target: https://notebooks.csc.fi/#/blueprint/7e62ac3bddf74483b7ac7333721630e2
 
-Open a text file in the JupyterLab session, as we will need that after the next section.
 
 Create a Personal Access Token
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -105,7 +104,7 @@ We are then presented with our Personal access token, click the copy button to c
 .. image:: https://docs.github.com/assets/images/help/settings/personal_access_tokens.png
     :width: 500
 
-Make sure you have your Personal access token copied and pasted in your text file, because for now we are going to use it like this, and we will later see how we can cache it so that we don't need to copy and paste it every time we need it. If your access token is lost, then you can just follow the steps above again to create a new one.
+Open a text document and copy and paste your Personal access token in your text file, because for now we are going to use it like this, and we will later see how we can cache it so that we don't need to copy and paste it every time we need it. If your access token is lost, then you can just follow the steps above again to create a new one.
 
 Now the first thing we need is the URL of your exercise repository from GitHub. **Go to** https://github.com/geo-python-2021/ **and navigate to your personal Exercise-1 repository.**
 
