@@ -15,6 +15,12 @@ This helps catch small typographical mistakes quickly, as well as having both pe
 How we will use pairs
 ---------------------
 
+.. figure:: img/driver-navigator.png
+   :alt: Rally driver and navigator
+   :width: 800px
+
+   A rally car driver and navigator in action.
+
 We don't intend to implement all aspects of pair programming in our pairs, but we want to capture the essence of the practice.
 Here is how we suggest you work in your pairs:
 
