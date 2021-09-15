@@ -7,19 +7,19 @@ Exercise 2
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 2 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/6pjnCyXd>`__.
+    **You can start working on your copy of Exercise 2 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/F8QVK7Q5>`__.
 
-You can also take a look at at the template repository for `Exercise 2 on GitHub <https://github.com/Geo-Python-2020/Exercise-2>`__ (does not require logging in).
+You can also take a look at at the template repository for `Exercise 2 on GitHub <https://github.com/Geo-Python-2021/Exercise-2>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
 Cloud computing environments
------------------------------
+----------------------------
 
 .. image:: https://img.shields.io/badge/launch-binder-red.svg
-   :target: https://mybinder.org/v2/gh/Geo-Python-2020/Binder/master?urlpath=lab
-
+   :target: https://mybinder.org/v2/gh/Geo-Python-2021/Binder/main?urlpath=lab
+   
 .. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
-   :target: https://notebooks.csc.fi/#/blueprint/7e62ac3bddf74483b7ac7333721630e2
+   :target: https://notebooks.csc.fi/#/blueprint/1b4c5cbce4ab4acb8976e93a1f4de3dc 
 
 Exercise 2 hints
 ----------------
@@ -29,14 +29,8 @@ Here are a few things that may be helpful in completing Exercise 2.
 Git
 ~~~
 
-You can find step-by-step instructions for using Git `in here <git-basics.html>`__.
-Remember to commit your changes after each major edit! Also, it's better to push your changes to GitHub every now and then, rather than only at the very end.
-
-List methods
-~~~~~~~~~~~~
-
-In Problem 2 you will likely need two lists and to use the ``.index()`` method.
-These were covered in `this week's lesson <python-basic-elements.html#the-concept-of-objects>`__.
+You can find step-by-step instructions for using Git `here <git-basics.html>`__.
+Remember to commit your changes after each major edit! Also, it's better to push your changes to GitHub frequently, rather than only at the very end of the exercise.
 
 Indentation woes
 ~~~~~~~~~~~~~~~~
@@ -50,7 +44,7 @@ This is perhaps easiest to see with an example.
         dogs = 0
     print('My name is', name, 'and I own', dogs, 'dogs.')
 
-If you copy and paste this code into the **Jupyter Notebook** cell and run it, you will see that is gives an ``IndentationError``.
+If you copy and paste this code into a **Jupyter Notebook** cell and run it, you will see that is gives an ``IndentationError``.
 
 .. code:: python
 
@@ -72,4 +66,3 @@ Now, running the code results in the expected output.
 .. code:: python
 
     My name is Dave and I own 0 dogs.
-

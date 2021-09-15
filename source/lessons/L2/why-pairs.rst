@@ -15,6 +15,12 @@ This helps catch small typographical mistakes quickly, as well as having both pe
 How we will use pairs
 ---------------------
 
+.. figure:: img/driver-navigator.png
+   :alt: Rally driver and navigator
+   :width: 800px
+
+   A rally car driver and navigator in action.
+
 We don't intend to implement all aspects of pair programming in our pairs, but we want to capture the essence of the practice.
 Here is how we suggest you work in your pairs:
 
@@ -25,7 +31,7 @@ Here is how we suggest you work in your pairs:
 - The driver will clone the GitHub repository and be responsible for the version of the exercise solutions that will be graded
 - When working, the driver should open the exercise on their computer and arrange for the navigator to be able to view their screen
 
-  - This can be done in person (keeping appropriate social distancing) or via screen sharing in Zoom or other similar software
+  - This can be done in person (following relevant COVID guidelines) or via screen sharing in Zoom (or other similar software)
 
 - The driver will write the Python and/or Markdown code, while the navigator follows on their screen
 - The navigator should be actively involved in suggesting ideas, corrections, and otherwise interacting with the driver to help jointly generate the code
@@ -48,6 +54,3 @@ We would like to remind you that:
   - The navigator is welcome to make their own copy of the exercise if they would like to complete the exercise themselves for practice, however we will not grade the navigator's exercise
 
 - The driver *can* add the navigator as a private collaborator in GitHub, but we would prefer that only the driver make changes to the exercise code in their GitHub repository
-- This is an experiment for 2020 and we would appreciate your feedback on how things go
-
-  - We will provide an e-form for anonymous feedback about the exercises each week
