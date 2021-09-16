@@ -108,7 +108,7 @@ Open a text document and copy and paste your Personal access token in your text 
 
 Now the first thing we need is the URL of your exercise repository from GitHub. **Go to** https://github.com/geo-python-2021/ **and navigate to your personal Exercise-1 repository.**
 
-On GitHub, find the button **Clone** and copy the url under *Clone with HTTPS*.
+On GitHub, find the button **Code** and copy the url under *Clone with HTTPS*.
 
 The URL looks something like this:
 https://github.com/Geo-Python-2021/exercise-1-haavardaagesen.git but with your own username or team name.
@@ -227,17 +227,17 @@ On the command line the syntax for committing is ``git commit -m "commit message
 
     We can **tell Git to remember our GitHub username and access token** to avoid typing them in all the time. Open up a Terminal window and type in this command:
 
-    ``git config --global credential.helper store``
+    ``git config --global credential.helper 'store --file /home/jovyan/work/.git-credentials'``
 
     Then change the folder you are in by typing (with your username):
 
-    ``cd excercise-1-haavardaagesen/``
+    ``cd exercise/excercise-1-haavardaagesen/``
 
     We then pull from our GitHub repository:
 
     ``git pull``
 
-    Type your username, press enter, and go to the text file with your access token, copy it, and paste into your terminal with **ctrl+shift+v** and press enter. Then your username and access token should be stored and you can pull and push to and from GitHub without having to type your access token every time.
+    Type your username, press enter, and go to the text file with your access token, copy it, and paste into your terminal with **ctrl+v** and press enter. Then your username and access token should be stored and you can pull and push to and from GitHub without having to type your access token every time.
 
 
 Push changes to GitHub
