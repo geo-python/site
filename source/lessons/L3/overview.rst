@@ -20,17 +20,16 @@ Lesson videos
 
 Lesson videos will be added after the lesson.
 
-..
-    .. admonition:: Lesson 3.1 - Repeating tasks with loops
+.. admonition:: Lesson 3.1 - Repeating tasks with loops
 
-        .. raw:: html
+    .. raw:: html
 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/pmoQOyaYWfI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/0lujxR9KE7U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Dave Whipp & Håvard Aagesen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
-    .. admonition:: Lesson 3.2 - Conditional statements
+.. admonition:: Lesson 3.2 - Conditional statements
 
-        .. raw:: html
+    .. raw:: html
 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/7pK8W4fqhW4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/WcCbKyih6yA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Dave Whipp & Håvard Aagesen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
