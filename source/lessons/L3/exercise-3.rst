@@ -7,9 +7,9 @@ Exercise 3
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 3 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/_wibmH9c>`__.
+    **You can start working on your copy of Exercise 3 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/eZvlA28I>`__.
 
-You can also take a look at the template repository for `Exercise 3 on GitHub  <https://github.com/Geo-Python-2020/Exercise-3>`__ (does not require logging in).
+You can also take a look at the template repository for `Exercise 3 on GitHub <https://github.com/Geo-Python-2021/Exercise-3>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
 .. admonition:: Pair programming
@@ -19,14 +19,13 @@ Note that you should not try to make changes to this copy of the exercise, but r
     See more information in Slack, and in week 2: `Why are we working in pairs? <https://geo-python-site.readthedocs.io/en/latest/lessons/L2/why-pairs.html>`_
 
 Cloud computing environments
------------------------------
+----------------------------
 
 .. image:: https://img.shields.io/badge/launch-binder-red.svg
-   :target: https://mybinder.org/v2/gh/Geo-Python-2020/Binder/master?urlpath=lab
-
+   :target: https://mybinder.org/v2/gh/Geo-Python-2021/Binder/main?urlpath=lab
+   
 .. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
-   :target: https://notebooks.csc.fi/#/blueprint/7e62ac3bddf74483b7ac7333721630e2
-
+   :target: https://notebooks.csc.fi/#/blueprint/1b4c5cbce4ab4acb8976e93a1f4de3dc 
 
 Exercise 3 hints
 ----------------
@@ -34,7 +33,7 @@ Exercise 3 hints
 Here are a few things that may be helpful in completing Exercise 3.
 
 Tests
-~~~~~~
+~~~~~
 
 The exercise notebook contains some tests help you see if your code is working correctly. Some code cells contain
 a line that says: `raise NotImplementedError()`. Always remove this piece of code from your submission and replace
@@ -82,10 +81,3 @@ Take a look of following example:
             print("Well this is Finland, better wear long trousers!")
    else:
         print("Check the weather forecast!")
-
-
-
-
-
-
-
