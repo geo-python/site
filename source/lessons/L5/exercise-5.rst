@@ -7,9 +7,9 @@ Exercise 5
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 5 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/8WpdJqyv>`__.
+    **You can start working on your copy of Exercise 5 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/PBeBzSr6>`__.
 
-You can also take a look at the template repository for `Exercise 5 on GitHub <https://github.com/Geo-Python-2020/Exercise-5>`__ (does not require logging in).
+You can also take a look at the template repository for `Exercise 5 on GitHub <https://github.com/Geo-Python-2021/Exercise-5>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
 .. admonition:: Pair programming (optional!)
@@ -22,10 +22,10 @@ Cloud computing environments
 -----------------------------
 
 .. image:: https://img.shields.io/badge/launch-binder-red.svg
-   :target: https://mybinder.org/v2/gh/Geo-Python-2020/Binder/master?urlpath=lab
-
+   :target: https://mybinder.org/v2/gh/Geo-Python-2021/Binder/main?urlpath=lab
+   
 .. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
-   :target: https://notebooks.csc.fi/#/blueprint/7e62ac3bddf74483b7ac7333721630e2
+   :target: https://notebooks.csc.fi/#/blueprint/1b4c5cbce4ab4acb8976e93a1f4de3dc
 
 Exercise 5 hints
 ----------------
@@ -35,14 +35,14 @@ Below are some tips for working on Exercise 5.
 Selecting date ranges
 ~~~~~~~~~~~~~~~~~~~~~
 
-In the Problem 4 part 2, the aim is to select rows that belong to certain month. The key here is to understand that
-the data values in ``YR--MODAHRMN`` column are integer numbers using a format ``YYYYMMDDHHmm`` where ``YYYY`` is the
+In the Part 3 of Problem 3, the aim is to select rows that belong to certain month. The key here is to understand that
+the data values in the ``YR--MODAHRMN`` column are integer numbers using a format ``YYYYMMDDHHmm`` where ``YYYY`` is the
 year of the observation, ``MM`` is the month, ``DD`` is the day, ``HH`` is the hour, and ``mm`` is the minute.
 
-Using these values it is possible to make simple mathematical queries such as finding the values starting from August:
+Using these values it is possible to make simple mathematical queries such as finding the values starting from the beginning of August, 2017:
 
 .. code-block:: python
 
     august_values = data.loc[data['YR--MODAHRMN'] >= 201708010000]
 
-Here, the value ``201708010000`` corresponds to the first day of August at 00:00 hour.
+Here, the value ``201708010000`` corresponds to the first day of August at the hour 00:00.
