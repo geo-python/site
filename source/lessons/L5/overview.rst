@@ -21,7 +21,6 @@ Lesson videos
 Lesson videos will be posted following the lesson.
 
 ..
-
     .. admonition:: Lesson 5.1 - Exploring data using pandas
 
         .. raw:: html
