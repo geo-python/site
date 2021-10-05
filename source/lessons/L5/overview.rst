@@ -11,7 +11,7 @@ Learning goals
 
 After this weeks lesson your should be able to:
 
-- Read and explore tabular data in Python (using the Pandas library)
+- Read and explore tabular data in Python (using the pandas library)
 - Do simple data analysis using pandas data structures and functions
 - Write data to a .csv text file
 
@@ -22,14 +22,14 @@ Lesson videos will be posted following the lesson.
 
 ..
 
-    .. admonition:: Lesson 5.1 - Exploring data using Pandas
+    .. admonition:: Lesson 5.1 - Exploring data using pandas
 
         .. raw:: html
 
             <iframe width="560" height="315" src="https://www.youtube.com/embed/v9bdB8H6evU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
-    .. admonition:: Lesson 5.2 - Processing data using Pandas
+    .. admonition:: Lesson 5.2 - Processing data using pandas
 
         .. raw:: html
 
