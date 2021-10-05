@@ -1,4 +1,4 @@
-What is Pandas?
+What is pandas?
 ===============
 
 .. figure:: img/pandas_logo.png
