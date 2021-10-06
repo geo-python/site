@@ -1,8 +1,8 @@
 Summary of mid-term course feedback
 ===================================
 
-1. Is the pace of the lessons too fast, too slow, or about right?
------------------------------------------------------------------
+Is the pace of the lessons too fast, too slow, or about right?
+--------------------------------------------------------------
 
 *27 responses*
 
@@ -11,8 +11,8 @@ Summary of mid-term course feedback
 - More time for some of the demos would be good
 - It can be too fast sometimes, but rewatching with the lesson videos and pausing them helps
 
-2. Is the content of the lessons too simple, too difficult, or about right?
----------------------------------------------------------------------------
+Is the content of the lessons too simple, too difficult, or about right?
+------------------------------------------------------------------------
 
 *27 responses*
 
@@ -26,8 +26,8 @@ Summary of mid-term course feedback
 - Sometimes it feels like there is a bit too much material in the lessons
 - Easier than the exercises
 
-3. Is the content of the exercises too simple, too difficult, or about right?
------------------------------------------------------------------------------
+Is the content of the exercises too simple, too difficult, or about right?
+--------------------------------------------------------------------------
 
 *27 responses*
 
@@ -40,8 +40,8 @@ Summary of mid-term course feedback
 - Challenging, but not too challenging
 - Way more difficult than the material in the lessons. I need help from others in the course to complete them.
 
-4. Which aspect(s) of the course is/are most helpful to you?
-------------------------------------------------------------
+Which aspect(s) of the course is/are most helpful to you?
+---------------------------------------------------------
 
 *27 responses*
 
@@ -59,8 +59,8 @@ Summary of mid-term course feedback
 - How to use Python in GIS
 - The way the course prepares for working with files in a scripted manner
 
-5. Which aspect(s) of the course is/are least helpful to you?
--------------------------------------------------------------
+Which aspect(s) of the course is/are least helpful to you?
+----------------------------------------------------------
 
 *21 responses*
 
@@ -76,8 +76,8 @@ Summary of mid-term course feedback
 - The schedule for the course. It would be nice to be more flexible.
 - Weeks when I am not the driver for the exercise
 
-6. Useful parts of the course
------------------------------
+Useful parts of the course
+--------------------------
 
 On a scale from 1 to 5, how useful do you find the different elements of this course? (1=not at all useful, 5=very useful): 
 
@@ -87,8 +87,8 @@ On a scale from 1 to 5, how useful do you find the different elements of this co
 - Pair programming: 4.74 ± 0.56 (19 responses)
 - Slack: 3.46 ± 1.24 (26 responses)
 
-7. What suggestions do you have for improving this course? Comments related to online teaching would be especially useful!
---------------------------------------------------------------------------------------------------------------------------
+What suggestions do you have for improving this course? Comments related to online teaching would be especially useful!
+-----------------------------------------------------------------------------------------------------------------------
 
 *21 responses*
 
@@ -109,8 +109,8 @@ On a scale from 1 to 5, how useful do you find the different elements of this co
 - Pacing of the lessons and exercise sessions could be more spread out so there is time after the lessons before the exercise sessions
 - More exercises
 
-8. Do you have any other general comments about the course?
------------------------------------------------------------
+Do you have any other general comments about the course?
+--------------------------------------------------------
 
 *12 responses*
 
