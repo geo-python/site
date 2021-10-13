@@ -1,7 +1,7 @@
 Lesson overview
 ===============
 
-This week we will continue to work with `Pandas <http://pandas.pydata.org/>`__, a modern and feature-rich and powerful data analysis framework for Python that is designed to make data analysis and manipulation straightforward using easy-to-use data structures and operations.
+This week we will continue to work with `pandas <http://pandas.pydata.org/>`__, a modern, feature-rich, and powerful data analysis framework for Python that is designed to make data analysis and manipulation straightforward using easy-to-use data structures and operations.
 
 In the second half of the lesson we will focus on debugging.
 Many new programmers struggle with removing problems in their code (debugging) because they start randomly making changes without a clear picture of what is wrong or even what the code should do!
@@ -20,16 +20,19 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-.. admonition:: Lesson 6.1 - Data analysis with Pandas
+Videos will be added after the lesson.
 
-    .. raw:: html
+..
+    .. admonition:: Lesson 6.1 - Data analysis with Pandas
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/0bY225OWuIA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+        .. raw:: html
 
-.. admonition:: Lesson 6.2 - Data analysis with Pandas (ctd.)
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/0bY225OWuIA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
-    .. raw:: html
+    .. admonition:: Lesson 6.2 - Data analysis with Pandas (ctd.)
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/4i_U0viixEM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+        .. raw:: html
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/4i_U0viixEM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
