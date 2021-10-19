@@ -3,7 +3,7 @@ Exercise 7
 
 .. note::
 
-    Exercise 7 is due by **17:00 on Friday, October 29th**.
+    Exercise 7 is due by **17:00 on Friday, October 29, 2021**.
 
 .. admonition:: Start your assignment
 
