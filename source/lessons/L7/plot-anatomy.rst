@@ -40,25 +40,25 @@ For the list provided here we are using the typical terms for plotting in Matplo
 +---------------+-----------------------------------------------------------------------------------------------------------------------------+
 | Term          | Description                                                                                                                 |
 +===============+=============================================================================================================================+
-| *axis*        | Axes of the graph that are typically x, y, and z (for 3D plots).                                                             |
+| *axis*        | Axes of the graph that are typically x, y, and z (for 3D plots).                                                            |
 +---------------+-----------------------------------------------------------------------------------------------------------------------------+
-| *title*       | Title of the plot.                                                                                                        |
+| *title*       | Title of the plot.                                                                                                          |
 +---------------+-----------------------------------------------------------------------------------------------------------------------------+
-| *label*       | Name for the axis (e.g. xlabel or ylabel).                                                                                   |
+| *label*       | Name for the axis (e.g. xlabel or ylabel).                                                                                  |
 +---------------+-----------------------------------------------------------------------------------------------------------------------------+
-| *legend*      | Legend for the plot.                                                                                                         |
+| *legend*      | Legend for the plot.                                                                                                        |
 +---------------+-----------------------------------------------------------------------------------------------------------------------------+
-| *tick label*  | Text or values that are represented on the axis.                                                                             |
+| *tick label*  | Text or values that are represented on the axis.                                                                            |
 +---------------+-----------------------------------------------------------------------------------------------------------------------------+
 | *symbol*      | Symbol for data point(s) (on a scatter plot) that can be presented with different symbol shapes/colors.                     |
 +---------------+-----------------------------------------------------------------------------------------------------------------------------+
 | *size*        | Size of, for example, a point on a scatter plot. Also used for referring to the text sizes on a plot.                       |
 +---------------+-----------------------------------------------------------------------------------------------------------------------------+
-| *linestyle*   | The style how the line should be drawn. Can be solid or dashed, for example.                                                 |
+| *linestyle*   | The style how the line should be drawn. Can be solid or dashed, for example.                                                |
 +---------------+-----------------------------------------------------------------------------------------------------------------------------+
-| *linewidth*   | The width of a line on a plot.                                                                                               |
+| *linewidth*   | The width of a line on a plot.                                                                                              |
 +---------------+-----------------------------------------------------------------------------------------------------------------------------+
-| *alpha*       | Transparency level of a filled element in a plot (values between 0.0 (fully transparent) and 1.0 (no transparency)). |
+| *alpha*       | Transparency level of a filled element in a plot (values between 0.0 (fully transparent) and 1.0 (no transparency)).        |
 +---------------+-----------------------------------------------------------------------------------------------------------------------------+
 | *tick(s)*     | Refers to the tick marks on a plot.                                                                                         |
 +---------------+-----------------------------------------------------------------------------------------------------------------------------+
