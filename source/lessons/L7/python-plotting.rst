@@ -14,8 +14,8 @@ Of the options above, we would like to highlight:
 
 - `Matplotlib <https://matplotlib.org/>`__: Matplotlib is one of the most widely used Python plotting libraries, sometimes referred to as "*the grand old man of Python plotting*". Plot examples can be found in the `Matplotlib gallery <https://matplotlib.org/gallery.html>`__.
 
-    - `Matplotlib Basemap <https://matplotlib.org/basemap/index.html>`__: The Matplotlib Basemap Toolkit is a plugin for visualizing maps in Python. Example plots available in the `Matplotlib basemap gallery <https://matplotlib.org/basemap/users/examples.html>`__.
-    - `Seaborn <https://seaborn.pydata.org/>`__: Seaborn is a high-level interface for drawing attractive statistical graphics that is built on top of Matplotlib. Example plots can be found in the `Seaborn gallery <https://seaborn.pydata.org/examples/index.html>`__.
+  - `Matplotlib Basemap <https://matplotlib.org/basemap/index.html>`__: The Matplotlib Basemap Toolkit is a plugin for visualizing maps in Python. Example plots available in the `Matplotlib basemap gallery <https://matplotlib.org/basemap/users/examples.html>`__.
+  - `Seaborn <https://seaborn.pydata.org/>`__: Seaborn is a high-level interface for drawing attractive statistical graphics that is built on top of Matplotlib. Example plots can be found in the `Seaborn gallery <https://seaborn.pydata.org/examples/index.html>`__.
 
 - `Bokeh <https://docs.bokeh.org/en/latest/>`__: Bokeh is a modern plotting library for static and interactive web-based plots including graphs, maps, and charts. Examples can be found in the `Bokeh gallery <https://docs.bokeh.org/en/latest/docs/gallery.html>`__.
 - `Plotly <https://plotly.com/python/>`__: Similar in some ways to Bokeh, Plotly is a modern plotting library for static and interactive web-based plots. Some features are commercial. Example plots are available in the `Plotly gallery <https://plotly.com/python/basic-charts/>`__.
