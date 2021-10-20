@@ -151,54 +151,53 @@ New materials are updated on this course page each Wednesday.
     lessons/L3/exercise-3
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Lesson 4
+    :maxdepth: 2
+    :caption: Lesson 4
 
-   lessons/L4/overview
-   notebooks/L4/functions.ipynb
-   notebooks/L4/modules.ipynb
-   notebooks/L4/gcp-4-writing-scripts.ipynb
-   lessons/L4/exercise-4
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Lesson 5
-
-   lessons/L5/overview
-   lessons/L5/pandas-overview.rst
-   notebooks/L5/exploring-data-using-pandas.ipynb
-   notebooks/L5/processing-data-with-pandas.ipynb
-   lessons/L5/exercise-5
+    lessons/L4/overview
+    notebooks/L4/functions.ipynb
+    notebooks/L4/modules.ipynb
+    notebooks/L4/gcp-4-writing-scripts.ipynb
+    lessons/L4/exercise-4
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Lesson 6
+    :maxdepth: 2
+    :caption: Lesson 5
 
-   lessons/L6/overview
-   notebooks/L6/advanced-data-processing-with-pandas.ipynb
-   notebooks/L6/errors.ipynb
-   notebooks/L6/gcp-5-assertions.ipynb
-   notebooks/L6/debugging.ipynb
-   lessons/L6/exercise-6
+    lessons/L5/overview
+    lessons/L5/pandas-overview.rst
+    notebooks/L5/exploring-data-using-pandas.ipynb
+    notebooks/L5/processing-data-with-pandas.ipynb
+    lessons/L5/exercise-5
 
-..
-   .. toctree::
-       :maxdepth: 2
-       :caption: Lesson 7
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 6
 
-       lessons/L7/overview
-       lessons/L7/python-plotting
-       lessons/L7/plot-anatomy
-       notebooks/L7/matplotlib.ipynb
-       notebooks/L7/advanced-plotting.ipynb
-       lessons/L7/exercise-7
+    lessons/L6/overview
+    notebooks/L6/advanced-data-processing-with-pandas.ipynb
+    notebooks/L6/errors.ipynb
+    notebooks/L6/gcp-5-assertions.ipynb
+    notebooks/L6/debugging.ipynb
+    lessons/L6/exercise-6
 
-   .. toctree::
-       :maxdepth: 2
-       :caption: Final exercise
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 7
 
-       final-exercise/overview
-       final-exercise/grading.ipynb
+    lessons/L7/overview
+    lessons/L7/python-plotting
+    lessons/L7/plot-anatomy
+    notebooks/L7/matplotlib.ipynb
+    notebooks/L7/advanced-plotting.ipynb
+    lessons/L7/exercise-7
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Final exercise
+
+    final-exercise/overview
+    final-exercise/grading.ipynb
 
 .. toctree::
     :maxdepth: 2
