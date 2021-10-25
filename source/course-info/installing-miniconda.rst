@@ -126,7 +126,7 @@ The files needed for creating the Geo-Python environment can be `found on GitHub
     # Clone Geo-Python environment files
     git clone https://github.com/geo-python/python-environments/
 
-**If you are not familiar with git, you can visit the `GitHub repository with the environment files <https://github.com/geo-python/python-environments/>`__, click on the green **Code** button, and select Download ZIP to download a copy of the files.
+**If you are not familiar with git**, you can visit the `GitHub repository with the environment files <https://github.com/geo-python/python-environments/>`__, click on the green **Code** button, and select Download ZIP to download a copy of the files.
 
 .. figure:: img/python-environment.png
     :width: 600px
