@@ -126,7 +126,7 @@ The files needed for creating the Geo-Python environment can be `found on GitHub
     # Clone Geo-Python environment files
     git clone https://github.com/geo-python/python-environments/
 
-**If you are not familiar with git, you can visit the `GitHub repository with the environment files <https://github.com/geo-python/python-environments/>`_, click on the green **Code** button, and select Download ZIP to download a copy of the files.
+**If you are not familiar with git**, you can visit the `GitHub repository with the environment files <https://github.com/geo-python/python-environments/>`__, click on the green **Code** button, and select Download ZIP to download a copy of the files.
 
 .. figure:: img/python-environment.png
     :width: 600px
@@ -147,8 +147,7 @@ For example, on macOS or Linux you would do the following.
     cd python-environments
     
     # Create the environment using mamba
-    mamba create -n geo-python-student
-    mamba env update -n geo-python-student --file geo-python-student.yml
+    mamba env create -f geo-python-student.yml
 
     # Activate the new environment and update Jupyter
     # NOTE: conda is used to activate an environment!
@@ -176,8 +175,7 @@ For example, on macOS or Linux you would do the following.
     cd python-environments
     
     # Create the environment using mamba
-    mamba create -n geo-python-teacher
-    mamba env update -n geo-python-teacher --file geo-python-teacher.yml
+    mamba env create -f geo-python-teacher.yml
 
     # Activate the new environment and update Jupyter
     # NOTE: conda is used to activate an environment!
