@@ -126,7 +126,7 @@ The files needed for creating the Geo-Python environment can be `found on GitHub
     # Clone Geo-Python environment files
     git clone https://github.com/geo-python/python-environments/
 
-**If you are not familiar with git**, you can visit the `GitHub repository with the environment files <https://github.com/geo-python/python-environments/>`__, click on the green **Code** button, and select Download ZIP to download a copy of the files.
+**If you are not familiar with git**, you can visit the `GitHub repository with the environment files <https://github.com/geo-python/python-environments/>`__, click on the green **Code** button, and select **Download ZIP** to download a copy of the files.
 
 .. figure:: img/python-environment.png
     :width: 600px
@@ -210,7 +210,7 @@ Getting the lesson notebooks
 ----------------------------
 
 In order to be able to follow the course lessons it may also be helpful to have a copy of the course notebooks.
-You can download a copy of the course notebooks from `<https://github.com/geo-python/notebooks.git>`_ by clicking on the "Code" button and then selecting "Download ZIP".
+You can download a copy of the course notebooks from `<https://github.com/geo-python/notebooks.git>`_ by clicking on the **Code** button and then selecting **Download ZIP**.
 Alternatively, once you are familiar with git, you can clone the course notebook repository by typing
 
 .. code-block:: bash
