@@ -206,6 +206,19 @@ you can start a JupyterLab instance by running this command (notice the space be
 
 After running the command, JupyterLab should open up automatically in a browser window.
 
+Getting the lesson notebooks
+----------------------------
+
+In order to be able to follow the course lessons it may also be helpful to have a copy of the course notebooks.
+You can download a copy of the course notebooks from `<https://github.com/geo-python/notebooks.git>`_ by clicking on the "Code" button and then selecting "Download ZIP".
+Alternatively, once you are familiar with git, you can clone the course notebook repository by typing
+
+.. code-block:: bash
+
+    git clone https://github.com/geo-python/notebooks.git
+
+The command above will clone the notebook files into a directory titled ``notebooks``.
+
 Additional notes
 ----------------
 
