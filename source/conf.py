@@ -202,4 +202,4 @@ man_pages = [(master_doc, "geo-python", "Geo-Python Documentation", [author], 1)
 execution_allow_errors = True
 
 # Execute cells only if any of the cells is missing output
-jupyter_execute_notebooks = "auto"
+jupyter_execute_notebooks = "off"
