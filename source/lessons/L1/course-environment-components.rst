@@ -84,6 +84,12 @@ Once the instance is ready, you can navigate to the lesson folders and start wor
 CSC Notebooks
 ~~~~~~~~~~~~~
 
+.. warning:: 
+
+    We are currently experiencing issues with the CSC Notebooks platform due to their migration to a new system.
+    As a result, we recommend using Binder for the interactive coding parts of the course in week 1.
+    The instructions below apply to the old CSC Notebooks system and will not work.
+
 Notebooks by CSC (https://notebooks.csc.fi) is a computing environment hosted by the Finnish IT Center for Science (CSC). Similarly as in Binder, CSC notebooks are used for running Jupyter Notebooks in a customized environment.
 CSC Notebooks is available only for students who are affiliated with Finnish universities and research institutes (via the HAKA user authentication).
 
@@ -152,12 +158,6 @@ Slack
 During the course we will use actively an application called `Slack <http://slack.com>`__ for discussion and questions about the lessons and exercises.
 All enrolled students have received an invite link to the `geo-python2021` workspace at the start of the course.
 :doc:`Read more about Slack  <slack-usage>`.
-
-Zoom
-------
-
-We will use zoom during the live sessions at the University of Helsinki during the remote teaching period in Autumn 2021.
-Zoom link and details are in Slack and were sent out via email to registered students.
 
 Page summary
 ------------
