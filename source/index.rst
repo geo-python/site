@@ -5,7 +5,7 @@
 
 .. figure:: img/banner/geo-python-2020.png
 
-Welcome to Geo-Python 2021!
+Welcome to Geo-Python 2022!
 ===========================
 
 The **Geo-Python** course teaches you the basic concepts of programming and scientific data analysis using the Python programming language
@@ -44,20 +44,20 @@ to related questions. You are encouraged to discuss and work together with other
 on the weekly exercises. However, the exercises you submit must be completed individually and
 must clearly reflect your own work (in short, don't copy paste from other students).
 
-.. admonition:: Online teaching
+.. admonition:: On-site teaching
 
-    Please note that the course is organized completely online during the 2021 Autumn semester.
-    Online support will be available throughout the course during the weekly exercise sessions and discussion channels in Slack.
-    Details of participation in the exercise sessions will be sent out to enrolled students.
+    Please note that the course is organized completely on site during the 2022 Autumn semester.
+    Online support will be available in the discussion channels in Slack.
 
 Course topics
 -------------
+
 After completing this course, the students understand basic programming concepts,
 are able to write short programs, and can manage, analyze and visualize scientific data using Python.
 The students also learn to use version control (git) and online repositories (GitHub) for documenting and communicating their work.
 Themes for each week are listed below. Read more about the weekly :doc:`learning goals in here <course-info/learning-goals>`.
 
-The course runs for seven weeks in the Autumn semester starting on the 8th of September 2021.
+The course runs for seven weeks in the Autumn semester starting on the 7th of September 2022.
 New materials are updated on this course page each Wednesday.
 
 +----------+----------------------+
