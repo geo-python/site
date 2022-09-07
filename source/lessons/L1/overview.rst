@@ -26,6 +26,13 @@ Lesson videos
 
 Lesson video(s) will be posted after the class session.
 
+.. admonition:: GCP 1 - Selecting "good" variable names
+
+    .. raw:: html
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/G0FZkgbQYGg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+
 .. 
     .. admonition:: Lesson 1.1 - Course introduction and computing basics
 
@@ -40,13 +47,6 @@ Lesson video(s) will be posted after the class session.
 
             <iframe width="560" height="315" src="https://www.youtube.com/embed/6y-MQ1VaDgQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <p>Dave Whipp & Håvard Aagesen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
-
-    .. admonition:: GCP 1 - Selecting "good" variable names
-
-        .. raw:: html
-
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/G0FZkgbQYGg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <p>Dave Whipp & Vuokko Heikinheimo, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
 
 Lecture slides
