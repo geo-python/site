@@ -1,6 +1,12 @@
 Installing Python
 =================
 
+.. warning::
+
+    It is recommended that you **not** install Python on your own computer following the instructions here until we have resolved some ongoing issues with the CSC Notebooks platform.
+    This is because we want to ensure the samve versions of libraries are used in the CSC Notebooks and local installations of Python on student computers to ensure everything operates as we expect and there are no incompatible library versions.
+    We hope to resolve this issue in the next week.
+
 In this course we try to provide cloud computing resources that do not require you to install anything on your own computer in order to start learning Python. Of course, **it is absolutely possible to do programming with Python on your own computer**.
 First, you need to install Python.
 
