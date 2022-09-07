@@ -29,7 +29,7 @@ Email: *firstname.lastname@helsinki.fi*
 
 * Christoph Fink
 
-  * Office: Remote
+  * Office: A125b, Physicum
 
 Course assistants
 ~~~~~~~~~~~~~~~~~
