@@ -99,6 +99,17 @@ CSC Notebooks is available only for students who are affiliated with Finnish uni
 .. figure:: img/CSC_join_group.png
    :alt: Join Group in CSC Notebooks
 
+.. note:: **After launching the Geo-Python 2022 workspace the first time:**
+
+    1. Double-click on the ``my-work`` folder in the file navigator on the left side of the Jupyter Lab window
+    2. Click on the Git icon on the left side
+    3. Click on the **Clone a Repository** button
+    4. Enter the address ``https://github.com/geo-python/notebooks.git`` and click **Clone**
+    5. You can now access the lesson notebooks in the ``my-work/notebooks`` folder
+
+.. figure:: img/clone-notebooks.png
+   :alt: Cloning the lesson notebook folder
+
 .. note:: **Repeat these steps every time when starting to work on a programming task using the CSC Notebooks:**
 
     1. Log in at https://notebooks.csc.fi/
