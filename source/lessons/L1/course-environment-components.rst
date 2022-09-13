@@ -99,6 +99,11 @@ CSC Notebooks is available only for students who are affiliated with Finnish uni
 .. figure:: img/CSC_join_group.png
    :alt: Join Group in CSC Notebooks
 
+.. figure:: img/CSC_launch_new.png
+   :alt: Launch new Jupyter Lab instance
+
+   Launching the instance takes a few moments.
+
 .. note:: **After launching the Geo-Python 2022 workspace the first time:**
 
     1. Double-click on the ``my-work`` folder in the file navigator on the left side of the Jupyter Lab window
@@ -116,11 +121,10 @@ CSC Notebooks is available only for students who are affiliated with Finnish uni
     2. Select Haka for the authentication provider
     3. Enter your Finnish university login credentials
     4. Click on the **Start session** button for the Geo-Python 2022 workspace
-
-.. figure:: img/CSC_launch_new.png
-   :alt: Launch new Jupyter Lab instance
-
-   Launching the instance takes a few moments.
+    5. Navigate to the ``my-work/notebooks`` directory, click on the Git icon on the left and click the **Pull latest changes**
+    
+.. figure:: img/pull-changes.png
+   :alt: Pulling the latest notebook changes
 
 **Remember to save your work!**
 
