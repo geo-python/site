@@ -24,8 +24,6 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-Lesson video(s) will be posted after the class session.
-
 .. admonition:: Lesson 1.1 - Course introduction and computing basics
 
     .. raw:: html
