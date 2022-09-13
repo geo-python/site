@@ -66,7 +66,7 @@ software for doing version control) but one of the most popular one is
 What is Git?
 ------------
 
-.. figure:: Git-Logo-2Color.png
+.. figure:: img/Git-Logo-2Color.png
    :alt: Git logo by Jason Long
 
    Git Logo by Jason Long, licensed under the `Creative Commons Attribution 3.0 Unported License <https://creativecommons.org/licenses/by/3.0/>`_.
