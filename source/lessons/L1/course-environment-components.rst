@@ -9,7 +9,6 @@ During this course, we will use different tools and applications for programming
 4. `Git and GitHub`_ for version control and documentation
 5. `Voting / polling  <#voting-and-polling>`_ for interactive questions during the lectures
 6. `Slack`_ for communicating among UH students
-7. `Zoom`_ for live session at UH
 
 Interactive code cells
 ----------------------
@@ -84,38 +83,48 @@ Once the instance is ready, you can navigate to the lesson folders and start wor
 CSC Notebooks
 ~~~~~~~~~~~~~
 
-.. warning:: 
-
-    We are currently experiencing issues with the CSC Notebooks platform due to their migration to a new system.
-    As a result, we recommend using Binder for the interactive coding parts of the course in week 1.
-    The instructions below apply to the old CSC Notebooks system and will not work.
-
-Notebooks by CSC (https://notebooks.csc.fi) is a computing environment hosted by the Finnish IT Center for Science (CSC). Similarly as in Binder, CSC notebooks are used for running Jupyter Notebooks in a customized environment.
-CSC Notebooks is available only for students who are affiliated with Finnish universities and research institutes (via the HAKA user authentication).
+Notebooks by CSC (https://notebooks.csc.fi) is a computing environment hosted by the Finnish IT Center for Science (CSC). Similar to Binder, the CSC Notebooks platform is used for running Jupyter Notebooks in a customized environment.
+CSC Notebooks is available only for students who are affiliated with Finnish universities and research institutes (via the Haka user authentication).
 
 .. note:: **When using the CSC Notebooks for the first time, you need to join the group created for this course:**
 
     1. Log in at https://notebooks.csc.fi/
-    2. Go to Account-tab
-    3. Join Group **Geo-Python** using the joining code: ``geo-python-tadl4``
+    2. Select Haka for the authentication provider
+    3. Enter your Finnish university login credentials
+    4. Click on the **Join workspace** button on the top left
+    5. Join the Geo-Python workspace using the join code ``geo-0bkh83f3``
 
-    After joining the group, you should be able to view the course environments called `Geo-Python 2021` on the Dashboard.
+    After joining the group, you should be able to view the course environments called `Geo-Python 2022` at the top of the Application list.
 
 .. figure:: img/CSC_join_group.png
    :alt: Join Group in CSC Notebooks
-
-.. note:: **Repeat these steps every time when starting to work on a programming task using the CSC Notebooks:**
-
-    1. Log in at https://notebooks.csc.fi/
-    2. Click ``Launch new`` on the Dashboard
-    3. Wait. It might take a few moments for the instance to launch
-    4. Click ``Open in browser`` once the instance is ready
-    5. If you are asked to ``Click to copy password & proceed``, then click on the button, and paste the password on the following page
 
 .. figure:: img/CSC_launch_new.png
    :alt: Launch new Jupyter Lab instance
 
    Launching the instance takes a few moments.
+
+.. note:: **After launching the Geo-Python 2022 workspace the first time:**
+
+    1. Double-click on the ``my-work`` folder in the file navigator on the left side of the Jupyter Lab window
+    2. Click on the Git icon on the left side
+    3. Click on the **Clone a Repository** button
+    4. Enter the address ``https://github.com/geo-python/notebooks.git`` and click **Clone**
+    5. You can now access the lesson notebooks in the ``my-work/notebooks`` folder
+
+.. figure:: img/clone-notebooks.png
+   :alt: Cloning the lesson notebook folder
+
+.. note:: **Repeat these steps every time when starting to work on a programming task using the CSC Notebooks:**
+
+    1. Log in at https://notebooks.csc.fi/
+    2. Select Haka for the authentication provider
+    3. Enter your Finnish university login credentials
+    4. Click on the **Start session** button for the Geo-Python 2022 workspace
+    5. Navigate to the ``my-work/notebooks`` directory, click on the Git icon on the left and click the **Pull latest changes**
+    
+.. figure:: img/pull-changes.png
+   :alt: Pulling the latest notebook changes
 
 **Remember to save your work!**
 

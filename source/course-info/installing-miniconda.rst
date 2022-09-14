@@ -1,12 +1,6 @@
 Installing Python
 =================
 
-.. warning::
-
-    It is recommended that you **not** install Python on your own computer following the instructions here until we have resolved some ongoing issues with the CSC Notebooks platform.
-    This is because we want to ensure the samve versions of libraries are used in the CSC Notebooks and local installations of Python on student computers to ensure everything operates as we expect and there are no incompatible library versions.
-    We hope to resolve this issue in the next week.
-
 In this course we try to provide cloud computing resources that do not require you to install anything on your own computer in order to start learning Python. Of course, **it is absolutely possible to do programming with Python on your own computer**.
 First, you need to install Python.
 
@@ -66,7 +60,7 @@ and running command ``conda --version``. If the command returns a version number
 macOS
 ~~~~~
 
-Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#macosx-installers>`__ and download the Python 3.8 installer for macOS.
+Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#macosx-installers>`__ and download the Python 3.9 installer for macOS.
 
 .. figure:: img/miniconda-macos.png
     :width: 600px
@@ -78,7 +72,7 @@ Double click on the package after it downloads and follow the instructions for i
 Linux
 ~~~~~
 
-Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#linux-installers>`__ and download the Python 3.8 installer for Linux.
+Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#linux-installers>`__ and download the Python 3.9 installer for Linux.
 
 .. figure:: img/miniconda-linux.png
     :width: 600px
@@ -246,7 +240,6 @@ It's a good idea to search for installation instructions for each package online
 
     `Conda channels <https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html>`__ used by mamba and are remote locations where packages are stored.
     During this course (and in general when installing packages for scientific computing and GIS analysis) we download most packages from the `conda-forge <https://conda-forge.org/#about>`__ channel.
-
 
 .. admonition:: Conflicting packages
 
