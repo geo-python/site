@@ -20,7 +20,9 @@ After this week you will be able to:
 Lesson videos
 -------------
 
-Due to issues with the screen recording for this year's lesson, we've left the 2021 lesson videos visible below. We will add the camera video for 2022, but the screen recording was, unfortunately, not usable.
+.. warning::
+
+    Due to issues with the screen recording for this year's lesson, we've left the 2021 lesson videos visible below. We will add the camera video for 2022, but the screen recording was, unfortunately, not usable.
 
 .. admonition:: Lesson 2.1 - Lists and working with different data types
 
