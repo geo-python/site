@@ -31,7 +31,7 @@ Lesson videos
         <iframe width="560" height="315" src="https://www.youtube.com/embed/Jpbo4K2N2Cs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <p>Dave Whipp & Christoph Fink, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
-.. admonition:: Lesson 2.2 (2022) - Version control with Git and GitHub
+.. admonition:: Lesson 2.2 (2022) - Python basics II, version control with Git
 
     .. raw:: html
 
