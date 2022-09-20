@@ -20,20 +20,18 @@ After this week you will be able to:
 Lesson videos
 -------------
 
-Lesson videos will be added after class.
+Due to issues with the screen recording for this year's lesson, we've left the 2021 lesson videos visible below. We will add the camera video for 2022, but the screen recording was, unfortunately, not usable.
 
-.. 
+.. admonition:: Lesson 2.1 - Lists and working with different data types
 
-    .. admonition:: Lesson 2.1 - Lists and working with different data types
+    .. raw:: html
 
-        .. raw:: html
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/zx3rB3uMSts" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Dave Whipp & Håvard Aagesen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/zx3rB3uMSts" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <p>Dave Whipp & Håvard Aagesen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+.. admonition:: Lesson 2.2 - Version control with Git and GitHub
 
-    .. admonition:: Lesson 2.2 - Version control with Git and GitHub
+    .. raw:: html
 
-        .. raw:: html
-
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/WuCybFuOxs4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <p>Dave Whipp & Håvard Aagesen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/WuCybFuOxs4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Dave Whipp & Håvard Aagesen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
