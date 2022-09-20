@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = "Geo-Python"
-copyright = "2016-2022, D. Whipp, H. Tenkanen, V. Heikinheimo, and H. Aagesen, Department of Geosciences and Geography, University of Helsinki"
+copyright = "2016-2022, D. Whipp, H. Tenkanen, V. Heikinheimo, H. Aagesen, and C. Fink, Department of Geosciences and Geography, University of Helsinki"
 # author = 'David Whipp, Henrikki Tenkanen, Vuokko Heikinheimo, Håvard Aagesen'
 author = ""
 
@@ -202,4 +202,4 @@ man_pages = [(master_doc, "geo-python", "Geo-Python Documentation", [author], 1)
 execution_allow_errors = True
 
 # Execute cells only if any of the cells is missing output
-jupyter_execute_notebooks = "off"
+jupyter_execute_notebooks = "auto"
