@@ -18,8 +18,6 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-Lesson videos will be added after the lesson.
-
 .. admonition:: Lesson 3.1 - Repeating tasks with loops
 
     .. raw:: html
