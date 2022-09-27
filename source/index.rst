@@ -156,6 +156,7 @@ New materials are updated on this course page each Wednesday.
 
     lessons/L4/overview
     notebooks/L4/functions.ipynb
+    notebooks/L4/script-files.ipynb
     notebooks/L4/modules.ipynb
     notebooks/L4/gcp-4-writing-scripts.ipynb
     lessons/L4/exercise-4
