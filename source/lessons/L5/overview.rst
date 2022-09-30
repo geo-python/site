@@ -18,16 +18,19 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-.. admonition:: Lesson 5.1 - Exploring data using pandas
+Lesson videos will be added after class.
 
-    .. raw:: html
+.. 
+    .. admonition:: Lesson 5.1 - Exploring data using pandas
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/e1RPoRdx_RA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <p>Dave Whipp & Håvard Aagesen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+        .. raw:: html
 
-.. admonition:: Lesson 5.2 - Processing data using pandas
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/e1RPoRdx_RA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>Dave Whipp & Håvard Aagesen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
-    .. raw:: html
+    .. admonition:: Lesson 5.2 - Processing data using pandas
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/kETa2edVFcA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <p>Dave Whipp & Håvard Aagesen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+        .. raw:: html
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/kETa2edVFcA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>Dave Whipp & Håvard Aagesen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
