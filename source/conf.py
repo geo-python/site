@@ -203,3 +203,6 @@ execution_allow_errors = True
 
 # Execute cells only if any of the cells is missing output
 jupyter_execute_notebooks = "auto"
+
+# Exclude execution of some notebooks
+execution_excludepatterns = ['advanced-data-processing-with-pandas.ipynb']
