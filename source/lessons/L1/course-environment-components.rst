@@ -26,7 +26,7 @@ All pages with code cells can be turned into an interactive mode where you can r
 JupyterLab
 ----------
 
-`JupyerLab <https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html>`__ is an open-source web-based user interface for doing data science.
+`JupyterLab <https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html>`__ is an open-source web-based user interface for doing data science.
 The JupyterLab interface consists of different components such as a file browser, terminal, image viewer, console, text editor, etc.
 
 **Jupyter Notebooks** (filename extension ``.ipynb``) are documents inside the JupyterLab environment which contain computer code, and rich text elements (figures, links, etc.).
