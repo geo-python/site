@@ -15,7 +15,7 @@ Here is a list of several different types of plots that can be used to present d
 - `Box plot <https://en.wikipedia.org/wiki/Box_plot>`__
 - `Violin plot <https://en.wikipedia.org/wiki/Violin_plot>`__
 - `Dendrogram <https://en.wikipedia.org/wiki/Dendrogram>`__
-- `Chord diagram <https://en.wikipedia.org/wiki/Chord_diagram>`__
+- `Chord diagram <https://en.wikipedia.org/wiki/Chord_diagram_(information_visualization)>`__
 - `Treemap <https://en.wikipedia.org/wiki/Treemap>`__
 - `Network chart <https://en.wikipedia.org/wiki/Network_chart>`__
 
