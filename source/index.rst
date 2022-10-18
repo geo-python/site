@@ -182,24 +182,23 @@ New materials are updated on this course page each Wednesday.
     notebooks/L6/debugging.ipynb
     lessons/L6/exercise-6
 
-.. 
-    .. toctree::
-        :maxdepth: 2
-        :caption: Lesson 7
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 7
 
-        lessons/L7/overview
-        lessons/L7/python-plotting
-        lessons/L7/plot-anatomy
-        notebooks/L7/matplotlib.ipynb
-        notebooks/L7/advanced-plotting.ipynb
-        lessons/L7/exercise-7
+    lessons/L7/overview
+    lessons/L7/python-plotting
+    lessons/L7/plot-anatomy
+    notebooks/L7/matplotlib.ipynb
+    notebooks/L7/advanced-plotting.ipynb
+    lessons/L7/exercise-7
 
-    .. toctree::
-        :maxdepth: 2
-        :caption: Final exercise
+.. toctree::
+    :maxdepth: 2
+    :caption: Final exercise
 
-        final-exercise/overview
-        final-exercise/grading.ipynb
+    final-exercise/overview
+    final-exercise/grading.ipynb
 
 .. toctree::
     :maxdepth: 2
