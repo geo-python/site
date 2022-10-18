@@ -205,4 +205,4 @@ execution_allow_errors = True
 jupyter_execute_notebooks = "auto"
 
 # Exclude execution of some notebooks
-execution_excludepatterns = ['advanced-data-processing-with-pandas.ipynb', 'errors.ipynb']
+execution_excludepatterns = ['advanced-data-processing-with-pandas.ipynb', 'errors.ipynb', 'matplotlib.ipynb']
