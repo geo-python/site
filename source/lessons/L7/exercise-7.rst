@@ -3,13 +3,13 @@ Exercise 7
 
 .. note::
 
-    Exercise 7 is due by **17:00 on Friday, October 29, 2021**.
+    Exercise 7 is due by **17:00 on Friday, October 28, 2022**.
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 7 by** accepting the `GitHub Classroom assignment <https://classroom.github.com/a/9-N458M6>`__
+    **You can start working on your copy of Exercise 7 by** accepting the `GitHub Classroom assignment <https://classroom.github.com/a/NNahCwIy>`__
 
-You can also take a look at the template repository for `Exercise 7 on GitHub <https://github.com/Geo-Python-2021/Exercise-7>`__ (does not require logging in).
+You can also take a look at the template repository for `Exercise 7 on GitHub <https://github.com/Geo-Python-2022/Exercise-7>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
 .. admonition:: Pair programming (optional!)
@@ -22,10 +22,10 @@ Cloud computing environments
 -----------------------------
 
 .. image:: https://img.shields.io/badge/launch-binder-red.svg
-   :target: https://mybinder.org/v2/gh/Geo-Python-2021/Binder/main?urlpath=lab
+   :target: https://mybinder.org/v2/gh/Geo-Python-2022/Binder/main?urlpath=lab
    
 .. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
-   :target: https://notebooks.csc.fi/#/blueprint/1b4c5cbce4ab4acb8976e93a1f4de3dc
+   :target: https://notebooks.csc.fi/
 
 Hints for Exercise 7
 --------------------
