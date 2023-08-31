@@ -119,7 +119,6 @@ html_theme_options = {
         "notebook_interface": "jupyterlab",
         "collapse_navigation": False,
     },
-    "default_mode": "light",
 }
 
 # Add last modified to all pages
