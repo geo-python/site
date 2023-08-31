@@ -9,14 +9,14 @@ Week one
 
 After week one you will be able to:
 
-- understand tools we are using during this course
-- explain the basic concepts of a
-    1. computer
-    2. program
-    3. programming language
-- define and use variables
-- describe the concept of a data type
-- determine the data type of a variable in Python
+* understand tools we are using during this course
+* explain the basic concepts of a
+    #. computer
+    #. program
+    #. programming language
+* define and use variables
+* describe the concept of a data type
+* determine the data type of a variable in Python
 
 
 +---------------------------------+-------------------------------------------------------------------------------------+
