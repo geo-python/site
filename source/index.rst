@@ -113,7 +113,6 @@ New materials are updated on this course page each Wednesday.
     course-info/licensing
 
 .. 
-
     .. toctree::
         :maxdepth: 2
         :caption: Lesson 1
