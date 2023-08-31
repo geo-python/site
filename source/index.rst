@@ -5,24 +5,21 @@
 
 .. figure:: img/banner/geo-python-2020.png
 
-Welcome to Geo-Python 2022!
+Welcome to Geo-Python 2023!
 ===========================
 
-The **Geo-Python** course teaches you the basic concepts of programming and scientific data analysis using the Python programming language
-in a format that is easy to learn and understand (no previous programming experience required).
-Each lesson is a tutorial with specific topic(s) where the aim is to gain skills and understanding
-how to solve common data-related tasks using Python.
-Geo-Python is organized by the `Department of Geosciences and Geography <https://www.helsinki.fi/en/faculty-of-science/faculty/geosciences-and-geography>`__
-at the University of Helsinki.
+The **Geo-Python** course teaches you the basic concepts of programming and scientific data analysis using the Python programming language in a format that is easy to learn and understand (no previous programming experience required).
+Each lesson is a tutorial with specific topic(s) where the aim is to gain skills and understanding how to solve common data-related tasks using Python.
+Geo-Python is jointly organized by the `Master's Program in Geography <https://www.helsinki.fi/en/degree-programmes/geography-masters-programme>`__ and the `Bachelor's Program in Geoscience <https://www.helsinki.fi/fi/koulutusohjelmat/geotieteiden-kandiohjelma>`__ at the University of Helsinki.
 
-Geo-Python covers the necessary skills needed before continuing to the more advanced courses
+Geo-Python covers the necessary skills needed before continuing to more advanced courses, such as
 `Automating GIS processes <https://autogis.github.io>`_ and/or
 `Introduction to Quantitative Geology <https://introqg.github.io>`_.
 
 .. admonition:: Open Access!
 
-    The course is **open for everyone to follow online**. The aim of this course is to share the knowledge and help people to get started with their journey for doing science more efficiently and in a reproducible manner
-    using Python programming.
+    The course is **open for everyone to follow online**.
+    The aim of this course is to share the knowledge and help people to get started with their journey for doing science more efficiently and in a reproducible manner using Python programming.
 
 .. admonition:: University of Helsinki students
 
@@ -115,90 +112,92 @@ New materials are updated on this course page each Wednesday.
     course-info/grading
     course-info/licensing
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 1
+.. 
 
-    lessons/L1/motivation
-    lessons/L1/overview
-    lessons/L1/course-environment-components
-    lessons/L1/slack-usage
-    notebooks/L1/a-taste-of-python.ipynb
-    notebooks/L1/gcp-1-variable-naming.ipynb
-    lessons/L1/exercise-1
+    .. toctree::
+        :maxdepth: 2
+        :caption: Lesson 1
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 2
+        lessons/L1/motivation
+        lessons/L1/overview
+        lessons/L1/course-environment-components
+        lessons/L1/slack-usage
+        notebooks/L1/a-taste-of-python.ipynb
+        notebooks/L1/gcp-1-variable-naming.ipynb
+        lessons/L1/exercise-1
 
-    lessons/L2/overview
-    notebooks/L2/Python-basic-elements.ipynb
-    lessons/L2/intro-to-GitHub
-    lessons/L2/git-basics
-    lessons/L2/GitHub-classroom
-    notebooks/L2/gcp-2-describing-code.ipynb
-    lessons/L2/why-pairs
-    lessons/L2/exercise-2
+    .. toctree::
+        :maxdepth: 2
+        :caption: Lesson 2
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 3
+        lessons/L2/overview
+        notebooks/L2/Python-basic-elements.ipynb
+        lessons/L2/intro-to-GitHub
+        lessons/L2/git-basics
+        lessons/L2/GitHub-classroom
+        notebooks/L2/gcp-2-describing-code.ipynb
+        lessons/L2/why-pairs
+        lessons/L2/exercise-2
 
-    lessons/L3/overview
-    notebooks/L3/for-loops.ipynb
-    notebooks/L3/conditional-statements.ipynb
-    notebooks/L3/gcp-3-pep8.ipynb
-    lessons/L3/exercise-3
+    .. toctree::
+        :maxdepth: 2
+        :caption: Lesson 3
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 4
+        lessons/L3/overview
+        notebooks/L3/for-loops.ipynb
+        notebooks/L3/conditional-statements.ipynb
+        notebooks/L3/gcp-3-pep8.ipynb
+        lessons/L3/exercise-3
 
-    lessons/L4/overview
-    notebooks/L4/functions.ipynb
-    notebooks/L4/script-files.ipynb
-    notebooks/L4/modules.ipynb
-    notebooks/L4/gcp-4-writing-scripts.ipynb
-    lessons/L4/exercise-4
+    .. toctree::
+        :maxdepth: 2
+        :caption: Lesson 4
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 5
+        lessons/L4/overview
+        notebooks/L4/functions.ipynb
+        notebooks/L4/script-files.ipynb
+        notebooks/L4/modules.ipynb
+        notebooks/L4/gcp-4-writing-scripts.ipynb
+        lessons/L4/exercise-4
 
-    lessons/L5/overview
-    lessons/L5/pandas-overview.rst
-    notebooks/L5/exploring-data-using-pandas.ipynb
-    notebooks/L5/processing-data-with-pandas.ipynb
-    lessons/L5/exercise-5
+    .. toctree::
+        :maxdepth: 2
+        :caption: Lesson 5
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 6
+        lessons/L5/overview
+        lessons/L5/pandas-overview.rst
+        notebooks/L5/exploring-data-using-pandas.ipynb
+        notebooks/L5/processing-data-with-pandas.ipynb
+        lessons/L5/exercise-5
 
-    lessons/L6/overview
-    notebooks/L6/advanced-data-processing-with-pandas.ipynb
-    notebooks/L6/errors.ipynb
-    notebooks/L6/gcp-5-assertions.ipynb
-    notebooks/L6/debugging.ipynb
-    lessons/L6/exercise-6
+    .. toctree::
+        :maxdepth: 2
+        :caption: Lesson 6
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Lesson 7
+        lessons/L6/overview
+        notebooks/L6/advanced-data-processing-with-pandas.ipynb
+        notebooks/L6/errors.ipynb
+        notebooks/L6/gcp-5-assertions.ipynb
+        notebooks/L6/debugging.ipynb
+        lessons/L6/exercise-6
 
-    lessons/L7/overview
-    lessons/L7/python-plotting
-    lessons/L7/plot-anatomy
-    notebooks/L7/matplotlib.ipynb
-    notebooks/L7/advanced-plotting.ipynb
-    lessons/L7/exercise-7
+    .. toctree::
+        :maxdepth: 2
+        :caption: Lesson 7
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Final exercise
+        lessons/L7/overview
+        lessons/L7/python-plotting
+        lessons/L7/plot-anatomy
+        notebooks/L7/matplotlib.ipynb
+        notebooks/L7/advanced-plotting.ipynb
+        lessons/L7/exercise-7
 
-    final-exercise/overview
-    final-exercise/grading.ipynb
+    .. toctree::
+        :maxdepth: 2
+        :caption: Final exercise
+
+        final-exercise/overview
+        final-exercise/grading.ipynb
 
 .. toctree::
     :maxdepth: 2
