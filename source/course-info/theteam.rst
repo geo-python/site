@@ -1,5 +1,5 @@
-Geo-Python team
-===============
+The Geo-Python team
+===================
 
 The Geo-Python course has been produced by a team of teachers, content creators, and course assistants.
 
