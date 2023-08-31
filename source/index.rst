@@ -10,20 +10,18 @@ Welcome to Geo-Python 2023!
 
 The **Geo-Python** course teaches you the basic concepts of programming and scientific data analysis using the Python programming language in a format that is easy to learn and understand (no previous programming experience required).
 Each lesson is a tutorial with specific topic(s) where the aim is to gain skills and understanding how to solve common data-related tasks using Python.
-Geo-Python is jointly organized by the `Master's Program in Geography <https://www.helsinki.fi/en/degree-programmes/geography-masters-programme>`__ and the `Bachelor's Program in Geoscience <https://www.helsinki.fi/fi/koulutusohjelmat/geotieteiden-kandiohjelma>`__ at the University of Helsinki.
+Geo-Python is jointly organized by the `Master's Program in Geography <https://www.helsinki.fi/en/degree-programmes/geography-masters-programme>`_ and the `Bachelor's Program in Geoscience <https://www.helsinki.fi/fi/koulutusohjelmat/geotieteiden-kandiohjelma>`_ at the University of Helsinki.
 
-Geo-Python covers the necessary skills needed before continuing to more advanced courses, such as
-`Automating GIS processes <https://autogis.github.io>`_ and/or
-`Introduction to Quantitative Geology <https://introqg.github.io>`_.
+Geo-Python covers the essential skills needed to continue to more advanced courses such as `Automating GIS processes <https://autogis.github.io>`_ and/or `Introduction to Quantitative Geology <https://introqg.github.io>`_.
 
 .. admonition:: Open Access!
 
     The course is **open for everyone to follow online**.
-    The aim of this course is to share the knowledge and help people to get started with their journey for doing science more efficiently and in a reproducible manner using Python programming.
+    The aim of this course is to share the knowledge and help people to get started with their journey towards doing science more efficiently and in a reproducible manner using Python programming.
 
 .. admonition:: University of Helsinki students
 
-    The Geo-Python course runs under two course codes in teaching period 1 at the University of Helsinki.
+    The Geo-Python course is run under two course codes in teaching period I at the University of Helsinki.
     Please sign up using only one of these course codes (not both)!
 
     - GEOG-329-1 for geography students
@@ -33,29 +31,28 @@ Course format
 -------------
 
 The majority of this course will be spent in front of a computer learning to program in the Python language.
-The course consists of interactive lectures and weekly exercises. The exercises will focus on developing
-basic programming skills using Python and applying those skills to various analytical problems.
+The course consists of interactive lectures and weekly exercises.
+The exercises will focus on developing basic programming skills using Python and applying those skills to various analytical problems.
 Typical exercises will involve a brief introduction followed by topical computer-based tasks.
-For each exercise, you may be asked to submit the Python codes you have written, output figures and answers
-to related questions. You are encouraged to discuss and work together with other students while working
-on the weekly exercises. However, the exercises you submit must be completed individually and
-must clearly reflect your own work (in short, don't copy paste from other students).
+For each exercise, you may be asked to submit the Python codes you have written, output figures and answers to related questions.
+You are encouraged to discuss and work together with other students while working on the weekly exercises.
+However, the exercises you submit must must clearly reflect your own work (in short, don't copy/paste from other students).
 
 .. admonition:: On-site teaching
 
-    Please note that the course is organized completely on site during the 2022 Autumn semester.
-    Online support will be available in the discussion channels in Slack.
+    Please note that the course is organized completely on site during the 2023 autumn semester.
+    Online support for University of Helsinki and Aalto University students will be available in the discussion channels in Discord.
 
 Course topics
 -------------
 
-After completing this course, the students understand basic programming concepts,
-are able to write short programs, and can manage, analyze and visualize scientific data using Python.
-The students also learn to use version control (git) and online repositories (GitHub) for documenting and communicating their work.
-Themes for each week are listed below. Read more about the weekly :doc:`learning goals in here <course-info/learning-goals>`.
+After completing this course, students will (1) understand basic programming concepts, (2) be able to write short programs, and (3) manipulate, analyze, and visualize scientific data using Python.
+Students will also learn to use version control (git) and online repositories (GitHub) for documenting and sharing their work.
+Themes for each week are listed below.
+You can also read more about the weekly :doc:`learning goals <course-info/learning-goals>`.
 
-The course runs for seven weeks in the Autumn semester starting on the 7th of September 2022.
-New materials are updated on this course page each Wednesday.
+The course runs for seven weeks in the autumn semester starting on the 4th of September 2023.
+New materials are updated on this course page each Monday.
 
 +----------+----------------------+
 | Week     | Theme                |
@@ -94,9 +91,9 @@ New materials are updated on this course page each Wednesday.
 
 .. admonition:: Step by step instructions with cloud computing!
 
-    The materials are written in a way that you can follow them step by step exactly as they are written, as long as you use the cloud computing resources that
-    we provide for you (namely JupyterLab Notebooks using Binder or CSC Cloud computing resources). Read more about our cloud computing environment from :doc:`here <lessons/L1/course-environment-components>`.
-    If you work from your own computer, **you need to adjust the file paths to the data** accordingly.
+    The materials are presented in a way that you can follow them step by step exactly as they are written, as long as you use the cloud computing resources that we provide for you (namely JupyterLab Notebooks using Binder or CSC Cloud computing resources).
+    If you would like, you can find :doc:`more information about our cloud computing environment <lessons/L1/course-environment-components>`.
+    For those planning to work on the course materials on your own computer, please note that you will **need to adjust the file paths to the data** accordingly.
 
 .. admonition:: For teachers
 
