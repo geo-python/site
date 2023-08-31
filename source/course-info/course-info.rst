@@ -17,10 +17,10 @@ Course meetings in Period I
 Instructors
 -----------
 
+Email: *firstname.lastname@helsinki.fi*
+
 Lecturers
 ~~~~~~~~~
-
-Email: *firstname.lastname@helsinki.fi*
 
 - Kamyar Hasanzadeh
 
