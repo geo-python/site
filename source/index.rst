@@ -26,7 +26,7 @@ Geo-Python covers the essential skills needed to continue to more advanced cours
     Please sign up using only one of these course codes (not both)!
 
     - GEOG-329-1 for geography students
-    - GEOK_3030 for geology students
+    - GEOK3001 for geology students
 
 Course format
 -------------
