@@ -14,9 +14,11 @@ Students will be able to
 * Understand tools we are using during this course
 * Explain the basic concepts of a
 
-    #. computer
-    #. program
-    #. programming language
+   #. computer
+
+   #. program
+
+   #. programming language
 
 * Define and use variables
 * Describe the concept of a data type
