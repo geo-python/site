@@ -2,21 +2,25 @@ Learning goals
 ==============
 
 During the Geo-Python course you will learn the basics of programming and scientific data analysis in the Python programming language.
-This course will also teach you several skills related to open science. Each week you will learn new skills building upon the content of the previous weeks:
+This course will also teach you several skills related to open science. Each week you will learn new skills building upon the content of the previous weeks.
+
+
 
 Week one
 --------
 
-After week one you will be able to:
+Students will be able to
 
-* understand tools we are using during this course
-* explain the basic concepts of a
+* Understand tools we are using during this course
+* Explain the basic concepts of a
+
     #. computer
     #. program
     #. programming language
-* define and use variables
-* describe the concept of a data type
-* determine the data type of a variable in Python
+
+* Define and use variables
+* Describe the concept of a data type
+* Determine the data type of a variable in Python
 
 
 +---------------------------------+-------------------------------------------------------------------------------------+
