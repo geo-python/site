@@ -3,8 +3,8 @@ The Geo-Python team
 
 The Geo-Python course has been produced by a team of teachers, content creators, and course assistants.
 
-Teachers and content creators (in alphabetical order)
------------------------------------------------------
+Teachers and content creators
+-----------------------------
 
 - `Håvard Aagesen <https://haavardaagesen.github.io/>`__: Former course teacher
 - `Christoph Fink <https://christophfink.com/>`__: Former course teacher
