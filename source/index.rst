@@ -111,6 +111,7 @@ New materials are updated on this course page each Wednesday.
     course-info/learning-goals
     course-info/grading
     course-info/licensing
+    course-info/theteam
 
 .. 
     .. toctree::

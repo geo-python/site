@@ -20,12 +20,12 @@
 # -- Project information -----------------------------------------------------
 
 project = "Geo-Python"
-copyright = "2016-2022, D. Whipp, H. Tenkanen, V. Heikinheimo, H. Aagesen, and C. Fink, Department of Geosciences and Geography, University of Helsinki"
+copyright = "2016-2023, The Geo-Python team, Department of Geosciences and Geography, University of Helsinki"
 # author = 'David Whipp, Henrikki Tenkanen, Vuokko Heikinheimo, Håvard Aagesen'
 author = ""
 
 # The short X.Y version
-version = "2022"
+version = "2023"
 # The full version, including alpha/beta/rc tags
 release = "site"
 
