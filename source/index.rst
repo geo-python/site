@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. figure:: img/banner/geo-python-2020.png
+.. figure:: img/banner/geo-python-2023.png
 
 Welcome to Geo-Python 2023!
 ===========================
