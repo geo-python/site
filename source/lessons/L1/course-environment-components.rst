@@ -92,7 +92,7 @@ CSC Notebooks is available only for students who are affiliated with Finnish uni
     2. Select Haka for the authentication provider
     3. Enter your Finnish university login credentials
     4. Click on the **Join workspace** button on the top left
-    5. Join the Geo-Python workspace using the join code ``geo-0bkh83f3``
+    5. Join the Geo-Python workspace using the join code ``geo-3i9sv41x``
 
     After joining the group, you should be able to view the course environments called `Geo-Python 2023` at the top of the Application list.
 
