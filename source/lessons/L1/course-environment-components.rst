@@ -94,7 +94,7 @@ CSC Notebooks is available only for students who are affiliated with Finnish uni
     4. Click on the **Join workspace** button on the top left
     5. Join the Geo-Python workspace using the join code ``geo-0bkh83f3``
 
-    After joining the group, you should be able to view the course environments called `Geo-Python 2022` at the top of the Application list.
+    After joining the group, you should be able to view the course environments called `Geo-Python 2023` at the top of the Application list.
 
 .. figure:: img/CSC_join_group.png
    :alt: Join Group in CSC Notebooks
@@ -104,7 +104,7 @@ CSC Notebooks is available only for students who are affiliated with Finnish uni
 
    Launching the instance takes a few moments.
 
-.. note:: **After launching the Geo-Python 2022 workspace the first time:**
+.. note:: **After launching the Geo-Python 2023 workspace the first time:**
 
     1. Double-click on the ``my-work`` folder in the file navigator on the left side of the Jupyter Lab window
     2. Click on the Git icon on the left side
@@ -120,7 +120,7 @@ CSC Notebooks is available only for students who are affiliated with Finnish uni
     1. Log in at https://notebooks.csc.fi/
     2. Select Haka for the authentication provider
     3. Enter your Finnish university login credentials
-    4. Click on the **Start session** button for the Geo-Python 2022 workspace
+    4. Click on the **Start session** button for the Geo-Python 2023 workspace
     5. Navigate to the ``my-work/notebooks`` directory, click on the Git icon on the left and click the **Pull latest changes**
     
 .. figure:: img/pull-changes.png
@@ -161,12 +161,12 @@ You can access the polling system of our course from `<https://geo-python.github
     The polling system is active only **during** the lessons. If you access the website outside the lecture times, you
     will most probably see only a white page without any content.
 
-Slack
+Discord
 -----
 
-During the course we will use actively an application called `Slack <http://slack.com>`__ for discussion and questions about the lessons and exercises.
-All enrolled students have received an invite link to the `geo-python2021` workspace at the start of the course.
-:doc:`Read more about Slack  <slack-usage>`.
+During the course we will use actively an application called `Slack <http://discord.com>`__ for discussion and questions about the lessons and exercises.
+All enrolled students have received an invite link to the `geo-python2023` workspace at the start of the course.
+:doc:`Read more about Discord  <discord-usage>`.
 
 Page summary
 ------------

@@ -24,7 +24,7 @@ Lecturers
 
 - Kamyar Hasanzadeh
 
-  - Office: D4XX, Exactum
+  - Office: D431, Exactum
 
 - David Whipp
 
