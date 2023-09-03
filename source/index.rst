@@ -111,7 +111,6 @@ New materials are updated on this course page each Monday.
     course-info/licensing
     course-info/theteam
 
-.. 
     .. toctree::
         :maxdepth: 2
         :caption: Lesson 1
@@ -124,6 +123,7 @@ New materials are updated on this course page each Monday.
         notebooks/L1/gcp-1-variable-naming.ipynb
         lessons/L1/exercise-1
 
+.. 
     .. toctree::
         :maxdepth: 2
         :caption: Lesson 2
