@@ -108,6 +108,7 @@ New materials are updated on this course page each Monday.
     course-info/course-info
     course-info/learning-goals
     course-info/grading
+    course-info/ai-tools
     course-info/licensing
     course-info/theteam
 
