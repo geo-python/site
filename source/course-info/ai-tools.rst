@@ -18,8 +18,8 @@ Guidelines for AI-LLM use in the Geo-Python course
 3. For problems or parts of problems where AI-LLM use is OK, students must indicate in writing which AI tool/model has been used and in what way.
 4. If a student uses an AI-LLM for part of an exercise where it is prohibited or fails to report the use of an AI-LLM as instructed, this will be considered cheating and will be handled as such.
 
-The guidelines above are based on the [University of Helsinki guidelines for the use of AI in teaching](https://teaching.helsinki.fi/system/files/inline-files/AI_in_teaching_guidelines_University%20of%20Helsinki_0.pdf).
-More information is available in the [instructions for students](https://studies.helsinki.fi/instructions/article/using-ai-support-learning).
+The guidelines above are based on the `University of Helsinki guidelines for the use of AI in teaching <https://teaching.helsinki.fi/system/files/inline-files/AI_in_teaching_guidelines_University%20of%20Helsinki_0.pdf>`_.
+More information is available in the `instructions for students <https://studies.helsinki.fi/instructions/article/using-ai-support-learning>`_.
 
 An introduction to AI-LLMs
 --------------------------
@@ -27,7 +27,7 @@ An introduction to AI-LLMs
 During the first week in which the use of AI-LLMs is possible for the course exercises, we will provide a brief introduction to how to use ChatGPT to produce Python code.
 In this demonstration we will highlight some of the advantages and disadvantages to the code ChatGPT produces, as well as how to review the code to ensure it works properly.
 
-.. note:: We're new to this
+.. note::
 
    Please note that we are adjusting to a changing environment as far as the AI-LLMs go, so we will do our best to encourage use where it makes sense.
    At the same time, we do not want to negatively impact your learning of core programming concepts.
