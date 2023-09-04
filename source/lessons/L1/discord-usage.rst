@@ -2,7 +2,8 @@ Communicating with Discord
 ========================
 
 .. figure:: img/Discord-logo.png
-   :width: 150px
+   :width: 250px
+   :class: dark-light
 
 During this course we will use `Discord <http://discord.com>`__ for discussion and questions about the lessons and exercises.
 
