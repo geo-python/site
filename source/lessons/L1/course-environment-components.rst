@@ -8,7 +8,7 @@ During this course, we will use different tools and applications for programming
 3. `Cloud computing environments`_ Binder or CSC Notebooks
 4. `Git and GitHub`_ for version control and documentation
 5. `Voting / polling  <#voting-and-polling>`_ for interactive questions during the lectures
-6. `Slack`_ for communicating among UH students
+6. `Discord`_ for communicating among UH students
 
 Interactive code cells
 ----------------------
@@ -164,7 +164,7 @@ You can access the polling system of our course from `<https://geo-python.github
 Discord
 -----
 
-During the course we will use actively an application called `Slack <http://discord.com>`__ for discussion and questions about the lessons and exercises.
+During the course we will use actively an application called `Discord <http://discord.com>`__ for discussion and questions about the lessons and exercises.
 All enrolled students have received an invite link to the `geo-python2023` workspace at the start of the course.
 :doc:`Read more about Discord  <discord-usage>`.
 

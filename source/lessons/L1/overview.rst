@@ -8,7 +8,7 @@ The main components of today's lesson can be found in the navigation bar to the 
 
 .. note::
 
-    There is a lot of material here but don't worry, you will learn all these things quickly once we start working in practice.
+    There is a lot of material here but don't worry, you will become familiar with all of these things once we start working in practice.
 
 Learning goals
 --------------
@@ -24,19 +24,22 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-.. admonition:: Lesson 1.1 - Course introduction and computing basics
+Lesson videos will be posted within a day or so after class.
 
-    .. raw:: html
+.. 
+    .. admonition:: Lesson 1.1 - Course introduction and computing basics
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/BmQC5brXCXI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <p>Dave Whipp & Christoph Fink, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+        .. raw:: html
 
-.. admonition:: Lesson 1.2 - Course environment and a taste of Python
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/BmQC5brXCXI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>Dave Whipp & Christoph Fink, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
-    .. raw:: html
+    .. admonition:: Lesson 1.2 - Course environment and a taste of Python
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/LeUA0ZgHm8M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <p>Dave Whipp & Christoph Fink, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+        .. raw:: html
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/LeUA0ZgHm8M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>Dave Whipp & Christoph Fink, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
 .. admonition:: GCP 1 - Selecting "good" variable names
 
