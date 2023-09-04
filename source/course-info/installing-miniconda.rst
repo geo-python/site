@@ -28,7 +28,7 @@ Install Miniconda
 You can find several versions of Miniconda for different operating systems on the `Miniconda dowload page <https://docs.conda.io/en/latest/miniconda.html>`__.
 Details on the installation for Windows, macOS and Linux users below.
 
-.. note:: Python 3.10
+.. note::
 
     Although some of the screenshots below highlight download links for older versions of Python, we recommend using **Miniconda based on Python 3.10 for this course**.
 
