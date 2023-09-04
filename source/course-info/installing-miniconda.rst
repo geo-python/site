@@ -27,7 +27,10 @@ Install Miniconda
 
 You can find several versions of Miniconda for different operating systems on the `Miniconda dowload page <https://docs.conda.io/en/latest/miniconda.html>`__.
 Details on the installation for Windows, macOS and Linux users below.
-**Note**: We recommend using Miniconda based on Python 3.8 for this course.
+
+.. note:: Python 3.10
+
+    Although some of the screenshots below highlight download links for older versions of Python, we recommend using **Miniconda based on Python 3.10 for this course**.
 
 Windows
 ~~~~~~~
@@ -60,7 +63,7 @@ and running command ``conda --version``. If the command returns a version number
 macOS
 ~~~~~
 
-Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#macosx-installers>`__ and download the Python 3.9 installer for macOS.
+Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#macosx-installers>`__ and download the Python 3.10 installer for macOS.
 
 .. figure:: img/miniconda-macos.png
     :width: 600px
@@ -72,7 +75,7 @@ Double click on the package after it downloads and follow the instructions for i
 Linux
 ~~~~~
 
-Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#linux-installers>`__ and download the Python 3.9 installer for Linux.
+Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#linux-installers>`__ and download the Python 3.10 installer for Linux.
 
 .. figure:: img/miniconda-linux.png
     :width: 600px
@@ -91,7 +94,7 @@ Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.ht
     nano ~/.bashrc
 
     # Add following line at the end of the file and save (EDIT ACCORDING YOUR INSTALLATION PATH)
-    export PATH=$PATH:/PATH_TO_MINICONDA/miniconda3/bin:/PATH_TO_MINICONDA/miniconda3/lib/python3.8/site-packages
+    export PATH=$PATH:/PATH_TO_MINICONDA/miniconda3/bin:/PATH_TO_MINICONDA/miniconda3/lib/python3.10/site-packages
 
 Installing the Geo-Python packages
 ----------------------------------
