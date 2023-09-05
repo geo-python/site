@@ -41,6 +41,7 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx_thebe",
     "sphinxcontrib.googleanalytics",
+    "sphinxcontrib.youtube",
     "IPython.sphinxext.ipython_console_highlighting",
     "IPython.sphinxext.ipython_directive",
     "myst_nb",
