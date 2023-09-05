@@ -24,10 +24,26 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-.. admonition:: YouTube
-    :class: dropdown admonition-youtube
+.. admonition:: Lesson 1.1 - Course introduction and computing basics
+    :class: admonition-youtube
 
     ..  youtube:: LoJrk3a4x88
+
+    Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+
+.. admonition:: Lesson 1.2 - Lesson 1.2 - Course environment and a taste of Python
+    :class: admonition-youtube
+
+    ..  youtube:: MD0LteTpJNA
+    
+    Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+
+.. admonition:: GCP 1 - Selecting "good" variable names
+    :class: admonition-youtube
+
+    ..  youtube:: G0FZkgbQYGg
+    
+    Dave Whipp & Vuokko Heikinheimo, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
 
 .. 
     .. admonition:: Lesson 1.1 - Course introduction and computing basics
