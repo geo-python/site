@@ -24,7 +24,7 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-Lesson videos will be posted within a day or so after class.
+.. youtube:: LoJrk3a4x88
 
 .. 
     .. admonition:: Lesson 1.1 - Course introduction and computing basics
