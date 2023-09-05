@@ -41,6 +41,7 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx_thebe",
     "sphinxcontrib.googleanalytics",
+    "sphinxcontrib.youtube",
     "IPython.sphinxext.ipython_console_highlighting",
     "IPython.sphinxext.ipython_directive",
     "myst_nb",
@@ -128,6 +129,10 @@ html_last_updated_fmt = ""
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
+
+html_css_files = [
+    'css/custom.css',
+]
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
