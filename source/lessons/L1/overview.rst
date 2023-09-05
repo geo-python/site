@@ -24,7 +24,10 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-.. youtube:: LoJrk3a4x88
+.. admonition:: YouTube
+    :class: dropdown admonition-youtube
+
+    ..  youtube:: LoJrk3a4x88
 
 .. 
     .. admonition:: Lesson 1.1 - Course introduction and computing basics
