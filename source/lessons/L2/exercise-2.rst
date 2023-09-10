@@ -35,7 +35,7 @@ Here are a few things that may be helpful in completing Exercise 2.
 Git
 ~~~
 
-You can find step-by-step instructions for using Git on the :doc:`git-basics` OR `here <git-basics.html>`__.
+You can find step-by-step instructions for using Git on the course page titled :doc:`git-basics`.
 Remember to commit your changes after each major edit! Also, it's better to push your changes to GitHub frequently, rather than only at the very end of the exercise.
 
 Indentation woes
