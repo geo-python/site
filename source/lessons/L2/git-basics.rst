@@ -20,20 +20,20 @@ Key concepts
 We use Git to record changes to our files over time, and for communicating between the local repository on our computer and the remote repository on GitHub.
 A "repository", or a "Git project", or a "repo", is a location for storing files. A repo contains all the files and folders associated with a project and the revision history of each entity.
 In general, it is recommended that each project, library or discrete piece of software should have it's own repository.
-In this course each exercise has it's own repository on GitHub.
+For example, each exercise in this course has it's own repository on GitHub.
 
 During this course, we often start by cloning an existing repository from GitHub
 to our own computer using ``git clone``. Using ``git pull`` we can fetch (and merge) new changes from GitHub,
-and ``git push`` publishes our local changes to GitHub. Read more about sharing and updating
-Git projects `in here <https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Sharing-and-Updating-Projects>`__.
+and ``git push`` publishes our local changes to GitHub. `Read more about sharing and updating
+Git projects <https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Sharing-and-Updating-Projects>`__.
 
 .. figure:: img/pull-push-illustration.png
 
     Update your Git project using the pull and push commands. Always pull before you push (especially when working in a shared project)!
 
 The version control history consists of snapshots of all the files in our project.
-In order record changes to our files, we first add changes to a so called staging area (using ``git add``). The idea is, that you can have a (sometimes messy) working directory, and by using ``git add`` you tell
-Git which files to include in the next committed snapshot. Finally, ``git commit`` records a permanent snapshot of the staged changes. Read more about basic snapshotting `in here <https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Basic-Snapshotting>`__.
+In order record changes to our files, we first add changes to a so called staging area (using the command ``git add``). The idea is, that you can have a (sometimes messy) working directory, and by using ``git add`` you tell
+Git which files to include in the next committed snapshot. Finally, the command ``git commit`` records a permanent snapshot of the staged changes. `Read more about basic snapshotting <https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Basic-Snapshotting>`__.
 
 .. figure:: img/Git_illustration.png
 
@@ -43,13 +43,13 @@ Git which files to include in the next committed snapshot. Finally, ``git commit
 Preparations
 ------------
 
-Let's go through the basics of using Git. We will use Exercise-1 repository created last week for practicing.
-Before we start, open a new JupyterLab session.
+Let's go through the basics of using Git. We will use Exercise-1 repository created last week to practice.
+Before we start, open a new JupyterLab session if you do not already have one open.
 
 You can find instructions for using Binder and CSC Notebooks in :doc:`Lesson 1 materials <../../L1/course-environment-components>`.
 
 .. image:: https://img.shields.io/badge/launch-binder-red.svg
-   :target: https://mybinder.org/v2/gh/Geo-Python-2022/Binder/master?urlpath=lab
+   :target: https://mybinder.org/v2/gh/Geo-Python-2023/Binder/master?urlpath=lab
 
 .. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
    :target: https://notebooks.csc.fi/
@@ -58,61 +58,47 @@ You can find instructions for using Binder and CSC Notebooks in :doc:`Lesson 1 m
 Create a Personal Access Token
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Before we start cloning our repository from GitHub, we need to create a Personal Access Token for us to be able to interact with GitHub. We will go through the basic setup here, you can also find more detailed instructions in the `GitHub documentation <https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token>`_.
+Before we start cloning our repository from GitHub, we need to create a Personal Access Token for us to be able to interact with GitHub. We will go through the basic setup here, but you can find more detailed instructions in the `GitHub documentation <https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token>`_.
 
-If you have not already verified your email address, make sure to do so in your GitHub-settings (`GitHub email verification <https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address>`_). On GitHub, go into your settings.
+#. If you have not already verified your email address, make sure to do so in your GitHub settings (`GitHub email verification <https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address>`_). On GitHub, go into your settings.
 
-.. image:: https://docs.github.com/assets/images/help/settings/userbar-account-settings.png
-    :width: 200
+   .. image:: https://docs.github.com/assets/images/help/settings/userbar-account-settings.png
+      :width: 200
 
-Go to the **developer settings** in the left sidebar.
+#. Click on **Developer settings** in the left sidebar.
+#. Click on **Personal access tokens**.
+#. Click on **Tokens (classic)**.
+#. We will create the token by clicking on **Generate new token** and then **Generate new token (classic)**.
 
-.. image:: https://docs.github.com/assets/images/help/settings/developer-settings.png
-    :width: 200
+   - If you are using two-factor authentication, you may be prompted to enter an authentication code at this point.
+ 
+#. We can start by giving our token a name in under **Note**.
 
-Then click on **Personal access tokens**.
+   .. image:: img/token_name.png
+      :width: 500
 
-.. image:: https://docs.github.com/assets/images/help/settings/personal_access_tokens_tab.png
-    :width: 200
+#. We can then give the token an expiration date. You can choose the duration you prefer, but it would be best to set it to at least the end of the year.
 
-Then we will create the token by clicking on **Generate new token**.
+   .. image:: img/token_expiration.png
+      :width: 300
 
-.. image:: https://docs.github.com/assets/images/help/settings/generate_new_token.png
-    :width: 500
+#. Now we need to set the permissions, or scopes, that our token is granted. We are going to need it to be able to access and change our exercise repositories. For that, we can select the check boxes for **repo**, **admin:repo_hook**, and **delete_repo**.
 
-Start by giving your token a name.
+   .. image:: img/token_scopes.png
+      :width: 500
 
-.. image:: img/token_name.png
-    :width: 500
+#. At this point we can click the **Generate token** button to create and see our token.
 
-We will then give the token a expiration date. You can choose the duration you prefer, here we set it to the end of the year.
+#. We are then presented with our Personal access token, click the copy button to copy it to your clipboard and then paste it into a text file in the JupyterLab session.
 
-.. image:: img/token_expiration.png
-    :width: 300
+   - Open a text document and copy and paste your Personal access token in a text file, because for now we are going to use it like this, and we will later see how we can cache it so that we don't need to copy and paste it every time we need it. If your access token is ever lost, you can just follow the steps above again to create a new one.
 
-Next, we need to set the permissions, or scopes, that our token is granted. We are going to need it to be able to access and change our repositories. For that, we can select the check marks **repo**, **admin:repo_hook**, and **delete_repo**.
+Now that we have created a personal access token, the next thing we need is the URL of your exercise repository from GitHub. **Go to** https://github.com/geo-python-2023/ **and navigate to your personal Exercise-1 repository.**
 
-.. image:: img/token_scopes.png
-    :width: 500
-
-Then we can click the **Generate token** button to create and see our token.
-
-.. image:: https://docs.github.com/assets/images/help/settings/generate_token.png
-    :width: 350
-
-We are then presented with our Personal access token, click the copy button to copy it to your clipboard and then paste it into your text file in the JupyterLab session.
-
-.. image:: https://docs.github.com/assets/images/help/settings/personal_access_tokens.png
-    :width: 500
-
-Open a text document and copy and paste your Personal access token in your text file, because for now we are going to use it like this, and we will later see how we can cache it so that we don't need to copy and paste it every time we need it. If your access token is lost, then you can just follow the steps above again to create a new one.
-
-Now the first thing we need is the URL of your exercise repository from GitHub. **Go to** https://github.com/geo-python-2022/ **and navigate to your personal Exercise-1 repository.**
-
-On GitHub, find the button **Code** and copy the url under *Clone with HTTPS*.
+On GitHub, find the button **Code** and copy the url under *HTTPS*.
 
 The URL looks something like this:
-https://github.com/Geo-Python-2022/exercise-1-davewhipp.git but with your own username or team name.
+https://github.com/Geo-Python-2023/exercise-1-davewhipp.git but with your own username or team name.
 
 .. figure:: img/git-copy-url.png
 
@@ -250,13 +236,13 @@ First, it's good to use :code:`git pull` (button with arrow down) to double chec
 
 .. figure:: img/git-plugin-pull-ok.png
 
-In this case, the repository is probably up-to-date and no new changes are downloaded. However, it is good practice to always use Git Pull before publishing your local changes in case someone made changes in the remote repository in the meanwhile!
+In this case, the repository is probably up-to-date and no new changes are downloaded. However, it is good practice to always use git pull before publishing your local changes in case someone made changes in the remote repository in the meanwhile!
 
 Now we are ready to push the local changes to GitHub using :code:`git push` (button with arrow up):
 
 .. figure:: img/git-plugin-push-ok.png
 
-Now you should see the updates in GitHub! Go and have a look at your personal repository in https://github.com/Geo-Python-2022/ .
+Now you should see the updates in GitHub! Go and have a look at your personal repository in https://github.com/Geo-Python-2023/ .
 
 On the command line, ``git pull`` fetches and merges changes from the remote repository, and ``git pull`` publishes local changes.
 
@@ -336,13 +322,13 @@ The basic workflow of cloning a repository, adding changes to the staging area, 
 
     **A common mistake during this course is that you have accidentally cloned the template repository in stead of your own/your teams repository.**
 
-    You can read more about managing remotes `in here <https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes>`__.
+    `Read more about managing remotes <https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes>`__.
 
-.. admonition:: Master branch
+.. admonition:: Main branch
 
     **Branches and branching** are powerful features in Git that allow maintaining parallel versions of the same project.
-    During this course you don't need to worry too much about branches. However, it is good to understand that **we are working on the master branch of our repository**. For example, when using the ``git push`` command,
-    the full syntax is ``git push origin master`` which means that we are pushing the changes to the master branch of the remote repository called origin. Read more about git branches `in here <https://git-scm.com/docs/git-branch>`__.
+    During this course you don't need to worry too much about branches. However, it is good to understand that **we are working on the main branch of our repository**. For example, when using the ``git push`` command,
+    the full syntax is ``git push origin main`` which means that we are pushing the changes to the main branch of the remote repository called origin. `Read more about git branches <https://git-scm.com/docs/git-branch>`__.
 
 
 Resolving conflicts
