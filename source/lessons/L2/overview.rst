@@ -20,34 +20,37 @@ After this week you will be able to:
 Lesson videos
 -------------
 
-.. warning::
+Videos will be posted after the lesson.
 
-    Due to issues with the screen recording for this year's lesson, we've left the 2021 lesson videos visible below. The camera video for 2022 is available, but the screen recording was, unfortunately, not usable.
+.. 
+    .. warning::
 
-.. admonition:: Lesson 2.1 (2022) - Cloud computing revisited, Python basics I
+        Due to issues with the screen recording for this year's lesson, we've left the 2021 lesson videos visible below. The camera video for 2022 is available, but the screen recording was, unfortunately, not usable.
 
-    .. raw:: html
+    .. admonition:: Lesson 2.1 (2022) - Cloud computing revisited, Python basics I
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/Jpbo4K2N2Cs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <p>Dave Whipp & Christoph Fink, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+        .. raw:: html
 
-.. admonition:: Lesson 2.2 (2022) - Python basics II, version control with Git
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Jpbo4K2N2Cs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>Dave Whipp & Christoph Fink, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
-    .. raw:: html
+    .. admonition:: Lesson 2.2 (2022) - Python basics II, version control with Git
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/eC89nGkcN48" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <p>Dave Whipp & Christoph Fink, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+        .. raw:: html
 
-.. admonition:: Lesson 2.1 (2021) - Lists and working with different data types
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/eC89nGkcN48" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>Dave Whipp & Christoph Fink, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
-    .. raw:: html
+    .. admonition:: Lesson 2.1 (2021) - Lists and working with different data types
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/zx3rB3uMSts" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <p>Dave Whipp & Håvard Aagesen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+        .. raw:: html
 
-.. admonition:: Lesson 2.2 (2021) - Version control with Git and GitHub
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/zx3rB3uMSts" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>Dave Whipp & Håvard Aagesen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
-    .. raw:: html
+    .. admonition:: Lesson 2.2 (2021) - Version control with Git and GitHub
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/WuCybFuOxs4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <p>Dave Whipp & Håvard Aagesen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+        .. raw:: html
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/WuCybFuOxs4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>Dave Whipp & Håvard Aagesen, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
