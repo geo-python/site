@@ -215,7 +215,7 @@ On the command line the syntax for committing is ``git commit -m "commit message
 
     Then change the folder you are in by typing (with your username):
 
-    ``cd exercises/excercise-1-davewhipp/``
+    ``cd exercises/exercise-1-davewhipp/``
 
     We then pull from our GitHub repository:
 
