@@ -1,7 +1,7 @@
 Using Classroom for Github
 ==========================
 
-As you have seen last week we will be using `Classroom for GitHub <https://github.com/education/classroom>`__ for the exercises in the course.
+As you have seen last week we will be using `Classroom for GitHub <https://classroom.github.com>`__ for the exercises in the course.
 Here, we'll give you a sense of how Classroom for GitHub works and what you need to do to accept your assignments.
 
 Classroom for GitHub
@@ -17,7 +17,7 @@ The exercise repositories normally include the following:
 -  Data files to use with the code
 
 You can find the GitHub classroom link for each exercise on these web pages in
-the **Start your assignment** -info box on the exercise pages.
+the **Start your assignment** info box on the exercise pages.
 
 .. figure:: img/start-assignment.png
 

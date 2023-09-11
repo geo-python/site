@@ -31,7 +31,7 @@ Here is how we suggest you work in your pairs:
 - The driver will clone the GitHub repository and be responsible for the version of the exercise solutions that will be graded
 - When working, the driver should open the exercise on their computer and arrange for the navigator to be able to view their screen
 
-  - This can be done in person (following relevant COVID guidelines) or via screen sharing in Zoom (or other similar software)
+  - This can be done in person or via screen sharing in Zoom (or other similar software)
 
 - The driver will write the Python and/or Markdown code, while the navigator follows on their screen
 - The navigator should be actively involved in suggesting ideas, corrections, and otherwise interacting with the driver to help jointly generate the code

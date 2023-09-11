@@ -7,22 +7,22 @@ Exercise 2
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 2 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/15-80HQW>`__.
+    **You can start working on your copy of Exercise 2 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/dGeiWKYS>`__.
 
-You can also take a look at the template repository for `Exercise 2 on GitHub <https://github.com/Geo-Python-2022/Exercise-2>`__ (does not require logging in).
+You can also take a look at the template repository for `Exercise 2 on GitHub <https://github.com/Geo-Python-2023/Exercise-2>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
 .. admonition:: Pair programming
 
-    Students attending the course in Helsinki, **note that we continue working in pairs**.
+    Students attending the course in Helsinki, **note that we are working in pairs on this exercise**.
     We will only grade the repository of the member of your pair that is responsible for this week's exercise.
-    See more information in Slack, and in week 2: `Why are we working in pairs? <https://geo-python-site.readthedocs.io/en/latest/lessons/L2/why-pairs.html>`_
+    See more information in Discord and on the course page under `Why are we working in pairs? <https://geo-python-site.readthedocs.io/en/latest/lessons/L2/why-pairs.html>`_
 
 Cloud computing environments
 ----------------------------
 
 .. image:: https://img.shields.io/badge/launch-binder-red.svg
-   :target: https://mybinder.org/v2/gh/Geo-Python-2022/Binder/main?urlpath=lab
+   :target: https://mybinder.org/v2/gh/Geo-Python-2023/Binder/main?urlpath=lab
    
 .. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
    :target: https://notebooks.csc.fi/ 
@@ -35,7 +35,7 @@ Here are a few things that may be helpful in completing Exercise 2.
 Git
 ~~~
 
-You can find step-by-step instructions for using Git `here <git-basics.html>`__.
+You can find step-by-step instructions for using Git on the course page titled :doc:`git-basics`.
 Remember to commit your changes after each major edit! Also, it's better to push your changes to GitHub frequently, rather than only at the very end of the exercise.
 
 Indentation woes
