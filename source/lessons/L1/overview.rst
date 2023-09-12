@@ -31,7 +31,7 @@ Lesson videos
 
     Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
 
-.. admonition:: Lesson 1.2 - Lesson 1.2 - Course environment and a taste of Python
+.. admonition:: Lesson 1.2 - Course environment and a taste of Python
     :class: admonition-youtube
 
     ..  youtube:: MD0LteTpJNA
