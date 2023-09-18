@@ -29,6 +29,8 @@ version = "2023"
 # The full version, including alpha/beta/rc tags
 release = "site"
 
+# Set documentation language
+language="en"
 
 # -- General configuration ---------------------------------------------------
 
