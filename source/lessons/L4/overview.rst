@@ -5,7 +5,7 @@ In this lesson we will learn how to create and use functions, one of the most po
 A :term:`function (funktio)` makes it easy to use and re-use of a part of a program.
 We will also introduce you to the concept of a :term:`module (moduuli)` (also known as a :term:`library (ohjelmakirjasto)` in other programming languages), which you can think of as a toolbox for a specific purpose.
 Each module contains specific functionalities (i.e., functions) that you can use for different tasks.
-Thus, functions and modules are closely related.
+Thus, functions and modules are closely related. In today's lesson, we will also review the use of AI and LLM (ChatGPT) in creating code and discuss the pros and cons.
 The main components of today's lesson can be found in the navigation bar to the left.
 
 Learning goals
@@ -16,6 +16,7 @@ After this weeks lesson your should be able to:
 - Explain how functions are used and their benefits
 - Create your own functions to calculate an output value based on an input value
 - Save functions to a script file for future use
+- Explain the pros and cons of using AI and LLM in creating codes
 
 Lesson videos
 -------------
