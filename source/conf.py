@@ -213,3 +213,6 @@ jupyter_execute_notebooks = "auto"
 
 # Exclude execution of some notebooks
 execution_excludepatterns = ['advanced-data-processing-with-pandas.ipynb', 'errors.ipynb', 'matplotlib.ipynb', 'advanced_plotting.ipynb']
+
+# Add math config options for new version of MyST
+myst_enable_extensions = ["dollarmath"]
