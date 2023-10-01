@@ -2,6 +2,7 @@ What is pandas?
 ===============
 
 .. figure:: img/pandas_logo.png
+   :class: dark-light
    :width: 300px
 
    Source: `Medium.com <https://medium.com/towards-data-science/a-quick-introduction-to-the-pandas-python-library-f1b678f34673>`__
