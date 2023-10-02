@@ -7,7 +7,7 @@ Exercise 5
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 5 by** `accepting the GitHub Classroom assignment <>`__.
+    **You can start working on your copy of Exercise 5 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/HDTTefgd>`__.
 
 You can also take a look at the template repository for `Exercise 5 on GitHub <https://github.com/Geo-Python-2023/Exercise-5>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
