@@ -2,6 +2,7 @@ What is pandas?
 ===============
 
 .. figure:: img/pandas_logo.png
+   :class: dark-light
    :width: 300px
 
    Source: `Medium.com <https://medium.com/towards-data-science/a-quick-introduction-to-the-pandas-python-library-f1b678f34673>`__
@@ -16,7 +17,7 @@ Easy-to-use data structures
 In pandas, the data is typically stored in a data structure called a DataFrame that looks like a typical table with rows and columns
 (+ indices and column names), where columns can contain data of different data types.
 Thus, it is similar in some sense to how data is stored in Excel or in R, which also uses a concept of a dataframe.
-In fact, Wes McKinney first `developed pandas as an alternative for R <https://blog.quantopian.com/meet-quantopians-newest-advisor-wes-mckinney/>`_ to deal with different complex data structures.
+In fact, Wes McKinney first developed pandas as an alternative for R to deal with different complex data structures.
 
 Combines functionalities from many Python modules
 -------------------------------------------------
