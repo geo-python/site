@@ -169,18 +169,18 @@ New materials are updated on this course page each Monday.
     notebooks/L5/processing-data-with-pandas.ipynb
     lessons/L5/exercise-5
 
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 6
+
+    lessons/L6/overview
+    notebooks/L6/advanced-data-processing-with-pandas.ipynb
+    notebooks/L6/errors.ipynb
+    notebooks/L6/gcp-5-assertions.ipynb
+    notebooks/L6/debugging.ipynb
+    lessons/L6/exercise-6
+
 .. 
-    .. toctree::
-        :maxdepth: 2
-        :caption: Lesson 6
-
-        lessons/L6/overview
-        notebooks/L6/advanced-data-processing-with-pandas.ipynb
-        notebooks/L6/errors.ipynb
-        notebooks/L6/gcp-5-assertions.ipynb
-        notebooks/L6/debugging.ipynb
-        lessons/L6/exercise-6
-
     .. toctree::
         :maxdepth: 2
         :caption: Lesson 7
@@ -192,12 +192,12 @@ New materials are updated on this course page each Monday.
         notebooks/L7/advanced-plotting.ipynb
         lessons/L7/exercise-7
 
-    .. toctree::
-        :maxdepth: 2
-        :caption: Final exercise
+.. toctree::
+    :maxdepth: 2
+    :caption: Final exercise
 
-        final-exercise/overview
-        final-exercise/grading.ipynb
+    final-exercise/overview
+    final-exercise/grading.ipynb
 
 .. toctree::
     :maxdepth: 2
