@@ -1,7 +1,7 @@
 Anatomy of a plot
 =================
 
-Before starting to visualize our data on a plot our data we need to address an obvious question: **What actually is a plot?**
+Before starting to visualize our data on a plot our data we need to address an obvious question: What are the actual components of a plot?
 We will not go deep into the details of different types of plots (as it is not the purpose of this lesson), but rather we provide a brief introduction to different plots that can be created using Python and the (essential) elements of a plot.
 
 There are a variety of different kinds of plots (also known as graphs, charts, diagrams, etc.) available that have been designed to visually represent the characteristics of a dataset.
