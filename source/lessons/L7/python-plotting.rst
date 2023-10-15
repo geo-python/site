@@ -5,6 +5,7 @@ Plotting in Python
    :width: 800px
    :align: center
    :alt: Python plotting options
+   :class: dark-light
 
    Plotting libraries available in Python. Source: `https://pyviz.org/overviews/index.html <https://pyviz.org/overviews/index.html>`__\.
 
