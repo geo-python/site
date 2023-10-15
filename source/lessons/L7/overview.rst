@@ -3,7 +3,7 @@ Lesson overview
 
 During this week, we will introduce you to data visualization and some different modules that can be used to make data plots in Python.
 You can create simple plots directly from `pandas <http://pandas.pydata.org/>`__, for example, but in order to control many aspects of those plots we need to also know how to use the plotting module called `Matplotlib <http://matplotlib.org/>`__.
-Matplotlib is an extremely powerful and flexible plotting module, and as you will see.
+Matplotlib is an extremely powerful and flexible plotting module, as you will see.
 
 Learning goals
 --------------
@@ -11,22 +11,25 @@ Learning goals
 After this weeks lesson your should be able to:
 
 - Make basic *x*-*y* plots of data using pandas/Matplotlib
-- Manipulate plot formats
-- Create plots in Jupyter notebooks or save them as separate image files
+- Manipulate plot formatting
+- Create plots in Jupyter notebooks and/or save them as image files
 
 Lesson videos
 -------------
 
-.. admonition:: Lesson 7.1 - Plotting in Python using pandas/Matplotlib
+Videos will be posted after the lesson.
 
-    .. raw:: html
+.. 
+    .. admonition:: Lesson 7.1 - Plotting in Python using pandas/Matplotlib
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/pDGljLESGmQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <p>Dave Whipp & Christoph Fink, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+        .. raw:: html
 
-.. admonition:: Lesson 7.2 - Advanced plotting using pandas/Matplotlib
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/pDGljLESGmQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>Dave Whipp & Christoph Fink, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
 
-    .. raw:: html
+    .. admonition:: Lesson 7.2 - Advanced plotting using pandas/Matplotlib
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/Loz4wVfeuuE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <p>Dave Whipp & Christoph Fink, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
+        .. raw:: html
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Loz4wVfeuuE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>Dave Whipp & Christoph Fink, University of Helsinki <a href="https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A">@ Geo-Python channel on Youtube</a>.</p>
