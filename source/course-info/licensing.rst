@@ -2,9 +2,10 @@ License and terms of usage
 ==========================
 
 It is our hope that the materials provided here will be helpful for others.
-Thus, we share all the lesson materials openly, and our source codes and lesson materials are openly available `from GitHub <https://github.com/geo-python/site>`_.
-There, you can also find information on how to use the materials and modify them to your own purposes.
-**However**, if you modify the lesson materials we request that you also share your materials openly (e.g., on GitHub), where everyone could benefit from your work in the same way that we provide these materials for you.
+Thus, we share all the lesson materials openly, and our source codes and lesson materials are openly available `from GitHub <https://github.com/geo-python/site>`__.
+If you would like to create your own copy of the course online, you can also find :ref:`information about how to do that below<Getting started hosting your own version of the course>`.
+
+If you modify the lesson materials we request that you also share your materials openly (e.g., on GitHub), where everyone could benefit from your work in the same way that we provide these materials for you.
 We also welcome collaboration and ideas of how to improve the materials on these pages.
 Contact us via :doc:`email <course-info>` or fork the docs on **GitHub**.
 
@@ -86,16 +87,16 @@ In essence, this allows you to easily copy and customize the course materials fo
 Preparations
 ~~~~~~~~~~~~
 
-#. If you do not already have one, create a GitHub user account at <https://github.com>. You can find instructions for this as part of `Exercise 1 in the course <https://geo-python-site.readthedocs.io/en/latest/lessons/L1/exercise-1.html#part-1-sign-up-for-github>`__.
+#. If you do not already have one, create a GitHub user account at https://github.com. You can find instructions for this as part of `Exercise 1 in the course <https://geo-python-site.readthedocs.io/en/latest/lessons/L1/exercise-1.html#part-1-sign-up-for-github>`__.
 
-#. If you do not already have one, create a "Read the Docs Community" account on Read the Docs at <https://about.readthedocs.com>. You can click **Sign up** to get started, and we recommend that you use the "Sign up with GitHub" option on the sign up page.
+#. If you do not already have one, create a "Read the Docs Community" account on Read the Docs at https://about.readthedocs.com. You can click **Sign up** to get started, and we recommend that you use the "Sign up with GitHub" option on the sign up page.
 
 Copying and deploying the course
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Create your copy of the course materials in GitHub by visiting the `Geo-Python course GitHub repository <https://github.com/geo-python/site>`__ and clicking on the **Fork** button on the top right side of the page. It is fine to leave the "Copy the master branch only" option ticked. This will make a copy of the course materials for your GitHub account, but keep the connection to the original course repository.
 
-#. Sign in to Read the Docs at <https://about.readthedocs.com> and then click **Import a Project**. You may need to click the refresh button to get a list of available projects, but you should then see "yourusername/site" in the list (where "yourusername" is your GitHub username), which you can select by clicking on the **+** button.
+#. Sign in to Read the Docs at https://about.readthedocs.com and then click **Import a Project**. You may need to click the refresh button to get a list of available projects, but you should then see "yourusername/site" in the list (where "yourusername" is your GitHub username), which you can select by clicking on the **+** button.
 
    * You can edit the **Name**, but otherwise leave the project details as they are and click **Next**.
    
