@@ -1,5 +1,5 @@
-License and terms of usage
-==========================
+License and using our materials
+===============================
 
 It is our hope that the materials provided here will be helpful for others.
 Thus, we share all the lesson materials openly, and our source codes and lesson materials are openly available `from GitHub <https://github.com/geo-python/site>`__.
