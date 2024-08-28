@@ -5,7 +5,7 @@ During this course, we will use different tools and applications for programming
 
 1. `Interactive code cells <#interactive-code-cells>`__ for live coding in the browser
 2. `JupyterLab`_ for the actual programming
-3. `Cloud computing environments`_ Binder or CSC Notebooks
+3. `Cloud computing environments`_ Binder or CSC Noppe
 4. `Git and GitHub`_ for version control and documentation
 5. `Voting / polling  <#voting-and-polling>`_ for interactive questions during the lectures
 6. `Discord`_ for communicating among UH students
@@ -83,18 +83,18 @@ Once the instance is ready, you can navigate to the lesson folders and start wor
 CSC Notebooks
 ~~~~~~~~~~~~~
 
-Notebooks by CSC (https://notebooks.csc.fi) is a computing environment hosted by the Finnish IT Center for Science (CSC). Similar to Binder, the CSC Notebooks platform is used for running Jupyter Notebooks in a customized environment.
+Noppe (formerly Notebooks) by CSC (https://noppe.csc.fi) is a computing environment hosted by the Finnish IT Center for Science (CSC). Similar to Binder, the CSC Notebooks platform is used for running Jupyter Notebooks in a customized environment.
 CSC Notebooks is available only for students who are affiliated with Finnish universities and research institutes (via the Haka user authentication).
 
 .. note:: **When using the CSC Notebooks for the first time, you need to join the group created for this course:**
 
-    1. Log in at https://notebooks.csc.fi/
+    1. Log in at https://noppe.csc.fi/
     2. Select Haka for the authentication provider
     3. Enter your Finnish university login credentials
     4. Click on the **Join workspace** button on the top left
-    5. Join the Geo-Python workspace using the join code ``geo-3i9sv41x``
+    5. Join the Geo-Python workspace using the join code ``geo-fuv8y5h2``
 
-    After joining the group, you should be able to view the course environments called `Geo-Python 2023` at the top of the Application list.
+    After joining the group, you should be able to view the course environments called `Geopython-2024` at the top of the Application list.
 
 .. figure:: img/CSC_join_group.png
    :alt: Join Group in CSC Notebooks
@@ -115,12 +115,12 @@ CSC Notebooks is available only for students who are affiliated with Finnish uni
 .. figure:: img/clone-notebooks.png
    :alt: Cloning the lesson notebook folder
 
-.. note:: **Repeat these steps every time when starting to work on a programming task using the CSC Notebooks:**
+.. note:: **Repeat these steps every time when starting to work on a programming task using the CSC Noppe:**
 
-    1. Log in at https://notebooks.csc.fi/
+    1. Log in at https://noppe.csc.fi/
     2. Select Haka for the authentication provider
     3. Enter your Finnish university login credentials
-    4. Click on the **Start session** button for the Geo-Python 2023 workspace
+    4. Click on the **Start session** button for the Geopython-2024 workspace
     5. Navigate to the ``my-work/notebooks`` directory, click on the Git icon on the left and click the **Pull latest changes**
     
 .. figure:: img/pull-changes.png

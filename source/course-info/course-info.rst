@@ -44,7 +44,7 @@ Course websites
 - Course sites for Period I (Introduction to Python programming):
 
   - Main course site: `<https://geo-python.github.io>`_
-  - Notebooks by CSC: `<https://noppe.csc.fi>`_
+  - Noppe by CSC: `<https://noppe.csc.fi>`_
   - Discord (Q&A + chat): `<https://discord.com/>`_
   - Polling / voting (active during lectures only): `<https://geo-python.github.io/poll>`_
 

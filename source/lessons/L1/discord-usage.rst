@@ -13,7 +13,7 @@ Accessing the workspace in Discord
 We will send an invitation link for all enrolled students to the Discord Team called ``Geo-Python 2023``.
 Before you can start using Discord, you should create a new account for Discord (if you don't have one already) and accept the invitation you have received.
 
-**After accepting the invitation, you can access the course Discord team via this link:** `<https://discord.com/channels/1140629215608315964/1140629216082280470>`__
+**After accepting the invitation, you can access the course Discord team via this link:** `<https://discord.com/channels/1277536922608074772/1277538172494155866>`__
 
 Overview of Discord
 -----------------
