@@ -33,10 +33,10 @@ Lecturers
 Course assistants
 ~~~~~~~~~~~~~~~~~
 
-- Annarosa Whiteman
-- Vili Rauhala
 - Nino Chkhartishvili
 - Sanni Laaksonen
+- Vili Rauhala
+- Annarosa Whitman
 
 Course websites
 ---------------
