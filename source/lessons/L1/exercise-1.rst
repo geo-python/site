@@ -3,7 +3,7 @@ Exercise 1
 
 .. admonition:: Deadline
 
-    Please complete this exercise **by the start of the next lesson (9:15 on 11 September 2023)**.
+    Please complete this exercise **by the start of the next lesson (9:15 on 9 September 2024)**.
 
 The exercise for this week has three parts.
 First, you will **create an account on GitHub.com**.
@@ -36,7 +36,7 @@ Part 2 - Discord
    :width: 250px
    :class: dark-light
 
-1. Go to our **Discord** page at https://discord.com/channels/1140629215608315964/1140629216082280470.
+1. Go to our **Discord** page at https://discord.com/channels/1277536922608074772/1277536922608074775.
 2. **Post a new message** in the ``#week-1`` channel with your **full name, GitHub username, course code** (GEOK3001 or GEOG-329-1).
 
 For example, ``Dave Whipp, davewhipp, GEOK3001`` or ``Kamyar Hasanzadeh, kamyar68, GEOG-329-1`` (please use comma to separate the different parts).

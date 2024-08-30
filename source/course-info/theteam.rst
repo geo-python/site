@@ -34,3 +34,7 @@ Current and former course assistants
 - Leevi Tuikka
 - Bryan Vallejo
 - Lotta Ylä-Mella
+- Annarosa Whiteman
+- Vili Rauhala
+- Nino Chkhartishvili
+- Sanni Laaksonen

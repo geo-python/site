@@ -12,7 +12,7 @@ Course meetings in Period I
    - Mondays 09:15 - 12:00 in A129, Chemicum 
 - Work sessions:
    - Group 1 on Thursdays 12:15 - 16:00 in A113+A114, Physicum
-   - Group 2 on Fridays 10:15 - 14:00 in A113+A114, Physicum
+   - Group 2 on Fridays 8:15 - 11:45 in A113+A114, Physicum
 
 Instructors
 -----------
@@ -35,8 +35,8 @@ Course assistants
 
 - Annarosa Whiteman
 - Vili Rauhala
-- 
-- 
+- Nino Chkhartishvili
+- Sanni Laaksonen
 
 Course websites
 ---------------
@@ -44,7 +44,7 @@ Course websites
 - Course sites for Period I (Introduction to Python programming):
 
   - Main course site: `<https://geo-python.github.io>`_
-  - Notebooks by CSC: `<https://noppe.csc.fi>`_
+  - Noppe by CSC: `<https://noppe.csc.fi>`_
   - Discord (Q&A + chat): `<https://discord.com/>`_
   - Polling / voting (active during lectures only): `<https://geo-python.github.io/poll>`_
 
