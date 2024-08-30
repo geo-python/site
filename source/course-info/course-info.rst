@@ -12,7 +12,7 @@ Course meetings in Period I
    - Mondays 09:15 - 12:00 in A129, Chemicum 
 - Work sessions:
    - Group 1 on Thursdays 12:15 - 16:00 in A113+A114, Physicum
-   - Group 2 on Fridays 10:15 - 14:00 in A113+A114, Physicum
+   - Group 2 on Fridays 8:15 - 11:45 in A113+A114, Physicum
 
 Instructors
 -----------
@@ -35,8 +35,8 @@ Course assistants
 
 - Annarosa Whiteman
 - Vili Rauhala
-- 
-- 
+- Nino Chkhartishvili
+- Sanni Laaksonen
 
 Course websites
 ---------------
