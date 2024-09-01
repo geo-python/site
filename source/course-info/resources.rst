@@ -8,8 +8,8 @@ New book: Introduction to Python for Geographic Data Analysis
 -------------------------------------------------------------
 
 Henrikki Tenkanen, Vuokko Heikinheimo, and David Whipp (all current or past course teachers) are working on a textbook that is based on the Geo-Python and Automating GIS processes courses.
-The book will be openly available online and is currently under development during the next year.
-Much of the material in the first part of the book draft is very similar to that in this course, but in case you are interested we invite you to have a look at the latest draft of the book at `<https://python-gis-book.readthedocs.io/en/latest/>`_.
+The book will be openly available online and is currently under development.
+The material in the first part of the book originates from this course and has reached a point where we will be using the book for most of our Python lessons. You can access the current book draft at `<https://python-gis-book.readthedocs.io/en/latest/>`_.
 
 Other books
 -----------
