@@ -1,39 +1,25 @@
 Course environment
 ==================
 
-During this course, we will use different tools and applications for programming and communications:
+During this course, we will use different tools and applications for programming and communication:
 
-1. `Interactive code cells <#interactive-code-cells>`__ for live coding in the browser
-2. `JupyterLab`_ for the actual programming
-3. `Cloud computing environments`_ Binder or CSC Noppe
-4. `Git and GitHub`_ for version control and documentation
-5. `Voting / polling  <#voting-and-polling>`_ for interactive questions during the lectures
-6. `Discord`_ for communicating among UH students
-
-Interactive code cells
-----------------------
-
-All pages with code cells can be turned into an interactive mode where you can run the code directly in the browser!
-
-.. figure:: img/Thebe_launcher.png
-   :alt: Activate Thebe that makes the page interactive
-
-.. note::
-
-    The interactive code cells are a new feature from the 2020 course materials that is still a bit experimental!
-    Remember, you can always open up the materials in Binder or CSC Notebooks and run the code in there.
+1. `JupyterLab`_ for programming
+2. `Cloud computing environments`_ Binder or CSC Noppe
+3. `Git and GitHub`_ for version control and documentation
+4. `Voting / polling  <#voting-and-polling>`_ for interactive questions during the lectures
+5. `Discord`_ for communicating among UH students
 
 JupyterLab
 ----------
 
-`JupyerLab <https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html>`__ is an open-source web-based user interface for doing data science.
+`JupyerLab <https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html>`__ is an open-source web-based application for doing data science.
 The JupyterLab interface consists of different components such as a file browser, terminal, image viewer, console, text editor, etc.
 
-**Jupyter Notebooks** (filename extension ``.ipynb``) are documents inside the JupyterLab environment which contain computer code, and rich text elements (figures, links, etc.).
-Jupyter Notebooks are perfect for documenting a data science workflow in an interactive format.
+**Jupyter Notebooks** (file extension ``.ipynb``) are documents inside the JupyterLab environment that contain computer code and rich text elements (e.g., figures, links, etc.).
+Jupyter Notebooks are excellent for documenting a data science workflow in an interactive format.
 
-**We use JupyterLab/Jupyter Notebooks as the default programming environment during this course.**
-All of the course materials are available in a JupyterLab setting via `cloud computing environments`_ (Binder or CSC Notebooks).
+**We use JupyterLab/Jupyter Notebooks as the default programming environment during this course**.
+All of the course materials are available in a JupyterLab environment via the `cloud computing environments`_ (Binder or CSC Noppe).
 
 .. figure:: img/Binder_launcher.png
    :alt: Binder Jupyter Notebook
@@ -50,10 +36,9 @@ All of the course materials are available in a JupyterLab setting via `cloud com
 Cloud computing environments
 ----------------------------
 
-We will use cloud-based computing environments (Binder or CSC Notebooks) to access interactive online version of the lessons
-and to work on the weekly exercises. You can use the cloud computing environments with any computer as long as it has a reasonably fast internet connection and a web browser (just don't use Internet Explorer).
+We will use cloud-based computing environments (Binder or CSC Noppe) to access interactive online version of the lesson materials and to work on the weekly exercises. You can use the cloud computing environments with any computer as long as it has a reasonably fast internet connection and a web browser.
 
-Please note that the cloud computing environments are **temporary**. Always remember to push your changes to GitHub (and / or download a local copy).
+Please note that the cloud computing environments are **temporary**. Always remember to push your changes to GitHub (and / or download a local copy) We will cover how to save files on GitHub.com in the second week of the course..
 
 .. figure:: img/launch-buttons.png
    :alt: Launch buttons
@@ -61,8 +46,8 @@ Please note that the cloud computing environments are **temporary**. Always reme
 
    Different options for making the lesson interactive
 
-Each interactive lesson and exercise will have a launch button for both Binder and CSC Notebook.
-The CSC notebooks environment is only accessible to students from Finnish universities and research institutes.
+Each interactive lesson and exercise will have a launch button for both Binder and CSC Noppe.
+The CSC Noppe environment is only accessible to students from Finnish universities and research institutes.
 
 Binder
 ~~~~~~
@@ -78,10 +63,12 @@ Binder does not require the user to log in, you can just click on the link in th
 
 Once the instance is ready, you can navigate to the lesson folders and start working with existing notebooks or create a new one.
 
-**Remember to save your work! The Binder instance is temporary, and all your files will be lost after the session.**
+**Remember to download your work when using Binder**! The Binder instance is temporary, and all your files will be lost after the session.
 
-CSC Notebooks
-~~~~~~~~~~~~~
+Also, note that **Binder instances will die after around 10 minutes without any activity** (e.g., running a code cell). When this happens you may lose your work!
+
+CSC Noppe
+~~~~~~~~~
 
 Noppe (formerly Notebooks) by CSC (https://noppe.csc.fi) is a computing environment hosted by the Finnish IT Center for Science (CSC). Similar to Binder, the CSC Notebooks platform is used for running Jupyter Notebooks in a customized environment.
 CSC Notebooks is available only for students who are affiliated with Finnish universities and research institutes (via the Haka user authentication).
@@ -104,7 +91,7 @@ CSC Notebooks is available only for students who are affiliated with Finnish uni
 
    Launching the instance takes a few moments.
 
-.. note:: **After launching the Geo-Python 2023 workspace the first time:**
+.. note:: **After launching the Geo-Python 2024 workspace the first time:**
 
     1. Double-click on the ``my-work`` folder in the file navigator on the left side of the Jupyter Lab window
     2. Click on the Git icon on the left side
@@ -115,7 +102,7 @@ CSC Notebooks is available only for students who are affiliated with Finnish uni
 .. figure:: img/clone-notebooks.png
    :alt: Cloning the lesson notebook folder
 
-.. note:: **Repeat these steps every time when starting to work on a programming task using the CSC Noppe:**
+.. note:: **Repeat these steps every time when starting to work on a programming task using the CSC Noppe platform:**
 
     1. Log in at https://noppe.csc.fi/
     2. Select Haka for the authentication provider
@@ -132,7 +119,7 @@ Using your own computer
 -----------------------
 
 We recommend everyone to use the available `cloud computing environments`_ during this course.
-In case you want to work on your own computer, you need to `install Python (via Miniconda) <../../course-info/installing-miniconda.html>`_.
+In case you want to work on your own computer, you need to `install Python <../../course-info/installing-miniconda.html>`_.
 
 Git and GitHub
 --------------
@@ -162,10 +149,10 @@ You can access the polling system of our course from `<https://geo-python.github
     will most probably see only a white page without any content.
 
 Discord
------
+-------
 
 During the course we will use actively an application called `Discord <http://discord.com>`__ for discussion and questions about the lessons and exercises.
-All enrolled students have received an invite link to the `geo-python2023` workspace at the start of the course.
+All enrolled students have received an invite link to the `geo-Python2024` workspace at the start of the course.
 :doc:`Read more about Discord  <discord-usage>`.
 
 Page summary
