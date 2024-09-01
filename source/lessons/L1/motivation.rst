@@ -13,4 +13,4 @@ These include:
 Lesson materials
 ----------------
 
-In this lesson we will explore `a motivating example <https://python-gis-book.readthedocs.io/en/latest/part1/chapter-01/nb/00-motivation.html>`_ from the first chapter of the forthcoming textbook `*Introduction to Python for Geographic Data Analysis* <https://python-gis-book.readthedocs.io/en/latest/index.html>`_.
+In this lesson we will explore `a motivating example <https://python-gis-book.readthedocs.io/en/latest/part1/chapter-01/nb/00-motivation.html>`_ from the first chapter of the forthcoming textbook `Introduction to Python for Geographic Data Analysis <https://python-gis-book.readthedocs.io/en/latest/index.html>`_.
