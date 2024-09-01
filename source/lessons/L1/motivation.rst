@@ -10,4 +10,7 @@ These include:
 3. Creating programs that ensure your science is reproducible
 4. Producing simple, effective data visualizations that make your results accessible and easy to understand
 
-To help clarify our goals, we shall consider `a motivating example <https://python-gis-book.readthedocs.io/en/latest/part1/chapter-01/nb/00-motivation.html>`_ from the first chapter of the forthcoming textbook `Introduction to Python for Geographic Data Analysis <https://python-gis-book.readthedocs.io/en/latest/index.html>`_.
+Lesson materials
+----------------
+
+In this lesson we will explore `a motivating example <https://python-gis-book.readthedocs.io/en/latest/part1/chapter-01/nb/00-motivation.html>`_ from the first chapter of the forthcoming textbook `Introduction to Python for Geographic Data Analysis <https://python-gis-book.readthedocs.io/en/latest/index.html>`_.
