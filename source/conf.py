@@ -20,12 +20,12 @@
 # -- Project information -----------------------------------------------------
 
 project = "Geo-Python"
-copyright = "2016-2023, The Geo-Python team, Department of Geosciences and Geography, University of Helsinki"
+copyright = "2016-2024, The Geo-Python team, Department of Geosciences and Geography, University of Helsinki"
 # author = 'David Whipp, Henrikki Tenkanen, Vuokko Heikinheimo, Håvard Aagesen'
 author = ""
 
 # The short X.Y version
-version = "2023"
+version = "2024"
 # The full version, including alpha/beta/rc tags
 release = "site"
 
@@ -41,7 +41,6 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.githubpages",
     "sphinx.ext.todo",
-    "sphinx_thebe",
     "sphinxcontrib.googleanalytics",
     "sphinxcontrib.youtube",
     "IPython.sphinxext.ipython_console_highlighting",
@@ -118,7 +117,7 @@ html_theme_options = {
     "use_repository_button": True,
     "launch_buttons": {
         "binderhub_url": "https://mybinder.org",
-        "thebe": True,
+        "thebe": False,
         "notebook_interface": "jupyterlab",
         "collapse_navigation": False,
     },
