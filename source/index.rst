@@ -198,11 +198,11 @@ New materials are updated on this course page each Monday.
 %     final-exercise/overview
 %     final-exercise/grading.ipynb
 
-% .. toctree::
-%     :maxdepth: 2
-%     :caption: Resources
+.. toctree::
+    :maxdepth: 2
+    :caption: Resources
 
-%     course-info/python-vocabulary
-%     course-info/installing-miniconda
-%     course-info/resources
+    course-info/python-vocabulary
+    course-info/installing-miniconda
+    course-info/resources
 
