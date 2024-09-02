@@ -3,6 +3,7 @@ Grading
 
 General grading breakdown
 -------------------------
+
 Course grades will be given using the standard six-level grading scale from 0 to 5:
 
 - 5 (Excellent)
@@ -11,6 +12,10 @@ Course grades will be given using the standard six-level grading scale from 0 to
 - 2 (Satisfactory)
 - 1 (Passable)
 - 0 (Fail)
+
+.. note::
+
+    The border between grades 4 and 5 is typically 95% due to the large number of points from the exercises.
 
 Your grade will be determined as follows:
 

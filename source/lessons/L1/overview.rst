@@ -1,7 +1,7 @@
 Lesson overview
 ===============
 
-Today we will have our first taste of programming in Python.
+In this lesson we will have our first taste of programming in Python.
 In order to start learning Python, however, we need to introduce you how we will work during the course using different tools including a dedicated computing environment, which is based on the principles of `cloud computing <https://en.wikipedia.org/wiki/Cloud_computing>`__.
 This first tutorial will introduce you to the basic components of the course environment, guide you through how they are used, and conclude with a hands-on introduction to some key concepts and elements of programming in Python.
 The main components of today's lesson can be found in the navigation bar to the left.
@@ -24,7 +24,7 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-Lecture recording will be added later.
+Lecture recording(s) will be added after the lesson.
 
 .. admonition:: GCP 1 - Selecting "good" variable names
     :class: admonition-youtube

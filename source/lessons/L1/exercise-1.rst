@@ -5,10 +5,11 @@ Exercise 1
 
     Please complete this exercise **by the start of the next lesson (9:15 on 9 September 2024)**.
 
-The exercise for this week has three parts.
-First, you will **create an account on GitHub.com**.
-Next, you will **let us know your GitHub username via Discord**.
-Finally, you will **cook up some Python** using the skills you learned during the first lesson!
+The exercise for this week has three parts:
+
+1. **Creating an account on GitHub.com**.
+2. **Sharing your GitHub username with us via Discord**.
+3. **Cooking up some Python** using the skills you learned during the first lesson!
 
 Part 1 - Sign up for GitHub
 ---------------------------
@@ -52,7 +53,7 @@ Part 3 - Cooking up some Python
 -------------------------------
 
 .. image:: https://img.shields.io/badge/launch-binder-red.svg
-   :target: https://mybinder.org/v2/gh/Geo-Python-2023/Binder/main?urlpath=lab
+   :target: https://mybinder.org/v2/gh/Geo-Python-2024/Binder/main?urlpath=lab
    
 .. 
     .. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
@@ -61,7 +62,7 @@ Part 3 - Cooking up some Python
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 1 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/vwOAq8qb>`__.
+    **You can start working on your copy of Exercise 1 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/oeokKkGU>`__.
 
 
 1. Start the coding exercise by accepting the GitHub Classroom assignment (click on the link above).
@@ -76,13 +77,13 @@ Part 3 - Cooking up some Python
 
     Each week, you will create a personal copy of the exercise repository on GitHub.com by clicking on the GitHub classroom link.
 
-    You can also take a look at the template repository on GitHub: https://github.com/Geo-Python-2023/Exercise-1 .
+    You can also take a look at the template repository on GitHub: https://github.com/Geo-Python-2024/Exercise-1 .
     Note that you are only able to make changes in your personal repository generated via GitHub Classroom.
 
 Summary (what to submit)
 ------------------------
 
-1. Post a message in the ``#week-1`` channel in Discord at https://discord.com/channels/1140629215608315964/1140629216082280470 with your name, GitHub username, and course.
+1. Post a message in the ``#week-1`` channel in Discord at https://discord.com/channels/1277536922608074772/1277538199937482885 with your name, GitHub username, and course.
 2. Accept Exercise-1 in Github classroom and upload the Jupyter notebook (the filename should be ``Exercise-1.ipynb``) containing your solutions for Part 3.
 
 .. admonition:: Private repositories
@@ -94,4 +95,4 @@ Summary (what to submit)
 
     Some instructions on this page are specific to students at the University of Helsinki.
     Others can skip the Discord step and proceed to solving the Exercise 1 problems!
-    Please note that **we are only able to provide assignment feedback to students enrolled in the course at the University of Helsinki**.
+    Please note that **we are only able to provide assignment feedback to students enrolled in the course taught at the University of Helsinki**.

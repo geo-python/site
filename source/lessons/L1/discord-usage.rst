@@ -1,5 +1,5 @@
 Communicating with Discord
-========================
+==========================
 
 .. figure:: img/Discord-logo.png
    :width: 250px
@@ -10,13 +10,13 @@ During this course we will use `Discord <http://discord.com>`__ for discussion a
 Accessing the workspace in Discord
 ----------------------------------
 
-We will send an invitation link for all enrolled students to the Discord Team called ``Geo-Python 2023``.
+We will send an invitation link for all enrolled students to the Discord Team called ``geoPython-2024``.
 Before you can start using Discord, you should create a new account for Discord (if you don't have one already) and accept the invitation you have received.
 
-**After accepting the invitation, you can access the course Discord team via this link:** `<https://discord.com/channels/1277536922608074772/1277538172494155866>`__
+**After accepting the invitation, you can access the course Discord team via this link:** `<https://discord.com/channels/1277536922608074772/1277536922608074775>`__
 
 Overview of Discord
------------------
+-------------------
 
 Using Discord for communication is easy. It works in a similar manner to any chatting application (such as WhatsApp). However, the benefits of Discord are:
 
@@ -89,6 +89,8 @@ Here we have few general guidelines for using Discord to keep things well organi
    4. **Discuss and comment!** If you see a question and you know how to help, we encourage you to comment and help your fellow students.
 
    5. **HOWEVER, DON'T PROVIDE READY ANSWERS** in the discussion (such as all necessary codes for a given problem). This does not help your other students to learn.
+
+   6. And finally, please **be aware of our working hours**. The instructors and course assistants aim to be responsive to your messages, but please do not expect immediate replies to messages posted outside of typical working hours.
 
 With these guidelines we keep our discussion well organized and it is easy for everybody to find help and relevant discussion about specific lessons / exercises.
 

@@ -17,15 +17,18 @@ Teachers and content creators
 Current and former course assistants
 ------------------------------------
 
+- Nino Chkhartishvili
 - Emil Ehnström
 - Antti Kallanranta
 - Mikko Kangasmaa
 - Sonja Koivisto
+- Sanni Laaksonen
 - Hertta Lehvävirta
 - Samuli Massinen
 - Oyelowo Oyedayo
 - Justus Poutanen
 - Aleksi Rantanen
+- Vili Rauhala
 - Sakari Sarjakoski
 - Aino Schulz
 - Jorina Schütt
@@ -33,8 +36,5 @@ Current and former course assistants
 - Sara Todorovic
 - Leevi Tuikka
 - Bryan Vallejo
+- Annarosa Whitman
 - Lotta Ylä-Mella
-- Annarosa Whiteman
-- Vili Rauhala
-- Nino Chkhartishvili
-- Sanni Laaksonen

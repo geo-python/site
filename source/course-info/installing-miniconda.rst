@@ -30,7 +30,7 @@ Details on the installation for Windows, macOS and Linux users below.
 
 .. note::
 
-    Although some of the screenshots below highlight download links for older versions of Python, we recommend using **Miniconda based on Python 3.10 for this course**.
+    Although some of the screenshots below highlight download links for older versions of Python, we recommend using **Miniconda based on Python 3.11 or later for this course**.
 
 Windows
 ~~~~~~~
@@ -63,7 +63,7 @@ and running command ``conda --version``. If the command returns a version number
 macOS
 ~~~~~
 
-Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#macosx-installers>`__ and download the Python 3.10 installer for macOS.
+Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#macosx-installers>`__ and download the Python 3.11 or later installer for macOS.
 
 .. figure:: img/miniconda-macos.png
     :width: 600px
@@ -75,7 +75,7 @@ Double click on the package after it downloads and follow the instructions for i
 Linux
 ~~~~~
 
-Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#linux-installers>`__ and download the Python 3.10 installer for Linux.
+Visit the `Miniconda download page <https://docs.conda.io/en/latest/miniconda.html#linux-installers>`__ and download the Python 3.11 or later installer for Linux.
 
 .. figure:: img/miniconda-linux.png
     :width: 600px

@@ -33,10 +33,10 @@ Lecturers
 Course assistants
 ~~~~~~~~~~~~~~~~~
 
-- Annarosa Whiteman
-- Vili Rauhala
 - Nino Chkhartishvili
 - Sanni Laaksonen
+- Vili Rauhala
+- Annarosa Whitman
 
 Course websites
 ---------------
@@ -44,6 +44,7 @@ Course websites
 - Course sites for Period I (Introduction to Python programming):
 
   - Main course site: `<https://geo-python.github.io>`_
+  - *Introduction to Python for Geographic Data Science* book site: `<https://python-gis-book.readthedocs.io/>`_
   - Noppe by CSC: `<https://noppe.csc.fi>`_
   - Discord (Q&A + chat): `<https://discord.com/>`_
   - Polling / voting (active during lectures only): `<https://geo-python.github.io/poll>`_
@@ -51,4 +52,3 @@ Course websites
 - Course websites for Period II
 
   - Automating GIS processes (GEOG-329-2): `<https://autogis.github.io>`_
-  - Introduction to Quantitative Geology (GEOM2021): `<https://introqg.github.io>`_
