@@ -4,7 +4,7 @@ Introduction to Version Control
 Sources
 -------
 
-These materials are inspired and partially based on the Software Carpentry lesson on `Version Control with Git <http://swcarpentry.github.io/git-novice/>`__ and the `GitHub Campus Advisor materials <https://education.github.com/teachers/advisors>`__.
+These materials are inspired and partially based on the Software Carpentry lesson on `Version Control with Git <http://swcarpentry.github.io/git-novice/>`__ and the `GitHub Skills materials <https://skills.github.com/>`__.
 
 Familiar?
 ---------
@@ -61,7 +61,7 @@ What is Git?
 
 `Git <https://en.wikipedia.org/wiki/Git_(software)>`__ is a version control software (developed in 2005 by a rather famous Finn named Linus Torvalds - he also created Linux!) that is used to track and store changes in your files (often source code for programs) without losing the history of past changes.
 Files in Git are stored in a repository, which you can simply think of as a directory containing files (or other directories) related to a single 'project'.
-**In practice git takes "snapshots" of your files each time you commit changes** and follows the idea of `distributed version control <https://git-scm.com/book/en/v1/Getting-Started-About-Version-Control#Distributed-Version-Control-Systems>`__.
+**In practice git takes "snapshots" of your files each time you commit changes** and follows the idea of `distributed version control <https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control>`__.
 Git is widely used by professionals to keep track of what they've done and to collaborate with other people.
 Git is the version control system that is running behind the scenes and used with GitHub (``Git + Hub``!).
 
