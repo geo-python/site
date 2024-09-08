@@ -2,7 +2,7 @@ Meet Git
 ========
 
 This tutorial covers the very basics of version control using Git and GitHub.
-These materials have been adapted for the Geo-Python course from the `GitHub Education Campus Advisors resources <https://github.com/Campus-Advisors>`_, and `Git documentation <https://git-scm.com/about/>`__.
+These materials have been adapted for the Geo-Python course from the `GitHub Skills resources <https://skills.github.com/>`_, and `Git documentation <https://git-scm.com/about/>`__.
 
 After this lesson you should be able to do these steps in JupyterLab using git and the JupyterLab git-plugin:
 
@@ -46,13 +46,13 @@ Preparations
 Let's go through the basics of using Git. We will use Exercise-1 repository created last week to practice.
 Before we start, open a new JupyterLab session if you do not already have one open.
 
-You can find instructions for using Binder and CSC Notebooks in :doc:`Lesson 1 materials <../../L1/course-environment-components>`.
+You can find instructions for using Binder and CSC Noppe in :doc:`Lesson 1 materials </lessons/L1/course-environment-components>`.
 
 .. image:: https://img.shields.io/badge/launch-binder-red.svg
-   :target: https://mybinder.org/v2/gh/Geo-Python-2023/Binder/master?urlpath=lab
+   :target: https://mybinder.org/v2/gh/Geo-Python-2024/Binder/master?urlpath=lab
 
-.. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
-   :target: https://notebooks.csc.fi/
+.. image:: https://img.shields.io/badge/launch-CSC%20Noppe-blue.svg
+   :target: https://noppe.csc.fi/
 
 
 Create a Personal Access Token
@@ -70,7 +70,7 @@ Before we start cloning our repository from GitHub, we need to create a Personal
 #. Click on **Tokens (classic)**.
 #. We will create the token by clicking on **Generate new token** and then **Generate new token (classic)**.
 
-   - If you are using two-factor authentication, you may be prompted to enter an authentication code at this point.
+   - If you are using two-factor authentication, you may be prompted to enter an authentication code or use your passkey at this point.
  
 #. We can start by giving our token a name in under **Note**.
 
@@ -93,12 +93,12 @@ Before we start cloning our repository from GitHub, we need to create a Personal
 
    - Open a text document and copy and paste your Personal access token in a text file, because for now we are going to use it like this, and we will later see how we can cache it so that we don't need to copy and paste it every time we need it. If your access token is ever lost, you can just follow the steps above again to create a new one.
 
-Now that we have created a personal access token, the next thing we need is the URL of your exercise repository from GitHub. **Go to** https://github.com/geo-python-2023/ **and navigate to your personal Exercise-1 repository.**
+Now that we have created a personal access token, the next thing we need is the URL of your exercise repository from GitHub. **Go to** https://github.com/geo-python-2024/ **and navigate to your personal Exercise-1 repository.**
 
 On GitHub, find the button **Code** and copy the url under *HTTPS*.
 
 The URL looks something like this:
-https://github.com/Geo-Python-2023/exercise-1-davewhipp.git but with your own username or team name.
+https://github.com/Geo-Python-2024/exercise-1-davewhipp.git but with your own username or team name.
 
 .. figure:: img/git-copy-url.png
 
@@ -242,7 +242,7 @@ Now we are ready to push the local changes to GitHub using :code:`git push` (but
 
 .. figure:: img/git-plugin-push-ok.png
 
-Now you should see the updates in GitHub! Go and have a look at your personal repository in https://github.com/Geo-Python-2023/ .
+Now you should see the updates in GitHub! Go and have a look at your personal repository in https://github.com/Geo-Python-2024/ .
 
 On the command line, ``git pull`` fetches and merges changes from the remote repository, and ``git pull`` publishes local changes.
 
