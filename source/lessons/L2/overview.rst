@@ -20,16 +20,19 @@ After this week you will be able to:
 Lesson videos
 -------------
 
-.. admonition:: Lesson 2.1 - Course introduction and computing basics
-    :class: admonition-youtube
+Lesson videos will be posted after class.
 
-    ..  youtube:: eM9JSqI4EoU
-
-    Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
-
-.. admonition:: Lesson 2.2 - Course environment and a taste of Python
-    :class: admonition-youtube
-
-    ..  youtube:: RrPECexKkSI
+.. 
+    .. admonition:: Lesson 2.1 - Course introduction and computing basics
+        :class: admonition-youtube
     
-    Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+        ..  youtube:: eM9JSqI4EoU
+    
+        Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+    
+    .. admonition:: Lesson 2.2 - Course environment and a taste of Python
+        :class: admonition-youtube
+    
+        ..  youtube:: RrPECexKkSI
+        
+        Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
