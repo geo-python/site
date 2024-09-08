@@ -46,7 +46,7 @@ Preparations
 Let's go through the basics of using Git. We will use Exercise-1 repository created last week to practice.
 Before we start, open a new JupyterLab session if you do not already have one open.
 
-You can find instructions for using Binder and CSC Noppe in :doc:`Lesson 1 materials </source/L1/course-environment-components>`.
+You can find instructions for using Binder and CSC Noppe in :doc:`Lesson 1 materials </source/lessons/L1/course-environment-components>`.
 
 .. image:: https://img.shields.io/badge/launch-binder-red.svg
    :target: https://mybinder.org/v2/gh/Geo-Python-2024/Binder/master?urlpath=lab
