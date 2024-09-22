@@ -7,9 +7,9 @@ Exercise 4
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 4 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/_hiiK8sa>`__.
+    **You can start working on your copy of Exercise 4 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/9aadPQed>`__.
 
-You can also take a look at the template repository for `Exercise 4 on GitHub <https://github.com/Geo-Python-2023/Exercise-4>`__ (does not require logging in).
+You can also take a look at the template repository for `Exercise 4 on GitHub <https://github.com/Geo-Python-2024/Exercise-4>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
 .. admonition:: Pair programming
@@ -22,10 +22,10 @@ Cloud computing environments
 ----------------------------
 
 .. image:: https://img.shields.io/badge/launch-binder-red.svg
-   :target: https://mybinder.org/v2/gh/Geo-Python-2023/Binder/main?urlpath=lab
+   :target: https://mybinder.org/v2/gh/Geo-Python-2024/Binder/main?urlpath=lab
    
-.. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
-   :target: https://notebooks.csc.fi/ 
+.. image:: https://img.shields.io/badge/launch-CSC%20Noppe-blue.svg
+   :target: https://noppe.csc.fi/ 
 
 
 Exercise 4 hints
