@@ -18,16 +18,19 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-.. admonition:: Lesson 5.1 - Exploring data using pandas
-    :class: admonition-youtube
+Videos will be posted after the lesson.
 
-    ..  youtube:: zvydGkDDYzA
+..
+    .. admonition:: Lesson 5.1 - Exploring data using pandas
+        :class: admonition-youtube
 
-    Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+        ..  youtube:: zvydGkDDYzA
 
-.. admonition:: Lesson 5.2 - Processing data using pandas
-    :class: admonition-youtube
+        Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
 
-    ..  youtube:: gpbvjTzAGxY
-    
-    Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+    .. admonition:: Lesson 5.2 - Processing data using pandas
+        :class: admonition-youtube
+
+        ..  youtube:: gpbvjTzAGxY
+
+        Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
