@@ -17,16 +17,19 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-.. admonition:: Lesson 7.1 - Plotting in Python using pandas/Matplotlib
-    :class: admonition-youtube
+Videos will be posted after the lesson.
 
-    ..  youtube:: 29i6-aBWDl0
-
-    Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
-
-.. admonition:: Lesson 7.2 - Advanced plotting using pandas/Matplotlib
-    :class: admonition-youtube
-
-    ..  youtube:: t1zGOjewO9Q
-
-    Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+.. 
+    .. admonition:: Lesson 7.1 - Plotting in Python using pandas/Matplotlib
+        :class: admonition-youtube
+    
+        ..  youtube:: 29i6-aBWDl0
+    
+        Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+    
+    .. admonition:: Lesson 7.2 - Advanced plotting using pandas/Matplotlib
+        :class: admonition-youtube
+    
+        ..  youtube:: t1zGOjewO9Q
+    
+        Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
