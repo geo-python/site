@@ -185,10 +185,10 @@ New materials are updated on this course page each Monday.
     :caption: Lesson 7
 
     lessons/L7/overview
-    lessons/L7/python-plotting
-    lessons/L7/plot-anatomy
-    notebooks/L7/matplotlib.ipynb
-    notebooks/L7/advanced-plotting.ipynb
+    notebooks/L7/python-plotting.ipynb
+    notebooks/L7/basic-plotting.ipynb
+    notebooks/L7/subplots.ipynb
+    notebooks/L7/line-plots.ipynb
     lessons/L7/exercise-7
 
 .. toctree::
