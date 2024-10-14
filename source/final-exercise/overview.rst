@@ -3,13 +3,13 @@ Final exercise assignment
 
 .. note::
 
-    The final exercise is due by **17:00 on Wednesday, November 15th, 2023**.
+    The final exercise is due by **23:59 on Friday, November 8th, 2024**.
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of the final exercise by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/1e8GHWdA>`__.
+    **You can start working on your copy of the final exercise by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/-XzSy_Vp>`__.
 
-You can also take a look at the template repository for `the final exercise on GitHub <https://github.com/Geo-Python-2023/Final-exercise>`__ (does not require logging in). Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
+You can also take a look at the template repository for `the final exercise on GitHub <https://github.com/Geo-Python-2024/Final-exercise>`__ (does not require logging in). Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
 .. attention::
 
@@ -20,7 +20,7 @@ Cloud computing environments
 -----------------------------
 
 .. image:: https://img.shields.io/badge/launch-binder-red.svg
-   :target: https://mybinder.org/v2/gh/Geo-Python-2023/Binder/main?urlpath=lab
+   :target: https://mybinder.org/v2/gh/Geo-Python-2024/Binder/main?urlpath=lab
    
-.. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
-   :target: https://notebooks.csc.fi/
+.. image:: https://img.shields.io/badge/launch-CSC%20Noppe-blue.svg
+   :target: https://noppe.csc.fi/
