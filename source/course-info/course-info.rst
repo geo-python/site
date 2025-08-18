@@ -22,21 +22,19 @@ Email: *firstname.lastname@helsinki.fi*
 Lecturers
 ~~~~~~~~~
 
+This is a joint course between Geography and Geology programs. However, in year 2025 David Whipp from Geology is on leave and *Kamyar Hasanzadeh* will be responsible for both groups.
+
 - Kamyar Hasanzadeh
 
   - Office: D431, Exactum
 
-- David Whipp
-
-  - Office: D426, Exactum
 
 Course assistants
 ~~~~~~~~~~~~~~~~~
 
-- Nino Chkhartishvili
-- Sanni Laaksonen
-- Vili Rauhala
-- Annarosa Whitman
+- Emilia Oinas
+- Eevi Raappana
+- Inka Nevalainen
 
 Course websites
 ---------------

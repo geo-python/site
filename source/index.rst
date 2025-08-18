@@ -6,7 +6,7 @@
 .. image:: img/banner/geo-python-2023.png
     :class: dark-light
 
-Welcome to Geo-Python 2024!
+Welcome to Geo-Python 2025!
 ===========================
 
 The **Geo-Python** course teaches you the basic concepts of programming and scientific data analysis using the Python programming language in a format that is easy to learn and understand (no previous programming experience required).
