@@ -79,9 +79,9 @@ CSC Notebooks is available only for students who are affiliated with Finnish uni
     2. Select Haka for the authentication provider
     3. Enter your Finnish university login credentials
     4. Click on the **Join workspace** button on the top left
-    5. Join the Geo-Python workspace using the join code ``geo-fuv8y5h2``
+    5. Join the Geo-Python workspace using the join code ``1xxnbs95am47``
 
-    After joining the group, you should be able to view the course environments called `Geopython-2024` at the top of the Application list.
+    After joining the group, you should be able to view the course environments called `Geopython 2025` at the top of the Application list.
 
 .. figure:: img/CSC_join_group.png
    :alt: Join Group in CSC Notebooks
@@ -152,7 +152,7 @@ Discord
 -------
 
 During the course we will use actively an application called `Discord <http://discord.com>`__ for discussion and questions about the lessons and exercises.
-All enrolled students have received an invite link to the `geo-Python2024` workspace at the start of the course.
+All enrolled students have received an invite link to the `GeoPython-2025` workspace at the start of the course.
 :doc:`Read more about Discord  <discord-usage>`.
 
 Page summary

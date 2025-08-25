@@ -17,6 +17,9 @@ Teachers and content creators
 Current and former course assistants
 ------------------------------------
 
+- Emilia Oinas
+- Eevi Raappana
+- Inka Nevalainen
 - Nino Chkhartishvili
 - Emil Ehnström
 - Antti Kallanranta
