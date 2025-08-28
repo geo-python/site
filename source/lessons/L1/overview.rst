@@ -37,12 +37,12 @@ Lesson videos
 ..
 ..     Kamyar Hasanzadeh & Dave Whipp, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
 ..
-.. .. admonition:: GCP 1 - Selecting "good" variable names
-..     :class: admonition-youtube
-..
-..     ..  youtube:: G0FZkgbQYGg
-..
-..     Dave Whipp & Vuokko Heikinheimo, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+.. admonition:: GCP 1 - Selecting "good" variable names
+    :class: admonition-youtube
+
+    ..  youtube:: G0FZkgbQYGg
+
+    Dave Whipp & Vuokko Heikinheimo, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
 
 
 Lecture slides
