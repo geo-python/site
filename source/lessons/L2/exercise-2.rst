@@ -9,6 +9,12 @@ Exercise 2
 
     **You can start working on your copy of Exercise 2 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/EqiMDJtk>`__.
 
+. admonition:: Autograding in use
+
+    **Your weekly assignments are partially autograded**. We have implemented a new system in 2025 and your feedback is needed to improve its performance. A channel is dedicated to your feedbacks on our Discord server.
+    When you push your work to the repository, feedback will be provided in a pull-request. This may take a couple of minutes. For the autgrading system to work, do not add, delete, or duplicate any cells in the exercise notebook 
+
+
 You can also take a look at the template repository for `Exercise 2 on GitHub <https://github.com/Geo-Python-2025/Exercise-2>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
