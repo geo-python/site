@@ -21,10 +21,10 @@ Lesson videos
 -------------
 
 
-.. .. admonition:: Lesson 2.1 - Python basics I
-..     :class: admonition-youtube
-..
-..     ..  youtube:: rSlbEEDRdeU
+.. admonition:: Lesson 2 - Python basics and version control (git)
+    :class: admonition-youtube
+
+    ..  youtube:: l722EWgZukI
 
 ..     Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
 
