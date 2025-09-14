@@ -137,16 +137,16 @@ New materials are updated on this course page each Monday.
     lessons/L2/why-pairs
     lessons/L2/exercise-2
 
-.. .. toctree::
-..     :maxdepth: 2
-..     :caption: Lesson 3
-..
-..     lessons/L3/overview
-..     notebooks/L3/for-loops.ipynb
-..     notebooks/L3/conditional-statements.ipynb
-..     notebooks/L3/gcp-3-pep8.ipynb
-..     lessons/L3/exercise-3
-..
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 3
+
+    lessons/L3/overview
+    notebooks/L3/for-loops.ipynb
+    notebooks/L3/conditional-statements.ipynb
+    notebooks/L3/gcp-3-pep8.ipynb
+    lessons/L3/exercise-3
+
 .. .. toctree::
 ..     :maxdepth: 2
 ..     :caption: Lesson 4

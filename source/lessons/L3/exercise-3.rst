@@ -7,7 +7,7 @@ Exercise 3
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 3 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/JC_RiOaU>`__.
+    **You can start working on your copy of Exercise 3 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/V_ic4TtB>`__.
 
 You can also take a look at the template repository for `Exercise 3 on GitHub <https://github.com/Geo-Python-2024/Exercise-3>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
@@ -22,7 +22,7 @@ Cloud computing environments
 ----------------------------
 
 .. image:: https://img.shields.io/badge/launch-binder-red.svg
-   :target: https://mybinder.org/v2/gh/Geo-Python-2024/Binder/main?urlpath=lab
+   :target: https://mybinder.org/v2/gh/Geo-Python-2025/Binder/main?urlpath=lab
    
 .. image:: https://img.shields.io/badge/launch-CSC%20Noppe-blue.svg
    :target: https://noppe.csc.fi
