@@ -18,10 +18,10 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-.. .. admonition:: Lesson 3.1 - Repeating tasks with loops
-..     :class: admonition-youtube
+.. admonition:: Lesson 3 - Repeating tasks with loops - Conditional statements
+    :class: admonition-youtube
 
-..     ..  youtube:: SSoEpgKAvl8
+    ..  youtube:: sStuwSfU9LI
 
 ..     Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
 
