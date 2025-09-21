@@ -23,16 +23,16 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-.. admonition:: Lesson 4.1 - Introduction to functions
-    :class: admonition-youtube
+.. .. admonition:: Lesson 4.1 - Introduction to functions
+..     :class: admonition-youtube
+..
+..     ..  youtube:: t_MrgYSrxZI
+..
+..     Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
 
-    ..  youtube:: t_MrgYSrxZI
-
-    Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
-
-.. admonition:: Lesson 4.2 - Coding with ChatGPT, script files and modules
-    :class: admonition-youtube
-
-    ..  youtube:: k7ulXIYAj4M
-    
-    Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+.. .. admonition:: Lesson 4.2 - Coding with ChatGPT, script files and modules
+..     :class: admonition-youtube
+..
+..     ..  youtube:: k7ulXIYAj4M
+..    
+..     Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
