@@ -18,10 +18,10 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-.. .. admonition:: Lesson 5.1 - Getting started with data analysis using pandas
-..     :class: admonition-youtube
-..
-..     ..  youtube:: gYAb0AHU9cE
+.. admonition:: Lesson 5 - Getting started with data analysis using pandas
+    :class: admonition-youtube
+
+    ..  youtube:: jV-zalTlP9w
 
 ..     Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
 
