@@ -244,7 +244,7 @@ Now we are ready to push the local changes to GitHub using :code:`git push` (but
 
 Now you should see the updates in GitHub! Go and have a look at your personal repository in https://github.com/Geo-Python-2024/ .
 
-On the command line, ``git pull`` fetches and merges changes from the remote repository, and ``git pull`` publishes local changes.
+On the command line, ``git pull`` fetches and merges changes from the remote repository, and ``git push`` publishes local changes.
 
 That's all you need to know about Git for now :)
 
