@@ -7,16 +7,11 @@ Exercise 6
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 6 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/TlQ-sHkJ>`__.
+    **You can start working on your copy of Exercise 6 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/3OZ8gcjd>`__.
 
-You can also take a look at the template repository for `Exercise 6 on GitHub <https://github.com/Geo-Python-2024/Exercise-6>`__ (does not require logging in).
+You can also take a look at the template repository for `Exercise 6 on GitHub <https://github.com/Geo-Python-2025/Exercise-6>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
-.. admonition:: Pair programming (optional!)
-
-    Students attending the course in Helsinki, **if you wish, you can continue working in pairs**.
-    See more information in Discord, and in week 2: `Why are we working in pairs? <https://geo-python-site.readthedocs.io/en/latest/lessons/L2/why-pairs.html>`_.
-    Those students who want to submit their own solutions, please contact the course assistant that is grading your assignments (see list in Discord).
 
 Cloud computing environments
 -----------------------------

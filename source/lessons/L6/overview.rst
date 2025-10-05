@@ -18,16 +18,16 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-.. admonition:: Lesson 6.1 - Data analysis with pandas
-    :class: admonition-youtube
+.. .. admonition:: Lesson 6.1 - Data analysis with pandas
+..     :class: admonition-youtube
+..
+..     ..  youtube:: A93Gjg_66YI
 
-    ..  youtube:: A93Gjg_66YI
+..     Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
 
-    Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+.. .. admonition:: Lesson 6.2 - Data analysis with pandas (ctd.), debugging
+..     :class: admonition-youtube
+..
+..     ..  youtube:: sK3XiNGiWuU
 
-.. admonition:: Lesson 6.2 - Data analysis with pandas (ctd.), debugging
-    :class: admonition-youtube
-
-    ..  youtube:: sK3XiNGiWuU
-
-    Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+..     Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
