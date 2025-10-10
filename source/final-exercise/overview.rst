@@ -7,9 +7,9 @@ Final exercise assignment
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of the final exercise by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/-XzSy_Vp>`__.
+    **You can start working on your copy of the final exercise by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/tUSQaCZN>`__.
 
-You can also take a look at the template repository for `the final exercise on GitHub <https://github.com/Geo-Python-2024/Final-exercise>`__ (does not require logging in). Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
+You can also take a look at the template repository for `the final exercise on GitHub <https://github.com/Geo-Python-2025/final-exercise>`__ (does not require logging in). Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
 .. attention::
 
