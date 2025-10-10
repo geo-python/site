@@ -3,7 +3,7 @@ Final exercise assignment
 
 .. note::
 
-    The final exercise is due by **23:59 on Friday, November 8th, 2024**.
+    The final exercise is due by **23:59 on Monday, November 10th, 2025**.
 
 .. admonition:: Start your assignment
 
