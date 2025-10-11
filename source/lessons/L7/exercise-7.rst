@@ -3,7 +3,7 @@ Exercise 7
 
 .. note::
 
-    Exercise 7 is due by **23:59 on Monday, October 21st, 2024**.
+    Exercise 7 is due by **23:59 on Monday, October 20th, 2025**.
 
 .. admonition:: Start your assignment
 
