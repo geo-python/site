@@ -11,7 +11,7 @@ Welcome to Geo-Python 2026!
 
 The **Geo-Python** course teaches you the basic concepts of programming and scientific data analysis using the Python programming language in a format that is easy to learn and understand (no previous programming experience required).
 Each lesson is a tutorial with specific topic(s) where the aim is to gain skills and understanding how to solve common data-related tasks using Python.
-Geo-Python is jointly organized by the `Master's Program in Geography <https://www.helsinki.fi/en/degree-programmes/geography-masters-programme>`_ and the `Bachelor's Program in Geoscience <https://www.helsinki.fi/fi/koulutusohjelmat/geotieteiden-kandiohjelma>`_ at the University of Helsinki.
+Geo-Python is jointly organized by the `Bachelor's Program in Geography <https://www.helsinki.fi/fi/koulutusohjelmat/maantieteen-kandiohjelma>`_ and the `Bachelor's Program in Geoscience <https://www.helsinki.fi/fi/koulutusohjelmat/geotieteiden-kandiohjelma>`_ at the University of Helsinki.
 
 Geo-Python covers the essential skills needed to continue to more advanced courses such as `Automating GIS processes <https://autogis.github.io>`_ and/or `Introduction to Quantitative Geology <https://introqg.github.io>`_.
 
@@ -52,7 +52,7 @@ Students will also learn to use version control (git) and online repositories (G
 Themes for each week are listed below.
 You can also read more about the weekly :doc:`learning goals <course-info/learning-goals>`.
 
-The course runs for seven weeks in the autumn semester starting on the 4th of September 2023.
+The course runs for seven weeks in the autumn semester starting on the 31st of August 2026.
 New materials are updated on this course page each Monday.
 
 +----------+----------------------+
