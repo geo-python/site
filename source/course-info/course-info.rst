@@ -1,7 +1,7 @@
 General info
 ============
 
-This is a joint course for geography and geology students at the Department of Geosciences and Geography, University of Helsinki (course codes GEOK3001 and GEOG-329-1).
+This is a joint course for geography and geology students at the Department of Geosciences and Geography, University of Helsinki (course codes GEOK3001 and MAA-261).
 
 Course materials are freely available online for anyone interested in the course contents.
 
@@ -22,19 +22,22 @@ Email: *firstname.lastname@helsinki.fi*
 Lecturers
 ~~~~~~~~~
 
-This is a joint course between Geography and Geology programs. However, in year 2025 David Whipp from Geology is on leave and *Kamyar Hasanzadeh* will be responsible for both groups.
+This is a joint course between Geography and Geology programs. 
 
-- Kamyar Hasanzadeh
+- David Whipp (Geology)
+- Kamyar Hasanzadeh (Geography)
 
-  - Office: D431, Exactum
 
 
 Course assistants
 ~~~~~~~~~~~~~~~~~
 
-- Emilia Oinas
-- Eevi Raappana
+- Ronja Siurua
+- Elli Översti
 - Inka Nevalainen
+- Nicklas Ferreira
+- Philippa Lacey
+
 
 Course websites
 ---------------
