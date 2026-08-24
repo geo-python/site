@@ -25,7 +25,7 @@ Geo-Python covers the essential skills needed to continue to more advanced cours
     The Geo-Python course is run under two course codes in teaching period I at the University of Helsinki.
     Please sign up using only one of these course codes (not both)!
 
-    - GEOG-329-1 for geography students
+    - MAA-261 for geography students
     - GEOK3001 for geology students
 
 Course format
@@ -101,16 +101,16 @@ New materials are updated on this course page each Monday.
     If you would like to use these materials for your own teaching or develop them further, we highly support that.
     Please read more about how to do it from :doc:`our licensing terms<course-info/licensing>`.
 
-.. .. toctree::
-..     :maxdepth: 2
-..     :caption: Course information
+.. toctree::
+    :maxdepth: 2
+    :caption: Course information
 
-..     course-info/course-info
-..     course-info/learning-goals
-..     course-info/grading
-..     course-info/ai-tools
-..     course-info/licensing
-..     course-info/theteam
+    course-info/course-info
+    course-info/learning-goals
+    course-info/grading
+    course-info/ai-tools
+    course-info/licensing
+    course-info/theteam
 
 .. .. toctree::
 ..     :maxdepth: 2
