@@ -34,9 +34,8 @@ Course assistants
 
 - Ronja Siurua
 - Elli Översti
-- Inka Nevalainen
 - Nicklas Ferreira
-- Philippa Lacey
+- Pip Lacey
 
 
 Course websites
