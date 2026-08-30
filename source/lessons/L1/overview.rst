@@ -27,7 +27,6 @@ Lesson videos
 Lesson videos will be posted after class.
 
 .. 
-
     .. admonition:: Lesson 1- Course introduction and computing basics, Course environment and a taste of Python
         :class: admonition-youtube
     
