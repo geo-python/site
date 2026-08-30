@@ -62,7 +62,7 @@ Part 3 - Cooking up some Python
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 1 by** `accepting the Classroom 50 assignment <>`__.
+    **You can start working on your copy of Exercise 1 by** `accepting the Classroom 50 assignment <https://classroom50.org/Geo-Python-2026/fall-2026/assignments/exercise-1/accept>`__.
 
 
 1. Start the coding exercise by accepting the Classroom 50 assignment (click on the link above).
