@@ -41,7 +41,7 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.githubpages",
     "sphinx.ext.todo",
-    "sphinxcontrib.googleanalytics",
+    #"sphinxcontrib.googleanalytics",
     "sphinxcontrib.youtube",
     "IPython.sphinxext.ipython_console_highlighting",
     "IPython.sphinxext.ipython_directive",
