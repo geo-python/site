@@ -10,10 +10,10 @@ During this course we will use `Discord <http://discord.com>`__ for discussion a
 Accessing the workspace in Discord
 ----------------------------------
 
-We will send an invitation link for all enrolled students to the Discord Team called ``geoPython-2024``.
+We will send an invitation link for all enrolled students to the Discord Team called ``geoPython-2026``.
 Before you can start using Discord, you should create a new account for Discord (if you don't have one already) and accept the invitation you have received.
 
-**After accepting the invitation, you can access the course Discord team via this link:** `<https://discord.com/channels/1406924652797755413/1406924653456523388>`__
+**After accepting the invitation, you can access the course Discord team via this link:** `<https://discord.com/channels/1541312239221350480/1541312239221350484>`__
 
 Overview of Discord
 -------------------
