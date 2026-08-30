@@ -41,7 +41,7 @@ However, the exercises you submit must must clearly reflect your own work (in sh
 
 .. admonition:: On-site teaching
 
-    Please note that the course is organized completely on site during the 2023 autumn semester.
+    Please note that the course is organized completely on site during the 2026 autumn semester.
     Online support for University of Helsinki and Aalto University students will be available in the discussion channels in Discord.
 
 Course topics
@@ -112,17 +112,17 @@ New materials are updated on this course page each Monday.
     course-info/licensing
     course-info/theteam
 
-.. .. toctree::
-..     :maxdepth: 2
-..     :caption: Lesson 1
+.. toctree::
+    :maxdepth: 2
+    :caption: Lesson 1
 
-..     lessons/L1/motivation
-..     lessons/L1/overview
-..     lessons/L1/course-environment-components
-..     lessons/L1/discord-usage
-..     notebooks/L1/a-taste-of-python.ipynb
-..     notebooks/L1/gcp-1-variable-naming.ipynb
-..     lessons/L1/exercise-1
+    lessons/L1/motivation
+    lessons/L1/overview
+    lessons/L1/course-environment-components
+    lessons/L1/discord-usage
+    notebooks/L1/a-taste-of-python.ipynb
+    notebooks/L1/gcp-1-variable-naming.ipynb
+    lessons/L1/exercise-1
 
 .. .. toctree::
 ..     :maxdepth: 2
@@ -198,10 +198,10 @@ New materials are updated on this course page each Monday.
 ..     final-exercise/overview
 ..     final-exercise/grading.ipynb
 
-.. .. toctree::
-..     :maxdepth: 2
-..     :caption: Resources
-..
-..     course-info/python-vocabulary
-..     course-info/installing-miniconda
-..     course-info/resources
+.. toctree::
+    :maxdepth: 2
+    :caption: Resources
+
+    course-info/python-vocabulary
+    course-info/installing-miniconda
+    course-info/resources
