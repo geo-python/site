@@ -77,7 +77,7 @@ Part 3 - Cooking up some Python
 
     Each week, you will create a personal copy of the exercise repository on GitHub.com by clicking on the GitHub classroom link.
 
-    You can also take a look at the template repository on GitHub: https://github.com/Geo-Python-2024/Exercise-1 .
+    You can also take a look at the template repository on GitHub: https://github.com/Geo-Python-2026/Exercise-1 .
     Note that you are only able to make changes in your personal repository generated via GitHub Classroom.
 
 Summary (what to submit)
