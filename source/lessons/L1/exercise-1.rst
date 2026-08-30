@@ -53,7 +53,7 @@ Part 3 - Cooking up some Python
 -------------------------------
 
 .. image:: https://img.shields.io/badge/launch-binder-red.svg
-   :target: https://mybinder.org/v2/gh/Geo-Python-2024/Binder/main?urlpath=lab
+   :target: https://mybinder.org/v2/gh/Geo-Python-2026/Binder/main?urlpath=lab
    
 .. 
     .. image:: https://img.shields.io/badge/launch-CSC%20notebook-blue.svg
