@@ -3,7 +3,7 @@ Exercise 1
 
 .. admonition:: Deadline
 
-    Please complete this exercise **by the start of the next lesson (9:15 on 8 September 2025)**.
+    Please complete this exercise **by the start of the next lesson (9:15 on 7 September 2026)**.
 
 The exercise for this week has three parts:
 
@@ -37,10 +37,10 @@ Part 2 - Discord
    :width: 250px
    :class: dark-light
 
-1. Go to our **Discord** page at https://discord.com/channels/1406924652797755413/1407681786833670154.
-2. **Post a new message** in the ``#week-1`` channel with your **full name, GitHub username, course code** (GEOK3001 or GEOG-329-1), and teh name of your pair. If you need our help with finding a pair, leave a "?" instead of partner's name.
+1. Go to our **Discord** page at <https://discord.com/channels/1541312239221350480/1541312239221350484>.
+2. **Post a new message** in the ``#week-1`` channel with your **full name, GitHub username, course code** (GEOK3001 or MAA-261), and the name of your pair. If you need our help with finding a pair, leave a "?" instead of partner's name.
 
-For example, ``Dave Whipp, davewhipp, GEOK3001, Kamyar Hasanzadeh`` or ``Kamyar Hasanzadeh, kamyar68, GEOG-329-1, ?`` (please use comma to separate the different parts).
+For example, ``Dave Whipp, davewhipp, GEOK3001, Kamyar Hasanzadeh`` or ``Kamyar Hasanzadeh, kamyar68, MAA-261, ?`` (please use comma to separate the different parts).
 This will help us know you were able to create your account, that you have also figured out how to use Discord, and we'll know who is who on GitHub :).
 
 Students from other universities: you can add the name of your home institution (Aalto / Turku / Oulu) instead of the course code like this: ``Tua Nylén, tuanylen, Turku``.
@@ -62,12 +62,12 @@ Part 3 - Cooking up some Python
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 1 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/mo1m7nK2>`__.
+    **You can start working on your copy of Exercise 1 by** `accepting the Classroom 50 assignment <>`__.
 
 
-1. Start the coding exercise by accepting the GitHub Classroom assignment (click on the link above).
+1. Start the coding exercise by accepting the Classroom 50 assignment (click on the link above).
 2. Read the instructions from the repository.
-3. Launch a new JupyterLab instance. *You can use Binder for this.*
+3. Launch a new JupyterLab instance. *You can also use Binder for this.*
 4. Cook up some Python according to the instructions!  *Remember to save your work ;) !*
 5. Download your solution, and upload it to GitHub.com into your personal Exercise 1 repository.
 
@@ -83,8 +83,8 @@ Part 3 - Cooking up some Python
 Summary (what to submit)
 ------------------------
 
-1. Post a message in the ``#week-1`` channel in Discord at https://discord.com/channels/1277536922608074772/1277538199937482885 with your name, GitHub username, and course.
-2. Accept Exercise-1 in Github classroom and upload the Jupyter notebook (the filename should be ``Exercise-1.ipynb``) containing your solutions for Part 3.
+1. Post a message in the ``#week-1`` channel in Discord at <https://discord.com/channels/1541312239221350480/1541312239666200577> with your name, GitHub username, course, and programming pair.
+2. Accept Exercise-1 in Classroom 50 and upload the Jupyter notebook (the filename should be ``Exercise-1.ipynb``) containing your solutions for Part 3.
 
 .. admonition:: Private repositories
 
