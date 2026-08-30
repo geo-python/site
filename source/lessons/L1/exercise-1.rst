@@ -37,7 +37,7 @@ Part 2 - Discord
    :width: 250px
    :class: dark-light
 
-1. Go to our **Discord** page at <https://discord.com/channels/1541312239221350480/1541312239221350484>.
+1. Go to our **Discord** page at https://discord.com/channels/1541312239221350480/1541312239221350484.
 2. **Post a new message** in the ``#week-1`` channel with your **full name, GitHub username, course code** (GEOK3001 or MAA-261), and the name of your pair. If you need our help with finding a pair, leave a "?" instead of partner's name.
 
 For example, ``Dave Whipp, davewhipp, GEOK3001, Kamyar Hasanzadeh`` or ``Kamyar Hasanzadeh, kamyar68, MAA-261, ?`` (please use comma to separate the different parts).
@@ -83,7 +83,7 @@ Part 3 - Cooking up some Python
 Summary (what to submit)
 ------------------------
 
-1. Post a message in the ``#week-1`` channel in Discord at <https://discord.com/channels/1541312239221350480/1541312239666200577> with your name, GitHub username, course, and programming pair.
+1. Post a message in the ``#week-1`` channel in Discord at https://discord.com/channels/1541312239221350480/1541312239666200577 with your name, GitHub username, course, and programming pair.
 2. Accept Exercise-1 in Classroom 50 and upload the Jupyter notebook (the filename should be ``Exercise-1.ipynb``) containing your solutions for Part 3.
 
 .. admonition:: Private repositories
