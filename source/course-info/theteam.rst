@@ -22,10 +22,12 @@ Current and former course assistants
 - Inka Nevalainen
 - Nino Chkhartishvili
 - Emil Ehnström
+- Nicklas Ferreira
 - Antti Kallanranta
 - Mikko Kangasmaa
 - Sonja Koivisto
 - Sanni Laaksonen
+- Pip Lacey
 - Hertta Lehvävirta
 - Samuli Massinen
 - Oyelowo Oyedayo
@@ -36,8 +38,10 @@ Current and former course assistants
 - Aino Schulz
 - Jorina Schütt
 - Veeti Sihvola
+- Ronja Siurua
 - Sara Todorovic
 - Leevi Tuikka
 - Bryan Vallejo
 - Annarosa Whitman
 - Lotta Ylä-Mella
+- Elli Översti

@@ -20,12 +20,12 @@
 # -- Project information -----------------------------------------------------
 
 project = "Geo-Python"
-copyright = "2016-2024, The Geo-Python team, Department of Geosciences and Geography, University of Helsinki"
+copyright = "2016-2026, The Geo-Python team, Department of Geosciences and Geography, University of Helsinki"
 # author = 'David Whipp, Henrikki Tenkanen, Vuokko Heikinheimo, Håvard Aagesen'
 author = ""
 
 # The short X.Y version
-version = "2024"
+version = "2026"
 # The full version, including alpha/beta/rc tags
 release = "site"
 
@@ -41,7 +41,7 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.githubpages",
     "sphinx.ext.todo",
-    "sphinxcontrib.googleanalytics",
+    #"sphinxcontrib.googleanalytics",
     "sphinxcontrib.youtube",
     "IPython.sphinxext.ipython_console_highlighting",
     "IPython.sphinxext.ipython_directive",
@@ -50,8 +50,8 @@ extensions = [
 ]
 
 # Google Analytics ID to enable tracking of site traffic
-googleanalytics_id = "UA-105019106-1"
-googleanalytics_enabled = True
+# googleanalytics_id = "UA-105019106-1"
+# googleanalytics_enabled = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]

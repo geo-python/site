@@ -91,7 +91,7 @@ CSC Notebooks is available only for students who are affiliated with Finnish uni
 
    Launching the instance takes a few moments.
 
-.. note:: **After launching the Geo-Python 2024 workspace the first time:**
+.. note:: **After launching the Geo-Python 2026 workspace the first time:**
 
     1. Double-click on the ``my-work`` folder in the file navigator on the left side of the Jupyter Lab window
     2. Click on the Git icon on the left side
@@ -107,7 +107,7 @@ CSC Notebooks is available only for students who are affiliated with Finnish uni
     1. Log in at https://noppe.csc.fi/
     2. Select Haka for the authentication provider
     3. Enter your Finnish university login credentials
-    4. Click on the **Start session** button for the Geopython-2024 workspace
+    4. Click on the **Start session** button for the Geopython-2026 workspace
     5. Navigate to the ``my-work/notebooks`` directory, click on the Git icon on the left and click the **Pull latest changes**
     
 .. figure:: img/pull-changes.png

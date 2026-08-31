@@ -9,9 +9,10 @@ Course meetings in Period I
 ---------------------------
 
 - Lectures:
-   - Mondays 09:15 - 12:00 in A129, Chemicum 
+   - Mondays 09:15 - 12:00 in A129, Chemicum
+   - **NOTE: We will have class in room E206, Physicum on August 31st and September 21st**.
 - Work sessions:
-   - Group 1 on Thursdays 12:15 - 15:45 in A113+A114, Physicum
+   - Group 1 on Thursdays 8:15 - 15:45 in A113+A114, Physicum
    - Group 2 on Fridays 8:15 - 11:45 in A113+A114, Physicum
 
 Instructors
@@ -27,16 +28,13 @@ This is a joint course between Geography and Geology programs.
 - David Whipp (Geology)
 - Kamyar Hasanzadeh (Geography)
 
-
-
 Course assistants
 ~~~~~~~~~~~~~~~~~
 
-- Ronja Siurua
-- Elli Översti
 - Nicklas Ferreira
 - Pip Lacey
-
+- Ronja Siurua
+- Elli Översti
 
 Course websites
 ---------------
