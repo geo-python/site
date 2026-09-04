@@ -7,7 +7,7 @@ Exercise 2
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 2 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/EqiMDJtk>`__.
+    **You can start working on your copy of Exercise 2 by** `accepting the Classroom 50 assignment <https://classroom50.org/Geo-Python-2026/fall-2026/assignments/exercise-2/accept>`__.
 
 .. admonition:: Autograding in use
 
@@ -15,7 +15,7 @@ Exercise 2
     When you push your work to the repository, feedback will be provided in a pull-request. You can push your changes as many times as needed and this won't affect your final grade. This may take a couple of minutes. For the autgrading system to work, do not add, delete, or duplicate any cells in the exercise notebook
 
 
-You can also take a look at the template repository for `Exercise 2 on GitHub <https://github.com/Geo-Python-2025/Exercise-2>`__ (does not require logging in).
+You can also take a look at the template repository for `Exercise 2 on GitHub <https://github.com/Geo-Python-2026/Exercise-2>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
 .. admonition:: Pair programming
