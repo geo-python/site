@@ -132,7 +132,7 @@ New materials are updated on this course page each Monday.
 ..     notebooks/L2/Python-basic-elements.ipynb
 ..     lessons/L2/intro-to-GitHub
 ..     lessons/L2/git-basics
-..     lessons/L2/GitHub-classroom
+..     lessons/L2/classroom50
 ..     notebooks/L2/gcp-2-describing-code.ipynb
 ..     lessons/L2/why-pairs
 ..     lessons/L2/exercise-2
