@@ -20,17 +20,20 @@ After this week you will be able to:
 Lesson videos
 -------------
 
+Lesson videos will be posted after class.
 
-.. admonition:: Lesson 2 - Python basics and version control (git)
-    :class: admonition-youtube
-
-    ..  youtube:: l722EWgZukI
-
-..     Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
-
-.. .. admonition:: Lesson 2.2 - Python basics II and version control
-..     :class: admonition-youtube
-..
-..     ..  youtube:: 6gOYqr6fdH0
+.. 
+    .. admonition:: Lesson 2 - Python basics and version control (git)
+        :class: admonition-youtube
     
-..     Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+        ..  youtube:: l722EWgZukI
+    
+        Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+
+.. 
+    .. admonition:: Lesson 2.2 - Python basics II and version control
+        :class: admonition-youtube
+    
+        ..  youtube:: 6gOYqr6fdH0
+        
+        Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
