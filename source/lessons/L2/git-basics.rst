@@ -93,12 +93,12 @@ Before we start cloning our repository from GitHub, we need to create a Personal
 
    - Open a text document and copy and paste your Personal access token in a text file, because for now we are going to use it like this, and we will later see how we can cache it so that we don't need to copy and paste it every time we need it. If your access token is ever lost, you can just follow the steps above again to create a new one.
 
-Now that we have created a personal access token, the next thing we need is the URL of your exercise repository from GitHub. **Go to** https://github.com/geo-python-2024/ **and navigate to your personal Exercise-1 repository.**
+Now that we have created a personal access token, the next thing we need is the URL of your exercise repository from GitHub. **Go to** https://github.com/geo-python-2026/ **and navigate to your personal Exercise-1 repository.**
 
 On GitHub, find the button **Code** and copy the url under *HTTPS*.
 
 The URL looks something like this:
-https://github.com/Geo-Python-2024/exercise-1-davewhipp.git but with your own username or team name.
+https://github.com/Geo-Python-2026/fall-2026-exercise-1-davewhipp but with your own username or team name.
 
 .. figure:: img/git-copy-url.png
 
@@ -215,7 +215,7 @@ On the command line the syntax for committing is ``git commit -m "commit message
 
     Then change the folder you are in by typing (with your username):
 
-    ``cd exercises/exercise-1-davewhipp/``
+    ``cd exercises/fall-2026-exercise-1-davewhipp/``
 
     We then pull from our GitHub repository:
 
@@ -242,7 +242,7 @@ Now we are ready to push the local changes to GitHub using :code:`git push` (but
 
 .. figure:: img/git-plugin-push-ok.png
 
-Now you should see the updates in GitHub! Go and have a look at your personal repository in https://github.com/Geo-Python-2024/ .
+Now you should see the updates in GitHub! Go and have a look at your personal repository in https://github.com/Geo-Python-2026/ .
 
 On the command line, ``git pull`` fetches and merges changes from the remote repository, and ``git pull`` publishes local changes.
 
