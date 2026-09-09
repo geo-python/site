@@ -24,30 +24,26 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-Lesson videos will be posted after class.
+.. admonition:: Lesson 1.1 - Course introduction and computing basics
+    :class: admonition-youtube
+    
+    ..  youtube:: NAo_UYRHNAo
+    
+    Kamyar Hasanzadeh & Dave Whipp, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+    
+.. admonition:: Lesson 1.2 - Course environment and a taste of Python
+    :class: admonition-youtube
 
-.. 
-    .. admonition:: Lesson 1- Course introduction and computing basics, Course environment and a taste of Python
-        :class: admonition-youtube
-    
-        ..  youtube:: JhF757ITui4
-    
-    ..     Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
-    
-    .. .. admonition:: Lesson 1.2 - Course environment and a taste of Python
-    ..     :class: admonition-youtube
-    ..
-    ..     ..  youtube:: FcifInKjmxw
-    ..
-    ..     Kamyar Hasanzadeh & Dave Whipp, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
-    ..
-    .. admonition:: GCP 1 - Selecting "good" variable names
-        :class: admonition-youtube
-    
-        ..  youtube:: G0FZkgbQYGg
-    
-        Dave Whipp & Vuokko Heikinheimo, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+    ..  youtube:: MYAkpmB9czY
 
+    Kamyar Hasanzadeh & Dave Whipp, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+
+.. admonition:: GCP 1 - Selecting "good" variable names
+    :class: admonition-youtube
+
+    ..  youtube:: G0FZkgbQYGg
+
+    Dave Whipp & Vuokko Heikinheimo, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
 
 Lecture slides
 --------------
