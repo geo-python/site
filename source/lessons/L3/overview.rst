@@ -18,16 +18,19 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-.. admonition:: Lesson 3 - Repeating tasks with loops - Conditional statements
-    :class: admonition-youtube
+Lesson videos will be added after class.
 
-    ..  youtube:: sStuwSfU9LI
-
-..     Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
-
-.. .. admonition:: Lesson 3.2 - Conditional statements
-..     :class: admonition-youtube
-
-..     ..  youtube:: yyE26GU5wLk
+.. 
+    .. admonition:: Lesson 3 - Repeating tasks with loops - Conditional statements
+        :class: admonition-youtube
     
-..     Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+        ..  youtube:: sStuwSfU9LI
+    
+    ..     Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+    
+    .. .. admonition:: Lesson 3.2 - Conditional statements
+    ..     :class: admonition-youtube
+    
+    ..     ..  youtube:: yyE26GU5wLk
+        
+    ..     Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.

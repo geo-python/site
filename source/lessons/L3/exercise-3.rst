@@ -7,22 +7,22 @@ Exercise 3
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 3 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/V_ic4TtB>`__.
+    **You can start working on your copy of Exercise 3 by** `accepting the Classroom 50 assignment <https://classroom50.org/Geo-Python-2026/fall-2026/assignments/exercise-3/accept>`__.
 
-You can also take a look at the template repository for `Exercise 3 on GitHub <https://github.com/Geo-Python-2024/Exercise-3>`__ (does not require logging in).
-Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
+You can also take a look at the template repository for `Exercise 3 on GitHub <https://github.com/Geo-Python-2026/Exercise-3>`__ (does not require logging in).
+Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via Classroom 50.
 
 .. admonition:: Pair programming
 
     Students attending the course in Helsinki, **note that we continue working in pairs**.
     We will only grade the repository of the member of your pair that is responsible for this week's exercise.
-    See more information in Slack, and in week 2: `Why are we working in pairs? <https://geo-python-site.readthedocs.io/en/latest/lessons/L2/why-pairs.html>`_
+    See more information in Discord and on the course page under `Why are we working in pairs? <https://geo-python-site.readthedocs.io/en/latest/lessons/L2/why-pairs.html>`_
 
 Cloud computing environments
 ----------------------------
 
 .. image:: https://img.shields.io/badge/launch-binder-red.svg
-   :target: https://mybinder.org/v2/gh/Geo-Python-2025/Binder/main?urlpath=lab
+   :target: https://mybinder.org/v2/gh/Geo-Python-2026/Binder/main?urlpath=lab
    
 .. image:: https://img.shields.io/badge/launch-CSC%20Noppe-blue.svg
    :target: https://noppe.csc.fi
