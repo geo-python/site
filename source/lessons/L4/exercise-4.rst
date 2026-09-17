@@ -7,7 +7,7 @@ Exercise 4
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 4 by** `accepting the GitHub Classroom assignment <https://classroom.github.com/a/LD5YyI46>`__.
+    **You can start working on your copy of Exercise 4 by** `accepting the Classroom 50 <https://classroom50.org/Geo-Python-2026/fall-2026/assignments/exercise-4/accept>`__.
 
 You can also take a look at the template repository for `Exercise 4 on GitHub <https://github.com/Geo-Python-2025/Exercise-4>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
