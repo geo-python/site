@@ -7,7 +7,7 @@ We will also introduce you to the concept of a :term:`module (moduuli)` (also kn
 Each module contains specific functionalities (i.e., functions) that you can use for different tasks.
 Thus, functions and modules are closely related.
 
-In this lesson, we also review the use of AI and LLM (e.g., ChatGPT) in generating code and discuss the pros and cons.
+In this lesson, we also review the use of generative AI (ChatGPT, Claude, Google Gemini, etc.) in generating code and discuss the pros and cons.
 The main components of today's lesson can be found in the navigation bar to the left.
 
 Learning goals
@@ -16,23 +16,23 @@ Learning goals
 After this weeks lesson your should be able to:
 
 - Explain how functions are used and their benefits
-- Describe the pros and cons of using AI and LLM in generating code
+- Describe the pros and cons of using generative AI in producing code
 - Create your own functions to calculate an output value based on an input value
 - Save functions to a script file for future use
 
 Lesson videos
 -------------
+.. 
+   .. admonition:: Lesson 4 - Introduction to functions, scripts, Modules
+       :class: admonition-youtube
 
-.. admonition:: Lesson 4- Introduction to functions, scripts, Modules
-    :class: admonition-youtube
+       ..  youtube:: TLoZu8fOuZA
 
-    ..  youtube:: TLoZu8fOuZA
+       Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
 
-..     Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+   .. admonition:: Lesson 4.2 - Coding with ChatGPT, script files and modules
+       :class: admonition-youtube
 
-.. .. admonition:: Lesson 4.2 - Coding with ChatGPT, script files and modules
-..     :class: admonition-youtube
-..
-..     ..  youtube:: k7ulXIYAj4M
-..    
-..     Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+       ..  youtube:: k7ulXIYAj4M
+
+       Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
