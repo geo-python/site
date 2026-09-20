@@ -22,6 +22,9 @@ After this weeks lesson your should be able to:
 
 Lesson videos
 -------------
+
+Lesson videos will be posted after class.
+
 .. 
    .. admonition:: Lesson 4 - Introduction to functions, scripts, Modules
        :class: admonition-youtube
