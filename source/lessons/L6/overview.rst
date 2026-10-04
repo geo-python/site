@@ -18,16 +18,19 @@ After this weeks lesson your should be able to:
 Lesson videos
 -------------
 
-.. admonition:: Lesson 6 - Advanced data analysis with pandas, errors, debugging
-    :class: admonition-youtube
+Videos will be posted after class.
 
-    ..  youtube:: 3oUf5gx28mA
-
-..     Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
-
-.. .. admonition:: Lesson 6.2 - Data analysis with pandas (ctd.), debugging
-..     :class: admonition-youtube
-..
-..     ..  youtube:: sK3XiNGiWuU
-
-..     Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+.. 
+    .. admonition:: Lesson 6 - Advanced data analysis with pandas, errors, debugging
+        :class: admonition-youtube
+    
+        ..  youtube:: 3oUf5gx28mA
+    
+    ..     Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
+    
+    .. .. admonition:: Lesson 6.2 - Data analysis with pandas (ctd.), debugging
+    ..     :class: admonition-youtube
+    ..
+    ..     ..  youtube:: sK3XiNGiWuU
+    
+    ..     Dave Whipp & Kamyar Hasanzadeh, University of Helsinki @ `Geo-Python channel on Youtube <https://www.youtube.com/channel/UCQ1_1hZ0A1Vic2zmWE56s2A>`_.
