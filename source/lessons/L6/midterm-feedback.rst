@@ -32,21 +32,44 @@ Which aspect(s) of the course is/are most helpful to you?
 
 *19 responses*
 
-- 
+- Interactive coding during the lessons
+- Help sessions with the course assistants
+- Learning how to use Python, git, and the course tools
+- Lecture recordings
+- Learning by doing things (lectures and exercises)
+- Working with a partner (1 response)
 
 Which aspect(s) of the course is/are least helpful to you?
 ----------------------------------------------------------
 
 *19 responses*
 
-- 
+- Pair programming (non-responsive partner, nothing to do on navigator weeks) - many noted this
+- Moving files between Jupyter Lab and GitHub
+- Intro to Python (weeks 1-4) - too basic
+- Long lectures
+- Discussions about AI
+- Autograding, maybe
+- Learning in English: Many new words, sometimes hard to know what the exercises are asking
+- Course page
+- Many different platforms compared to just using Moodle
+- Quizes
 
 What suggestions do you have for improving this course?
 -------------------------------------------------------
 
 *18 responses*
 
-- 
+- Make pair programming optional, everyone does their own exercises
+- Remove requirement to attend lectures to do quizes
+- Shorter, faster-paced lectures
+- Less about AI
+- Figure out the autograding thing (?)
+- Partner and individual exercises (simple parts alone, harder parts with partner)
+- Lessons are too long
+- More optional exercises
+- More time to test things in the course environment during class
+- Faster feedback about the quizes
 
 Value of different course components
 ------------------------------------
@@ -74,11 +97,22 @@ What suggestions do you have for improving the autograding system?
 
 *12 responses*
 
-- 
+- It can be helpful, but sometimes the tests give a false negative and mislead you
+- Suggestions of alternative solutions would be helpful
+- Would be nice to have a link sent to access the autograder feedback
+- Incorrect answer descriptions are too vague
+- Incorrect feedback is not helpful
+- Good to get immediate feedback
 
 Do you have any other comments about the course?
 ------------------------------------------------
 
-*16 responses*
+*7 responses*
 
-- 
+- Pace of the lessons is good, and I like both teachers
+- Really great, thanks both!
+- Nicely organized course
+- Helpful to end on time to allow time to eat!
+- Course is challenging, but I see the value of learning to program
+- Sometimes there is too much info in the lessons. Can forget things by Friday.
+- Good to send important messages to places other than just Discord
