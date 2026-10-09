@@ -191,12 +191,12 @@ New materials are updated on this course page each Monday.
     notebooks/L7/line-plots.ipynb
     lessons/L7/exercise-7
 
-.. .. toctree::
-..     :maxdepth: 2
-..     :caption: Final exercise
+.. toctree::
+    :maxdepth: 2
+    :caption: Final exercise
 
-..     final-exercise/overview
-..     final-exercise/grading.ipynb
+    final-exercise/overview
+    final-exercise/grading.ipynb
 
 .. toctree::
     :maxdepth: 2
