@@ -3,13 +3,13 @@ Exercise 7
 
 .. note::
 
-    Exercise 7 is due by **23:59 on Monday, October 20th, 2025**.
+    Exercise 7 is due by **23:59 on Monday, October 19th, 2026**.
 
 .. admonition:: Start your assignment
 
-    **You can start working on your copy of Exercise 7 by** accepting the `GitHub Classroom assignment <https://classroom.github.com/a/E_Jdi9Ve>`__
+    **You can start working on your copy of Exercise 7 by** accepting the `GitHub Classroom assignment <https://classroom50.org/Geo-Python-2026/fall-2026/assignments/exercise-7/accept>`__
 
-You can also take a look at the template repository for `Exercise 7 on GitHub <https://github.com/Geo-Python-2025/Exercise-7>`__ (does not require logging in).
+You can also take a look at the template repository for `Exercise 7 on GitHub <https://github.com/Geo-Python-2026/Exercise-7>`__ (does not require logging in).
 Note that you should not try to make changes to this copy of the exercise, but rather only to the copy available via GitHub Classroom.
 
 
@@ -55,3 +55,9 @@ Formatting your plots
 
 - You can control the marker size using the parameter ``markersize`` when plotting. The example plot in Problem 2 uses ``markersize=3``.
 - You can add grid lines to your plot using ``plt.grid()``
+
+
+About grading
+-------------
+
+You will get an automatic score when you push your work, but **this score is only indicative**. Because this exercise is about visualization, the automated checks cannot fully judge your plots, so all submissions will be graded manually. Your final grade may differ from the automatic score.
